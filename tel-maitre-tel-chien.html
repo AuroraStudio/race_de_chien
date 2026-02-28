@@ -430,9 +430,7 @@
 
     <script>
     // ===== CONFIG =====
-    // TODO: Remplacer par le proxy Vercel en production
-    const API_KEY = 'VOTRE_CLE_API_ICI';
-    const API_URL = 'https://api.anthropic.com/v1/messages';
+    const API_URL = '/api/match-breed';
 
     // ===== STATE =====
     let currentImageBase64 = null;
@@ -616,50 +614,12 @@
             const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'x-api-key': API_KEY,
-                    'anthropic-version': '2023-06-01',
-                    'anthropic-dangerous-direct-browser-access': 'true'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    model: 'claude-sonnet-4-20250514',
-                    max_tokens: 500,
-                    messages: [{
-                        role: 'user',
-                        content: [
-                            {
-                                type: 'image',
-                                source: {
-                                    type: 'base64',
-                                    media_type: currentImageMimeType,
-                                    data: currentImageBase64
-                                }
-                            },
-                            {
-                                type: 'text',
-                                text: `Tu es un expert canin humoristique français. Analyse cette photo d'une personne et détermine à quelle race de chien elle ressemble le plus.
-
-Voici la liste EXACTE des slugs de races disponibles : ${slugList}
-
-Réponds UNIQUEMENT en JSON valide, sans markdown, sans backticks, sans texte avant ou après :
-{
-  "breed_slug": "slug-exact-de-la-liste-ci-dessus",
-  "match_percentage": 82,
-  "reason": "Explication drôle et bienveillante en 2-3 phrases",
-  "traits_communs": ["Trait 1", "Trait 2", "Trait 3"]
-}
-
-Règles :
-- Sois toujours positif, drôle et bienveillant — jamais moqueur
-- Le breed_slug DOIT correspondre EXACTEMENT à un slug de la liste
-- Le pourcentage doit être entre 75 et 95 (toujours flatteur)
-- Les traits communs doivent être des qualités positives (3 à 5 traits)
-- L'explication doit être personnalisée basée sur l'apparence physique de la personne (forme du visage, expression, cheveux, regard...)
-- Utilise un ton fun, comme si un expert canin faisait une blague bienveillante
-- Si la photo ne montre pas clairement un visage humain, utilise le slug "golden-retriever" et adapte la raison`
-                            }
-                        ]
-                    }]
+                    image_base64: currentImageBase64,
+                    mime_type: currentImageMimeType,
+                    slug_list: slugList
                 })
             });
 
