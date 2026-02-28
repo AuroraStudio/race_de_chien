@@ -53,6 +53,7 @@ function renderHeader() {
                         <a href="/" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Accueil</a>
                         <a href="/#races" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Les races</a>
                         <a href="/compare.html" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Comparer</a>
+                        <a href="/tel-maitre-tel-chien.html" class="text-sm font-medium text-white bg-gradient-to-r from-primary-500 to-purple-500 px-3 py-1.5 rounded-lg hover:shadow-lg transition-all">🐕 Tel Maître, Tel Chien</a>
                     </nav>
                     
                     <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-primary-600">
@@ -67,6 +68,7 @@ function renderHeader() {
                     <a href="/" class="block text-sm font-medium text-slate-600 hover:text-primary-600">Accueil</a>
                     <a href="/#races" class="block text-sm font-medium text-slate-600 hover:text-primary-600">Les races</a>
                     <a href="/compare.html" class="block text-sm font-medium text-slate-600 hover:text-primary-600">Comparer</a>
+                    <a href="/tel-maitre-tel-chien.html" class="block text-sm font-medium text-primary-600 hover:text-primary-700 font-bold">🐕 Tel Maître, Tel Chien</a>
                     <p class="text-xs text-slate-400 italic pt-2 border-t border-slate-100">« ${quote} »</p>
                 </div>
             </div>
