@@ -7,6 +7,19 @@ let allBreeds = [];
 let filteredBreeds = [];
 let compareList = [];
 
+// Générer un slug URL-friendly à partir du nom français
+function breedSlug(name) {
+    return name.toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+}
+
+// URL vers la page statique d'une race
+function breedUrl(breed) {
+    return `races/${breedSlug(breed.name_fr || breed.name)}.html`;
+}
+
 // Traductions complètes
 const translations = {
     size: {
@@ -345,7 +358,7 @@ function updateAutocomplete(query) {
 }
 
 function selectBreed(breedId) {
-    window.location.href = `breed.html?id=${breedId}`;
+    window.location.href = breedUrl(allBreeds.find(b => b.id === breedId) || { name: breedId });
 }
 
 function applyFilters() {
@@ -632,7 +645,7 @@ function createBreedCard(breed, index) {
                 </div>
             </label>
             
-            <a href="breed.html?id=${breed.id}" class="block">
+            <a href="${breedUrl(breed)}" class="block">
                 <div class="relative h-52 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
                     ${imageUrl ? 
                         `<img src="${imageUrl}" alt="${breed.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">` :

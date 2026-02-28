@@ -142,7 +142,7 @@
                 <!-- Breed Cards Header -->
                 <div class="grid grid-cols-1 ${gridCols} gap-4 md:gap-6 mb-8">
                     ${breeds.map(breed => `
-                        <a href="breed.html?id=${breed.id}" class="compare-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                        <a href="races/${breedSlug(breed)}.html" class="compare-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
                             <div class="h-48 md:h-56 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
                                 ${breed.image?.url ? 
                                     `<img src="${breed.image.url}" alt="${breed.name}" class="w-full h-full object-cover">` :
@@ -249,7 +249,7 @@
                     <div class="p-3 md:p-4"></div>
                     ${breeds.map(breed => `
                         <div class="p-3 md:p-4 text-center">
-                            <a href="breed.html?id=${breed.id}" 
+                            <a href="races/${breedSlug(breed)}.html" 
                                class="inline-block px-4 md:px-6 py-2 md:py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-xl font-medium transition-colors text-sm md:text-base">
                                 Voir la fiche
                             </a>
@@ -263,6 +263,12 @@
             if (value === true) return '<i class="fas fa-check-circle check-good text-xl"></i>';
             if (value === false) return '<i class="fas fa-times-circle check-bad text-xl"></i>';
             return '<i class="fas fa-question-circle check-neutral text-xl"></i>';
+        }
+
+        function breedSlug(breed) {
+            return (breed.name_fr || breed.name || '').toLowerCase()
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
         }
     </script>
 </body>
