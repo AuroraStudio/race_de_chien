@@ -251,7 +251,15 @@
                     <div id="capture-placeholder" class="text-center">
                         <div class="text-5xl mb-4 animate-wiggle">📸</div>
                         <p class="text-slate-700 font-semibold text-lg mb-2">Prenez un selfie ou importez une photo</p>
-                        <p class="text-slate-400 text-sm mb-6">Cliquez ici ou utilisez les boutons ci-dessous</p>
+                        <p class="text-slate-400 text-sm mb-6">Cliquez ici, glissez-déposez une photo, ou utilisez les boutons ci-dessous</p>
+                    </div>
+
+                    <!-- Drag overlay -->
+                    <div id="drag-overlay" class="hidden absolute inset-0 bg-primary-500/10 border-2 border-primary-500 rounded-[21px] flex items-center justify-center z-20">
+                        <div class="text-center">
+                            <div class="text-5xl mb-3">📥</div>
+                            <p class="text-primary-600 font-bold text-lg">Déposez votre photo ici</p>
+                        </div>
                     </div>
 
                     <!-- Webcam preview -->
@@ -475,6 +483,52 @@
     }
     loadBreedsData();
 
+    // ===== DRAG & DROP =====
+    
+    (function setupDragDrop() {
+        const zone = document.getElementById('capture-zone');
+        const overlay = document.getElementById('drag-overlay');
+        let dragCounter = 0;
+
+        zone.addEventListener('dragenter', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dragCounter++;
+            if (!currentImageBase64 && !webcamStream) {
+                overlay.classList.remove('hidden');
+                zone.classList.add('active');
+            }
+        });
+
+        zone.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dragCounter--;
+            if (dragCounter === 0) {
+                overlay.classList.add('hidden');
+                zone.classList.remove('active');
+            }
+        });
+
+        zone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+
+        zone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dragCounter = 0;
+            overlay.classList.add('hidden');
+            zone.classList.remove('active');
+
+            const file = e.dataTransfer?.files?.[0];
+            if (file && file.type.startsWith('image/')) {
+                processFile(file);
+            }
+        });
+    })();
+
     // ===== CAPTURE FUNCTIONS =====
 
     function handleCaptureClick() {
@@ -549,11 +603,14 @@
     function handleFileUpload(event) {
         const file = event.target.files[0];
         if (!file) return;
-        
+        processFile(file);
+        event.target.value = ''; // reset
+    }
+
+    function processFile(file) {
         const reader = new FileReader();
         reader.onload = function(e) {
             const dataUrl = e.target.result;
-            currentImageMimeType = file.type || 'image/jpeg';
             
             // Resize if needed
             const img = new Image();
@@ -576,7 +633,6 @@
             img.src = dataUrl;
         };
         reader.readAsDataURL(file);
-        event.target.value = ''; // reset
     }
 
     function showImagePreview(dataUrl) {
