@@ -42,6 +42,15 @@ function formatLifePhrase(min, max) {
     if (!min || !max || min === max) return `d'environ ${min || max} ans`;
     return `de ${min} à ${max} ans`;
 }
+// Helper: formater l'origine avec la bonne préposition française
+function formatOrigin(origin) {
+    if (!origin) return "d'Europe";
+    // Voyelles et H muet → d'
+    if (/^[AEIOUÉÈÊËÎÏÔÛÜaeiouéèêëîïôûü]/.test(origin)) return `d'${origin}`;
+    // Cas spéciaux
+    if (origin.startsWith('Ouest') || origin.startsWith('Est')) return `de l'${origin}`;
+    return `de ${origin}`;
+}
 
 // Créer le dossier /races/
 if (!fs.existsSync(OUTPUT_DIR)) {
@@ -125,7 +134,7 @@ function generateRichContent(breed, physical, temperament, coat, living, trainin
     const lifespan = formatRange(physical.life_span_years?.min, physical.life_span_years?.max, 'ans');
 
     return {
-        intro: `Le ${breed.name} est une race de chien de taille ${size}, originaire ${breed.origin ? `de ${breed.origin}` : "d'Europe"}. ` +
+        intro: `Le ${breed.name} est une race de chien de taille ${size}, originaire ${formatOrigin(breed.origin)}. ` +
                `Cette race se caractérise par son caractère ${(temperament.traits || []).slice(0, 2).join(' et ').toLowerCase() || 'équilibré et affectueux'}. ` +
                `Avec une taille au garrot ${formatRangePhrase(physical.height_cm?.min, physical.height_cm?.max, 'cm')} pour un poids ${formatRangePhrase(physical.weight_kg?.min, physical.weight_kg?.max, 'kg')}, ` +
                `c'est un compagnon ${physical.size_category === 'toy' || physical.size_category === 'small' ? 'idéal pour la vie en appartement' : 'parfait pour les familles actives'}. ` +
