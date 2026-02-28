@@ -355,7 +355,13 @@ function setupMobileSidebar() {
         }, 300);
     }
     
-    openBtn.addEventListener('click', openSidebar);
+    openBtn.addEventListener('click', () => {
+        if (!sidebar.classList.contains('hidden')) {
+            closeSidebar();
+        } else {
+            openSidebar();
+        }
+    });
     closeBtn?.addEventListener('click', closeSidebar);
     backdrop?.addEventListener('click', closeSidebar);
     
