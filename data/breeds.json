@@ -163,9 +163,9 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 23.0,
-          "max": 29.0,
-          "average": 26.0
+          "min": 23,
+          "max": 29,
+          "average": 26
         },
         "weight_kg": {
           "min": 3.2,
@@ -389,9 +389,9 @@
       "id": "5",
       "name": "Akbash",
       "name_fr": "Akbash",
-      "origin": "Western Turquie",
+      "origin": "Ouest de la Turquie",
       "country_code": "TR",
-      "breed_group": "Guardian",
+      "breed_group": "Chien de travail",
       "description": "Grand chien de protection du bétail blanc entier originaire de Turquie, à la constitution athlétique élancée, connu pour son indépendance et ses forts instincts protecteurs. Le pelage blanc distinctif aidait les bergers à le distinguer des prédateurs à distance.",
       "history": "Race ancienne développée il y a plus de 3000 ans dans l'ouest de la Turquie pour la garde du bétail, particulièrement dans la région d'Akbash. Le pelage blanc aidait les bergers à distinguer les chiens des prédateurs. Introduit en Amérique du Nord dans les années 1970 pour les programmes de contrôle des prédateurs.",
       "bred_for": null,
@@ -410,7 +410,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -547,7 +547,7 @@
       "id": "7",
       "name": "Bouledogue Alapaha",
       "name_fr": "Bouledogue Alapaha",
-      "origin": "Alapaha River region of southern Géorgie, États-Unis",
+      "origin": "Région de la rivière Alapaha, sud de la Géorgie, États-Unis",
       "country_code": "US",
       "breed_group": "Chien de travail",
       "description": "Race de bouledogue puissante et athlétique avec des motifs de pelage bleu merle ou tacheté distinctifs et une musculature développée. Développée à l'origine comme chien de prise pour le travail agricole, la protection du bétail et la garde familiale avec de forts instincts protecteurs.",
@@ -725,7 +725,7 @@
         "life_span_years": {
           "min": 10,
           "max": 14,
-          "average": 12.0
+          "average": 12
         }
       },
       "coat": {
@@ -805,7 +805,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -865,7 +865,7 @@
       "name_fr": "American Bully",
       "origin": "États-Unis",
       "country_code": "US",
-      "breed_group": "Companion",
+      "breed_group": "Chien de compagnie",
       "description": "Race de compagnie compacte et musclée avec un corps puissamment construit, une tête large et une attitude confiante. Connue pour sa nature douce et affectueuse et sa loyauté envers la famille, l'American Bully a été développée à partir d'American Pit Bull Terriers et d'autres races bully pour créer un excellent chien de compagnie au tempérament stable.",
       "history": "Développé aux États-Unis entre les années 1980 et 1990 comme race de compagnie par reproduction sélective d'American Pit Bull Terriers, American Staffordshire Terriers et d'autres races de type bulldog pour produire un chien avec un tempérament plus doux et une physique plus musclée et 'bully'. Reconnu par l'United Kennel Club en 2013.",
       "bred_for": null,
@@ -963,7 +963,7 @@
         "life_span_years": {
           "min": 10,
           "max": 14,
-          "average": 12.0
+          "average": 12
         }
       },
       "coat": {
@@ -1029,13 +1029,13 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 23.0,
-          "max": 48.0,
+          "min": 23,
+          "max": 48,
           "average": 35.5
         },
         "weight_kg": {
-          "min": 3.0,
-          "max": 16.0,
+          "min": 3,
+          "max": 16,
           "average": 9.5
         },
         "life_span_years": {
@@ -1120,7 +1120,7 @@
         "life_span_years": {
           "min": 11,
           "max": 13,
-          "average": 12.0
+          "average": 12
         }
       },
       "coat": {
@@ -1198,7 +1198,7 @@
         "life_span_years": {
           "min": 12,
           "max": 16,
-          "average": 14.0
+          "average": 14
         }
       },
       "coat": {
@@ -1277,7 +1277,7 @@
         "life_span_years": {
           "min": 12,
           "max": 16,
-          "average": 14.0
+          "average": 14
         }
       },
       "coat": {
@@ -1343,9 +1343,9 @@
       "physical": {
         "size_category": "medium",
         "height_cm": {
-          "min": 38.0,
-          "max": 46.0,
-          "average": 42.0
+          "min": 38,
+          "max": 46,
+          "average": 42
         },
         "weight_kg": {
           "min": 15,
@@ -1355,7 +1355,7 @@
         "life_span_years": {
           "min": 10,
           "max": 14,
-          "average": 12.0
+          "average": 12
         }
       },
       "coat": {
@@ -1412,7 +1412,7 @@
       "id": "19",
       "name": "Bouvier d'Appenzell",
       "name_fr": "Bouvier d'Appenzell",
-      "origin": "Appenzell region, Suisse",
+      "origin": "Région d'Appenzell, Suisse",
       "country_code": "CH",
       "breed_group": "Chien de travail",
       "description": "Chien de montagne suisse musclé et agile de taille moyenne avec un pelage tricolore distinctif et une queue serrément enroulée portée sur le dos. Connu pour son expression vive et assurée et son tempérament concentré sur le travail, cette race ancienne combine instincts de berger et capacités de garde.",
@@ -1505,14 +1505,14 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 16.0,
-          "max": 23.0,
+          "min": 16,
+          "max": 23,
           "average": 19.5
         },
         "life_span_years": {
           "min": 12,
           "max": 16,
-          "average": 14.0
+          "average": 14
         }
       },
       "coat": {
@@ -1590,7 +1590,7 @@
         "life_span_years": {
           "min": 12,
           "max": 16,
-          "average": 14.0
+          "average": 14
         }
       },
       "coat": {
@@ -1647,7 +1647,7 @@
       "id": "23",
       "name": "Berger Australien",
       "name_fr": "Berger Australien",
-      "origin": "Western États-Unis",
+      "origin": "Ouest des États-Unis",
       "country_code": "US",
       "breed_group": "Chien de berger",
       "description": "Chien de berger agile de taille moyenne avec un pelage multicolore frappant, des yeux expressifs et des instincts de berger vifs. Connu pour son intensité au travail et son double pelage résistant aux intempéries.",
@@ -1735,13 +1735,13 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 23.0,
-          "max": 25.0,
-          "average": 24.0
+          "min": 23,
+          "max": 25,
+          "average": 24
         },
         "weight_kg": {
           "min": 3.5,
-          "max": 5.0,
+          "max": 5,
           "average": 4.25
         },
         "life_span_years": {
@@ -1813,19 +1813,19 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 25.0,
-          "max": 28.0,
+          "min": 25,
+          "max": 28,
           "average": 26.5
         },
         "weight_kg": {
-          "min": 7.0,
-          "max": 9.0,
-          "average": 8.0
+          "min": 7,
+          "max": 9,
+          "average": 8
         },
         "life_span_years": {
           "min": 11,
           "max": 15,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -1882,7 +1882,7 @@
       "id": "25",
       "name": "Azawakh",
       "name_fr": "Azawakh",
-      "origin": "West Africa (Sahel region: Mali, Niger, Burkina Faso)",
+      "origin": "Afrique de l'Ouest (Sahel : Mali, Niger, Burkina Faso)",
       "country_code": "ML",
       "breed_group": "Chien de chasse",
       "description": "Lévrier élégant et élancé d'Afrique de l'Ouest, à la silhouette fine et musclée, au pelage ras et aux longues pattes conçues pour la vitesse et l'endurance dans les conditions désertiques du Sahel.",
@@ -1975,14 +1975,14 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 17.0,
-          "max": 28.0,
+          "min": 17,
+          "max": 28,
           "average": 22.5
         },
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -2040,7 +2040,7 @@
       "id": "28",
       "name": "Basenji",
       "name_fr": "Basenji",
-      "origin": "Central Africa",
+      "origin": "Afrique centrale",
       "country_code": "CD",
       "breed_group": "Chien de chasse",
       "description": "Petit lévrier élégant d'Afrique centrale à la queue enroulée, au front plissé et au pelage lisse. Connu comme le « chien qui n'aboie pas » pour ses vocalisations uniques ressemblant à un yodel au lieu de l'aboiement traditionnel.",
@@ -2119,7 +2119,7 @@
       "id": "29",
       "name": "Basset Bleu de Gascogne",
       "name_fr": "Basset Bleu de Gascogne",
-      "origin": "Gascony, France",
+      "origin": "Gascogne, France",
       "country_code": "FR",
       "breed_group": "Chien de chasse",
       "description": "Chien courant français de taille moyenne, bas sur pattes, au pelage bleu moucheté distinctif, aux longues oreilles tombantes et aux capacités de pistage exceptionnelles. Connu pour son expression noble et son odorat remarquable.",
@@ -2128,19 +2128,19 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 33.0,
-          "max": 38.0,
+          "min": 33,
+          "max": 38,
           "average": 35.5
         },
         "weight_kg": {
-          "min": 16.0,
-          "max": 18.0,
-          "average": 17.0
+          "min": 16,
+          "max": 18,
+          "average": 17
         },
         "life_span_years": {
           "min": 10,
           "max": 14,
-          "average": 12.0
+          "average": 12
         }
       },
       "coat": {
@@ -2206,14 +2206,14 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 33.0,
-          "max": 38.0,
+          "min": 33,
+          "max": 38,
           "average": 35.5
         },
         "weight_kg": {
-          "min": 18.0,
-          "max": 30.0,
-          "average": 24.0
+          "min": 18,
+          "max": 30,
+          "average": 24
         },
         "life_span_years": {
           "min": 12,
@@ -2290,8 +2290,8 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 9.0,
-          "max": 14.0,
+          "min": 9,
+          "max": 14,
           "average": 11.5
         },
         "life_span_years": {
@@ -2369,14 +2369,14 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 20.0,
-          "max": 25.0,
+          "min": 20,
+          "max": 25,
           "average": 22.5
         },
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -2449,14 +2449,14 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 32.0,
-          "max": 50.0,
-          "average": 41.0
+          "min": 32,
+          "max": 50,
+          "average": 41
         },
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -2527,9 +2527,9 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 8.0,
-          "max": 10.0,
-          "average": 9.0
+          "min": 8,
+          "max": 10,
+          "average": 9
         },
         "life_span_years": {
           "min": 11,
@@ -2693,7 +2693,7 @@
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -2838,13 +2838,13 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 24.0,
-          "max": 29.0,
+          "min": 24,
+          "max": 29,
           "average": 26.5
         },
         "weight_kg": {
-          "min": 5.0,
-          "max": 8.0,
+          "min": 5,
+          "max": 8,
           "average": 6.5
         },
         "life_span_years": {
@@ -2922,14 +2922,14 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 29.0,
-          "max": 50.0,
+          "min": 29,
+          "max": 50,
           "average": 39.5
         },
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -3008,7 +3008,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -3165,7 +3165,7 @@
         "life_span_years": {
           "min": 9,
           "max": 11,
-          "average": 10.0
+          "average": 10
         }
       },
       "coat": {
@@ -3222,7 +3222,7 @@
       "id": "50",
       "name": "Border Collie",
       "name_fr": "Border Collie",
-      "origin": "Anglo-Scottish border region",
+      "origin": "Région frontalière anglo-écossaise",
       "country_code": "GB",
       "breed_group": "Chien de berger",
       "description": "Chien de berger de taille moyenne, très intelligent et athlétique, au regard vif et à l'instinct de travail intense, renommé pour sa capacité instinctive à contrôler le bétail grâce à son regard fixe caractéristique.",
@@ -3236,8 +3236,8 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 14.0,
-          "max": 25.0,
+          "min": 14,
+          "max": 25,
           "average": 19.5
         },
         "life_span_years": {
@@ -3301,7 +3301,7 @@
       "id": "51",
       "name": "Border Terrier",
       "name_fr": "Border Terrier",
-      "origin": "Border regions between Angleterre and Écosse",
+      "origin": "Régions frontalières entre Angleterre et Écosse",
       "country_code": "GB",
       "breed_group": "Terrier",
       "description": "Petit terrier de travail robuste au pelage dur résistant aux intempéries et à la tête distinctive rappelant celle d'une loutre, élevé pour la chasse au renard avec un tempérament courageux et affectueux.",
@@ -3389,19 +3389,19 @@
       "physical": {
         "size_category": "medium",
         "height_cm": {
-          "min": 38.0,
-          "max": 43.0,
+          "min": 38,
+          "max": 43,
           "average": 40.5
         },
         "weight_kg": {
-          "min": 5.0,
-          "max": 11.0,
-          "average": 8.0
+          "min": 5,
+          "max": 11,
+          "average": 8
         },
         "life_span_years": {
           "min": 11,
           "max": 13,
-          "average": 12.0
+          "average": 12
         }
       },
       "coat": {
@@ -3457,7 +3457,7 @@
       "id": "54",
       "name": "Bouvier des Flandres",
       "name_fr": "Bouvier des Flandres",
-      "origin": "Belgique (Flanders region)",
+      "origin": "Belgique (Flandres)",
       "country_code": "BE",
       "breed_group": "Chien de berger",
       "description": "Grand chien de berger puissant à l'apparence rustique et au pelage double rêche et ébouriffé. Cette race compacte donne une impression de grande force sans lourdeur, avec un pelage dense résistant aux intempéries.",
@@ -3471,14 +3471,14 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 32.0,
-          "max": 50.0,
-          "average": 41.0
+          "min": 32,
+          "max": 50,
+          "average": 41
         },
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -3557,7 +3557,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -3707,14 +3707,14 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 25.0,
-          "max": 40.0,
+          "min": 25,
+          "max": 40,
           "average": 32.5
         },
         "life_span_years": {
           "min": 10,
           "max": 14,
-          "average": 12.0
+          "average": 12
         }
       },
       "coat": {
@@ -3794,7 +3794,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -3852,7 +3852,7 @@
       "id": "59",
       "name": "Épagneul Breton",
       "name_fr": "Épagneul Breton",
-      "origin": "Brittany (Bretagne), France",
+      "origin": "Bretagne, France",
       "country_code": "FR",
       "breed_group": "Chien de sport",
       "description": "Chien de sport de taille moyenne, compact et élancé, à la silhouette athlétique et au pelage distinctif orange et blanc avec des franges. Connu pour sa polyvalence à l'arrêt et au rapport, ce chien de chasse agile allie endurance et intelligence.",
@@ -3861,14 +3861,14 @@
       "physical": {
         "size_category": "medium",
         "height_cm": {
-          "min": 44.0,
-          "max": 52.0,
-          "average": 48.0
+          "min": 44,
+          "max": 52,
+          "average": 48
         },
         "weight_kg": {
-          "min": 14.0,
-          "max": 18.0,
-          "average": 16.0
+          "min": 14,
+          "max": 18,
+          "average": 16
         },
         "life_span_years": {
           "min": 12,
@@ -3952,7 +3952,7 @@
         "life_span_years": {
           "min": 7,
           "max": 9,
-          "average": 8.0
+          "average": 8
         }
       },
       "coat": {
@@ -4019,13 +4019,13 @@
       "physical": {
         "size_category": "medium",
         "height_cm": {
-          "min": 53.0,
-          "max": 56.0,
+          "min": 53,
+          "max": 56,
           "average": 54.5
         },
         "weight_kg": {
-          "min": 23.0,
-          "max": 32.0,
+          "min": 23,
+          "max": 32,
           "average": 27.5
         },
         "life_span_years": {
@@ -4097,19 +4097,19 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 25.0,
-          "max": 36.0,
+          "min": 25,
+          "max": 36,
           "average": 30.5
         },
         "weight_kg": {
-          "min": 9.0,
-          "max": 15.0,
-          "average": 12.0
+          "min": 9,
+          "max": 15,
+          "average": 12
         },
         "life_span_years": {
           "min": 11,
           "max": 13,
-          "average": 12.0
+          "average": 12
         }
       },
       "coat": {
@@ -4333,8 +4333,8 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 27.0,
-          "max": 32.0,
+          "min": 27,
+          "max": 32,
           "average": 29.5
         },
         "weight_kg": {
@@ -4423,7 +4423,7 @@
         "life_span_years": {
           "min": 10,
           "max": 14,
-          "average": 12.0
+          "average": 12
         }
       },
       "coat": {
@@ -4481,7 +4481,7 @@
       "id": "70",
       "name": "Berger du Caucase",
       "name_fr": "Berger du Caucase",
-      "origin": "Caucasus Mountains",
+      "origin": "Montagnes du Caucase",
       "country_code": "RU",
       "breed_group": "Chien de travail",
       "description": "Chien de garde de troupeaux massif et puissant au pelage double épais et résistant aux intempéries, originellement élevé pour protéger les troupeaux contre les grands prédateurs comme les loups et les ours dans les montagnes du Caucase. Imposant et formidable.",
@@ -4502,7 +4502,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -4568,14 +4568,14 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 30.0,
-          "max": 33.0,
+          "min": 30,
+          "max": 33,
           "average": 31.5
         },
         "weight_kg": {
-          "min": 6.0,
-          "max": 8.0,
-          "average": 7.0
+          "min": 6,
+          "max": 8,
+          "average": 7
         },
         "life_span_years": {
           "min": 12,
@@ -4725,8 +4725,8 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 28.0,
-          "max": 33.0,
+          "min": 28,
+          "max": 33,
           "average": 30.5
         },
         "weight_kg": {
@@ -4804,19 +4804,19 @@
       "physical": {
         "size_category": "medium",
         "height_cm": {
-          "min": 46.0,
-          "max": 51.0,
+          "min": 46,
+          "max": 51,
           "average": 48.5
         },
         "weight_kg": {
-          "min": 20.0,
-          "max": 27.0,
+          "min": 20,
+          "max": 27,
           "average": 23.5
         },
         "life_span_years": {
           "min": 8,
           "max": 12,
-          "average": 10.0
+          "average": 10
         }
       },
       "coat": {
@@ -4961,19 +4961,19 @@
       "physical": {
         "size_category": "medium",
         "height_cm": {
-          "min": 43.0,
-          "max": 51.0,
-          "average": 47.0
+          "min": 43,
+          "max": 51,
+          "average": 47
         },
         "weight_kg": {
-          "min": 20.0,
-          "max": 32.0,
-          "average": 26.0
+          "min": 20,
+          "max": 32,
+          "average": 26
         },
         "life_span_years": {
           "min": 8,
           "max": 12,
-          "average": 10.0
+          "average": 10
         }
       },
       "coat": {
@@ -5052,7 +5052,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -5130,7 +5130,7 @@
         "life_span_years": {
           "min": 10,
           "max": 14,
-          "average": 12.0
+          "average": 12
         }
       },
       "coat": {
@@ -5267,7 +5267,7 @@
       "id": "92",
       "name": "Dalmatien",
       "name_fr": "Dalmatien",
-      "origin": "Dalmatia, Croatie",
+      "origin": "Dalmatie, Croatie",
       "country_code": "HR",
       "breed_group": "Chien de compagnie",
       "description": "Chien de taille moyenne, athlétique, au pelage blanc tacheté de noir ou de marron caractéristique et à la silhouette élégante, originellement élevé comme chien de carrosse avec une endurance exceptionnelle.",
@@ -5288,7 +5288,7 @@
         "life_span_years": {
           "min": 11,
           "max": 13,
-          "average": 12.0
+          "average": 12
         }
       },
       "coat": {
@@ -5366,7 +5366,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -5444,7 +5444,7 @@
         "life_span_years": {
           "min": 9,
           "max": 15,
-          "average": 12.0
+          "average": 12
         }
       },
       "coat": {
@@ -5603,7 +5603,7 @@
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -5760,7 +5760,7 @@
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -5826,8 +5826,8 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 25.0,
-          "max": 30.0,
+          "min": 25,
+          "max": 30,
           "average": 27.5
         },
         "weight_kg": {
@@ -5915,7 +5915,7 @@
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -5982,13 +5982,13 @@
       "physical": {
         "size_category": "medium",
         "height_cm": {
-          "min": 43.0,
-          "max": 46.0,
+          "min": 43,
+          "max": 46,
           "average": 44.5
         },
         "weight_kg": {
-          "min": 16.0,
-          "max": 23.0,
+          "min": 16,
+          "max": 23,
           "average": 19.5
         },
         "life_span_years": {
@@ -6051,7 +6051,7 @@
       "id": "110",
       "name": "Chien Finnois de Laponie",
       "name_fr": "Chien Finnois de Laponie",
-      "origin": "Lapland (Finlande)",
+      "origin": "Laponie, Finlande",
       "country_code": "FI",
       "breed_group": "Chien de berger",
       "description": "Chien de type spitz de taille moyenne, robuste, au pelage double épais et abondant et aux traits rappelant le renard, originellement élevé pour garder les rennes en conditions arctiques par le peuple Sami.",
@@ -6065,8 +6065,8 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 15.0,
-          "max": 24.0,
+          "min": 15,
+          "max": 24,
           "average": 19.5
         },
         "life_span_years": {
@@ -6219,19 +6219,19 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 28.0,
-          "max": 33.0,
+          "min": 28,
+          "max": 33,
           "average": 30.5
         },
         "weight_kg": {
-          "min": 7.0,
-          "max": 13.0,
-          "average": 10.0
+          "min": 7,
+          "max": 13,
+          "average": 10
         },
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -6297,19 +6297,19 @@
       "physical": {
         "size_category": "medium",
         "height_cm": {
-          "min": 43.0,
-          "max": 51.0,
-          "average": 47.0
+          "min": 43,
+          "max": 51,
+          "average": 47
         },
         "weight_kg": {
-          "min": 11.0,
-          "max": 20.0,
+          "min": 11,
+          "max": 20,
           "average": 15.5
         },
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -6388,7 +6388,7 @@
         "life_span_years": {
           "min": 9,
           "max": 13,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -6466,7 +6466,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -6602,7 +6602,7 @@
       "id": "120",
       "name": "Terrier Irlandais de Glen of Imaal",
       "name_fr": "Terrier Irlandais de Glen of Imaal",
-      "origin": "Glen of Imaal, County Wicklow, Irlande",
+      "origin": "Glen of Imaal, comté de Wicklow, Irlande",
       "country_code": "IE",
       "breed_group": "Terrier",
       "description": "Terrier de travail fort, bas sur pattes et de longueur moyenne, à la silhouette robuste et puissante. Connu pour son pelage double dur résistant aux intempéries et son tempérament courageux développé dans les montagnes irlandaises accidentées.",
@@ -6611,9 +6611,9 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 32.0,
-          "max": 36.0,
-          "average": 34.0
+          "min": 32,
+          "max": 36,
+          "average": 34
         },
         "weight_kg": {
           "min": 15,
@@ -6701,7 +6701,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -6916,7 +6916,7 @@
       "id": "127",
       "name": "Lévrier Greyhound",
       "name_fr": "Lévrier Greyhound",
-      "origin": "Ancient Égypte/Middle East",
+      "origin": "Égypte ancienne / Moyen-Orient",
       "country_code": "GB",
       "breed_group": "Chien de chasse",
       "description": "Ancien lévrier à la silhouette haute, élancée et élégante conçue pour une vitesse exceptionnelle. Connu pour son tempérament doux et souvent décrit comme un « lévrier de canapé à 70 km/h », alliant athlétisme incroyable et calme à la maison.",
@@ -7003,13 +7003,13 @@
       "physical": {
         "size_category": "medium",
         "height_cm": {
-          "min": 48.0,
-          "max": 53.0,
+          "min": 48,
+          "max": 53,
           "average": 50.5
         },
         "weight_kg": {
-          "min": 20.0,
-          "max": 27.0,
+          "min": 20,
+          "max": 27,
           "average": 23.5
         },
         "life_span_years": {
@@ -7081,13 +7081,13 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 22.0,
-          "max": 29.0,
+          "min": 22,
+          "max": 29,
           "average": 25.5
         },
         "weight_kg": {
-          "min": 3.0,
-          "max": 6.0,
+          "min": 3,
+          "max": 6,
           "average": 4.5
         },
         "life_span_years": {
@@ -7329,7 +7329,7 @@
         "life_span_years": {
           "min": 6,
           "max": 8,
-          "average": 7.0
+          "average": 7
         }
       },
       "coat": {
@@ -7395,12 +7395,12 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 33.0,
-          "max": 38.0,
+          "min": 33,
+          "max": 38,
           "average": 35.5
         },
         "weight_kg": {
-          "min": 3.0,
+          "min": 3,
           "max": 6.5,
           "average": 4.75
         },
@@ -7464,7 +7464,7 @@
       "id": "140",
       "name": "Épagneul Japonais",
       "name_fr": "Épagneul Japonais",
-      "origin": "Chine/Japon",
+      "origin": "Chine / Japon",
       "country_code": "JP",
       "breed_group": "Chien de compagnie",
       "description": "Petite race toy élégante au visage plat distinctif, aux grands yeux écartés et au pelage soyeux luxueux. Connu pour son allure aristocratique et son comportement félin, se nettoyant souvent le visage avec les pattes.",
@@ -7473,19 +7473,19 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 20.0,
-          "max": 28.0,
-          "average": 24.0
+          "min": 20,
+          "max": 28,
+          "average": 24
         },
         "weight_kg": {
           "min": 1.8,
-          "max": 5.0,
+          "max": 5,
           "average": 3.4
         },
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -7552,8 +7552,8 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 30.0,
-          "max": 39.0,
+          "min": 30,
+          "max": 39,
           "average": 34.5
         },
         "weight_kg": {
@@ -7564,7 +7564,7 @@
         "life_span_years": {
           "min": 12,
           "max": 16,
-          "average": 14.0
+          "average": 14
         }
       },
       "coat": {
@@ -7715,9 +7715,9 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 16.0,
-          "max": 20.0,
-          "average": 18.0
+          "min": 16,
+          "max": 20,
+          "average": 18
         },
         "life_span_years": {
           "min": 12,
@@ -7788,8 +7788,8 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 23.0,
-          "max": 28.0,
+          "min": 23,
+          "max": 28,
           "average": 25.5
         },
         "weight_kg": {
@@ -7800,7 +7800,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -7879,7 +7879,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -7950,8 +7950,8 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 9.0,
-          "max": 14.0,
+          "min": 9,
+          "max": 14,
           "average": 11.5
         },
         "life_span_years": {
@@ -8036,7 +8036,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -8115,7 +8115,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -8173,7 +8173,7 @@
       "id": "151",
       "name": "Lagotto Romagnolo",
       "name_fr": "Lagotto Romagnolo",
-      "origin": "Romagna region, Italie",
+      "origin": "Région de Romagne, Italie",
       "country_code": "IT",
       "breed_group": "Chien de sport",
       "description": "Chien d'eau rustique de taille moyenne au pelage dense, bouclé et imperméable et au sens de l'odorat exceptionnel, spécialisé comme premier chien truffier au monde.",
@@ -8261,14 +8261,14 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 25.0,
-          "max": 30.0,
+          "min": 25,
+          "max": 30,
           "average": 27.5
         },
         "weight_kg": {
-          "min": 4.0,
-          "max": 8.0,
-          "average": 6.0
+          "min": 4,
+          "max": 8,
+          "average": 6
         },
         "life_span_years": {
           "min": 12,
@@ -8352,7 +8352,7 @@
         "life_span_years": {
           "min": 7,
           "max": 9,
-          "average": 8.0
+          "average": 8
         }
       },
       "coat": {
@@ -8489,7 +8489,7 @@
       "id": "161",
       "name": "Bichon Maltais",
       "name_fr": "Bichon Maltais",
-      "origin": "Malte, Mediterranean Basin",
+      "origin": "Malte, bassin méditerranéen",
       "country_code": "MT",
       "breed_group": "Chien de compagnie",
       "description": "Ancienne race toy de la Méditerranée au long pelage soyeux blanc et à la personnalité charmante et joueuse, combinée à un tempérament intrépide malgré sa petite taille.",
@@ -8498,8 +8498,8 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 18.0,
-          "max": 23.0,
+          "min": 18,
+          "max": 23,
           "average": 20.5
         },
         "weight_kg": {
@@ -8583,8 +8583,8 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 9.0,
-          "max": 18.0,
+          "min": 9,
+          "max": 18,
           "average": 13.5
         },
         "life_span_years": {
@@ -8657,19 +8657,19 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 25.0,
-          "max": 32.0,
+          "min": 25,
+          "max": 32,
           "average": 28.5
         },
         "weight_kg": {
           "min": 3.5,
           "max": 4.5,
-          "average": 4.0
+          "average": 4
         },
         "life_span_years": {
           "min": 12,
           "max": 16,
-          "average": 14.0
+          "average": 14
         }
       },
       "coat": {
@@ -8741,9 +8741,9 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 5.0,
-          "max": 9.0,
-          "average": 7.0
+          "min": 5,
+          "max": 9,
+          "average": 7
         },
         "life_span_years": {
           "min": 12,
@@ -8892,19 +8892,19 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 23.0,
-          "max": 25.0,
-          "average": 24.0
+          "min": 23,
+          "max": 25,
+          "average": 24
         },
         "weight_kg": {
-          "min": 5.0,
+          "min": 5,
           "max": 5.5,
           "average": 5.25
         },
         "life_span_years": {
           "min": 12,
           "max": 16,
-          "average": 14.0
+          "average": 14
         }
       },
       "coat": {
@@ -8961,7 +8961,7 @@
       "id": "176",
       "name": "Norwich Terrier",
       "name_fr": "Norwich Terrier",
-      "origin": "East Anglia, Angleterre",
+      "origin": "Est-Anglie, Angleterre",
       "country_code": "GB",
       "breed_group": "Terrier",
       "description": "Petit terrier robuste et compact aux oreilles dressées caractéristiques, au pelage double dur et au tempérament vif. Connu pour sa constitution robuste et sa nature intrépide mais affectueuse.",
@@ -8970,12 +8970,12 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 23.0,
-          "max": 25.0,
-          "average": 24.0
+          "min": 23,
+          "max": 25,
+          "average": 24
         },
         "weight_kg": {
-          "min": 5.0,
+          "min": 5,
           "max": 5.5,
           "average": 5.25
         },
@@ -9053,14 +9053,14 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 16.0,
-          "max": 23.0,
+          "min": 16,
+          "max": 23,
           "average": 19.5
         },
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -9120,7 +9120,7 @@
       "name_fr": "Bouledogue Anglais",
       "origin": "États-Unis",
       "country_code": "US",
-      "breed_group": "Foundation Stock Service",
+      "breed_group": "Chien de travail",
       "description": "Bouledogue athlétique et musclé de taille moyenne développé pour recréer le Bulldog Anglais plus sain et athlétique de l'époque Régence, avec une meilleure santé, un tempérament stable et des caractéristiques bien équilibrées.",
       "history": "Développé dans les années 1970 par David Leavitt pour recréer le bulldog plus sain et athlétique des XVIIIe et XIXe siècles (époque Régence) en utilisant des croisements de Bulldog Anglais, Bulldog Américain, American Pit Bull Terrier et Bullmastiff.",
       "bred_for": null,
@@ -9217,7 +9217,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -9274,7 +9274,7 @@
       "id": "181",
       "name": "Épagneul Papillon",
       "name_fr": "Épagneul Papillon",
-      "origin": "France and Belgique",
+      "origin": "France et Belgique",
       "country_code": "FR",
       "breed_group": "Chien de compagnie",
       "description": "Petit épagneul toy fin et élégant aux oreilles en forme de papillon caractéristiques (papillon signifiant « papillon » en français) et au pelage soyeux fluide, connu pour son tempérament alerte, amical et énergique.",
@@ -9283,12 +9283,12 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 20.0,
-          "max": 28.0,
-          "average": 24.0
+          "min": 20,
+          "max": 28,
+          "average": 24
         },
         "weight_kg": {
-          "min": 2.0,
+          "min": 2,
           "max": 4.5,
           "average": 3.25
         },
@@ -9361,9 +9361,9 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 15.0,
-          "max": 23.0,
-          "average": 19.0
+          "min": 15,
+          "max": 23,
+          "average": 19
         },
         "weight_kg": {
           "min": 3.2,
@@ -9373,7 +9373,7 @@
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -9440,8 +9440,8 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 25.0,
-          "max": 30.0,
+          "min": 25,
+          "max": 30,
           "average": 27.5
         },
         "weight_kg": {
@@ -9523,14 +9523,14 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 20.0,
-          "max": 25.0,
+          "min": 20,
+          "max": 25,
           "average": 22.5
         },
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -9608,7 +9608,7 @@
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -9665,7 +9665,7 @@
       "id": "193",
       "name": "Spitz Nain (Loulou de Poméranie)",
       "name_fr": "Spitz Nain (Loulou de Poméranie)",
-      "origin": "Pomerania region (now parts of Allemagne and Pologne)",
+      "origin": "Poméranie (Allemagne/Pologne)",
       "country_code": "DE",
       "breed_group": "Chien de compagnie",
       "description": "Petite race toy de type spitz compacte et active au pelage double abondant et duveteux, à l'expression rappelant le renard et à la queue en panache portée sur le dos.",
@@ -9674,8 +9674,8 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 15.0,
-          "max": 18.0,
+          "min": 15,
+          "max": 18,
           "average": 16.5
         },
         "weight_kg": {
@@ -9686,7 +9686,7 @@
         "life_span_years": {
           "min": 12,
           "max": 16,
-          "average": 14.0
+          "average": 14
         }
       },
       "coat": {
@@ -9752,8 +9752,8 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 25.0,
-          "max": 38.0,
+          "min": 25,
+          "max": 38,
           "average": 31.5
         },
         "weight_kg": {
@@ -9764,7 +9764,7 @@
         "life_span_years": {
           "min": 12,
           "max": 16,
-          "average": 14.0
+          "average": 14
         }
       },
       "coat": {
@@ -9830,8 +9830,8 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 20.0,
-          "max": 25.0,
+          "min": 20,
+          "max": 25,
           "average": 22.5
         },
         "weight_kg": {
@@ -9842,7 +9842,7 @@
         "life_span_years": {
           "min": 10,
           "max": 18,
-          "average": 14.0
+          "average": 14
         }
       },
       "coat": {
@@ -9901,7 +9901,7 @@
       "id": "185",
       "name": "Dogue des Canaries",
       "name_fr": "Dogue des Canaries",
-      "origin": "Canary Islands, Espagne",
+      "origin": "Îles Canaries, Espagne",
       "country_code": "ES",
       "breed_group": "Chien de travail",
       "description": "Grand chien de type molosse puissant à la silhouette robuste, à l'expression calme et attentive et à la présence imposante en tant que gardien assuré.",
@@ -9922,7 +9922,7 @@
         "life_span_years": {
           "min": 9,
           "max": 11,
-          "average": 10.0
+          "average": 10
         }
       },
       "coat": {
@@ -9989,14 +9989,14 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 25.0,
-          "max": 33.0,
-          "average": 29.0
+          "min": 25,
+          "max": 33,
+          "average": 29
         },
         "weight_kg": {
-          "min": 6.0,
-          "max": 8.0,
-          "average": 7.0
+          "min": 6,
+          "max": 8,
+          "average": 7
         },
         "life_span_years": {
           "min": 9,
@@ -10079,7 +10079,7 @@
         "life_span_years": {
           "min": 10,
           "max": 16,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -10151,8 +10151,8 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 10.0,
-          "max": 13.0,
+          "min": 10,
+          "max": 13,
           "average": 11.5
         },
         "life_span_years": {
@@ -10216,7 +10216,7 @@
       "id": "125",
       "name": "Chien de Montagne des Pyrénées",
       "name_fr": "Chien de Montagne des Pyrénées",
-      "origin": "Pyrenees Mountains, France",
+      "origin": "Montagnes des Pyrénées, France",
       "country_code": "FR",
       "breed_group": "Chien de travail",
       "description": "Grand chien de garde de troupeaux majestueux et immensément puissant au pelage double blanc épais et aux instincts de gardien naturels développés pour le travail en montagne.",
@@ -10237,7 +10237,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -10304,19 +10304,19 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 25.0,
-          "max": 46.0,
+          "min": 25,
+          "max": 46,
           "average": 35.5
         },
         "weight_kg": {
-          "min": 4.0,
-          "max": 11.0,
+          "min": 4,
+          "max": 11,
           "average": 7.5
         },
         "life_span_years": {
           "min": 12,
           "max": 18,
-          "average": 15.0
+          "average": 15
         }
       },
       "coat": {
@@ -10388,9 +10388,9 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 20.0,
-          "max": 32.0,
-          "average": 26.0
+          "min": 20,
+          "max": 32,
+          "average": 26
         },
         "life_span_years": {
           "min": 12,
@@ -10452,7 +10452,7 @@
       "id": "209",
       "name": "Rhodesian Ridgeback",
       "name_fr": "Rhodesian Ridgeback",
-      "origin": "Southern Africa",
+      "origin": "Afrique australe",
       "country_code": "ZA",
       "breed_group": "Chien de chasse",
       "description": "Grand chien courant musclé et athlétique à la crête de poils distinctive le long du dos, originellement élevé pour chasser le lion en Afrique. Connu pour sa nature digne et posée et son tempérament loyal.",
@@ -10473,7 +10473,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -10618,19 +10618,19 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 20.0,
-          "max": 28.0,
-          "average": 24.0
+          "min": 20,
+          "max": 28,
+          "average": 24
         },
         "weight_kg": {
           "min": 1.4,
-          "max": 3.0,
+          "max": 3,
           "average": 2.2
         },
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -10710,7 +10710,7 @@
         "life_span_years": {
           "min": 8,
           "max": 10,
-          "average": 9.0
+          "average": 9
         }
       },
       "coat": {
@@ -10768,7 +10768,7 @@
       "id": "213",
       "name": "Saluki",
       "name_fr": "Saluki",
-      "origin": "Middle East (Fertile Crescent)",
+      "origin": "Moyen-Orient (Croissant fertile)",
       "country_code": "EG",
       "breed_group": "Chien de chasse",
       "description": "Lévrier ancien et élégant du Moyen-Orient à la silhouette gracieuse, aux oreilles et à la queue frangées, connu pour sa vitesse et son endurance extraordinaires et sa nature digne. Élevé pour la chasse à la gazelle en terrain désertique.",
@@ -10777,8 +10777,8 @@
       "physical": {
         "size_category": "large",
         "height_cm": {
-          "min": 58.0,
-          "max": 71.0,
+          "min": 58,
+          "max": 71,
           "average": 64.5
         },
         "weight_kg": {
@@ -10868,7 +10868,7 @@
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -10935,19 +10935,19 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 25.0,
-          "max": 33.0,
-          "average": 29.0
+          "min": 25,
+          "max": 33,
+          "average": 29
         },
         "weight_kg": {
           "min": 4.5,
-          "max": 7.0,
+          "max": 7,
           "average": 5.75
         },
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -11092,8 +11092,8 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 25.0,
-          "max": 28.0,
+          "min": 25,
+          "max": 28,
           "average": 26.5
         },
         "weight_kg": {
@@ -11161,7 +11161,7 @@
       "id": "221",
       "name": "Shetland Sheepdog (Berger des Shetland)",
       "name_fr": "Shetland Sheepdog (Berger des Shetland)",
-      "origin": "Shetland Islands, Écosse",
+      "origin": "Îles Shetland, Écosse",
       "country_code": "GB",
       "breed_group": "Chien de berger",
       "description": "Petit chien de berger agile des îles Shetland, ressemblant à un Colley à poil long miniature avec un pelage double dense, une expression intelligente et une allure alerte. Race distincte connue pour sa vivacité d'esprit et sa docilité.",
@@ -11170,19 +11170,19 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 33.0,
-          "max": 41.0,
-          "average": 37.0
+          "min": 33,
+          "max": 41,
+          "average": 37
         },
         "weight_kg": {
-          "min": 7.0,
-          "max": 11.0,
-          "average": 9.0
+          "min": 7,
+          "max": 11,
+          "average": 9
         },
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -11319,7 +11319,7 @@
       "id": "223",
       "name": "Shih Tzu",
       "name_fr": "Shih Tzu",
-      "origin": "Tibet/Chine",
+      "origin": "Tibet / Chine",
       "country_code": "CN",
       "breed_group": "Chien de compagnie",
       "description": "Petite race toy robuste au museau court distinctif, aux grands yeux sombres et au pelage long et luxueux en double couche. Connu pour son tempérament de compagnon charmant et affectueux.",
@@ -11328,19 +11328,19 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 23.0,
-          "max": 27.0,
-          "average": 25.0
+          "min": 23,
+          "max": 27,
+          "average": 25
         },
         "weight_kg": {
-          "min": 4.0,
-          "max": 7.0,
+          "min": 4,
+          "max": 7,
           "average": 5.5
         },
         "life_span_years": {
           "min": 10,
           "max": 18,
-          "average": 14.0
+          "average": 14
         }
       },
       "coat": {
@@ -11496,7 +11496,7 @@
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -11733,7 +11733,7 @@
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -11812,7 +11812,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -11879,8 +11879,8 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 36.0,
-          "max": 41.0,
+          "min": 36,
+          "max": 41,
           "average": 38.5
         },
         "weight_kg": {
@@ -11891,7 +11891,7 @@
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -12042,8 +12042,8 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 9.0,
-          "max": 16.0,
+          "min": 9,
+          "max": 16,
           "average": 12.5
         },
         "life_span_years": {
@@ -12208,7 +12208,7 @@
         "life_span_years": {
           "min": 10,
           "max": 12,
-          "average": 11.0
+          "average": 11
         }
       },
       "coat": {
@@ -12274,13 +12274,13 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 24.0,
-          "max": 28.0,
-          "average": 26.0
+          "min": 24,
+          "max": 28,
+          "average": 26
         },
         "weight_kg": {
-          "min": 4.0,
-          "max": 7.0,
+          "min": 4,
+          "max": 7,
           "average": 5.5
         },
         "life_span_years": {
@@ -12353,19 +12353,19 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 36.0,
-          "max": 43.0,
+          "min": 36,
+          "max": 43,
           "average": 39.5
         },
         "weight_kg": {
-          "min": 8.0,
-          "max": 14.0,
-          "average": 11.0
+          "min": 8,
+          "max": 14,
+          "average": 11
         },
         "life_span_years": {
           "min": 12,
           "max": 16,
-          "average": 14.0
+          "average": 14
         }
       },
       "coat": {
@@ -12431,8 +12431,8 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 22.0,
-          "max": 29.0,
+          "min": 22,
+          "max": 29,
           "average": 25.5
         },
         "weight_kg": {
@@ -12516,8 +12516,8 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 23.0,
-          "max": 32.0,
+          "min": 23,
+          "max": 32,
           "average": 27.5
         },
         "life_span_years": {
@@ -12602,7 +12602,7 @@
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -12910,8 +12910,8 @@
           "average": 40
         },
         "weight_kg": {
-          "min": 11.0,
-          "max": 18.0,
+          "min": 11,
+          "max": 18,
           "average": 14.5
         },
         "life_span_years": {
@@ -12974,7 +12974,7 @@
       "id": "258",
       "name": "Berger Blanc Suisse",
       "name_fr": "Berger Blanc Suisse",
-      "origin": "Allemagne/Suisse, developed further in North America",
+      "origin": "Allemagne/Suisse, développé en Amérique du Nord",
       "country_code": "DE",
       "breed_group": "Chien de berger",
       "description": "Descendant direct du Berger Allemand, le Berger Blanc est un grand chien de travail athlétique aux oreilles dressées, au pelage double blanc saisissant et à l'allure assurée. Connu pour son expression noble et son tempérament doux.",
@@ -12995,7 +12995,7 @@
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -13131,7 +13131,7 @@
       "id": "260",
       "name": "Griffon d'Arrêt à Poil Dur",
       "name_fr": "Griffon d'Arrêt à Poil Dur",
-      "origin": "Pays-Bas/France",
+      "origin": "Pays-Bas / France",
       "country_code": "FR",
       "breed_group": "Chien de sport",
       "description": "Chien de chasse polyvalent de taille moyenne au pelage dur et rêche caractéristique et à la barbe et aux sourcils distinctifs. Connu comme le « chien de chasse suprême » avec d'excellentes capacités d'arrêt et de rapport et un tempérament intelligent.",
@@ -13230,7 +13230,7 @@
         "life_span_years": {
           "min": 12,
           "max": 14,
-          "average": 13.0
+          "average": 13
         }
       },
       "coat": {
@@ -13296,13 +13296,13 @@
       "physical": {
         "size_category": "medium",
         "height_cm": {
-          "min": 25.0,
-          "max": 60.0,
+          "min": 25,
+          "max": 60,
           "average": 42.5
         },
         "weight_kg": {
           "min": 4.5,
-          "max": 25.0,
+          "max": 25,
           "average": 14.75
         },
         "life_span_years": {
@@ -13375,9 +13375,9 @@
       "physical": {
         "size_category": "toy",
         "height_cm": {
-          "min": 18.0,
-          "max": 20.0,
-          "average": 19.0
+          "min": 18,
+          "max": 20,
+          "average": 19
         },
         "weight_kg": {
           "min": 1.8,
@@ -13387,7 +13387,7 @@
         "life_span_years": {
           "min": 12,
           "max": 16,
-          "average": 14.0
+          "average": 14
         }
       },
       "coat": {
