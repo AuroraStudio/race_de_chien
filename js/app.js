@@ -156,12 +156,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupSliders();
     setupAutocomplete();
     setupComparison();
+    setupMobileSidebar();
     displayBreeds(allBreeds);
 });
 
 async function loadBreeds() {
     try {
-        const response = await fetch('data/breeds.json');
+        const response = await fetch('/data/breeds.json');
         const data = await response.json();
         allBreeds = data.breeds;
         filteredBreeds = [...allBreeds];
@@ -325,6 +326,74 @@ function setupAutocomplete() {
     });
 }
 
+function setupMobileSidebar() {
+    const sidebar = document.getElementById('sidebar-filters');
+    const backdrop = document.getElementById('sidebar-backdrop');
+    const openBtn = document.getElementById('mobile-filter-btn');
+    const closeBtn = document.getElementById('sidebar-close-btn');
+    
+    if (!sidebar || !openBtn) return;
+
+    function openSidebar() {
+        sidebar.classList.remove('hidden');
+        sidebar.classList.remove('max-lg:-translate-x-full');
+        sidebar.classList.add('max-lg:translate-x-0');
+        backdrop?.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeSidebar() {
+        sidebar.classList.add('max-lg:-translate-x-full');
+        sidebar.classList.remove('max-lg:translate-x-0');
+        backdrop?.classList.add('hidden');
+        document.body.style.overflow = '';
+        // Re-hide on mobile after transition
+        setTimeout(() => {
+            if (window.innerWidth < 1024) {
+                sidebar.classList.add('hidden');
+            }
+        }, 300);
+    }
+    
+    openBtn.addEventListener('click', openSidebar);
+    closeBtn?.addEventListener('click', closeSidebar);
+    backdrop?.addEventListener('click', closeSidebar);
+    
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !sidebar.classList.contains('hidden') && window.innerWidth < 1024) {
+            closeSidebar();
+        }
+    });
+
+    // Make sure sidebar is visible on desktop resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) {
+            sidebar.classList.remove('hidden', 'max-lg:-translate-x-full', 'max-lg:translate-x-0');
+            backdrop?.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    });
+}
+
+function updateMobileFilterCount() {
+    const badge = document.getElementById('mobile-filter-count');
+    if (!badge) return;
+    
+    let count = 0;
+    count += document.querySelectorAll('input[data-filter]:checked').length;
+    ['filter-children', 'filter-apartment', 'filter-dogs', 'filter-cats', 'filter-protective'].forEach(id => {
+        if (document.getElementById(id)?.checked) count++;
+    });
+    
+    if (count > 0) {
+        badge.textContent = count;
+        badge.classList.remove('hidden');
+    } else {
+        badge.classList.add('hidden');
+    }
+}
+
 function updateAutocomplete(query) {
     const dropdown = document.getElementById('search-autocomplete');
     if (!dropdown) return;
@@ -368,6 +437,7 @@ function applyFilters() {
     const sheddingFilters = Array.from(document.querySelectorAll('input[data-filter="shedding"]:checked')).map(cb => cb.value);
     const experienceFilters = Array.from(document.querySelectorAll('input[data-filter="experience"]:checked')).map(cb => cb.value);
     const traitFilters = Array.from(document.querySelectorAll('input[data-filter="trait"]:checked')).map(cb => cb.value);
+    const groupFilters = Array.from(document.querySelectorAll('input[data-filter="group"]:checked')).map(cb => cb.value);
     
     const childrenFilter = document.getElementById('filter-children')?.checked || false;
     const apartmentFilter = document.getElementById('filter-apartment')?.checked || false;
@@ -391,6 +461,7 @@ function applyFilters() {
         if (coatFilters.length > 0 && !coatFilters.includes(breed.coat?.length)) return false;
         if (sheddingFilters.length > 0 && !sheddingFilters.includes(breed.coat?.shedding)) return false;
         if (experienceFilters.length > 0 && !experienceFilters.includes(breed.training?.experience_required)) return false;
+        if (groupFilters.length > 0 && !groupFilters.includes(breed.breed_group)) return false;
         if (childrenFilter && breed.temperament?.good_with_children !== true) return false;
         if (apartmentFilter && breed.living?.apartment_friendly !== true) return false;
         if (dogsFilter && breed.temperament?.good_with_dogs !== true) return false;
@@ -464,6 +535,11 @@ function updateActiveFilters() {
         chips.push({ type: 'trait', value: cb.value, label: cb.value });
     });
     
+    // Group filters
+    document.querySelectorAll('input[data-filter="group"]:checked').forEach(cb => {
+        chips.push({ type: 'group', value: cb.value, label: cb.value });
+    });
+    
     // Toggles
     if (document.getElementById('filter-children')?.checked) {
         chips.push({ type: 'toggle', id: 'filter-children', label: 'Compatible enfants' });
@@ -502,6 +578,7 @@ function updateActiveFilters() {
     
     if (chips.length === 0) {
         container.classList.add('hidden');
+        updateMobileFilterCount();
         return;
     }
     
@@ -515,10 +592,12 @@ function updateActiveFilters() {
             </button>
         </span>
     `).join('');
+    
+    updateMobileFilterCount();
 }
 
 function removeFilter(type, value) {
-    if (type === 'size' || type === 'energy' || type === 'coat' || type === 'shedding' || type === 'experience' || type === 'trait') {
+    if (type === 'size' || type === 'energy' || type === 'coat' || type === 'shedding' || type === 'experience' || type === 'trait' || type === 'group') {
         const checkbox = document.querySelector(`input[data-filter="${type}"][value="${value}"]`);
         if (checkbox) checkbox.checked = false;
     } else if (type === 'toggle') {
@@ -744,10 +823,15 @@ function updateComparisonBar() {
     
     if (compareList.length === 0) {
         bar.classList.add('translate-y-full');
+        document.getElementById('mobile-filter-btn')?.classList.remove('hidden');
         return;
     }
     
     bar.classList.remove('translate-y-full');
+    // Hide mobile filter btn to avoid overlap
+    if (window.innerWidth < 1024) {
+        document.getElementById('mobile-filter-btn')?.classList.add('hidden');
+    }
     
     if (thumbnailsEl) {
         thumbnailsEl.innerHTML = compareList.map(id => {
