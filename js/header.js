@@ -53,7 +53,7 @@ function renderHeader() {
                         <a href="/" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Accueil</a>
                         <a href="/#races" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Les races</a>
                         <a href="/compare.html" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Comparer</a>
-                        <a href="/tel-maitre-tel-chien.html" class="text-sm font-medium text-white bg-gradient-to-r from-primary-500 to-purple-500 px-3 py-1.5 rounded-lg hover:shadow-lg transition-all">🐕 Tel Maître, Tel Chien</a>
+                        <a href="/tel-maitre-tel-chien.html" class="relative text-sm font-medium px-3 py-1.5 rounded-lg transition-all hover:shadow-lg" style="background:white;"><span style="position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:linear-gradient(135deg,#3b82f6,#9333ea);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;"></span><span class="bg-gradient-to-r from-primary-500 to-purple-500 bg-clip-text text-transparent">🐕 Tel Maître, Tel Chien</span></a>
                     </nav>
                     
                     <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-primary-600">
