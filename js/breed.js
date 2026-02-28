@@ -16,8 +16,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function loadBreedDetails(breedId) {
     try {
-        const response = await fetch('data/breeds.json');
-        const data = await response.json();
+        const [breedsResponse, slugsResponse] = await Promise.all([
+            fetch('/data/breeds.json'),
+            fetch('/data/breed-slugs.json')
+        ]);
+        const data = await breedsResponse.json();
+        const slugsMap = await slugsResponse.json();
         const breed = data.breeds.find(b => b.id === breedId);
         
         if (!breed) {
@@ -25,8 +29,9 @@ async function loadBreedDetails(breedId) {
             return;
         }
         
-        // Charger toutes les races pour les suggestions
+        // Charger toutes les races et slugs pour les suggestions
         window.allBreedsData = data.breeds;
+        window.breedSlugs = slugsMap;
         displayBreedProfile(breed);
         updateMetaTags(breed);
     } catch (error) {
@@ -242,7 +247,7 @@ function displayBreedProfile(breed) {
     container.innerHTML = `
         <!-- Back Button -->
         <div class="mb-6">
-            <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-xl border border-slate-200 text-slate-600 hover:text-primary-600 hover:border-primary-300 hover:shadow-md transition-all">
+            <a href="/" class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-xl border border-slate-200 text-slate-600 hover:text-primary-600 hover:border-primary-300 hover:shadow-md transition-all">
                 <i class="fas fa-arrow-left"></i>
                 <span class="font-medium">Retour</span>
             </a>
@@ -259,7 +264,7 @@ function displayBreedProfile(breed) {
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" style="z-index:2"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-8 lg:p-12" style="z-index:3">
                     <nav class="text-white/70 text-sm mb-4">
-                        <a href="index.html" class="hover:text-white transition-colors">Accueil</a>
+                        <a href="/" class="hover:text-white transition-colors">Accueil</a>
                         <span class="mx-2">/</span>
                         <span>${groupLabels[breed.breed_group] || 'Races'}</span>
                         <span class="mx-2">/</span>
@@ -330,7 +335,7 @@ function displayBreedProfile(breed) {
                     </div>
                     
                     <div class="mt-6 pt-6 border-t border-slate-100">
-                        <a href="index.html" class="block w-full py-3 px-4 bg-primary-600 hover:bg-primary-700 text-white text-center font-medium rounded-xl transition-colors">
+                        <a href="/" class="block w-full py-3 px-4 bg-primary-600 hover:bg-primary-700 text-white text-center font-medium rounded-xl transition-colors">
                             Voir toutes les races
                         </a>
                     </div>
@@ -563,7 +568,7 @@ function displayBreedProfile(breed) {
                     <p class="text-slate-600 mb-6">Basé sur la taille, le caractère et les critères de compatibilité similaires :</p>
                     <div class="grid sm:grid-cols-2 gap-4">
                         ${similarBreeds.map(similar => `
-                            <a href="breed.html?id=${similar.id}" class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 hover:border-primary-300 hover:bg-slate-50 transition-all group">
+                            <a href="/races/${window.breedSlugs && window.breedSlugs[similar.id] ? window.breedSlugs[similar.id] : similar.id}.html" class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 hover:border-primary-300 hover:bg-slate-50 transition-all group">
                                 ${similar.image?.url ? 
                                     `<img src="${similar.image.url}" alt="${similar.name}" class="w-16 h-16 rounded-lg object-cover">` :
                                     `<div class="w-16 h-16 rounded-lg bg-slate-100 flex items-center justify-center text-2xl">🐕</div>`
@@ -591,7 +596,7 @@ function showError(message) {
             <div class="max-w-2xl mx-auto text-center py-20">
                 <div class="text-6xl mb-4">😕</div>
                 <h2 class="text-2xl font-bold text-slate-800 mb-4">${message}</h2>
-                <a href="index.html" class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium">
+                <a href="/" class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium">
                     <i class="fas fa-arrow-left"></i>
                     Retour au catalogue
                 </a>

@@ -3,8 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Race de Chien - Encyclopédie complète des races canines. Trouvez la race idéale avec nos filtres intelligents : taille, caractère, énergie, compatibilité.">
-    <title>Race de Chien | Encyclopédie Complète des Races Canines</title>
+    <meta name="description" content="Découvrez les 169 races de chiens : caractère, taille, énergie, compatibilité. Trouvez la race idéale grâce à nos filtres intelligents et comparez les races entre elles.">
+    <title>Race de Chien | Encyclopédie Complète des 169 Races Canines</title>
+    <link rel="canonical" href="https://race-de-chien.com/">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Race de Chien | Encyclopédie Complète des 169 Races Canines">
+    <meta property="og:description" content="Découvrez les 169 races de chiens : caractère, taille, énergie, compatibilité. Trouvez la race idéale grâce à nos filtres intelligents.">
+    <meta property="og:url" content="https://race-de-chien.com/">
+    <meta property="og:image" content="https://race-de-chien.com/images/breeds/115.jpg">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Race de Chien">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Race de Chien | Encyclopédie Complète des 169 Races Canines">
+    <meta name="twitter:description" content="Découvrez les 169 races de chiens : caractère, taille, énergie, compatibilité. Trouvez la race idéale grâce à nos filtres intelligents.">
+    <meta name="twitter:image" content="https://race-de-chien.com/images/breeds/115.jpg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Race de Chien",
+        "url": "https://race-de-chien.com",
+        "description": "Encyclopédie complète des 169 races de chiens avec filtres intelligents",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://race-de-chien.com/?search={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Encyclopédie des Races de Chiens",
+        "description": "Découvrez les 169 races de chiens : caractère, taille, énergie, compatibilité.",
+        "url": "https://race-de-chien.com/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Race de Chien",
+            "url": "https://race-de-chien.com"
+        },
+        "numberOfItems": 169
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -700,5 +748,39 @@
     </script>
     <script src="js/header.js"></script>
     <script src="js/app.js"></script>
+
+    <!-- Footer SEO -->
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">🐕 Race de Chien</h3>
+                    <p class="text-sm">Encyclopédie complète des 169 races canines. Trouvez la race idéale grâce à nos filtres intelligents.</p>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Navigation</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+                        <li><a href="/compare.html" class="hover:text-white transition-colors">Comparer les races</a></li>
+                        <li><a href="/sitemap.xml" class="hover:text-white transition-colors">Plan du site</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Races populaires</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/races/berger-allemand.html" class="hover:text-white transition-colors">Berger Allemand</a></li>
+                        <li><a href="/races/golden-retriever.html" class="hover:text-white transition-colors">Golden Retriever</a></li>
+                        <li><a href="/races/labrador-retriever.html" class="hover:text-white transition-colors">Labrador Retriever</a></li>
+                        <li><a href="/races/bouledogue-francais.html" class="hover:text-white transition-colors">Bouledogue Français</a></li>
+                        <li><a href="/races/berger-australien.html" class="hover:text-white transition-colors">Berger Australien</a></li>
+                        <li><a href="/races/husky-siberien.html" class="hover:text-white transition-colors">Husky Sibérien</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 pt-6 text-center text-sm">
+                <p>© 2026 <a href="https://race-de-chien.com" class="hover:text-white">Race de Chien</a> - Encyclopédie canine complète</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

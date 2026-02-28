@@ -17,7 +17,7 @@ function breedSlug(name) {
 
 // URL vers la page statique d'une race
 function breedUrl(breed) {
-    return `races/${breedSlug(breed.name_fr || breed.name)}.html`;
+    return `/races/${breedSlug(breed.name_fr || breed.name)}.html`;
 }
 
 // Traductions complètes
@@ -709,7 +709,7 @@ function setupComparison() {
             alert('Sélectionnez au moins 2 races à comparer');
             return;
         }
-        window.location.href = `compare.html?ids=${compareList.join(',')}`;
+        window.location.href = `/compare.html?ids=${compareList.join(',')}`;
     });
     
     clearBtn?.addEventListener('click', () => {

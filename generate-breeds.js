@@ -175,7 +175,7 @@ function generateBreedPage(breed) {
     const temperament = breed.temperament || {};
     const training = breed.training || {};
     const living = breed.living || {};
-    const imageUrl = breed.image?.url ? `../${breed.image.url}` : '';
+    const imageUrl = breed.image?.url ? `/${breed.image.url}` : '';
     const richContent = generateRichContent(breed, physical, temperament, coat, living, training);
     const translatedTraits = (temperament.traits || []).map(t => traitTranslations[t.trim()] || t.trim());
     const translatedPurpose = translateBredFor(breed.bred_for);
@@ -248,7 +248,7 @@ function generateBreedPage(breed) {
     <main class="max-w-7xl mx-auto px-6 py-8 pt-24">
         <!-- Retour -->
         <div class="mb-6">
-            <a href="../index.html" class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-xl border border-slate-200 text-slate-600 hover:text-primary-600 hover:border-primary-300 hover:shadow-md transition-all">
+            <a href="/" class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-xl border border-slate-200 text-slate-600 hover:text-primary-600 hover:border-primary-300 hover:shadow-md transition-all">
                 <i class="fas fa-arrow-left"></i>
                 <span class="font-medium">Retour</span>
             </a>
@@ -265,7 +265,7 @@ function generateBreedPage(breed) {
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" style="z-index:2"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-8 lg:p-12" style="z-index:3">
                     <nav class="text-white/70 text-sm mb-4">
-                        <a href="../index.html" class="hover:text-white transition-colors">Accueil</a>
+                        <a href="/" class="hover:text-white transition-colors">Accueil</a>
                         <span class="mx-2">/</span>
                         <span>${groupLabels[breed.breed_group] || 'Races'}</span>
                         <span class="mx-2">/</span>
@@ -311,7 +311,7 @@ function generateBreedPage(breed) {
                         </div>` : ''}
                     </div>
                     <div class="mt-6 pt-6 border-t border-slate-100">
-                        <a href="../index.html" class="block w-full py-3 px-4 bg-primary-600 hover:bg-primary-700 text-white text-center font-medium rounded-xl transition-colors">Voir toutes les races</a>
+                        <a href="/" class="block w-full py-3 px-4 bg-primary-600 hover:bg-primary-700 text-white text-center font-medium rounded-xl transition-colors">Voir toutes les races</a>
                     </div>
                 </div>
             </aside>
@@ -496,9 +496,9 @@ function generateBreedPage(breed) {
                     <div class="grid sm:grid-cols-2 gap-4">
                         ${similarBreeds.map(similar => {
                             const similarSlug = slugify(similar.name_fr || similar.name);
-                            const similarImg = similar.image?.url ? `../${similar.image.url}` : '';
+                            const similarImg = similar.image?.url ? `/${similar.image.url}` : '';
                             return `
-                            <a href="${similarSlug}.html" class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 hover:border-primary-300 hover:bg-slate-50 transition-all group">
+                            <a href="/races/${similarSlug}.html" class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 hover:border-primary-300 hover:bg-slate-50 transition-all group">
                                 ${similarImg ? 
                                     `<img src="${similarImg}" alt="${escapeHtml(similar.name)}" class="w-16 h-16 rounded-lg object-cover">` :
                                     `<div class="w-16 h-16 rounded-lg bg-slate-100 flex items-center justify-center text-2xl">🐕</div>`
@@ -523,7 +523,7 @@ function generateBreedPage(breed) {
         </div>
     </footer>
 
-    <script src="../js/header.js"></script>
+    <script src="/js/header.js"></script>
 </body>
 </html>`;
 
