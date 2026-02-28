@@ -252,11 +252,12 @@ function displayBreedProfile(breed) {
         <article class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 mb-8">
             <div class="relative h-[500px] lg:h-[600px]">
                 ${imageUrl ? 
-                    `<img src="${imageUrl}" alt="${breed.name} - chien de race ${sizeLabels[physical.size_category] || 'moyenne'}" class="w-full h-full object-cover object-top">` :
+                    `<img src="${imageUrl}" alt="" class="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-60" aria-hidden="true">
+                     <img src="${imageUrl}" alt="${breed.name} - chien de race ${sizeLabels[physical.size_category] || 'moyenne'}" class="relative w-full h-full object-contain drop-shadow-2xl" style="z-index:1">` :
                     `<div class="w-full h-full bg-gradient-to-br from-primary-100 to-secondary-100 flex items-center justify-center"><span class="text-9xl">🐕</span></div>`
                 }
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-8 lg:p-12">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" style="z-index:2"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-8 lg:p-12" style="z-index:3">
                     <nav class="text-white/70 text-sm mb-4">
                         <a href="index.html" class="hover:text-white transition-colors">Accueil</a>
                         <span class="mx-2">/</span>
