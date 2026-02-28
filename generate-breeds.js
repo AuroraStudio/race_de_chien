@@ -11,7 +11,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Config
-const SITE_URL = 'https://race-de-chien.vercel.app';
+const SITE_URL = 'https://race-de-chien.com';
 const DATA_FILE = path.join(__dirname, 'data', 'breeds.json');
 const OUTPUT_DIR = path.join(__dirname, 'races');
 

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://race-de-chien.vercel.app/sitemap.xml
+Sitemap: https://race-de-chien.com/sitemap.xml
