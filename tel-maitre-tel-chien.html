@@ -596,8 +596,15 @@
 
     // ===== ANALYSIS =====
 
+    let remainingAttempts = null; // null = pas encore connu
+
     async function analyzePhoto() {
         if (!currentImageBase64) return;
+        
+        // Désactiver le bouton pour éviter le double-clic
+        const btnAnalyze = document.getElementById('btn-analyze');
+        btnAnalyze.disabled = true;
+        btnAnalyze.classList.add('opacity-50', 'cursor-not-allowed');
         
         // Show loading
         document.getElementById('capture-section').classList.add('hidden');
@@ -623,13 +630,25 @@
                 })
             });
 
-            if (!response.ok) {
-                const errData = await response.json().catch(() => ({}));
-                throw new Error(errData.error?.message || `API error ${response.status}`);
+            const responseData = await response.json().catch(() => ({}));
+
+            // Gérer le rate limit
+            if (response.status === 429) {
+                remainingAttempts = 0;
+                showError('🐾 Vous avez atteint la limite de 5 essais par jour. Revenez demain pour un nouveau test !');
+                return;
             }
 
-            const data = await response.json();
-            const text = data.content[0].text.trim();
+            if (!response.ok) {
+                throw new Error(responseData.error || `Erreur serveur (${response.status})`);
+            }
+
+            // Mettre à jour les essais restants
+            if (responseData.remaining !== undefined) {
+                remainingAttempts = responseData.remaining;
+            }
+
+            const text = responseData.content[0].text.trim();
             
             // Parse JSON (handle potential markdown wrapping)
             let result;
@@ -638,7 +657,13 @@
                 result = JSON.parse(cleaned);
             } catch (parseErr) {
                 console.error('JSON parse error:', text);
-                throw new Error('Réponse inattendue de l\'IA');
+                throw new Error('Réponse inattendue de l\'IA — veuillez réessayer');
+            }
+
+            // Valider que le slug existe
+            if (breedSlugs && !Object.values(breedSlugs).includes(result.breed_slug)) {
+                console.warn('Slug inconnu retourné:', result.breed_slug);
+                result.breed_slug = 'golden-retriever'; // fallback safe
             }
             
             currentResult = result;
@@ -646,11 +671,23 @@
             
         } catch (error) {
             console.error('Erreur analyse:', error);
-            document.getElementById('loading-section').classList.add('hidden');
-            document.getElementById('hero-section').classList.remove('hidden');
-            document.getElementById('capture-section').classList.remove('hidden');
-            alert('Oups ! Une erreur est survenue lors de l\'analyse. ' + error.message + '\n\nVeuillez réessayer.');
+            showError('😅 ' + error.message + '\n\nVeuillez réessayer avec une autre photo.');
         }
+    }
+
+    function showError(message) {
+        if (window._loadingInterval) clearInterval(window._loadingInterval);
+        document.getElementById('loading-section').classList.add('hidden');
+        document.getElementById('hero-section').classList.remove('hidden');
+        document.getElementById('capture-section').classList.remove('hidden');
+        
+        // Réactiver le bouton
+        const btnAnalyze = document.getElementById('btn-analyze');
+        btnAnalyze.disabled = false;
+        btnAnalyze.classList.remove('opacity-50', 'cursor-not-allowed');
+        
+        // Afficher un message d'erreur élégant au lieu d'un alert
+        showToast(message);
     }
 
     function animateLoading() {
@@ -737,7 +774,49 @@
         document.getElementById('hero-section').classList.remove('hidden');
         document.getElementById('capture-section').classList.remove('hidden');
         resetCapture();
+        
+        // Réactiver le bouton
+        const btnAnalyze = document.getElementById('btn-analyze');
+        btnAnalyze.disabled = false;
+        btnAnalyze.classList.remove('opacity-50', 'cursor-not-allowed');
+        
+        // Afficher le compteur d'essais restants si connu
+        if (remainingAttempts !== null && remainingAttempts <= 2) {
+            showToast(`🐾 Il vous reste ${remainingAttempts} essai${remainingAttempts > 1 ? 's' : ''} aujourd'hui`);
+        }
+        if (remainingAttempts === 0) {
+            showToast('🐾 Vous avez utilisé tous vos essais pour aujourd\'hui. Revenez demain !');
+        }
+        
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ===== TOAST NOTIFICATION =====
+
+    function showToast(message) {
+        // Supprimer un éventuel toast existant
+        const existing = document.getElementById('toast-notification');
+        if (existing) existing.remove();
+        
+        const toast = document.createElement('div');
+        toast.id = 'toast-notification';
+        toast.style.cssText = `
+            position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+            background: #1e293b; color: white; padding: 16px 24px; border-radius: 16px;
+            font-size: 0.95rem; font-weight: 500; z-index: 1000; max-width: 90vw;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2); text-align: center;
+            animation: slide-up 0.4s ease-out; line-height: 1.5;
+            white-space: pre-line;
+        `;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.style.transition = 'opacity 0.4s, transform 0.4s';
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateX(-50%) translateY(10px)';
+            setTimeout(() => toast.remove(), 400);
+        }, 4000);
     }
 
     // ===== CONFETTI =====
