@@ -5,11 +5,10 @@ function renderHeader() {
             <div class="max-w-[1600px] mx-auto px-6 py-4">
                 <div class="flex items-center justify-between">
                     <a href="index.html" class="flex items-center gap-3 group">
-                        <!-- Logo avec bordure fine en dégradé uniquement -->
-                        <div class="relative w-12 h-12 rounded-2xl" style="background: linear-gradient(135deg, #3b82f6, #9333ea); padding: 2px;">
-                            <div class="w-full h-full rounded-2xl bg-white flex items-center justify-center text-2xl">
-                                🐕
-                            </div>
+                        <!-- Logo avec bordure dégradée -->
+                        <div class="relative w-12 h-12 rounded-2xl flex items-center justify-center text-2xl bg-white">
+                            <div style="position:absolute;inset:0;border-radius:inherit;padding:2px;background:linear-gradient(135deg,#3b82f6,#9333ea);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;"></div>
+                            🐕
                         </div>
                         
                         <div>
