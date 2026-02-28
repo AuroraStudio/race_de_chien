@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comparez les races de chiens côte à côte - Race de Chien">
+    <title>Comparaison | Race de Chien</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' },
+                        secondary: { 50: '#fdf4ff', 100: '#fae8ff', 200: '#f5d0fe', 300: '#f0abfc', 400: '#e879f9', 500: '#d946ef', 600: '#c026d3', 700: '#a21caf', 800: '#86198f', 900: '#701a75' },
+                        accent: { 50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74', 400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c', 800: '#9a3412', 900: '#7c2d12' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text { background: linear-gradient(135deg, #2563eb 0%, #c026d3 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .compare-card { transition: all 0.3s ease; }
+        .compare-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15); }
+        .check-good { color: #22c55e; }
+        .check-bad { color: #ef4444; }
+        .check-neutral { color: #94a3b8; }
+        
+        /* Responsive comparison cards */
+        @media (max-width: 768px) {
+            .comparison-section {
+                flex-direction: column;
+            }
+            .breed-column {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans antialiased">
+    <!-- Header -->
+    <!-- Header (injecté par header.js) -->
+    <div class="site-header"></div>
+
+    <div class="pt-24 pb-12 px-4 md:px-6">
+        <div class="max-w-7xl mx-auto">
+            <!-- Title -->
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2">Comparaison de races</h2>
+                <p class="text-slate-500">Comparez les caractéristiques côte à côte</p>
+            </div>
+
+            <!-- Comparison Container -->
+            <div id="comparison-container">
+                <!-- Content will be injected here -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="hidden text-center py-20">
+                <div class="text-6xl mb-4">🐕</div>
+                <h3 class="text-xl font-bold text-slate-700 mb-2">Aucune race sélectionnée</h3>
+                <p class="text-slate-500 mb-6">Retournez à l'accueil pour sélectionner des races à comparer</p>
+                <a href="index.html" class="inline-block px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-xl font-medium transition-colors">
+                    Voir les races
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/header.js"></script>
+    <script>
+        let allBreeds = [];
+
+        const translations = {
+            size: {
+                toy: 'Très petite',
+                small: 'Petite',
+                medium: 'Moyenne',
+                large: 'Grande',
+                giant: 'Géante'
+            },
+            energy: {
+                low: 'Calme',
+                moderate: 'Modéré',
+                high: 'Énergique',
+                very_high: 'Très énergique'
+            },
+            experience: {
+                'Débutant': { label: 'Débutant', color: 'green' },
+                'Intermédiaire': { label: 'Intermédiaire', color: 'yellow' },
+                'Confirmé': { label: 'Confirmé', color: 'orange' },
+                'Expert': { label: 'Expert', color: 'red' }
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const breedIds = urlParams.get('ids')?.split(',') || [];
+
+            if (breedIds.length < 2) {
+                document.getElementById('empty-state').classList.remove('hidden');
+                document.getElementById('comparison-container').classList.add('hidden');
+                return;
+            }
+
+            await loadBreeds();
+            const breedsToCompare = allBreeds.filter(b => breedIds.includes(b.id));
+            
+            if (breedsToCompare.length < 2) {
+                document.getElementById('empty-state').classList.remove('hidden');
+                document.getElementById('comparison-container').classList.add('hidden');
+                return;
+            }
+
+            displayComparison(breedsToCompare);
+        });
+
+        async function loadBreeds() {
+            try {
+                const response = await fetch('data/breeds.json');
+                const data = await response.json();
+                allBreeds = data.breeds;
+            } catch (error) {
+                console.error('Erreur:', error);
+            }
+        }
+
+        function displayComparison(breeds) {
+            const container = document.getElementById('comparison-container');
+            
+            // Create responsive grid based on number of breeds
+            const gridCols = breeds.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3';
+            
+            let html = `
+                <!-- Breed Cards Header -->
+                <div class="grid grid-cols-1 ${gridCols} gap-4 md:gap-6 mb-8">
+                    ${breeds.map(breed => `
+                        <a href="breed.html?id=${breed.id}" class="compare-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                            <div class="h-48 md:h-56 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
+                                ${breed.image?.url ? 
+                                    `<img src="${breed.image.url}" alt="${breed.name}" class="w-full h-full object-cover">` :
+                                    `<div class="w-full h-full flex items-center justify-center text-6xl">🐕</div>`
+                                }
+                            </div>
+                            <div class="p-4 text-center">
+                                <h3 class="text-lg md:text-xl font-bold text-slate-900">${breed.name}</h3>
+                                <p class="text-sm text-slate-500">${breed.origin || 'Origine inconnue'}</p>
+                            </div>
+                        </a>
+                    `).join('')}
+                </div>
+
+                <!-- Comparison Table -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    ${createComparisonRows(breeds)}
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function createComparisonRows(breeds) {
+            const features = [
+                { label: 'Taille', icon: 'fa-ruler-vertical', getValue: b => translations.size[b.physical?.size_category] || 'Moyenne' },
+                { label: 'Poids', icon: 'fa-weight', getValue: b => {
+                    const w = b.physical?.weight_kg;
+                    return w ? `${w.min || w.average}-${w.max || w.average} kg` : 'N/A';
+                }},
+                { label: 'Durée de vie', icon: 'fa-heartbeat', getValue: b => {
+                    const l = b.physical?.life_span_years;
+                    return l ? `${l.min || l.average}-${l.max || l.average} ans` : 'N/A';
+                }},
+                { label: 'Niveau d\'énergie', icon: 'fa-bolt', getValue: b => translations.energy[b.temperament?.energy_level] || 'Modéré' },
+                { label: 'Expérience requise', icon: 'fa-graduation-cap', getValue: b => {
+                    const exp = b.training?.experience_required;
+                    return exp ? `<span class="px-2 py-1 rounded text-xs font-medium bg-${translations.experience[exp]?.color || 'gray'}-100 text-${translations.experience[exp]?.color || 'gray'}-700">${exp}</span>` : 'N/A';
+                }},
+                { label: 'Compatible enfants', icon: 'fa-child', getValue: b => getCheckIcon(b.temperament?.good_with_children) },
+                { label: 'Adapté appartement', icon: 'fa-building', getValue: b => getCheckIcon(b.living?.apartment_friendly) },
+                { label: 'Compatible chiens', icon: 'fa-dog', getValue: b => getCheckIcon(b.temperament?.good_with_dogs) },
+                { label: 'Compatible chats', icon: 'fa-cat', getValue: b => getCheckIcon(b.temperament?.good_with_cats) },
+                { label: 'Chien de garde', icon: 'fa-shield-alt', getValue: b => getCheckIcon(b.temperament?.protective) },
+                { label: 'Longueur du poil', icon: 'fa-cut', getValue: b => b.coat?.length || 'N/A' },
+                { label: 'Perte de poils', icon: 'fa-wind', getValue: b => b.coat?.shedding || 'N/A' },
+                { label: 'Exercice quotidien', icon: 'fa-running', getValue: b => {
+                    const mins = b.living?.exercise_needs?.daily_minutes;
+                    return mins ? `${mins} min/jour` : 'N/A';
+                }},
+                { label: 'Facilité d\'éducation', icon: 'fa-brain', getValue: b => b.training?.trainability || 'N/A' },
+            ];
+
+            const colClass = breeds.length === 2 ? 'grid-cols-3' : 'grid-cols-4';
+
+            return features.map((feature, idx) => `
+                <div class="grid ${colClass} border-b border-slate-100 last:border-0 ${idx % 2 === 0 ? 'bg-white' : 'bg-slate-50'}">
+                    <div class="p-3 md:p-4 font-medium text-slate-700 flex items-center gap-2 text-sm md:text-base">
+                        <i class="fas ${feature.icon} text-primary-500 w-5"></i>
+                        <span class="hidden md:inline">${feature.label}</span>
+                        <span class="md:hidden">${feature.label.split(' ')[0]}</span>
+                    </div>
+                    ${breeds.map(breed => `
+                        <div class="p-3 md:p-4 text-center flex items-center justify-center text-sm md:text-base">
+                            ${feature.getValue(breed)}
+                        </div>
+                    `).join('')}
+                </div>
+            `).join('') + `
+                
+                <!-- Traits -->
+                <div class="grid ${colClass} border-b border-slate-100 bg-white">
+                    <div class="p-3 md:p-4 font-medium text-slate-700 flex items-center gap-2 text-sm md:text-base">
+                        <i class="fas fa-star text-primary-500 w-5"></i>
+                        <span class="hidden md:inline">Traits de caractère</span>
+                        <span class="md:hidden">Traits</span>
+                    </div>
+                    ${breeds.map(breed => `
+                        <div class="p-3 md:p-4">
+                            <div class="flex flex-wrap gap-1 justify-center">
+                                ${(breed.temperament?.traits || []).slice(0, 4).map(t => 
+                                    `<span class="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs">${t}</span>`
+                                ).join('')}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <!-- Description -->
+                <div class="grid ${colClass} bg-slate-50">
+                    <div class="p-3 md:p-4 font-medium text-slate-700 flex items-center gap-2 text-sm md:text-base">
+                        <i class="fas fa-align-left text-primary-500 w-5"></i>
+                        <span>Description</span>
+                    </div>
+                    ${breeds.map(breed => `
+                        <div class="p-3 md:p-4 text-sm text-slate-600">
+                            ${breed.description?.substring(0, 120) || 'Pas de description'}...
+                        </div>
+                    `).join('')}
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="grid ${colClass} bg-white border-t border-slate-100">
+                    <div class="p-3 md:p-4"></div>
+                    ${breeds.map(breed => `
+                        <div class="p-3 md:p-4 text-center">
+                            <a href="breed.html?id=${breed.id}" 
+                               class="inline-block px-4 md:px-6 py-2 md:py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-xl font-medium transition-colors text-sm md:text-base">
+                                Voir la fiche
+                            </a>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function getCheckIcon(value) {
+            if (value === true) return '<i class="fas fa-check-circle check-good text-xl"></i>';
+            if (value === false) return '<i class="fas fa-times-circle check-bad text-xl"></i>';
+            return '<i class="fas fa-question-circle check-neutral text-xl"></i>';
+        }
+    </script>
+</body>
+</html>

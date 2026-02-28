@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Race de Chien - Encyclopédie complète des races canines. Trouvez la race idéale avec nos filtres intelligents : taille, caractère, énergie, compatibilité.">
+    <title>Race de Chien | Encyclopédie Complète des Races Canines</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' },
+                        secondary: { 50: '#fdf4ff', 100: '#fae8ff', 200: '#f5d0fe', 300: '#f0abfc', 400: '#e879f9', 500: '#d946ef', 600: '#c026d3', 700: '#a21caf', 800: '#86198f', 900: '#701a75' },
+                        accent: { 50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74', 400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c', 800: '#9a3412', 900: '#7c2d12' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text { background: linear-gradient(135deg, #2563eb 0%, #c026d3 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
+        .filter-checkbox:checked + div { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; border-color: transparent; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Active filter chips */
+        .filter-chip {
+            animation: chipIn 0.2s ease-out;
+        }
+        @keyframes chipIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        /* Autocomplete dropdown */
+        .autocomplete-dropdown {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .autocomplete-item:hover {
+            background-color: #eff6ff;
+        }
+        
+        /* Range slider styling */
+        .slider-container {
+            position: relative;
+            height: 24px;
+        }
+        .slider-track {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            transform: translateY(-50%);
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: transparent;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #3b82f6;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            pointer-events: auto;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            background: #3b82f6;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            pointer-events: auto;
+        }
+        
+        /* Comparison checkbox */
+        .compare-checkbox:checked + div {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        
+        /* Trait chips styling */
+        .trait-checkbox:checked + span {
+            background-color: #3b82f6 !important;
+            color: white !important;
+            border-color: #3b82f6 !important;
+        }
+        
+        /* Weight badge colors */
+        .weight-light { background: linear-gradient(135deg, #86efac 0%, #22c55e 100%); }
+        .weight-medium { background: linear-gradient(135deg, #fde047 0%, #eab308 100%); }
+        .weight-heavy { background: linear-gradient(135deg, #fca5a5 0%, #ef4444 100%); }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans antialiased">
+    <!-- Header -->
+    <!-- Header (injecté par header.js) -->
+    <div class="site-header"></div>
+
+    <div class="pt-20 flex min-h-screen">
+        <!-- Sidebar Filters -->
+        <aside class="w-80 bg-white border-r border-slate-200 fixed h-[calc(100vh-80px)] overflow-y-auto custom-scrollbar hidden lg:block">
+            <div class="p-6">
+                <!-- Search with Autocomplete -->
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-slate-700 mb-3">
+                        <i class="fas fa-search mr-2 text-primary-500"></i>Rechercher une race
+                    </label>
+                    <div class="relative">
+                        <input type="text" id="filter-search" 
+                            placeholder="Ex: Berger Allemand..."
+                            class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                            autocomplete="off">
+                        <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <div id="search-autocomplete" class="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-lg border border-slate-200 hidden z-50 autocomplete-dropdown">
+                            <!-- Autocomplete items will be injected here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Toggles (Most Important) -->
+                <div class="mb-8 space-y-4">
+                    <label class="flex items-center justify-between cursor-pointer group">
+                        <span class="text-sm font-medium text-slate-700">
+                            <i class="fas fa-child mr-2 text-green-500"></i>Compatible enfants
+                        </span>
+                        <input type="checkbox" id="filter-children" class="sr-only peer">
+                        <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-500 relative"></div>
+                    </label>
+                    
+                    <label class="flex items-center justify-between cursor-pointer group">
+                        <span class="text-sm font-medium text-slate-700">
+                            <i class="fas fa-building mr-2 text-blue-500"></i>Adapté appartement
+                        </span>
+                        <input type="checkbox" id="filter-apartment" class="sr-only peer">
+                        <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-500 relative"></div>
+                    </label>
+                    
+                    <label class="flex items-center justify-between cursor-pointer group">
+                        <span class="text-sm font-medium text-slate-700">
+                            <i class="fas fa-dog mr-2 text-orange-500"></i>Compatible chiens
+                        </span>
+                        <input type="checkbox" id="filter-dogs" class="sr-only peer">
+                        <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-500 relative"></div>
+                    </label>
+                    
+                    <label class="flex items-center justify-between cursor-pointer group">
+                        <span class="text-sm font-medium text-slate-700">
+                            <i class="fas fa-cat mr-2 text-purple-500"></i>Compatible chats
+                        </span>
+                        <input type="checkbox" id="filter-cats" class="sr-only peer">
+                        <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-500 relative"></div>
+                    </label>
+                    
+                    <label class="flex items-center justify-between cursor-pointer group">
+                        <span class="text-sm font-medium text-slate-700">
+                            <i class="fas fa-shield-alt mr-2 text-red-500"></i>Chien de garde
+                        </span>
+                        <input type="checkbox" id="filter-protective" class="sr-only peer">
+                        <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-500 relative"></div>
+                    </label>
+                </div>
+
+                <!-- Personality Traits Filter -->
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-slate-700 mb-3">
+                        <i class="fas fa-brain mr-2 text-purple-500"></i>Traits de personnalité
+                    </label>
+                    <p class="text-xs text-slate-500 mb-3">Sélectionnez les caractères qui vous intéressent</p>
+                    
+                    <!-- Intelligence & Apprendre -->
+                    <div class="mb-4">
+                        <p class="text-xs font-medium text-slate-400 uppercase tracking-wider mb-2">Intelligence</p>
+                        <div class="flex flex-wrap gap-2">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Intelligent" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-purple-100 text-slate-600 hover:text-purple-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-purple-200">
+                                    🧠 Intelligent
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Désireux de plaire" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-purple-100 text-slate-600 hover:text-purple-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-purple-200">
+                                    🎯 Désireux de plaire
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Vigilant" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-purple-100 text-slate-600 hover:text-purple-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-purple-200">
+                                    👁️ Vigilant
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Affection & Social -->
+                    <div class="mb-4">
+                        <p class="text-xs font-medium text-slate-400 uppercase tracking-wider mb-2">Affection & Social</p>
+                        <div class="flex flex-wrap gap-2">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Affectueux" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-pink-100 text-slate-600 hover:text-pink-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-pink-200">
+                                    ❤️ Affectueux
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Amical" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-pink-100 text-slate-600 hover:text-pink-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-pink-200">
+                                    🤝 Amical
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Loyal" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-pink-100 text-slate-600 hover:text-pink-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-pink-200">
+                                    💎 Loyal
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Dévoué" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-pink-100 text-slate-600 hover:text-pink-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-pink-200">
+                                    🛡️ Dévoué
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Joueur" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-pink-100 text-slate-600 hover:text-pink-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-pink-200">
+                                    🎾 Joueur
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Caractère -->
+                    <div class="mb-4">
+                        <p class="text-xs font-medium text-slate-400 uppercase tracking-wider mb-2">Caractère</p>
+                        <div class="flex flex-wrap gap-2">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Confiant" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-blue-200">
+                                    😌 Confiant
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Courageux" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-blue-200">
+                                    🦁 Courageux
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Doux" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-blue-200">
+                                    🕊️ Doux
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Calme" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-blue-200">
+                                    🧘 Calme
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Indépendant" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-blue-200">
+                                    🦅 Indépendant
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Protecteur" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-blue-200">
+                                    ⚔️ Protecteur
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Énergie & Activité -->
+                    <div>
+                        <p class="text-xs font-medium text-slate-400 uppercase tracking-wider mb-2">Énergie & Activité</p>
+                        <div class="flex flex-wrap gap-2">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Énergique" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-orange-100 text-slate-600 hover:text-orange-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-orange-200">
+                                    ⚡ Énergique
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Athlétique" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-orange-100 text-slate-600 hover:text-orange-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-orange-200">
+                                    🏃 Athlétique
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Travail concentré" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-orange-100 text-slate-600 hover:text-orange-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-orange-200">
+                                    🎯 Concentré
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="Adaptable" data-filter="trait" class="hidden trait-checkbox">
+                                <span class="inline-block px-3 py-1.5 bg-slate-100 hover:bg-orange-100 text-slate-600 hover:text-orange-700 rounded-full text-xs font-medium transition-all border border-transparent hover:border-orange-200">
+                                    🔄 Adaptable
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Size Filter -->
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-slate-700 mb-3">
+                        <i class="fas fa-ruler-vertical mr-2 text-secondary-500"></i>Taille au garrot
+                    </label>
+                    <div class="space-y-2">
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="toy" data-filter="size" class="filter-checkbox hidden">
+                            <div class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="text-2xl">🐕</span>
+                                <div>
+                                    <div class="font-medium text-sm">Très petite</div>
+                                    <div class="text-xs text-slate-500">Moins de 28 cm</div>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="small" data-filter="size" class="filter-checkbox hidden">
+                            <div class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="text-2xl">🐕</span>
+                                <div>
+                                    <div class="font-medium text-sm">Petite</div>
+                                    <div class="text-xs text-slate-500">28 - 40 cm</div>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="medium" data-filter="size" class="filter-checkbox hidden">
+                            <div class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="text-2xl">🐕</span>
+                                <div>
+                                    <div class="font-medium text-sm">Moyenne</div>
+                                    <div class="text-xs text-slate-500">40 - 60 cm</div>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="large" data-filter="size" class="filter-checkbox hidden">
+                            <div class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="text-2xl">🐕</span>
+                                <div>
+                                    <div class="font-medium text-sm">Grande</div>
+                                    <div class="text-xs text-slate-500">60 - 70 cm</div>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="giant" data-filter="size" class="filter-checkbox hidden">
+                            <div class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="text-2xl">🐕</span>
+                                <div>
+                                    <div class="font-medium text-sm">Géante</div>
+                                    <div class="text-xs text-slate-500">Plus de 70 cm</div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Energy Filter -->
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-slate-700 mb-3">
+                        <i class="fas fa-bolt mr-2 text-accent-500"></i>Niveau d'énergie
+                    </label>
+                    <div class="space-y-2">
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="low" data-filter="energy" class="filter-checkbox hidden">
+                            <div class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="text-xl">😴</span>
+                                <div>
+                                    <div class="font-medium text-sm">Calme</div>
+                                    <div class="text-xs text-slate-500">Peu d'exercice nécessaire</div>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="moderate" data-filter="energy" class="filter-checkbox hidden">
+                            <div class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="text-xl">🙂</span>
+                                <div>
+                                    <div class="font-medium text-sm">Modéré</div>
+                                    <div class="text-xs text-slate-500">Balades régulières</div>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="high" data-filter="energy" class="filter-checkbox hidden">
+                            <div class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="text-xl">⚡</span>
+                                <div>
+                                    <div class="font-medium text-sm">Énergique</div>
+                                    <div class="text-xs text-slate-500">Sportif, actif</div>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="very_high" data-filter="energy" class="filter-checkbox hidden">
+                            <div class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="text-xl">🚀</span>
+                                <div>
+                                    <div class="font-medium text-sm">Très énergique</div>
+                                    <div class="text-xs text-slate-500">Activité intense requise</div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Experience -->
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-slate-700 mb-3">
+                        <i class="fas fa-graduation-cap mr-2 text-accent-500"></i>Expérience requise
+                    </label>
+                    <div class="space-y-2">
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="Débutant" data-filter="experience" class="filter-checkbox hidden">
+                            <div class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                <span class="text-sm font-medium">Débutant (premier chien)</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="Intermédiaire" data-filter="experience" class="filter-checkbox hidden">
+                            <div class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                <span class="text-sm font-medium">Intermédiaire</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="Confirmé" data-filter="experience" class="filter-checkbox hidden">
+                            <div class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="w-3 h-3 rounded-full bg-orange-500"></span>
+                                <span class="text-sm font-medium">Confirmé</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="Expert" data-filter="experience" class="filter-checkbox hidden">
+                            <div class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                <span class="text-sm font-medium">Expert</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Exercise Duration Filter -->
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-slate-700 mb-3">
+                        <i class="fas fa-running mr-2 text-green-500"></i>Exercice quotidien
+                    </label>
+                    <div class="px-2">
+                        <div class="flex justify-between text-xs text-slate-500 mb-2">
+                            <span id="exercise-min-display">0 min</span>
+                            <span id="exercise-max-display">180 min</span>
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-track"></div>
+                            <input type="range" id="exercise-min" min="0" max="180" value="0" step="15">
+                            <input type="range" id="exercise-max" min="0" max="180" value="180" step="15">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coat Length -->
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-slate-700 mb-3">
+                        <i class="fas fa-cut mr-2 text-primary-500"></i>Longueur du poil
+                    </label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="Sans poil" data-filter="coat" class="filter-checkbox hidden">
+                            <div class="text-center p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <div class="text-2xl mb-1">🥚</div>
+                                <div class="text-xs font-medium">Sans poil</div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="Court" data-filter="coat" class="filter-checkbox hidden">
+                            <div class="text-center p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <div class="text-2xl mb-1">✂️</div>
+                                <div class="text-xs font-medium">Court</div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="Moyen" data-filter="coat" class="filter-checkbox hidden">
+                            <div class="text-center p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <div class="text-2xl mb-1">🦮</div>
+                                <div class="text-xs font-medium">Moyen</div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="checkbox" value="Long" data-filter="coat" class="filter-checkbox hidden">
+                            <div class="text-center p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <div class="text-2xl mb-1">💇</div>
+                                <div class="text-xs font-medium">Long</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Shedding -->
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-slate-700 mb-3">
+                        <i class="fas fa-wind mr-2 text-secondary-500"></i>Perte de poils
+                    </label>
+                    <div class="space-y-2">
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="Minimal" data-filter="shedding" class="filter-checkbox hidden">
+                            <div class="flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="text-sm">✨ Minimal (hypoallergénique)</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="Léger" data-filter="shedding" class="filter-checkbox hidden">
+                            <div class="flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="text-sm">🌸 Léger</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="Modéré" data-filter="shedding" class="filter-checkbox hidden">
+                            <div class="flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="text-sm">🍂 Modéré</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer block">
+                            <input type="checkbox" value="Abondant" data-filter="shedding" class="filter-checkbox hidden">
+                            <div class="flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-primary-300 transition-all">
+                                <span class="text-sm">🌪️ Abondant</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Weight Filter (Less Important) -->
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-slate-700 mb-3">
+                        <i class="fas fa-weight mr-2 text-primary-500"></i>Poids adulte
+                    </label>
+                    <div class="px-2">
+                        <div class="flex justify-between text-xs text-slate-500 mb-2">
+                            <span id="weight-min-display">1 kg</span>
+                            <span id="weight-max-display">100 kg</span>
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-track"></div>
+                            <input type="range" id="weight-min" min="1" max="100" value="1">
+                            <input type="range" id="weight-max" min="1" max="100" value="100">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Life Expectancy Filter (Less Important) -->
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-slate-700 mb-3">
+                        <i class="fas fa-heartbeat mr-2 text-red-500"></i>Espérance de vie
+                    </label>
+                    <div class="px-2">
+                        <div class="flex justify-between text-xs text-slate-500 mb-2">
+                            <span id="life-min-display">6 ans</span>
+                            <span id="life-max-display">20 ans</span>
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-track"></div>
+                            <input type="range" id="life-min" min="6" max="20" value="6">
+                            <input type="range" id="life-max" min="6" max="20" value="20">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reset Button -->
+                <button id="reset-filters" class="w-full py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-xl transition-all flex items-center justify-center gap-2">
+                    <i class="fas fa-undo"></i>
+                    Réinitialiser les filtres
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 lg:ml-80 p-6 lg:p-10">
+            <!-- Active Filters -->
+            <div id="active-filters" class="flex flex-wrap gap-2 mb-4 hidden">
+                <!-- Filter chips will be injected here -->
+            </div>
+            
+            <!-- Results Header -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">
+                        <span id="breed-count" class="text-primary-600">169</span> races trouvées
+                    </h2>
+                    <p class="text-slate-500 mt-1">Explorez notre encyclopédie complète des races canines</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <label class="text-sm text-slate-600">Trier par :</label>
+                    <select id="sort-by" class="px-4 py-2 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm">
+                        <option value="name">Nom A-Z</option>
+                        <option value="size">Taille croissante</option>
+                        <option value="weight">Poids croissant</option>
+                        <option value="life">Espérance de vie</option>
+                        <option value="energy">Niveau d'énergie</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Comparison Bar (sticky) -->
+            <div id="comparison-bar" class="fixed bottom-0 left-0 right-0 lg:left-80 bg-white border-t border-slate-200 p-4 shadow-lg transform translate-y-full transition-transform duration-300 z-40">
+                <div class="max-w-7xl mx-auto flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <span class="text-sm font-medium text-slate-700">
+                            <span id="compare-count">0</span> race(s) sélectionnée(s)
+                        </span>
+                        <div id="compare-thumbnails" class="flex -space-x-2">
+                            <!-- Thumbnails will be injected here -->
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <button id="clear-comparison" class="px-4 py-2 text-slate-600 hover:text-slate-800 text-sm font-medium">
+                            Effacer
+                        </button>
+                        <button id="view-comparison" class="px-6 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-xl text-sm font-medium transition-colors">
+                            Comparer
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Breeds Grid -->
+            <div id="breeds-container" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 pb-24">
+                <!-- Cards will be injected here -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Citations drôles et sympathiques sur les chiens
+        const dogQuotes = [
+            "Le chien est le seul être au monde qui vous aime plus qu'il ne s'aime lui-même.",
+            "Un chien, c'est un peu comme un enfant qui ne grandit jamais... et qui ne réclame jamais la voiture !",
+            "Les chiens ne mentent jamais sur leur amour. Contrairement aux chats, qui ne mentent jamais sur leur indifférence.",
+            "Qui a dit que l'argent ne faisait pas le bonheur ? Il n'a jamais acheté de croquettes apparemment !",
+            "Mon chien n'est pas gros, il est juste... facile à trouver dans le noir.",
+            "Un chien heureux remue la queue. Un chat heureux... existe-t-il vraiment ?",
+            "Les chiens ont des maîtres. Les chats ont du personnel.",
+            "Je ne suis pas paresseux, je suis en mode économie d'énergie. Comme mon chien sur le canapé.",
+            "Le meilleur ami de l'homme ? Celui qui ne juge pas quand on mange du fromage à 3h du matin.",
+            "Un chien, c'est un coeur qui bat au bout d'une laisse.",
+            "Mon chien me regarde manger comme si je venais de gagner à la loterie. À chaque repas.",
+            "Les chiens ne font pas de bruit quand ils pètent. C'est leur super-pouvoir le plus mystérieux.",
+            "Qui besoin d'un réveil quand on a un chien avec une vessie ponctuelle ?",
+            "Mon chien détruit tout ce qu'il touche. Sauf mon cœur, celui-là il le garde intact.",
+            "Un chien, c'est la preuve que Dieu veut qu'on soit heureux... et qu'on ramasse des crottes."
+        ];
+        
+        document.getElementById('random-quote').textContent = 
+            dogQuotes[Math.floor(Math.random() * dogQuotes.length)];
+    </script>
+    <script src="js/header.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

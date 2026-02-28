@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche Race - Race de Chien</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                    colors: {
+                        primary: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' },
+                        secondary: { 50: '#fdf4ff', 100: '#fae8ff', 500: '#d946ef', 600: '#c026d3' },
+                        accent: { 50: '#fff7ed', 100: '#ffedd5', 500: '#f97316', 600: '#ea580c' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 font-sans antialiased">
+    <!-- Header -->
+    <!-- Header (injecté par header.js) -->
+    <div class="site-header"></div>
+
+    <!-- Main Content -->
+    <main id="breed-profile" class="max-w-7xl mx-auto px-6 py-8 pt-24">
+        <!-- Content injected by JS -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="mb-2">© 2026 Race de Chien - Encyclopédie canine complète</p>
+            <p class="text-sm">Données fournies par TheDogAPI</p>
+        </div>
+    </footer>
+
+    <script src="js/header.js"></script>
+    <script src="js/breed.js"></script>
+    <script>
+        // Citations aléatoires sur les chiens
+        const dogQuotes = [
+            "Le chien est le seul être au monde qui vous aime plus qu'il ne s'aime lui-même.",
+            "Un chien est la seule chose sur Terre qui vous aime plus que vous ne vous aimez.",
+            "Les chiens ne sont pas toute notre vie, mais ils rendent notre vie complète.",
+            "Le meilleur ami de l'homme a quatre pattes et un cœur d'or.",
+            "Chaque queue qui remue est un cœur qui bat pour vous.",
+            "Les chiens nous donnent leur temps, leur amour, leur présence... et demandent si peu en retour."
+        ];
+        document.getElementById('random-quote').textContent = dogQuotes[Math.floor(Math.random() * dogQuotes.length)];
+    </script>
+</body>
+</html>
