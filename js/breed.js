@@ -2,6 +2,17 @@
 // FICHE DÉTAILLÉE - 100% FRANÇAIS + CONTENU SEO RICHE
 // ============================================
 
+function formatRange(min, max, unit) {
+    if (!min && !max) return `? ${unit}`;
+    if (!min || !max || min === max) return `${min || max} ${unit}`;
+    return `${min} à ${max} ${unit}`;
+}
+function formatRangeDash(min, max, unit) {
+    if (!min && !max) return `? ${unit}`;
+    if (!min || !max || min === max) return `${min || max} ${unit}`;
+    return `${min} - ${max} ${unit}`;
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const breedId = urlParams.get('id');
@@ -117,9 +128,9 @@ function generateRichContent(breed, physical, temperament, coat, living, trainin
     const sizeLabels = { toy: 'très petite', small: 'petite', medium: 'moyenne', large: 'grande', giant: 'géante' };
     
     const size = sizeLabels[physical.size_category] || 'moyenne';
-    const height = `${physical.height_cm?.min || '?'} à ${physical.height_cm?.max || '?'} cm`;
-    const weight = `${physical.weight_kg?.min || '?'} à ${physical.weight_kg?.max || '?'} kg`;
-    const lifespan = `${physical.life_span_years?.min || '?'} et ${physical.life_span_years?.max || '?'} ans`;
+    const height = formatRange(physical.height_cm?.min, physical.height_cm?.max, 'cm');
+    const weight = formatRange(physical.weight_kg?.min, physical.weight_kg?.max, 'kg');
+    const lifespan = formatRange(physical.life_span_years?.min, physical.life_span_years?.max, 'ans');
     
     return {
         intro: `Le ${breed.name} est une race de chien de taille ${size}, originaire ${breed.origin ? `de ${breed.origin}` : 'd\'Europe'}. ` +
@@ -275,9 +286,9 @@ function displayBreedProfile(breed) {
                     
                     <div class="flex flex-wrap gap-4 text-white/90">
                         ${breed.origin ? `<span class="flex items-center gap-2"><i class="fas fa-map-marker-alt"></i>${breed.origin}</span>` : ''}
-                        <span class="flex items-center gap-2"><i class="fas fa-ruler-vertical"></i>${physical.height_cm?.min || '?'} - ${physical.height_cm?.max || '?'} cm</span>
-                        <span class="flex items-center gap-2"><i class="fas fa-weight"></i>${physical.weight_kg?.min || '?'} - ${physical.weight_kg?.max || '?'} kg</span>
-                        <span class="flex items-center gap-2"><i class="fas fa-heart"></i>${physical.life_span_years?.min || '?'} - ${physical.life_span_years?.max || '?'} ans</span>
+                        <span class="flex items-center gap-2"><i class="fas fa-ruler-vertical"></i>${formatRangeDash(physical.height_cm?.min, physical.height_cm?.max, 'cm')}</span>
+                        <span class="flex items-center gap-2"><i class="fas fa-weight"></i>${formatRangeDash(physical.weight_kg?.min, physical.weight_kg?.max, 'kg')}</span>
+                        <span class="flex items-center gap-2"><i class="fas fa-heart"></i>${formatRangeDash(physical.life_span_years?.min, physical.life_span_years?.max, 'ans')}</span>
                     </div>
                 </div>
             </div>
@@ -295,7 +306,7 @@ function displayBreedProfile(breed) {
                             <div class="w-10 h-10 rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center"><i class="fas fa-ruler-vertical"></i></div>
                             <div>
                                 <div class="text-xs text-slate-500">Taille</div>
-                                <div class="font-semibold text-slate-900">${physical.height_cm?.min || '?'} - ${physical.height_cm?.max || '?'} cm</div>
+                                <div class="font-semibold text-slate-900">${formatRangeDash(physical.height_cm?.min, physical.height_cm?.max, 'cm')}</div>
                             </div>
                         </div>
                         
@@ -303,7 +314,7 @@ function displayBreedProfile(breed) {
                             <div class="w-10 h-10 rounded-xl bg-secondary-100 text-secondary-600 flex items-center justify-center"><i class="fas fa-weight"></i></div>
                             <div>
                                 <div class="text-xs text-slate-500">Poids</div>
-                                <div class="font-semibold text-slate-900">${physical.weight_kg?.min || '?'} - ${physical.weight_kg?.max || '?'} kg</div>
+                                <div class="font-semibold text-slate-900">${formatRangeDash(physical.weight_kg?.min, physical.weight_kg?.max, 'kg')}</div>
                             </div>
                         </div>
                         
@@ -311,7 +322,7 @@ function displayBreedProfile(breed) {
                             <div class="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center"><i class="fas fa-heart"></i></div>
                             <div>
                                 <div class="text-xs text-slate-500">Espérance de vie</div>
-                                <div class="font-semibold text-slate-900">${physical.life_span_years?.min || '?'} - ${physical.life_span_years?.max || '?'} ans</div>
+                                <div class="font-semibold text-slate-900">${formatRangeDash(physical.life_span_years?.min, physical.life_span_years?.max, 'ans')}</div>
                             </div>
                         </div>
                         

@@ -19,6 +19,30 @@ const OUTPUT_DIR = path.join(__dirname, 'races');
 const data = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
 const breeds = data.breeds;
 
+// Helper: formater une plage min-max intelligemment
+function formatRange(min, max, unit) {
+    if (!min && !max) return `? ${unit}`;
+    if (!min || !max || min === max) return `${min || max} ${unit}`;
+    return `${min} à ${max} ${unit}`;
+}
+function formatRangeDash(min, max, unit) {
+    if (!min && !max) return `? ${unit}`;
+    if (!min || !max || min === max) return `${min || max} ${unit}`;
+    return `${min} - ${max} ${unit}`;
+}
+// Helper: phrase naturelle pour une plage (ex: "de 55 à 65 cm" ou "d'environ 40 cm")
+function formatRangePhrase(min, max, unit) {
+    if (!min && !max) return `non renseigné`;
+    if (!min || !max || min === max) return `d'environ ${min || max} ${unit}`;
+    return `de ${min} à ${max} ${unit}`;
+}
+// Helper: phrase pour espérance de vie
+function formatLifePhrase(min, max) {
+    if (!min && !max) return `non renseignée`;
+    if (!min || !max || min === max) return `d'environ ${min || max} ans`;
+    return `de ${min} à ${max} ans`;
+}
+
 // Créer le dossier /races/
 if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
@@ -96,16 +120,16 @@ const traitTranslations = {
 
 function generateRichContent(breed, physical, temperament, coat, living, training) {
     const size = sizeLabelsMini[physical.size_category] || 'moyenne';
-    const height = `${physical.height_cm?.min || '?'} à ${physical.height_cm?.max || '?'} cm`;
-    const weight = `${physical.weight_kg?.min || '?'} à ${physical.weight_kg?.max || '?'} kg`;
-    const lifespan = `${physical.life_span_years?.min || '?'} et ${physical.life_span_years?.max || '?'} ans`;
+    const height = formatRange(physical.height_cm?.min, physical.height_cm?.max, 'cm');
+    const weight = formatRange(physical.weight_kg?.min, physical.weight_kg?.max, 'kg');
+    const lifespan = formatRange(physical.life_span_years?.min, physical.life_span_years?.max, 'ans');
 
     return {
         intro: `Le ${breed.name} est une race de chien de taille ${size}, originaire ${breed.origin ? `de ${breed.origin}` : "d'Europe"}. ` +
                `Cette race se caractérise par son caractère ${(temperament.traits || []).slice(0, 2).join(' et ').toLowerCase() || 'équilibré et affectueux'}. ` +
-               `Avec une taille au garrot de ${height} pour un poids de ${weight}, ` +
+               `Avec une taille au garrot ${formatRangePhrase(physical.height_cm?.min, physical.height_cm?.max, 'cm')} pour un poids ${formatRangePhrase(physical.weight_kg?.min, physical.weight_kg?.max, 'kg')}, ` +
                `c'est un compagnon ${physical.size_category === 'toy' || physical.size_category === 'small' ? 'idéal pour la vie en appartement' : 'parfait pour les familles actives'}. ` +
-               `Son espérance de vie se situe entre ${lifespan}.`,
+               `Son espérance de vie est ${formatLifePhrase(physical.life_span_years?.min, physical.life_span_years?.max)}.`,
 
         caractere: `Le tempérament du ${breed.name} est globalement ${(temperament.sociability || 'équilibré').toLowerCase()}. ` +
                    `${temperament.good_with_children ? "C'est un excellent chien de famille qui s'entend parfaitement avec les enfants, offrant patience et affection." : "Cette race demande une socialisation précoce et une supervision lors des interactions avec les jeunes enfants."} ` +
@@ -183,7 +207,7 @@ function generateBreedPage(breed) {
     const pageUrl = `${SITE_URL}/races/${slug}.html`;
     
     const metaTitle = `${breed.name} : Caractère, Éducation, Santé | Race de Chien`;
-    const metaDescription = `Tout savoir sur le ${breed.name} : caractère ${translatedTraits.slice(0, 3).join(', ').toLowerCase()}, taille ${physical.height_cm?.min || '?'}-${physical.height_cm?.max || '?'} cm, poids ${physical.weight_kg?.min || '?'}-${physical.weight_kg?.max || '?'} kg. Guide complet.`;
+    const metaDescription = `Tout savoir sur le ${breed.name} : caractère ${translatedTraits.slice(0, 3).join(', ').toLowerCase()}, taille ${formatRangeDash(physical.height_cm?.min, physical.height_cm?.max, 'cm')}, poids ${formatRangeDash(physical.weight_kg?.min, physical.weight_kg?.max, 'kg')}. Guide complet.`;
 
     // Schema.org JSON-LD
     const jsonLd = {
@@ -281,9 +305,9 @@ function generateBreedPage(breed) {
                     <h1 class="text-4xl lg:text-6xl font-bold text-white mb-4">${escapeHtml(breed.name)}</h1>
                     <div class="flex flex-wrap gap-4 text-white/90">
                         ${breed.origin ? `<span class="flex items-center gap-2"><i class="fas fa-map-marker-alt"></i>${escapeHtml(breed.origin)}</span>` : ''}
-                        <span class="flex items-center gap-2"><i class="fas fa-ruler-vertical"></i>${physical.height_cm?.min || '?'} - ${physical.height_cm?.max || '?'} cm</span>
-                        <span class="flex items-center gap-2"><i class="fas fa-weight"></i>${physical.weight_kg?.min || '?'} - ${physical.weight_kg?.max || '?'} kg</span>
-                        <span class="flex items-center gap-2"><i class="fas fa-heart"></i>${physical.life_span_years?.min || '?'} - ${physical.life_span_years?.max || '?'} ans</span>
+                        <span class="flex items-center gap-2"><i class="fas fa-ruler-vertical"></i>${formatRangeDash(physical.height_cm?.min, physical.height_cm?.max, 'cm')}</span>
+                        <span class="flex items-center gap-2"><i class="fas fa-weight"></i>${formatRangeDash(physical.weight_kg?.min, physical.weight_kg?.max, 'kg')}</span>
+                        <span class="flex items-center gap-2"><i class="fas fa-heart"></i>${formatRangeDash(physical.life_span_years?.min, physical.life_span_years?.max, 'ans')}</span>
                     </div>
                 </div>
             </div>
@@ -297,15 +321,15 @@ function generateBreedPage(breed) {
                     <div class="space-y-4">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center"><i class="fas fa-ruler-vertical"></i></div>
-                            <div><div class="text-xs text-slate-500">Taille</div><div class="font-semibold text-slate-900">${physical.height_cm?.min || '?'} - ${physical.height_cm?.max || '?'} cm</div></div>
+                            <div><div class="text-xs text-slate-500">Taille</div><div class="font-semibold text-slate-900">${formatRangeDash(physical.height_cm?.min, physical.height_cm?.max, 'cm')}</div></div>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-secondary-100 text-secondary-600 flex items-center justify-center"><i class="fas fa-weight"></i></div>
-                            <div><div class="text-xs text-slate-500">Poids</div><div class="font-semibold text-slate-900">${physical.weight_kg?.min || '?'} - ${physical.weight_kg?.max || '?'} kg</div></div>
+                            <div><div class="text-xs text-slate-500">Poids</div><div class="font-semibold text-slate-900">${formatRangeDash(physical.weight_kg?.min, physical.weight_kg?.max, 'kg')}</div></div>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center"><i class="fas fa-heart"></i></div>
-                            <div><div class="text-xs text-slate-500">Espérance de vie</div><div class="font-semibold text-slate-900">${physical.life_span_years?.min || '?'} - ${physical.life_span_years?.max || '?'} ans</div></div>
+                            <div><div class="text-xs text-slate-500">Espérance de vie</div><div class="font-semibold text-slate-900">${formatRangeDash(physical.life_span_years?.min, physical.life_span_years?.max, 'ans')}</div></div>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-accent-100 text-accent-600 flex items-center justify-center"><i class="fas fa-tag"></i></div>

@@ -239,16 +239,16 @@
       "history": "Lévrier ancien originaire des régions montagneuses d'Afghanistan, où il était prisé pour chasser les grosses proies comme les gazelles et les léopards. Apprécié pour sa vitesse, son endurance et son intelligence de résolution de problèmes sur terrain accidenté. Introduit dans le monde occidental par des officiers britanniques au début du XXe siècle.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 63,
+          "max": 74,
+          "average": 68.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 22,
+          "max": 34,
+          "average": 28
         },
         "life_span_years": {
           "min": 12,
@@ -317,16 +317,16 @@
       "history": "Développé dans la vallée de l'Aire dans le Yorkshire, Angleterre, en croisant des Otterhounds avec diverses races de terriers. Élevé à l'origine par des amateurs de la classe ouvrière pour chasser les loutres et les rats, leur intelligence et leur courage ont conduit à leur utilisation comme chiens policiers, chiens de guerre et compagnons polyvalents.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 56,
+          "max": 61,
+          "average": 58.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 18,
+          "max": 29,
+          "average": 23.5
         },
         "life_span_years": {
           "min": 11,
@@ -396,16 +396,16 @@
       "history": "Race ancienne développée il y a plus de 3000 ans dans l'ouest de la Turquie pour la garde du bétail, particulièrement dans la région d'Akbash. Le pelage blanc aidait les bergers à distinguer les chiens des prédateurs. Introduit en Amérique du Nord dans les années 1970 pour les programmes de contrôle des prédateurs.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "giant",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 71,
+          "max": 86,
+          "average": 78.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 41,
+          "max": 64,
+          "average": 52.5
         },
         "life_span_years": {
           "min": 10,
@@ -475,16 +475,16 @@
       "history": "Race japonaise ancienne développée dans la préfecture montagneuse d'Akita pour chasser les gros gibiers incluant le sanglier et l'ours. Vénérée dans la culture japonaise comme symbole de santé, bonheur et bonne fortune. La race a failli disparaître après la Seconde Guerre mondiale mais a été préservée par des éleveurs dévoués et désignée trésor national au Japon.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 61,
+          "max": 71,
+          "average": 66
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 32,
+          "max": 59,
+          "average": 45.5
         },
         "life_span_years": {
           "min": 10,
@@ -554,16 +554,16 @@
       "history": "Développé dans la région de la rivière Alapaha en Géorgie du Sud comme chien de prise polyvalent pour travailler le bétail et les porcs, et comme gardien familial. Descendant des Old English Bulldogs et recréant les bouledogues de plantation originaux des années 1800, maintenus par la famille Lane.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 46,
+          "max": 61,
+          "average": 53.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 25,
+          "max": 41,
+          "average": 33
         },
         "life_span_years": {
           "min": 12,
@@ -632,16 +632,16 @@
       "history": "Développé en Alaska comme chien de traîneau élevé pour la fonction par reproduction sélective de diverses races nordiques (Siberian Husky, Alaskan Malamute, chiens Inuit) avec des races européennes comme les Pointers, Greyhounds et Salukis pour créer la combinaison idéale de vitesse, endurance et éthique de travail pour la course en traîneau",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 58,
+          "max": 66,
+          "average": 62
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 22,
+          "max": 30,
+          "average": 26
         },
         "life_span_years": {
           "min": 10,
@@ -711,16 +711,16 @@
       "history": "L'un des plus anciens chiens de traîneau arctiques, développé par la tribu Inuit Mahlemut native du nord-ouest de l'Alaska. Essentiel pour la survie, utilisé pour transporter des charges lourdes à travers le terrain arctique, chasser les grands prédateurs comme les phoques et les ours polaires",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 58,
+          "max": 64,
+          "average": 61
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 32,
+          "max": 43,
+          "average": 37.5
         },
         "life_span_years": {
           "min": 10,
@@ -791,16 +791,16 @@
       "history": "Descendant des Old English Bulldogs apportés par des immigrants de la classe ouvrière dans le sud des États-Unis. Développé comme chien utilitaire agricole polyvalent pour la garde de propriété, la capture de bétail et la protection. La race a été préservée de l'extinction après la Seconde Guerre mondiale par les éleveurs John D. Johnson et Alan Scott.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 52,
+          "max": 70,
+          "average": 61
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 27,
+          "max": 54,
+          "average": 40.5
         },
         "life_span_years": {
           "min": 10,
@@ -870,16 +870,16 @@
       "history": "Développé aux États-Unis entre les années 1980 et 1990 comme race de compagnie par reproduction sélective d'American Pit Bull Terriers, American Staffordshire Terriers et d'autres races de type bulldog pour produire un chien avec un tempérament plus doux et une physique plus musclée et 'bully'. Reconnu par l'United Kennel Club en 2013.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 33,
+          "max": 50,
+          "average": 41.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 20,
+          "max": 50,
+          "average": 35
         },
         "life_span_years": {
           "min": 8,
@@ -951,14 +951,14 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 34,
+          "max": 39,
+          "average": 36.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 10,
+          "max": 13,
+          "average": 11.5
         },
         "life_span_years": {
           "min": 10,
@@ -1106,16 +1106,16 @@
       "history": "Développé à partir de Foxhounds Anglais importés dans l'Amérique coloniale dans les années 1650, affiné pour le terrain américain et la chasse au renard. George Washington a été une figure clé dans le développement de la race, les élevant pour être plus légers, plus grands et plus rapides pour chasser le renard roux américain sur terrain varié.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 53,
+          "max": 64,
+          "average": 58.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 25,
+          "max": 32,
+          "average": 28.5
         },
         "life_span_years": {
           "min": 11,
@@ -1184,16 +1184,16 @@
       "history": "Développé à la fin du XIXe siècle à partir de races bull-and-terrier anglaises apportées en Amérique. Élevé à l'origine pour le combat de taureaux et plus tard affiné comme chiens de ferme polyvalents et compagnons familiaux loyaux. Premier reconnu par l'United Kennel Club en 1898.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 43,
+          "max": 53,
+          "average": 48
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 14,
+          "max": 27,
+          "average": 20.5
         },
         "life_span_years": {
           "min": 12,
@@ -1263,16 +1263,16 @@
       "history": "Développé au XIXe siècle à partir de croisements de bouledogues et terriers apportés en Amérique dans les années 1800. Élevé à l'origine pour le combat de taureaux et les combats de fosses, plus tard affiné pour être plus grand que les Staffordshire Bull Terriers Anglais et développé en chiens de ferme polyvalents et compagnons familiaux. Reconnu par l'AKC en 1936.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 43,
+          "max": 48,
+          "average": 45.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 25,
+          "max": 32,
+          "average": 28.5
         },
         "life_span_years": {
           "min": 12,
@@ -1348,9 +1348,9 @@
           "average": 42
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 11,
+          "max": 20,
+          "average": 15.5
         },
         "life_span_years": {
           "min": 10,
@@ -1419,16 +1419,16 @@
       "history": "L'une des quatre races de Sennenhund suisses, cette race ancienne de la région d'Appenzell a été utilisée pendant des siècles comme chien de ferme polyvalent pour le pâturage du bétail, la garde de propriété et le tirage de charrettes. Formellement établie à la fin du XIXe siècle grâce aux efforts du forestier Max Siber et du Professeur Albert Heim.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 47,
+          "max": 58,
+          "average": 52.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 22,
+          "max": 32,
+          "average": 27
         },
         "life_span_years": {
           "min": 12,
@@ -1498,7 +1498,7 @@
       "history": "Développé en Australie au XIXe siècle en croisant des chiens de berger britanniques incluant des Colleys bleus merle avec le Dingo natif, avec des ajouts ultérieurs de Dalmatien et de Kelpie Noir et Feu pour créer un chien de pâturage de bétail robuste pour les conditions difficiles australiennes",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
           "min": 40,
           "max": 40,
@@ -1576,16 +1576,16 @@
       "history": "Développé en Australie à la fin du XIXe siècle à partir de croisements de Colleys écossais importés avec des Dingos et autres chiens de travail pour créer le chien de pâturage de moutons ultime capable de travailler indépendamment sur de vastes distances dans des climats difficiles",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 43,
+          "max": 51,
+          "average": 47
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 14,
+          "max": 21,
+          "average": 17.5
         },
         "life_span_years": {
           "min": 12,
@@ -1654,16 +1654,16 @@
       "history": "Malgré son nom, le Berger Australien a été développé dans l'Ouest américain au XIXe siècle à partir de chiens de berger basques amenés par les immigrants de la région des Pyrénées. L'intelligence et la polyvalence de la race l'ont rendu indispensable dans les ranchs.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 46,
+          "max": 58,
+          "average": 52
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 18,
+          "max": 29,
+          "average": 23.5
         },
         "life_span_years": {
           "min": 12,
@@ -1889,16 +1889,16 @@
       "history": "Race ancienne de lévrier développée par les peuples nomades Touaregs de la région du Sahel pour la chasse à la gazelle et autre gibier, la protection du bétail et la compagnie. Sélectionné pour la vitesse et l'endurance dans les conditions sahariennes.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 60,
+          "max": 74,
+          "average": 67
         },
         "weight_kg": {
           "min": 15,
-          "max": 15,
-          "average": 15
+          "max": 25,
+          "average": 20
         },
         "life_span_years": {
           "min": 12,
@@ -1968,11 +1968,11 @@
       "history": "Ancien chien d'eau français remontant au XVIe siècle, utilisé pendant des siècles pour localiser, débusquer et rapporter le gibier d'eau dans les marais et rivières. Le nom de la race dérive de « barbe ». Quasi éteint après la Seconde Guerre mondiale, il a été sauvé par des éleveurs passionnés.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 52,
+          "max": 65,
+          "average": 58.5
         },
         "weight_kg": {
           "min": 17,
@@ -2047,16 +2047,16 @@
       "history": "Race ancienne originaire d'Afrique centrale, représentée dans l'art égyptien et babylonien. Prisé par les tribus pygmées et celles de la région du Congo comme chasseur polyvalent pour sa vitesse et son silence. Amené en Angleterre et aux États-Unis au XXe siècle.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 38,
+          "max": 43,
+          "average": 40.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 9,
+          "max": 12,
+          "average": 10.5
         },
         "life_span_years": {
           "min": 12,
@@ -2285,9 +2285,9 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 33,
+          "max": 38,
+          "average": 35.5
         },
         "weight_kg": {
           "min": 9,
@@ -2362,11 +2362,11 @@
       "history": "Ancienne race de berger écossaise développée pour conduire moutons et bovins dans les rudes conditions des Highlands, sélectionnée pour sa robustesse, son intelligence et sa capacité à travailler de manière autonome. Quasi éteinte après la Seconde Guerre mondiale, elle a été sauvée par des éleveurs dévoués.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 51,
+          "max": 56,
+          "average": 53.5
         },
         "weight_kg": {
           "min": 20,
@@ -2442,11 +2442,11 @@
       "history": "Ancienne race de berger française également connue sous le nom de Berger de Beauce, développée dans les plaines entourant Paris pour garder et protéger moutons et bovins. Partage une ascendance avec le Briard, quasi éteint après les guerres mondiales mais préservé par des éleveurs passionnés.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 61,
+          "max": 70,
+          "average": 65.5
         },
         "weight_kg": {
           "min": 32,
@@ -2520,11 +2520,11 @@
       "history": "Développé à Bedlington, dans le Northumberland, au début du XIXe siècle pour la chasse aux nuisibles dans les mines et les fermes. Connu comme le « chien des gitans » en raison de son utilisation par les braconniers. Sa lignée inclut le Dandie Dinmont Terrier, le Whippet et le Otterhound.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 38,
+          "max": 44,
+          "average": 41
         },
         "weight_kg": {
           "min": 8,
@@ -2599,16 +2599,16 @@
       "history": "Développé dans la région de Malines, en Belgique, à la fin du XIXe siècle comme l'une des quatre variétés de Bergers Belges. Originellement élevé pour ses aptitudes de berger et son éthique de travail, rapidement adopté par les forces de l'ordre et l'armée dans le monde entier.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 56,
+          "max": 66,
+          "average": 61
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 25,
+          "max": 34,
+          "average": 29.5
         },
         "life_span_years": {
           "min": 11,
@@ -2679,16 +2679,16 @@
       "history": "L'une des quatre variétés distinctes de bergers belges développées à la fin du XIXe siècle, nommée d'après le village de Tervuren. Utilisé à l'origine comme chien de berger et de garde polyvalent, prisé pour son intelligence et son élégance.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 56,
+          "max": 66,
+          "average": 61
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 25,
+          "max": 34,
+          "average": 29.5
         },
         "life_span_years": {
           "min": 12,
@@ -2757,16 +2757,16 @@
       "history": "Développé dans les cantons de Berne en Suisse comme chien de ferme polyvalent pour la garde, la conduite de troupeaux et le trait de charrettes. Quasi éteint au début du XXe siècle mais sauvé par des éleveurs suisses dévoués.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 58,
+          "max": 70,
+          "average": 64
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 32,
+          "max": 52,
+          "average": 42
         },
         "life_span_years": {
           "min": 7,
@@ -2915,11 +2915,11 @@
       "history": "Développé dans le sud des États-Unis par les pionniers au XVIIIe siècle, issu de croisements entre le Foxhound Anglais, le Saint-Hubert et le Talbot pour la chasse au raton laveur et le pistage en terrain accidenté des Appalaches.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 58,
+          "max": 69,
+          "average": 63.5
         },
         "weight_kg": {
           "min": 29,
@@ -2994,16 +2994,16 @@
       "history": "Race ancienne développée par les moines de l'abbaye de Saint-Hubert en Belgique et en France à l'époque médiévale. Affiné ensuite en Angleterre et estimé pendant des siècles pour le pistage du gibier et des personnes, devenant finalement indispensable aux forces de l'ordre.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 58,
+          "max": 69,
+          "average": 63.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 36,
+          "max": 50,
+          "average": 43
         },
         "life_span_years": {
           "min": 10,
@@ -3073,16 +3073,16 @@
       "history": "Développé en Louisiane à partir de Grands Bleus de Gascogne français croisés avec des Foxhounds Anglais, des Foxhounds Américains et d'autres races locales de coonhounds, perfectionné pour la chasse au raton laveur en terrain américain.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 51,
+          "max": 69,
+          "average": 60
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 20,
+          "max": 36,
+          "average": 28
         },
         "life_span_years": {
           "min": 11,
@@ -3151,16 +3151,16 @@
       "history": "Développé par les colons hollandais et européens en Afrique du Sud à partir des années 1600, issu de races de mastiffs européens et de chiens locaux. Élevé comme chien de ferme polyvalent pour protéger les exploitations contre les prédateurs comme les léopards et les babouins.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 60,
+          "max": 70,
+          "average": 65
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 60,
+          "max": 80,
+          "average": 70
         },
         "life_span_years": {
           "min": 9,
@@ -3229,11 +3229,11 @@
       "history": "Développé par les bergers de la frontière entre l'Angleterre et l'Écosse pour garder les moutons en terrain vallonné, affiné par la sélection pour ses aptitudes au travail. La lignée de la race peut être retracée jusqu'à un seul chien fondateur, Old Hemp.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 46,
+          "max": 56,
+          "average": 51
         },
         "weight_kg": {
           "min": 14,
@@ -3310,14 +3310,14 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 40,
+          "min": 28,
           "max": 40,
-          "average": 40
+          "average": 34
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 5,
+          "max": 7,
+          "average": 6
         },
         "life_span_years": {
           "min": 12,
@@ -3464,11 +3464,11 @@
       "history": "Développé par les moines de la région des Flandres à l'époque médiévale comme chien de ferme polyvalent pour la conduite de troupeaux bovins. Utilisé pour conduire le bétail, tirer des charrettes et servir de chien de garde. Quasi éteint après la Première Guerre mondiale mais reconstruit par des éleveurs dévoués.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 59,
+          "max": 68,
+          "average": 63.5
         },
         "weight_kg": {
           "min": 32,
@@ -3543,16 +3543,16 @@
       "history": "Développé en Allemagne à la fin du XIXe siècle à partir du Bullenbeisser allemand aujourd'hui disparu (utilisé pour la chasse au gros gibier comme le sanglier et l'ours) et du Bulldog Anglais, originellement pour les combats de taureaux et la chasse, puis reconverti en chien de travail et de compagnie.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 53,
+          "max": 63,
+          "average": 58
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 25,
+          "max": 32,
+          "average": 28.5
         },
         "life_span_years": {
           "min": 10,
@@ -3622,16 +3622,16 @@
       "history": "Développé au début des années 1900 en Caroline du Sud par L. Whitaker Boykin. Le géniteur fondateur était un petit chien errant de type épagneul nommé « Dumpy » qui montrait de grandes aptitudes à la chasse. Créé par croisements avec le Chesapeake Bay Retriever, le Springer Spaniel et le Cocker Spaniel.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 36,
+          "max": 46,
+          "average": 41
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 11,
+          "max": 18,
+          "average": 14.5
         },
         "life_span_years": {
           "min": 10,
@@ -3700,11 +3700,11 @@
       "history": "L'une des plus anciennes races de chiens d'arrêt en Europe, aux origines antiques remontant au IVe-Ve siècle avant J.-C. Développé comme chien de chasse polyvalent pour la chasse aux oiseaux en terrain italien, habile à l'arrêt et au rapport.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 55,
+          "max": 67,
+          "average": 61
         },
         "weight_kg": {
           "min": 25,
@@ -3780,16 +3780,16 @@
       "history": "Ancienne race de berger française développée pendant des siècles pour garder et protéger les troupeaux. A servi comme sentinelle, messager et bête de somme pour l'armée française pendant la Première Guerre mondiale. Quasi éteint après les deux guerres mais préservé par des passionnés.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 56,
+          "max": 68,
+          "average": 62
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 25,
+          "max": 45,
+          "average": 35
         },
         "life_span_years": {
           "min": 10,
@@ -3938,16 +3938,16 @@
       "history": "Développé au milieu du XIXe siècle en Angleterre par les gardes-chasses en croisant le Mastiff Anglais avec le Bulldog Anglais pour créer un chien de garde efficace pour traquer les braconniers.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 61,
+          "max": 69,
+          "average": 65
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 45,
+          "max": 59,
+          "average": 52
         },
         "life_span_years": {
           "min": 7,
@@ -4176,14 +4176,14 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 23,
+          "max": 33,
+          "average": 28
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 6,
+          "max": 8,
+          "average": 7
         },
         "life_span_years": {
           "min": 11,
@@ -4253,16 +4253,16 @@
       "history": "Ancienne race italienne descendant des chiens de guerre molosses romains, développée comme chien de ferme polyvalent, gardien et chasseur de gros gibier. La race a frôlé l'extinction mais a été relancée par des passionnés dans les années 1970-80.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 58,
+          "max": 70,
+          "average": 64
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 40,
+          "max": 50,
+          "average": 45
         },
         "life_span_years": {
           "min": 9,
@@ -4338,9 +4338,9 @@
           "average": 29.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 11,
+          "max": 17,
+          "average": 14
         },
         "life_span_years": {
           "min": 12,
@@ -4409,16 +4409,16 @@
       "history": "Développé dans le nord de la Louisiane à partir de chiens amérindiens croisés avec ceux des colons espagnols et français pour la chasse au porc sauvage et la conduite de bovins. Nommé d'après la paroisse de Catahoula et désigné chien officiel de l'État de Louisiane.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 51,
+          "max": 66,
+          "average": 58.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 18,
+          "max": 51,
+          "average": 34.5
         },
         "life_span_years": {
           "min": 10,
@@ -4488,16 +4488,16 @@
       "history": "Race ancienne développée dans la région des montagnes du Caucase pour protéger les troupeaux contre les grands prédateurs comme les loups et les ours, ainsi que contre les voleurs. Sélectionné par les bergers pour ses capacités de protection, sa taille et son endurance.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 64,
+          "max": 75,
+          "average": 69.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 45,
+          "max": 77,
+          "average": 61
         },
         "life_span_years": {
           "min": 10,
@@ -4645,16 +4645,16 @@
       "history": "Développé au XIXe siècle le long de la baie de Chesapeake à partir de deux chiots de type Terre-Neuve naufragés (Sailor et Canton) croisés avec des retrievers locaux pour créer un chien de chasse aquatique capable de résister aux eaux glacées et aux forts courants.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 53,
+          "max": 66,
+          "average": 59.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 25,
+          "max": 36,
+          "average": 30.5
         },
         "life_span_years": {
           "min": 10,
@@ -4881,16 +4881,16 @@
       "history": "Développé au début du XXe siècle par l'explorateur polaire Arthur Treadwell Walden en croisant des chiens de type mastiff avec des Huskies et des Bergers Belges. Nommé d'après le mâle fondateur « Chinook », élevé pour être un chien de traîneau endurant et puissant.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 53,
+          "max": 66,
+          "average": 59.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 25,
+          "max": 41,
+          "average": 33
         },
         "life_span_years": {
           "min": 12,
@@ -5038,16 +5038,16 @@
       "history": "Développé au XVIIIe siècle, associé au Duc de Noailles français et au domaine de Clumber Park du Duc de Newcastle dans le Nottinghamshire. Probablement issu de croisements entre l'Épagneul Alpin et le Basset Hound. Prisé par la noblesse anglaise pour la chasse.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 41,
+          "max": 51,
+          "average": 46
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 25,
+          "max": 39,
+          "average": 32
         },
         "life_span_years": {
           "min": 10,
@@ -5118,14 +5118,14 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 36,
+          "max": 43,
+          "average": 39.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 12,
+          "max": 16,
+          "average": 14
         },
         "life_span_years": {
           "min": 10,
@@ -5194,16 +5194,16 @@
       "history": "Originaire de Madagascar comme chien royal et compagnon de la noblesse, développé à partir de petits chiens blancs amenés par les marchands. Nommé d'après la ville de Tuléar et reconnu par la FCI et l'AKC comme compagnon adaptable et apprécié.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "toy",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 23,
+          "max": 30,
+          "average": 26.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 3,
+          "max": 6,
+          "average": 4.5
         },
         "life_span_years": {
           "min": 10,
@@ -5274,16 +5274,16 @@
       "history": "Race ancienne aux racines en Dalmatie, Croatie, originellement élevé comme chien de carrosse pour courir sur des kilomètres aux côtés des attelages, gardant chevaux et voitures. A également servi comme chien de cirque et est devenu emblématique des casernes de pompiers.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 48,
+          "max": 61,
+          "average": 54.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 20,
+          "max": 32,
+          "average": 26
         },
         "life_span_years": {
           "min": 11,
@@ -5352,16 +5352,16 @@
       "history": "Créé à la fin du XIXe siècle par Karl Friedrich Louis Dobermann en utilisant des races comme le Rottweiler, le Pinscher Allemand et d'autres pour la protection et la compagnie.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 61,
+          "max": 72,
+          "average": 66.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 27,
+          "max": 45,
+          "average": 36
         },
         "life_span_years": {
           "min": 10,
@@ -5430,16 +5430,16 @@
       "history": "Développé en Argentine dans les années 1920 par le Dr Antonio Nores Martinez qui a systématiquement croisé le Perro de Pelea Cordobés aujourd'hui disparu avec le Dogue Allemand, le Boxer, le Bull Terrier et le Pointer pour créer un chasseur polyvalent.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 60,
+          "max": 68,
+          "average": 64
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 35,
+          "max": 45,
+          "average": 40
         },
         "life_span_years": {
           "min": 9,
@@ -5509,16 +5509,16 @@
       "history": "Développé aux Pays-Bas comme chien de ferme polyvalent pour la conduite de moutons et de bovins, le trait de charrettes et la garde. Quasi éteint après la Seconde Guerre mondiale mais préservé grâce à des efforts d'élevage dédiés.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 55,
+          "max": 63,
+          "average": 59
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 23,
+          "max": 32,
+          "average": 27.5
         },
         "life_span_years": {
           "min": 11,
@@ -5589,16 +5589,16 @@
       "history": "Développé en Angleterre il y a plus de 400 ans à partir de souches d'épagneuls, affiné au XIXe siècle par Edward Laverack et R. Purcell Llewellin pour créer un chien de chasse spécialisé dans la localisation et l'arrêt du gibier à plumes.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 61,
+          "max": 68,
+          "average": 64.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 20,
+          "max": 36,
+          "average": 28
         },
         "life_span_years": {
           "min": 12,
@@ -5667,16 +5667,16 @@
       "history": "Développé aux États-Unis à partir de chiens de ferme de type collie britanniques et écossais amenés par les premiers colons, élevé comme chien de ferme polyvalent pour la conduite du bétail, la garde des propriétés et la chasse.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 48,
+          "max": 56,
+          "average": 52
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 18,
+          "max": 27,
+          "average": 22.5
         },
         "life_span_years": {
           "min": 12,
@@ -5746,16 +5746,16 @@
       "history": "Développé en Angleterre au XIXe siècle comme chien de chasse polyvalent pour trouver et « springer » (faire lever) le gibier. Séparé à l'origine des Cockers plus petits par la taille et le type de chasse. Officiellement reconnu comme race distincte dans les années 1900.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 46,
+          "max": 51,
+          "average": 48.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 18,
+          "max": 25,
+          "average": 21.5
         },
         "life_span_years": {
           "min": 12,
@@ -5901,16 +5901,16 @@
       "history": "Développé en Allemagne dans les années 1960 par Julius Wipfel en croisant Chow-Chow, Wolfspitz (Keeshond) et Samoyède pour créer un chien de compagnie idéal de type spitz. Reconnu par la FCI.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 48,
+          "max": 60,
+          "average": 54
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 18,
+          "max": 32,
+          "average": 25
         },
         "life_span_years": {
           "min": 12,
@@ -6058,7 +6058,7 @@
       "history": "Ancienne race de spitz développée par le peuple autochtone Sami de Laponie pour garder et protéger les rennes en conditions arctiques. Quasi éteinte après la Seconde Guerre mondiale mais restaurée avec succès par des éleveurs finlandais dévoués.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
           "min": 40,
           "max": 40,
@@ -6138,16 +6138,16 @@
       "history": "Ancienne race finlandaise développée au fil des siècles par la sélection pour la chasse à tous types de gibier, des écureuils aux ours. Quasi éteint à la fin du XIXe siècle avant les efforts de restauration. Devenu le chien national de Finlande.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 39,
+          "max": 50,
+          "average": 44.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 9,
+          "max": 14,
+          "average": 11.5
         },
         "life_span_years": {
           "min": 12,
@@ -6374,16 +6374,16 @@
       "history": "Développé en 1899 par le capitaine Max von Stephanitz pour créer le chien de berger idéal, standardisé à partir de chiens de berger locaux. Son intelligence et sa facilité de dressage ont conduit à son utilisation mondiale dans la police et l'armée.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 55,
+          "max": 65,
+          "average": 60
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 22,
+          "max": 40,
+          "average": 31
         },
         "life_span_years": {
           "min": 9,
@@ -6452,16 +6452,16 @@
       "history": "Développé en Allemagne au XIXe siècle par croisement de Braques Espagnols, de Saint-Hubert et de chiens de chasse allemands locaux pour créer un chien d'arrêt-rapporteur polyvalent capable de travailler sur terre et dans l'eau.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 53,
+          "max": 63,
+          "average": 58
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 20,
+          "max": 32,
+          "average": 26
         },
         "life_span_years": {
           "min": 10,
@@ -6530,16 +6530,16 @@
       "history": "Développé en Bavière et au Wurtemberg en Allemagne comme version agrandie du Schnauzer Standard par croisement avec des races plus grandes comme le Dogue Allemand. Utilisé à l'origine pour conduire le bétail au marché, garder les propriétés et servir dans la police.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 60,
+          "max": 70,
+          "average": 65
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 25,
+          "max": 48,
+          "average": 36.5
         },
         "life_span_years": {
           "min": 12,
@@ -6616,8 +6616,8 @@
           "average": 34
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
+          "min": 14,
+          "max": 16,
           "average": 15
         },
         "life_span_years": {
@@ -6687,16 +6687,16 @@
       "history": "Développé dans les Highlands écossais au milieu et à la fin du XIXe siècle par Dudley Marjoribanks (Lord Tweedmouth), qui a croisé un retriever jaune avec le Tweed Water Spaniel aujourd'hui disparu, avec des apports ultérieurs de Setter Irlandais et de Saint-Hubert.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 51,
+          "max": 61,
+          "average": 56
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 25,
+          "max": 34,
+          "average": 29.5
         },
         "life_span_years": {
           "min": 10,
@@ -6766,16 +6766,16 @@
       "history": "Développé en Écosse par Alexander, quatrième Duc de Gordon, à la fin du XVIIIe et au début du XIXe siècle à partir de setters noirs et feu. Établi comme un solide chien de chasse personnel capable de travailler de longues journées en terrain écossais difficile.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 58,
+          "max": 69,
+          "average": 63.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 20,
+          "max": 36,
+          "average": 28
         },
         "life_span_years": {
           "min": 12,
@@ -6845,16 +6845,16 @@
       "history": "Originellement élevé par la noblesse allemande à partir de chiens de type mastiff pour la chasse au sanglier et au cerf, puis affiné comme gardien de domaine et compagnon. Déclaré chien national d'Allemagne en 1876.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "giant",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 71,
+          "max": 86,
+          "average": 78.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 45,
+          "max": 90,
+          "average": 67.5
         },
         "life_span_years": {
           "min": 7,
@@ -6923,16 +6923,16 @@
       "history": "Race ancienne de lévrier remontant à des milliers d'années, représentée dans l'art égyptien, grec et romain. Le Greyhound moderne a été standardisé en Grande-Bretagne pour la poursuite du gibier puis les courses. Célèbre comme la race de chien la plus rapide du monde.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "giant",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 68,
+          "max": 76,
+          "average": 72
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 27,
+          "max": 32,
+          "average": 29.5
         },
         "life_span_years": {
           "min": 10,
@@ -7158,16 +7158,16 @@
       "history": "Développé en Irlande au XVIIIe siècle comme chien de chasse polyvalent pour l'arrêt et le rapport du gibier à plumes par croisement de l'Épagneul d'Eau Irlandais, du Setter Anglais et du Pointer. La couleur acajou saisissante de la race est devenue sa marque distinctive.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 58,
+          "max": 67,
+          "average": 62.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 27,
+          "max": 32,
+          "average": 29.5
         },
         "life_span_years": {
           "min": 12,
@@ -7237,16 +7237,16 @@
       "history": "L'une des plus anciennes races de terriers, développée dans le comté de Cork en Irlande comme chien de ferme polyvalent pour la chasse aux nuisibles et la garde. Son courage a été prouvé durant la Première Guerre mondiale où il a servi comme messager et sentinelle.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 43,
+          "max": 46,
+          "average": 44.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 11,
+          "max": 13,
+          "average": 12
         },
         "life_span_years": {
           "min": 12,
@@ -7315,16 +7315,16 @@
       "history": "Race ancienne d'Irlande utilisée à l'origine à la guerre et pour la chasse aux loups et aux grands cerfs irlandais. Quasi éteint dans les années 1860 mais relancé par le Capitaine George Augustus Graham qui a standardisé la race.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "giant",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 76,
+          "max": 86,
+          "average": 81
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 48,
+          "max": 68,
+          "average": 58
         },
         "life_span_years": {
           "min": 6,
@@ -7557,9 +7557,9 @@
           "average": 34.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 5,
+          "max": 10,
+          "average": 7.5
         },
         "life_span_years": {
           "min": 12,
@@ -7629,16 +7629,16 @@
       "history": "Ancienne race de garde de troupeaux originaire du district de Kangal dans la province de Sivas en Turquie. Utilisé depuis des siècles par les bergers pour protéger les troupeaux contre les loups, les ours et les chacals. Considéré comme un trésor national turc.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "giant",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 72,
+          "max": 86,
+          "average": 79
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 41,
+          "max": 66,
+          "average": 53.5
         },
         "life_span_years": {
           "min": 12,
@@ -7708,7 +7708,7 @@
       "history": "Ancienne race hollandaise connue comme le Chien de Péniche Hollandais, compagnon et chien de garde populaire sur les péniches et bateaux fluviaux du Rhin. Devenu le symbole du Parti des Patriotes hollandais au XVIIIe siècle, quasi éteint avant sa restauration.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
           "min": 40,
           "max": 40,
@@ -7865,16 +7865,16 @@
       "history": "Race ancienne descendant de chiens tibétains amenés en Hongrie par les tribus nomades Magyares il y a plus de mille ans vers l'an 1000. Développé comme formidable gardien de troupeaux indépendant, protégeant moutons et bovins contre les loups et les ours.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "giant",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 64,
+          "max": 76,
+          "average": 70
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 36,
+          "max": 61,
+          "average": 48.5
         },
         "life_span_years": {
           "min": 10,
@@ -7943,7 +7943,7 @@
       "history": "Ancienne race hollandaise développée dès le XVIe siècle pour servir de chien de leurre à canards, les attirant dans des pièges appelés « eendenkooien ». Quasi éteint après la Seconde Guerre mondiale mais sauvé et rétabli par la baronne van Hardenbroek.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
           "min": 40,
           "max": 40,
@@ -8022,16 +8022,16 @@
       "history": "Ancienne race hongroise descendant de grands chiens de type molosse du Tibet. A historiquement servi comme chien de garde royal pour les rois magyars et comme féroce gardien de troupeaux, prisé pour sa loyauté et son courage.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "giant",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 66,
+          "max": 76,
+          "average": 71
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 32,
+          "max": 52,
+          "average": 42
         },
         "life_span_years": {
           "min": 10,
@@ -8101,16 +8101,16 @@
       "history": "Originaire des chiens d'eau de Saint-Jean utilisés par les pêcheurs de Terre-Neuve pour récupérer les filets et les poissons échappés. Développé et standardisé en Angleterre au XIXe siècle par la noblesse anglaise pour la chasse au gibier d'eau.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 54,
+          "max": 62,
+          "average": 58
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 25,
+          "max": 36,
+          "average": 30.5
         },
         "life_span_years": {
           "min": 10,
@@ -8180,16 +8180,16 @@
       "history": "Race ancienne de la région de Romagne en Italie, utilisée à l'origine comme chien rapporteur d'eau dans les marais. Lorsque les marais ont été asséchés, la race a été adaptée et est devenue le premier chien truffier au monde.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 41,
+          "max": 48,
+          "average": 44.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 11,
+          "max": 16,
+          "average": 13.5
         },
         "life_span_years": {
           "min": 10,
@@ -8338,16 +8338,16 @@
       "history": "Développé dans les années 1840 par Heinrich Essig à Leonberg en Allemagne, en croisant Terre-Neuve, Saint-Bernard et Montagne des Pyrénées pour créer un chien « semblable au lion » rappelant le lion des armoiries de la ville.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "giant",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 65,
+          "max": 80,
+          "average": 72.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 41,
+          "max": 77,
+          "average": 59
         },
         "life_span_years": {
           "min": 7,
@@ -8417,16 +8417,16 @@
       "history": "Race ancienne développée dans les monastères et palais tibétains il y a plus de mille ans comme chien sentinelle d'intérieur, alertant les moines de la présence d'intrus. Très prisé et rarement autorisé à quitter le pays jusqu'à son introduction en Angleterre au XXe siècle.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "toy",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 25,
+          "max": 28,
+          "average": 26.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 5,
+          "max": 8,
+          "average": 6.5
         },
         "life_span_years": {
           "min": 12,
@@ -8576,7 +8576,7 @@
       "history": "Développé en Californie à la fin des années 1960 à partir de petits Bergers Australiens, sélectionné pour sa taille compacte tout en conservant ses aptitudes de berger. Devenu populaire auprès des cavaliers participant aux concours hippiques.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
           "min": 40,
           "max": 40,
@@ -8734,7 +8734,7 @@
       "history": "Développé en Allemagne à la fin du XIXe siècle en croisant le Schnauzer Standard avec des races plus petites comme l'Affenpinscher et le Caniche pour créer un chien de ferme polyvalent et ratier efficace.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
           "min": 40,
           "max": 40,
@@ -8812,16 +8812,16 @@
       "history": "Développé par les pêcheurs de l'île de Terre-Neuve pour le sauvetage en mer, le halage de filets et le trait de charrettes. Descendant de chiens d'eau indigènes et de races européennes amenées par les pêcheurs.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 63,
+          "max": 74,
+          "average": 68.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 45,
+          "max": 68,
+          "average": 56.5
         },
         "life_span_years": {
           "min": 9,
@@ -9046,7 +9046,7 @@
       "history": "Développé en Nouvelle-Écosse, Canada, au XIXe siècle. Élevé pour leurrer les canards en jouant sur la rive (« tolling ») puis les rapporter. Reconnu par le Canadian Kennel Club puis l'AKC.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
           "min": 40,
           "max": 40,
@@ -9127,14 +9127,14 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 40,
+          "min": 31,
           "max": 40,
-          "average": 40
+          "average": 35.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 18,
+          "max": 25,
+          "average": 21.5
         },
         "life_span_years": {
           "min": 9,
@@ -9203,16 +9203,16 @@
       "history": "Développé dans l'ouest de l'Angleterre à la fin du XVIIIe siècle, probablement à partir de races comme le Bearded Collie et le Owtchar russe. Élevé comme chien de conduite pour mener le bétail et les moutons au marché. Les queues étaient historiquement coupées pour signaler les chiens de travail.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 53,
+          "max": 61,
+          "average": 57
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 27,
+          "max": 45,
+          "average": 36
         },
         "life_span_years": {
           "min": 10,
@@ -9445,9 +9445,9 @@
           "average": 27.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 10,
+          "max": 14,
+          "average": 12
         },
         "life_span_years": {
           "min": 12,
@@ -9516,7 +9516,7 @@
       "history": "Chien national de Malte et race ancienne probablement descendante de chiens de chasse égyptiens amenés par les marchands phéniciens il y a plus de 2 000 ans. Connu comme « Kelb tal-Fenek » (chien de lapin) à Malte, utilisé pour la chasse au lapin.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
           "min": 40,
           "max": 40,
@@ -9594,16 +9594,16 @@
       "history": "Développé dans les montagnes de Caroline du Nord par l'immigrant allemand Johannes Georg Plott à partir de Schweisshunds hanovriens allemands amenés dans les années 1750. Perfectionné au fil des générations pour la chasse au gros gibier dans les Appalaches.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 51,
+          "max": 64,
+          "average": 57.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 18,
+          "max": 25,
+          "average": 21.5
         },
         "life_span_years": {
           "min": 12,
@@ -9908,16 +9908,16 @@
       "history": "Race ancienne native des îles Canaries, développée à l'origine comme chien de ferme et de garde polyvalent pour protéger le bétail et les propriétés, utilisé pour attraper et maintenir le bétail. Quasi éteint dans les années 1960 mais relancé par des éleveurs passionnés.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 56,
+          "max": 66,
+          "average": 61
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 38,
+          "max": 59,
+          "average": 48.5
         },
         "life_span_years": {
           "min": 9,
@@ -10065,16 +10065,16 @@
       "history": "Ancienne race de berger hongroise amenée par les tribus Magyares il y a plus de 1 000 ans, traditionnellement utilisée pour la conduite et la garde des troupeaux dans les plaines hongroises. Son pelage cordé unique offrait une protection contre les intempéries et les prédateurs.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 36,
+          "max": 45,
+          "average": 40.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 11,
+          "max": 16,
+          "average": 13.5
         },
         "life_span_years": {
           "min": 10,
@@ -10144,7 +10144,7 @@
       "history": "Développé en Hongrie aux XVIIe-XVIIIe siècles par croisement du Puli indigène avec des chiens de berger et terriers allemands et français. Utilisé comme chien de ferme polyvalent pour la conduite de bovins, moutons et porcs.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
           "min": 40,
           "max": 40,
@@ -10223,16 +10223,16 @@
       "history": "Race ancienne utilisée pendant des siècles par les bergers des Pyrénées entre la France et l'Espagne pour garder les troupeaux contre les prédateurs comme les loups et les ours. Standardisé et reconnu internationalement.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "giant",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 63,
+          "max": 81,
+          "average": 72
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 39,
+          "max": 54,
+          "average": 46.5
         },
         "life_span_years": {
           "min": 10,
@@ -10381,7 +10381,7 @@
       "history": "Développé dans le sud des États-Unis, principalement en Géorgie, à la fin du XVIIIe et au début du XIXe siècle par des immigrants écossais. Créé à partir de Foxhounds Irlandais rouges et de Saint-Hubert pour produire un chien rapide et précis au pistage.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
           "min": 40,
           "max": 40,
@@ -10459,16 +10459,16 @@
       "history": "Développé en Afrique australe par croisement de chiens à crête indigènes Khoikhoi avec des races européennes comme les Mastiffs et les Greyhounds. Élevé par les fermiers et chasseurs pour pister et tenir le gros gibier, notamment les lions, à distance.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 61,
+          "max": 69,
+          "average": 65
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 29,
+          "max": 41,
+          "average": 35
         },
         "life_span_years": {
           "min": 10,
@@ -10537,16 +10537,16 @@
       "history": "Descendant des chiens de conduite romains, développé dans la ville allemande de Rottweil comme chien de conduite de bétail et de garde. Connu comme le « chien de boucher de Rottweil », il protégeait l'argent des bouchers lors de leurs déplacements.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 56,
+          "max": 69,
+          "average": 62.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 36,
+          "max": 61,
+          "average": 48.5
         },
         "life_span_years": {
           "min": 9,
@@ -10696,16 +10696,16 @@
       "history": "Développé par les moines de l'Hospice du Grand-Saint-Bernard à la frontière entre la Suisse et l'Italie pour le sauvetage dans les conditions alpines périlleuses. Utilisé pour localiser et secourir les voyageurs perdus dans la neige et le brouillard.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "giant",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 64,
+          "max": 90,
+          "average": 77
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 54,
+          "max": 82,
+          "average": 68
         },
         "life_span_years": {
           "min": 8,
@@ -10782,9 +10782,9 @@
           "average": 64.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 18,
+          "max": 27,
+          "average": 22.5
         },
         "life_span_years": {
           "min": 10,
@@ -10854,16 +10854,16 @@
       "history": "Race ancienne développée par le peuple nomade Samoyède de Sibérie il y a plus de 3 000 ans pour garder les rennes, tirer les traîneaux et servir de compagnon. Leur pelage épais les protégeait du climat brutal.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 46,
+          "max": 56,
+          "average": 51
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 16,
+          "max": 30,
+          "average": 23
         },
         "life_span_years": {
           "min": 12,
@@ -11012,16 +11012,16 @@
       "history": "Race ancienne de lévrier développée dans les Highlands écossais pour chasser le grand cerf rouge sauvage. Autrefois si prisé que sa possession était réservée à la noblesse, quasi éteint avec le déclin du système des clans mais sauvé par des passionnés.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "giant",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 71,
+          "max": 81,
+          "average": 76
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 34,
+          "max": 50,
+          "average": 42
         },
         "life_span_years": {
           "min": 8,
@@ -11097,9 +11097,9 @@
           "average": 26.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 8,
+          "max": 10,
+          "average": 9
         },
         "life_span_years": {
           "min": 12,
@@ -11249,14 +11249,14 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 33,
+          "max": 43,
+          "average": 38
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 8,
+          "max": 14,
+          "average": 11
         },
         "life_span_years": {
           "min": 12,
@@ -11403,16 +11403,16 @@
       "history": "Développé dans les années 1970 à New York par Tina Barber, qui a croisé de grands Bergers Allemands de type ancien avec des Malamutes de l'Alaska et d'autres races pour créer un berger plus grand et plus calme, avec un accent sur des hanches saines et un tempérament stable.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 61,
+          "max": 76,
+          "average": 68.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 36,
+          "max": 59,
+          "average": 47.5
         },
         "life_span_years": {
           "min": 9,
@@ -11482,16 +11482,16 @@
       "history": "Développé par le peuple Tchouktche de Sibérie comme chien de traîneau d'endurance pour le transport en conditions arctiques rudes. Amené en Alaska en 1908 pour les courses de traîneaux, devenu célèbre lors de la course au sérum de 1925 à Nome.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 51,
+          "max": 60,
+          "average": 55.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 16,
+          "max": 27,
+          "average": 21.5
         },
         "life_span_years": {
           "min": 12,
@@ -11564,14 +11564,14 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 33,
+          "max": 41,
+          "average": 37
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 6,
+          "max": 9,
+          "average": 7.5
         },
         "life_span_years": {
           "min": 12,
@@ -11641,16 +11641,16 @@
       "history": "Ancienne race irlandaise développée depuis plus de 200 ans comme chien de ferme polyvalent pour la conduite de troupeaux, la garde et la lutte contre les nuisibles. Connu comme le « Lévrier du pauvre », reconnu officiellement par l'Irish Kennel Club en 1937.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 43,
+          "max": 48,
+          "average": 45.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 14,
+          "max": 20,
+          "average": 17
         },
         "life_span_years": {
           "min": 12,
@@ -11719,16 +11719,16 @@
       "history": "Ancien chien de ferme polyvalent de la péninsule ibérique, utilisé pendant des siècles en Espagne pour la conduite de troupeaux, le rapport de gibier d'eau pour les chasseurs et l'assistance aux pêcheurs. Quasi éteint mais restauré avec succès par des éleveurs dévoués.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
           "min": 40,
-          "max": 40,
-          "average": 40
+          "max": 50,
+          "average": 45
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 14,
+          "max": 22,
+          "average": 18
         },
         "life_span_years": {
           "min": 12,
@@ -11798,16 +11798,16 @@
       "history": "Ancienne race italienne de la région du Piémont remontant à 500 avant J.-C., développée comme chien de chasse polyvalent pour le travail en terrain dense et épineux. Connue depuis au moins la Renaissance et prisée pour ses capacités de pistage et de rapport.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 56,
+          "max": 70,
+          "average": 63
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 29,
+          "max": 39,
+          "average": 34
         },
         "life_span_years": {
           "min": 10,
@@ -11884,9 +11884,9 @@
           "average": 38.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 11,
+          "max": 17,
+          "average": 14
         },
         "life_span_years": {
           "min": 12,
@@ -11956,16 +11956,16 @@
       "history": "La race originale de Schnauzer remontant au Moyen Âge en Allemagne, développée comme chien de ferme polyvalent pour la garde des propriétés, la conduite de troupeaux, la dératisation et l'élimination des nuisibles.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 44,
+          "max": 51,
+          "average": 47.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 14,
+          "max": 23,
+          "average": 18.5
         },
         "life_span_years": {
           "min": 12,
@@ -12035,7 +12035,7 @@
       "history": "Ancienne race suédoise remontant à plus de 1 000 ans à l'ère viking, utilisée comme chien de ferme polyvalent pour la conduite du bétail, la lutte contre les nuisibles et la garde. Également appelé Västgötaspets, partage probablement une ascendance avec le Welsh Corgi.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
           "min": 40,
           "max": 40,
@@ -12115,16 +12115,16 @@
       "history": "Race ancienne et primitive native de l'est de la Thaïlande, développée pour la chasse au petit gibier, la lutte contre les nuisibles et la garde. Son isolement dans la région a préservé ses caractéristiques uniques au fil des siècles.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 51,
+          "max": 61,
+          "average": 56
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 16,
+          "max": 34,
+          "average": 25
         },
         "life_span_years": {
           "min": 12,
@@ -12194,16 +12194,16 @@
       "history": "Ancienne race de gardien développée dans l'Himalaya isolé, utilisée par les nomades tibétains et les monastères pour protéger le bétail, les villages et les propriétés. Considéré comme un ancêtre de nombreuses races de molosses modernes.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 61,
+          "max": 76,
+          "average": 68.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 34,
+          "max": 73,
+          "average": 53.5
         },
         "life_span_years": {
           "min": 10,
@@ -12509,7 +12509,7 @@
       "history": "Développé à partir de Foxhounds Anglais amenés dans l'Amérique coloniale en 1742, spécifiquement affiné par l'éleveur du Tennessee Thomas Walker et la famille Walker dans les années 1800 pour la vitesse, l'endurance et la capacité à pister le gibier.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
           "min": 40,
           "max": 40,
@@ -12588,16 +12588,16 @@
       "history": "Ancienne race sportive hongroise descendant des chiens de chasse des tribus Magyares installées en Hongrie il y a plus de mille ans. Développé comme chien d'arrêt-rapporteur polyvalent par la noblesse hongroise, la race a survécu aux guerres mondiales grâce à des éleveurs dévoués.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 53,
+          "max": 64,
+          "average": 58.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 18,
+          "max": 30,
+          "average": 24
         },
         "life_span_years": {
           "min": 12,
@@ -12666,16 +12666,16 @@
       "history": "Développé à la cour de Weimar en Allemagne au début du XIXe siècle par la noblesse allemande qui cherchait à créer un chien de chasse polyvalent pour le gros gibier. La parenté de la race était un secret jalousement gardé.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 56,
+          "max": 69,
+          "average": 62.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 25,
+          "max": 41,
+          "average": 33
         },
         "life_span_years": {
           "min": 10,
@@ -12746,16 +12746,16 @@
       "history": "Ancienne race galloise développée comme chien de chasse polyvalent pour lever et rapporter le gibier à plumes, mentionnée dans les lois galloises datant de 300 après J.-C. Officiellement reconnue comme distincte des autres épagneuls par le Kennel Club.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 43,
+          "max": 48,
+          "average": 45.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 16,
+          "max": 20,
+          "average": 18
         },
         "life_span_years": {
           "min": 12,
@@ -12825,16 +12825,16 @@
       "history": "Développé dans les Highlands écossais pour la chasse au renard, au blaireau et autres nuisibles. Le colonel Edward Donald Malcolm de Poltalloch est crédité du développement de la race blanche moderne après qu'un de ses terriers roux ait été confondu avec un renard et tué par accident.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "toy",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 25,
+          "max": 28,
+          "average": 26.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 7,
+          "max": 10,
+          "average": 8.5
         },
         "life_span_years": {
           "min": 12,
@@ -12903,7 +12903,7 @@
       "history": "Développé dans le nord de l'Angleterre aux XVIIIe-XIXe siècles par les familles ouvrières en croisant de petits Greyhounds avec des terriers rapides pour la course aux lapins et les courses. Reconnu par l'AKC et le Kennel Club.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
           "min": 40,
           "max": 40,
@@ -12981,16 +12981,16 @@
       "history": "Développé à partir de Bergers Allemands à robe blanche. Lorsque les robes blanches ont été jugées comme un défaut par les clubs de race allemands dans les années 1930, les passionnés en Amérique du Nord et en Europe ont continué l'élevage séparé.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 55,
+          "max": 66,
+          "average": 60.5
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 25,
+          "max": 40,
+          "average": 32.5
         },
         "life_span_years": {
           "min": 12,
@@ -13062,14 +13062,14 @@
       "physical": {
         "size_category": "small",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 33,
+          "max": 41,
+          "average": 37
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 6,
+          "max": 9,
+          "average": 7.5
         },
         "life_span_years": {
           "min": 12,
@@ -13138,16 +13138,16 @@
       "history": "Développé à la fin du XIXe siècle par l'éleveur hollandais Eduard Korthals, qui a travaillé en Allemagne et en France. Son objectif était de créer le chien de chasse à pied polyvalent ultime en croisant divers chiens d'arrêt et griffons européens.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "large",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 56,
+          "max": 64,
+          "average": 60
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 23,
+          "max": 27,
+          "average": 25
         },
         "life_span_years": {
           "min": 12,
@@ -13216,16 +13216,16 @@
       "history": "Développé en Hongrie dans les années 1930 par croisement du Vizsla à poil lisse avec le Braque Allemand à Poil Dur pour créer un chien de chasse à pelage dur résistant aux intempéries, adapté aux terrains difficiles et aux conditions climatiques rudes.",
       "bred_for": null,
       "physical": {
-        "size_category": "small",
+        "size_category": "medium",
         "height_cm": {
-          "min": 40,
-          "max": 40,
-          "average": 40
+          "min": 54,
+          "max": 64,
+          "average": 59
         },
         "weight_kg": {
-          "min": 15,
-          "max": 15,
-          "average": 15
+          "min": 20,
+          "max": 29,
+          "average": 24.5
         },
         "life_span_years": {
           "min": 12,
