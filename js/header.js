@@ -52,8 +52,8 @@ function renderHeader() {
                     <nav class="hidden md:flex items-center gap-6 shrink-0">
                         <a href="/" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Accueil</a>
                         <a href="/#races" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Les races</a>
-                        <a href="/compare.html" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Comparer</a>
-                        <a href="/tel-maitre-tel-chien.html" class="relative text-sm font-medium px-3 py-1.5 rounded-lg transition-all hover:shadow-lg" style="background:white;"><span style="position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:linear-gradient(135deg,#3b82f6,#9333ea);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;"></span><span class="bg-gradient-to-r from-primary-500 to-purple-500 bg-clip-text text-transparent">🐕 Tel Maître, Tel Chien</span></a>
+                        <a href="/compare" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Comparer</a>
+                        <a href="/tel-maitre-tel-chien" class="relative text-sm font-medium px-3 py-1.5 rounded-lg transition-all hover:shadow-lg" style="background:white;"><span style="position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:linear-gradient(135deg,#3b82f6,#9333ea);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;"></span><span class="bg-gradient-to-r from-primary-500 to-purple-500 bg-clip-text text-transparent">🐕 Tel Maître, Tel Chien</span></a>
                     </nav>
                     
                     <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-primary-600">
@@ -67,8 +67,8 @@ function renderHeader() {
                 <div class="px-6 py-4 space-y-3">
                     <a href="/" class="block text-sm font-medium text-slate-600 hover:text-primary-600">Accueil</a>
                     <a href="/#races" class="block text-sm font-medium text-slate-600 hover:text-primary-600">Les races</a>
-                    <a href="/compare.html" class="block text-sm font-medium text-slate-600 hover:text-primary-600">Comparer</a>
-                    <a href="/tel-maitre-tel-chien.html" class="block text-sm font-medium text-primary-600 hover:text-primary-700 font-bold">🐕 Tel Maître, Tel Chien</a>
+                    <a href="/compare" class="block text-sm font-medium text-slate-600 hover:text-primary-600">Comparer</a>
+                    <a href="/tel-maitre-tel-chien" class="block text-sm font-medium text-primary-600 hover:text-primary-700 font-bold">🐕 Tel Maître, Tel Chien</a>
                     <p class="text-xs text-slate-400 italic pt-2 border-t border-slate-100">« ${quote} »</p>
                 </div>
             </div>

@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'data/breeds.json'
-      - 'generate-breeds.js'
+      - 'generate-breeds.cjs'
     branches:
       - main
 
@@ -25,7 +25,7 @@ jobs:
           node-version: '20'
 
       - name: Générer les pages
-        run: node generate-breeds.js
+        run: node generate-breeds.cjs
 
       - name: Commit et push
         run: |

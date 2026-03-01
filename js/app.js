@@ -17,7 +17,7 @@ function breedSlug(name) {
 
 // URL vers la page statique d'une race
 function breedUrl(breed) {
-    return `/races/${breedSlug(breed.name_fr || breed.name)}.html`;
+    return `/races/${breedSlug(breed.name_fr || breed.name)}`;
 }
 
 // Traductions complètes
@@ -733,7 +733,7 @@ function createBreedCard(breed, index) {
             <a href="${breedUrl(breed)}" class="block">
                 <div class="relative h-52 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
                     ${imageUrl ? 
-                        `<img src="${imageUrl}" alt="${breed.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">` :
+                        `<picture><source srcset="${imageUrl.replace('.jpg', '.webp')}" type="image/webp"><img src="${imageUrl}" alt="${breed.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="400" height="300"></picture>` :
                         `<div class="w-full h-full flex items-center justify-center text-6xl">🐕</div>`
                     }
                     <div class="absolute top-3 right-3 flex flex-col gap-2">
@@ -794,7 +794,7 @@ function setupComparison() {
             alert('Sélectionnez au moins 2 races à comparer');
             return;
         }
-        window.location.href = `/compare.html?ids=${compareList.join(',')}`;
+        window.location.href = `/compare?ids=${compareList.join(',')}`;
     });
     
     clearBtn?.addEventListener('click', () => {

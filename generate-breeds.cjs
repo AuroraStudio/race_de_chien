@@ -19,6 +19,11 @@ const OUTPUT_DIR = path.join(__dirname, 'races');
 const data = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
 const breeds = data.breeds;
 
+// Charger les dimensions des images
+const DIMS_FILE = path.join(__dirname, 'data', 'image-dimensions.json');
+let imageDimensions = {};
+try { imageDimensions = JSON.parse(fs.readFileSync(DIMS_FILE, 'utf8')); } catch(e) {}
+
 // Helper: formater une plage min-max intelligemment
 function formatRange(min, max, unit) {
     if (!min && !max) return `? ${unit}`;
@@ -209,11 +214,14 @@ function generateBreedPage(breed) {
     const training = breed.training || {};
     const living = breed.living || {};
     const imageUrl = breed.image?.url ? `/${breed.image.url}` : '';
+    const imageSlug = slugify(breed.name_fr || breed.name);
+    const imgWebp = imageUrl ? imageUrl.replace('.jpg', '.webp') : '';
+    const imgDims = imageDimensions[imageSlug] || { w: 800, h: 600 };
     const richContent = generateRichContent(breed, physical, temperament, coat, living, training);
     const translatedTraits = (temperament.traits || []).map(t => traitTranslations[t.trim()] || t.trim());
     const translatedPurpose = translateBredFor(breed.bred_for);
     const similarBreeds = findSimilarBreeds(breed, breeds, 4);
-    const pageUrl = `${SITE_URL}/races/${slug}.html`;
+    const pageUrl = `${SITE_URL}/races/${slug}`;
     
     const metaTitle = `${breed.name} : Caractère, Éducation, Santé | Race de Chien`;
     const metaDescription = `Tout savoir sur le ${breed.name} : caractère ${translatedTraits.slice(0, 3).join(', ').toLowerCase()}, taille ${formatRangeDash(physical.height_cm?.min, physical.height_cm?.max, 'cm')}, poids ${formatRangeDash(physical.weight_kg?.min, physical.weight_kg?.max, 'kg')}. Guide complet.`;
@@ -299,7 +307,10 @@ function generateBreedPage(breed) {
             <div class="relative h-[500px] lg:h-[600px]">
                 ${imageUrl ? 
                     `<img src="${imageUrl}" alt="" class="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-60" aria-hidden="true">
-                     <img src="${imageUrl}" alt="${escapeHtml(breed.name)} - chien de race ${sizeLabels[physical.size_category] || 'moyenne'}" class="relative w-full h-full object-contain drop-shadow-2xl" style="z-index:1">` :
+                     <picture>
+                         <source srcset="${imgWebp}" type="image/webp">
+                         <img src="${imageUrl}" alt="${escapeHtml(breed.name)} - chien de race ${sizeLabels[physical.size_category] || 'moyenne'}" class="relative w-full h-full object-contain drop-shadow-2xl" style="z-index:1" width="${imgDims.w}" height="${imgDims.h}">
+                     </picture>` :
                     `<div class="w-full h-full bg-gradient-to-br from-primary-100 to-secondary-100 flex items-center justify-center"><span class="text-9xl">🐕</span></div>`
                 }
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" style="z-index:2"></div>
@@ -537,10 +548,11 @@ function generateBreedPage(breed) {
                         ${similarBreeds.map(similar => {
                             const similarSlug = slugify(similar.name_fr || similar.name);
                             const similarImg = similar.image?.url ? `/${similar.image.url}` : '';
+                            const similarWebp = similarImg ? similarImg.replace('.jpg', '.webp') : '';
                             return `
-                            <a href="/races/${similarSlug}.html" class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 hover:border-primary-300 hover:bg-slate-50 transition-all group">
+                            <a href="/races/${similarSlug}" class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 hover:border-primary-300 hover:bg-slate-50 transition-all group">
                                 ${similarImg ? 
-                                    `<img src="${similarImg}" alt="${escapeHtml(similar.name)}" class="w-16 h-16 rounded-lg object-cover">` :
+                                    `<picture><source srcset="${similarWebp}" type="image/webp"><img src="${similarImg}" alt="${escapeHtml(similar.name)}" class="w-16 h-16 rounded-lg object-cover" loading="lazy" width="64" height="64"></picture>` :
                                     `<div class="w-16 h-16 rounded-lg bg-slate-100 flex items-center justify-center text-2xl">🐕</div>`
                                 }
                                 <div>
@@ -568,26 +580,27 @@ function generateBreedPage(breed) {
                     <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Navigation</h4>
                     <ul class="space-y-3 text-sm">
                         <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
-                        <li><a href="/compare.html" class="hover:text-white transition-colors">Comparer les races</a></li>
+                        <li><a href="/compare" class="hover:text-white transition-colors">Comparer les races</a></li>
+                        <li><a href="/tel-maitre-tel-chien" class="hover:text-white transition-colors">Tel Maître, Tel Chien</a></li>
                         <li><a href="/sitemap.xml" class="hover:text-white transition-colors">Plan du site</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Races populaires</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="/races/berger-allemand.html" class="hover:text-white transition-colors">Berger Allemand</a></li>
-                        <li><a href="/races/golden-retriever.html" class="hover:text-white transition-colors">Golden Retriever</a></li>
-                        <li><a href="/races/labrador-retriever.html" class="hover:text-white transition-colors">Labrador Retriever</a></li>
-                        <li><a href="/races/bouledogue-francais.html" class="hover:text-white transition-colors">Bouledogue Français</a></li>
+                        <li><a href="/races/berger-allemand" class="hover:text-white transition-colors">Berger Allemand</a></li>
+                        <li><a href="/races/golden-retriever" class="hover:text-white transition-colors">Golden Retriever</a></li>
+                        <li><a href="/races/labrador-retriever" class="hover:text-white transition-colors">Labrador Retriever</a></li>
+                        <li><a href="/races/bouledogue-francais" class="hover:text-white transition-colors">Bouledogue Français</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Autres races</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="/races/cavalier-king-charles.html" class="hover:text-white transition-colors">Cavalier King Charles</a></li>
-                        <li><a href="/races/shiba-inu.html" class="hover:text-white transition-colors">Shiba Inu</a></li>
-                        <li><a href="/races/border-collie.html" class="hover:text-white transition-colors">Border Collie</a></li>
-                        <li><a href="/races/beagle.html" class="hover:text-white transition-colors">Beagle</a></li>
+                        <li><a href="/races/cavalier-king-charles" class="hover:text-white transition-colors">Cavalier King Charles</a></li>
+                        <li><a href="/races/shiba-inu" class="hover:text-white transition-colors">Shiba Inu</a></li>
+                        <li><a href="/races/border-collie" class="hover:text-white transition-colors">Border Collie</a></li>
+                        <li><a href="/races/beagle" class="hover:text-white transition-colors">Beagle</a></li>
                     </ul>
                 </div>
             </div>
@@ -620,15 +633,21 @@ function generateSitemap(slugs) {
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>${SITE_URL}/compare.html</loc>
+        <loc>${SITE_URL}/compare</loc>
         <lastmod>${today}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
+    <url>
+        <loc>${SITE_URL}/tel-maitre-tel-chien</loc>
+        <lastmod>${today}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 `;
     for (const slug of slugs) {
         xml += `    <url>
-        <loc>${SITE_URL}/races/${slug}.html</loc>
+        <loc>${SITE_URL}/races/${slug}</loc>
         <lastmod>${today}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>

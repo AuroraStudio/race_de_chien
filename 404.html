@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <title>Page introuvable | Race de Chien</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                    colors: {
+                        primary: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 font-sans antialiased">
+    <div class="site-header"></div>
+
+    <main class="max-w-2xl mx-auto px-6 py-32 text-center">
+        <div class="text-9xl mb-6">🐕‍🦺</div>
+        <h1 class="text-4xl font-bold text-slate-900 mb-4">Page introuvable</h1>
+        <p class="text-lg text-slate-600 mb-8">
+            On dirait que ce chien s'est échappé... La page que vous cherchez n'existe pas ou a été déplacée.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-xl transition-colors">
+                Voir toutes les races
+            </a>
+            <a href="/tel-maitre-tel-chien" class="px-6 py-3 bg-white border border-slate-200 hover:border-primary-300 text-slate-700 font-medium rounded-xl transition-colors">
+                🐕 Tel Maître, Tel Chien
+            </a>
+        </div>
+    </main>
+
+    <script src="/js/header.js"></script>
+</body>
+</html>
