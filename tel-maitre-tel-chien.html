@@ -19,7 +19,7 @@
     <meta property="og:title" content="Tel Maître, Tel Chien — À quelle race de chien ressemblez-vous ?">
     <meta property="og:description" content="Prenez un selfie et découvrez à quelle race de chien vous ressemblez ! Un test amusant basé sur l'IA parmi 169 races.">
     <meta property="og:url" content="https://race-de-chien.com/tel-maitre-tel-chien">
-    <meta property="og:image" content="https://race-de-chien.com/images/breeds/115.jpg">
+    <meta property="og:image" content="https://race-de-chien.com/images/breeds/bouledogue-francais.jpg">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Race de Chien">
 
@@ -27,7 +27,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Tel Maître, Tel Chien — À quelle race de chien ressemblez-vous ?">
     <meta name="twitter:description" content="Prenez un selfie et découvrez à quelle race de chien vous ressemblez !">
-    <meta name="twitter:image" content="https://race-de-chien.com/images/breeds/115.jpg">
+    <meta name="twitter:image" content="https://race-de-chien.com/images/breeds/bouledogue-francais.jpg">
 
     <!-- Schema.org -->
     <script type="application/ld+json">
@@ -794,16 +794,16 @@
         // User photo
         document.getElementById('result-user-photo').src = `data:${currentImageMimeType};base64,${currentImageBase64}`;
         
-        // Breed photo
-        const breedImgId = breed?.id || '115';
-        document.getElementById('result-breed-photo').src = `/images/breeds/${breedImgId}.jpg`;
+        // Breed photo — utilise le chemin depuis breeds.json (nommé par slug)
+        const breedImgUrl = breed?.image?.url ? `/${breed.image.url}` : `/images/breeds/${result.breed_slug}.jpg`;
+        document.getElementById('result-breed-photo').src = breedImgUrl;
         document.getElementById('result-breed-photo').onerror = function() {
-            // Fallback to URL from breeds data
+            // Fallback to external URL from breeds data
             if (breed?.images?.url) this.src = breed.images.url;
         };
         
         // Breed link
-        document.getElementById('result-breed-link').href = `/races/${result.breed_slug}.html`;
+        document.getElementById('result-breed-link').href = `/races/${result.breed_slug}`;
         
         // Traits
         const traitsContainer = document.getElementById('result-traits');
@@ -935,7 +935,8 @@
         // Load and draw images
         try {
             const userImg = await loadImage(`data:${currentImageMimeType};base64,${currentImageBase64}`);
-            const breedId = breedsData?.find(b => breedSlugs?.[b.id] === currentResult.breed_slug)?.id || '115';
+            const breedForImg = breedsData?.find(b => breedSlugs?.[b.id] === currentResult.breed_slug);
+            const breedShareImgUrl = breedForImg?.image?.url ? `/${breedForImg.image.url}` : `/images/breeds/${currentResult.breed_slug}.jpg`;
             
             // User photo (left)
             ctx.save();
@@ -946,7 +947,7 @@
             
             // Breed photo (right)
             try {
-                const breedImg = await loadImage(`/images/breeds/${breedId}.jpg`);
+                const breedImg = await loadImage(breedShareImgUrl);
                 ctx.save();
                 roundRect(ctx, 580, 150, 420, 420, 20);
                 ctx.clip();
