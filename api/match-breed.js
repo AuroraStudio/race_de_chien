@@ -1,27 +1,71 @@
-// Rate limiting en mémoire (reset au redéploiement, suffisant pour limiter l'abus)
-const rateLimitMap = new Map();
+// Rate limiting — Vercel KV si disponible, sinon mémoire (reset au redéploiement)
 const RATE_LIMIT_MAX = 5; // 5 essais max par IP
-const RATE_LIMIT_WINDOW = 24 * 60 * 60 * 1000; // 24h en ms
+const RATE_LIMIT_WINDOW = 24 * 60 * 60; // 24h en secondes
 const MAX_IMAGE_SIZE = 2 * 1024 * 1024; // ~2MB en base64
 
-function getRateLimitInfo(ip) {
+// Fallback mémoire
+const rateLimitMap = new Map();
+
+// Tente d'importer Vercel KV (disponible si configuré sur le projet)
+let kv = null;
+try {
+    const kvModule = await import('@vercel/kv');
+    kv = kvModule.kv;
+} catch(e) {
+    // KV non disponible, on utilise la mémoire
+}
+
+async function getRateLimitInfo(ip) {
+    const key = `ratelimit:${ip}`;
+    
+    if (kv) {
+        try {
+            const count = await kv.get(key);
+            if (count === null) {
+                return { remaining: RATE_LIMIT_MAX, allowed: true };
+            }
+            return {
+                remaining: Math.max(0, RATE_LIMIT_MAX - count),
+                allowed: count < RATE_LIMIT_MAX
+            };
+        } catch(e) {
+            // Fallback mémoire si KV échoue
+        }
+    }
+    
+    // Fallback mémoire
     const now = Date.now();
     const entry = rateLimitMap.get(ip);
-    
-    if (!entry || now - entry.windowStart > RATE_LIMIT_WINDOW) {
+    if (!entry || now - entry.windowStart > RATE_LIMIT_WINDOW * 1000) {
         rateLimitMap.set(ip, { windowStart: now, count: 0 });
         return { remaining: RATE_LIMIT_MAX, allowed: true };
     }
-    
     return { 
         remaining: Math.max(0, RATE_LIMIT_MAX - entry.count), 
         allowed: entry.count < RATE_LIMIT_MAX 
     };
 }
 
-function incrementRateLimit(ip) {
+async function incrementRateLimit(ip) {
+    const key = `ratelimit:${ip}`;
+    
+    if (kv) {
+        try {
+            const count = await kv.get(key);
+            if (count === null) {
+                await kv.set(key, 1, { ex: RATE_LIMIT_WINDOW });
+            } else {
+                await kv.incr(key);
+            }
+            return;
+        } catch(e) {
+            // Fallback mémoire
+        }
+    }
+    
     const entry = rateLimitMap.get(ip);
     if (entry) entry.count++;
+}
 }
 
 // ============================================================
@@ -245,7 +289,7 @@ export default async function handler(req, res) {
 
     // Rate limiting
     const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || 'unknown';
-    const rateInfo = getRateLimitInfo(ip);
+    const rateInfo = await getRateLimitInfo(ip);
     
     res.setHeader('X-RateLimit-Limit', RATE_LIMIT_MAX);
     res.setHeader('X-RateLimit-Remaining', rateInfo.remaining);
@@ -377,7 +421,7 @@ Règles pour la réponse :
             return res.status(response.status).json({ error: errData.error?.message || 'API error' });
         }
 
-        incrementRateLimit(ip);
+        await incrementRateLimit(ip);
 
         const data = await response.json();
         return res.status(200).json({ 

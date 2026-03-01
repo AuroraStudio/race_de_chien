@@ -802,12 +802,32 @@
             <!-- Breeds Grid -->
             <div id="breeds-container" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 pb-24">
                 <!-- Cards will be injected here -->
+                <noscript>
+                    <div class="col-span-full bg-white rounded-2xl p-8 shadow-sm border border-slate-100 text-center">
+                        <p class="text-lg text-slate-700 mb-6">JavaScript est nécessaire pour utiliser les filtres. Voici nos races les plus populaires :</p>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-left">
+                            <a href="/races/berger-allemand" class="p-3 rounded-xl hover:bg-slate-50 text-primary-600 font-medium">Berger Allemand</a>
+                            <a href="/races/golden-retriever" class="p-3 rounded-xl hover:bg-slate-50 text-primary-600 font-medium">Golden Retriever</a>
+                            <a href="/races/labrador-retriever" class="p-3 rounded-xl hover:bg-slate-50 text-primary-600 font-medium">Labrador Retriever</a>
+                            <a href="/races/bouledogue-francais" class="p-3 rounded-xl hover:bg-slate-50 text-primary-600 font-medium">Bouledogue Français</a>
+                            <a href="/races/berger-australien" class="p-3 rounded-xl hover:bg-slate-50 text-primary-600 font-medium">Berger Australien</a>
+                            <a href="/races/husky-siberien" class="p-3 rounded-xl hover:bg-slate-50 text-primary-600 font-medium">Husky Sibérien</a>
+                            <a href="/races/cavalier-king-charles" class="p-3 rounded-xl hover:bg-slate-50 text-primary-600 font-medium">Cavalier King Charles</a>
+                            <a href="/races/shiba-inu" class="p-3 rounded-xl hover:bg-slate-50 text-primary-600 font-medium">Shiba Inu</a>
+                            <a href="/races/border-collie" class="p-3 rounded-xl hover:bg-slate-50 text-primary-600 font-medium">Border Collie</a>
+                            <a href="/races/beagle" class="p-3 rounded-xl hover:bg-slate-50 text-primary-600 font-medium">Beagle</a>
+                            <a href="/races/rottweiler" class="p-3 rounded-xl hover:bg-slate-50 text-primary-600 font-medium">Rottweiler</a>
+                            <a href="/races/yorkshire-terrier" class="p-3 rounded-xl hover:bg-slate-50 text-primary-600 font-medium">Yorkshire Terrier</a>
+                        </div>
+                        <p class="mt-6 text-sm text-slate-500">Consultez le <a href="/sitemap.xml" class="text-primary-600 underline">plan du site</a> pour la liste complète des 169 races.</p>
+                    </div>
+                </noscript>
             </div>
         </main>
     </div>
 
-    <script src="js/header.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/header.min.js"></script>
+    <script src="js/app.min.js"></script>
 
     <!-- Footer SEO -->
     <footer class="bg-slate-900 text-slate-400 py-16 mt-0 lg:ml-80">
