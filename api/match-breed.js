@@ -6,21 +6,29 @@ const MAX_IMAGE_SIZE = 2 * 1024 * 1024; // ~2MB en base64
 // Fallback mémoire
 const rateLimitMap = new Map();
 
-// Tente d'importer Vercel KV (disponible si configuré sur le projet)
+// Lazy-load Vercel KV (résolu au premier appel)
 let kv = null;
-try {
-    const kvModule = await import('@vercel/kv');
-    kv = kvModule.kv;
-} catch(e) {
-    // KV non disponible, on utilise la mémoire
+let kvChecked = false;
+
+async function getKV() {
+    if (kvChecked) return kv;
+    kvChecked = true;
+    try {
+        const kvModule = await import('@vercel/kv');
+        kv = kvModule.kv;
+    } catch(e) {
+        // KV non disponible, on reste en mémoire
+    }
+    return kv;
 }
 
 async function getRateLimitInfo(ip) {
+    const store = await getKV();
     const key = `ratelimit:${ip}`;
     
-    if (kv) {
+    if (store) {
         try {
-            const count = await kv.get(key);
+            const count = await store.get(key);
             if (count === null) {
                 return { remaining: RATE_LIMIT_MAX, allowed: true };
             }
@@ -47,15 +55,16 @@ async function getRateLimitInfo(ip) {
 }
 
 async function incrementRateLimit(ip) {
+    const store = await getKV();
     const key = `ratelimit:${ip}`;
     
-    if (kv) {
+    if (store) {
         try {
-            const count = await kv.get(key);
+            const count = await store.get(key);
             if (count === null) {
-                await kv.set(key, 1, { ex: RATE_LIMIT_WINDOW });
+                await store.set(key, 1, { ex: RATE_LIMIT_WINDOW });
             } else {
-                await kv.incr(key);
+                await store.incr(key);
             }
             return;
         } catch(e) {
@@ -65,7 +74,6 @@ async function incrementRateLimit(ip) {
     
     const entry = rateLimitMap.get(ip);
     if (entry) entry.count++;
-}
 }
 
 // ============================================================
