@@ -3,5 +3,6 @@
   "public": true,
   "github": {
     "enabled": true
-  }
+  },
+  "cleanUrls": true
 }
