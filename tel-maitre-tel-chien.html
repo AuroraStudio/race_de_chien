@@ -337,6 +337,25 @@
                         <div class="vs-circle">VS</div>
                     </div>
 
+                    <!-- Share section — right below photos for max visibility -->
+                    <div class="bg-gradient-to-r from-slate-50 to-blue-50 px-6 sm:px-10 py-6 text-center border-b border-slate-100">
+                        <p class="text-sm font-bold text-slate-700 mb-4">📸 Partagez votre résultat avec vos amis !</p>
+                        <div class="flex flex-wrap justify-center gap-3 mb-3">
+                            <a id="share-x" href="#" target="_blank" class="share-btn share-btn-x">
+                                <i class="fab fa-x-twitter"></i> X
+                            </a>
+                            <a id="share-fb" href="#" target="_blank" class="share-btn share-btn-fb">
+                                <i class="fab fa-facebook-f"></i> Facebook
+                            </a>
+                            <a id="share-wa" href="#" target="_blank" class="share-btn share-btn-wa">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <button onclick="downloadResult()" class="share-btn share-btn-download">
+                                <i class="fas fa-download"></i> Télécharger l'image
+                            </button>
+                        </div>
+                    </div>
+
                     <!-- Details -->
                     <div class="px-6 sm:px-10 py-8 sm:py-10">
 
@@ -353,35 +372,13 @@
                         </div>
 
                         <!-- CTA buttons -->
-                        <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-10">
+                        <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                             <a id="result-breed-link" href="#" class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 shadow-lg shadow-primary-500/25">
                                 <i class="fas fa-paw"></i> Voir la fiche complète
                             </a>
                             <button onclick="resetAll()" class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-xl transition-all border border-slate-200">
                                 <i class="fas fa-arrow-rotate-left"></i> Refaire le test
                             </button>
-                        </div>
-
-                        <!-- Separator -->
-                        <div class="border-t border-slate-100 mb-8"></div>
-
-                        <!-- Share buttons -->
-                        <div class="text-center">
-                            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-5">Partager mon résultat</h3>
-                            <div class="flex flex-wrap justify-center gap-3">
-                                <a id="share-x" href="#" target="_blank" class="share-btn share-btn-x">
-                                    <i class="fab fa-x-twitter"></i> X
-                                </a>
-                                <a id="share-fb" href="#" target="_blank" class="share-btn share-btn-fb">
-                                    <i class="fab fa-facebook-f"></i> Facebook
-                                </a>
-                                <a id="share-wa" href="#" target="_blank" class="share-btn share-btn-wa">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp
-                                </a>
-                                <button onclick="downloadResult()" class="share-btn share-btn-download">
-                                    <i class="fas fa-download"></i> Télécharger
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>
