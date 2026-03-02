@@ -196,6 +196,8 @@
         .share-btn-fb { background: #1877f2; }
         .share-btn-wa { background: #25d366; }
         .share-btn-download { background: linear-gradient(135deg, #3b82f6, #9333ea); }
+        .share-btn-ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .share-btn-tiktok { background: #010101; }
 
         /* ===== TRAIT BADGE ===== */
         .trait-badge {
@@ -350,6 +352,12 @@
                             <a id="share-wa" href="#" target="_blank" class="share-btn share-btn-wa">
                                 <i class="fab fa-whatsapp"></i> WhatsApp
                             </a>
+                            <button onclick="shareToApp('instagram')" class="share-btn share-btn-ig">
+                                <i class="fab fa-instagram"></i> Instagram
+                            </button>
+                            <button onclick="shareToApp('tiktok')" class="share-btn share-btn-tiktok">
+                                <i class="fab fa-tiktok"></i> TikTok
+                            </button>
                             <button onclick="downloadResult()" class="share-btn share-btn-download">
                                 <i class="fas fa-download"></i> Télécharger l'image
                             </button>
@@ -902,6 +910,89 @@
     }
 
     // ===== DOWNLOAD RESULT IMAGE =====
+
+    async function shareToApp(platform) {
+        // Try Web Share API (works on mobile — can share image directly to Instagram/TikTok)
+        if (navigator.share && navigator.canShare) {
+            try {
+                const canvas = document.getElementById('share-canvas');
+                canvas.width = 1080;
+                canvas.height = 1080;
+                const ctx = canvas.getContext('2d');
+
+                // Draw background
+                ctx.fillStyle = '#f8fafc';
+                ctx.fillRect(0, 0, 1080, 1080);
+
+                // Draw header gradient
+                const headerGrad = ctx.createLinearGradient(0, 0, 1080, 0);
+                headerGrad.addColorStop(0, '#3b82f6');
+                headerGrad.addColorStop(1, '#a855f7');
+                ctx.fillStyle = headerGrad;
+                ctx.fillRect(0, 0, 1080, 160);
+
+                ctx.fillStyle = 'white';
+                ctx.font = 'bold 36px Plus Jakarta Sans, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('Je ressemble à un...', 540, 60);
+                ctx.font = 'bold 56px Plus Jakarta Sans, sans-serif';
+                ctx.fillText(currentResult.breed_name, 540, 125);
+
+                // Draw photos side by side
+                const userImg = document.getElementById('result-user-photo');
+                const breedImg = document.getElementById('result-breed-photo');
+                const photoY = 180;
+                const photoSize = 420;
+                ctx.drawImage(userImg, 100, photoY, photoSize, photoSize);
+                ctx.drawImage(breedImg, 560, photoY, photoSize, photoSize);
+
+                // VS circle
+                ctx.fillStyle = 'white';
+                ctx.beginPath();
+                ctx.arc(540, photoY + photoSize / 2, 32, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.fillStyle = '#1e293b';
+                ctx.font = 'bold 22px Plus Jakarta Sans, sans-serif';
+                ctx.fillText('VS', 540, photoY + photoSize / 2 + 8);
+
+                // Match percentage
+                ctx.font = 'bold 72px Plus Jakarta Sans, sans-serif';
+                ctx.fillStyle = '#3b82f6';
+                ctx.fillText(currentResult.match_percentage + '%', 540, 680);
+                ctx.font = '24px Plus Jakarta Sans, sans-serif';
+                ctx.fillStyle = '#64748b';
+                ctx.fillText('de ressemblance', 540, 720);
+
+                // Footer
+                ctx.font = 'bold 28px Plus Jakarta Sans, sans-serif';
+                ctx.fillStyle = '#334155';
+                ctx.fillText('race-de-chien.com/tel-maitre-tel-chien', 540, 1040);
+
+                const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+                const file = new File([blob], 'mon-chien-jumeau.png', { type: 'image/png' });
+
+                const shareData = {
+                    title: `Je ressemble à un ${currentResult.breed_name} !`,
+                    text: `Je ressemble à un ${currentResult.breed_name} à ${currentResult.match_percentage}% ! 🐕 Découvrez à quelle race de chien vous ressemblez :`,
+                    url: 'https://race-de-chien.com/tel-maitre-tel-chien',
+                    files: [file]
+                };
+
+                if (navigator.canShare(shareData)) {
+                    await navigator.share(shareData);
+                    return;
+                }
+            } catch (e) {
+                if (e.name === 'AbortError') return; // User cancelled
+                console.warn('Web Share failed, falling back:', e);
+            }
+        }
+
+        // Fallback: download the image + show instruction
+        await downloadResult();
+        const appName = platform === 'instagram' ? 'Instagram' : 'TikTok';
+        alert(`L'image a été téléchargée ! 📸\nOuvrez ${appName} et partagez-la depuis votre galerie.`);
+    }
 
     async function downloadResult() {
         if (!currentResult) return;
