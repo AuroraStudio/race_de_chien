@@ -96,6 +96,7 @@ cavalier-king-charles | Cavalier King Charles | Rond et doux, grands yeux expres
 shih-tzu | Shih Tzu | Rond, aplati, expression douce | Pelage: varié, blanc/doré
 pekinois | Pékinois | Plat, large, expression noble | Pelage: fauve, doré, noir
 boxer | Boxer | Carré, prognathe, museau court, alerte | Pelage: fauve, bringé
+bulldog-continental | Bulldog Continental | Large, museau court mais pas écrasé, jovial | Pelage: fauve, poitrail blanc
 shar-pei | Shar-Pei | Plissé, rides profondes | Pelage: fauve, sable, noir, chocolat
 chow-chow | Chow-Chow | Très rond, crinière, plissé | Pelage: roux, fauve, noir, crème
 dogue-allemand | Dogue Allemand | Rectangulaire, babines, noble | Pelage: fauve, bringé, bleu, arlequin
@@ -120,6 +121,10 @@ chien-du-pharaon | Chien du Pharaon | Long, élégant, oreilles dressées | Pela
 dobermann | Dobermann | Long, anguleux, alerte | Pelage: noir et feu, marron et feu
 braque-de-weimar | Braque de Weimar | Long, noble, yeux clairs ambrés | Pelage: gris argenté
 braque-allemand-a-poil-court | Braque Allemand à poil court | Long, noble, intelligent | Pelage: marron, rouan, noir
+pointer-anglais | Pointer Anglais | Fin, ciselé, museau légèrement concave | Pelage: blanc à taches marron
+drahthaar | Drahthaar | Barbe courte, sourcils broussailleux, regard sérieux | Pelage: marron rouanné, poil dur
+braque-francais-type-pyrenees | Braque Français type Pyrénées | Ovale doux, oreilles tombantes | Pelage: blanc à taches marron
+petit-epagneul-de-munster | Petit Épagneul de Münster | Doux, oreilles frangées, regard attentif | Pelage: blanc moucheté marron, tête marron
 rhodesian-ridgeback | Rhodesian Ridgeback | Long, puissant, noble | Pelage: froment clair à roux
 basenji | Basenji | Fin, rides frontales, oreilles dressées | Pelage: roux et blanc, tricolore
 thai-ridgeback | Thai Ridgeback | Triangulaire, rides, alerte | Pelage: bleu, noir, rouge, fauve
@@ -208,6 +213,7 @@ bichon-maltais | Bichon Maltais | Rond, yeux noirs, poils longs | Pelage: blanc 
 bichon-havanais | Bichon Havanais | Rond, espiègle | Pelage: varié, blanc, noir, fauve
 coton-de-tulear | Coton de Tuléar | Rond et cotonneux, joyeux | Pelage: blanc
 yorkshire-terrier | Yorkshire Terrier | Petit et fin, fier | Pelage: bleu acier et fauve
+chihuahua | Chihuahua | Tête en pomme, grands yeux ronds, très grandes oreilles | Pelage: fauve, crème, noir et feu
 caniche-nain | Caniche Nain | Ovale, bouclé, intelligent | Pelage: blanc, noir, abricot, gris
 caniche-toy | Caniche Toy | Petit et rond, bouclé, vif | Pelage: blanc, noir, abricot, gris
 lhassa-apso | Lhassa Apso | Couvert de poils, sage | Pelage: doré, sable, gris, noir
@@ -249,6 +255,7 @@ CATÉGORIE 8 — VISAGES TERRIER / VIFS
 Correspondance humaine : traits vifs/espiègles, expression malicieuse, souvent cheveux texturés/en bataille
 fox-terrier-a-poil-dur | Fox Terrier à poil dur | Carré, barbu, malicieux | Pelage: blanc avec taches
 fox-terrier-a-poil-lisse | Fox Terrier à poil lisse | Long et fin, vif | Pelage: blanc avec taches
+jack-russell-terrier | Jack Russell Terrier | Petit, vif, oreilles pliées, regard malicieux | Pelage: blanc avec taches feu
 cairn-terrier | Cairn Terrier | Petit, hirsute, coquin | Pelage: sable, bringé, gris, roux
 west-highland-white-terrier | West Highland White Terrier | Rond et blanc, espiègle | Pelage: blanc pur
 terrier-ecossais | Terrier Écossais | Allongé, barbu, fier | Pelage: noir, bringé, froment
@@ -268,6 +275,8 @@ lancashire-heeler | Lancashire Heeler | Petit, rusé | Pelage: noir et feu
 CATÉGORIE 9 — CHIENS DE CHASSE / OREILLES TOMBANTES
 Correspondance humaine : expression douce ou mélancolique, yeux tombants, traits relâchés
 basset-hound | Basset Hound | Oreilles très longues, yeux tristes, bajoues | Pelage: tricolore, bicolore
+basset-fauve-de-bretagne | Basset Fauve de Bretagne | Poil dur ébouriffé, regard vif, oreilles tombantes | Pelage: fauve doré
+gascon-saintongeois | Gascon Saintongeois | Long et noble, longues oreilles fines | Pelage: blanc moucheté de noir, marques feu
 basset-bleu-de-gascogne | Basset Bleu de Gascogne | Oreilles longues, mélancolique | Pelage: bleu moucheté
 chien-de-saint-hubert | Chien de Saint-Hubert | Très ridé, oreilles énormes, peau lâche | Pelage: noir et feu, foie et feu
 coonhound-bleute | Coonhound Bluetick | Long, oreilles tombantes, noble | Pelage: bleu moucheté
@@ -282,7 +291,8 @@ chien-leopard-catahoula | Chien Léopard Catahoula | Triangulaire, yeux vairons 
 
 CATÉGORIE 10 — CORGI / COURTS SUR PATTES
 welsh-corgi-pembroke | Welsh Corgi Pembroke | Triangulaire joyeux, oreilles dressées | Pelage: rouge, fauve, tricolore
-welsh-corgi-cardigan | Welsh Corgi Cardigan | Large, oreilles arrondies | Pelage: varié, bringé, bleu merle`;
+welsh-corgi-cardigan | Welsh Corgi Cardigan | Large, oreilles arrondies | Pelage: varié, bringé, bleu merle
+teckel | Teckel | Long museau, oreilles tombantes, regard fier | Pelage: fauve, noir et feu, poil ras, dur ou long`;
 
 
 
