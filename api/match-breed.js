@@ -467,6 +467,13 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
+    // Les navigateurs envoient toujours Origin sur un POST : un appel sans Origin ou depuis un autre site n'est pas notre page.
+    // Ce n'est pas une barrière absolue (un script peut l'imiter), mais ça écarte les robots qui viendraient consommer le quota.
+    const isProd = process.env.VERCEL_ENV === 'production';
+    if (isProd && !allowedOrigins.includes(origin)) {
+        return res.status(403).json({ error: 'forbidden', message: 'Requête refusée.' });
+    }
+
     // Rate limiting
     const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || 'unknown';
     const rateInfo = await getRateLimitInfo(ip);
