@@ -25,9 +25,24 @@ const TODAY = new Date().toISOString().split('T')[0];
 const written = [];
 
 const read = p => fs.readFileSync(path.join(ROOT, p), 'utf8');
+
+// Date de dernière modification réelle de chaque page (sitemap, JSON-LD, « mis à jour le ») :
+// on garde la date précédente tant que le contenu ne change pas, numéros de version des fichiers exclus.
+const LASTMOD_FILE = 'data/lastmod.json';
+const lastmodPrev = fs.existsSync(path.join(ROOT, LASTMOD_FILE)) ? JSON.parse(fs.readFileSync(path.join(ROOT, LASTMOD_FILE), 'utf8')) : {};
+const lastmod = {};
+const DATE = '__LASTMOD__', DATE_FR = '__LASTMOD_FR__';
+function stamp(p, html) {
+    if (!html.includes('<html')) return html;
+    const h = crypto.createHash('sha1').update(html.replace(/\?v=[\w-]+/g, '').split('__V_CSS__').join('')).digest('hex').slice(0, 12);
+    const prev = lastmodPrev[p];
+    const d = prev && prev.h === h ? prev.d : TODAY;
+    lastmod[p] = { h, d };
+    return html.split(DATE_FR).join(d.split('-').reverse().join('/')).split(DATE).join(d);
+}
 const write = (p, s) => {
     fs.mkdirSync(path.dirname(path.join(ROOT, p)), { recursive: true });
-    fs.writeFileSync(path.join(ROOT, p), s, 'utf8');
+    fs.writeFileSync(path.join(ROOT, p), p.endsWith('.html') ? stamp(p, s) : s, 'utf8');
     written.push(p);
 };
 const hash = p => crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, p))).digest('hex').slice(0, 10);
@@ -52,6 +67,17 @@ function esc(text) {
 const num = n => String(n).replace('.', ',');
 const fmtInt = n => Number(n).toLocaleString('fr-FR').replace(/ | /g, ' ');
 const ordinal = n => (n === 1 ? '1re' : `${n}e`);
+// « le Golden Retriever », « l’Akita » (le h des noms de races est aspiré : « le Husky »)
+const le = n => (/^[AEIOUYÉÈÊÂÎÔ]/i.test(n) ? `l’${n}` : `le ${n}`);
+const Le = n => le(n).replace(/^l/, 'L');
+// Suffixe de marque seulement s'il tient dans les 60 caractères affichés par Google
+const withBrand = t => (t.length + 16 <= 60 ? `${t} | Race de Chien` : t);
+// Coupe une description au dernier mot avant la limite (Google affiche environ 155 caractères)
+function clip(text, max = 158) {
+    const t = text.replace(/\s+/g, ' ').trim();
+    if (t.length <= max) return t;
+    return t.slice(0, max - 1).replace(/[\s,;:.]+\S*$/, '') + '…';
+}
 function range(min, max, unit) {
     if (min == null && max == null) return '';
     if (min == null || max == null || min === max) return `${num(min ?? max)} ${unit}`;
@@ -232,7 +258,7 @@ const versions = {
 // ============================================
 
 const SELECTIONS = [
-    { slug: 'chiens-pour-appartement', short: 'Chiens pour appartement', icon: '🏢', state: { logement: 'appart' },
+    { slug: 'chiens-pour-appartement', seo: 'Chiens pour appartement : les races qui s’y plaisent', short: 'Chiens pour appartement', icon: '🏢', state: { logement: 'appart' },
       title: 'Chiens pour appartement : les races qui s’y plaisent vraiment',
       intro: 'Un chien peut être heureux en appartement si ses besoins d’activité sont couverts dehors. Nous avons classé les races selon leur adaptation à un logement sans jardin : calme à l’intérieur, aboiements, taille, besoin d’espace.',
       avoid: 'Les races qui supportent le moins un appartement' },
@@ -244,17 +270,17 @@ const SELECTIONS = [
       title: 'Chiens pour enfants : les races les plus douces en famille',
       intro: 'Patience, tolérance aux câlins un peu maladroits, absence d’agressivité : certaines races sont réputées pour leur douceur avec les petits. Aucune race ne dispense de surveiller un enfant avec un chien.',
       avoid: 'Les races à éviter avec de jeunes enfants' },
-    { slug: 'chiens-qui-perdent-peu-de-poils', short: 'Chiens qui perdent peu de poils', icon: '🤧', state: { hypo: true },
+    { slug: 'chiens-qui-perdent-peu-de-poils', seo: 'Chien qui ne perd pas ses poils : les races pour allergiques', short: 'Chiens qui perdent peu de poils', icon: '🤧', state: { hypo: true },
       title: 'Chiens qui perdent peu de poils : les races conseillées aux personnes allergiques',
       intro: 'Aucun chien n’est vraiment hypoallergénique : l’allergie vient de protéines présentes dans la salive et les squames. Les races à poil qui pousse en continu (caniches, bichons, schnauzers…) perdent très peu de poils et sont souvent mieux tolérées. Passez du temps avec la race avant de vous décider.' },
-    { slug: 'chiens-pour-personnes-agees', short: 'Chiens pour personnes âgées', icon: '🧓', state: { rythme: 2, experience: 'premier', sizes: [1, 2, 3] },
+    { slug: 'chiens-pour-personnes-agees', seo: 'Chiens pour personnes âgées : races calmes et faciles', short: 'Chiens pour personnes âgées', icon: '🧓', state: { rythme: 2, experience: 'premier', sizes: [1, 2, 3] },
       title: 'Chiens pour personnes âgées : calmes, faciles et pas trop grands',
       intro: 'Pour une retraite paisible, mieux vaut un chien calme, facile à éduquer, de petite ou moyenne taille, qui ne tire pas en laisse. Notre sélection croise ces critères.' },
-    { slug: 'chiens-qui-supportent-la-solitude', short: 'Chiens qui supportent la solitude', icon: '⏰', state: { seul: 'long' },
+    { slug: 'chiens-qui-supportent-la-solitude', seo: 'Chiens qui supportent la solitude : les races indépendantes', short: 'Chiens qui supportent la solitude', icon: '⏰', state: { seul: 'long' },
       title: 'Chiens qui supportent la solitude : les races les plus indépendantes',
       intro: 'Aucun chien n’est fait pour rester seul huit heures par jour tous les jours. Certaines races, plus indépendantes, vivent cependant mieux les absences. Pensez aussi au promeneur ou à la garderie.',
       avoid: 'Les races qui vivent le plus mal la solitude' },
-    { slug: 'chiens-sportifs', short: 'Chiens sportifs', icon: '🏃', state: { rythme: 5 },
+    { slug: 'chiens-sportifs', seo: 'Chiens sportifs : les races pour courir et randonner', short: 'Chiens sportifs', icon: '🏃', state: { rythme: 5 },
       title: 'Chiens sportifs : les meilleures races pour courir et randonner',
       intro: 'Canicross, trail, randonnée, vélo : ces races ont l’endurance et l’envie de vous suivre. Elles demandent en retour une à deux heures d’activité par jour et de la stimulation mentale.' },
     { slug: 'premier-chien', short: 'Pour un premier chien', icon: '🐣', state: { experience: 'premier' },
@@ -267,9 +293,15 @@ const SELECTIONS = [
     { slug: 'races-francaises', short: 'Races françaises', icon: '🇫🇷', state: { france: true },
       title: 'Les races de chiens françaises',
       intro: 'La France compte une cinquantaine de races reconnues : bergers, braques, épagneuls, chiens courants, molosses et chiens de compagnie. Les voici, de la plus inscrite au LOF à la plus rare.' },
-    { slug: 'petits-chiens', short: 'Petits chiens', icon: '🐕', state: { sizes: [1, 2] },
+    { slug: 'petits-chiens', short: 'Petits chiens', icon: '🐕', state: { sizes: [1, 2] }, all: true,
       title: 'Petits chiens : toutes les races de petite taille',
       intro: 'Moins de 40 cm au garrot : des chiens faciles à emmener partout. Petit ne veut pas dire calme : beaucoup de terriers débordent d’énergie.' },
+    { slug: 'chiens-de-taille-moyenne', short: 'Chiens de taille moyenne', icon: '🐕‍🦺', state: { sizes: [3] }, all: true,
+      title: 'Chiens de taille moyenne : toutes les races de 40 à 60 cm',
+      intro: 'Entre 40 et 60 cm au garrot, les chiens de taille moyenne sont le compromis le plus courant : assez robustes pour les longues balades, assez compacts pour la voiture et la maison. Bergers, épagneuls, braques, spitz : les tempéraments vont du très calme au très sportif.' },
+    { slug: 'grands-chiens', short: 'Grands chiens', icon: '🦮', state: { sizes: [4, 5] }, all: true,
+      title: 'Grands chiens : toutes les races de plus de 60 cm',
+      intro: 'Plus de 60 cm au garrot : chiens de garde, de troupeau, de trait ou de chasse. Souvent calmes à la maison, ils ont besoin d’espace et d’une éducation précoce, et coûtent plus cher à nourrir et à soigner. Leur espérance de vie est aussi plus courte que celle des petits chiens.' },
     { slug: 'chiens-de-garde', short: 'Chiens de garde', icon: '🛡️', state: { nocat: true },
       custom: b => ({ pct: Math.round(((b.scores.garde - 1) / 4) * 100), ok: b.scores.garde >= 4 }),
       title: 'Chiens de garde : les races à fort instinct de protection',
@@ -284,6 +316,7 @@ const SELECTIONS = [
       avoid: 'Les races à éviter avec un chat' }
 ];
 
+let SELECTION_MEMBERS = null;
 function selectionResults(sel) {
     const state = { ...S.emptyState(), ...sel.state };
     if (sel.custom) {
@@ -294,7 +327,7 @@ function selectionResults(sel) {
     const { results, criteria } = S.rank(breeds, state);
     const top = criteria.length ? results.filter(r => r.pct >= 70) : results;
     const avoid = criteria.length && sel.avoid ? results.slice().reverse().filter(r => r.pct <= 40).slice(0, 6) : [];
-    return { top: top.slice(0, 24), total: top.length, avoid, state };
+    return { top: sel.all ? top : top.slice(0, 24), total: top.length, avoid, state };
 }
 
 // ============================================
@@ -311,7 +344,7 @@ function fill(tpl, vars) {
 
 const commonVars = {
     COUNT: String(COUNT),
-    UPDATED: TODAY,
+    UPDATED: DATE_FR,
     SELECTION_LINKS: SELECTIONS.slice(0, 7).map(s => `                        <li><a href="/selections/${s.slug}" class="hover:text-white">${esc(s.short)}</a></li>`).join('\n'),
     POPULAR_LINKS: popular.slice(0, 7).map(b => `                        <li><a href="/races/${b.slug}" class="hover:text-white">${esc(b.name_fr)}</a></li>`).join('\n'),
     ...versions
@@ -354,6 +387,53 @@ ${scripts}
 // FICHE RACE
 // ============================================
 
+// Titre de fiche : le plus complet qui tient dans les 60 caractères affichés par Google
+function breedTitle(n) {
+    const names = [n, n.replace(/\s*\([^)]*\)/, '')];
+    for (const x of names) {
+        const t = [`${x} : caractère, éducation, santé et entretien`, `${x} : caractère, santé et entretien`, `${x} : caractère et santé`].find(t => t.length <= 60);
+        if (t) return t;
+    }
+    return n;
+}
+
+// Questions fréquentes, réponses tirées des notes et mesures de la race
+function faq(b) {
+    const s = b.scores, p = b.physical || {}, n = b.name_fr, N = Le(n);
+    const w = k => SCORE_META[k].words[s[k] - 1].toLowerCase();
+    const out = [];
+    const h = range(p.height_cm?.min, p.height_cm?.max, 'cm'), kg = range(p.weight_kg?.min, p.weight_kg?.max, 'kg');
+    if (h || kg) out.push([`Quelle taille et quel poids pour ${le(n)} ?`, `${esc(N)} mesure ${h ? `${h} au garrot` : ''}${h && kg ? ' pour ' : ''}${kg}. C’est un chien ${{ toy: 'de très petite taille', small: 'de petite taille', medium: 'de taille moyenne', large: 'de grande taille', giant: 'de taille géante' }[p.size_category] || 'de taille moyenne'}.`]);
+    const poils = [`Sa perte de poils est ${w('perte_poils')} et l’entretien de son poil est ${w('entretien_pelage')}.`];
+    if (b.hypoallergenic) poils.push('Il fait partie des races qui perdent très peu de poils, souvent mieux tolérées par les personnes allergiques, sans garantie : passez du temps avec la race avant de vous décider.');
+    else if (s.perte_poils >= 4) poils.push('Prévoyez un brossage plusieurs fois par semaine, et davantage pendant les mues de printemps et d’automne.');
+    if (s.entretien_pelage >= 4) poils.push('Son poil demande un toilettage régulier, parfois chez un professionnel.');
+    out.push([`${N} perd-il beaucoup de poils ?`, esc(poils.join(' '))]);
+    const appart = {
+        5: 'Oui, très bien : calme à l’intérieur, il s’adapte parfaitement à un appartement.',
+        4: 'Oui, s’il sort plusieurs fois par jour : il s’adapte bien à un logement sans jardin.',
+        3: 'C’est possible, à condition de lui offrir de vraies sorties chaque jour ; un jardin reste un plus.',
+        2: 'C’est difficile : il a besoin d’espace et d’activité, un logement avec jardin lui convient mieux.',
+        1: 'Ce n’est pas recommandé : il lui faut de l’espace, idéalement une maison avec jardin.'
+    }[s.appartement];
+    out.push([`${N} peut-il vivre en appartement ?`, esc(appart + (s.aboiements >= 4 ? ' Attention au voisinage : il aboie volontiers.' : ''))]);
+    if (s.exercice_min_jour) out.push([`Combien de temps faut-il promener ${le(n)} ?`, esc(`Comptez environ ${s.exercice_min_jour} minutes d’activité par jour, pour une énergie ${w('energie')}.${s.energie >= 4 ? ' Ajoutez des jeux et des exercices d’éducation pour occuper aussi sa tête.' : ''}`)]);
+    const kids = {
+        5: 'Oui : patient et doux, c’est un excellent chien de famille, même avec de jeunes enfants.',
+        4: 'Oui, il s’entend bien avec les enfants qui le respectent.',
+        3: 'Correctement, plutôt avec des enfants assez grands pour respecter ses limites.',
+        2: 'Avec prudence : il tolère mal l’agitation des jeunes enfants.',
+        1: 'Il est déconseillé avec de jeunes enfants.'
+    }[s.enfants];
+    out.push([`${N} est-il adapté aux enfants ?`, esc(kids + ' Ne laissez jamais un jeune enfant seul avec un chien, quelle que soit sa race.')]);
+    const life = range(p.life_span_years?.min, p.life_span_years?.max, 'ans');
+    const lcFirst = x => (/^[A-ZÀ-Ý][a-zà-ÿ]/.test(x) ? x[0].toLowerCase() + x.slice(1) : x);
+    const issues = (b.health?.common_issues || []).slice(0, 2).map(x => lcFirst(x.split(/ \(|, /)[0]));
+    if (life) out.push([`Quelle est l’espérance de vie ${/^[AEIOUYÉÈÊÂÎÔ]/i.test(n) ? 'de l’' : 'du '}${n} ?`, esc(`Elle est de ${life}, pour une robustesse ${w('robustesse')}.${issues.length ? ` Les problèmes de santé à surveiller en priorité : ${issues.join(' et ')}.` : ''}`)]);
+    if (b.legal_category) out.push([`${N} est-il un chien catégorisé ?`, `${esc(LAW[b.legal_category])} <a href="/chiens-categorises" class="font-semibold text-primary-700 underline">Tout sur les chiens catégorisés</a>.`]);
+    return out;
+}
+
 function breedPage(b) {
     const url = `${SITE_URL}/races/${b.slug}`;
     const s = b.scores;
@@ -361,20 +441,22 @@ function breedPage(b) {
     const who = forWho(b);
     const sims = similar(b);
     const groupLabel = b.fci?.group ? S.FCI_GROUPS[b.fci.group] : null;
+    const gUrl = groupUrl(b.fci?.group);
     const word = k => SCORE_META[k].words[s[k] - 1].toLowerCase();
-    const title = `${b.name_fr} : caractère, éducation, santé et entretien | Race de Chien`;
-    const description = `${b.name_fr}, ${SIZE_WORD[p.size_category] || ''} chien ${fromOrigin(b.origin)}. Énergie ${word('energie')}, ${word('enfants')} avec les enfants, ${word('appartement').replace('bien', 'à l’aise')} en appartement. Notes sur 20 critères, santé, entretien.`.replace(/\s+/g, ' ').slice(0, 300);
+    const title = breedTitle(b.name_fr);
+    const size = [range(p.height_cm?.min, p.height_cm?.max, 'cm'), range(p.weight_kg?.min, p.weight_kg?.max, 'kg')].filter(Boolean).join(', ');
+    const description = clip(`${b.name_fr}, ${SIZE_WORD[p.size_category] || ''} chien ${fromOrigin(b.origin)}${size ? ` (${size})` : ''}. Énergie ${word('energie')}, ${word('enfants')} avec les enfants. Caractère, santé, entretien et 20 notes.`);
     const img = b.image ? `${SITE_URL}/${b.image.url}` : null;
     const ld = [{
         '@context': 'https://schema.org', '@type': 'Article', headline: `${b.name_fr} : fiche complète de la race`, description,
         image: img || undefined, author: { '@type': 'Organization', name: 'Race de Chien' },
         publisher: { '@type': 'Organization', name: 'Race de Chien', url: SITE_URL }, mainEntityOfPage: url,
-        datePublished: '2026-02-28', dateModified: TODAY
+        datePublished: '2026-02-28', dateModified: DATE
     }, {
         '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
             { '@type': 'ListItem', position: 1, name: 'Races de chiens', item: SITE_URL + '/' },
-            ...(groupLabel ? [{ '@type': 'ListItem', position: 2, name: groupLabel, item: `${SITE_URL}/?groups=${b.fci.group}` }] : []),
-            { '@type': 'ListItem', position: groupLabel ? 3 : 2, name: b.name_fr, item: url }
+            ...(gUrl ? [{ '@type': 'ListItem', position: 2, name: groupLabel, item: SITE_URL + gUrl }] : []),
+            { '@type': 'ListItem', position: gUrl ? 3 : 2, name: b.name_fr, item: url }
         ]
     }];
 
@@ -398,12 +480,13 @@ function breedPage(b) {
     const coat = b.coat || {};
     const issues = b.health?.common_issues || [];
     const traits = b.temperament?.traits || [];
+    const inSelections = SELECTIONS.filter(x => SELECTION_MEMBERS[x.slug].has(b.slug));
 
     const body = `
     <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
         <nav class="pt-6 pb-4 text-sm text-slate-500" aria-label="Fil d'Ariane">
             <a href="/" class="hover:text-primary-600">Races de chiens</a>
-            ${groupLabel ? `<span class="mx-1.5" aria-hidden="true">›</span><a href="/?groups=${b.fci.group}" class="hover:text-primary-600">${esc(groupLabel)}</a>` : ''}
+            ${gUrl ? `<span class="mx-1.5" aria-hidden="true">›</span><a href="${gUrl}" class="hover:text-primary-600">${esc(groupLabel)}</a>` : ''}
             <span class="mx-1.5" aria-hidden="true">›</span><span class="text-slate-800" aria-current="page">${esc(b.name_fr)}</span>
         </nav>
 
@@ -484,6 +567,18 @@ function breedPage(b) {
                             </div>`).join('')}
                         </div>
                     </section>
+
+                    ${inSelections.length ? `<section aria-labelledby="selections-race">
+                        <h2 id="selections-race" class="text-2xl font-bold text-slate-900">Dans nos sélections</h2>
+                        <ul class="mt-4 flex flex-wrap gap-2">${inSelections.map(x => `<li><a href="/selections/${x.slug}" class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-primary-300 hover:text-primary-700"><span aria-hidden="true">${x.icon}</span>${esc(x.short)}</a></li>`).join('')}</ul>
+                    </section>` : ''}
+
+                    <section aria-labelledby="faq">
+                        <h2 id="faq" class="text-2xl font-bold text-slate-900">Questions fréquentes sur ${esc(le(b.name_fr))}</h2>
+                        <div class="mt-4 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
+                            ${faq(b).map(([q, a]) => `<div class="p-5"><h3 class="font-bold text-slate-900">${esc(q)}</h3><p class="mt-1.5 text-sm leading-relaxed text-slate-700">${a}</p></div>`).join('')}
+                        </div>
+                    </section>
                 </div>
 
                 <aside class="order-first min-w-0 lg:order-none" aria-labelledby="bref">
@@ -505,7 +600,7 @@ function breedPage(b) {
 
         <section class="mt-14" aria-labelledby="similaires">
             <h2 id="similaires" class="text-2xl font-bold text-slate-900">Races proches</h2>
-            <p class="mt-1 text-sm text-slate-600">Même gabarit et notes voisines.</p>
+            <p class="mt-1 text-sm text-slate-600">Même gabarit et notes voisines.${gUrl ? ` <a href="${gUrl}" class="font-semibold text-primary-700 hover:underline">Toutes les races du groupe ${esc(groupLabel)} →</a>` : ''}</p>
             <ul class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             ${sims.map(o => staticCard(o)).join('')}
             </ul>
@@ -550,7 +645,7 @@ function selectionPage(sel) {
     const url = `${SITE_URL}/selections/${sel.slug}`;
     const { top, avoid, state } = selectionResults(sel);
     const q = S.toQuery(state);
-    const description = `${sel.intro.split('. ')[0]}. Notre classement de ${top.length} races, avec les raisons pour chacune.`.slice(0, 300);
+    const description = clip(`${sel.intro.split('. ')[0]}. ${sel.all ? `Les ${top.length} races, avec photos et notes.` : `Notre classement de ${top.length} races, avec les raisons.`}`);
     const ld = {
         '@context': 'https://schema.org', '@type': 'ItemList', name: sel.title,
         itemListElement: top.map((r, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE_URL}/races/${r.breed.slug}`, name: r.breed.name_fr }))
@@ -563,7 +658,7 @@ function selectionPage(sel) {
             <p class="text-4xl" aria-hidden="true">${sel.icon}</p>
             <h1 class="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">${esc(sel.title)}</h1>
             <p class="mt-3 leading-relaxed text-slate-700">${esc(sel.intro)}</p>
-            <p class="mt-3 text-sm text-slate-500">Classement établi à partir de nos notes de 1 à 5 sur 20 critères, à jour du ${TODAY.split('-').reverse().join('/')}.</p>
+            <p class="mt-3 text-sm text-slate-500">Classement établi à partir de nos notes de 1 à 5 sur 20 critères, à jour du ${DATE_FR}.</p>
             <a href="/?${q}" class="mt-5 inline-flex rounded-xl bg-primary-600 px-4 py-2.5 text-sm font-bold text-white hover:bg-primary-700">Affiner avec vos propres critères</a>
         </header>
         <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -581,7 +676,7 @@ function selectionPage(sel) {
             <ul class="mt-3 flex flex-wrap gap-2">${others.map(o => `<li><a href="/selections/${o.slug}" class="opt">${o.icon} ${esc(o.short)}</a></li>`).join('')}</ul>
         </section>
     </main>`;
-    return page({ head: headMeta({ title: `${sel.title} | Race de Chien`, description, url }) + `\n    <script type="application/ld+json">${JSON.stringify(ld)}</script>`, body });
+    return page({ head: headMeta({ title: withBrand(sel.seo || sel.title), description, url }) + ldTag([ld, crumbsLd([[sel.short, `/selections/${sel.slug}`]])]), body });
 }
 
 // ============================================
@@ -589,17 +684,206 @@ function selectionPage(sel) {
 // ============================================
 
 function sitemap() {
+    const file = u => (u === '/' ? 'index.html' : `${u.slice(1)}.html`);
     const urls = [
-        ['/', '1.0', 'weekly'], ['/quel-chien-choisir', '0.9', 'monthly'], ['/compare', '0.6', 'monthly'], ['/tel-maitre-tel-chien', '0.8', 'monthly'],
+        ['/', '1.0', 'weekly'], ['/quel-chien-choisir', '0.9', 'monthly'], ['/liste-des-races', '0.8', 'monthly'], ['/groupes-de-races', '0.7', 'monthly'],
+        ['/chiens-categorises', '0.7', 'yearly'], ['/compare', '0.6', 'monthly'], ['/tel-maitre-tel-chien', '0.8', 'monthly'],
         ...SELECTIONS.map(s => [`/selections/${s.slug}`, '0.8', 'monthly']),
-        ...breeds.map(b => [`/races/${b.slug}`, '0.7', 'monthly']),
+        ...Object.values(GROUPS).map(G => [`/groupes/${G.slug}`, '0.7', 'monthly']),
+        ...breeds.map(b => [`/races/${b.slug}`, '0.7', 'monthly', b]),
         ['/mentions-legales', '0.2', 'yearly'], ['/confidentialite', '0.2', 'yearly']
     ];
+    const image = b => (b?.image ? `<image:image><image:loc>${SITE_URL}/${b.image.url}</image:loc></image:image>` : '');
     return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(([u, pr, f]) => `  <url><loc>${SITE_URL}${u}</loc><lastmod>${TODAY}</lastmod><changefreq>${f}</changefreq><priority>${pr}</priority></url>`).join('\n')}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${urls.map(([u, pr, f, b]) => `  <url><loc>${SITE_URL}${u}</loc><lastmod>${lastmod[file(u)]?.d || TODAY}</lastmod><changefreq>${f}</changefreq><priority>${pr}</priority>${image(b)}</url>`).join('\n')}
 </urlset>
 `;
+}
+
+// ============================================
+// GROUPES FCI (pages /groupes/...), LISTE DE A À Z, CHIENS CATÉGORISÉS
+// ============================================
+
+// Le groupe 4 (Teckels) ne compte qu'une race : pas de page dédiée, le fil d'Ariane renvoie à l'accueil
+const GROUPS = {
+    1: { slug: 'chiens-de-berger-et-bouviers', h1: 'Chiens de berger et de bouvier', title: 'Chiens de berger et bouviers',
+         intro: 'Le groupe 1 de la FCI réunit les chiens nés pour conduire et garder les troupeaux : bergers allemands, belges et australiens, border collies, bouviers des Flandres… Intelligents, vifs et très attachés à leur maître, ils ont besoin d’activité physique et mentale chaque jour. Les bouviers suisses, plus massifs, sont classés dans le groupe 2.' },
+    2: { slug: 'molosses-pinschers-et-bouviers-suisses', h1: 'Molosses, pinschers, schnauzers et bouviers suisses', title: 'Molosses, pinschers et bouviers suisses', seo: 'Molosses, pinschers et bouviers suisses : {n} races',
+         intro: 'Le groupe 2 rassemble trois familles : les pinschers et schnauzers, les molossoïdes (dogues, mâtins et chiens de montagne comme le Terre-Neuve ou le Saint-Bernard) et les bouviers suisses. Souvent grands et puissants, ce sont d’anciens chiens de garde, de défense et de trait, calmes à la maison mais protecteurs.' },
+    3: { slug: 'terriers', h1: 'Terriers', title: 'Terriers',
+         intro: 'Les terriers ont été sélectionnés pour chasser les nuisibles et déloger le renard ou le blaireau de son terrier. Du minuscule Yorkshire au grand Airedale, ils partagent un caractère bien trempé : courageux, vifs, joueurs et parfois têtus. Leur instinct de chasse demande une éducation ferme et patiente.' },
+    5: { slug: 'spitz-et-chiens-primitifs', h1: 'Spitz et chiens de type primitif', title: 'Spitz et chiens primitifs',
+         intro: 'Le groupe 5 regroupe les spitz (chiens nordiques de traîneau comme le Husky ou le Malamute, spitz allemands, Shiba, Akita…) et les chiens de type primitif, restés proches de leurs ancêtres, comme le Basenji ou le Chien du Pharaon. Indépendants et souvent peu démonstratifs, ils demandent un maître patient.' },
+    6: { slug: 'chiens-courants', h1: 'Chiens courants et chiens de recherche au sang', title: 'Chiens courants (chiens de chasse)',
+         intro: 'Les chiens courants chassent en meute en suivant la piste du gibier à la voix ; les chiens de recherche au sang retrouvent le gibier blessé. Beagles, bassets, griffons, Saint-Hubert : ce sont des chiens de chasse sociables et endurants, guidés par leur flair, qui fuguent facilement dès qu’ils tiennent une piste.' },
+    7: { slug: 'chiens-d-arret', h1: 'Chiens d’arrêt', title: 'Chiens d’arrêt', seo: 'Chiens d’arrêt : les {n} races (braques, setters, épagneuls)',
+         intro: 'Les chiens d’arrêt s’immobilisent devant le gibier pour le signaler au chasseur. Braques, épagneuls bretons, setters et pointers sont des chiens de chasse doux, proches de leur famille, mais endurants et dynamiques : ils ont besoin d’espace et de longues sorties.' },
+    8: { slug: 'rapporteurs-leveurs-et-chiens-d-eau', h1: 'Rapporteurs, leveurs de gibier et chiens d’eau', title: 'Retrievers, cockers et chiens d’eau', seo: 'Retrievers, cockers et chiens d’eau : les {n} races',
+         intro: 'Le groupe 8 réunit les rapporteurs (Golden et Labrador retrievers), les leveurs de gibier (cockers, springers) et les chiens d’eau. Joyeux, faciles à éduquer et très sociables, ce sont parmi les meilleurs chiens de famille, à condition de leur offrir de l’exercice.' },
+    9: { slug: 'chiens-de-compagnie', h1: 'Chiens d’agrément et de compagnie', title: 'Chiens de compagnie',
+         intro: 'Les chiens d’agrément ou de compagnie ont été sélectionnés pour vivre auprès de l’homme : bichons, caniches, Cavalier King Charles, chihuahuas, bouledogues français… Souvent petits et affectueux, ils s’adaptent bien à l’appartement. Les races à museau écrasé supportent mal la chaleur et l’effort.' },
+    10: { slug: 'levriers', h1: 'Lévriers', title: 'Lévriers',
+         intro: 'Les lévriers chassent à vue grâce à leur vitesse : Whippet, Greyhound, Lévrier afghan, Barzoï… Étonnamment calmes à la maison, ils dorment beaucoup mais ont besoin de courir librement dans un espace clos, car leur instinct de poursuite est très fort.' }
+};
+const groupUrl = g => (GROUPS[g] ? `/groupes/${GROUPS[g].slug}` : null);
+const byPopularity = (a, b) => (b.lof?.['2025'] ?? 0) - (a.lof?.['2025'] ?? 0) || a.name_fr.localeCompare(b.name_fr, 'fr');
+const groupBreeds = g => breeds.filter(b => b.fci?.group === g).sort(byPopularity);
+
+function crumbs(items) {
+    return `<nav class="pt-6 pb-4 text-sm text-slate-500" aria-label="Fil d'Ariane"><a href="/" class="hover:text-primary-600">Races de chiens</a>${items.map(([label, href]) => `<span class="mx-1.5" aria-hidden="true">›</span>${href ? `<a href="${href}" class="hover:text-primary-600">${esc(label)}</a>` : `<span class="text-slate-800" aria-current="page">${esc(label)}</span>`}`).join('')}</nav>`;
+}
+function crumbsLd(items) {
+    const all = [['Races de chiens', '/'], ...items];
+    return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: all.map(([name, href], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE_URL + href })) };
+}
+const ldTag = ld => `\n    <script type="application/ld+json">${JSON.stringify(ld)}</script>`;
+
+function groupPage(g) {
+    const G = GROUPS[g];
+    const list = groupBreeds(g);
+    const url = `${SITE_URL}${groupUrl(g)}`;
+    const title = (G.seo || `${G.title} : les {n} races (groupe ${g})`).replace('{n}', list.length);
+    const description = clip(`${G.intro.split(/(?<=[.:]) /)[0]} Les ${list.length} races du groupe ${g} de la FCI, avec photos, caractère et notes.`);
+    const others = Object.entries(GROUPS).filter(([k]) => Number(k) !== g);
+    const ld = [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: G.h1, description, url,
+        mainEntity: { '@type': 'ItemList', numberOfItems: list.length, itemListElement: list.map((b, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE_URL}/races/${b.slug}`, name: b.name_fr })) } },
+        crumbsLd([['Groupes de races', '/groupes-de-races'], [G.h1, groupUrl(g)]])];
+    const body = `
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+        ${crumbs([['Groupes de races', '/groupes-de-races'], [G.h1]])}
+        <header class="max-w-3xl">
+            <p class="text-sm font-semibold uppercase tracking-wider text-primary-700">Groupe ${g} de la FCI</p>
+            <h1 class="mt-1 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">${esc(G.h1)}</h1>
+            <p class="mt-3 leading-relaxed text-slate-700">${esc(G.intro)}</p>
+            <p class="mt-3 text-sm text-slate-500">${list.length} races, de la plus inscrite au LOF en 2025 à la plus rare.</p>
+            <a href="/?groups=${g}" class="mt-5 inline-flex rounded-xl bg-primary-600 px-4 py-2.5 text-sm font-bold text-white hover:bg-primary-700">Classer ces races selon votre vie</a>
+        </header>
+        <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        ${list.map((b, i) => staticCard(b, { h: 'h2', eager: i === 0, soon: i > 0 && i < 4 })).join('')}
+        </ul>
+        <section class="mt-14 rounded-3xl border border-slate-200 bg-white p-6" aria-labelledby="autres-groupes">
+            <h2 id="autres-groupes" class="text-lg font-bold text-slate-900">Les autres groupes</h2>
+            <ul class="mt-4 flex flex-wrap gap-2">${others.map(([k, o]) => `<li><a href="/groupes/${o.slug}" class="inline-flex rounded-full border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-primary-300 hover:text-primary-700">${esc(o.title)}</a></li>`).join('')}</ul>
+        </section>
+    </main>`;
+    return page({ head: headMeta({ title: withBrand(title), description, url, image: list[0]?.image ? `${SITE_URL}/${list[0].image.url}` : null }) + ldTag(ld), body });
+}
+
+function groupsIndexPage() {
+    const url = `${SITE_URL}/groupes-de-races`;
+    const title = 'Les groupes de races de chiens (classification FCI)';
+    const description = clip('Bergers, molosses, terriers, spitz, chiens de chasse, de compagnie, lévriers : les 10 groupes de la Fédération cynologique internationale et toutes leurs races.');
+    const cards = Object.entries(GROUPS).map(([g, G]) => {
+        const list = groupBreeds(Number(g));
+        const lead = list[0];
+        return `<li class="overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover"><a href="/groupes/${G.slug}" class="flex gap-4 p-4">
+            <div class="h-20 w-28 shrink-0 overflow-hidden rounded-xl bg-slate-100">${lead?.image ? picture(lead, 'h-full w-full object-cover', { sizes: '112px', alt: '' }) : ''}</div>
+            <div class="min-w-0"><p class="text-xs font-semibold uppercase tracking-wider text-primary-700">Groupe ${g}</p><h2 class="font-bold leading-snug text-slate-900">${esc(G.h1)}</h2><p class="mt-0.5 text-sm text-slate-500">${list.length} races · ${list.slice(0, 3).map(b => esc(b.name_fr)).join(', ')}…</p></div>
+        </a></li>`;
+    }).join('');
+    const teckel = groupBreeds(4)[0];
+    const body = `
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+        ${crumbs([['Groupes de races']])}
+        <header class="max-w-3xl">
+            <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Les groupes de races de chiens</h1>
+            <p class="mt-3 leading-relaxed text-slate-700">La Fédération cynologique internationale (FCI), à laquelle appartient la Société Centrale Canine, classe les races en 10 groupes selon leur fonction d’origine : garde des troupeaux, chasse, compagnie… Connaître le groupe d’une race, c’est déjà connaître une bonne part de son caractère.</p>
+        </header>
+        <ul class="mt-10 grid gap-4 md:grid-cols-2">${cards}</ul>
+        ${teckel ? `<p class="mt-6 text-sm text-slate-600">Le groupe 4 ne compte qu’une race, avec ses variétés de taille et de poil : <a href="/races/${teckel.slug}" class="font-semibold text-primary-700 underline">le ${esc(teckel.name_fr)}</a>.</p>` : ''}
+    </main>`;
+    return page({ head: headMeta({ title: withBrand(title), description, url }) + ldTag(crumbsLd([['Groupes de races', '/groupes-de-races']])), body });
+}
+
+function azPage() {
+    const url = `${SITE_URL}/liste-des-races`;
+    const title = `Liste des races de chiens de A à Z : ${COUNT} races avec photos`;
+    const description = clip(`Toutes les races de chiens de A à Z, avec photo, origine et groupe : ${COUNT} races décrites et notées sur 20 critères, des plus courantes aux plus rares.`);
+    const letter = b => b.name_fr.normalize('NFD').replace(/[\u0300-\u036f]/g, '')[0].toUpperCase();
+    const byLetter = {};
+    for (const b of breeds) (byLetter[letter(b)] ||= []).push(b);
+    const letters = Object.keys(byLetter).sort();
+    const item = b => `<li><a href="/races/${b.slug}" class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-2 pr-3 hover:border-primary-300">
+                <span class="h-14 w-[75px] shrink-0 overflow-hidden rounded-xl bg-slate-100">${b.image ? picture(b, 'h-full w-full object-cover', { sizes: '75px', alt: '' }) : ''}</span>
+                <span class="min-w-0"><span class="block font-semibold leading-snug text-slate-900">${esc(b.name_fr)}</span><span class="block truncate text-xs text-slate-500">${esc(b.origin || '')}${b.fci?.group ? ` · ${esc(S.FCI_GROUPS[b.fci.group])}` : ''}</span></span>
+            </a></li>`;
+    const body = `
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+        ${crumbs([['Liste de A à Z']])}
+        <header class="max-w-3xl">
+            <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Liste des races de chiens de A à Z</h1>
+            <p class="mt-3 leading-relaxed text-slate-700">Les ${COUNT} races du site, par ordre alphabétique. Pour trouver celles qui vont avec votre vie, <a href="/" class="font-semibold text-primary-700 underline">classez-les selon vos critères</a> ou <a href="/quel-chien-choisir" class="font-semibold text-primary-700 underline">faites le test</a>.</p>
+        </header>
+        <nav class="sticky top-[68px] z-10 -mx-4 mt-6 border-y border-slate-200 bg-slate-50/95 px-4 py-2 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border" aria-label="Lettres">
+            <ul class="no-scrollbar flex gap-1 overflow-x-auto">${letters.map(l => `<li><a href="#lettre-${l}" class="flex h-9 w-9 items-center justify-center rounded-lg text-sm font-bold text-slate-700 hover:bg-white hover:text-primary-700">${l}</a></li>`).join('')}</ul>
+        </nav>
+        ${letters.map(l => `<section class="mt-8 scroll-mt-32" id="lettre-${l}" aria-labelledby="h-${l}">
+            <h2 id="h-${l}" class="text-2xl font-extrabold text-slate-900">${l}</h2>
+            <ul class="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">${byLetter[l].map(item).join('')}</ul>
+        </section>`).join('')}
+    </main>`;
+    return page({ head: headMeta({ title: withBrand(title), description, url }) + ldTag(crumbsLd([['Liste de A à Z', '/liste-des-races']])), body });
+}
+
+function categorizedPage() {
+    const url = `${SITE_URL}/chiens-categorises`;
+    const title = 'Chiens de 1re et 2e catégorie : liste et obligations';
+    const description = clip('Quels chiens sont classés en 1re ou 2e catégorie en France, et ce que la loi impose : permis de détention, muselière, assurance, stérilisation. La liste et les règles.');
+    const cat = c => breeds.filter(b => b.legal_category === c);
+    const body = `
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+        ${crumbs([['Chiens catégorisés']])}
+        <article>
+            <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Chiens de 1re et 2e catégorie : la liste et les obligations</h1>
+            <p class="mt-3 leading-relaxed text-slate-700">La loi du 6 janvier 1999 classe certains chiens jugés potentiellement dangereux en deux catégories, définies par l’arrêté du 27 avril 1999. Le classement dépend de la race et, pour les chiens sans pedigree, de leur apparence.</p>
+
+            <section class="mt-10" aria-labelledby="cat1">
+                <h2 id="cat1" class="text-2xl font-bold text-slate-900">1re catégorie : chiens d’attaque</h2>
+                <p class="mt-3 leading-relaxed text-slate-700">Ce sont des chiens <strong>sans pedigree LOF</strong> dont l’apparence se rapproche du Staffordshire terrier ou de l’American Staffordshire terrier (les chiens souvent appelés « pit-bulls »), du Mastiff (« boerbulls ») ou du Tosa. Les races non reconnues en France, comme l’American Bully ou le Boerboel, y sont rattachées quand elles en ont l’apparence.</p>
+                <ul class="mt-5 grid gap-5 sm:grid-cols-3">${cat('1').map(b => staticCard(b)).join('')}</ul>
+            </section>
+
+            <section class="mt-10" aria-labelledby="cat2">
+                <h2 id="cat2" class="text-2xl font-bold text-slate-900">2e catégorie : chiens de garde et de défense</h2>
+                <p class="mt-3 leading-relaxed text-slate-700">Ce sont les Staffordshire terriers, American Staffordshire terriers et Tosas <strong>inscrits au LOF</strong>, les Rottweilers avec ou sans pedigree, et les chiens sans pedigree d’apparence proche du Rottweiler. Le Staffordshire Bull Terrier, race différente, n’est pas catégorisé.</p>
+                <ul class="mt-5 grid gap-5 sm:grid-cols-3">${cat('2').map(b => staticCard(b)).join('')}</ul>
+            </section>
+
+            <section class="mt-10" aria-labelledby="obligations">
+                <h2 id="obligations" class="text-2xl font-bold text-slate-900">Ce que la loi impose</h2>
+                <div class="mt-4 grid gap-4 md:grid-cols-2">
+                    <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                        <h3 class="font-bold text-slate-900">Pour les deux catégories</h3>
+                        <ul class="mt-3 space-y-2 text-sm leading-relaxed text-slate-700">
+                            <li>• Un <strong>permis de détention</strong> délivré par la mairie, après une formation du maître et une évaluation comportementale du chien.</li>
+                            <li>• Une <strong>assurance responsabilité civile</strong>, l’identification et la vaccination antirabique à jour.</li>
+                            <li>• <strong>Muselière et laisse</strong> tenue par un majeur sur la voie publique et dans les parties communes des immeubles.</li>
+                            <li>• Interdits aux mineurs, aux majeurs sous tutelle et aux personnes condamnées pour certains délits.</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl border border-red-200 bg-red-50 p-5">
+                        <h3 class="font-bold text-red-900">En plus pour la 1re catégorie</h3>
+                        <ul class="mt-3 space-y-2 text-sm leading-relaxed text-red-950">
+                            <li>• Acquisition, vente, don et importation <strong>interdits</strong>.</li>
+                            <li>• <strong>Stérilisation obligatoire</strong>.</li>
+                            <li>• Accès interdit aux transports en commun et aux lieux ouverts au public, sauf la voie publique ; stationnement interdit dans les parties communes des immeubles.</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="mt-5 text-sm text-slate-600">Ce résumé ne remplace pas les textes officiels. Les règles complètes et les démarches sont sur <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F1839" target="_blank" rel="noopener" class="font-semibold text-primary-700 underline">service-public.gouv.fr</a>.</p>
+            </section>
+
+            <section class="mt-10 rounded-3xl bg-slate-900 p-6 text-slate-300" aria-labelledby="alternatives">
+                <h2 id="alternatives" class="text-xl font-bold text-white">Vous cherchez un chien protecteur sans ces contraintes ?</h2>
+                <p class="mt-2 text-sm leading-relaxed">Notre sélection de <a href="/selections/chiens-de-garde" class="font-semibold text-white underline">chiens de garde non catégorisés</a> réunit les races à fort instinct de protection qui ne demandent pas de permis.</p>
+            </section>
+        </article>
+    </main>`;
+    const ld = [{ '@context': 'https://schema.org', '@type': 'Article', headline: title, description, url, mainEntityOfPage: url,
+        author: { '@type': 'Organization', name: 'Race de Chien' }, publisher: { '@type': 'Organization', name: 'Race de Chien', url: SITE_URL }, dateModified: DATE },
+        crumbsLd([['Chiens catégorisés', '/chiens-categorises']])];
+    return page({ head: headMeta({ title: withBrand(title), description, url, type: 'article' }) + ldTag(ld), body });
 }
 
 // ============================================
@@ -618,7 +902,8 @@ const index = breeds.map(b => ({
 write('data/breeds-index.json', JSON.stringify({ updated: TODAY, breeds: index }));
 commonVars.V_DATA = hash('data/breeds-index.json');
 
-// 2. Fiches
+// 2. Fiches (chacune liste les sélections où elle figure)
+SELECTION_MEMBERS = Object.fromEntries(SELECTIONS.map(x => [x.slug, new Set(selectionResults(x).top.map(r => r.breed.slug))]));
 fs.rmSync(path.join(ROOT, 'races'), { recursive: true, force: true });
 for (const b of breeds) write(`races/${b.slug}.html`, breedPage(b));
 
@@ -626,23 +911,32 @@ for (const b of breeds) write(`races/${b.slug}.html`, breedPage(b));
 fs.rmSync(path.join(ROOT, 'selections'), { recursive: true, force: true });
 for (const sel of SELECTIONS) write(`selections/${sel.slug}.html`, selectionPage(sel));
 
+// 3 bis. Groupes FCI, liste de A à Z, chiens catégorisés
+fs.rmSync(path.join(ROOT, 'groupes'), { recursive: true, force: true });
+for (const g of Object.keys(GROUPS)) write(`groupes/${GROUPS[g].slug}.html`, groupPage(Number(g)));
+write('groupes-de-races.html', groupsIndexPage());
+write('liste-des-races.html', azPage());
+write('chiens-categorises.html', categorizedPage());
+
 // 4. Pages à partir des modèles
 const selectionCards = SELECTIONS.map(s => {
     const { top } = selectionResults(s);
     return `                        <li><a href="/selections/${s.slug}" class="flex items-center gap-3 rounded-2xl border border-slate-200 px-4 py-3 hover:border-primary-300 hover:bg-primary-50"><span class="text-2xl" aria-hidden="true">${s.icon}</span><span><span class="block text-sm font-semibold text-slate-900">${esc(s.short)}</span><span class="block text-xs text-slate-500">${top.length} races</span></span></a></li>`;
 }).join('\n');
+const groupLinks = Object.entries(GROUPS).map(([g, G]) => `<li><a href="/groupes/${G.slug}" class="inline-flex rounded-full border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-primary-300 hover:text-primary-700">${esc(G.title)} <span class="ml-1 text-slate-400">${groupBreeds(Number(g)).length}</span></a></li>`).join('');
 const noscript = breeds.map(b => `                            <li><a href="/races/${b.slug}">${esc(b.name_fr)}</a></li>`).join('\n');
 // Boutons de profil écrits dans la page (le JS les redessine à l'identique) : la liste ne saute pas au chargement
 const profileButtons = S.PROFILES.map(p => `<button type="button" class="opt" data-profile="${p.id}" aria-pressed="false"><span aria-hidden="true">${p.icon}</span>${esc(p.label)}</button>`).join('');
 for (const f of fs.readdirSync(path.join(ROOT, 'templates/pages'))) {
     if (!f.endsWith('.html')) continue;
-    const html = fill(read(`templates/pages/${f}`), { ...commonVars, SELECTION_CARDS: selectionCards, NOSCRIPT_LIST: noscript, PROFILE_BUTTONS: profileButtons });
+    const html = fill(read(`templates/pages/${f}`), { ...commonVars, SELECTION_CARDS: selectionCards, NOSCRIPT_LIST: noscript, PROFILE_BUTTONS: profileButtons, GROUP_LINKS: groupLinks });
     write(f, html);
 }
 
 // 5. Sitemap et robots
 write('sitemap.xml', sitemap());
 write('robots.txt', `User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+fs.writeFileSync(path.join(ROOT, LASTMOD_FILE), JSON.stringify(Object.fromEntries(Object.entries(lastmod).sort()), null, 1) + '\n', 'utf8');
 
 // 6. CSS compilé (après les pages : Tailwind lit les classes utilisées), puis numéro de version
 execFileSync(path.join(ROOT, 'node_modules/.bin/tailwindcss'), ['-c', 'tailwind.config.cjs', '-i', 'css/tailwind.src.css', '-o', 'css/site.css', '--minify'], { cwd: ROOT, stdio: 'pipe' });
