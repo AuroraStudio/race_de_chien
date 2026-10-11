@@ -1,869 +1,340 @@
-// ============================================
-// RACE DE CHIEN - APPLICATION PRINCIPALE v2.0
-// Framework: Tailwind CSS + Vanilla JS
-// ============================================
+// Page d'accueil : profils, questions « Ma vie », filtres, classement par compatibilité
+(function () {
+    const S = window.RDCScoring;
+    const PAGE = 24;
+    const COMPARE_KEY = 'rdc-compare';
+    const COAT_OPTIONS = ['Court', 'Moyen', 'Long', 'Sans poil'];
+    const ENTRETIEN = [{ v: 0, label: 'Peu importe' }, { v: 2, label: 'Faible' }, { v: 3, label: 'Moyen au plus' }];
 
-let allBreeds = [];
-let filteredBreeds = [];
-let compareList = [];
+    let breeds = [];
+    let state = S.fromQuery(location.search);
+    let shown = PAGE;
+    let compare = readCompare();
+    const $ = id => document.getElementById(id);
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-// Générer un slug URL-friendly à partir du nom français
-function breedSlug(name) {
-    return name.toLowerCase()
-        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-+|-+$/g, '');
-}
-
-// URL vers la page statique d'une race
-function breedUrl(breed) {
-    return `/races/${breedSlug(breed.name_fr || breed.name)}`;
-}
-
-// Traductions complètes
-const translations = {
-    size: {
-        toy: { label: 'Très petite', desc: 'Moins de 28 cm', icon: '🐕' },
-        small: { label: 'Petite', desc: '28 - 40 cm', icon: '🐕' },
-        medium: { label: 'Moyenne', desc: '40 - 60 cm', icon: '🐕' },
-        large: { label: 'Grande', desc: '60 - 70 cm', icon: '🐕' },
-        giant: { label: 'Géante', desc: 'Plus de 70 cm', icon: '🐕' }
-    },
-    energy: {
-        low: { label: 'Calme', color: 'green' },
-        moderate: { label: 'Modéré', color: 'yellow' },
-        high: { label: 'Énergique', color: 'orange' },
-        very_high: { label: 'Très énergique', color: 'red' }
-    },
-    coatLength: {
-        'Sans poil': 'Sans poil',
-        'Court': 'Court',
-        'Moyen': 'Moyen',
-        'Long': 'Long'
-    },
-    shedding: {
-        'Minimal': 'Minimal',
-        'Léger': 'Léger',
-        'Modéré': 'Modéré',
-        'Abondant': 'Abondant'
-    },
-    experience: {
-        'Débutant': { label: 'Débutant', color: 'green' },
-        'Intermédiaire': { label: 'Intermédiaire', color: 'yellow' },
-        'Confirmé': { label: 'Confirmé', color: 'orange' },
-        'Expert': { label: 'Expert', color: 'red' }
+    function readCompare() {
+        try { return JSON.parse(localStorage.getItem(COMPARE_KEY) || '[]').slice(0, 3); } catch (e) { return []; }
     }
-};
-
-// Dictionnaire complet de traduction des traits
-const traitTranslations = {
-    'Confident': 'Confiant',
-    'Friendly': 'Amical et sociable',
-    'Alert': 'Vigilant et attentif',
-    'Intelligent': 'Intelligent et vif',
-    'Courageous': 'Courageux et brave',
-    'Loyal': 'Loyal et fidèle',
-    'Brave': 'Intrépide',
-    'Playful': 'Joueur et enjoué',
-    'Active': 'Actif et dynamique',
-    'Gentle': 'Doux et tendre',
-    'Affectionate': 'Affectueux et câlin',
-    'Protective': 'Protecteur et gardien',
-    'Cheerful': 'Joyeux et optimiste',
-    'Quiet': 'Calme et posé',
-    'Energetic': 'Énergique et sportif',
-    'Trainable': 'Facile à éduquer',
-    'Independent': 'Indépendant et autonome',
-    'Stubborn': 'Têtu et volontaire',
-    'Curious': 'Curieux et explorateur',
-    'Obedient': 'Obéissant et docile',
-    'Fearless': 'Sans peur et audacieux',
-    'Devoted': 'Dévoué à sa famille',
-    'Responsive': 'Réceptif à l\'éducation',
-    'Self-confidence': 'Sûr de lui',
-    'Spirited': 'Enjoué et plein de vie',
-    'Good-natured': 'De bonne nature',
-    'Keen': 'Vif et alerte',
-    'Trusting': 'Confiant envers les humains',
-    'Kind': 'Gentil et bienveillant',
-    'Sweet-Tempered': 'Au tempérament doux',
-    'Tenacious': 'Tenace et persévérant',
-    'Attentive': 'Attentif et à l\'écoute',
-    'Faithful': 'Fidèle en toutes circonstances',
-    'Bold': 'Audacieux et déterminé',
-    'Proud': 'Fier et digne',
-    'Reliable': 'Fiable et stable',
-    'Watchful': 'Surveillant et méfiant',
-    'Even Tempered': 'D\'humeur égale',
-    'Reserved': 'Réservé avec les étrangers',
-    'Sensitive': 'Sensible et réactif',
-    'Adaptable': 'Adaptable à tous les environnements',
-    'Outgoing': 'Extraverti et sociable',
-    'Charming': 'Charmant et attachant',
-    'Docile': 'Docile et obéissant',
-    'Patient': 'Patient avec les enfants',
-    'Steady': 'Stable et équilibré',
-    'Determined': 'Déterminé et focus',
-    'Hardworking': 'Travailleur et assidu',
-    'Dignified': 'Digne et majestueux',
-    'Composed': 'Posé et calme',
-    'Joyful': 'Joyeux et heureux',
-    'Agile': 'Agile et rapide',
-    'Excitable': 'Excitable et réactif',
-    'Dominant': 'Dominant et leader',
-    'Strong': 'Fort et puissant',
-    'Powerful': 'Puissant et musclé',
-    'Suspicious': 'Méfiant avec les inconnus',
-    'Vocal': 'Vocal et expressif',
-    'Adventurous': 'Aventureux et explorateur',
-    'Happy': 'Heureux et satisfait',
-    'Noisy': 'Bruyant et aboyeur',
-    'Companionable': 'Excellent compagnon',
-    'Lively': 'Vivant et plein d\'entrain',
-    'Clever': 'Malin et rusé',
-    'Assertive': 'Assuré et confiant',
-    'Feisty': 'Piquant et combatif',
-    'Wild': 'Sauvage et primitif',
-    'Hardy': 'Robuste et résistant',
-    'Cooperative': 'Coopératif et collaboratif',
-    'Lovable': 'Adorable et attachant',
-    'Bright': 'Brillant et intelligent',
-    'Quick': 'Rapide et vif',
-    'Refined': 'Raffiné et élégant',
-    'Willful': 'Volontaire et déterminé',
-    'Instinctual': 'Guidé par l\'instinct',
-    'Inquisitive': 'Curieux et investigateur',
-    'Rational': 'Rationnel et logique',
-    'Fast': 'Rapide et véloce',
-    'Merry': 'Jovial et enjoué',
-    'Bossy': 'Autoritaire et dirigeant',
-    'Clownish': 'Bouffon et comique',
-    'Loving': 'Aimant et démonstratif',
-    'Familial': 'Attaché à la famille',
-    'Great-hearted': 'Au grand cœur',
-    'Opinionated': 'Opiniâtre et affirmé',
-    'Unflappable': 'Imperturbable',
-    'People-Oriented': "Centré sur l'humain",
-    'Athletic': 'Athlétique et sportif',
-    'Boisterous': 'Tapageur et turbulent',
-    'Generous': 'Généreux et donnant'
-};
-
-// Chargement initial
-document.addEventListener('DOMContentLoaded', async () => {
-    await loadBreeds();
-    setupFilters();
-    setupSliders();
-    setupAutocomplete();
-    setupComparison();
-    setupMobileSidebar();
-    displayBreeds(allBreeds);
-});
-
-async function loadBreeds() {
-    try {
-        const response = await fetch('/data/breeds.json');
-        const data = await response.json();
-        allBreeds = data.breeds;
-        filteredBreeds = [...allBreeds];
-        updateCount(allBreeds.length);
-    } catch (error) {
-        console.error('Erreur:', error);
-        document.getElementById('breeds-container').innerHTML = `
-            <div class="col-span-full text-center py-20">
-                <div class="text-6xl mb-4">😕</div>
-                <h3 class="text-xl font-bold text-slate-700 mb-2">Erreur de chargement</h3>
-                <p class="text-slate-500">Impossible de charger les données des races</p>
-            </div>
-        `;
+    function saveCompare() {
+        try { localStorage.setItem(COMPARE_KEY, JSON.stringify(compare)); } catch (e) { /* ignoré */ }
     }
-}
 
-function setupFilters() {
-    // Checkboxes
-    document.querySelectorAll('input[data-filter]').forEach(cb => {
-        cb.addEventListener('change', () => {
-            applyFilters();
-            updateActiveFilters();
-        });
-    });
-    
-    // Toggles
-    ['filter-children', 'filter-apartment', 'filter-dogs', 'filter-cats', 'filter-protective'].forEach(id => {
-        document.getElementById(id)?.addEventListener('change', () => {
-            applyFilters();
-            updateActiveFilters();
-        });
-    });
-    
-    // Trait checkboxes
-    document.querySelectorAll('input[data-filter="trait"]').forEach(cb => {
-        cb.addEventListener('change', () => {
-            applyFilters();
-            updateActiveFilters();
-        });
-    });
-    
-    // Search
-    document.getElementById('filter-search')?.addEventListener('input', debounce((e) => {
-        applyFilters();
-        updateAutocomplete(e.target.value);
-    }, 300));
-    
-    // Sort
-    document.getElementById('sort-by')?.addEventListener('change', () => {
-        sortBreeds();
-        displayBreeds(filteredBreeds);
-    });
-    
-    // Reset
-    document.getElementById('reset-filters')?.addEventListener('click', resetFilters);
-}
+    function toast(msg) {
+        const t = $('toast');
+        t.textContent = msg;
+        t.style.opacity = '1';
+        clearTimeout(toast._t);
+        toast._t = setTimeout(() => { t.style.opacity = '0'; }, 2600);
+    }
 
-function setupSliders() {
-    // Weight sliders
-    const weightMin = document.getElementById('weight-min');
-    const weightMax = document.getElementById('weight-max');
-    
-    if (weightMin && weightMax) {
-        weightMin.addEventListener('input', (e) => {
-            const min = parseInt(e.target.value);
-            const max = parseInt(weightMax.value);
-            if (min > max) {
-                weightMax.value = min;
-                document.getElementById('weight-max-display').textContent = min + ' kg';
-            }
-            document.getElementById('weight-min-display').textContent = min + ' kg';
-            applyFilters();
-            updateActiveFilters();
-        });
-        
-        weightMax.addEventListener('input', (e) => {
-            const max = parseInt(e.target.value);
-            const min = parseInt(weightMin.value);
-            if (max < min) {
-                weightMin.value = max;
-                document.getElementById('weight-min-display').textContent = max + ' kg';
-            }
-            document.getElementById('weight-max-display').textContent = max + ' kg';
-            applyFilters();
-            updateActiveFilters();
-        });
-    }
-    
-    // Life expectancy sliders
-    const lifeMin = document.getElementById('life-min');
-    const lifeMax = document.getElementById('life-max');
-    
-    if (lifeMin && lifeMax) {
-        lifeMin.addEventListener('input', (e) => {
-            const min = parseInt(e.target.value);
-            const max = parseInt(lifeMax.value);
-            if (min > max) {
-                lifeMax.value = min;
-                document.getElementById('life-max-display').textContent = min + ' ans';
-            }
-            document.getElementById('life-min-display').textContent = min + ' ans';
-            applyFilters();
-            updateActiveFilters();
-        });
-        
-        lifeMax.addEventListener('input', (e) => {
-            const max = parseInt(e.target.value);
-            const min = parseInt(lifeMin.value);
-            if (max < min) {
-                lifeMin.value = max;
-                document.getElementById('life-min-display').textContent = max + ' ans';
-            }
-            document.getElementById('life-max-display').textContent = max + ' ans';
-            applyFilters();
-            updateActiveFilters();
-        });
-    }
-    
-    // Exercise sliders
-    const exerciseMin = document.getElementById('exercise-min');
-    const exerciseMax = document.getElementById('exercise-max');
-    
-    if (exerciseMin && exerciseMax) {
-        exerciseMin.addEventListener('input', (e) => {
-            const min = parseInt(e.target.value);
-            const max = parseInt(exerciseMax.value);
-            if (min > max) {
-                exerciseMax.value = min;
-                document.getElementById('exercise-max-display').textContent = min + ' min';
-            }
-            document.getElementById('exercise-min-display').textContent = min + ' min';
-            applyFilters();
-            updateActiveFilters();
-        });
-        
-        exerciseMax.addEventListener('input', (e) => {
-            const max = parseInt(e.target.value);
-            const min = parseInt(exerciseMin.value);
-            if (max < min) {
-                exerciseMin.value = max;
-                document.getElementById('exercise-min-display').textContent = max + ' min';
-            }
-            document.getElementById('exercise-max-display').textContent = max + ' min';
-            applyFilters();
-            updateActiveFilters();
-        });
-    }
-}
+    // ---------- Contrôles ----------
+    function pressed(on) { return on ? 'true' : 'false'; }
 
-function setupAutocomplete() {
-    const searchInput = document.getElementById('filter-search');
-    const dropdown = document.getElementById('search-autocomplete');
-    
-    if (!searchInput || !dropdown) return;
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
-            dropdown.classList.add('hidden');
-        }
-    });
-}
-
-function setupMobileSidebar() {
-    const sidebar = document.getElementById('sidebar-filters');
-    const backdrop = document.getElementById('sidebar-backdrop');
-    const openBtn = document.getElementById('mobile-filter-btn');
-    const closeBtn = document.getElementById('sidebar-close-btn');
-    
-    if (!sidebar || !openBtn) return;
-
-    function openSidebar() {
-        sidebar.classList.remove('hidden');
-        sidebar.classList.remove('max-lg:-translate-x-full');
-        sidebar.classList.add('max-lg:translate-x-0');
-        backdrop?.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
+    function renderProfiles() {
+        $('profiles').innerHTML = S.PROFILES.map(p =>
+            `<button type="button" class="opt" data-profile="${p.id}" aria-pressed="${pressed(p.is(state))}"><span aria-hidden="true">${p.icon}</span>${esc(p.label)}</button>`
+        ).join('');
     }
-    
-    function closeSidebar() {
-        sidebar.classList.add('max-lg:-translate-x-full');
-        sidebar.classList.remove('max-lg:translate-x-0');
-        backdrop?.classList.add('hidden');
-        document.body.style.overflow = '';
-        // Re-hide on mobile after transition
-        setTimeout(() => {
-            if (window.innerWidth < 1024) {
-                sidebar.classList.add('hidden');
-            }
-        }, 300);
-    }
-    
-    openBtn.addEventListener('click', () => {
-        if (!sidebar.classList.contains('hidden')) {
-            closeSidebar();
-        } else {
-            openSidebar();
-        }
-    });
-    closeBtn?.addEventListener('click', closeSidebar);
-    backdrop?.addEventListener('click', closeSidebar);
-    
-    // Close on Escape
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !sidebar.classList.contains('hidden') && window.innerWidth < 1024) {
-            closeSidebar();
-        }
-    });
 
-    // Make sure sidebar is visible on desktop resize
-    window.addEventListener('resize', () => {
-        if (window.innerWidth >= 1024) {
-            sidebar.classList.remove('hidden', 'max-lg:-translate-x-full', 'max-lg:translate-x-0');
-            backdrop?.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-    });
-}
-
-function updateMobileFilterCount() {
-    const badge = document.getElementById('mobile-filter-count');
-    if (!badge) return;
-    
-    let count = 0;
-    count += document.querySelectorAll('input[data-filter]:checked').length;
-    ['filter-children', 'filter-apartment', 'filter-dogs', 'filter-cats', 'filter-protective'].forEach(id => {
-        if (document.getElementById(id)?.checked) count++;
-    });
-    
-    if (count > 0) {
-        badge.textContent = count;
-        badge.classList.remove('hidden');
-    } else {
-        badge.classList.add('hidden');
-    }
-}
-
-function updateAutocomplete(query) {
-    const dropdown = document.getElementById('search-autocomplete');
-    if (!dropdown) return;
-    
-    if (!query || query.length < 2) {
-        dropdown.classList.add('hidden');
-        return;
-    }
-    
-    const matches = allBreeds
-        .filter(b => b.name.toLowerCase().includes(query.toLowerCase()))
-        .slice(0, 5);
-    
-    if (matches.length === 0) {
-        dropdown.classList.add('hidden');
-        return;
-    }
-    
-    dropdown.innerHTML = matches.map(breed => `
-        <div class="autocomplete-item px-4 py-3 cursor-pointer flex items-center gap-3 border-b border-slate-100 last:border-0"
-             onclick="selectBreed('${breed.id}')">
-            <img src="${breed.image?.url || ''}" alt="" class="w-10 h-10 rounded-lg object-cover bg-slate-200">
+    function renderQuestions() {
+        $('questions').innerHTML = Object.entries(S.QUESTIONS).map(([key, q]) => `
             <div>
-                <div class="font-medium text-slate-900">${breed.name}</div>
-                <div class="text-xs text-slate-500">${breed.origin || 'Origine inconnue'}</div>
-            </div>
-        </div>
-    `).join('');
-    
-    dropdown.classList.remove('hidden');
-}
-
-function selectBreed(breedId) {
-    window.location.href = breedUrl(allBreeds.find(b => b.id === breedId) || { name: breedId });
-}
-
-function applyFilters() {
-    const sizeFilters = Array.from(document.querySelectorAll('input[data-filter="size"]:checked')).map(cb => cb.value);
-    const energyFilters = Array.from(document.querySelectorAll('input[data-filter="energy"]:checked')).map(cb => cb.value);
-    const coatFilters = Array.from(document.querySelectorAll('input[data-filter="coat"]:checked')).map(cb => cb.value);
-    const sheddingFilters = Array.from(document.querySelectorAll('input[data-filter="shedding"]:checked')).map(cb => cb.value);
-    const experienceFilters = Array.from(document.querySelectorAll('input[data-filter="experience"]:checked')).map(cb => cb.value);
-    const traitFilters = Array.from(document.querySelectorAll('input[data-filter="trait"]:checked')).map(cb => cb.value);
-    const groupFilters = Array.from(document.querySelectorAll('input[data-filter="group"]:checked')).map(cb => cb.value);
-    
-    const childrenFilter = document.getElementById('filter-children')?.checked || false;
-    const apartmentFilter = document.getElementById('filter-apartment')?.checked || false;
-    const dogsFilter = document.getElementById('filter-dogs')?.checked || false;
-    const catsFilter = document.getElementById('filter-cats')?.checked || false;
-    const protectiveFilter = document.getElementById('filter-protective')?.checked || false;
-    
-    const searchQuery = document.getElementById('filter-search')?.value.toLowerCase().trim() || '';
-    
-    // Slider values
-    const weightMin = parseInt(document.getElementById('weight-min')?.value || 1);
-    const weightMax = parseInt(document.getElementById('weight-max')?.value || 100);
-    const lifeMin = parseInt(document.getElementById('life-min')?.value || 6);
-    const lifeMax = parseInt(document.getElementById('life-max')?.value || 20);
-    const exerciseMin = parseInt(document.getElementById('exercise-min')?.value || 0);
-    const exerciseMax = parseInt(document.getElementById('exercise-max')?.value || 180);
-    
-    filteredBreeds = allBreeds.filter(breed => {
-        if (sizeFilters.length > 0 && !sizeFilters.includes(breed.physical?.size_category)) return false;
-        if (energyFilters.length > 0 && !energyFilters.includes(breed.temperament?.energy_level)) return false;
-        if (coatFilters.length > 0 && !coatFilters.includes(breed.coat?.length)) return false;
-        if (sheddingFilters.length > 0 && !sheddingFilters.includes(breed.coat?.shedding)) return false;
-        if (experienceFilters.length > 0 && !experienceFilters.includes(breed.training?.experience_required)) return false;
-        if (groupFilters.length > 0 && !groupFilters.includes(breed.breed_group)) return false;
-        if (childrenFilter && breed.temperament?.good_with_children !== true) return false;
-        if (apartmentFilter && breed.living?.apartment_friendly !== true) return false;
-        if (dogsFilter && breed.temperament?.good_with_dogs !== true) return false;
-        if (catsFilter && breed.temperament?.good_with_cats !== true) return false;
-        if (protectiveFilter && breed.temperament?.protective !== true) return false;
-        if (searchQuery && !breed.name.toLowerCase().includes(searchQuery)) return false;
-        
-        // Trait filter - must have ALL selected traits
-        if (traitFilters.length > 0) {
-            const breedTraits = breed.temperament?.traits || [];
-            const hasAllTraits = traitFilters.every(trait => breedTraits.includes(trait));
-            if (!hasAllTraits) return false;
-        }
-        
-        // Weight filter
-        const weight = breed.physical?.weight_kg?.average || breed.physical?.weight_kg?.max || 20;
-        if (weight < weightMin || weight > weightMax) return false;
-        
-        // Life expectancy filter
-        const lifeSpan = breed.physical?.life_span_years?.average || breed.physical?.life_span_years?.max || 12;
-        if (lifeSpan < lifeMin || lifeSpan > lifeMax) return false;
-        
-        // Exercise filter
-        const exercise = breed.living?.exercise_needs?.daily_minutes || 60;
-        if (exercise < exerciseMin || exercise > exerciseMax) return false;
-        
-        return true;
-    });
-    
-    sortBreeds();
-    displayBreeds(filteredBreeds);
-    updateCount(filteredBreeds.length);
-}
-
-function updateActiveFilters() {
-    const container = document.getElementById('active-filters');
-    if (!container) return;
-    
-    const chips = [];
-    
-    // Size filters
-    document.querySelectorAll('input[data-filter="size"]:checked').forEach(cb => {
-        const sizeInfo = translations.size[cb.value];
-        chips.push({ type: 'size', value: cb.value, label: sizeInfo?.label || cb.value });
-    });
-    
-    // Energy filters
-    document.querySelectorAll('input[data-filter="energy"]:checked').forEach(cb => {
-        const energyInfo = translations.energy[cb.value];
-        chips.push({ type: 'energy', value: cb.value, label: energyInfo?.label || cb.value });
-    });
-    
-    // Coat filters
-    document.querySelectorAll('input[data-filter="coat"]:checked').forEach(cb => {
-        chips.push({ type: 'coat', value: cb.value, label: cb.value });
-    });
-    
-    // Shedding filters
-    document.querySelectorAll('input[data-filter="shedding"]:checked').forEach(cb => {
-        chips.push({ type: 'shedding', value: cb.value, label: cb.value });
-    });
-    
-    // Experience filters
-    document.querySelectorAll('input[data-filter="experience"]:checked').forEach(cb => {
-        const expInfo = translations.experience[cb.value];
-        chips.push({ type: 'experience', value: cb.value, label: expInfo?.label || cb.value });
-    });
-    
-    // Trait filters
-    document.querySelectorAll('input[data-filter="trait"]:checked').forEach(cb => {
-        chips.push({ type: 'trait', value: cb.value, label: cb.value });
-    });
-    
-    // Group filters
-    document.querySelectorAll('input[data-filter="group"]:checked').forEach(cb => {
-        chips.push({ type: 'group', value: cb.value, label: cb.value });
-    });
-    
-    // Toggles
-    if (document.getElementById('filter-children')?.checked) {
-        chips.push({ type: 'toggle', id: 'filter-children', label: 'Compatible enfants' });
-    }
-    if (document.getElementById('filter-apartment')?.checked) {
-        chips.push({ type: 'toggle', id: 'filter-apartment', label: 'Adapté appartement' });
-    }
-    if (document.getElementById('filter-dogs')?.checked) {
-        chips.push({ type: 'toggle', id: 'filter-dogs', label: 'Compatible chiens' });
-    }
-    if (document.getElementById('filter-cats')?.checked) {
-        chips.push({ type: 'toggle', id: 'filter-cats', label: 'Compatible chats' });
-    }
-    if (document.getElementById('filter-protective')?.checked) {
-        chips.push({ type: 'toggle', id: 'filter-protective', label: 'Chien de garde' });
-    }
-    
-    // Sliders
-    const weightMin = document.getElementById('weight-min')?.value;
-    const weightMax = document.getElementById('weight-max')?.value;
-    if (weightMin > 1 || weightMax < 100) {
-        chips.push({ type: 'slider', label: `Poids: ${weightMin}-${weightMax} kg` });
-    }
-    
-    const lifeMin = document.getElementById('life-min')?.value;
-    const lifeMax = document.getElementById('life-max')?.value;
-    if (lifeMin > 6 || lifeMax < 20) {
-        chips.push({ type: 'slider', label: `Durée de vie: ${lifeMin}-${lifeMax} ans` });
-    }
-    
-    const exerciseMin = document.getElementById('exercise-min')?.value;
-    const exerciseMax = document.getElementById('exercise-max')?.value;
-    if (exerciseMin > 0 || exerciseMax < 180) {
-        chips.push({ type: 'slider', label: `Exercice: ${exerciseMin}-${exerciseMax} min/j` });
-    }
-    
-    if (chips.length === 0) {
-        container.classList.add('hidden');
-        updateMobileFilterCount();
-        return;
-    }
-    
-    container.classList.remove('hidden');
-    container.innerHTML = chips.map(chip => `
-        <span class="filter-chip inline-flex items-center gap-2 px-3 py-1.5 bg-primary-50 text-primary-700 rounded-full text-sm font-medium border border-primary-200">
-            ${chip.label}
-            <button onclick="removeFilter('${chip.type}', '${chip.value || chip.id || ''}')" 
-                    class="hover:bg-primary-200 rounded-full p-0.5 transition-colors">
-                <i class="fas fa-times text-xs"></i>
-            </button>
-        </span>
-    `).join('');
-    
-    updateMobileFilterCount();
-}
-
-function removeFilter(type, value) {
-    if (type === 'size' || type === 'energy' || type === 'coat' || type === 'shedding' || type === 'experience' || type === 'trait' || type === 'group') {
-        const checkbox = document.querySelector(`input[data-filter="${type}"][value="${value}"]`);
-        if (checkbox) checkbox.checked = false;
-    } else if (type === 'toggle') {
-        const toggle = document.getElementById(value);
-        if (toggle) toggle.checked = false;
-    }
-    applyFilters();
-    updateActiveFilters();
-}
-
-function sortBreeds() {
-    const sortBy = document.getElementById('sort-by')?.value || 'name';
-    
-    filteredBreeds.sort((a, b) => {
-        switch(sortBy) {
-            case 'name':
-                return a.name.localeCompare(b.name);
-            case 'size':
-                const sizeOrder = { toy: 1, small: 2, medium: 3, large: 4, giant: 5 };
-                return (sizeOrder[a.physical?.size_category] || 3) - (sizeOrder[b.physical?.size_category] || 3);
-            case 'weight':
-                const weightA = a.physical?.weight_kg?.average || a.physical?.weight_kg?.max || 20;
-                const weightB = b.physical?.weight_kg?.average || b.physical?.weight_kg?.max || 20;
-                return weightA - weightB;
-            case 'life':
-                const lifeA = a.physical?.life_span_years?.average || a.physical?.life_span_years?.max || 12;
-                const lifeB = b.physical?.life_span_years?.average || b.physical?.life_span_years?.max || 12;
-                return lifeB - lifeA;
-            case 'energy':
-                const energyOrder = { low: 1, moderate: 2, high: 3, very_high: 4 };
-                return (energyOrder[a.temperament?.energy_level] || 2) - (energyOrder[b.temperament?.energy_level] || 2);
-            default:
-                return 0;
-        }
-    });
-}
-
-function resetFilters() {
-    document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-    
-    // Reset sliders
-    const weightMin = document.getElementById('weight-min');
-    const weightMax = document.getElementById('weight-max');
-    if (weightMin) { weightMin.value = 1; document.getElementById('weight-min-display').textContent = '1 kg'; }
-    if (weightMax) { weightMax.value = 100; document.getElementById('weight-max-display').textContent = '100 kg'; }
-    
-    const lifeMin = document.getElementById('life-min');
-    const lifeMax = document.getElementById('life-max');
-    if (lifeMin) { lifeMin.value = 6; document.getElementById('life-min-display').textContent = '6 ans'; }
-    if (lifeMax) { lifeMax.value = 20; document.getElementById('life-max-display').textContent = '20 ans'; }
-    
-    const exerciseMin = document.getElementById('exercise-min');
-    const exerciseMax = document.getElementById('exercise-max');
-    if (exerciseMin) { exerciseMin.value = 0; document.getElementById('exercise-min-display').textContent = '0 min'; }
-    if (exerciseMax) { exerciseMax.value = 180; document.getElementById('exercise-max-display').textContent = '180 min'; }
-    
-    const searchInput = document.getElementById('filter-search');
-    if (searchInput) searchInput.value = '';
-    const sortSelect = document.getElementById('sort-by');
-    if (sortSelect) sortSelect.value = 'name';
-    
-    filteredBreeds = [...allBreeds];
-    sortBreeds();
-    displayBreeds(filteredBreeds);
-    updateCount(filteredBreeds.length);
-    updateActiveFilters();
-}
-
-function displayBreeds(breeds) {
-    const container = document.getElementById('breeds-container');
-    if (!container) return;
-    
-    if (breeds.length === 0) {
-        container.innerHTML = `
-            <div class="col-span-full text-center py-20">
-                <div class="text-6xl mb-4">🔍</div>
-                <h3 class="text-xl font-bold text-slate-700 mb-2">Aucune race trouvée</h3>
-                <p class="text-slate-500">Essayez d'ajuster vos critères de recherche</p>
-            </div>
-        `;
-        return;
-    }
-    
-    container.innerHTML = breeds.map((breed, index) => createBreedCard(breed, index)).join('');
-}
-
-function createBreedCard(breed, index) {
-    const imageUrl = breed.image?.url || '';
-    const sizeKey = breed.physical?.size_category || 'medium';
-    const energyKey = breed.temperament?.energy_level || 'moderate';
-    
-    const sizeInfo = translations.size[sizeKey] || { label: 'Moyenne', desc: '' };
-    const energyInfo = translations.energy[energyKey] || { label: 'Modéré', color: 'yellow' };
-    
-    const energyColors = {
-        green: 'bg-green-100 text-green-700 border-green-200',
-        yellow: 'bg-yellow-100 text-yellow-700 border-yellow-200',
-        orange: 'bg-orange-100 text-orange-700 border-orange-200',
-        red: 'bg-red-100 text-red-700 border-red-200'
-    };
-    
-    const traits = (breed.temperament?.traits || [])
-        .slice(0, 3)
-        .map(t => traitTranslations[t.trim()] || t.trim());
-    
-    const delay = index * 50;
-    
-    // Experience badge
-    const experience = breed.training?.experience_required;
-    const expInfo = experience ? translations.experience[experience] : null;
-    
-    const isSelected = compareList.includes(breed.id);
-    
-    return `
-        <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 block animate-fade-in relative group"
-             style="animation-delay: ${delay}ms">
-            <!-- Compare Checkbox -->
-            <label class="absolute top-3 left-3 z-10 cursor-pointer">
-                <input type="checkbox" class="compare-checkbox hidden" 
-                       ${isSelected ? 'checked' : ''} 
-                       onchange="toggleCompare('${breed.id}', this)">
-                <div class="w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full border-2 border-slate-200 flex items-center justify-center text-slate-400 hover:border-primary-400 transition-all">
-                    <i class="fas fa-check text-xs"></i>
+                <p class="mb-1.5 text-sm font-semibold text-slate-700" id="q-${key}">${esc(q.label)}</p>
+                <div class="grid ${q.options.length === 4 ? 'grid-cols-2' : 'grid-cols-3'} gap-1 rounded-xl bg-slate-100 p-1" role="group" aria-labelledby="q-${key}">
+                    ${q.options.map(o => `<button type="button" class="seg" data-q="${key}" data-v="${o.id}" aria-pressed="${pressed(state[key] === o.id)}">${esc(o.label)}</button>`).join('')}
                 </div>
-            </label>
-            
-            <a href="${breedUrl(breed)}" class="block">
-                <div class="relative h-52 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-                    ${imageUrl ? 
-                        `<picture><source srcset="${imageUrl.replace('.jpg', '.webp')}" type="image/webp"><img src="${imageUrl}" alt="${breed.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="400" height="300"></picture>` :
-                        `<div class="w-full h-full flex items-center justify-center text-6xl">🐕</div>`
-                    }
-                    <div class="absolute top-3 right-3 flex flex-col gap-2">
-                        ${expInfo ? `
-                            <span class="px-2 py-0.5 bg-${expInfo.color}-100 text-${expInfo.color}-700 rounded-full text-[10px] font-medium">
-                                ${expInfo.label}
-                            </span>
-                        ` : ''}
-                    </div>
-                </div>
-                <div class="p-5">
-                    <h3 class="text-lg font-bold text-slate-900 mb-1">${breed.name}</h3>
-                    <p class="text-sm text-slate-500 mb-3 flex items-center gap-1">
-                        <i class="fas fa-map-marker-alt text-primary-400"></i>
-                        ${breed.origin || 'Origine inconnue'}
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="px-2.5 py-1 rounded-lg text-xs font-medium border ${energyColors[energyInfo.color]}">
-                            ${energyInfo.label}
-                        </span>
-                        ${breed.temperament?.good_with_children ? 
-                            `<span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-green-50 text-green-600 border border-green-100">
-                                <i class="fas fa-child mr-1"></i>Enfants OK
-                            </span>` : ''}
-                        ${breed.living?.apartment_friendly ? 
-                            `<span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-blue-50 text-blue-600 border border-blue-100">
-                                <i class="fas fa-building mr-1"></i>Appartement
-                            </span>` : ''}
-                        ${breed.temperament?.good_with_dogs ? 
-                            `<span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-orange-50 text-orange-600 border border-orange-100">
-                                <i class="fas fa-dog mr-1"></i>Chiens OK
-                            </span>` : ''}
-                        ${breed.temperament?.good_with_cats ? 
-                            `<span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-purple-50 text-purple-600 border border-purple-100">
-                                <i class="fas fa-cat mr-1"></i>Chats OK
-                            </span>` : ''}
-                        ${breed.temperament?.protective ? 
-                            `<span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-red-50 text-red-600 border border-red-100">
-                                <i class="fas fa-shield-alt mr-1"></i>Gardien
-                            </span>` : ''}
-                    </div>
-                    <div class="flex flex-wrap gap-1.5">
-                        ${traits.map(trait => `<span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded text-xs">${trait}</span>`).join('')}
-                    </div>
-                </div>
-            </a>
-        </div>
-    `;
-}
-
-function setupComparison() {
-    const viewBtn = document.getElementById('view-comparison');
-    const clearBtn = document.getElementById('clear-comparison');
-    
-    viewBtn?.addEventListener('click', () => {
-        if (compareList.length < 2) {
-            alert('Sélectionnez au moins 2 races à comparer');
-            return;
-        }
-        window.location.href = `/compare?ids=${compareList.join(',')}`;
-    });
-    
-    clearBtn?.addEventListener('click', () => {
-        compareList = [];
-        updateComparisonBar();
-        displayBreeds(filteredBreeds);
-    });
-}
-
-function toggleCompare(breedId, checkbox) {
-    if (checkbox.checked) {
-        if (compareList.length >= 3) {
-            alert('Vous pouvez comparer maximum 3 races');
-            checkbox.checked = false;
-            return;
-        }
-        compareList.push(breedId);
-    } else {
-        compareList = compareList.filter(id => id !== breedId);
+            </div>`).join('');
+        const r = $('rythme');
+        r.value = state.rythme;
+        $('rythme-label').textContent = S.RYTHME[state.rythme];
+        $('soft').innerHTML = Object.entries(S.SOFT).map(([key, c]) =>
+            `<button type="button" class="opt" data-soft="${key}" aria-pressed="${pressed(state[key])}">${esc(c.label)}</button>`).join('');
+        $('entretien').innerHTML = ENTRETIEN.map(e =>
+            `<button type="button" class="seg" data-entretien="${e.v}" aria-pressed="${pressed(state.entretien === e.v)}">${e.label}</button>`).join('');
     }
-    updateComparisonBar();
-}
 
-function updateComparisonBar() {
-    const bar = document.getElementById('comparison-bar');
-    const countEl = document.getElementById('compare-count');
-    const thumbnailsEl = document.getElementById('compare-thumbnails');
-    
-    if (!bar || !countEl) return;
-    
-    countEl.textContent = compareList.length;
-    
-    if (compareList.length === 0) {
-        bar.classList.add('translate-y-full');
-        document.getElementById('mobile-filter-btn')?.classList.remove('hidden');
-        return;
+    // Compteurs par option : combien de races restent si on ajoute cette option
+    function countWith(patch, skip) {
+        const s = { ...state, ...patch };
+        let n = 0;
+        for (const b of breeds) if (S.passesHard(b, s, skip)) n++;
+        return n;
     }
-    
-    bar.classList.remove('translate-y-full');
-    // Hide mobile filter btn to avoid overlap
-    if (window.innerWidth < 1024) {
-        document.getElementById('mobile-filter-btn')?.classList.add('hidden');
-    }
-    
-    if (thumbnailsEl) {
-        thumbnailsEl.innerHTML = compareList.map(id => {
-            const breed = allBreeds.find(b => b.id === id);
-            return breed ? `
-                <img src="${breed.image?.url || ''}" alt="${breed.name}" 
-                     class="w-8 h-8 rounded-full border-2 border-white object-cover bg-slate-200"
-                     title="${breed.name}">
-            ` : '';
+
+    function renderFacets() {
+        $('sizes').innerHTML = S.SIZES.map(z => {
+            const on = state.sizes.includes(z.id);
+            const n = countWith({ sizes: [z.id] }, 'sizes');
+            return `<button type="button" class="seg !px-0.5 border border-slate-200 bg-white ${n === 0 && !on ? 'opacity-40' : ''}" data-size="${z.id}" aria-pressed="${pressed(on)}" title="${z.hint}">
+                <span class="block">${z.label}</span><span class="block text-[10px] text-slate-400">${n}</span></button>`;
+        }).join('');
+        $('coats').innerHTML = COAT_OPTIONS.map(c => {
+            const on = state.coats.includes(c);
+            const n = countWith({ coats: [c] }, 'coats');
+            return `<button type="button" class="opt" data-coat="${c}" aria-pressed="${pressed(on)}" ${n === 0 && !on ? 'aria-disabled="true"' : ''}>${c} <span class="count">${n}</span></button>`;
+        }).join('');
+        const toggles = [
+            { key: 'hypo', label: 'Perd très peu de poils', hint: 'utile en cas d’allergie' },
+            { key: 'france', label: 'Races françaises' },
+            { key: 'nocat', label: 'Exclure les chiens catégorisés' },
+            { key: 'nonfci', label: 'Inclure les races non reconnues en France' }
+        ];
+        $('hard-toggles').innerHTML = toggles.map(t => {
+            const n = countWith({ [t.key]: !state[t.key] });
+            const label = t.key === 'nonfci' ? t.label : `${t.label} <span class="count">${state[t.key] ? '' : n}</span>`;
+            return `<button type="button" class="opt" data-toggle="${t.key}" aria-pressed="${pressed(state[t.key])}" ${t.hint ? `title="${t.hint}"` : ''}>${label}</button>`;
+        }).join('');
+        const groups = [...Object.entries(S.FCI_GROUPS).map(([g, l]) => [Number(g), l])];
+        if (state.nonfci) groups.push([0, 'Races non reconnues']);
+        $('groups').innerHTML = groups.map(([g, l]) => {
+            const on = state.groups.includes(g);
+            const n = countWith({ groups: [g] }, 'groups');
+            return `<button type="button" class="flex items-center justify-between rounded-lg px-3 py-2 text-left text-sm ${on ? 'bg-primary-600 text-white' : 'bg-white text-slate-700 hover:bg-primary-50'} border ${on ? 'border-primary-600' : 'border-slate-200'} ${n === 0 && !on ? 'opacity-40' : ''}" data-group="${g}" aria-pressed="${pressed(on)}">
+                <span>${g ? `<span class="mr-1.5 font-semibold">${g}</span>` : ''}${esc(l)}</span><span class="text-xs ${on ? 'text-white/80' : 'text-slate-400'}">${n}</span></button>`;
         }).join('');
     }
-}
 
-function updateCount(count) {
-    const counter = document.getElementById('breed-count');
-    if (counter) counter.textContent = count;
-}
+    function activeChips(criteria) {
+        const chips = [];
+        if (state.q) chips.push({ label: `« ${state.q} »`, clear: { q: '' } });
+        for (const [key, q] of Object.entries(S.QUESTIONS)) {
+            const o = q.options.find(x => x.id === state[key]);
+            if (o) chips.push({ label: `${q.label} : ${o.label}`, clear: { [key]: null } });
+        }
+        if (state.rythme) chips.push({ label: `Rythme : ${S.RYTHME[state.rythme]}`, clear: { rythme: 0 } });
+        for (const [key, c] of Object.entries(S.SOFT)) if (state[key]) chips.push({ label: c.label, clear: { [key]: false } });
+        for (const z of state.sizes) chips.push({ label: `Taille : ${S.SIZES[z - 1].label}`, clear: { sizes: state.sizes.filter(x => x !== z) } });
+        for (const c of state.coats) chips.push({ label: `Poil ${c.toLowerCase()}`, clear: { coats: state.coats.filter(x => x !== c) } });
+        if (state.entretien) chips.push({ label: `Entretien : ${ENTRETIEN.find(e => e.v === state.entretien)?.label.toLowerCase()}`, clear: { entretien: 0 } });
+        if (state.hypo) chips.push({ label: 'Perd très peu de poils', clear: { hypo: false } });
+        if (state.france) chips.push({ label: 'Races françaises', clear: { france: false } });
+        if (state.nocat) chips.push({ label: 'Sans chiens catégorisés', clear: { nocat: false } });
+        if (state.nonfci) chips.push({ label: 'Avec races non reconnues', clear: { nonfci: false } });
+        for (const g of state.groups) chips.push({ label: `Groupe ${g || 'non reconnu'}`, clear: { groups: state.groups.filter(x => x !== g) } });
+        return chips;
+    }
 
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
+    // ---------- Cartes ----------
+    function gauge(v) {
+        return `<span class="gauge" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= v ? 'on' : ''}"></i>`).join('')}</span>`;
+    }
+
+    function card(r, i) {
+        const b = r.breed;
+        const img = b.image
+            ? `<picture><source srcset="/${b.image.url.replace(/\.jpg$/, '.webp')}" type="image/webp"><img src="/${b.image.url}" alt="${esc(b.name_fr)}" width="${b.image.width}" height="${b.image.height}" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:static" ${i < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`
+            : `<div class="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-gradient-to-br sm:static sm:h-full from-primary-50 via-white to-secondary-50 text-slate-400"><span class="text-3xl sm:text-5xl" aria-hidden="true">🐾</span><span class="text-[10px] font-semibold uppercase tracking-wider sm:text-xs">Photo à venir</span></div>`;
+        const pct = r.pct != null
+            ? `<span class="absolute left-2 top-2 rounded-full bg-white/95 px-2 py-0.5 text-xs font-extrabold shadow sm:left-3 sm:top-3 sm:px-2.5 sm:py-1 sm:text-sm ${r.pct >= 75 ? 'text-emerald-700' : r.pct >= 55 ? 'text-amber-700' : 'text-slate-500'}">${r.pct} %</span>` : '';
+        const rank = b.lof?.['2025'] && b.lofRank && b.lofRank <= 30 ? `<span class="text-[11px] font-semibold text-primary-700">${b.lofRank === 1 ? '1re' : b.lofRank + 'e'} race en France</span>` : '';
+        const reasons = r.reasons.slice(0, 4).map(x => `<span class="${x.ok ? 'chip-ok' : 'chip-ko'}">${x.ok ? '✓ ' : ''}${esc(x.text)}</span>`).join('');
+        const law = b.legal_category ? `<span class="chip-law">Catégorie ${esc(b.legal_category)}</span>` : '';
+        const isNew = b.is_new ? '<span class="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 rounded-full bg-slate-900/85 px-2 py-0.5 text-[11px] font-semibold text-white">Nouveau</span>' : '';
+        const inCmp = compare.includes(b.slug);
+        return `<li class="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
+            <a href="/races/${b.slug}" class="flex sm:block">
+                <div class="relative w-[38%] shrink-0 overflow-hidden bg-slate-100 sm:w-auto sm:aspect-[4/3]">${img}${pct}${isNew}</div>
+                <div class="min-w-0 flex-1 p-3 pb-12 sm:p-4">
+                    <h3 class="text-[15px] font-bold leading-snug text-slate-900 sm:text-[17px]">${esc(b.name_fr)}</h3>
+                    <p class="mt-0.5 text-xs text-slate-500 sm:text-sm">${esc(b.origin || '')}${b.fci?.group ? ` · ${esc(S.FCI_GROUPS[b.fci.group])}` : ''}</p>
+                    ${rank ? `<p class="mt-1">${rank}</p>` : ''}
+                    <dl class="mt-2.5 grid grid-cols-3 gap-2 text-[10px] text-slate-500 sm:mt-3 sm:gap-3 sm:text-[11px]">
+                        <div><dt class="mb-1">Énergie</dt><dd>${gauge(b.scores.energie)}</dd></div>
+                        <div><dt class="mb-1">Enfants</dt><dd>${gauge(b.scores.enfants)}</dd></div>
+                        <div><dt class="mb-1">Entretien</dt><dd>${gauge(b.scores.entretien_pelage)}</dd></div>
+                    </dl>
+                    ${reasons || law ? `<div class="mt-3 flex flex-wrap gap-1.5">${law}${reasons}</div>` : ''}
+                </div>
+            </a>
+            <button type="button" class="absolute bottom-2.5 right-2.5 flex h-8 items-center gap-1 rounded-full px-3 text-xs font-bold shadow transition-colors sm:bottom-auto sm:right-3 sm:top-3 sm:h-9 ${inCmp ? 'bg-primary-600 text-white' : 'bg-white/95 text-slate-700 hover:bg-white'}" data-compare="${b.slug}" aria-pressed="${pressed(inCmp)}" aria-label="${inCmp ? 'Retirer de la comparaison' : 'Ajouter à la comparaison'} : ${esc(b.name_fr)}">${inCmp ? '✓ Comparer' : '+ Comparer'}</button>
+        </li>`;
+    }
+
+    // ---------- Rendu ----------
+    // Les contrôles sont redessinés à chaque changement : on garde le focus clavier au même endroit
+    function focusKey() {
+        const a = document.activeElement;
+        if (!a || !a.dataset) return null;
+        const k = ['profile', 'q', 'soft', 'entretien', 'size', 'coat', 'toggle', 'group'].find(x => a.dataset[x] !== undefined);
+        return k ? `[data-${k}="${a.dataset[k]}"]${a.dataset.v ? `[data-v="${a.dataset.v}"]` : ''}` : null;
+    }
+
+    function render(opts = {}) {
+        const keep = focusKey();
+        const { results, criteria, sort } = S.rank(breeds, state);
+        renderProfiles();
+        renderQuestions();
+        renderFacets();
+        if (keep) document.querySelector(keep)?.focus();
+
+        const scored = criteria.length > 0;
+        const good = scored ? results.filter(r => r.pct >= 75).length : results.length;
+        $('count').textContent = results.length;
+        $('apply-count').textContent = results.length;
+        const hints = { compat: 'classées par compatibilité avec votre vie', popularite: 'classées par popularité en France (LOF 2025)', nom: 'classées par nom', taille: 'de la plus petite à la plus grande', vie: 'de la plus longue espérance de vie à la plus courte' };
+        $('sort-hint').textContent = hints[sort] + (scored ? ` · ${good} à 75 % ou plus` : '');
+        $('sort').value = state.sort;
+
+        const chips = activeChips(criteria);
+        const active = $('active');
+        active.classList.toggle('hidden', chips.length === 0);
+        active.classList.toggle('flex', chips.length > 0);
+        active.innerHTML = chips.map((c, i) => `<button type="button" class="inline-flex items-center gap-1.5 rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-800 hover:bg-primary-100" data-chip="${i}">${esc(c.label)} <span aria-hidden="true">×</span><span class="sr-only">retirer</span></button>`).join('')
+            + (chips.length > 1 ? '<button type="button" id="clear-all" class="text-xs font-semibold text-slate-500 underline hover:text-slate-800">Tout effacer</button>' : '');
+        active._chips = chips;
+        const ac = $('active-count');
+        ac.textContent = chips.length;
+        ac.classList.toggle('hidden', chips.length === 0);
+
+        const grid = $('grid');
+        const empty = $('empty');
+        if (!results.length) {
+            grid.innerHTML = '';
+            empty.classList.remove('hidden');
+            empty.innerHTML = emptyState();
+        } else {
+            empty.classList.add('hidden');
+            grid.innerHTML = results.slice(0, shown).map(card).join('');
+        }
+        const more = $('more-btn');
+        const left = results.length - shown;
+        more.classList.toggle('hidden', left <= 0);
+        more.textContent = `Voir plus de races (${left} restantes)`;
+
+        renderCompareBar();
+        if (!opts.keepUrl) {
+            const qs = S.toQuery(state);
+            history.replaceState(null, '', qs ? `/?${qs}` : '/');
+        }
+    }
+
+    // Aucun résultat : on propose le critère à retirer qui libère le plus de races
+    function emptyState() {
+        const tries = [
+            ['sizes', { sizes: [] }, 'la taille'], ['coats', { coats: [] }, 'le poil'], ['hypo', { hypo: false }, '« perd très peu de poils »'],
+            ['entretien', { entretien: 0 }, 'l’entretien'], ['france', { france: false }, '« races françaises »'],
+            ['groups', { groups: [] }, 'le groupe'], ['q', { q: '' }, 'la recherche'], ['nocat', { nocat: false }, 'l’exclusion des catégorisés']
+        ].filter(([k]) => Array.isArray(state[k]) ? state[k].length : state[k]);
+        const best = tries.map(([k, patch, label]) => ({ k, patch, label, n: countWith(patch) })).sort((a, b) => b.n - a.n)[0];
+        return `<p class="text-lg font-bold text-slate-900">Aucune race ne remplit tous ces critères</p>
+            <p class="mt-1 text-sm text-slate-600">${best ? `Sans le critère sur ${best.label}, ${best.n} races conviendraient.` : 'Essayez d’assouplir un critère.'}</p>
+            ${best ? `<button type="button" class="mt-4 rounded-xl bg-primary-600 px-4 py-2.5 text-sm font-bold text-white" data-relax='${JSON.stringify(best.patch)}'>Retirer ce critère</button>` : ''}`;
+    }
+
+    function renderCompareBar() {
+        const bar = $('compare-bar');
+        bar.style.transform = compare.length ? 'translateY(0)' : '';
+        $('compare-n').textContent = compare.length;
+        $('compare-go').href = '/compare?races=' + compare.join(',');
+        $('compare-thumbs').innerHTML = compare.map(slug => {
+            const b = breeds.find(x => x.slug === slug);
+            return b?.image ? `<img src="/${b.image.url.replace(/\.jpg$/, '.webp')}" alt="" class="h-9 w-9 rounded-full border-2 border-white object-cover">`
+                : `<span class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-primary-100 text-xs">🐾</span>`;
+        }).join('');
+    }
+
+    // ---------- Événements ----------
+    function update(patch, opts) {
+        state = { ...state, ...patch };
+        shown = PAGE;
+        render(opts);
+    }
+
+    document.addEventListener('click', e => {
+        const t = e.target.closest('button, [data-relax]');
+        if (!t) return;
+        const d = t.dataset;
+        if (d.profile) {
+            const p = S.PROFILES.find(x => x.id === d.profile);
+            state = S.applyProfile(state, d.profile, !p.is(state));
+            shown = PAGE;
+            render();
+        } else if (d.q) update({ [d.q]: state[d.q] === d.v ? null : d.v });
+        else if (d.soft) update({ [d.soft]: !state[d.soft] });
+        else if (d.entretien) update({ entretien: Number(d.entretien) });
+        else if (d.size) {
+            const z = Number(d.size);
+            update({ sizes: state.sizes.includes(z) ? state.sizes.filter(x => x !== z) : [...state.sizes, z] });
+        } else if (d.coat) {
+            if (t.getAttribute('aria-disabled') === 'true') return;
+            update({ coats: state.coats.includes(d.coat) ? state.coats.filter(x => x !== d.coat) : [...state.coats, d.coat] });
+        } else if (d.toggle) update({ [d.toggle]: !state[d.toggle] });
+        else if (d.group) {
+            const g = Number(d.group);
+            update({ groups: state.groups.includes(g) ? state.groups.filter(x => x !== g) : [...state.groups, g] });
+        } else if (d.chip) {
+            const chip = $('active')._chips?.[Number(d.chip)];
+            if (chip) {
+                update(chip.clear);
+                if ('q' in chip.clear) $('search').value = '';
+            }
+        } else if (t.id === 'clear-all' || t.id === 'reset' || t.id === 'reset-mobile') {
+            state = { ...S.emptyState(), sort: state.sort };
+            $('search').value = '';
+            shown = PAGE;
+            render();
+        } else if (d.relax) update(JSON.parse(d.relax));
+        else if (d.compare) {
+            e.preventDefault();
+            const slug = d.compare;
+            if (compare.includes(slug)) compare = compare.filter(x => x !== slug);
+            else if (compare.length >= 3) { toast('Trois races au maximum : retirez-en une pour en ajouter une autre.'); return; }
+            else compare = [...compare, slug];
+            saveCompare();
+            render({ keepUrl: true });
+        } else if (t.id === 'compare-clear') {
+            compare = [];
+            saveCompare();
+            render({ keepUrl: true });
+        } else if (t.id === 'more-btn') {
+            shown += PAGE;
+            render({ keepUrl: true });
+        } else if (t.id === 'filters-open') openSheet(true);
+        else if (t.id === 'filters-close' || t.id === 'filters-apply') {
+            openSheet(false);
+            if (t.id === 'filters-apply') $('results-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+
+    $('rythme').addEventListener('input', e => update({ rythme: Number(e.target.value) }));
+    $('sort').addEventListener('change', e => update({ sort: e.target.value }));
+    let searchTimer;
+    $('search').addEventListener('input', e => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => update({ q: e.target.value.trim() }), 180);
+    });
+    $('search').addEventListener('keydown', e => {
+        if (e.key !== 'Enter') return;
+        const { results } = S.rank(breeds, state);
+        if (results.length === 1) location.href = '/races/' + results[0].breed.slug;
+    });
+
+    function openSheet(open) {
+        const f = $('filters');
+        f.classList.toggle('hidden', !open);
+        f.classList.toggle('flex', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+        if (open) $('filters-close').focus();
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('filters').classList.contains('hidden') && innerWidth < 1024) openSheet(false); });
+
+    // ---------- Données ----------
+    async function init() {
+        $('search').value = state.q;
+        try {
+            const url = document.querySelector('meta[name="rdc-data"]')?.content || '/data/breeds-index.json';
+            const res = await fetch(url);
+            breeds = (await res.json()).breeds;
+        } catch (e) {
+            $('empty').classList.remove('hidden');
+            $('empty').innerHTML = '<p class="font-bold">Impossible de charger les races.</p><p class="text-sm text-slate-600">Vérifiez votre connexion puis rechargez la page.</p>';
+            return;
+        }
+        // Rang de popularité LOF
+        [...breeds].filter(b => b.lof?.['2025']).sort((a, b) => b.lof['2025'] - a.lof['2025']).forEach((b, i) => { b.lofRank = i + 1; });
+        compare = compare.filter(slug => breeds.some(b => b.slug === slug));
+        render({ keepUrl: !location.search });
+    }
+    init();
+})();

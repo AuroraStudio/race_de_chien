@@ -4,42 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <title>Page introuvable | Race de Chien</title>
-    <meta name="robots" content="noindex, nofollow">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
-                    colors: {
-                        primary: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' }
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body class="bg-slate-50 font-sans antialiased">
-    <div class="site-header"></div>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="/css/site.css?v=faa2b3d17d">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <meta name="theme-color" content="#2563eb">
 
-    <main class="max-w-2xl mx-auto px-6 py-32 text-center">
-        <div class="text-9xl mb-6">🐕‍🦺</div>
-        <h1 class="text-4xl font-bold text-slate-900 mb-4">Page introuvable</h1>
-        <p class="text-lg text-slate-600 mb-8">
-            On dirait que ce chien s'est échappé... La page que vous cherchez n'existe pas ou a été déplacée.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-xl transition-colors">
-                Voir toutes les races
-            </a>
-            <a href="/tel-maitre-tel-chien" class="px-6 py-3 bg-white border border-slate-200 hover:border-primary-300 text-slate-700 font-medium rounded-xl transition-colors">
-                🐕 Tel Maître, Tel Chien
-            </a>
+    <title>Page introuvable | Race de Chien</title>
+    <meta name="robots" content="noindex, follow">
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-800">
+    <div class="site-header"></div>
+    <div class="h-[68px]" aria-hidden="true"></div>
+    <main class="max-w-xl mx-auto px-4 py-20 text-center">
+        <p class="text-6xl" aria-hidden="true">🐕‍🦺</p>
+        <h1 class="mt-4 text-3xl font-extrabold text-slate-900">Cette page s'est échappée</h1>
+        <p class="mt-2 text-slate-600">Elle a peut-être changé d'adresse. Toutes nos races sont sur la page d'accueil.</p>
+        <div class="mt-6 flex flex-wrap justify-center gap-2">
+            <a href="/" class="rounded-xl bg-primary-600 px-5 py-3 text-sm font-bold text-white hover:bg-primary-700">Voir les 231 races</a>
+            <a href="/quel-chien-choisir" class="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800">Faire le test</a>
         </div>
     </main>
+    <footer class="bg-slate-900 text-slate-400 py-14">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <div class="text-4xl mb-3" aria-hidden="true">🐕</div>
+                <p class="text-white font-bold text-2xl mb-2">Race de Chien</p>
+                <p class="text-slate-400 text-sm max-w-md mx-auto">231 races décrites et notées sur 20 critères pour trouver le chien qui va avec votre vie.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 text-center sm:text-left text-sm">
+                <div>
+                    <p class="text-white font-semibold text-xs uppercase tracking-wider mb-4">Choisir</p>
+                    <ul class="space-y-2.5">
+                        <li><a href="/" class="hover:text-white">Toutes les races</a></li>
+                        <li><a href="/quel-chien-choisir" class="hover:text-white">Quel chien pour moi ?</a></li>
+                        <li><a href="/compare" class="hover:text-white">Comparer des races</a></li>
+                        <li><a href="/tel-maitre-tel-chien" class="hover:text-white">Tel Maître, Tel Chien</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-white font-semibold text-xs uppercase tracking-wider mb-4">Sélections</p>
+                    <ul class="space-y-2.5">
+                        <li><a href="/selections/chiens-pour-appartement" class="hover:text-white">Chiens pour appartement</a></li>
+                        <li><a href="/selections/chiens-calmes" class="hover:text-white">Chiens calmes et pantouflards</a></li>
+                        <li><a href="/selections/chiens-pour-enfants" class="hover:text-white">Chiens pour enfants</a></li>
+                        <li><a href="/selections/chiens-qui-perdent-peu-de-poils" class="hover:text-white">Chiens qui perdent peu de poils</a></li>
+                        <li><a href="/selections/chiens-pour-personnes-agees" class="hover:text-white">Chiens pour personnes âgées</a></li>
+                        <li><a href="/selections/chiens-qui-supportent-la-solitude" class="hover:text-white">Chiens qui supportent la solitude</a></li>
+                        <li><a href="/selections/chiens-sportifs" class="hover:text-white">Chiens sportifs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-white font-semibold text-xs uppercase tracking-wider mb-4">Races populaires en France</p>
+                    <ul class="space-y-2.5">
+                        <li><a href="/races/golden-retriever" class="hover:text-white">Golden Retriever</a></li>
+                        <li><a href="/races/berger-australien" class="hover:text-white">Berger Australien</a></li>
+                        <li><a href="/races/staffordshire-bull-terrier" class="hover:text-white">Staffordshire Bull Terrier</a></li>
+                        <li><a href="/races/cocker-spaniel" class="hover:text-white">Cocker Anglais</a></li>
+                        <li><a href="/races/labrador-retriever" class="hover:text-white">Labrador Retriever</a></li>
+                        <li><a href="/races/berger-americain-miniature" class="hover:text-white">Berger Américain Miniature</a></li>
+                        <li><a href="/races/cavalier-king-charles" class="hover:text-white">Cavalier King Charles Spaniel</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-white font-semibold text-xs uppercase tracking-wider mb-4">Le site</p>
+                    <ul class="space-y-2.5">
+                        <li><a href="/mentions-legales" class="hover:text-white">Mentions légales</a></li>
+                        <li><a href="/confidentialite" class="hover:text-white">Confidentialité</a></li>
+                        <li><a href="#" data-open-consent class="hover:text-white">Gérer les cookies</a></li>
+                        <li><a href="/sitemap.xml" class="hover:text-white">Plan du site</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-700/50 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+                <p>© 2026 Race de Chien. Données : standards FCI, statistiques LOF 2025 de la Société Centrale Canine.</p>
+                <p>Créé par <a href="https://aurorastudio.fr" target="_blank" rel="noopener" class="text-slate-300 hover:text-white font-medium">Aurora</a></p>
+            </div>
+        </div>
+    </footer>
 
-    <script src="/js/header.min.js"></script>
+    <script src="/js/header.js?v=b19647870a"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-// Header commun pour toutes les pages
+// Header commun pour toutes les pages + consentement à la mesure d'audience
 
 // Citations drôles et sympathiques sur les chiens
 const dogQuotes = [
@@ -13,84 +13,147 @@ const dogQuotes = [
     "Le meilleur ami de l'homme ? Celui qui ne juge pas quand on mange du fromage à 3h du matin.",
     "Un chien, c'est un coeur qui bat au bout d'une laisse.",
     "Mon chien me regarde manger comme si je venais de gagner à la loterie. À chaque repas.",
-    "Les chiens ne font pas de bruit quand ils pètent. C'est leur super-pouvoir le plus mystérieux.",
-    "Qui besoin d'un réveil quand on a un chien avec une vessie ponctuelle ?",
-    "Mon chien détruit tout ce qu'il touche. Sauf mon cœur, celui-là il le garde intact.",
-    "Un chien, c'est la preuve que Dieu veut qu'on soit heureux... et qu'on ramasse des crottes."
+    "Qui a besoin d'un réveil quand on a un chien avec une vessie ponctuelle ?",
+    "Mon chien détruit tout ce qu'il touche. Sauf mon cœur, celui-là il le garde intact."
 ];
 
 function getRandomQuote() {
     return dogQuotes[Math.floor(Math.random() * dogQuotes.length)];
 }
 
+const NAV_LINKS = [
+    { href: '/', label: 'Les races' },
+    { href: '/quel-chien-choisir', label: 'Quel chien pour moi ?' },
+    { href: '/compare', label: 'Comparer' }
+];
+
 function renderHeader() {
     const quote = getRandomQuote();
-    const escapedQuote = quote.replace(/"/g, '&quot;');
-    
+    const path = location.pathname.replace(/\/$/, '') || '/';
+    const navItem = l => `<a href="${l.href}" class="text-sm font-medium ${path === l.href ? 'text-primary-600' : 'text-slate-600 hover:text-primary-600'} transition-colors"${path === l.href ? ' aria-current="page"' : ''}>${l.label}</a>`;
+
     const headerHTML = `
         <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200">
-            <div class="max-w-[1600px] mx-auto px-6 py-4">
-                <div class="flex items-center justify-between">
-                    <a href="/" class="flex items-center gap-3 group shrink-0">
-                        <div class="relative w-12 h-12 rounded-2xl flex items-center justify-center text-2xl bg-white">
-                            <div style="position:absolute;inset:0;border-radius:inherit;padding:2px;background:linear-gradient(135deg,#3b82f6,#9333ea);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;"></div>
-                            🐕
-                        </div>
-                        <div>
-                            <h1 class="text-xl font-bold text-slate-900">Race de Chien</h1>
-                            <p class="text-xs text-slate-500">Encyclopédie canine complète</p>
-                        </div>
+            <div class="max-w-[1600px] mx-auto px-4 sm:px-6 py-3">
+                <div class="flex items-center justify-between gap-4">
+                    <a href="/" class="flex items-center gap-3 group shrink-0" aria-label="Race de Chien, accueil">
+                        <span class="relative w-11 h-11 rounded-2xl flex items-center justify-center text-2xl bg-white">
+                            <span aria-hidden="true" style="position:absolute;inset:0;border-radius:inherit;padding:2px;background:linear-gradient(135deg,#3b82f6,#9333ea);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></span>
+                            <span aria-hidden="true">🐕</span>
+                        </span>
+                        <span>
+                            <span class="block text-lg font-bold text-slate-900 leading-tight">Race de Chien</span>
+                            <span class="block text-xs text-slate-500">Trouver la race faite pour soi</span>
+                        </span>
                     </a>
 
-                    <!-- Citation au centre (desktop only) -->
-                    <div class="hidden lg:flex flex-1 justify-center px-8 min-w-0">
-                        <p id="random-quote" class="text-sm text-slate-400 italic text-center leading-snug" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">
-                            « ${quote} »
-                        </p>
+                    <div class="hidden xl:flex flex-1 justify-center px-6 min-w-0">
+                        <p class="text-sm text-slate-400 italic text-center leading-snug" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:520px;">« ${quote} »</p>
                     </div>
-                    
-                    <nav class="hidden md:flex items-center gap-6 shrink-0">
-                        <a href="/" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Accueil</a>
-                        <a href="/#races" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Les races</a>
-                        <a href="/compare" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">Comparer</a>
-                        <a href="/tel-maitre-tel-chien" class="relative text-sm font-medium px-3 py-1.5 rounded-lg transition-all hover:shadow-lg" style="background:white;"><span style="position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:linear-gradient(135deg,#3b82f6,#9333ea);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;"></span><span class="bg-gradient-to-r from-primary-500 to-purple-500 bg-clip-text text-transparent">🐕 Tel Maître, Tel Chien</span></a>
+
+                    <nav class="hidden md:flex items-center gap-6 shrink-0" aria-label="Navigation principale">
+                        ${NAV_LINKS.map(navItem).join('')}
+                        <a href="/tel-maitre-tel-chien" class="relative text-sm font-semibold px-3 py-1.5 rounded-lg bg-white transition-shadow hover:shadow-lg"><span aria-hidden="true" style="position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:linear-gradient(135deg,#3b82f6,#9333ea);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></span><span class="gradient-text">📸 Tel Maître, Tel Chien</span></a>
                     </nav>
-                    
-                    <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-primary-600">
-                        <i class="fas fa-bars text-xl"></i>
+
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-primary-600" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
                     </button>
                 </div>
             </div>
-            
-            <!-- Mobile Menu -->
+
             <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100">
-                <div class="px-6 py-4 space-y-3">
-                    <a href="/" class="block text-sm font-medium text-slate-600 hover:text-primary-600">Accueil</a>
-                    <a href="/#races" class="block text-sm font-medium text-slate-600 hover:text-primary-600">Les races</a>
-                    <a href="/compare" class="block text-sm font-medium text-slate-600 hover:text-primary-600">Comparer</a>
-                    <a href="/tel-maitre-tel-chien" class="block text-sm font-medium text-primary-600 hover:text-primary-700 font-bold">🐕 Tel Maître, Tel Chien</a>
+                <nav class="px-6 py-4 space-y-3" aria-label="Navigation mobile">
+                    ${NAV_LINKS.map(l => `<a href="${l.href}" class="block text-sm font-medium text-slate-700 hover:text-primary-600">${l.label}</a>`).join('')}
+                    <a href="/tel-maitre-tel-chien" class="block text-sm font-bold text-primary-600">📸 Tel Maître, Tel Chien</a>
                     <p class="text-xs text-slate-400 italic pt-2 border-t border-slate-100">« ${quote} »</p>
-                </div>
+                </nav>
             </div>
         </header>
     `;
-    
+
     document.querySelectorAll('.site-header').forEach(el => {
         el.innerHTML = headerHTML;
     });
-    
+
     setupMobileMenu();
 }
 
 function setupMobileMenu() {
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
-    
     if (btn && menu) {
         btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+            const open = menu.classList.toggle('hidden') === false;
+            btn.setAttribute('aria-expanded', String(open));
         });
     }
 }
 
-document.addEventListener('DOMContentLoaded', renderHeader);
+// ===== Consentement (CNIL) : Google Analytics ne se charge qu'après un « Accepter » =====
+const GA_ID = 'G-WFNTS7FRZP';
+const CONSENT_KEY = 'rdc-consent';
+const CONSENT_DAYS = 395; // 13 mois maximum
+
+function readConsent() {
+    try {
+        const raw = JSON.parse(localStorage.getItem(CONSENT_KEY) || 'null');
+        if (raw && Date.now() - raw.at < CONSENT_DAYS * 864e5) return raw.value;
+    } catch (e) { /* stockage indisponible : on redemandera */ }
+    return null;
+}
+
+function saveConsent(value) {
+    try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ value, at: Date.now() })); } catch (e) { /* ignoré */ }
+}
+
+function loadAnalytics() {
+    if (window.__rdcGaLoaded) return;
+    window.__rdcGaLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+}
+
+function showConsentBanner() {
+    if (document.getElementById('consent-banner')) return;
+    const box = document.createElement('div');
+    box.id = 'consent-banner';
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-label', 'Mesure d’audience');
+    box.className = 'fixed inset-x-3 bottom-3 sm:inset-x-auto sm:right-4 sm:bottom-4 sm:max-w-sm z-[60] rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl';
+    box.innerHTML = `
+        <p class="text-sm text-slate-700 leading-relaxed">Nous aimerions mesurer l'audience du site avec Google Analytics, pour savoir quelles pages vous servent. Rien ne se déclenche sans votre accord.</p>
+        <div class="mt-3 flex gap-2">
+            <button type="button" data-consent="denied" class="flex-1 rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">Refuser</button>
+            <button type="button" data-consent="granted" class="flex-1 rounded-xl border border-primary-600 bg-primary-600 px-3 py-2 text-sm font-semibold text-white hover:bg-primary-700">Accepter</button>
+        </div>
+        <a href="/confidentialite" class="mt-2 inline-block text-xs text-slate-500 underline hover:text-slate-700">Ce que nous mesurons</a>`;
+    box.addEventListener('click', e => {
+        const value = e.target.closest('[data-consent]')?.dataset.consent;
+        if (!value) return;
+        saveConsent(value);
+        box.remove();
+        if (value === 'granted') loadAnalytics();
+    });
+    document.body.appendChild(box);
+}
+
+window.rdcConsent = { open: showConsentBanner };
+
+function initConsent() {
+    const consent = readConsent();
+    if (consent === 'granted') loadAnalytics();
+    else if (consent === null) showConsentBanner();
+    document.querySelectorAll('[data-open-consent]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); showConsentBanner(); }));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderHeader();
+    initConsent();
+});

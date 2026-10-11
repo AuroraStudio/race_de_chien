@@ -1,9 +1,13 @@
-name: Générer les pages statiques
+name: Générer le site statique
 
 on:
   push:
     paths:
       - 'data/breeds.json'
+      - 'templates/**'
+      - 'js/**'
+      - 'css/tailwind.src.css'
+      - 'tailwind.config.cjs'
       - 'generate-breeds.cjs'
     branches:
       - main
@@ -14,7 +18,7 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,16 +26,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
-      - name: Générer les pages
-        run: node generate-breeds.cjs
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Générer les pages et le CSS
+        run: npm run generate
 
       - name: Commit et push
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add races/ sitemap.xml robots.txt
-          # Ne commit que s'il y a des changements
-          git diff --staged --quiet || git commit -m "build: régénérer les pages statiques [auto]"
+          git add -A races/ selections/ *.html sitemap.xml robots.txt css/site.css data/breeds-index.json
+          git diff --staged --quiet || git commit -m "build: régénérer le site statique [auto]"
           git push

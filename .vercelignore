@@ -1,0 +1,6 @@
+templates/
+.claude/
+.github/
+generate-breeds.cjs
+tailwind.config.cjs
+css/tailwind.src.css

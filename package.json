@@ -5,5 +5,12 @@
   "private": true,
   "dependencies": {
     "@anthropic-ai/sdk": "0.131.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  },
+  "scripts": {
+    "generate": "node generate-breeds.cjs",
+    "css": "tailwindcss -c tailwind.config.cjs -i css/tailwind.src.css -o css/site.css --minify"
   }
 }

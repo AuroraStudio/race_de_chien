@@ -1,668 +1,550 @@
 #!/usr/bin/env node
 /**
- * generate-breeds.js
- * Génère une page HTML statique pour chaque race de chien.
- * Crée aussi sitemap.xml et robots.txt.
- * 
- * Usage : node generate-breeds.js
+ * generate-breeds.cjs
+ * Génère tout le site statique depuis data/breeds.json et templates/ :
+ * pages, fiches des races, sélections thématiques, sitemap, robots,
+ * index de données léger pour l'accueil, CSS compilé et numéros de version des fichiers.
+ *
+ * Usage : npm run generate
  */
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
+const { execFileSync } = require('child_process');
+// js/scoring.js est partagé avec le navigateur (le dépôt est en "type": "module") : on l'évalue à la main
+const S = (() => {
+    const m = { exports: {} };
+    new Function('module', 'exports', fs.readFileSync(path.join(__dirname, 'js/scoring.js'), 'utf8'))(m, m.exports);
+    return m.exports;
+})();
 
-// Config
+const ROOT = __dirname;
 const SITE_URL = 'https://race-de-chien.com';
-const DATA_FILE = path.join(__dirname, 'data', 'breeds.json');
-const OUTPUT_DIR = path.join(__dirname, 'races');
+const TODAY = new Date().toISOString().split('T')[0];
+const written = [];
 
-// Charger les données
-const data = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
-const breeds = data.breeds;
+const read = p => fs.readFileSync(path.join(ROOT, p), 'utf8');
+const write = (p, s) => {
+    fs.mkdirSync(path.dirname(path.join(ROOT, p)), { recursive: true });
+    fs.writeFileSync(path.join(ROOT, p), s, 'utf8');
+    written.push(p);
+};
+const hash = p => crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, p))).digest('hex').slice(0, 10);
 
-// Charger les dimensions des images
-const DIMS_FILE = path.join(__dirname, 'data', 'image-dimensions.json');
-let imageDimensions = {};
-try { imageDimensions = JSON.parse(fs.readFileSync(DIMS_FILE, 'utf8')); } catch(e) {}
+// ============================================
+// DONNÉES
+// ============================================
 
-// Helper: formater une plage min-max intelligemment
-function formatRange(min, max, unit) {
-    if (!min && !max) return `? ${unit}`;
-    if (!min || !max || min === max) return `${min || max} ${unit}`;
-    return `${min} à ${max} ${unit}`;
-}
-function formatRangeDash(min, max, unit) {
-    if (!min && !max) return `? ${unit}`;
-    if (!min || !max || min === max) return `${min || max} ${unit}`;
-    return `${min} - ${max} ${unit}`;
-}
-// Helper: phrase naturelle pour une plage (ex: "de 55 à 65 cm" ou "d'environ 40 cm")
-function formatRangePhrase(min, max, unit) {
-    if (!min && !max) return `non renseigné`;
-    if (!min || !max || min === max) return `d'environ ${min || max} ${unit}`;
-    return `de ${min} à ${max} ${unit}`;
-}
-// Helper: phrase pour espérance de vie
-function formatLifePhrase(min, max) {
-    if (!min && !max) return `non renseignée`;
-    if (!min || !max || min === max) return `d'environ ${min || max} ans`;
-    return `de ${min} à ${max} ans`;
-}
-// Helper: formater l'origine avec la bonne préposition française
-function formatOrigin(origin) {
-    if (!origin) return "d'Europe";
-    // Voyelles et H muet → d'
-    if (/^[AEIOUÉÈÊËÎÏÔÛÜaeiouéèêëîïôûü]/.test(origin)) return `d'${origin}`;
-    // Cas spéciaux
-    if (origin.startsWith('Ouest') || origin.startsWith('Est')) return `de l'${origin}`;
-    return `de ${origin}`;
-}
-
-// Créer le dossier /races/
-if (!fs.existsSync(OUTPUT_DIR)) {
-    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-}
+const data = JSON.parse(read('data/breeds.json'));
+const breeds = data.breeds.slice().sort((a, b) => a.name_fr.localeCompare(b.name_fr, 'fr'));
+const COUNT = breeds.length;
+breeds.filter(b => b.lof?.['2025']).sort((a, b) => b.lof['2025'] - a.lof['2025']).forEach((b, i) => { b.lofRank = i + 1; });
+const popular = breeds.filter(b => b.lofRank).sort((a, b) => a.lofRank - b.lofRank);
 
 // ============================================
 // UTILS
 // ============================================
 
-function slugify(text) {
-    return text
-        .toLowerCase()
-        .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // enlever accents
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-+|-+$/g, '');
+function esc(text) {
+    return String(text ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+const num = n => String(n).replace('.', ',');
+const fmtInt = n => Number(n).toLocaleString('fr-FR').replace(/ | /g, ' ');
+const ordinal = n => (n === 1 ? '1re' : `${n}e`);
+function range(min, max, unit) {
+    if (min == null && max == null) return '';
+    if (min == null || max == null || min === max) return `${num(min ?? max)} ${unit}`;
+    return `${num(min)} à ${num(max)} ${unit}`;
+}
+const MASC = ['Japon', 'Mexique', 'Canada', 'Tibet', 'Mali', 'Maroc', 'Portugal', 'Royaume-Uni', 'Pays de Galles', 'Danemark', 'Congo', 'Groenland', 'Zimbabwe', 'Brésil', 'Chili', 'Pérou', 'Liechtenstein', 'Luxembourg', 'Vietnam', 'Cambodge'];
+function fromOrigin(origin) {
+    if (!origin) return '';
+    const o = origin.split(/[,(]/)[0].trim();
+    if (/^(États-Unis|Pays-Bas)/.test(o)) return `des ${o}`;
+    if (MASC.some(m => o.startsWith(m))) return `du ${o}`;
+    if (/^[AEIOUÉÈÊÂ]/i.test(o)) return `d'${o}`;
+    return `de ${o}`;
+}
+const SIZE_WORD = { toy: 'très petit', small: 'petit', medium: 'moyen', large: 'grand', giant: 'géant' };
+
+const SCORE_META = {
+    energie: { label: 'Énergie', words: ['Très calme', 'Calme', 'Modérée', 'Élevée', 'Débordante'] },
+    appartement: { label: 'En appartement', words: ['Impossible', 'Difficile', 'Possible', 'Bien', 'Parfait'] },
+    solitude: { label: 'Seul à la maison', words: ['Très mal', 'Mal', 'Quelques heures', 'Bien', 'Très bien'] },
+    enfants: { label: 'Avec les enfants', words: ['À éviter', 'Prudence', 'Correct', 'Bon', 'Excellent'] },
+    chiens: { label: 'Avec les autres chiens', words: ['À éviter', 'Prudence', 'Correct', 'Bon', 'Excellent'] },
+    chats: { label: 'Avec les chats', words: ['À éviter', 'Prudence', 'Correct', 'Bon', 'Excellent'] },
+    inconnus: { label: 'Avec les inconnus', words: ['Très méfiant', 'Réservé', 'Poli', 'Ouvert', 'Très ouvert'] },
+    education: { label: "Facilité d'éducation", words: ['Très difficile', 'Difficile', 'Moyenne', 'Facile', 'Très facile'] },
+    premier_chien: { label: 'Pour un premier chien', words: ['Déconseillé', 'Peu adapté', 'Possible', 'Bien adapté', 'Idéal'] },
+    garde: { label: 'Instinct de garde', words: ['Nul', 'Faible', 'Modéré', 'Marqué', 'Très marqué'], neutral: true },
+    instinct_chasse: { label: 'Instinct de chasse', words: ['Très faible', 'Faible', 'Modéré', 'Fort', 'Très fort'], reverse: true },
+    fugue: { label: 'Tendance à fuguer', words: ['Très faible', 'Faible', 'Modérée', 'Forte', 'Très forte'], reverse: true },
+    entretien_pelage: { label: 'Entretien du poil', words: ['Minimal', 'Faible', 'Moyen', 'Important', 'Très important'], reverse: true },
+    perte_poils: { label: 'Perte de poils', words: ['Quasi nulle', 'Faible', 'Modérée', 'Forte', 'Très forte'], reverse: true },
+    bave: { label: 'Bave', words: ['Jamais', 'Rarement', 'Un peu', 'Souvent', 'Beaucoup'], reverse: true },
+    aboiements: { label: 'Aboiements', words: ['Très discret', 'Discret', 'Modérés', 'Fréquents', 'Très bavard'], reverse: true },
+    chaleur: { label: 'Tolérance à la chaleur', words: ['Très faible', 'Faible', 'Moyenne', 'Bonne', 'Excellente'] },
+    froid: { label: 'Tolérance au froid', words: ['Très faible', 'Faible', 'Moyenne', 'Bonne', 'Excellente'] },
+    robustesse: { label: 'Robustesse', words: ['Fragile', 'Plutôt fragile', 'Moyenne', 'Bonne', 'Excellente'] }
+};
+const SCORE_GROUPS = [
+    ['Mode de vie', ['energie', 'appartement', 'solitude']],
+    ['Famille et sociabilité', ['enfants', 'chiens', 'chats', 'inconnus']],
+    ['Éducation et caractère', ['education', 'premier_chien', 'garde', 'instinct_chasse', 'fugue']],
+    ['Entretien et voisinage', ['entretien_pelage', 'perte_poils', 'bave', 'aboiements']],
+    ['Climat et santé', ['chaleur', 'froid', 'robustesse']]
+];
+
+function gauge(v, reverse) {
+    return `<span class="gauge w-24 shrink-0" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= v ? (reverse ? 'on !bg-amber-400' : 'on') : ''}"></i>`).join('')}</span>`;
 }
 
-function escapeHtml(text) {
-    if (!text) return '';
-    return text
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
+function picture(b, cls, opts = {}) {
+    if (!b.image) {
+        return `<div class="flex h-full w-full flex-col items-center justify-center gap-1 bg-gradient-to-br from-primary-50 via-white to-secondary-50 text-slate-400 ${opts.box || ''}"><span class="${opts.big ? 'text-7xl' : 'text-4xl'}" aria-hidden="true">🐾</span><span class="text-xs font-semibold uppercase tracking-wider">Photo à venir</span></div>`;
+    }
+    const src = `/${b.image.url}`;
+    return `<picture><source srcset="${src.replace(/\.jpg$/, '.webp')}" type="image/webp"><img src="${src}" alt="${esc(opts.alt ?? b.name_fr)}" width="${b.image.width}" height="${b.image.height}" class="${cls}" ${opts.eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`;
+}
+
+function staticCard(b, extra = {}) {
+    const pct = extra.pct != null ? `<span class="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-sm font-extrabold shadow ${extra.pct >= 75 ? 'text-emerald-700' : extra.pct >= 55 ? 'text-amber-700' : 'text-slate-500'}">${extra.pct} %</span>` : '';
+    const reasons = (extra.reasons || []).slice(0, 4).map(x => `<span class="${x.ok ? 'chip-ok' : 'chip-ko'}">${x.ok ? '✓ ' : ''}${esc(x.text)}</span>`).join('');
+    const law = b.legal_category ? `<span class="chip-law">Catégorie ${esc(b.legal_category)}</span>` : '';
+    return `<li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
+                <a href="/races/${b.slug}" class="block">
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">${picture(b, 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105')}${pct}</div>
+                    <div class="p-4">
+                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">${esc(b.name_fr)}</h3>
+                        <p class="mt-0.5 text-sm text-slate-500">${esc(b.origin || '')}${b.fci?.group ? ` · ${esc(S.FCI_GROUPS[b.fci.group])}` : ''}</p>
+                        ${extra.note ? `<p class="mt-2 text-sm text-slate-600">${esc(extra.note)}</p>` : ''}
+                        ${reasons || law ? `<div class="mt-3 flex flex-wrap gap-1.5">${law}${reasons}</div>` : ''}
+                    </div>
+                </a>
+            </li>`;
 }
 
 // ============================================
-// TRADUCTIONS (miroir de breed.js)
+// TEXTES GÉNÉRÉS DEPUIS LES NOTES
 // ============================================
 
-const sizeLabels = { toy: 'Très petite', small: 'Petite', medium: 'Moyenne', large: 'Grande', giant: 'Géante' };
-const sizeLabelsMini = { toy: 'très petite', small: 'petite', medium: 'moyenne', large: 'grande', giant: 'géante' };
-const energyLabels = { low: 'Calme', moderate: 'Modéré', high: 'Énergique', very_high: 'Très énergique' };
-const groupLabels = {
-    'Toy': 'Chien de compagnie', 'Hound': 'Chien de chasse', 'Working': 'Chien de travail',
-    'Sporting': 'Chien de sport', 'Herding': 'Chien de berger', 'Terrier': 'Terrier',
-    'Non-Sporting': 'Chien de compagnie', 'Mixed': 'Race mixte',
-    'Chien de compagnie': 'Chien de compagnie', 'Chien de chasse': 'Chien de chasse',
-    'Chien de travail': 'Chien de travail', 'Chien de sport': 'Chien de sport',
-    'Chien de berger': 'Chien de berger', 'Garde et protection': 'Garde et protection'
-};
-const coatTypeLabels = {
-    'Lisse': 'Poil lisse et brillant', 'Dur': 'Poil dur et rêche', 'Bouclé': 'Poil bouclé ou frisé',
-    'Ondulé': 'Poil ondulé', 'Soyeux': 'Poil soyeux et doux', 'Double': 'Double pelage protecteur'
-};
+function forWho(b) {
+    const s = b.scores;
+    const yes = [], no = [];
+    if (s.enfants >= 5) yes.push('une famille avec de jeunes enfants');
+    else if (s.enfants >= 4) yes.push('une famille avec des enfants');
+    if (s.appartement >= 4) yes.push('la vie en appartement, avec des sorties régulières');
+    if (s.premier_chien >= 4) yes.push('un premier chien');
+    if (s.energie >= 5) yes.push('un maître sportif : course, randonnée, canicross');
+    else if (s.energie <= 2) yes.push('une vie calme et plutôt casanière');
+    if (s.solitude >= 4) yes.push('rester seul quelques heures dans la journée');
+    if (s.chats >= 4) yes.push('cohabiter avec un chat');
+    if (b.hypoallergenic) yes.push('les personnes gênées par les poils (aucune race n’est garantie sans allergie)');
+    if (s.aboiements <= 2) yes.push('un voisinage proche : il aboie peu');
+    if (s.garde >= 4) yes.push('veiller sur la maison');
 
-const traitTranslations = {
-    'Confident': 'Confiant', 'Friendly': 'Amical', 'Alert': 'Vigilant', 'Intelligent': 'Intelligent',
-    'Courageous': 'Courageux', 'Loyal': 'Loyal', 'Brave': 'Brave', 'Playful': 'Joueur',
-    'Active': 'Actif', 'Gentle': 'Doux', 'Affectionate': 'Affectueux', 'Protective': 'Protecteur',
-    'Cheerful': 'Joyeux', 'Quiet': 'Calme', 'Energetic': 'Énergique', 'Trainable': 'Éduquable',
-    'Independent': 'Indépendant', 'Stubborn': 'Têtu', 'Curious': 'Curieux', 'Obedient': 'Obéissant',
-    'Fearless': 'Intrépide', 'Devoted': 'Dévoué', 'Responsive': 'Réceptif', 'Spirited': 'Enjoué',
-    'Good-natured': 'Bon caractère', 'Keen': 'Vif', 'Trusting': 'Confiant', 'Kind': 'Gentil',
-    'Sweet-Tempered': 'Doux', 'Tenacious': 'Tenace', 'Attentive': 'Attentif', 'Faithful': 'Fidèle',
-    'Bold': 'Audacieux', 'Proud': 'Fier', 'Reliable': 'Fiable', 'Watchful': 'Surveillant',
-    'Even Tempered': 'Équilibré', 'Reserved': 'Réservé', 'Sensitive': 'Sensible',
-    'Adaptable': 'Adaptable', 'Outgoing': 'Sociable', 'Charming': 'Charmant', 'Docile': 'Docile',
-    'Patient': 'Patient', 'Steady': 'Stable', 'Determined': 'Déterminé', 'Hardworking': 'Travailleur',
-    'Dignified': 'Digne', 'Composed': 'Posé', 'Joyful': 'Joyeux', 'Agile': 'Agile',
-    'Excitable': 'Excitable', 'Dominant': 'Dominant', 'Strong': 'Fort', 'Powerful': 'Puissant',
-    'Suspicious': 'Méfiant', 'Vocal': 'Vocal', 'Adventurous': 'Aventureux', 'Happy': 'Heureux',
-    'Noisy': 'Bruyant', 'Companionable': 'Sociable', 'Lively': 'Vivant', 'Clever': 'Malin',
-    'Assertive': 'Assuré', 'Feisty': 'Piquant', 'Wild': 'Sauvage', 'Hardy': 'Robuste',
-    'Cooperative': 'Coopératif', 'Lovable': 'Adorable', 'Bright': 'Brillant', 'Quick': 'Rapide',
-    'Refined': 'Raffiné', 'Willful': 'Volontaire', 'Instinctual': 'Instinctif',
-    'Inquisitive': 'Curieux', 'Rational': 'Rationnel', 'Fast': 'Rapide', 'Merry': 'Jovial',
-    'Bossy': 'Autoritaire', 'Clownish': 'Bouffon', 'Loving': 'Aimant', 'Familial': 'Familial'
-};
-
-// ============================================
-// FONCTIONS DE CONTENU (miroir de breed.js)
-// ============================================
-
-function generateRichContent(breed, physical, temperament, coat, living, training) {
-    const size = sizeLabelsMini[physical.size_category] || 'moyenne';
-    const height = formatRange(physical.height_cm?.min, physical.height_cm?.max, 'cm');
-    const weight = formatRange(physical.weight_kg?.min, physical.weight_kg?.max, 'kg');
-    const lifespan = formatRange(physical.life_span_years?.min, physical.life_span_years?.max, 'ans');
-
-    return {
-        intro: `Le ${breed.name} est une race de chien de taille ${size}, originaire ${formatOrigin(breed.origin)}. ` +
-               `Cette race se caractérise par son caractère ${(temperament.traits || []).slice(0, 2).join(' et ').toLowerCase() || 'équilibré et affectueux'}. ` +
-               `Avec une taille au garrot ${formatRangePhrase(physical.height_cm?.min, physical.height_cm?.max, 'cm')} pour un poids ${formatRangePhrase(physical.weight_kg?.min, physical.weight_kg?.max, 'kg')}, ` +
-               `c'est un compagnon ${physical.size_category === 'toy' || physical.size_category === 'small' ? 'idéal pour la vie en appartement' : 'parfait pour les familles actives'}. ` +
-               `Son espérance de vie est ${formatLifePhrase(physical.life_span_years?.min, physical.life_span_years?.max)}.`,
-
-        caractere: `Le tempérament du ${breed.name} est globalement ${(temperament.sociability || 'équilibré').toLowerCase()}. ` +
-                   `${temperament.good_with_children ? "C'est un excellent chien de famille qui s'entend parfaitement avec les enfants, offrant patience et affection." : "Cette race demande une socialisation précoce et une supervision lors des interactions avec les jeunes enfants."} ` +
-                   `${temperament.energy_level === 'low' ? 'Relativement calme, il se contente de courtes promenades quotidiennes.' : temperament.energy_level === 'high' || temperament.energy_level === 'very_high' ? "Très énergique, il nécessite beaucoup d'exercice quotidien pour son équilibre." : "D'énergie modérée, il a besoin d'activité régulière sans excès."}`,
-
-        entretien: `L'entretien du ${breed.name} est ${(coat.maintenance || 'moyen').toLowerCase()}. ` +
-                   `${coat.length === 'Long' ? 'Son pelage long nécessite un brossage quotidien pour éviter les nœuds et maintenir sa beauté.' : coat.length === 'Court' ? 'Son pelage court est facile à entretenir avec un simple brossage hebdomadaire.' : 'Son pelage demande un entretien régulier pour rester en bonne santé.'} ` +
-                   `${coat.shedding === 'Minimal' ? "Cette race perd très peu de poils, ce qui la rend adaptée aux personnes souffrant d'allergies légères." : coat.shedding === 'Abondant' ? 'Attention, cette race mue abondamment, particulièrement lors des changements de saison.' : 'La perte de poils est modérée et gérable avec un entretien régulier.'}`,
-
-        activite: `${temperament.energy_level === 'low' ? "Cette race calme se contente de 30 minutes d'exercice quotidien." : temperament.energy_level === 'moderate' ? "Cette race nécessite environ une heure d'activité physique par jour." : "Cette race énergique a besoin d'au moins 90 minutes d'exercice quotidien."} ` +
-                  `Des promenades, des jeux et ${temperament.energy_level === 'high' || temperament.energy_level === 'very_high' ? 'des activités sportives' : 'des moments de détente'} contribueront à son bien-être physique et mental.`,
-
-        education: `${training.trainability === 'Facile' || training.trainability === 'Très facile' ? "Cette race intelligente et réceptive s'éduque facilement. Elle répond bien aux méthodes positives et au renforcement." : training.trainability === 'Difficile' ? "L'éducation demande patience et constance. Cette race indépendante nécessite un maître expérimenté." : "L'éducation se fait avec patience et méthodes adaptées. Une socialisation précoce est essentielle."} ` +
-                   `${training.experience_required === 'Débutant' ? "C'est une race idéale pour les propriétaires de premier chien." : "Cette race convient mieux à des maîtres ayant déjà une expérience canine."}`,
-
-        sante: `Le ${breed.name} est généralement une race ${(physical.life_span_years?.average || 0) > 12 ? 'robuste et longévive' : 'solide'}. ` +
-               `Comme toutes les races, il peut être prédisposé à certaines affections spécifiques. ` +
-               `Un suivi vétérinaire régulier, une alimentation équilibrée et un exercice adapté contribueront à maintenir sa santé optimale.`
-    };
+    if (s.appartement <= 2) no.push('un appartement : il lui faut de l’espace');
+    if (s.enfants <= 2) no.push('de jeunes enfants, sans surveillance attentive');
+    if (s.premier_chien <= 2) no.push('un premier chien : il demande un maître expérimenté');
+    if (s.energie >= 5) no.push(`une vie sédentaire : comptez ${s.exercice_min_jour} minutes d’activité par jour`);
+    if (s.solitude <= 2) no.push('de longues absences : il supporte mal la solitude');
+    if (s.chats <= 2) no.push('un foyer avec des chats');
+    if (s.perte_poils >= 4) no.push('les allergiques : il perd beaucoup de poils');
+    if (s.aboiements >= 4) no.push('un voisinage sensible au bruit : il aboie volontiers');
+    if (s.chaleur <= 2) no.push('les fortes chaleurs : prudence en été');
+    if (s.instinct_chasse >= 4 && s.fugue >= 4) no.push('les balades sans laisse : instinct de chasse et rappel difficile');
+    if (s.bave >= 4) no.push('ceux que la bave rebute');
+    return { yes: yes.slice(0, 4), no: no.slice(0, 4) };
 }
 
-function findSimilarBreeds(currentBreed, allBreeds, limit = 4) {
-    return allBreeds
-        .filter(b => b.id !== currentBreed.id)
-        .map(breed => {
-            let score = 0;
-            if (breed.physical?.size_category === currentBreed.physical?.size_category) score += 3;
-            if (breed.temperament?.energy_level === currentBreed.temperament?.energy_level) score += 2;
-            if (breed.breed_group === currentBreed.breed_group) score += 2;
-            if (breed.temperament?.good_with_children === currentBreed.temperament?.good_with_children) score += 1;
-            if (breed.living?.apartment_friendly === currentBreed.living?.apartment_friendly) score += 1;
-            if (breed.coat?.length === currentBreed.coat?.length) score += 1;
-            return { breed, score };
+const SIM_KEYS = ['energie', 'enfants', 'appartement', 'education', 'premier_chien', 'entretien_pelage', 'perte_poils', 'garde', 'solitude'];
+function similar(b, limit = 4) {
+    const size = S.SIZE_ID[b.physical.size_category];
+    return breeds
+        .filter(o => o.slug !== b.slug && o.fci?.recognized !== false)
+        .map(o => {
+            let d = Math.abs(S.SIZE_ID[o.physical.size_category] - size) * 1.5;
+            for (const k of SIM_KEYS) d += Math.abs(o.scores[k] - b.scores[k]);
+            if (o.fci?.group && o.fci.group === b.fci?.group) d -= 1;
+            return { o, d };
         })
-        .sort((a, b) => b.score - a.score)
+        .sort((a, c) => a.d - c.d)
         .slice(0, limit)
-        .map(item => item.breed);
+        .map(x => x.o);
 }
 
-function translateBredFor(purpose) {
-    if (!purpose) return 'Compagnie et famille';
-    const translations = {
-        'Small rodent hunting, lapdog': 'Chasse aux petits rongeurs, chien de compagnie',
-        'Badger, otter hunting': 'Chasse au blaireau et à la loutre',
-        'Fox hunting': 'Chasse au renard',
-        'Hunting': 'Chasse',
-        'Herding': 'Bergage',
-        'Guarding': 'Garde et protection',
-        'Companion': 'Compagnie',
-        'Ratting': 'Chasse aux rats',
-    };
-    if (translations[purpose]) return translations[purpose];
-    return purpose
-        .replace(/hunting/gi, 'chasse').replace(/herding/gi, 'bergage')
-        .replace(/guarding/gi, 'garde').replace(/companion/gi, 'compagnie')
-        .replace(/ratting/gi, 'chasse aux rats').replace(/draft/gi, 'traction');
+const LAW = {
+    '1': 'Chien de 1re catégorie (loi du 6 janvier 1999) : acquisition, cession et importation interdites, stérilisation obligatoire, permis de détention, muselière et laisse sur la voie publique. Un chien de ce type sans pedigree LOF est classé par diagnose vétérinaire.',
+    '2': 'Chien de 2e catégorie (loi du 6 janvier 1999) : permis de détention, évaluation comportementale, assurance responsabilité civile, muselière et laisse tenue par un majeur sur la voie publique.'
+};
+
+// ============================================
+// PARTIALS ET VERSIONS
+// ============================================
+
+const versions = {
+    V_SCORING: hash('js/scoring.js'),
+    V_APP: hash('js/app.js'),
+    V_HEADER: hash('js/header.js'),
+    V_COMPARE: fs.existsSync(path.join(ROOT, 'js/compare.js')) ? hash('js/compare.js') : '1',
+    V_QUIZ: fs.existsSync(path.join(ROOT, 'js/quiz.js')) ? hash('js/quiz.js') : '1',
+    V_CSS: '__V_CSS__'
+};
+
+// ============================================
+// SÉLECTIONS THÉMATIQUES (pages /selections/...)
+// ============================================
+
+const SELECTIONS = [
+    { slug: 'chiens-pour-appartement', short: 'Chiens pour appartement', icon: '🏢', state: { logement: 'appart' },
+      title: 'Chiens pour appartement : les races qui s’y plaisent vraiment',
+      intro: 'Un chien peut être heureux en appartement si ses besoins d’activité sont couverts dehors. Nous avons classé les races selon leur adaptation à un logement sans jardin : calme à l’intérieur, aboiements, taille, besoin d’espace.',
+      avoid: 'Les races qui supportent le moins un appartement' },
+    { slug: 'chiens-calmes', short: 'Chiens calmes et pantouflards', icon: '🛋️', state: { rythme: 1 },
+      title: 'Races de chiens calmes et pantouflards',
+      intro: 'Vous rêvez d’un compagnon de canapé plutôt que d’un athlète ? Voici les races les moins énergiques, qui se contentent de promenades tranquilles et adorent la sieste.',
+      avoid: 'Les races les plus énergiques' },
+    { slug: 'chiens-pour-enfants', short: 'Chiens pour enfants', icon: '👶', state: { enfants: 'jeunes' },
+      title: 'Chiens pour enfants : les races les plus douces en famille',
+      intro: 'Patience, tolérance aux câlins un peu maladroits, absence d’agressivité : certaines races sont réputées pour leur douceur avec les petits. Aucune race ne dispense de surveiller un enfant avec un chien.',
+      avoid: 'Les races à éviter avec de jeunes enfants' },
+    { slug: 'chiens-qui-perdent-peu-de-poils', short: 'Chiens qui perdent peu de poils', icon: '🤧', state: { hypo: true },
+      title: 'Chiens qui perdent peu de poils : les races conseillées aux personnes allergiques',
+      intro: 'Aucun chien n’est vraiment hypoallergénique : l’allergie vient de protéines présentes dans la salive et les squames. Les races à poil qui pousse en continu (caniches, bichons, schnauzers…) perdent très peu de poils et sont souvent mieux tolérées. Passez du temps avec la race avant de vous décider.' },
+    { slug: 'chiens-pour-personnes-agees', short: 'Chiens pour personnes âgées', icon: '🧓', state: { rythme: 2, experience: 'premier', sizes: [1, 2, 3] },
+      title: 'Chiens pour personnes âgées : calmes, faciles et pas trop grands',
+      intro: 'Pour une retraite paisible, mieux vaut un chien calme, facile à éduquer, de petite ou moyenne taille, qui ne tire pas en laisse. Notre sélection croise ces critères.' },
+    { slug: 'chiens-qui-supportent-la-solitude', short: 'Chiens qui supportent la solitude', icon: '⏰', state: { seul: 'long' },
+      title: 'Chiens qui supportent la solitude : les races les plus indépendantes',
+      intro: 'Aucun chien n’est fait pour rester seul huit heures par jour tous les jours. Certaines races, plus indépendantes, vivent cependant mieux les absences. Pensez aussi au promeneur ou à la garderie.',
+      avoid: 'Les races qui vivent le plus mal la solitude' },
+    { slug: 'chiens-sportifs', short: 'Chiens sportifs', icon: '🏃', state: { rythme: 5 },
+      title: 'Chiens sportifs : les meilleures races pour courir et randonner',
+      intro: 'Canicross, trail, randonnée, vélo : ces races ont l’endurance et l’envie de vous suivre. Elles demandent en retour une à deux heures d’activité par jour et de la stimulation mentale.' },
+    { slug: 'premier-chien', short: 'Pour un premier chien', icon: '🐣', state: { experience: 'premier' },
+      title: 'Premier chien : les races les plus faciles à vivre',
+      intro: 'Facile à éduquer, bonne humeur, peu de comportements difficiles : ces races pardonnent les erreurs de débutant. Une éducation positive dès l’arrivée du chiot reste indispensable.',
+      avoid: 'Les races déconseillées pour un premier chien' },
+    { slug: 'chiens-qui-aboient-peu', short: 'Chiens qui aboient peu', icon: '🤫', state: { discret: true },
+      title: 'Chiens qui aboient peu : les races les plus discrètes',
+      intro: 'Pour un immeuble ou des voisins proches, certaines races sont nettement plus silencieuses que d’autres. L’éducation et l’activité comptent aussi beaucoup : un chien qui s’ennuie aboie.' },
+    { slug: 'races-francaises', short: 'Races françaises', icon: '🇫🇷', state: { france: true },
+      title: 'Les races de chiens françaises',
+      intro: 'La France compte une cinquantaine de races reconnues : bergers, braques, épagneuls, chiens courants, molosses et chiens de compagnie. Les voici, de la plus inscrite au LOF à la plus rare.' },
+    { slug: 'petits-chiens', short: 'Petits chiens', icon: '🐕', state: { sizes: [1, 2] },
+      title: 'Petits chiens : toutes les races de petite taille',
+      intro: 'Moins de 40 cm au garrot : des chiens faciles à emmener partout. Petit ne veut pas dire calme : beaucoup de terriers débordent d’énergie.' },
+    { slug: 'chiens-de-garde', short: 'Chiens de garde', icon: '🛡️', state: { nocat: true },
+      custom: b => ({ pct: Math.round(((b.scores.garde - 1) / 4) * 100), ok: b.scores.garde >= 4 }),
+      title: 'Chiens de garde : les races à fort instinct de protection',
+      intro: 'Un bon chien de garde prévient plus qu’il n’attaque. Ces races ont un instinct de protection marqué ; elles demandent une socialisation précoce et un maître ferme et juste. Nous excluons les chiens catégorisés.' },
+    { slug: 'chiens-qui-supportent-la-chaleur', short: 'Chiens qui supportent la chaleur', icon: '☀️', state: { chaleur: true },
+      title: 'Chiens qui supportent la chaleur : les races pour le Sud',
+      intro: 'Poil court, museau long, silhouette fine : certaines races encaissent mieux les étés chauds. À l’inverse, les chiens à museau écrasé souffrent vite. Promenades tôt le matin et eau fraîche restent la règle.',
+      avoid: 'Les races qui craignent le plus la chaleur' },
+    { slug: 'chiens-et-chats', short: 'Chiens qui s’entendent avec les chats', icon: '🐱', state: { chat: true },
+      title: 'Chiens qui s’entendent avec les chats',
+      intro: 'Les races au faible instinct de chasse cohabitent plus facilement avec un chat, surtout si elles le côtoient dès le plus jeune âge.',
+      avoid: 'Les races à éviter avec un chat' }
+];
+
+function selectionResults(sel) {
+    const state = { ...S.emptyState(), ...sel.state };
+    if (sel.custom) {
+        const list = breeds.filter(b => S.passesHard(b, state)).map(b => ({ breed: b, ...sel.custom(b), reasons: [] }))
+            .filter(x => x.ok).sort((a, c) => c.pct - a.pct || (c.breed.lof?.['2025'] ?? 0) - (a.breed.lof?.['2025'] ?? 0));
+        return { top: list.slice(0, 24), avoid: [], state };
+    }
+    const { results, criteria } = S.rank(breeds, state);
+    const top = criteria.length ? results.filter(r => r.pct >= 70) : results;
+    const avoid = criteria.length && sel.avoid ? results.slice().reverse().filter(r => r.pct <= 40).slice(0, 6) : [];
+    return { top: top.slice(0, 24), total: top.length, avoid, state };
 }
 
 // ============================================
-// GÉNÉRATION HTML
+// TEMPLATES DE PAGES
 // ============================================
 
-function generateBreedPage(breed) {
-    const slug = slugify(breed.name_fr || breed.name);
-    const physical = breed.physical || {};
-    const coat = breed.coat || {};
-    const temperament = breed.temperament || {};
-    const training = breed.training || {};
-    const living = breed.living || {};
-    const imageUrl = breed.image?.url ? `/${breed.image.url}` : '';
-    const imageSlug = slugify(breed.name_fr || breed.name);
-    const imgWebp = imageUrl ? imageUrl.replace('.jpg', '.webp') : '';
-    const imgDims = imageDimensions[imageSlug] || { w: 800, h: 600 };
-    const richContent = generateRichContent(breed, physical, temperament, coat, living, training);
-    const translatedTraits = (temperament.traits || []).map(t => traitTranslations[t.trim()] || t.trim());
-    const translatedPurpose = translateBredFor(breed.bred_for);
-    const similarBreeds = findSimilarBreeds(breed, breeds, 4);
-    const pageUrl = `${SITE_URL}/races/${slug}`;
-    
-    const metaTitle = `${breed.name} : Caractère, Éducation, Santé | Race de Chien`;
-    const metaDescription = `Tout savoir sur le ${breed.name} : caractère ${translatedTraits.slice(0, 3).join(', ').toLowerCase()}, taille ${formatRangeDash(physical.height_cm?.min, physical.height_cm?.max, 'cm')}, poids ${formatRangeDash(physical.weight_kg?.min, physical.weight_kg?.max, 'kg')}. Guide complet.`;
+function fill(tpl, vars) {
+    let html = tpl
+        .replace('<!-- @head -->', read('templates/partials/head.html'))
+        .replace('<!-- @footer -->', read('templates/partials/footer.html'));
+    for (const [k, v] of Object.entries(vars)) html = html.split(`{{${k}}}`).join(v);
+    return html;
+}
 
-    // Schema.org JSON-LD
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": `${breed.name} : Guide Complet de la Race`,
-        "description": metaDescription,
-        "image": breed.image?.url ? `${SITE_URL}/${breed.image.url}` : undefined,
-        "author": { "@type": "Organization", "name": "Race de Chien" },
-        "publisher": { "@type": "Organization", "name": "Race de Chien", "url": SITE_URL },
-        "mainEntityOfPage": pageUrl,
-        "datePublished": "2026-02-28",
-        "dateModified": new Date().toISOString().split('T')[0]
-    };
+const commonVars = {
+    COUNT: String(COUNT),
+    UPDATED: TODAY,
+    SELECTION_LINKS: SELECTIONS.slice(0, 7).map(s => `                        <li><a href="/selections/${s.slug}" class="hover:text-white">${esc(s.short)}</a></li>`).join('\n'),
+    POPULAR_LINKS: popular.slice(0, 7).map(b => `                        <li><a href="/races/${b.slug}" class="hover:text-white">${esc(b.name_fr)}</a></li>`).join('\n'),
+    ...versions
+};
 
-    const html = `<!DOCTYPE html>
+function headMeta({ title, description, url, image, type = 'website' }) {
+    return `    <title>${esc(title)}</title>
+    <meta name="description" content="${esc(description)}">
+    <link rel="canonical" href="${url}">
+    <meta property="og:type" content="${type}">
+    <meta property="og:title" content="${esc(title)}">
+    <meta property="og:description" content="${esc(description)}">
+    <meta property="og:url" content="${url}">
+    ${image ? `<meta property="og:image" content="${image}">` : ''}
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Race de Chien">
+    <meta name="twitter:card" content="summary_large_image">`;
+}
+
+function page({ head, body, scripts = '' }) {
+    return fill(`<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFNTS7FRZP"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-WFNTS7FRZP");</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <title>${escapeHtml(metaTitle)}</title>
-    <meta name="description" content="${escapeHtml(metaDescription)}">
-    <link rel="canonical" href="${pageUrl}">
-    
-    <!-- Open Graph -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="${escapeHtml(metaTitle)}">
-    <meta property="og:description" content="${escapeHtml(metaDescription)}">
-    <meta property="og:url" content="${pageUrl}">
-    ${imageUrl ? `<meta property="og:image" content="${SITE_URL}/${breed.image.url}">` : ''}
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${escapeHtml(metaTitle)}">
-    <meta name="twitter:description" content="${escapeHtml(metaDescription)}">
-    ${imageUrl ? `<meta name="twitter:image" content="${SITE_URL}/${breed.image.url}">` : ''}
-    
-    <!-- Schema.org -->
-    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
-                    colors: {
-                        primary: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' },
-                        secondary: { 50: '#fdf4ff', 100: '#fae8ff', 200: '#f5d0fe', 300: '#f0abfc', 400: '#e879f9', 500: '#d946ef', 600: '#c026d3', 700: '#a21caf', 800: '#86198f', 900: '#701a75' },
-                        accent: { 50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74', 400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c', 800: '#9a3412', 900: '#7c2d12' }
-                    }
-                }
-            }
-        }
-    </script>
+<!-- @head -->
+${head}
 </head>
-<body class="bg-slate-50 font-sans antialiased">
+<body class="bg-slate-50 font-sans antialiased text-slate-800">
     <div class="site-header"></div>
+    <div class="h-[68px]" aria-hidden="true"></div>
+${body}
+<!-- @footer -->
+${scripts}
+    <script src="/js/header.js?v={{V_HEADER}}"></script>
+</body>
+</html>
+`, commonVars);
+}
 
-    <main class="max-w-7xl mx-auto px-6 py-8 pt-24">
-        <!-- Retour -->
-        <div class="mb-6">
-            <a href="/" class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-xl border border-slate-200 text-slate-600 hover:text-primary-600 hover:border-primary-300 hover:shadow-md transition-all">
-                <i class="fas fa-arrow-left"></i>
-                <span class="font-medium">Retour</span>
-            </a>
-        </div>
+// ============================================
+// FICHE RACE
+// ============================================
 
-        <!-- Hero -->
-        <article class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 mb-8">
-            <div class="relative h-[500px] lg:h-[600px]">
-                ${imageUrl ? 
-                    `<img src="${imageUrl}" alt="" class="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-60" aria-hidden="true">
-                     <picture>
-                         <source srcset="${imgWebp}" type="image/webp">
-                         <img src="${imageUrl}" alt="${escapeHtml(breed.name)} - chien de race ${sizeLabels[physical.size_category] || 'moyenne'}" class="relative w-full h-full object-contain drop-shadow-2xl" style="z-index:1" width="${imgDims.w}" height="${imgDims.h}">
-                     </picture>` :
-                    `<div class="w-full h-full bg-gradient-to-br from-primary-100 to-secondary-100 flex items-center justify-center"><span class="text-9xl">🐕</span></div>`
-                }
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" style="z-index:2"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-8 lg:p-12" style="z-index:3">
-                    <nav class="text-white/70 text-sm mb-4">
-                        <a href="/" class="hover:text-white transition-colors">Accueil</a>
-                        <span class="mx-2">/</span>
-                        <span>${groupLabels[breed.breed_group] || 'Races'}</span>
-                        <span class="mx-2">/</span>
-                        <span class="text-white">${escapeHtml(breed.name)}</span>
-                    </nav>
-                    <h1 class="text-4xl lg:text-6xl font-bold text-white mb-4">${escapeHtml(breed.name)}</h1>
-                    <div class="flex flex-wrap gap-4 text-white/90">
-                        ${breed.origin ? `<span class="flex items-center gap-2"><i class="fas fa-map-marker-alt"></i>${escapeHtml(breed.origin)}</span>` : ''}
-                        <span class="flex items-center gap-2"><i class="fas fa-ruler-vertical"></i>${formatRangeDash(physical.height_cm?.min, physical.height_cm?.max, 'cm')}</span>
-                        <span class="flex items-center gap-2"><i class="fas fa-weight"></i>${formatRangeDash(physical.weight_kg?.min, physical.weight_kg?.max, 'kg')}</span>
-                        <span class="flex items-center gap-2"><i class="fas fa-heart"></i>${formatRangeDash(physical.life_span_years?.min, physical.life_span_years?.max, 'ans')}</span>
+function breedPage(b) {
+    const url = `${SITE_URL}/races/${b.slug}`;
+    const s = b.scores;
+    const p = b.physical || {};
+    const who = forWho(b);
+    const sims = similar(b);
+    const groupLabel = b.fci?.group ? S.FCI_GROUPS[b.fci.group] : null;
+    const word = k => SCORE_META[k].words[s[k] - 1].toLowerCase();
+    const title = `${b.name_fr} : caractère, éducation, santé et entretien | Race de Chien`;
+    const description = `${b.name_fr}, ${SIZE_WORD[p.size_category] || ''} chien ${fromOrigin(b.origin)}. Énergie ${word('energie')}, ${word('enfants')} avec les enfants, ${word('appartement').replace('bien', 'à l’aise')} en appartement. Notes sur 20 critères, santé, entretien.`.replace(/\s+/g, ' ').slice(0, 300);
+    const img = b.image ? `${SITE_URL}/${b.image.url}` : null;
+    const ld = [{
+        '@context': 'https://schema.org', '@type': 'Article', headline: `${b.name_fr} : fiche complète de la race`, description,
+        image: img || undefined, author: { '@type': 'Organization', name: 'Race de Chien' },
+        publisher: { '@type': 'Organization', name: 'Race de Chien', url: SITE_URL }, mainEntityOfPage: url,
+        datePublished: '2026-02-28', dateModified: TODAY
+    }, {
+        '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Races de chiens', item: SITE_URL + '/' },
+            ...(groupLabel ? [{ '@type': 'ListItem', position: 2, name: groupLabel, item: `${SITE_URL}/?groups=${b.fci.group}` }] : []),
+            { '@type': 'ListItem', position: groupLabel ? 3 : 2, name: b.name_fr, item: url }
+        ]
+    }];
+
+    const badges = [];
+    if (b.lofRank) badges.push(`<span class="rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-800">${ordinal(b.lofRank)} race en France · ${fmtInt(b.lof['2025'])} chiots LOF en 2025</span>`);
+    if (b.legal_category) badges.push(`<span class="rounded-full bg-red-50 px-3 py-1 text-xs font-semibold text-red-700">Chien de ${b.legal_category === '1' ? '1re' : '2e'} catégorie</span>`);
+    if (b.hypoallergenic) badges.push('<span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">Perd très peu de poils</span>');
+    if (b.fci?.recognized === false) badges.push('<span class="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800">Race non reconnue par la FCI</span>');
+    if (b.fci?.scc_only) badges.push('<span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">Reconnue par la SCC, pas encore par la FCI</span>');
+    if (b.fci?.provisional) badges.push('<span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">Reconnue à titre provisoire (FCI)</span>');
+
+    const facts = [
+        ['Taille au garrot', range(p.height_cm?.min, p.height_cm?.max, 'cm')],
+        ['Poids', range(p.weight_kg?.min, p.weight_kg?.max, 'kg')],
+        ['Espérance de vie', range(p.life_span_years?.min, p.life_span_years?.max, 'ans')],
+        ['Activité par jour', `${s.exercice_min_jour} minutes`],
+        ['Origine', b.origin],
+        ['Groupe FCI', groupLabel ? `${b.fci.group} · ${groupLabel}` : (b.fci?.recognized === false ? 'Non reconnue' : b.breed_group)]
+    ].filter(([, v]) => v);
+
+    const coat = b.coat || {};
+    const issues = b.health?.common_issues || [];
+    const traits = b.temperament?.traits || [];
+
+    const body = `
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+        <nav class="pt-6 pb-4 text-sm text-slate-500" aria-label="Fil d'Ariane">
+            <a href="/" class="hover:text-primary-600">Races de chiens</a>
+            ${groupLabel ? `<span class="mx-1.5" aria-hidden="true">›</span><a href="/?groups=${b.fci.group}" class="hover:text-primary-600">${esc(groupLabel)}</a>` : ''}
+            <span class="mx-1.5" aria-hidden="true">›</span><span class="text-slate-800" aria-current="page">${esc(b.name_fr)}</span>
+        </nav>
+
+        <article>
+            <header class="grid gap-6 overflow-hidden rounded-3xl border border-slate-200 bg-white lg:grid-cols-[1.15fr_1fr]">
+                <div class="relative aspect-[4/3] bg-slate-100 lg:aspect-auto lg:min-h-[420px]">
+                    ${picture(b, 'absolute inset-0 h-full w-full object-cover', { eager: true, big: true, alt: `${b.name_fr}, chien de race` })}
+                </div>
+                <div class="flex flex-col justify-center p-6 lg:py-10 lg:pr-10">
+                    <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">${esc(b.name_fr)}</h1>
+                    ${(b.name_alt || []).length ? `<p class="mt-1 text-sm text-slate-500">Aussi appelé ${b.name_alt.map(esc).join(', ')}</p>` : ''}
+                    ${badges.length ? `<div class="mt-4 flex flex-wrap gap-2">${badges.join('')}</div>` : ''}
+                    <dl class="mt-6 grid grid-cols-2 gap-x-6 gap-y-4">
+                        ${facts.map(([k, v]) => `<div><dt class="text-xs font-semibold uppercase tracking-wider text-slate-500">${k}</dt><dd class="mt-0.5 font-semibold text-slate-900">${esc(v)}</dd></div>`).join('')}
+                    </dl>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <a href="/quel-chien-choisir?race=${b.slug}" class="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800">Est-il fait pour moi ?</a>
+                        <button type="button" data-compare-one="${b.slug}" class="rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-800 hover:border-primary-300">+ Comparer</button>
                     </div>
                 </div>
+            </header>
+
+            ${b.legal_category ? `<div class="mt-6 rounded-2xl border border-red-200 bg-red-50 p-5 text-sm leading-relaxed text-red-900"><p class="font-bold">Ce que dit la loi</p><p class="mt-1">${LAW[b.legal_category]}</p><p class="mt-2"><a class="underline" href="https://www.service-public.gouv.fr/particuliers/vosdroits/F1839" target="_blank" rel="noopener">Les règles complètes sur service-public.gouv.fr</a></p></div>` : ''}
+            ${b.fci?.recognized === false ? `<div class="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-relaxed text-amber-900">Cette race n’est pas reconnue par la Fédération cynologique internationale : aucun chiot ne peut être inscrit au LOF en France, et elle y est très rare. Les informations ci-dessous viennent des clubs étrangers qui la suivent.</div>` : ''}
+
+            <div class="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
+                <div class="min-w-0 space-y-10">
+                    <section aria-labelledby="pour-qui">
+                        <h2 id="pour-qui" class="text-2xl font-bold text-slate-900">Pour qui ?</h2>
+                        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                            <div class="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-5">
+                                <p class="font-bold text-emerald-900">Idéal pour</p>
+                                <ul class="mt-2 space-y-1.5 text-sm text-emerald-950">${(who.yes.length ? who.yes : ['un maître qui connaît bien la race']).map(x => `<li class="flex gap-2"><span aria-hidden="true">✓</span><span>${esc(x)}</span></li>`).join('')}</ul>
+                            </div>
+                            <div class="rounded-2xl border border-amber-200 bg-amber-50/60 p-5">
+                                <p class="font-bold text-amber-900">Moins adapté pour</p>
+                                <ul class="mt-2 space-y-1.5 text-sm text-amber-950">${(who.no.length ? who.no : ['peu de contre-indications : il s’adapte à beaucoup de foyers']).map(x => `<li class="flex gap-2"><span aria-hidden="true">!</span><span>${esc(x)}</span></li>`).join('')}</ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section aria-labelledby="presentation">
+                        <h2 id="presentation" class="text-2xl font-bold text-slate-900">Présentation</h2>
+                        <p class="mt-3 leading-relaxed text-slate-700">${esc(b.description)}</p>
+                        ${traits.length ? `<div class="mt-4 flex flex-wrap gap-2">${traits.map(t => `<span class="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">${esc(t)}</span>`).join('')}</div>` : ''}
+                    </section>
+
+                    <section aria-labelledby="histoire">
+                        <h2 id="histoire" class="text-2xl font-bold text-slate-900">Histoire et origines</h2>
+                        <p class="mt-3 leading-relaxed text-slate-700">${esc(b.history)}</p>
+                    </section>
+
+                    <section aria-labelledby="sante">
+                        <h2 id="sante" class="text-2xl font-bold text-slate-900">Santé</h2>
+                        <p class="mt-3 leading-relaxed text-slate-700">Espérance de vie de ${range(p.life_span_years?.min, p.life_span_years?.max, 'ans')}, robustesse ${word('robustesse')}. ${issues.length ? 'Les affections les plus fréquentes dans la race :' : ''}</p>
+                        ${issues.length ? `<ul class="mt-3 grid gap-2 sm:grid-cols-2">${issues.map(i => `<li class="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700">${esc(i)}</li>`).join('')}</ul>` : ''}
+                        <p class="mt-3 text-sm text-slate-500">Choisissez un éleveur qui fait pratiquer les dépistages de la race sur les parents, et demandez-en les résultats.</p>
+                    </section>
+
+                    <section aria-labelledby="entretien">
+                        <h2 id="entretien" class="text-2xl font-bold text-slate-900">Poil et entretien</h2>
+                        <p class="mt-3 leading-relaxed text-slate-700">Poil ${esc((coat.length || '').toLowerCase())}${coat.type ? `, ${esc(coat.type.toLowerCase())}` : ''}. Perte de poils ${word('perte_poils')}, entretien ${word('entretien_pelage')}.${(coat.colors || []).length ? ` Robes : ${coat.colors.map(esc).join(', ')}.` : ''}</p>
+                    </section>
+                </div>
+
+                <aside class="min-w-0" aria-labelledby="notes">
+                    <div class="rounded-3xl border border-slate-200 bg-white p-5 lg:sticky lg:top-[88px]">
+                        <h2 id="notes" class="text-lg font-bold text-slate-900">Les notes de la race</h2>
+                        <p class="mt-1 text-xs text-slate-500">De 1 à 5, comparables d’une race à l’autre.</p>
+                        ${SCORE_GROUPS.map(([g, keys]) => `
+                        <h3 class="mt-5 text-xs font-bold uppercase tracking-wider text-slate-500">${g}</h3>
+                        <dl class="mt-2 space-y-2.5">
+                            ${keys.map(k => `<div class="flex items-center justify-between gap-3 text-sm"><dt class="text-slate-700">${SCORE_META[k].label}</dt><dd class="flex items-center gap-2"><span class="text-xs font-medium text-slate-500">${SCORE_META[k].words[s[k] - 1]}</span>${gauge(s[k], SCORE_META[k].reverse)}<span class="sr-only">${s[k]} sur 5</span></dd></div>`).join('')}
+                        </dl>`).join('')}
+                    </div>
+                </aside>
             </div>
         </article>
 
-        <div class="grid lg:grid-cols-3 gap-8">
-            <!-- Sidebar -->
-            <aside class="space-y-6 order-first">
-                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 sticky top-24">
-                    <h3 class="text-lg font-bold text-slate-900 mb-4">En résumé</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center"><i class="fas fa-ruler-vertical"></i></div>
-                            <div><div class="text-xs text-slate-500">Taille</div><div class="font-semibold text-slate-900">${formatRangeDash(physical.height_cm?.min, physical.height_cm?.max, 'cm')}</div></div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-secondary-100 text-secondary-600 flex items-center justify-center"><i class="fas fa-weight"></i></div>
-                            <div><div class="text-xs text-slate-500">Poids</div><div class="font-semibold text-slate-900">${formatRangeDash(physical.weight_kg?.min, physical.weight_kg?.max, 'kg')}</div></div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center"><i class="fas fa-heart"></i></div>
-                            <div><div class="text-xs text-slate-500">Espérance de vie</div><div class="font-semibold text-slate-900">${formatRangeDash(physical.life_span_years?.min, physical.life_span_years?.max, 'ans')}</div></div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-accent-100 text-accent-600 flex items-center justify-center"><i class="fas fa-tag"></i></div>
-                            <div><div class="text-xs text-slate-500">Groupe</div><div class="font-semibold text-slate-900">${groupLabels[breed.breed_group] || breed.breed_group || 'Non classé'}</div></div>
-                        </div>
-                        ${breed.origin ? `
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center"><i class="fas fa-globe"></i></div>
-                            <div><div class="text-xs text-slate-500">Origine</div><div class="font-semibold text-slate-900">${escapeHtml(breed.origin)}</div></div>
-                        </div>` : ''}
-                    </div>
-                    <div class="mt-6 pt-6 border-t border-slate-100">
-                        <a href="/" class="block w-full py-3 px-4 bg-primary-600 hover:bg-primary-700 text-white text-center font-medium rounded-xl transition-colors">Voir toutes les races</a>
-                    </div>
-                </div>
-            </aside>
+        <section class="mt-14" aria-labelledby="similaires">
+            <h2 id="similaires" class="text-2xl font-bold text-slate-900">Races proches</h2>
+            <p class="mt-1 text-sm text-slate-600">Même gabarit et notes voisines.</p>
+            <ul class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            ${sims.map(o => staticCard(o)).join('')}
+            </ul>
+        </section>
 
-            <!-- Contenu principal -->
-            <div class="lg:col-span-2 space-y-8">
-                
-                <!-- Introduction -->
-                <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center"><i class="fas fa-info-circle"></i></span>
-                        Présentation du ${escapeHtml(breed.name)}
-                    </h2>
-                    <div class="prose prose-slate max-w-none">
-                        <p class="text-lg text-slate-600 leading-relaxed mb-4">${richContent.intro}</p>
-                        ${breed.description ? `<p class="text-slate-600 leading-relaxed">${escapeHtml(breed.description)}</p>` : ''}
-                    </div>
-                </section>
+        <section class="mt-14 grid gap-4 sm:grid-cols-2">
+            <a href="/quel-chien-choisir" class="rounded-3xl bg-slate-900 p-6 text-white hover:bg-slate-800"><p class="text-lg font-bold">🧭 Quel chien est fait pour moi ?</p><p class="mt-1 text-sm text-slate-300">8 questions sur votre vie, votre classement personnalisé en 45 secondes.</p></a>
+            <a href="/tel-maitre-tel-chien" class="rounded-3xl border border-slate-200 bg-white p-6 hover:border-primary-300"><p class="text-lg font-bold text-slate-900">📸 À quelle race je ressemble ?</p><p class="mt-1 text-sm text-slate-600">Un selfie, et l’IA vous trouve votre sosie canin.</p></a>
+        </section>
+    </main>`;
 
-                <!-- Caractère -->
-                <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-xl bg-secondary-100 text-secondary-600 flex items-center justify-center"><i class="fas fa-brain"></i></span>
-                        Caractère et Tempérament
-                    </h2>
-                    <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-slate-800 mb-3">Traits de personnalité</h3>
-                        <div class="flex flex-wrap gap-2">
-                            ${translatedTraits.map(t => `<span class="px-4 py-2 bg-gradient-to-r from-primary-50 to-secondary-50 text-primary-700 rounded-full text-sm font-medium border border-primary-100">${escapeHtml(t)}</span>`).join('')}
-                        </div>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="p-4 bg-green-50 rounded-xl border border-green-100">
-                            <h4 class="font-semibold text-green-800 mb-2 flex items-center gap-2"><i class="fas fa-thumbs-up"></i>Qualités</h4>
-                            <ul class="space-y-2 text-sm text-green-700">
-                                ${temperament.good_with_children ? '<li>✓ Excellent avec les enfants</li>' : ''}
-                                <li>✓ Niveau d'énergie ${(energyLabels[temperament.energy_level] || 'adaptable').toLowerCase()}</li>
-                                ${training.trainability === 'Facile' ? '<li>✓ Facile à éduquer</li>' : ''}
-                                ${coat.shedding === 'Minimal' ? '<li>✓ Perd peu de poils</li>' : ''}
-                                ${living.apartment_friendly ? '<li>✓ Adapté à la vie en appartement</li>' : ''}
-                            </ul>
-                        </div>
-                        <div class="p-4 bg-amber-50 rounded-xl border border-amber-100">
-                            <h4 class="font-semibold text-amber-800 mb-2 flex items-center gap-2"><i class="fas fa-exclamation-triangle"></i>Points d'attention</h4>
-                            <ul class="space-y-2 text-sm text-amber-700">
-                                ${!temperament.good_with_children ? '<li>⚠ À surveiller avec les jeunes enfants</li>' : ''}
-                                ${temperament.energy_level === 'high' || temperament.energy_level === 'very_high' ? "<li>⚠ Besoin d'exercice quotidien important</li>" : ''}
-                                ${coat.maintenance === 'Élevé' || coat.maintenance === 'Très élevé' ? '<li>⚠ Entretien du pelage régulier nécessaire</li>' : ''}
-                                ${!living.apartment_friendly ? '<li>⚠ Espace extérieur recommandé</li>' : ''}
-                            </ul>
-                        </div>
-                    </div>
-                    <p class="text-slate-600 leading-relaxed mt-6">${richContent.caractere}</p>
-                </section>
+    const script = `    <script>
+    (function () {
+        var KEY = 'rdc-compare', btn = document.querySelector('[data-compare-one]');
+        if (!btn) return;
+        var slug = btn.getAttribute('data-compare-one');
+        function list() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
+        function paint() { var on = list().indexOf(slug) >= 0; btn.textContent = on ? '✓ Dans la comparaison' : '+ Comparer'; btn.setAttribute('aria-pressed', on ? 'true' : 'false'); }
+        btn.addEventListener('click', function () {
+            var l = list(), i = l.indexOf(slug);
+            if (i >= 0) l.splice(i, 1); else { if (l.length >= 3) l.shift(); l.push(slug); }
+            try { localStorage.setItem(KEY, JSON.stringify(l)); } catch (e) {}
+            paint();
+            if (l.indexOf(slug) >= 0 && l.length >= 2) location.href = '/compare?races=' + l.join(',');
+        });
+        paint();
+    })();
+    </script>`;
 
-                <!-- Entretien -->
-                <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-xl bg-accent-100 text-accent-600 flex items-center justify-center"><i class="fas fa-cut"></i></span>
-                        Entretien et Soins du Pelage
-                    </h2>
-                    <div class="grid md:grid-cols-2 gap-6 mb-6">
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl"><span class="text-slate-600">Longueur du poil</span><span class="font-semibold text-slate-900">${coat.length || 'Moyen'}</span></div>
-                            <div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl"><span class="text-slate-600">Type de poil</span><span class="font-semibold text-slate-900">${coatTypeLabels[coat.type] || coat.type || 'Standard'}</span></div>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl"><span class="text-slate-600">Perte de poils</span><span class="font-semibold ${coat.shedding === 'Minimal' ? 'text-green-600' : coat.shedding === 'Abondant' ? 'text-red-600' : 'text-slate-900'}">${coat.shedding || 'Modéré'}</span></div>
-                            <div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl"><span class="text-slate-600">Entretien nécessaire</span><span class="font-semibold ${coat.maintenance === 'Faible' ? 'text-green-600' : coat.maintenance === 'Élevé' ? 'text-amber-600' : 'text-slate-900'}">${coat.maintenance || 'Moyen'}</span></div>
-                        </div>
-                    </div>
-                    <p class="text-slate-600 leading-relaxed">${richContent.entretien}</p>
-                </section>
+    return page({
+        head: headMeta({ title, description, url, image: img, type: 'article' }) + `\n    <script type="application/ld+json">${JSON.stringify(ld)}</script>`,
+        body,
+        scripts: script
+    });
+}
 
-                <!-- Activité -->
-                <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center"><i class="fas fa-running"></i></span>
-                        Besoins en Activité Physique
-                    </h2>
-                    <div class="mb-6">
-                        <div class="flex items-center justify-between mb-2"><span class="text-slate-600">Niveau d'énergie</span><span class="font-semibold text-slate-900">${energyLabels[temperament.energy_level] || 'Modéré'}</span></div>
-                        <div class="h-3 bg-slate-100 rounded-full overflow-hidden">
-                            <div class="h-full rounded-full ${temperament.energy_level === 'low' ? 'w-1/4 bg-green-500' : temperament.energy_level === 'moderate' ? 'w-2/4 bg-yellow-500' : temperament.energy_level === 'high' ? 'w-3/4 bg-orange-500' : 'w-full bg-red-500'}"></div>
-                        </div>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-4 mb-6">
-                        <div class="text-center p-4 bg-slate-50 rounded-xl"><div class="text-3xl font-bold text-primary-600 mb-1">${living.exercise_needs?.daily_minutes || 60}</div><div class="text-sm text-slate-500">minutes/jour</div></div>
-                        <div class="text-center p-4 bg-slate-50 rounded-xl"><div class="text-3xl font-bold text-primary-600 mb-1">${living.exercise_needs?.walks_per_day || 2}</div><div class="text-sm text-slate-500">promenades/jour</div></div>
-                        <div class="text-center p-4 bg-slate-50 rounded-xl"><div class="text-3xl font-bold text-primary-600 mb-1">${living.exercise_needs?.mental_stimulation || 'Moyenne'}</div><div class="text-sm text-slate-500">stimulation mentale</div></div>
-                    </div>
-                    <p class="text-slate-600 leading-relaxed">${richContent.activite}</p>
-                </section>
+// ============================================
+// PAGE DE SÉLECTION
+// ============================================
 
-                <!-- Éducation -->
-                <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center"><i class="fas fa-graduation-cap"></i></span>
-                        Éducation et Dressage
-                    </h2>
-                    <div class="grid md:grid-cols-2 gap-6 mb-6">
-                        <div class="p-4 bg-slate-50 rounded-xl"><div class="text-sm text-slate-500 mb-1">Facilité d'éducation</div><div class="text-lg font-semibold text-slate-900">${training.trainability || 'Moyenne'}</div></div>
-                        <div class="p-4 bg-slate-50 rounded-xl"><div class="text-sm text-slate-500 mb-1">Expérience requise</div><div class="text-lg font-semibold ${training.experience_required === 'Débutant' ? 'text-green-600' : training.experience_required === 'Expert' ? 'text-red-600' : 'text-slate-900'}">${training.experience_required || 'Intermédiaire'}</div></div>
-                    </div>
-                    <p class="text-slate-600 leading-relaxed">${richContent.education}</p>
-                </section>
-
-                <!-- Compatibilité -->
-                <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center"><i class="fas fa-home"></i></span>
-                        Compatibilité et Mode de Vie
-                    </h2>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                        <div class="text-center p-4 rounded-xl ${temperament.good_with_children ? 'bg-green-50 border border-green-100' : 'bg-slate-50'}">
-                            <div class="text-3xl mb-2">👶</div>
-                            <div class="text-sm font-medium ${temperament.good_with_children ? 'text-green-700' : 'text-slate-600'}">${temperament.good_with_children ? 'Excellent' : 'À surveiller'}</div>
-                            <div class="text-xs text-slate-500 mt-1">Avec enfants</div>
-                        </div>
-                        <div class="text-center p-4 rounded-xl ${temperament.good_with_dogs ? 'bg-green-50 border border-green-100' : 'bg-amber-50 border border-amber-100'}">
-                            <div class="text-3xl mb-2">🐕</div>
-                            <div class="text-sm font-medium ${temperament.good_with_dogs ? 'text-green-700' : 'text-amber-700'}">${temperament.good_with_dogs ? 'Bonne' : 'Variable'}</div>
-                            <div class="text-xs text-slate-500 mt-1">Avec chiens</div>
-                        </div>
-                        <div class="text-center p-4 rounded-xl ${temperament.good_with_cats ? 'bg-green-50 border border-green-100' : 'bg-amber-50 border border-amber-100'}">
-                            <div class="text-3xl mb-2">🐱</div>
-                            <div class="text-sm font-medium ${temperament.good_with_cats ? 'text-green-700' : 'text-amber-700'}">${temperament.good_with_cats ? 'Bonne' : 'Variable'}</div>
-                            <div class="text-xs text-slate-500 mt-1">Avec chats</div>
-                        </div>
-                        <div class="text-center p-4 rounded-xl ${living.apartment_friendly ? 'bg-green-50 border border-green-100' : 'bg-red-50 border border-red-100'}">
-                            <div class="text-3xl mb-2">🏢</div>
-                            <div class="text-sm font-medium ${living.apartment_friendly ? 'text-green-700' : 'text-red-700'}">${living.apartment_friendly ? 'Adapté' : 'Déconseillé'}</div>
-                            <div class="text-xs text-slate-500 mt-1">Appartement</div>
-                        </div>
-                    </div>
-                    <p class="text-slate-600 leading-relaxed">
-                        Le ${escapeHtml(breed.name)} est ${living.apartment_friendly ? "un chien adaptable qui peut vivre en appartement si ses besoins en exercice sont satisfaits" : "un chien qui préfère avoir accès à un jardin ou un espace extérieur"}. 
-                        ${temperament.good_with_children ? "Il s'intègre parfaitement dans les familles avec enfants, apportant joie et compagnie." : "Il convient mieux aux foyers sans jeunes enfants ou avec des enfants habitués aux chiens."}
-                    </p>
-                </section>
-
-                <!-- Santé -->
-                <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center"><i class="fas fa-heartbeat"></i></span>
-                        Santé et Longévité
-                    </h2>
-                    <p class="text-slate-600 leading-relaxed">${richContent.sante}</p>
-                </section>
-
-                ${breed.history ? `
-                <!-- Histoire -->
-                <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center"><i class="fas fa-history"></i></span>
-                        Histoire et Origines
-                    </h2>
-                    <p class="text-slate-600 leading-relaxed">${escapeHtml(breed.history)}</p>
-                </section>` : ''}
-
-                ${breed.bred_for ? `
-                <!-- Utilisation -->
-                <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center"><i class="fas fa-bullseye"></i></span>
-                        Utilisation Originelle
-                    </h2>
-                    <p class="text-slate-600 leading-relaxed">
-                        Le ${escapeHtml(breed.name)} a été sélectionné et développé initialement pour : <strong>${escapeHtml(translatedPurpose)}</strong>. 
-                        Ces aptitudes naturelles influencent encore aujourd'hui son comportement et ses besoins.
-                    </p>
-                </section>` : ''}
-
-                ${similarBreeds.length > 0 ? `
-                <!-- Races similaires -->
-                <section class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center"><i class="fas fa-paw"></i></span>
-                        Autres races qui pourraient vous intéresser
-                    </h2>
-                    <p class="text-slate-600 mb-6">Basé sur la taille, le caractère et les critères de compatibilité similaires :</p>
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        ${similarBreeds.map(similar => {
-                            const similarSlug = slugify(similar.name_fr || similar.name);
-                            const similarImg = similar.image?.url ? `/${similar.image.url}` : '';
-                            const similarWebp = similarImg ? similarImg.replace('.jpg', '.webp') : '';
-                            return `
-                            <a href="/races/${similarSlug}" class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 hover:border-primary-300 hover:bg-slate-50 transition-all group">
-                                ${similarImg ? 
-                                    `<picture><source srcset="${similarWebp}" type="image/webp"><img src="${similarImg}" alt="${escapeHtml(similar.name)}" class="w-16 h-16 rounded-lg object-cover" loading="lazy" width="64" height="64"></picture>` :
-                                    `<div class="w-16 h-16 rounded-lg bg-slate-100 flex items-center justify-center text-2xl">🐕</div>`
-                                }
-                                <div>
-                                    <h4 class="font-semibold text-slate-900 group-hover:text-primary-600 transition-colors">${escapeHtml(similar.name)}</h4>
-                                    <p class="text-sm text-slate-500">${escapeHtml(similar.origin || 'Origine inconnue')}</p>
-                                </div>
-                                <i class="fas fa-chevron-right ml-auto text-slate-400 group-hover:text-primary-500"></i>
-                            </a>`;
-                        }).join('')}
-                    </div>
-                </section>` : ''}
-            </div>
-        </div>
-    </main>
-
-    <footer class="bg-slate-900 text-slate-400 py-16 mt-16">
-        <div class="max-w-5xl mx-auto px-8">
-            <div class="text-center mb-12">
-                <div class="text-4xl mb-3">🐕</div>
-                <h3 class="text-white font-bold text-2xl mb-2">Race de Chien</h3>
-                <p class="text-slate-400 text-sm max-w-md mx-auto">L'encyclopédie complète des 169 races canines. Trouvez votre compagnon idéal grâce à nos filtres intelligents.</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 mb-12 text-center sm:text-left">
-                <div>
-                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Navigation</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
-                        <li><a href="/compare" class="hover:text-white transition-colors">Comparer les races</a></li>
-                        <li><a href="/tel-maitre-tel-chien" class="hover:text-white transition-colors">Tel Maître, Tel Chien</a></li>
-                        <li><a href="/sitemap.xml" class="hover:text-white transition-colors">Plan du site</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Races populaires</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="/races/berger-allemand" class="hover:text-white transition-colors">Berger Allemand</a></li>
-                        <li><a href="/races/golden-retriever" class="hover:text-white transition-colors">Golden Retriever</a></li>
-                        <li><a href="/races/labrador-retriever" class="hover:text-white transition-colors">Labrador Retriever</a></li>
-                        <li><a href="/races/bouledogue-francais" class="hover:text-white transition-colors">Bouledogue Français</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Autres races</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="/races/cavalier-king-charles" class="hover:text-white transition-colors">Cavalier King Charles</a></li>
-                        <li><a href="/races/shiba-inu" class="hover:text-white transition-colors">Shiba Inu</a></li>
-                        <li><a href="/races/border-collie" class="hover:text-white transition-colors">Border Collie</a></li>
-                        <li><a href="/races/beagle" class="hover:text-white transition-colors">Beagle</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-slate-700/50 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
-                <p>© 2026 <a href="https://race-de-chien.com" class="hover:text-white transition-colors">Race de Chien</a> — Encyclopédie canine complète</p>
-                <p>Créé par <a href="https://aurorastudio.fr" target="_blank" rel="noopener" class="text-slate-300 hover:text-white transition-colors font-medium">Aurora Studio</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="/js/header.min.js"></script>
-</body>
-</html>`;
-
-    return { slug, html };
+function selectionPage(sel) {
+    const url = `${SITE_URL}/selections/${sel.slug}`;
+    const { top, avoid, state } = selectionResults(sel);
+    const q = S.toQuery(state);
+    const description = `${sel.intro.split('. ')[0]}. Notre classement de ${top.length} races, avec les raisons pour chacune.`.slice(0, 300);
+    const ld = {
+        '@context': 'https://schema.org', '@type': 'ItemList', name: sel.title,
+        itemListElement: top.map((r, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE_URL}/races/${r.breed.slug}`, name: r.breed.name_fr }))
+    };
+    const others = SELECTIONS.filter(x => x.slug !== sel.slug);
+    const body = `
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+        <nav class="pt-6 pb-4 text-sm text-slate-500" aria-label="Fil d'Ariane"><a href="/" class="hover:text-primary-600">Races de chiens</a><span class="mx-1.5" aria-hidden="true">›</span><span class="text-slate-800" aria-current="page">${esc(sel.short)}</span></nav>
+        <header class="max-w-3xl">
+            <p class="text-4xl" aria-hidden="true">${sel.icon}</p>
+            <h1 class="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">${esc(sel.title)}</h1>
+            <p class="mt-3 leading-relaxed text-slate-700">${esc(sel.intro)}</p>
+            <p class="mt-3 text-sm text-slate-500">Classement établi à partir de nos notes de 1 à 5 sur 20 critères, à jour du ${TODAY.split('-').reverse().join('/')}.</p>
+            <a href="/?${q}" class="mt-5 inline-flex rounded-xl bg-primary-600 px-4 py-2.5 text-sm font-bold text-white hover:bg-primary-700">Affiner avec vos propres critères</a>
+        </header>
+        <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        ${top.map(r => staticCard(r.breed, { pct: r.pct, reasons: r.reasons })).join('')}
+        </ul>
+        ${avoid.length ? `
+        <section class="mt-14" aria-labelledby="eviter">
+            <h2 id="eviter" class="text-2xl font-bold text-slate-900">${esc(sel.avoid)}</h2>
+            <ul class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            ${avoid.map(r => staticCard(r.breed, { pct: r.pct, reasons: r.reasons })).join('')}
+            </ul>
+        </section>` : ''}
+        <section class="mt-14 rounded-3xl border border-slate-200 bg-white p-6" aria-labelledby="autres">
+            <h2 id="autres" class="text-lg font-bold text-slate-900">Autres sélections</h2>
+            <ul class="mt-3 flex flex-wrap gap-2">${others.map(o => `<li><a href="/selections/${o.slug}" class="opt">${o.icon} ${esc(o.short)}</a></li>`).join('')}</ul>
+        </section>
+    </main>`;
+    return page({ head: headMeta({ title: `${sel.title} | Race de Chien`, description, url }) + `\n    <script type="application/ld+json">${JSON.stringify(ld)}</script>`, body });
 }
 
 // ============================================
 // SITEMAP & ROBOTS
 // ============================================
 
-function generateSitemap(slugs) {
-    const today = new Date().toISOString().split('T')[0];
-    let xml = `<?xml version="1.0" encoding="UTF-8"?>
+function sitemap() {
+    const urls = [
+        ['/', '1.0', 'weekly'], ['/quel-chien-choisir', '0.9', 'monthly'], ['/compare', '0.6', 'monthly'], ['/tel-maitre-tel-chien', '0.8', 'monthly'],
+        ...SELECTIONS.map(s => [`/selections/${s.slug}`, '0.8', 'monthly']),
+        ...breeds.map(b => [`/races/${b.slug}`, '0.7', 'monthly']),
+        ['/mentions-legales', '0.2', 'yearly'], ['/confidentialite', '0.2', 'yearly']
+    ];
+    return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>${SITE_URL}/</loc>
-        <lastmod>${today}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>${SITE_URL}/compare</loc>
-        <lastmod>${today}</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>${SITE_URL}/tel-maitre-tel-chien</loc>
-        <lastmod>${today}</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-`;
-    for (const slug of slugs) {
-        xml += `    <url>
-        <loc>${SITE_URL}/races/${slug}</loc>
-        <lastmod>${today}</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-`;
-    }
-    xml += `</urlset>`;
-    return xml;
-}
-
-function generateRobots() {
-    return `User-agent: *
-Allow: /
-
-Sitemap: ${SITE_URL}/sitemap.xml
+${urls.map(([u, pr, f]) => `  <url><loc>${SITE_URL}${u}</loc><lastmod>${TODAY}</lastmod><changefreq>${f}</changefreq><priority>${pr}</priority></url>`).join('\n')}
+</urlset>
 `;
 }
 
@@ -670,27 +552,48 @@ Sitemap: ${SITE_URL}/sitemap.xml
 // MAIN
 // ============================================
 
-console.log(`🐕 Génération des pages statiques pour ${breeds.length} races...`);
+// 1. Index léger pour l'accueil, le comparateur, le test et Tel Maître
+const index = breeds.map(b => ({
+    id: b.id, slug: b.slug, name: b.name, name_fr: b.name_fr, name_alt: b.name_alt || [], origin: b.origin, country_code: b.country_code,
+    fci: { group: b.fci?.group ?? null, recognized: b.fci?.recognized !== false }, legal_category: b.legal_category || null,
+    lof: { '2025': b.lof?.['2025'] ?? null }, physical: {
+        size_category: b.physical.size_category, height_cm: b.physical.height_cm, weight_kg: b.physical.weight_kg, life_span_years: b.physical.life_span_years
+    },
+    coat: { length: b.coat?.length }, scores: b.scores, hypoallergenic: !!b.hypoallergenic, image: b.image || null, is_new: !!b.is_new
+}));
+write('data/breeds-index.json', JSON.stringify({ updated: TODAY, breeds: index }));
+commonVars.V_DATA = hash('data/breeds-index.json');
 
-const slugs = [];
-let count = 0;
+// 2. Fiches
+fs.rmSync(path.join(ROOT, 'races'), { recursive: true, force: true });
+for (const b of breeds) write(`races/${b.slug}.html`, breedPage(b));
 
-for (const breed of breeds) {
-    const { slug, html } = generateBreedPage(breed);
-    const filepath = path.join(OUTPUT_DIR, `${slug}.html`);
-    fs.writeFileSync(filepath, html, 'utf8');
-    slugs.push(slug);
-    count++;
+// 3. Sélections
+fs.rmSync(path.join(ROOT, 'selections'), { recursive: true, force: true });
+for (const sel of SELECTIONS) write(`selections/${sel.slug}.html`, selectionPage(sel));
+
+// 4. Pages à partir des modèles
+const selectionCards = SELECTIONS.map(s => {
+    const { top } = selectionResults(s);
+    return `                        <li><a href="/selections/${s.slug}" class="flex items-center gap-3 rounded-2xl border border-slate-200 px-4 py-3 hover:border-primary-300 hover:bg-primary-50"><span class="text-2xl" aria-hidden="true">${s.icon}</span><span><span class="block text-sm font-semibold text-slate-900">${esc(s.short)}</span><span class="block text-xs text-slate-500">${top.length} races</span></span></a></li>`;
+}).join('\n');
+const noscript = breeds.map(b => `                            <li><a href="/races/${b.slug}">${esc(b.name_fr)}</a></li>`).join('\n');
+for (const f of fs.readdirSync(path.join(ROOT, 'templates/pages'))) {
+    if (!f.endsWith('.html')) continue;
+    const html = fill(read(`templates/pages/${f}`), { ...commonVars, SELECTION_CARDS: selectionCards, NOSCRIPT_LIST: noscript });
+    write(f, html);
 }
 
-// Sitemap
-const sitemapPath = path.join(__dirname, 'sitemap.xml');
-fs.writeFileSync(sitemapPath, generateSitemap(slugs), 'utf8');
+// 5. Sitemap et robots
+write('sitemap.xml', sitemap());
+write('robots.txt', `User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
 
-// Robots.txt
-const robotsPath = path.join(__dirname, 'robots.txt');
-fs.writeFileSync(robotsPath, generateRobots(), 'utf8');
+// 6. CSS compilé (après les pages : Tailwind lit les classes utilisées), puis numéro de version
+execFileSync(path.join(ROOT, 'node_modules/.bin/tailwindcss'), ['-c', 'tailwind.config.cjs', '-i', 'css/tailwind.src.css', '-o', 'css/site.css', '--minify'], { cwd: ROOT, stdio: 'pipe' });
+const vCss = hash('css/site.css');
+for (const p of written.filter(p => p.endsWith('.html'))) {
+    const full = path.join(ROOT, p);
+    fs.writeFileSync(full, fs.readFileSync(full, 'utf8').split('__V_CSS__').join(vCss), 'utf8');
+}
 
-console.log(`✅ ${count} pages générées dans /races/`);
-console.log(`✅ sitemap.xml créé (${slugs.length + 2} URLs)`);
-console.log(`✅ robots.txt créé`);
+console.log(`✅ ${breeds.length} fiches, ${SELECTIONS.length} sélections, ${written.filter(p => !p.includes('/')).length} pages, CSS ${(fs.statSync(path.join(ROOT, 'css/site.css')).size / 1024).toFixed(0)} Ko`);

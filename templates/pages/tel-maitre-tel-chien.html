@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- @head -->
+    <meta name="description" content="Prenez un selfie et découvrez à quelle race de chien vous ressemblez ! Un test amusant basé sur l'IA parmi 169 races.">
+    <title>Tel Maître, Tel Chien — À quelle race ressemblez-vous ? | Race de Chien</title>
+    <link rel="canonical" href="https://race-de-chien.com/tel-maitre-tel-chien">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tel Maître, Tel Chien — À quelle race de chien ressemblez-vous ?">
+    <meta property="og:description" content="Prenez un selfie et découvrez à quelle race de chien vous ressemblez ! Un test amusant basé sur l'IA parmi 169 races.">
+    <meta property="og:url" content="https://race-de-chien.com/tel-maitre-tel-chien">
+    <meta property="og:image" content="https://race-de-chien.com/images/breeds/bouledogue-francais.jpg">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Race de Chien">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tel Maître, Tel Chien — À quelle race de chien ressemblez-vous ?">
+    <meta name="twitter:description" content="Prenez un selfie et découvrez à quelle race de chien vous ressemblez !">
+    <meta name="twitter:image" content="https://race-de-chien.com/images/breeds/bouledogue-francais.jpg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Tel Maître, Tel Chien",
+        "url": "https://race-de-chien.com/tel-maitre-tel-chien",
+        "description": "Découvrez à quelle race de chien vous ressemblez grâce à l'IA",
+        "applicationCategory": "Entertainment",
+        "operatingSystem": "Web"
+    }
+    </script>
+
+    <style>
+        /* ===== ANIMATIONS ===== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+        @keyframes slide-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes morph-text {
+            0%, 100% { opacity: 1; transform: translateY(0); }
+            45% { opacity: 0; transform: translateY(-10px); }
+            55% { opacity: 0; transform: translateY(10px); }
+        }
+        @keyframes progress-fill {
+            from { width: 0%; }
+        }
+        @keyframes bounce-in {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes confetti-fall {
+            0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-wiggle { animation: wiggle 1s ease-in-out infinite; }
+        .animate-slide-up { animation: slide-up 0.6s ease-out forwards; }
+        .animate-bounce-in { animation: bounce-in 0.5s ease-out forwards; }
+
+        /* ===== CAPTURE ZONE ===== */
+        .capture-zone {
+            position: relative;
+            border: 3px dashed #cbd5e1;
+            border-radius: 24px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .capture-zone:hover, .capture-zone.active {
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.03);
+        }
+        .capture-zone.has-image {
+            border-style: solid;
+            border-color: #3b82f6;
+        }
+
+        /* ===== WEBCAM VIDEO ===== */
+        #webcam-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 21px;
+            transform: scaleX(-1);
+        }
+
+        /* ===== LOADING ===== */
+        .loading-dots span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #3b82f6;
+            margin: 0 4px;
+            animation: float 1.4s ease-in-out infinite;
+        }
+        .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        /* ===== RESULT CARD ===== */
+        .result-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .match-badge {
+            background: linear-gradient(135deg, #3b82f6, #9333ea);
+            color: white;
+            font-weight: 800;
+            font-size: 1.5rem;
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        /* ===== COMPARISON ===== */
+        .vs-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #9333ea);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(59,130,246,0.4);
+        }
+
+        /* ===== SHARE BUTTON STYLES ===== */
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: white;
+        }
+        .share-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .share-btn-x { background: #000; justify-content: center; }
+        .share-btn-x i, .share-btn-x span { line-height: 1; }
+        .share-btn-fb { background: #1877f2; }
+        .share-btn-wa { background: #25d366; }
+        .share-btn-download { background: linear-gradient(135deg, #3b82f6, #9333ea); }
+        .share-btn-ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .share-btn-tiktok { background: #010101; }
+
+        /* ===== TRAIT BADGE ===== */
+        .trait-badge {
+            background: linear-gradient(135deg, #eff6ff, #fdf4ff);
+            border: 1px solid #e0e7ff;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #4338ca;
+        }
+
+        /* ===== CONFETTI ===== */
+        .confetti-piece {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            z-index: 999;
+            animation: confetti-fall 3s linear forwards;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans">
+
+    <!-- Header -->
+    <div class="site-header"></div>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-20">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+
+            <!-- ===== HERO SECTION ===== -->
+            <section id="hero-section" class="text-center mb-10">
+                <div class="text-6xl mb-4 animate-float">🐕</div>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4 leading-tight">
+                    Tel Maître, <span class="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">Tel Chien</span>
+                </h1>
+                <p class="text-lg text-slate-500 max-w-xl mx-auto mb-2">
+                    Prenez un selfie et découvrez à quelle race de chien vous ressemblez parmi nos <strong class="text-slate-700">169 races</strong> !
+                </p>
+                <p class="text-sm text-slate-400 flex items-center justify-center gap-2">
+                    <i class="fas fa-shield-halved text-green-500"></i>
+                    Votre photo est analysée par l'IA Claude d'Anthropic. Nous ne la conservons pas, et elle ne sert pas à entraîner l'IA.
+                </p>
+            </section>
+
+            <!-- ===== CAPTURE SECTION ===== -->
+            <section id="capture-section">
+                <div id="capture-zone" class="capture-zone min-h-[320px] sm:min-h-[400px] flex flex-col items-center justify-center p-8 bg-white cursor-pointer" onclick="handleCaptureClick()">
+                    
+                    <!-- Default state (no image, no webcam) -->
+                    <div id="capture-placeholder" class="text-center">
+                        <div class="text-5xl mb-4 animate-wiggle">📸</div>
+                        <p class="text-slate-700 font-semibold text-lg mb-2">Prenez un selfie ou importez une photo</p>
+                        <p class="text-slate-400 text-sm mb-6">Cliquez ici, glissez-déposez une photo, ou utilisez les boutons ci-dessous</p>
+                    </div>
+
+                    <!-- Drag overlay -->
+                    <div id="drag-overlay" class="hidden absolute inset-0 bg-primary-500/10 border-2 border-primary-500 rounded-[21px] flex items-center justify-center z-20">
+                        <div class="text-center">
+                            <div class="text-5xl mb-3">📥</div>
+                            <p class="text-primary-600 font-bold text-lg">Déposez votre photo ici</p>
+                        </div>
+                    </div>
+
+                    <!-- Webcam preview -->
+                    <video id="webcam-video" class="hidden absolute inset-0" autoplay playsinline muted></video>
+                    
+                    <!-- Image preview -->
+                    <img id="image-preview" class="hidden w-full h-full object-contain absolute inset-0 rounded-[21px] bg-slate-100" alt="Votre photo">
+                </div>
+
+                <!-- Action buttons -->
+                <div id="action-buttons" class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-5">
+                    <button id="btn-webcam" onclick="startWebcam()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 shadow-lg shadow-primary-500/25">
+                        <i class="fas fa-camera"></i> Prendre un selfie
+                    </button>
+                    <button id="btn-upload" onclick="document.getElementById('file-input').click()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-xl transition-all hover:-translate-y-0.5 border border-slate-200 shadow-sm">
+                        <i class="fas fa-image"></i> Importer une photo
+                    </button>
+                    <input type="file" id="file-input" accept="image/*" class="hidden" onchange="handleFileUpload(event)">
+                </div>
+
+                <!-- Webcam capture button (shown when webcam is active) -->
+                <div id="webcam-controls" class="hidden flex items-center justify-center gap-3 mt-5">
+                    <button onclick="captureWebcam()" class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-all hover:-translate-y-0.5 shadow-lg shadow-red-500/25 text-lg">
+                        <i class="fas fa-circle"></i> Capturer
+                    </button>
+                    <button onclick="stopWebcam()" class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-xl transition-all">
+                        <i class="fas fa-xmark"></i> Annuler
+                    </button>
+                </div>
+
+                <!-- Analyze button (shown when image is ready) -->
+                <div id="analyze-controls" class="hidden flex flex-col items-center gap-3 mt-5">
+                    <button id="btn-analyze" onclick="analyzePhoto()" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white font-bold rounded-xl transition-all hover:-translate-y-0.5 shadow-lg shadow-primary-500/25 text-lg">
+                        <i class="fas fa-wand-magic-sparkles"></i> Découvrir ma race !
+                    </button>
+                    <button onclick="resetCapture()" class="text-sm text-slate-400 hover:text-slate-600 transition-colors">
+                        <i class="fas fa-arrow-rotate-left"></i> Changer de photo
+                    </button>
+                </div>
+            </section>
+
+            <!-- ===== LOADING SECTION ===== -->
+            <section id="loading-section" class="hidden text-center py-16">
+                <div class="text-5xl mb-6 animate-wiggle">🔍</div>
+                <p id="loading-text" class="text-lg font-semibold text-slate-700 mb-4">Analyse de votre museau...</p>
+                <div class="w-full max-w-sm mx-auto bg-slate-100 rounded-full h-3 overflow-hidden mb-4">
+                    <div id="loading-bar" class="h-full bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+                <div class="loading-dots">
+                    <span></span><span></span><span></span>
+                </div>
+            </section>
+
+            <!-- ===== RESULT SECTION ===== -->
+            <section id="result-section" class="hidden">
+                <div class="result-card animate-slide-up">
+                    
+                    <!-- Match header -->
+                    <div class="bg-gradient-to-r from-primary-500 to-secondary-500 px-6 py-10 sm:py-12 text-center text-white">
+                        <p class="text-sm font-medium opacity-80 mb-2 tracking-wide uppercase">Vous ressemblez à un...</p>
+                        <h2 id="result-breed-name" class="text-3xl sm:text-5xl font-extrabold mb-4"></h2>
+                        <div class="match-badge animate-bounce-in" style="animation-delay: 0.3s;">
+                            <span id="result-percentage"></span>%
+                        </div>
+                    </div>
+
+                    <!-- Photo comparison -->
+                    <div class="relative grid grid-cols-2 gap-0">
+                        <div class="aspect-square overflow-hidden bg-slate-100">
+                            <img id="result-user-photo" class="w-full h-full object-cover" alt="Votre photo">
+                        </div>
+                        <div class="aspect-square overflow-hidden bg-slate-100">
+                            <img id="result-breed-photo" class="w-full h-full object-cover" alt="Race de chien">
+                        </div>
+                        <div class="vs-circle">VS</div>
+                    </div>
+
+                    <!-- Share section — right below photos for max visibility -->
+                    <div class="bg-gradient-to-r from-slate-50 to-blue-50 px-6 sm:px-10 py-6 text-center border-b border-slate-100">
+                        <p class="text-sm font-bold text-slate-700 mb-4">📸 Partagez votre résultat avec vos amis !</p>
+                        <div class="flex flex-wrap justify-center gap-3 mb-3">
+                            <a id="share-x" href="#" target="_blank" class="share-btn share-btn-x" style="padding:10px 16px;">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                            <a id="share-fb" href="#" target="_blank" class="share-btn share-btn-fb">
+                                <i class="fab fa-facebook-f"></i> Facebook
+                            </a>
+                            <a id="share-wa" href="#" target="_blank" class="share-btn share-btn-wa">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <button onclick="shareToApp('instagram')" class="share-btn share-btn-ig">
+                                <i class="fab fa-instagram"></i> Instagram
+                            </button>
+                            <button onclick="shareToApp('tiktok')" class="share-btn share-btn-tiktok">
+                                <i class="fab fa-tiktok"></i> TikTok
+                            </button>
+                            <button onclick="downloadResult()" class="share-btn share-btn-download">
+                                <i class="fas fa-download"></i> Télécharger l'image
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Details -->
+                    <div class="px-6 sm:px-10 py-8 sm:py-10">
+
+                        <!-- Reason -->
+                        <p id="result-reason" class="text-slate-600 text-base sm:text-lg leading-relaxed text-center max-w-lg mx-auto mb-10"></p>
+
+                        <!-- Separator -->
+                        <div class="w-12 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full mx-auto mb-10"></div>
+
+                        <!-- Traits communs -->
+                        <div class="text-center mb-10">
+                            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Vos traits en commun</h3>
+                            <div id="result-traits" class="flex flex-wrap justify-center gap-2.5"></div>
+                        </div>
+
+                        <!-- CTA buttons -->
+                        <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                            <a id="result-breed-link" href="#" class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 shadow-lg shadow-primary-500/25">
+                                <i class="fas fa-paw"></i> Voir la fiche complète
+                            </a>
+                            <button onclick="resetAll()" class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-xl transition-all border border-slate-200">
+                                <i class="fas fa-arrow-rotate-left"></i> Refaire le test
+                            </button>
+                        </div>
+                        <a href="/quel-chien-choisir" class="mt-6 block max-w-md mx-auto rounded-2xl border border-slate-200 bg-slate-50 p-4 text-left hover:border-primary-300">
+                            <span class="block font-bold text-slate-900">Physiquement, c'est votre sosie. Mais pour votre vie ?</span>
+                            <span class="block text-sm text-slate-600">8 questions sur votre logement, votre famille et votre rythme : découvrez les races vraiment faites pour vous →</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+<!-- @footer -->
+
+    <!-- Canvas for generating share image (hidden) -->
+    <canvas id="share-canvas" class="hidden"></canvas>
+
+    <!-- Header script -->
+    <script src="/js/header.js?v={{V_HEADER}}"></script>
+
+    <script>
+    // ===== CONFIG =====
+    const API_URL = '/api/match-breed';
+    // 504 px = 18 × 18 tuiles de 28 px pour l'IA : assez pour un visage, presque rien en tokens
+    const MAX_PHOTO_SIZE = 504;
+
+    // ===== STATE =====
+    let currentImageBase64 = null;
+    let currentImageMimeType = null;
+    let webcamStream = null;
+    let breedsData = null;
+    let breedSlugs = null;
+    let currentResult = null;
+
+    // ===== LOADING MESSAGES =====
+    const loadingMessages = [
+        "Analyse de votre museau...",
+        "Comparaison des oreilles...",
+        "Évaluation du regard...",
+        "Vérification de la coiffure...",
+        "Consultation de l'encyclopédie canine...",
+        "Recherche de votre race idéale...",
+        "Calcul du taux de ressemblance...",
+    ];
+
+    // ===== INIT: Load breeds data =====
+    async function loadBreedsData() {
+        try {
+            const [breedsRes, slugsRes] = await Promise.all([
+                fetch('/data/breeds-index.json?v={{V_DATA}}'),
+                fetch('/data/breed-slugs.json')
+            ]);
+            const breedsJson = await breedsRes.json();
+            breedsData = breedsJson.breeds;
+            breedSlugs = await slugsRes.json();
+        } catch (e) {
+            console.error('Erreur chargement données races:', e);
+        }
+    }
+    loadBreedsData();
+
+    // ===== DRAG & DROP =====
+    
+    (function setupDragDrop() {
+        const zone = document.getElementById('capture-zone');
+        const overlay = document.getElementById('drag-overlay');
+        let dragCounter = 0;
+
+        zone.addEventListener('dragenter', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dragCounter++;
+            if (!currentImageBase64 && !webcamStream) {
+                overlay.classList.remove('hidden');
+                zone.classList.add('active');
+            }
+        });
+
+        zone.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dragCounter--;
+            if (dragCounter === 0) {
+                overlay.classList.add('hidden');
+                zone.classList.remove('active');
+            }
+        });
+
+        zone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+
+        zone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dragCounter = 0;
+            overlay.classList.add('hidden');
+            zone.classList.remove('active');
+
+            const file = e.dataTransfer?.files?.[0];
+            if (file && file.type.startsWith('image/')) {
+                processFile(file);
+            }
+        });
+    })();
+
+    // ===== CAPTURE FUNCTIONS =====
+
+    function handleCaptureClick() {
+        // Only trigger file upload if no image and no webcam active
+        if (!currentImageBase64 && !webcamStream) {
+            document.getElementById('file-input').click();
+        }
+    }
+
+    async function startWebcam() {
+        try {
+            const video = document.getElementById('webcam-video');
+            webcamStream = await navigator.mediaDevices.getUserMedia({ 
+                video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 1280 } } 
+            });
+            video.srcObject = webcamStream;
+            
+            // Show webcam, hide placeholder
+            video.classList.remove('hidden');
+            document.getElementById('capture-placeholder').classList.add('hidden');
+            document.getElementById('action-buttons').classList.add('hidden');
+            document.getElementById('webcam-controls').classList.remove('hidden');
+            document.getElementById('capture-zone').classList.add('active');
+        } catch (e) {
+            alert('Impossible d\'accéder à la caméra. Vérifiez les permissions de votre navigateur.');
+            console.error(e);
+        }
+    }
+
+    function captureWebcam() {
+        const video = document.getElementById('webcam-video');
+        const canvas = document.createElement('canvas');
+        
+        // Square crop from center
+        const size = Math.min(video.videoWidth, video.videoHeight);
+        canvas.width = MAX_PHOTO_SIZE;
+        canvas.height = MAX_PHOTO_SIZE;
+        const ctx = canvas.getContext('2d');
+        
+        // Mirror + crop
+        ctx.translate(MAX_PHOTO_SIZE, 0);
+        ctx.scale(-1, 1);
+        const sx = (video.videoWidth - size) / 2;
+        const sy = (video.videoHeight - size) / 2;
+        ctx.drawImage(video, sx, sy, size, size, 0, 0, MAX_PHOTO_SIZE, MAX_PHOTO_SIZE);
+        
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+        currentImageBase64 = dataUrl.split(',')[1];
+        currentImageMimeType = 'image/jpeg';
+        
+        showImagePreview(dataUrl);
+        stopWebcam();
+    }
+
+    function stopWebcam() {
+        if (webcamStream) {
+            webcamStream.getTracks().forEach(t => t.stop());
+            webcamStream = null;
+        }
+        const video = document.getElementById('webcam-video');
+        video.srcObject = null;
+        video.classList.add('hidden');
+        document.getElementById('webcam-controls').classList.add('hidden');
+        document.getElementById('capture-zone').classList.remove('active');
+        
+        if (!currentImageBase64) {
+            document.getElementById('capture-placeholder').classList.remove('hidden');
+            document.getElementById('action-buttons').classList.remove('hidden');
+        }
+    }
+
+    function handleFileUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        processFile(file);
+        event.target.value = ''; // reset
+    }
+
+    function processFile(file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const dataUrl = e.target.result;
+            
+            // Resize if needed
+            const img = new Image();
+            img.onload = function() {
+                const canvas = document.createElement('canvas');
+                const maxSize = MAX_PHOTO_SIZE;
+                let w = img.width, h = img.height;
+                if (w > maxSize || h > maxSize) {
+                    if (w > h) { h = (h / w) * maxSize; w = maxSize; }
+                    else { w = (w / h) * maxSize; h = maxSize; }
+                }
+                canvas.width = w;
+                canvas.height = h;
+                canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+                const resized = canvas.toDataURL('image/jpeg', 0.85);
+                currentImageBase64 = resized.split(',')[1];
+                currentImageMimeType = 'image/jpeg';
+                showImagePreview(resized);
+            };
+            img.src = dataUrl;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function showImagePreview(dataUrl) {
+        const preview = document.getElementById('image-preview');
+        preview.src = dataUrl;
+        preview.classList.remove('hidden');
+        document.getElementById('capture-placeholder').classList.add('hidden');
+        document.getElementById('action-buttons').classList.add('hidden');
+        document.getElementById('analyze-controls').classList.remove('hidden');
+        document.getElementById('capture-zone').classList.add('has-image');
+        document.getElementById('capture-zone').onclick = null;
+    }
+
+    function resetCapture() {
+        currentImageBase64 = null;
+        currentImageMimeType = null;
+        document.getElementById('image-preview').classList.add('hidden');
+        document.getElementById('image-preview').src = '';
+        document.getElementById('capture-placeholder').classList.remove('hidden');
+        document.getElementById('action-buttons').classList.remove('hidden');
+        document.getElementById('analyze-controls').classList.add('hidden');
+        document.getElementById('capture-zone').classList.remove('has-image');
+        document.getElementById('capture-zone').onclick = () => handleCaptureClick();
+    }
+
+    // ===== ANALYSIS =====
+
+    let remainingAttempts = null; // null = pas encore connu
+
+    async function analyzePhoto() {
+        if (!currentImageBase64) return;
+        
+        // Désactiver le bouton pour éviter le double-clic
+        const btnAnalyze = document.getElementById('btn-analyze');
+        btnAnalyze.disabled = true;
+        btnAnalyze.classList.add('opacity-50', 'cursor-not-allowed');
+        
+        // Show loading
+        document.getElementById('capture-section').classList.add('hidden');
+        document.getElementById('hero-section').classList.add('hidden');
+        document.getElementById('loading-section').classList.remove('hidden');
+        
+        // Animate loading
+        animateLoading();
+        
+        try {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    image_base64: currentImageBase64,
+                    mime_type: currentImageMimeType
+                })
+            });
+
+            const responseData = await response.json().catch(() => ({}));
+
+            // Gérer le rate limit
+            if (response.status === 429) {
+                remainingAttempts = 0;
+                showError('🐾 Vous avez atteint la limite de 5 essais par jour. Revenez demain pour un nouveau test !');
+                return;
+            }
+
+            if (!response.ok) {
+                throw new Error(responseData.error || `Erreur serveur (${response.status})`);
+            }
+
+            // Mettre à jour les essais restants
+            if (responseData.remaining !== undefined) {
+                remainingAttempts = responseData.remaining;
+            }
+
+            // Réponse déjà validée par le serveur (schéma imposé à l'IA)
+            const result = responseData.result;
+            if (!result?.breed_slug) {
+                throw new Error('Réponse inattendue de l\'IA, veuillez réessayer');
+            }
+
+            // Valider que le slug existe
+            if (breedSlugs && !Object.values(breedSlugs).includes(result.breed_slug)) {
+                console.warn('Slug inconnu retourné:', result.breed_slug);
+                result.breed_slug = 'golden-retriever'; // fallback safe
+            }
+            
+            currentResult = result;
+            showResult(result);
+            
+        } catch (error) {
+            console.error('Erreur analyse:', error);
+            showError('😅 ' + error.message + '\n\nVeuillez réessayer avec une autre photo.');
+        }
+    }
+
+    function showError(message) {
+        if (window._loadingInterval) clearInterval(window._loadingInterval);
+        document.getElementById('loading-section').classList.add('hidden');
+        document.getElementById('hero-section').classList.remove('hidden');
+        document.getElementById('capture-section').classList.remove('hidden');
+        
+        // Réactiver le bouton
+        const btnAnalyze = document.getElementById('btn-analyze');
+        btnAnalyze.disabled = false;
+        btnAnalyze.classList.remove('opacity-50', 'cursor-not-allowed');
+        
+        // Afficher un message d'erreur élégant au lieu d'un alert
+        showToast(message);
+    }
+
+    function animateLoading() {
+        let step = 0;
+        const bar = document.getElementById('loading-bar');
+        const text = document.getElementById('loading-text');
+        
+        const interval = setInterval(() => {
+            step++;
+            if (step >= loadingMessages.length) {
+                clearInterval(interval);
+                bar.style.width = '95%';
+                return;
+            }
+            text.textContent = loadingMessages[step];
+            bar.style.width = `${Math.min(15 + step * 13, 95)}%`;
+        }, 700);
+        
+        // Store interval to clear later
+        window._loadingInterval = interval;
+    }
+
+    // ===== DISPLAY RESULT =====
+
+    function showResult(result) {
+        if (window._loadingInterval) clearInterval(window._loadingInterval);
+        
+        // Find breed data
+        const breed = breedsData?.find(b => {
+            const id = b.id;
+            return breedSlugs && breedSlugs[id] === result.breed_slug;
+        });
+        
+        // Fill in result data
+        const breedName = breed?.name_fr || result.breed_slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        document.getElementById('result-breed-name').textContent = breedName;
+        result.breed_name = breedName;
+        document.getElementById('result-percentage').textContent = result.match_percentage;
+        document.getElementById('result-reason').textContent = result.reason;
+        
+        // User photo
+        document.getElementById('result-user-photo').src = `data:${currentImageMimeType};base64,${currentImageBase64}`;
+        
+        // Breed photo — utilise le chemin depuis breeds.json (nommé par slug)
+        const breedImgUrl = breed?.image?.url ? `/${breed.image.url}` : `/images/breeds/${result.breed_slug}.jpg`;
+        document.getElementById('result-breed-photo').src = breedImgUrl;
+        document.getElementById('result-breed-photo').onerror = function() {
+            // Fallback to external URL from breeds data
+            if (breed?.images?.url) this.src = breed.images.url;
+        };
+        
+        // Breed link
+        document.getElementById('result-breed-link').href = `/races/${result.breed_slug}`;
+        
+        // Traits
+        const traitsContainer = document.getElementById('result-traits');
+        traitsContainer.replaceChildren(...result.traits_communs.map(t => {
+            const badge = document.createElement('span');
+            badge.className = 'trait-badge';
+            badge.textContent = t;
+            return badge;
+        }));
+        
+        // Share links
+        const shareText = `Je ressemble à un ${breedName} à ${result.match_percentage}% ! 🐕 Découvrez à quelle race de chien vous ressemblez :`;
+        const shareUrl = 'https://race-de-chien.com/tel-maitre-tel-chien';
+        
+        document.getElementById('share-x').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+        document.getElementById('share-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`;
+        document.getElementById('share-wa').href = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`;
+        
+        // Show result, hide loading
+        document.getElementById('loading-section').classList.add('hidden');
+        document.getElementById('result-section').classList.remove('hidden');
+        
+        // Confetti!
+        launchConfetti();
+        
+        // Scroll to result
+        document.getElementById('result-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // ===== RESET =====
+
+    function resetAll() {
+        currentResult = null;
+        document.getElementById('result-section').classList.add('hidden');
+        document.getElementById('hero-section').classList.remove('hidden');
+        document.getElementById('capture-section').classList.remove('hidden');
+        resetCapture();
+        
+        // Réactiver le bouton
+        const btnAnalyze = document.getElementById('btn-analyze');
+        btnAnalyze.disabled = false;
+        btnAnalyze.classList.remove('opacity-50', 'cursor-not-allowed');
+        
+        // Afficher le compteur d'essais restants si connu
+        if (remainingAttempts !== null && remainingAttempts <= 2) {
+            showToast(`🐾 Il vous reste ${remainingAttempts} essai${remainingAttempts > 1 ? 's' : ''} aujourd'hui`);
+        }
+        if (remainingAttempts === 0) {
+            showToast('🐾 Vous avez utilisé tous vos essais pour aujourd\'hui. Revenez demain !');
+        }
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ===== TOAST NOTIFICATION =====
+
+    function showToast(message) {
+        // Supprimer un éventuel toast existant
+        const existing = document.getElementById('toast-notification');
+        if (existing) existing.remove();
+        
+        const toast = document.createElement('div');
+        toast.id = 'toast-notification';
+        toast.style.cssText = `
+            position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+            background: #1e293b; color: white; padding: 16px 24px; border-radius: 16px;
+            font-size: 0.95rem; font-weight: 500; z-index: 1000; max-width: 90vw;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2); text-align: center;
+            animation: slide-up 0.4s ease-out; line-height: 1.5;
+            white-space: pre-line;
+        `;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.style.transition = 'opacity 0.4s, transform 0.4s';
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateX(-50%) translateY(10px)';
+            setTimeout(() => toast.remove(), 400);
+        }, 4000);
+    }
+
+    // ===== CONFETTI =====
+
+    function launchConfetti() {
+        const colors = ['#3b82f6', '#9333ea', '#f97316', '#10b981', '#f43f5e', '#eab308'];
+        const shapes = ['●', '■', '▲', '🐾'];
+        
+        for (let i = 0; i < 40; i++) {
+            const piece = document.createElement('div');
+            piece.className = 'confetti-piece';
+            piece.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+            piece.style.left = Math.random() * 100 + 'vw';
+            piece.style.color = colors[Math.floor(Math.random() * colors.length)];
+            piece.style.fontSize = (Math.random() * 12 + 8) + 'px';
+            piece.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            piece.style.animationDelay = Math.random() * 0.5 + 's';
+            document.body.appendChild(piece);
+            
+            setTimeout(() => piece.remove(), 4000);
+        }
+    }
+
+    // ===== DOWNLOAD RESULT IMAGE =====
+
+    async function shareToApp(platform) {
+        // Try Web Share API (works on mobile — can share image directly to Instagram/TikTok)
+        if (navigator.share && navigator.canShare) {
+            try {
+                const canvas = document.getElementById('share-canvas');
+                canvas.width = 1080;
+                canvas.height = 1080;
+                const ctx = canvas.getContext('2d');
+
+                // Draw background
+                ctx.fillStyle = '#f8fafc';
+                ctx.fillRect(0, 0, 1080, 1080);
+
+                // Draw header gradient
+                const headerGrad = ctx.createLinearGradient(0, 0, 1080, 0);
+                headerGrad.addColorStop(0, '#3b82f6');
+                headerGrad.addColorStop(1, '#a855f7');
+                ctx.fillStyle = headerGrad;
+                ctx.fillRect(0, 0, 1080, 160);
+
+                ctx.fillStyle = 'white';
+                ctx.font = 'bold 36px Plus Jakarta Sans, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('Je ressemble à un...', 540, 60);
+                ctx.font = 'bold 56px Plus Jakarta Sans, sans-serif';
+                ctx.fillText(currentResult.breed_name, 540, 125);
+
+                // Draw photos side by side
+                const userImg = document.getElementById('result-user-photo');
+                const breedImg = document.getElementById('result-breed-photo');
+                const photoY = 180;
+                const photoSize = 420;
+                ctx.drawImage(userImg, 100, photoY, photoSize, photoSize);
+                ctx.drawImage(breedImg, 560, photoY, photoSize, photoSize);
+
+                // VS circle
+                ctx.fillStyle = 'white';
+                ctx.beginPath();
+                ctx.arc(540, photoY + photoSize / 2, 32, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.fillStyle = '#1e293b';
+                ctx.font = 'bold 22px Plus Jakarta Sans, sans-serif';
+                ctx.fillText('VS', 540, photoY + photoSize / 2 + 8);
+
+                // Match percentage
+                ctx.font = 'bold 72px Plus Jakarta Sans, sans-serif';
+                ctx.fillStyle = '#3b82f6';
+                ctx.fillText(currentResult.match_percentage + '%', 540, 680);
+                ctx.font = '24px Plus Jakarta Sans, sans-serif';
+                ctx.fillStyle = '#64748b';
+                ctx.fillText('de ressemblance', 540, 720);
+
+                // Footer
+                ctx.font = 'bold 28px Plus Jakarta Sans, sans-serif';
+                ctx.fillStyle = '#334155';
+                ctx.fillText('race-de-chien.com/tel-maitre-tel-chien', 540, 1040);
+
+                const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+                const file = new File([blob], 'mon-chien-jumeau.png', { type: 'image/png' });
+
+                const shareData = {
+                    title: `Je ressemble à un ${currentResult.breed_name} !`,
+                    text: `Je ressemble à un ${currentResult.breed_name} à ${currentResult.match_percentage}% ! 🐕 Découvrez à quelle race de chien vous ressemblez :`,
+                    url: 'https://race-de-chien.com/tel-maitre-tel-chien',
+                    files: [file]
+                };
+
+                if (navigator.canShare(shareData)) {
+                    await navigator.share(shareData);
+                    return;
+                }
+            } catch (e) {
+                if (e.name === 'AbortError') return; // User cancelled
+                console.warn('Web Share failed, falling back:', e);
+            }
+        }
+
+        // Fallback: download the image + show instruction
+        await downloadResult();
+        const appName = platform === 'instagram' ? 'Instagram' : 'TikTok';
+        alert(`L'image a été téléchargée ! 📸\nOuvrez ${appName} et partagez-la depuis votre galerie.`);
+    }
+
+    async function downloadResult() {
+        if (!currentResult) return;
+        
+        const canvas = document.getElementById('share-canvas');
+        canvas.width = 1080;
+        canvas.height = 1080;
+        const ctx = canvas.getContext('2d');
+        
+        // Background
+        const gradient = ctx.createLinearGradient(0, 0, 1080, 1080);
+        gradient.addColorStop(0, '#3b82f6');
+        gradient.addColorStop(1, '#9333ea');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, 1080, 1080);
+        
+        // White card
+        ctx.fillStyle = 'white';
+        roundRect(ctx, 40, 40, 1000, 1000, 30);
+        ctx.fill();
+        
+        // Title
+        ctx.fillStyle = '#1e293b';
+        ctx.font = 'bold 42px Plus Jakarta Sans, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Tel Maître, Tel Chien 🐕', 540, 110);
+        
+        // Load and draw images
+        try {
+            const userImg = await loadImage(`data:${currentImageMimeType};base64,${currentImageBase64}`);
+            const breedForImg = breedsData?.find(b => breedSlugs?.[b.id] === currentResult.breed_slug);
+            const breedShareImgUrl = breedForImg?.image?.url ? `/${breedForImg.image.url}` : `/images/breeds/${currentResult.breed_slug}.jpg`;
+            
+            // User photo (left)
+            ctx.save();
+            roundRect(ctx, 80, 150, 420, 420, 20);
+            ctx.clip();
+            drawCover(ctx, userImg, 80, 150, 420, 420);
+            ctx.restore();
+            
+            // Breed photo (right)
+            try {
+                const breedImg = await loadImage(breedShareImgUrl);
+                ctx.save();
+                roundRect(ctx, 580, 150, 420, 420, 20);
+                ctx.clip();
+                drawCover(ctx, breedImg, 580, 150, 420, 420);
+                ctx.restore();
+            } catch(e) {
+                ctx.fillStyle = '#f1f5f9';
+                roundRect(ctx, 580, 150, 420, 420, 20);
+                ctx.fill();
+            }
+        } catch(e) {
+            console.error('Image load error for share canvas:', e);
+        }
+        
+        // VS badge
+        ctx.fillStyle = '#3b82f6';
+        ctx.beginPath();
+        ctx.arc(540, 360, 35, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = 'white';
+        ctx.font = 'bold 22px Plus Jakarta Sans, sans-serif';
+        ctx.fillText('VS', 540, 368);
+        
+        // Breed name
+        const breedName = document.getElementById('result-breed-name').textContent;
+        ctx.fillStyle = '#1e293b';
+        ctx.font = 'bold 38px Plus Jakarta Sans, sans-serif';
+        ctx.fillText(breedName, 540, 640);
+        
+        // Percentage
+        const pct = currentResult.match_percentage;
+        ctx.fillStyle = '#3b82f6';
+        ctx.font = 'bold 56px Plus Jakarta Sans, sans-serif';
+        ctx.fillText(`${pct}%`, 540, 710);
+        
+        // Reason (wrapped)
+        ctx.fillStyle = '#64748b';
+        ctx.font = '20px Plus Jakarta Sans, sans-serif';
+        wrapText(ctx, currentResult.reason, 540, 770, 880, 28);
+        
+        // Footer
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '18px Plus Jakarta Sans, sans-serif';
+        ctx.fillText('race-de-chien.com/tel-maitre-tel-chien', 540, 1010);
+        
+        // Download
+        const link = document.createElement('a');
+        link.download = `tel-maitre-tel-chien-${currentResult.breed_slug}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    }
+
+    // Canvas helper functions
+    function roundRect(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + w - r, y);
+        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+        ctx.lineTo(x + w, y + h - r);
+        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        ctx.lineTo(x + r, y + h);
+        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.closePath();
+    }
+
+    function drawCover(ctx, img, x, y, w, h) {
+        const ratio = Math.max(w / img.width, h / img.height);
+        const nw = img.width * ratio;
+        const nh = img.height * ratio;
+        ctx.drawImage(img, x + (w - nw) / 2, y + (h - nh) / 2, nw, nh);
+    }
+
+    function loadImage(src) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.onload = () => resolve(img);
+            img.onerror = reject;
+            img.src = src;
+        });
+    }
+
+    function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+        const words = text.split(' ');
+        let line = '';
+        let lineCount = 0;
+        for (const word of words) {
+            const test = line + word + ' ';
+            if (ctx.measureText(test).width > maxWidth && line) {
+                ctx.fillText(line.trim(), x, y + lineCount * lineHeight);
+                line = word + ' ';
+                lineCount++;
+                if (lineCount >= 4) { // Max 4 lines
+                    ctx.fillText(line.trim() + '...', x, y + lineCount * lineHeight);
+                    return;
+                }
+            } else {
+                line = test;
+            }
+        }
+        ctx.fillText(line.trim(), x, y + lineCount * lineHeight);
+    }
+    </script>
+</body>
+</html>
