@@ -344,9 +344,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/akbash.jpg",
-    "width": 1376,
-    "height": 768
+    "url": "images/breeds/akbash-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "akbash",
    "scores": {
@@ -706,9 +706,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/bouledogue-alapaha.jpg",
-    "width": 1024,
-    "height": 1040
+    "url": "images/breeds/bouledogue-alapaha-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "bouledogue-alapaha",
    "scores": {
@@ -825,9 +825,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/american-bully.jpg",
-    "width": 1024,
-    "height": 1040
+    "url": "images/breeds/american-bully-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "american-bully",
    "scores": {
@@ -1183,9 +1183,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/staffordshire-terrier-americain.jpg",
-    "width": 1008,
-    "height": 1056
+    "url": "images/breeds/staffordshire-terrier-americain-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "staffordshire-terrier-americain",
    "scores": {
@@ -3334,9 +3334,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/berger-belge-malinois.jpg",
-    "width": 2600,
-    "height": 2058
+    "url": "images/breeds/berger-belge-malinois-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "berger-belge-malinois",
    "scores": {
@@ -3451,9 +3451,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/berger-belge-tervueren.jpg",
-    "width": 1408,
-    "height": 768
+    "url": "images/breeds/berger-belge-tervueren-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "berger-belge-tervueren",
    "scores": {
@@ -4672,9 +4672,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/bichon-frise.jpg",
-    "width": 1216,
-    "height": 880
+    "url": "images/breeds/bichon-frise-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "bichon-frise",
    "scores": {
@@ -4909,9 +4909,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/bichon-maltais.jpg",
-    "width": 1024,
-    "height": 1024
+    "url": "images/breeds/bichon-maltais-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "bichon-maltais",
    "scores": {
@@ -5265,9 +5265,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/boerboel.jpg",
-    "width": 1488,
-    "height": 720
+    "url": "images/breeds/boerboel-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "boerboel",
    "scores": {
@@ -5734,9 +5734,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/bouledogue-americain.jpg",
-    "width": 1024,
-    "height": 1024
+    "url": "images/breeds/bouledogue-americain-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "bouledogue-americain",
    "scores": {
@@ -6091,9 +6091,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/bouvier-bernois.jpg",
-    "width": 896,
-    "height": 1184
+    "url": "images/breeds/bouvier-bernois-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "bouvier-bernois",
    "scores": {
@@ -6208,9 +6208,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/bouvier-d-appenzell.jpg",
-    "width": 864,
-    "height": 1216
+    "url": "images/breeds/bouvier-d-appenzell-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "bouvier-d-appenzell",
    "scores": {
@@ -6327,9 +6327,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/bouvier-des-flandres.jpg",
-    "width": 2564,
-    "height": 2142
+    "url": "images/breeds/bouvier-des-flandres-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "bouvier-des-flandres",
    "scores": {
@@ -6793,7 +6793,7 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/braque-hongrois-a-poil-dur.jpg",
+    "url": "images/breeds/braque-hongrois-a-poil-dur-v2.jpg",
     "width": 1200,
     "height": 896
    },
@@ -7273,9 +7273,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/braque-de-weimar.jpg",
-    "width": 944,
-    "height": 1136
+    "url": "images/breeds/braque-de-weimar-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "braque-de-weimar",
    "scores": {
@@ -8254,9 +8254,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/bull-terrier.jpg",
-    "width": 900,
-    "height": 600
+    "url": "images/breeds/bull-terrier-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "bull-terrier",
    "scores": {
@@ -8970,9 +8970,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/cane-corso.jpg",
-    "width": 1280,
-    "height": 976
+    "url": "images/breeds/cane-corso-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "cane-corso",
    "scores": {
@@ -9088,9 +9088,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/caniche-nain.jpg",
-    "width": 1264,
-    "height": 832
+    "url": "images/breeds/caniche-nain-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "caniche-nain",
    "scores": {
@@ -9208,9 +9208,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/caniche-toy.jpg",
-    "width": 1280,
-    "height": 955
+    "url": "images/breeds/caniche-toy-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "caniche-toy",
    "scores": {
@@ -10299,9 +10299,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/chien-d-eau-espagnol.jpg",
-    "width": 976,
-    "height": 1088
+    "url": "images/breeds/chien-d-eau-espagnol-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "chien-d-eau-espagnol",
    "scores": {
@@ -10670,9 +10670,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/chien-de-montagne-des-pyrenees.jpg",
-    "width": 1088,
-    "height": 976
+    "url": "images/breeds/chien-de-montagne-des-pyrenees-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "chien-de-montagne-des-pyrenees",
    "scores": {
@@ -11027,9 +11027,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/chien-du-pharaon.jpg",
-    "width": 1024,
-    "height": 1024
+    "url": "images/breeds/chien-du-pharaon-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "chien-du-pharaon",
    "scores": {
@@ -11905,9 +11905,9 @@
    },
    "review_confidence": "moyenne",
    "image": {
-    "url": "images/breeds/cocker-spaniel.jpg",
-    "width": 1264,
-    "height": 848
+    "url": "images/breeds/cocker-spaniel-v2.jpg",
+    "width": 1200,
+    "height": 896
    }
   },
   {
@@ -12346,9 +12346,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/coton-de-tulear.jpg",
-    "width": 1216,
-    "height": 880
+    "url": "images/breeds/coton-de-tulear-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "coton-de-tulear",
    "scores": {
@@ -12587,9 +12587,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/dalmatien.jpg",
-    "width": 896,
-    "height": 1200
+    "url": "images/breeds/dalmatien-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "dalmatien",
    "scores": {
@@ -12938,9 +12938,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/dogue-argentin.jpg",
-    "width": 896,
-    "height": 1200
+    "url": "images/breeds/dogue-argentin-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "dogue-argentin",
    "scores": {
@@ -15601,7 +15601,7 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/levrier-greyhound.jpg",
+    "url": "images/breeds/levrier-greyhound-v2.jpg",
     "width": 1200,
     "height": 896
    },
@@ -15838,9 +15838,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/griffon-d-arret-a-poil-dur.jpg",
-    "width": 880,
-    "height": 1216
+    "url": "images/breeds/griffon-d-arret-a-poil-dur-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "griffon-d-arret-a-poil-dur",
    "scores": {
@@ -16201,9 +16201,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/harrier.jpg",
-    "width": 848,
-    "height": 1264
+    "url": "images/breeds/harrier-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "harrier",
    "scores": {
@@ -16437,9 +16437,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/husky-d-alaska.jpg",
-    "width": 848,
-    "height": 1264
+    "url": "images/breeds/husky-d-alaska-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "husky-d-alaska",
    "scores": {
@@ -16553,9 +16553,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/terrier-irlandais.jpg",
-    "width": 896,
-    "height": 1200
+    "url": "images/breeds/terrier-irlandais-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "terrier-irlandais",
    "scores": {
@@ -16914,9 +16914,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/king-charles-spaniel.jpg",
-    "width": 928,
-    "height": 1152
+    "url": "images/breeds/king-charles-spaniel-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "king-charles-spaniel",
    "scores": {
@@ -17030,9 +17030,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/komondor.jpg",
-    "width": 1008,
-    "height": 1056
+    "url": "images/breeds/komondor-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "komondor",
    "scores": {
@@ -17264,9 +17264,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/kuvasz.jpg",
-    "width": 1216,
-    "height": 880
+    "url": "images/breeds/kuvasz-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "kuvasz",
    "scores": {
@@ -18683,9 +18683,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/norwich-terrier.jpg",
-    "width": 944,
-    "height": 1120
+    "url": "images/breeds/norwich-terrier-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "norwich-terrier",
    "scores": {
@@ -18925,9 +18925,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/petit-levrier-italien.jpg",
-    "width": 896,
-    "height": 1184
+    "url": "images/breeds/petit-levrier-italien-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "petit-levrier-italien",
    "scores": {
@@ -19418,9 +19418,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/petit-chien-russe.jpg",
-    "width": 1040,
-    "height": 1024
+    "url": "images/breeds/petit-chien-russe-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "petit-chien-russe",
    "scores": {
@@ -19663,9 +19663,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/pinscher-allemand.jpg",
-    "width": 832,
-    "height": 1264
+    "url": "images/breeds/pinscher-allemand-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "pinscher-allemand",
    "scores": {
@@ -22030,9 +22030,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/schnauzer-geant.jpg",
-    "width": 1136,
-    "height": 928
+    "url": "images/breeds/schnauzer-geant-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "schnauzer-geant",
    "scores": {
@@ -22383,9 +22383,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/terrier-ecossais.jpg",
-    "width": 928,
-    "height": 1152
+    "url": "images/breeds/terrier-ecossais-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "terrier-ecossais",
    "scores": {
@@ -22618,9 +22618,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/setter-gordon.jpg",
-    "width": 1152,
-    "height": 928
+    "url": "images/breeds/setter-gordon-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "setter-gordon",
    "scores": {
@@ -22856,7 +22856,7 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/shar-pei.jpg",
+    "url": "images/breeds/shar-pei-v2.jpg",
     "width": 1200,
     "height": 896
    },
@@ -24402,7 +24402,7 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/springer-spaniel-anglais.jpg",
+    "url": "images/breeds/springer-spaniel-anglais-v2.jpg",
     "width": 1200,
     "height": 896
    },
@@ -24521,9 +24521,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/staffordshire-bull-terrier.jpg",
-    "width": 896,
-    "height": 1184
+    "url": "images/breeds/staffordshire-bull-terrier-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "staffordshire-bull-terrier",
    "scores": {
@@ -24770,9 +24770,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/terre-neuve.jpg",
-    "width": 848,
-    "height": 1264
+    "url": "images/breeds/terre-neuve-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "terre-neuve",
    "scores": {
@@ -24886,9 +24886,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/terrier-australien.jpg",
-    "width": 1120,
-    "height": 944
+    "url": "images/breeds/terrier-australien-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "terrier-australien",
    "scores": {
@@ -25238,9 +25238,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/terrier-tibetain.jpg",
-    "width": 992,
-    "height": 1072
+    "url": "images/breeds/terrier-tibetain-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "terrier-tibetain",
    "scores": {
@@ -25948,8 +25948,8 @@
    },
    "image": {
     "url": "images/breeds/welsh-corgi-cardigan.jpg",
-    "width": 3046,
-    "height": 2284
+    "width": 1200,
+    "height": 900
    },
    "slug": "welsh-corgi-cardigan",
    "scores": {
@@ -26533,9 +26533,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/yorkshire-terrier.jpg",
-    "width": 928,
-    "height": 1152
+    "url": "images/breeds/yorkshire-terrier-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "yorkshire-terrier",
    "scores": {
@@ -27487,9 +27487,9 @@
     "vet_visits_frequency": "Annuelle"
    },
    "image": {
-    "url": "images/breeds/epagneul-papillon.jpg",
-    "width": 896,
-    "height": 1200
+    "url": "images/breeds/epagneul-papillon-v2.jpg",
+    "width": 1200,
+    "height": 896
    },
    "slug": "epagneul-papillon",
    "scores": {

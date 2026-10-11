@@ -477,7 +477,7 @@
     async function loadBreedsData() {
         try {
             const [breedsRes, slugsRes] = await Promise.all([
-                fetch('/data/breeds-index.json?v=8e8545306b'),
+                fetch('/data/breeds-index.json?v=092f7a1b9e'),
                 fetch('/data/breed-slugs.json')
             ]);
             const breedsJson = await breedsRes.json();

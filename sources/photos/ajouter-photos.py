@@ -25,7 +25,14 @@ for f in sorted(os.listdir(RAW)) if os.path.isdir(RAW) else []:
     if not b:
         print('slug inconnu :', slug)
         continue
-    name = f'{slug}-v2' if slug == 'bouledogue-anglais' else slug
+    # Une photo refaite prend un nouveau nom (-v2, -v3…) : l'ancienne reste en cache un an chez les visiteurs
+    import re
+    if b.get('image'):
+        m = re.search(r'-v(\d+)\.jpg$', b['image']['url'])
+        name = f'{slug}-v{int(m.group(1)) + 1 if m else 2}'
+        old_files = [b['image']['url'], b['image']['url'][:-4] + '.webp']
+    else:
+        name, old_files = slug, []
     jpg = os.path.join(ROOT, 'images/breeds', name + '.jpg')
     webp = os.path.join(ROOT, 'images/breeds', name + '.webp')
     src = os.path.join(RAW, f)
@@ -33,6 +40,10 @@ for f in sorted(os.listdir(RAW)) if os.path.isdir(RAW) else []:
     subprocess.run(['cwebp', '-quiet', '-q', '72', src, '-o', webp], check=True)
     w, h = subprocess.run(['magick', 'identify', '-format', '%w %h', jpg], capture_output=True, text=True).stdout.split()
     b['image'] = {'url': f'images/breeds/{name}.jpg', 'width': int(w), 'height': int(h)}
+    for f in old_files:
+        if os.path.exists(os.path.join(ROOT, f)) and not f.endswith(name + '.jpg'):
+            os.remove(os.path.join(ROOT, f))
+    os.remove(src)
     added.append(slug)
 json.dump(data, open(data_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print(len(added), 'photos intégrées :', ', '.join(added))
