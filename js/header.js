@@ -36,7 +36,7 @@ function renderHeader() {
         <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200">
             <div class="max-w-[1600px] mx-auto px-4 sm:px-6 py-3">
                 <div class="flex items-center justify-between gap-4">
-                    <a href="/" class="flex items-center gap-3 group shrink-0" aria-label="Race de Chien, accueil">
+                    <a href="/" class="flex items-center gap-3 group shrink-0">
                         <span class="relative w-11 h-11 rounded-2xl flex items-center justify-center text-2xl bg-white">
                             <span aria-hidden="true" style="position:absolute;inset:0;border-radius:inherit;padding:2px;background:linear-gradient(135deg,#3b82f6,#9333ea);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></span>
                             <span aria-hidden="true">🐕</span>

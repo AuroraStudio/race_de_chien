@@ -632,9 +632,11 @@ const selectionCards = SELECTIONS.map(s => {
     return `                        <li><a href="/selections/${s.slug}" class="flex items-center gap-3 rounded-2xl border border-slate-200 px-4 py-3 hover:border-primary-300 hover:bg-primary-50"><span class="text-2xl" aria-hidden="true">${s.icon}</span><span><span class="block text-sm font-semibold text-slate-900">${esc(s.short)}</span><span class="block text-xs text-slate-500">${top.length} races</span></span></a></li>`;
 }).join('\n');
 const noscript = breeds.map(b => `                            <li><a href="/races/${b.slug}">${esc(b.name_fr)}</a></li>`).join('\n');
+// Boutons de profil écrits dans la page (le JS les redessine à l'identique) : la liste ne saute pas au chargement
+const profileButtons = S.PROFILES.map(p => `<button type="button" class="opt" data-profile="${p.id}" aria-pressed="false"><span aria-hidden="true">${p.icon}</span>${esc(p.label)}</button>`).join('');
 for (const f of fs.readdirSync(path.join(ROOT, 'templates/pages'))) {
     if (!f.endsWith('.html')) continue;
-    const html = fill(read(`templates/pages/${f}`), { ...commonVars, SELECTION_CARDS: selectionCards, NOSCRIPT_LIST: noscript });
+    const html = fill(read(`templates/pages/${f}`), { ...commonVars, SELECTION_CARDS: selectionCards, NOSCRIPT_LIST: noscript, PROFILE_BUTTONS: profileButtons });
     write(f, html);
 }
 
