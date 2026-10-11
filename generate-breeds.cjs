@@ -69,7 +69,7 @@ function fromOrigin(origin) {
 const SIZE_WORD = { toy: 'très petit', small: 'petit', medium: 'moyen', large: 'grand', giant: 'géant' };
 
 const SCORE_META = {
-    energie: { label: 'Énergie', words: ['Très calme', 'Calme', 'Modérée', 'Élevée', 'Débordante'] },
+    energie: { label: 'Énergie', words: ['Très calme', 'Calme', 'Modérée', 'Élevée', 'Débordante'], neutral: true },
     appartement: { label: 'En appartement', words: ['Impossible', 'Difficile', 'Possible', 'Bien', 'Parfait'] },
     solitude: { label: 'Seul à la maison', words: ['Très mal', 'Mal', 'Quelques heures', 'Bien', 'Très bien'] },
     enfants: { label: 'Avec les enfants', words: ['À éviter', 'Prudence', 'Correct', 'Bon', 'Excellent'] },
@@ -97,9 +97,29 @@ const SCORE_GROUPS = [
     ['Climat et santé', ['chaleur', 'froid', 'robustesse']]
 ];
 
-function gauge(v, reverse) {
-    return `<span class="gauge w-24 shrink-0" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= v ? (reverse ? 'on !bg-amber-400' : 'on') : ''}"></i>`).join('')}</span>`;
+// Ce que la note veut dire pour la plupart des foyers : atout, neutre ou à prévoir.
+// L'énergie et la garde ne sont ni bonnes ni mauvaises : tout dépend du maître.
+function tone(k, v) {
+    const m = SCORE_META[k];
+    if (m.neutral) return 'neutral';
+    const fav = m.reverse ? 6 - v : v;
+    return fav >= 4 ? 'good' : fav <= 2 ? 'watch' : 'mid';
 }
+const TONE = {
+    good: { text: 'text-emerald-700', bar: 'bg-emerald-500' },
+    mid: { text: 'text-slate-800', bar: 'bg-slate-400' },
+    watch: { text: 'text-amber-700', bar: 'bg-amber-500' },
+    neutral: { text: 'text-slate-800', bar: 'bg-primary-500' }
+};
+function gauge(k, v, cls = '') {
+    const t = TONE[tone(k, v)];
+    return `<span class="gauge ${cls}" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= v ? t.bar : ''}"></i>`).join('')}</span>`;
+}
+// Les 8 notes qui pèsent le plus dans le choix, résumées en tête de fiche
+const KEY_SCORES = [
+    ['energie', '⚡', 'Énergie'], ['enfants', '👶', 'Enfants'], ['appartement', '🏢', 'Appartement'], ['solitude', '🏠', 'Seul à la maison'],
+    ['premier_chien', '🌱', 'Premier chien'], ['chats', '🐈', 'Avec les chats'], ['aboiements', '🔊', 'Aboiements'], ['perte_poils', '🧹', 'Perte de poils']
+];
 
 function picture(b, cls, opts = {}) {
     if (!b.image) {
@@ -433,17 +453,37 @@ function breedPage(b) {
                         <h2 id="entretien" class="text-2xl font-bold text-slate-900">Poil et entretien</h2>
                         <p class="mt-3 leading-relaxed text-slate-700">Poil ${esc((coat.length || '').toLowerCase())}${coat.type ? `, ${esc(coat.type.toLowerCase())}` : ''}. Perte de poils ${word('perte_poils')}, entretien ${word('entretien_pelage')}.${(coat.colors || []).length ? ` Robes : ${coat.colors.map(esc).join(', ')}.` : ''}</p>
                     </section>
+
+                    <section aria-labelledby="notes" class="scroll-mt-24">
+                        <h2 id="notes" class="text-2xl font-bold text-slate-900">Toutes ses notes</h2>
+                        <p class="mt-2 text-sm text-slate-600">De 1 à 5, comparables d’une race à l’autre. En vert ce qui est un atout pour la plupart des foyers, en orange ce qu’il faut prévoir.</p>
+                        <div class="mt-5 gap-4 sm:columns-2">
+                            ${SCORE_GROUPS.map(([g, keys]) => `<div class="mb-4 break-inside-avoid rounded-2xl border border-slate-200 bg-white p-4">
+                                <h3 class="text-sm font-bold text-slate-900">${g}</h3>
+                                <dl class="mt-3 space-y-3">
+                                    ${keys.map(k => `<div class="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-3 gap-y-1.5 text-sm">
+                                        <dt class="text-slate-600">${SCORE_META[k].label}</dt>
+                                        <dd class="text-right font-semibold ${TONE[tone(k, s[k])].text}">${SCORE_META[k].words[s[k] - 1]}<span class="sr-only">, ${s[k]} sur 5</span></dd>
+                                        <dd class="col-span-2">${gauge(k, s[k])}</dd>
+                                    </div>`).join('')}
+                                </dl>
+                            </div>`).join('')}
+                        </div>
+                    </section>
                 </div>
 
-                <aside class="min-w-0" aria-labelledby="notes">
+                <aside class="order-first min-w-0 lg:order-none" aria-labelledby="bref">
                     <div class="rounded-3xl border border-slate-200 bg-white p-5 lg:sticky lg:top-[88px]">
-                        <h2 id="notes" class="text-lg font-bold text-slate-900">Les notes de la race</h2>
-                        <p class="mt-1 text-xs text-slate-500">De 1 à 5, comparables d’une race à l’autre.</p>
-                        ${SCORE_GROUPS.map(([g, keys]) => `
-                        <h3 class="mt-5 text-xs font-bold uppercase tracking-wider text-slate-500">${g}</h3>
-                        <dl class="mt-2 space-y-2.5">
-                            ${keys.map(k => `<div class="flex items-center justify-between gap-3 text-sm"><dt class="text-slate-700">${SCORE_META[k].label}</dt><dd class="flex items-center gap-2"><span class="text-xs font-medium text-slate-500">${SCORE_META[k].words[s[k] - 1]}</span>${gauge(s[k], SCORE_META[k].reverse)}<span class="sr-only">${s[k]} sur 5</span></dd></div>`).join('')}
-                        </dl>`).join('')}
+                        <h2 id="bref" class="text-lg font-bold text-slate-900">En bref</h2>
+                        <p class="mt-1 text-xs text-slate-500"><span class="font-semibold text-emerald-700">En vert</span> un atout, <span class="font-semibold text-amber-700">en orange</span> ce qu’il faut prévoir.</p>
+                        <dl class="mt-4 grid grid-cols-2 gap-2">
+                            ${KEY_SCORES.map(([k, icon, label]) => `<div class="rounded-2xl bg-slate-50 p-3">
+                                <dt class="flex items-center gap-1.5 text-xs font-medium text-slate-500"><span aria-hidden="true">${icon}</span>${label}</dt>
+                                <dd class="mt-1 text-[15px] font-bold leading-tight ${TONE[tone(k, s[k])].text}">${SCORE_META[k].words[s[k] - 1]}<span class="sr-only">, ${s[k]} sur 5</span></dd>
+                                <dd class="mt-2">${gauge(k, s[k])}</dd>
+                            </div>`).join('')}
+                        </dl>
+                        <a href="#notes" class="mt-4 flex items-center justify-center gap-1 rounded-xl border border-slate-200 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:border-primary-300 hover:text-primary-700">Toutes ses notes <span aria-hidden="true">↓</span></a>
                     </div>
                 </aside>
             </div>

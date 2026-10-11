@@ -137,8 +137,9 @@
 
                 <ul id="grid" class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4" aria-describedby="results-title"></ul>
                 <div id="empty" class="hidden rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center"></div>
-                <div class="mt-8 text-center">
-                    <button id="more-btn" type="button" class="hidden rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 hover:border-primary-300">Voir plus de races</button>
+                <div id="list-more" class="mt-8 hidden text-center" aria-live="polite">
+                    <p id="more-status" class="text-sm text-slate-500"></p>
+                    <button id="more-btn" type="button" class="sr-only focus:not-sr-only focus:mt-3 focus:inline-flex focus:rounded-2xl focus:border focus:border-slate-300 focus:bg-white focus:px-6 focus:py-3 focus:text-sm focus:font-semibold">Afficher les races suivantes</button>
                 </div>
 
                 <section class="mt-16 rounded-3xl border border-slate-200 bg-white p-6 sm:p-8" aria-labelledby="selections-titre">

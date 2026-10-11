@@ -16,6 +16,7 @@
     let breeds = [];
     let state = S.fromQuery(location.search);
     let shown = PAGE;
+    let lastResults = [];
     let compare = readCompare();
     const $ = id => document.getElementById(id);
     const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -197,6 +198,7 @@
 
         const grid = $('grid');
         const empty = $('empty');
+        lastResults = results;
         if (!results.length) {
             grid.innerHTML = '';
             empty.classList.remove('hidden');
@@ -205,16 +207,53 @@
             empty.classList.add('hidden');
             grid.innerHTML = results.slice(0, shown).map(card).join('');
         }
-        const more = $('more-btn');
-        const left = results.length - shown;
-        more.classList.toggle('hidden', left <= 0);
-        more.textContent = `Voir plus de races (${left} restantes)`;
+        renderMore();
 
         renderCompareBar();
         if (!opts.keepUrl) {
             const qs = S.toQuery(state);
             history.replaceState(null, '', qs ? `/?${qs}` : '/');
         }
+    }
+
+    // ---------- Chargement automatique au défilement ----------
+    function renderMore() {
+        const total = lastResults.length;
+        const n = Math.min(shown, total);
+        const more = $('list-more');
+        more.classList.toggle('hidden', total === 0);
+        $('more-status').textContent = n < total ? `${n} races affichées sur ${total}` : (total > PAGE ? `Les ${total} races sont affichées` : '');
+        $('more-btn').classList.toggle('hidden', n >= total);
+        // L'observateur ne se redéclenche que sur un changement : on le relance si le bas est déjà visible
+        if (io && n < total) { io.unobserve(more); io.observe(more); }
+    }
+
+    function showMore() {
+        if (shown >= lastResults.length) return;
+        const from = shown;
+        shown += PAGE;
+        $('grid').insertAdjacentHTML('beforeend', lastResults.slice(from, shown).map(card).join(''));
+        renderMore();
+    }
+
+    // Zone d'observation prolongée vers le haut : un défilement rapide qui saute par-dessus le bas de liste déclenche quand même
+    const io = 'IntersectionObserver' in window
+        ? new IntersectionObserver(entries => { if (entries.some(e => e.isIntersecting)) showMore(); }, { rootMargin: '100000px 0px 900px 0px' })
+        : null;
+    if (io) io.observe($('list-more'));
+
+    // Retour depuis une fiche : on retrouve la même longueur de liste et la même position
+    const BACK_KEY = 'rdc-list';
+    document.addEventListener('click', e => {
+        if (!e.target.closest('#grid a[href^="/races/"]')) return;
+        try { sessionStorage.setItem(BACK_KEY, JSON.stringify({ search: location.search, shown, y: scrollY })); } catch (err) { /* ignoré */ }
+    });
+    function restoreList() {
+        let saved = null;
+        try { saved = JSON.parse(sessionStorage.getItem(BACK_KEY) || 'null'); sessionStorage.removeItem(BACK_KEY); } catch (err) { /* ignoré */ }
+        if (!saved || saved.search !== location.search) return null;
+        shown = Math.max(PAGE, Number(saved.shown) || PAGE);
+        return Number(saved.y) || 0;
     }
 
     // Aucun résultat : on propose le critère à retirer qui libère le plus de races
@@ -296,10 +335,8 @@
             compare = [];
             saveCompare();
             render({ keepUrl: true });
-        } else if (t.id === 'more-btn') {
-            shown += PAGE;
-            render({ keepUrl: true });
-        } else if (t.id === 'filters-open') openSheet(true);
+        } else if (t.id === 'more-btn') showMore();
+        else if (t.id === 'filters-open') openSheet(true);
         else if (t.id === 'filters-close' || t.id === 'filters-apply') {
             openSheet(false);
             if (t.id === 'filters-apply') $('results-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -342,7 +379,9 @@
         // Rang de popularité LOF
         [...breeds].filter(b => b.lof?.['2025']).sort((a, b) => b.lof['2025'] - a.lof['2025']).forEach((b, i) => { b.lofRank = i + 1; });
         compare = compare.filter(slug => breeds.some(b => b.slug === slug));
+        const y = restoreList();
         render({ keepUrl: !location.search });
+        if (y) requestAnimationFrame(() => scrollTo(0, y));
     }
     init();
 })();
