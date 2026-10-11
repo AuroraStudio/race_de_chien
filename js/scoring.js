@@ -143,18 +143,18 @@
     }
 
     // Critères éliminatoires
-    function passesHard(b, state, skip) {
+    function passesHard(b, state) {
         if (state.q) {
             const q = normalize(state.q);
             const hay = normalize([b.name_fr, b.name, ...(b.name_alt || [])].join(' '));
             if (!hay.includes(q)) return false;
         }
-        if (skip !== 'sizes' && state.sizes.length && !state.sizes.includes(SIZE_ID[b.physical?.size_category])) return false;
-        if (skip !== 'coats' && state.coats.length && !state.coats.includes(b.coat?.length)) return false;
+        if (state.sizes.length && !state.sizes.includes(SIZE_ID[b.physical?.size_category])) return false;
+        if (state.coats.length && !state.coats.includes(b.coat?.length)) return false;
         if (state.hypo && !b.hypoallergenic) return false;
         if (state.entretien && b.scores.entretien_pelage > state.entretien) return false;
         if (state.france && b.country_code !== 'FR') return false;
-        if (skip !== 'groups' && state.groups.length && !state.groups.includes(b.fci?.group || 0)) return false;
+        if (state.groups.length && !state.groups.includes(b.fci?.group || 0)) return false;
         if (state.nocat && b.legal_category) return false;
         if (!state.nonfci && b.fci && b.fci.recognized === false) return false;
         return true;

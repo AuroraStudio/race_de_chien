@@ -4,6 +4,13 @@
     const PAGE = 24;
     const COMPARE_KEY = 'rdc-compare';
     const COAT_OPTIONS = ['Court', 'Moyen', 'Long', 'Sans poil'];
+    const RYTHME_LEVELS = [
+        { v: 1, icon: '🛋️', label: 'Canapé', desc: 'Grand pantouflard : de courtes sorties, 30 à 45 minutes par jour.' },
+        { v: 2, icon: '🚶', label: 'Calme', desc: 'Plutôt calme : des balades tranquilles, environ 45 minutes par jour.' },
+        { v: 3, icon: '🌳', label: 'Modéré', desc: 'Équilibré : une belle promenade et des jeux, environ 1 heure par jour.' },
+        { v: 4, icon: '🥾', label: 'Actif', desc: 'Actif : de longues sorties et des randonnées, environ 1 h 30 par jour.' },
+        { v: 5, icon: '🏃', label: 'Sportif', desc: 'Sportif : course, canicross, vélo, 2 heures et plus par jour.' }
+    ];
     const ENTRETIEN = [{ v: 0, label: 'Peu importe' }, { v: 2, label: 'Faible' }, { v: 3, label: 'Moyen au plus' }];
 
     let breeds = [];
@@ -45,9 +52,9 @@
                     ${q.options.map(o => `<button type="button" class="seg" data-q="${key}" data-v="${o.id}" aria-pressed="${pressed(state[key] === o.id)}">${esc(o.label)}</button>`).join('')}
                 </div>
             </div>`).join('');
-        const r = $('rythme');
-        r.value = state.rythme;
-        $('rythme-label').textContent = S.RYTHME[state.rythme];
+        $('rythme').innerHTML = RYTHME_LEVELS.map(l =>
+            `<button type="button" class="seg !px-0 flex flex-col items-center gap-0.5" data-rythme="${l.v}" aria-pressed="${pressed(state.rythme === l.v)}" title="${esc(S.RYTHME[l.v])}"><span class="text-lg leading-none" aria-hidden="true">${l.icon}</span><span class="text-[11px]">${l.label}</span></button>`).join('');
+        $('rythme-label').textContent = state.rythme ? RYTHME_LEVELS[state.rythme - 1].desc : 'Peu importe. Touchez un niveau pour classer les races selon leur énergie.';
         $('soft').innerHTML = Object.entries(S.SOFT).map(([key, c]) =>
             `<button type="button" class="opt" data-soft="${key}" aria-pressed="${pressed(state[key])}">${esc(c.label)}</button>`).join('');
         $('entretien').innerHTML = ENTRETIEN.map(e =>
@@ -55,23 +62,24 @@
     }
 
     // Compteurs par option : combien de races restent si on ajoute cette option
-    function countWith(patch, skip) {
+    // Pour une option d'un groupe (taille, poil, groupe FCI), on remplace la sélection du groupe par cette seule option
+    function countWith(patch) {
         const s = { ...state, ...patch };
         let n = 0;
-        for (const b of breeds) if (S.passesHard(b, s, skip)) n++;
+        for (const b of breeds) if (S.passesHard(b, s)) n++;
         return n;
     }
 
     function renderFacets() {
         $('sizes').innerHTML = S.SIZES.map(z => {
             const on = state.sizes.includes(z.id);
-            const n = countWith({ sizes: [z.id] }, 'sizes');
+            const n = countWith({ sizes: [z.id] });
             return `<button type="button" class="seg !px-0.5 border border-slate-200 bg-white ${n === 0 && !on ? 'opacity-40' : ''}" data-size="${z.id}" aria-pressed="${pressed(on)}" title="${z.hint}">
                 <span class="block">${z.label}</span><span class="block text-[10px] text-slate-400">${n}</span></button>`;
         }).join('');
         $('coats').innerHTML = COAT_OPTIONS.map(c => {
             const on = state.coats.includes(c);
-            const n = countWith({ coats: [c] }, 'coats');
+            const n = countWith({ coats: [c] });
             return `<button type="button" class="opt" data-coat="${c}" aria-pressed="${pressed(on)}" ${n === 0 && !on ? 'aria-disabled="true"' : ''}>${c} <span class="count">${n}</span></button>`;
         }).join('');
         const toggles = [
@@ -83,13 +91,13 @@
         $('hard-toggles').innerHTML = toggles.map(t => {
             const n = countWith({ [t.key]: !state[t.key] });
             const label = t.key === 'nonfci' ? t.label : `${t.label} <span class="count">${state[t.key] ? '' : n}</span>`;
-            return `<button type="button" class="opt" data-toggle="${t.key}" aria-pressed="${pressed(state[t.key])}" ${t.hint ? `title="${t.hint}"` : ''}>${label}</button>`;
+            return `<button type="button" class="opt opt-wrap" data-toggle="${t.key}" aria-pressed="${pressed(state[t.key])}" ${t.hint ? `title="${t.hint}"` : ''}>${label}</button>`;
         }).join('');
         const groups = [...Object.entries(S.FCI_GROUPS).map(([g, l]) => [Number(g), l])];
         if (state.nonfci) groups.push([0, 'Races non reconnues']);
         $('groups').innerHTML = groups.map(([g, l]) => {
             const on = state.groups.includes(g);
-            const n = countWith({ groups: [g] }, 'groups');
+            const n = countWith({ groups: [g] });
             return `<button type="button" class="flex items-center justify-between rounded-lg px-3 py-2 text-left text-sm ${on ? 'bg-primary-600 text-white' : 'bg-white text-slate-700 hover:bg-primary-50'} border ${on ? 'border-primary-600' : 'border-slate-200'} ${n === 0 && !on ? 'opacity-40' : ''}" data-group="${g}" aria-pressed="${pressed(on)}">
                 <span>${g ? `<span class="mr-1.5 font-semibold">${g}</span>` : ''}${esc(l)}</span><span class="text-xs ${on ? 'text-white/80' : 'text-slate-400'}">${n}</span></button>`;
         }).join('');
@@ -156,7 +164,7 @@
     function focusKey() {
         const a = document.activeElement;
         if (!a || !a.dataset) return null;
-        const k = ['profile', 'q', 'soft', 'entretien', 'size', 'coat', 'toggle', 'group'].find(x => a.dataset[x] !== undefined);
+        const k = ['profile', 'q', 'soft', 'rythme', 'entretien', 'size', 'coat', 'toggle', 'group'].find(x => a.dataset[x] !== undefined);
         return k ? `[data-${k}="${a.dataset[k]}"]${a.dataset.v ? `[data-v="${a.dataset.v}"]` : ''}` : null;
     }
 
@@ -252,6 +260,7 @@
             render();
         } else if (d.q) update({ [d.q]: state[d.q] === d.v ? null : d.v });
         else if (d.soft) update({ [d.soft]: !state[d.soft] });
+        else if (d.rythme) update({ rythme: state.rythme === Number(d.rythme) ? 0 : Number(d.rythme) });
         else if (d.entretien) update({ entretien: Number(d.entretien) });
         else if (d.size) {
             const z = Number(d.size);
@@ -297,7 +306,6 @@
         }
     });
 
-    $('rythme').addEventListener('input', e => update({ rythme: Number(e.target.value) }));
     $('sort').addEventListener('change', e => update({ sort: e.target.value }));
     let searchTimer;
     $('search').addEventListener('input', e => {

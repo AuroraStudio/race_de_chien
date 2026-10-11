@@ -57,7 +57,7 @@
                     </button>
                 </div>
 
-                <div class="flex-1 overflow-y-auto px-5 py-5 lg:sticky lg:top-[84px] lg:max-h-[calc(100vh-100px)] lg:px-0 lg:py-0 custom-scrollbar lg:pr-2">
+                <div class="flex-1 overflow-y-auto overflow-x-hidden px-5 py-5 lg:sticky lg:top-[84px] lg:max-h-[calc(100vh-100px)] lg:py-1 lg:pl-1 lg:pr-3 custom-scrollbar">
                     <div class="space-y-7">
                         <section aria-labelledby="f-vie">
                             <div class="mb-3 flex items-baseline justify-between">
@@ -66,9 +66,9 @@
                             </div>
                             <div id="questions" class="space-y-4"></div>
                             <div class="mt-4">
-                                <p class="mb-1.5 flex items-center justify-between text-sm font-semibold text-slate-700"><label for="rythme">Mon rythme</label><span id="rythme-label" class="text-primary-700">Peu importe</span></p>
-                                <input id="rythme" type="range" min="0" max="5" step="1" value="0" class="w-full accent-primary-600" aria-describedby="rythme-aide">
-                                <p id="rythme-aide" class="mt-1 flex justify-between text-[11px] text-slate-500"><span>Peu importe</span><span>🛋️ Pantouflard</span><span>Sportif 🏃</span></p>
+                                <p id="q-rythme" class="mb-1.5 text-sm font-semibold text-slate-700">Mon rythme</p>
+                                <div id="rythme" class="grid grid-cols-5 gap-1 rounded-xl bg-slate-100 p-1" role="group" aria-labelledby="q-rythme"></div>
+                                <p id="rythme-label" class="mt-1.5 text-xs leading-snug text-slate-500" aria-live="polite"></p>
                             </div>
                             <div class="mt-4">
                                 <p class="mb-2 text-sm font-semibold text-slate-700">À la maison et dans le quotidien</p>
