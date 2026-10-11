@@ -121,23 +121,36 @@ const KEY_SCORES = [
     ['premier_chien', '🌱', 'Premier chien'], ['chats', '🐈', 'Avec les chats'], ['aboiements', '🔊', 'Aboiements'], ['perte_poils', '🧹', 'Perte de poils']
 ];
 
+// Versions réduites de chaque photo (créées par sources/photos/ajouter-photos.py) : les cartes chargent 9 Ko au lieu de 60
+const VARIANTS = [480, 768];
+function srcset(b) {
+    const base = b.image.url.replace(/\.jpg$/, '');
+    const ok = VARIANTS.filter(w => fs.existsSync(path.join(ROOT, `${base}-${w}.webp`)));
+    if (ok.length < VARIANTS.length) console.warn(`⚠️  versions réduites manquantes : ${base}`);
+    return [...ok.map(w => `/${base}-${w}.webp ${w}w`), `/${base}.webp ${b.image.width}w`].join(', ');
+}
+const SIZES_CARD = '(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)';
+const SIZES_HERO = '(min-width: 1024px) 620px, calc(100vw - 32px)';
+
 function picture(b, cls, opts = {}) {
     if (!b.image) {
         return `<div class="flex h-full w-full flex-col items-center justify-center gap-1 bg-gradient-to-br from-primary-50 via-white to-secondary-50 text-slate-400 ${opts.box || ''}"><span class="${opts.big ? 'text-7xl' : 'text-4xl'}" aria-hidden="true">🐾</span><span class="text-xs font-semibold uppercase tracking-wider">Photo à venir</span></div>`;
     }
     const src = `/${b.image.url}`;
-    return `<picture><source srcset="${src.replace(/\.jpg$/, '.webp')}" type="image/webp"><img src="${src}" alt="${esc(opts.alt ?? b.name_fr)}" width="${b.image.width}" height="${b.image.height}" class="${cls}" ${opts.eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`;
+    const load = opts.eager ? 'fetchpriority="high"' : opts.soon ? '' : 'loading="lazy"';
+    return `<picture><source srcset="${srcset(b)}" sizes="${opts.sizes || SIZES_CARD}" type="image/webp"><img src="${src}" alt="${esc(opts.alt ?? b.name_fr)}" width="${b.image.width}" height="${b.image.height}" class="${cls}" ${load} decoding="async"></picture>`;
 }
 
 function staticCard(b, extra = {}) {
+    const h = extra.h || 'h3';
     const pct = extra.pct != null ? `<span class="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-sm font-extrabold shadow ${extra.pct >= 75 ? 'text-emerald-700' : extra.pct >= 55 ? 'text-amber-700' : 'text-slate-500'}">${extra.pct} %</span>` : '';
     const reasons = (extra.reasons || []).slice(0, 4).map(x => `<span class="${x.ok ? 'chip-ok' : 'chip-ko'}">${x.ok ? '✓ ' : ''}${esc(x.text)}</span>`).join('');
     const law = b.legal_category ? `<span class="chip-law">Catégorie ${esc(b.legal_category)}</span>` : '';
     return `<li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/${b.slug}" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">${picture(b, 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105')}${pct}</div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">${picture(b, 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105', { eager: extra.eager, soon: extra.soon })}${pct}</div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">${esc(b.name_fr)}</h3>
+                        <${h} class="text-[17px] font-bold leading-snug text-slate-900">${esc(b.name_fr)}</${h}>
                         <p class="mt-0.5 text-sm text-slate-500">${esc(b.origin || '')}${b.fci?.group ? ` · ${esc(S.FCI_GROUPS[b.fci.group])}` : ''}</p>
                         ${extra.note ? `<p class="mt-2 text-sm text-slate-600">${esc(extra.note)}</p>` : ''}
                         ${reasons || law ? `<div class="mt-3 flex flex-wrap gap-1.5">${law}${reasons}</div>` : ''}
@@ -210,6 +223,7 @@ const versions = {
     V_HEADER: hash('js/header.js'),
     V_COMPARE: fs.existsSync(path.join(ROOT, 'js/compare.js')) ? hash('js/compare.js') : '1',
     V_QUIZ: fs.existsSync(path.join(ROOT, 'js/quiz.js')) ? hash('js/quiz.js') : '1',
+    V_TELMAITRE: hash('js/tel-maitre.js'),
     V_CSS: '__V_CSS__'
 };
 
@@ -396,7 +410,7 @@ function breedPage(b) {
         <article>
             <header class="grid gap-6 overflow-hidden rounded-3xl border border-slate-200 bg-white lg:grid-cols-[1.15fr_1fr]">
                 <div class="relative aspect-[4/3] bg-slate-100 lg:aspect-auto lg:min-h-[420px]">
-                    ${picture(b, 'absolute inset-0 h-full w-full object-cover', { eager: true, big: true, alt: `${b.name_fr}, chien de race` })}
+                    ${picture(b, 'absolute inset-0 h-full w-full object-cover', { eager: true, big: true, sizes: SIZES_HERO, alt: `${b.name_fr}, chien de race` })}
                 </div>
                 <div class="flex flex-col justify-center p-6 lg:py-10 lg:pr-10">
                     <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">${esc(b.name_fr)}</h1>
@@ -553,7 +567,7 @@ function selectionPage(sel) {
             <a href="/?${q}" class="mt-5 inline-flex rounded-xl bg-primary-600 px-4 py-2.5 text-sm font-bold text-white hover:bg-primary-700">Affiner avec vos propres critères</a>
         </header>
         <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        ${top.map(r => staticCard(r.breed, { pct: r.pct, reasons: r.reasons })).join('')}
+        ${top.map((r, i) => staticCard(r.breed, { pct: r.pct, reasons: r.reasons, h: 'h2', eager: i === 0, soon: i > 0 && i < 4 })).join('')}
         </ul>
         ${avoid.length ? `
         <section class="mt-14" aria-labelledby="eviter">

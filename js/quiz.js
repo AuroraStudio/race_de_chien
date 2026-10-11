@@ -75,7 +75,7 @@
     function card(r, i) {
         const b = r.breed;
         const img = b.image
-            ? `<img src="/${b.image.url.replace(/\.jpg$/, '.webp')}" alt="${esc(b.name_fr)}" class="h-full w-full object-cover" loading="lazy">`
+            ? `<img src="/${b.image.url.replace(/\.jpg$/, '-480.webp')}" alt="${esc(b.name_fr)}" class="h-full w-full object-cover" loading="lazy">`
             : '<div class="flex h-full items-center justify-center bg-gradient-to-br from-primary-50 to-secondary-50 text-4xl">🐾</div>';
         return `<li class="overflow-hidden rounded-2xl border border-slate-200 bg-white">
             <a href="/races/${b.slug}" class="flex">

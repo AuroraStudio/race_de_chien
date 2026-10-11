@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Police hébergée sur le site (sous-ensemble latin, variable 400 à 800) : plus de requête bloquante vers Google Fonts */
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 400 800;
+    font-display: swap;
+    src: url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+}
+/* Arial recalée sur les proportions de Plus Jakarta Sans : le texte ne saute pas quand la police arrive */
+@font-face {
+    font-family: 'Plus Jakarta Sans Fallback';
+    src: local('Arial'), local('Helvetica');
+    size-adjust: 104.67%;
+    ascent-override: 99.17%;
+    descent-override: 21.21%;
+    line-gap-override: 0%;
+}
+
 @layer components {
     .gradient-text { background: linear-gradient(135deg, #2563eb 0%, #c026d3 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
     .card-hover { transition: transform .25s cubic-bezier(.4,0,.2,1), box-shadow .25s cubic-bezier(.4,0,.2,1); }

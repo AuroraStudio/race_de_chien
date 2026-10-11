@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="/css/site.css?v=90eafea567">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/site.css?v=d5406a3d19">
     <meta name="theme-color" content="#2563eb">
 
     <title>Les races de chiens françaises | Race de Chien</title>
@@ -40,9 +37,9 @@
         <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/epagneul-breton" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/epagneul-breton.webp" type="image/webp"><img src="/images/breeds/epagneul-breton.jpg" alt="Épagneul Breton" width="1200" height="880" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/epagneul-breton-480.webp 480w, /images/breeds/epagneul-breton-768.webp 768w, /images/breeds/epagneul-breton.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/epagneul-breton.jpg" alt="Épagneul Breton" width="1200" height="880" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" fetchpriority="high" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Épagneul Breton</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Épagneul Breton</h2>
                         <p class="mt-0.5 text-sm text-slate-500">Bretagne, France · Chiens d&#39;arrêt</p>
                         
                         
@@ -50,9 +47,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/bouledogue-francais" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/bouledogue-francais.webp" type="image/webp"><img src="/images/breeds/bouledogue-francais.jpg" alt="Bouledogue Français" width="1200" height="880" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/bouledogue-francais-480.webp 480w, /images/breeds/bouledogue-francais-768.webp 768w, /images/breeds/bouledogue-francais.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/bouledogue-francais.jpg" alt="Bouledogue Français" width="1200" height="880" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"  decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Bouledogue Français</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Bouledogue Français</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens de compagnie</p>
                         
                         
@@ -60,9 +57,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/beauceron" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/beauceron.webp" type="image/webp"><img src="/images/breeds/beauceron.jpg" alt="Beauceron" width="1168" height="912" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/beauceron-480.webp 480w, /images/breeds/beauceron-768.webp 768w, /images/breeds/beauceron.webp 1168w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/beauceron.jpg" alt="Beauceron" width="1168" height="912" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"  decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Beauceron</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Beauceron</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Bergers et bouviers</p>
                         
                         
@@ -70,9 +67,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/caniche-nain" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/caniche-nain-v2.webp" type="image/webp"><img src="/images/breeds/caniche-nain-v2.jpg" alt="Caniche Nain" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/caniche-nain-v2-480.webp 480w, /images/breeds/caniche-nain-v2-768.webp 768w, /images/breeds/caniche-nain-v2.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/caniche-nain-v2.jpg" alt="Caniche Nain" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"  decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Caniche Nain</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Caniche Nain</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens de compagnie</p>
                         
                         
@@ -80,9 +77,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/bichon-frise" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/bichon-frise-v2.webp" type="image/webp"><img src="/images/breeds/bichon-frise-v2.jpg" alt="Bichon Frisé" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/bichon-frise-v2-480.webp 480w, /images/breeds/bichon-frise-v2-768.webp 768w, /images/breeds/bichon-frise-v2.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/bichon-frise-v2.jpg" alt="Bichon Frisé" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Bichon Frisé</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Bichon Frisé</h2>
                         <p class="mt-0.5 text-sm text-slate-500">Belgique / France · Chiens de compagnie</p>
                         
                         
@@ -90,9 +87,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/griffon-d-arret-a-poil-dur" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/griffon-d-arret-a-poil-dur-v2.webp" type="image/webp"><img src="/images/breeds/griffon-d-arret-a-poil-dur-v2.jpg" alt="Griffon d&#39;arrêt à poil dur Korthals" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/griffon-d-arret-a-poil-dur-v2-480.webp 480w, /images/breeds/griffon-d-arret-a-poil-dur-v2-768.webp 768w, /images/breeds/griffon-d-arret-a-poil-dur-v2.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/griffon-d-arret-a-poil-dur-v2.jpg" alt="Griffon d&#39;arrêt à poil dur Korthals" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Griffon d&#39;arrêt à poil dur Korthals</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Griffon d&#39;arrêt à poil dur Korthals</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens d&#39;arrêt</p>
                         
                         
@@ -100,9 +97,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/basset-hound" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/basset-hound.webp" type="image/webp"><img src="/images/breeds/basset-hound.jpg" alt="Basset Hound" width="1264" height="848" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/basset-hound-480.webp 480w, /images/breeds/basset-hound-768.webp 768w, /images/breeds/basset-hound.webp 1264w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/basset-hound.jpg" alt="Basset Hound" width="1264" height="848" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Basset Hound</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Basset Hound</h2>
                         <p class="mt-0.5 text-sm text-slate-500">Grande-Bretagne · Chiens courants</p>
                         
                         
@@ -110,9 +107,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/basset-fauve-de-bretagne" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/basset-fauve-de-bretagne.webp" type="image/webp"><img src="/images/breeds/basset-fauve-de-bretagne.jpg" alt="Basset fauve de Bretagne" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/basset-fauve-de-bretagne-480.webp 480w, /images/breeds/basset-fauve-de-bretagne-768.webp 768w, /images/breeds/basset-fauve-de-bretagne.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/basset-fauve-de-bretagne.jpg" alt="Basset fauve de Bretagne" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Basset fauve de Bretagne</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Basset fauve de Bretagne</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens courants</p>
                         
                         
@@ -120,9 +117,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/gascon-saintongeois" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/gascon-saintongeois.webp" type="image/webp"><img src="/images/breeds/gascon-saintongeois.jpg" alt="Gascon saintongeois" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/gascon-saintongeois-480.webp 480w, /images/breeds/gascon-saintongeois-768.webp 768w, /images/breeds/gascon-saintongeois.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/gascon-saintongeois.jpg" alt="Gascon saintongeois" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Gascon saintongeois</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Gascon saintongeois</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens courants</p>
                         
                         
@@ -130,9 +127,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/braque-francais-type-pyrenees" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/braque-francais-type-pyrenees.webp" type="image/webp"><img src="/images/breeds/braque-francais-type-pyrenees.jpg" alt="Braque français, type Pyrénées" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/braque-francais-type-pyrenees-480.webp 480w, /images/breeds/braque-francais-type-pyrenees-768.webp 768w, /images/breeds/braque-francais-type-pyrenees.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/braque-francais-type-pyrenees.jpg" alt="Braque français, type Pyrénées" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Braque français, type Pyrénées</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Braque français, type Pyrénées</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens d&#39;arrêt</p>
                         
                         
@@ -140,9 +137,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/epagneul-papillon" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/epagneul-papillon-v2.webp" type="image/webp"><img src="/images/breeds/epagneul-papillon-v2.jpg" alt="Épagneul nain continental (Papillon)" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/epagneul-papillon-v2-480.webp 480w, /images/breeds/epagneul-papillon-v2-768.webp 768w, /images/breeds/epagneul-papillon-v2.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/epagneul-papillon-v2.jpg" alt="Épagneul nain continental (Papillon)" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Épagneul nain continental (Papillon)</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Épagneul nain continental (Papillon)</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France et Belgique · Chiens de compagnie</p>
                         
                         
@@ -150,9 +147,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/griffon-nivernais" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/griffon-nivernais.webp" type="image/webp"><img src="/images/breeds/griffon-nivernais.jpg" alt="Griffon nivernais" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/griffon-nivernais-480.webp 480w, /images/breeds/griffon-nivernais-768.webp 768w, /images/breeds/griffon-nivernais.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/griffon-nivernais.jpg" alt="Griffon nivernais" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Griffon nivernais</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Griffon nivernais</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens courants</p>
                         
                         
@@ -160,9 +157,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/griffon-bleu-de-gascogne" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/griffon-bleu-de-gascogne.webp" type="image/webp"><img src="/images/breeds/griffon-bleu-de-gascogne.jpg" alt="Griffon bleu de Gascogne" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/griffon-bleu-de-gascogne-480.webp 480w, /images/breeds/griffon-bleu-de-gascogne-768.webp 768w, /images/breeds/griffon-bleu-de-gascogne.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/griffon-bleu-de-gascogne.jpg" alt="Griffon bleu de Gascogne" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Griffon bleu de Gascogne</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Griffon bleu de Gascogne</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens courants</p>
                         
                         
@@ -170,9 +167,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/dogue-de-bordeaux" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/dogue-de-bordeaux.webp" type="image/webp"><img src="/images/breeds/dogue-de-bordeaux.jpg" alt="Dogue de Bordeaux" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/dogue-de-bordeaux-480.webp 480w, /images/breeds/dogue-de-bordeaux-768.webp 768w, /images/breeds/dogue-de-bordeaux.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/dogue-de-bordeaux.jpg" alt="Dogue de Bordeaux" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Dogue de Bordeaux</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Dogue de Bordeaux</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Molosses, pinschers et bouviers suisses</p>
                         
                         
@@ -180,9 +177,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/beagle-harrier" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/beagle-harrier.webp" type="image/webp"><img src="/images/breeds/beagle-harrier.jpg" alt="Beagle-harrier" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/beagle-harrier-480.webp 480w, /images/breeds/beagle-harrier-768.webp 768w, /images/breeds/beagle-harrier.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/beagle-harrier.jpg" alt="Beagle-harrier" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Beagle-harrier</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Beagle-harrier</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens courants</p>
                         
                         
@@ -190,9 +187,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/porcelaine" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/porcelaine.webp" type="image/webp"><img src="/images/breeds/porcelaine.jpg" alt="Porcelaine" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/porcelaine-480.webp 480w, /images/breeds/porcelaine-768.webp 768w, /images/breeds/porcelaine.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/porcelaine.jpg" alt="Porcelaine" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Porcelaine</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Porcelaine</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens courants</p>
                         
                         
@@ -200,9 +197,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/berger-des-pyrenees-a-poil-long" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/berger-des-pyrenees-a-poil-long.webp" type="image/webp"><img src="/images/breeds/berger-des-pyrenees-a-poil-long.jpg" alt="Berger des Pyrénées à poil long" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/berger-des-pyrenees-a-poil-long-480.webp 480w, /images/breeds/berger-des-pyrenees-a-poil-long-768.webp 768w, /images/breeds/berger-des-pyrenees-a-poil-long.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/berger-des-pyrenees-a-poil-long.jpg" alt="Berger des Pyrénées à poil long" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Berger des Pyrénées à poil long</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Berger des Pyrénées à poil long</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Bergers et bouviers</p>
                         
                         
@@ -210,9 +207,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/chien-de-montagne-des-pyrenees" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/chien-de-montagne-des-pyrenees-v2.webp" type="image/webp"><img src="/images/breeds/chien-de-montagne-des-pyrenees-v2.jpg" alt="Chien de Montagne des Pyrénées" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/chien-de-montagne-des-pyrenees-v2-480.webp 480w, /images/breeds/chien-de-montagne-des-pyrenees-v2-768.webp 768w, /images/breeds/chien-de-montagne-des-pyrenees-v2.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/chien-de-montagne-des-pyrenees-v2.jpg" alt="Chien de Montagne des Pyrénées" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Chien de Montagne des Pyrénées</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Chien de Montagne des Pyrénées</h2>
                         <p class="mt-0.5 text-sm text-slate-500">Montagnes des Pyrénées, France · Molosses, pinschers et bouviers suisses</p>
                         
                         
@@ -220,9 +217,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/griffon-fauve-de-bretagne" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/griffon-fauve-de-bretagne.webp" type="image/webp"><img src="/images/breeds/griffon-fauve-de-bretagne.jpg" alt="Griffon fauve de Bretagne" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/griffon-fauve-de-bretagne-480.webp 480w, /images/breeds/griffon-fauve-de-bretagne-768.webp 768w, /images/breeds/griffon-fauve-de-bretagne.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/griffon-fauve-de-bretagne.jpg" alt="Griffon fauve de Bretagne" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Griffon fauve de Bretagne</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Griffon fauve de Bretagne</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens courants</p>
                         
                         
@@ -230,9 +227,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/caniche-toy" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/caniche-toy-v2.webp" type="image/webp"><img src="/images/breeds/caniche-toy-v2.jpg" alt="Caniche Toy" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/caniche-toy-v2-480.webp 480w, /images/breeds/caniche-toy-v2-768.webp 768w, /images/breeds/caniche-toy-v2.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/caniche-toy-v2.jpg" alt="Caniche Toy" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Caniche Toy</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Caniche Toy</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens de compagnie</p>
                         
                         
@@ -240,9 +237,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/berger-de-picardie" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/berger-de-picardie.webp" type="image/webp"><img src="/images/breeds/berger-de-picardie.jpg" alt="Berger de Picardie (Berger picard)" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/berger-de-picardie-480.webp 480w, /images/breeds/berger-de-picardie-768.webp 768w, /images/breeds/berger-de-picardie.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/berger-de-picardie.jpg" alt="Berger de Picardie (Berger picard)" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Berger de Picardie (Berger picard)</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Berger de Picardie (Berger picard)</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Bergers et bouviers</p>
                         
                         
@@ -250,9 +247,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/epagneul-francais" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/epagneul-francais.webp" type="image/webp"><img src="/images/breeds/epagneul-francais.jpg" alt="Épagneul français" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/epagneul-francais-480.webp 480w, /images/breeds/epagneul-francais-768.webp 768w, /images/breeds/epagneul-francais.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/epagneul-francais.jpg" alt="Épagneul français" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Épagneul français</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Épagneul français</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens d&#39;arrêt</p>
                         
                         
@@ -260,9 +257,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/petit-bleu-de-gascogne" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/petit-bleu-de-gascogne.webp" type="image/webp"><img src="/images/breeds/petit-bleu-de-gascogne.jpg" alt="Petit bleu de Gascogne" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/petit-bleu-de-gascogne-480.webp 480w, /images/breeds/petit-bleu-de-gascogne-768.webp 768w, /images/breeds/petit-bleu-de-gascogne.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/petit-bleu-de-gascogne.jpg" alt="Petit bleu de Gascogne" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Petit bleu de Gascogne</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Petit bleu de Gascogne</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens courants</p>
                         
                         
@@ -270,9 +267,9 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/ariegeois" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/ariegeois.webp" type="image/webp"><img src="/images/breeds/ariegeois.jpg" alt="Ariégeois" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/ariegeois-480.webp 480w, /images/breeds/ariegeois-768.webp 768w, /images/breeds/ariegeois.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/ariegeois.jpg" alt="Ariégeois" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
-                        <h3 class="text-[17px] font-bold leading-snug text-slate-900">Ariégeois</h3>
+                        <h2 class="text-[17px] font-bold leading-snug text-slate-900">Ariégeois</h2>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens courants</p>
                         
                         

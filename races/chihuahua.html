@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="/css/site.css?v=90eafea567">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/site.css?v=d5406a3d19">
     <meta name="theme-color" content="#2563eb">
 
     <title>Chihuahua : caractère, éducation, santé et entretien | Race de Chien</title>
@@ -38,7 +35,7 @@
         <article>
             <header class="grid gap-6 overflow-hidden rounded-3xl border border-slate-200 bg-white lg:grid-cols-[1.15fr_1fr]">
                 <div class="relative aspect-[4/3] bg-slate-100 lg:aspect-auto lg:min-h-[420px]">
-                    <picture><source srcset="/images/breeds/chihuahua.webp" type="image/webp"><img src="/images/breeds/chihuahua.jpg" alt="Chihuahua, chien de race" width="1200" height="896" class="absolute inset-0 h-full w-full object-cover" fetchpriority="high" decoding="async"></picture>
+                    <picture><source srcset="/images/breeds/chihuahua-480.webp 480w, /images/breeds/chihuahua-768.webp 768w, /images/breeds/chihuahua.webp 1200w" sizes="(min-width: 1024px) 620px, calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/chihuahua.jpg" alt="Chihuahua, chien de race" width="1200" height="896" class="absolute inset-0 h-full w-full object-cover" fetchpriority="high" decoding="async"></picture>
                 </div>
                 <div class="flex flex-col justify-center p-6 lg:py-10 lg:pr-10">
                     <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Chihuahua</h1>
@@ -257,7 +254,7 @@
             <ul class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             <li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/epagneul-tibetain" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/epagneul-tibetain.webp" type="image/webp"><img src="/images/breeds/epagneul-tibetain.jpg" alt="Épagneul Tibétain" width="1264" height="848" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/epagneul-tibetain-480.webp 480w, /images/breeds/epagneul-tibetain-768.webp 768w, /images/breeds/epagneul-tibetain.webp 1264w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/epagneul-tibetain.jpg" alt="Épagneul Tibétain" width="1264" height="848" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
                         <h3 class="text-[17px] font-bold leading-snug text-slate-900">Épagneul Tibétain</h3>
                         <p class="mt-0.5 text-sm text-slate-500">Tibet · Chiens de compagnie</p>
@@ -267,7 +264,7 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/petit-chien-russe" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/petit-chien-russe-v2.webp" type="image/webp"><img src="/images/breeds/petit-chien-russe-v2.jpg" alt="Petit chien russe (Russkiy Toy)" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/petit-chien-russe-v2-480.webp 480w, /images/breeds/petit-chien-russe-v2-768.webp 768w, /images/breeds/petit-chien-russe-v2.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/petit-chien-russe-v2.jpg" alt="Petit chien russe (Russkiy Toy)" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
                         <h3 class="text-[17px] font-bold leading-snug text-slate-900">Petit chien russe (Russkiy Toy)</h3>
                         <p class="mt-0.5 text-sm text-slate-500">Russie · Chiens de compagnie</p>
@@ -277,7 +274,7 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/toy-terrier-anglais-noir-et-feu" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/toy-terrier-anglais-noir-et-feu.webp" type="image/webp"><img src="/images/breeds/toy-terrier-anglais-noir-et-feu.jpg" alt="Toy Terrier Anglais (Noir et Feu)" width="1264" height="848" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/toy-terrier-anglais-noir-et-feu-480.webp 480w, /images/breeds/toy-terrier-anglais-noir-et-feu-768.webp 768w, /images/breeds/toy-terrier-anglais-noir-et-feu.webp 1264w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/toy-terrier-anglais-noir-et-feu.jpg" alt="Toy Terrier Anglais (Noir et Feu)" width="1264" height="848" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
                         <h3 class="text-[17px] font-bold leading-snug text-slate-900">Toy Terrier Anglais (Noir et Feu)</h3>
                         <p class="mt-0.5 text-sm text-slate-500">Angleterre · Terriers</p>
@@ -287,7 +284,7 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/affenpinscher" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/affenpinscher.webp" type="image/webp"><img src="/images/breeds/affenpinscher.jpg" alt="Affenpinscher" width="1184" height="912" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/affenpinscher-480.webp 480w, /images/breeds/affenpinscher-768.webp 768w, /images/breeds/affenpinscher.webp 1184w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/affenpinscher.jpg" alt="Affenpinscher" width="1184" height="912" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
                         <h3 class="text-[17px] font-bold leading-snug text-slate-900">Affenpinscher</h3>
                         <p class="mt-0.5 text-sm text-slate-500">Allemagne · Molosses, pinschers et bouviers suisses</p>

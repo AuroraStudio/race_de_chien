@@ -125,6 +125,11 @@
     }
 
     // ---------- Cartes ----------
+    // Versions réduites (480 et 768 px) créées avec chaque photo : une carte charge 9 Ko au lieu de 60
+    function srcset(b) {
+        const base = '/' + b.image.url.replace(/\.jpg$/, '');
+        return `${base}-480.webp 480w, ${base}-768.webp 768w, ${base}.webp ${b.image.width}w`;
+    }
     function gauge(v) {
         return `<span class="gauge" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= v ? 'on' : ''}"></i>`).join('')}</span>`;
     }
@@ -132,7 +137,7 @@
     function card(r, i) {
         const b = r.breed;
         const img = b.image
-            ? `<picture><source srcset="/${b.image.url.replace(/\.jpg$/, '.webp')}" type="image/webp"><img src="/${b.image.url}" alt="${esc(b.name_fr)}" width="${b.image.width}" height="${b.image.height}" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:static" ${i < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`
+            ? `<picture><source srcset="${srcset(b)}" sizes="(min-width: 1024px) 330px, (min-width: 640px) 45vw, 38vw" type="image/webp"><img src="/${b.image.url}" alt="${esc(b.name_fr)}" width="${b.image.width}" height="${b.image.height}" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:static" ${i < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`
             : `<div class="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-gradient-to-br sm:static sm:h-full from-primary-50 via-white to-secondary-50 text-slate-400"><span class="text-3xl sm:text-5xl" aria-hidden="true">🐾</span><span class="text-[10px] font-semibold uppercase tracking-wider sm:text-xs">Photo à venir</span></div>`;
         const pct = r.pct != null
             ? `<span class="absolute left-2 top-2 rounded-full bg-white/95 px-2 py-0.5 text-xs font-extrabold shadow sm:left-3 sm:top-3 sm:px-2.5 sm:py-1 sm:text-sm ${r.pct >= 75 ? 'text-emerald-700' : r.pct >= 55 ? 'text-amber-700' : 'text-slate-500'}">${r.pct} %</span>` : '';
@@ -156,7 +161,7 @@
                     ${reasons || law ? `<div class="mt-3 flex flex-wrap gap-1.5">${law}${reasons}</div>` : ''}
                 </div>
             </a>
-            <button type="button" class="absolute bottom-2.5 right-2.5 flex h-8 items-center gap-1 rounded-full px-3 text-xs font-bold shadow transition-colors sm:bottom-auto sm:right-3 sm:top-3 sm:h-9 ${inCmp ? 'bg-primary-600 text-white' : 'bg-white/95 text-slate-700 hover:bg-white'}" data-compare="${b.slug}" aria-pressed="${pressed(inCmp)}" aria-label="${inCmp ? 'Retirer de la comparaison' : 'Ajouter à la comparaison'} : ${esc(b.name_fr)}">${inCmp ? '✓ Comparer' : '+ Comparer'}</button>
+            <button type="button" class="absolute bottom-2.5 right-2.5 flex h-8 items-center gap-1 rounded-full px-3 text-xs font-bold shadow transition-colors sm:bottom-auto sm:right-3 sm:top-3 sm:h-9 ${inCmp ? 'bg-primary-600 text-white' : 'bg-white/95 text-slate-700 hover:bg-white'}" data-compare="${b.slug}" aria-pressed="${pressed(inCmp)}" aria-label="Comparer ${esc(b.name_fr)}">${inCmp ? '✓ Comparer' : '+ Comparer'}</button>
         </li>`;
     }
 
@@ -276,7 +281,7 @@
         $('compare-go').href = '/compare?races=' + compare.join(',');
         $('compare-thumbs').innerHTML = compare.map(slug => {
             const b = breeds.find(x => x.slug === slug);
-            return b?.image ? `<img src="/${b.image.url.replace(/\.jpg$/, '.webp')}" alt="" class="h-9 w-9 rounded-full border-2 border-white object-cover">`
+            return b?.image ? `<img src="/${b.image.url.replace(/\.jpg$/, '-480.webp')}" alt="" class="h-9 w-9 rounded-full border-2 border-white object-cover">`
                 : `<span class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-primary-100 text-xs">🐾</span>`;
         }).join('');
     }

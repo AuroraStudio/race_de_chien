@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="/css/site.css?v=90eafea567">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/site.css?v=d5406a3d19">
     <meta name="theme-color" content="#2563eb">
 
     <title>Bulldog Anglais : caractère, éducation, santé et entretien | Race de Chien</title>
@@ -38,7 +35,7 @@
         <article>
             <header class="grid gap-6 overflow-hidden rounded-3xl border border-slate-200 bg-white lg:grid-cols-[1.15fr_1fr]">
                 <div class="relative aspect-[4/3] bg-slate-100 lg:aspect-auto lg:min-h-[420px]">
-                    <picture><source srcset="/images/breeds/bouledogue-anglais-v2.webp" type="image/webp"><img src="/images/breeds/bouledogue-anglais-v2.jpg" alt="Bulldog Anglais, chien de race" width="1200" height="896" class="absolute inset-0 h-full w-full object-cover" fetchpriority="high" decoding="async"></picture>
+                    <picture><source srcset="/images/breeds/bouledogue-anglais-v2-480.webp 480w, /images/breeds/bouledogue-anglais-v2-768.webp 768w, /images/breeds/bouledogue-anglais-v2.webp 1200w" sizes="(min-width: 1024px) 620px, calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/bouledogue-anglais-v2.jpg" alt="Bulldog Anglais, chien de race" width="1200" height="896" class="absolute inset-0 h-full w-full object-cover" fetchpriority="high" decoding="async"></picture>
                 </div>
                 <div class="flex flex-col justify-center p-6 lg:py-10 lg:pr-10">
                     <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Bulldog Anglais</h1>
@@ -257,7 +254,7 @@
             <ul class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             <li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/bouledogue-francais" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/bouledogue-francais.webp" type="image/webp"><img src="/images/breeds/bouledogue-francais.jpg" alt="Bouledogue Français" width="1200" height="880" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/bouledogue-francais-480.webp 480w, /images/breeds/bouledogue-francais-768.webp 768w, /images/breeds/bouledogue-francais.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/bouledogue-francais.jpg" alt="Bouledogue Français" width="1200" height="880" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
                         <h3 class="text-[17px] font-bold leading-snug text-slate-900">Bouledogue Français</h3>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens de compagnie</p>
@@ -267,7 +264,7 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/basset-hound" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/basset-hound.webp" type="image/webp"><img src="/images/breeds/basset-hound.jpg" alt="Basset Hound" width="1264" height="848" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/basset-hound-480.webp 480w, /images/breeds/basset-hound-768.webp 768w, /images/breeds/basset-hound.webp 1264w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/basset-hound.jpg" alt="Basset Hound" width="1264" height="848" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
                         <h3 class="text-[17px] font-bold leading-snug text-slate-900">Basset Hound</h3>
                         <p class="mt-0.5 text-sm text-slate-500">Grande-Bretagne · Chiens courants</p>
@@ -277,7 +274,7 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/carlin" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/carlin.webp" type="image/webp"><img src="/images/breeds/carlin.jpg" alt="Carlin" width="1264" height="832" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/carlin-480.webp 480w, /images/breeds/carlin-768.webp 768w, /images/breeds/carlin.webp 1264w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/carlin.jpg" alt="Carlin" width="1264" height="832" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
                         <h3 class="text-[17px] font-bold leading-snug text-slate-900">Carlin</h3>
                         <p class="mt-0.5 text-sm text-slate-500">Chine · Chiens de compagnie</p>
@@ -287,7 +284,7 @@
                 </a>
             </li><li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/basset-artesien-normand" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/basset-artesien-normand.webp" type="image/webp"><img src="/images/breeds/basset-artesien-normand.jpg" alt="Basset artésien normand" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><picture><source srcset="/images/breeds/basset-artesien-normand-480.webp 480w, /images/breeds/basset-artesien-normand-768.webp 768w, /images/breeds/basset-artesien-normand.webp 1200w" sizes="(min-width: 1024px) 300px, (min-width: 640px) calc(50vw - 40px), calc(100vw - 32px)" type="image/webp"><img src="/images/breeds/basset-artesien-normand.jpg" alt="Basset artésien normand" width="1200" height="896" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async"></picture></div>
                     <div class="p-4">
                         <h3 class="text-[17px] font-bold leading-snug text-slate-900">Basset artésien normand</h3>
                         <p class="mt-0.5 text-sm text-slate-500">France · Chiens courants</p>

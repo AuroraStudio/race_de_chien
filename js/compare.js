@@ -53,7 +53,7 @@
         const head = list.map(b => `
             <th scope="col" class="min-w-[180px] p-3 align-top">
                 <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white">
-                    <div class="aspect-[4/3] bg-slate-100">${b.image ? `<img src="/${b.image.url.replace(/\.jpg$/, '.webp')}" alt="" class="h-full w-full object-cover">` : '<div class="flex h-full items-center justify-center text-4xl">🐾</div>'}</div>
+                    <div class="aspect-[4/3] bg-slate-100">${b.image ? `<img src="/${b.image.url.replace(/\.jpg$/, '-480.webp')}" alt="" class="h-full w-full object-cover">` : '<div class="flex h-full items-center justify-center text-4xl">🐾</div>'}</div>
                     <div class="p-3 text-left">
                         <a href="/races/${b.slug}" class="font-bold text-slate-900 hover:text-primary-700">${esc(b.name_fr)}</a>
                         <p class="text-xs font-normal text-slate-500">${esc(b.origin || '')}</p>

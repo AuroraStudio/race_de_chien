@@ -202,7 +202,7 @@
     <div class="site-header"></div>
 
     <!-- Main Content -->
-    <main class="pt-24 pb-20">
+    <main class="min-h-screen pt-24 pb-20">
         <div class="max-w-3xl mx-auto px-4 sm:px-6">
 
             <!-- ===== HERO SECTION ===== -->
@@ -214,8 +214,8 @@
                 <p class="text-lg text-slate-500 max-w-xl mx-auto mb-2">
                     Prenez un selfie et découvrez à quelle race de chien vous ressemblez parmi nos <strong class="text-slate-700">231 races</strong> !
                 </p>
-                <p class="text-sm text-slate-400 flex items-center justify-center gap-2">
-                    <i class="fas fa-shield-halved text-green-500"></i>
+                <p class="text-sm text-slate-600 flex items-center justify-center gap-2">
+                    <svg class="h-[1.1em] w-[1.1em] shrink-0 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
                     Votre photo est analysée par l'IA Claude d'Anthropic. Nous ne la conservons pas, et elle ne sert pas à entraîner l'IA.
                 </p>
             </section>
@@ -228,7 +228,7 @@
                     <div id="capture-placeholder" class="text-center">
                         <div class="text-5xl mb-4 animate-wiggle">📸</div>
                         <p class="text-slate-700 font-semibold text-lg mb-2">Prenez un selfie ou importez une photo</p>
-                        <p class="text-slate-400 text-sm mb-6">Cliquez ici, glissez-déposez une photo, ou utilisez les boutons ci-dessous</p>
+                        <p class="text-slate-500 text-sm mb-6">Cliquez ici, glissez-déposez une photo, ou utilisez les boutons ci-dessous</p>
                     </div>
 
                     <!-- Drag overlay -->
@@ -248,11 +248,11 @@
 
                 <!-- Action buttons -->
                 <div id="action-buttons" class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-5">
-                    <button id="btn-webcam" onclick="startWebcam()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 shadow-lg shadow-primary-500/25">
-                        <i class="fas fa-camera"></i> Prendre un selfie
+                    <button id="btn-webcam" onclick="startWebcam()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 shadow-lg shadow-primary-500/25">
+                        <svg class="h-[1.1em] w-[1.1em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg> Prendre un selfie
                     </button>
                     <button id="btn-upload" onclick="document.getElementById('file-input').click()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-xl transition-all hover:-translate-y-0.5 border border-slate-200 shadow-sm">
-                        <i class="fas fa-image"></i> Importer une photo
+                        <svg class="h-[1.1em] w-[1.1em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> Importer une photo
                     </button>
                     <input type="file" id="file-input" accept="image/*" class="hidden" onchange="handleFileUpload(event)">
                 </div>
@@ -260,20 +260,20 @@
                 <!-- Webcam capture button (shown when webcam is active) -->
                 <div id="webcam-controls" class="hidden flex items-center justify-center gap-3 mt-5">
                     <button onclick="captureWebcam()" class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-all hover:-translate-y-0.5 shadow-lg shadow-red-500/25 text-lg">
-                        <i class="fas fa-circle"></i> Capturer
+                        <svg class="h-[1.1em] w-[1.1em] shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="9"/></svg> Capturer
                     </button>
                     <button onclick="stopWebcam()" class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-xl transition-all">
-                        <i class="fas fa-xmark"></i> Annuler
+                        <svg class="h-[1.1em] w-[1.1em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Annuler
                     </button>
                 </div>
 
                 <!-- Analyze button (shown when image is ready) -->
                 <div id="analyze-controls" class="hidden flex flex-col items-center gap-3 mt-5">
                     <button id="btn-analyze" onclick="analyzePhoto()" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white font-bold rounded-xl transition-all hover:-translate-y-0.5 shadow-lg shadow-primary-500/25 text-lg">
-                        <i class="fas fa-wand-magic-sparkles"></i> Découvrir ma race !
+                        <svg class="h-[1.1em] w-[1.1em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></svg> Découvrir ma race !
                     </button>
-                    <button onclick="resetCapture()" class="text-sm text-slate-400 hover:text-slate-600 transition-colors">
-                        <i class="fas fa-arrow-rotate-left"></i> Changer de photo
+                    <button onclick="resetCapture()" class="inline-flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                        <svg class="h-[1.1em] w-[1.1em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg> Changer de photo
                     </button>
                 </div>
             </section>
@@ -322,19 +322,19 @@
                                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                             </a>
                             <a id="share-fb" href="#" target="_blank" class="share-btn share-btn-fb">
-                                <i class="fab fa-facebook-f"></i> Facebook
+                                <svg class="h-[1.1em] w-[1.1em] shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg> Facebook
                             </a>
                             <a id="share-wa" href="#" target="_blank" class="share-btn share-btn-wa">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
+                                <svg class="h-[1.1em] w-[1.1em] shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.860 9.860 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.030 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> WhatsApp
                             </a>
                             <button onclick="shareToApp('instagram')" class="share-btn share-btn-ig">
-                                <i class="fab fa-instagram"></i> Instagram
+                                <svg class="h-[1.1em] w-[1.1em] shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg> Instagram
                             </button>
                             <button onclick="shareToApp('tiktok')" class="share-btn share-btn-tiktok">
-                                <i class="fab fa-tiktok"></i> TikTok
+                                <svg class="h-[1.1em] w-[1.1em] shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.350 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg> TikTok
                             </button>
                             <button onclick="downloadResult()" class="share-btn share-btn-download">
-                                <i class="fas fa-download"></i> Télécharger l'image
+                                <svg class="h-[1.1em] w-[1.1em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> Télécharger l'image
                             </button>
                         </div>
                     </div>
@@ -350,17 +350,17 @@
 
                         <!-- Traits communs -->
                         <div class="text-center mb-10">
-                            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Vos traits en commun</h3>
+                            <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Vos traits en commun</h3>
                             <div id="result-traits" class="flex flex-wrap justify-center gap-2.5"></div>
                         </div>
 
                         <!-- CTA buttons -->
                         <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                            <a id="result-breed-link" href="#" class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 shadow-lg shadow-primary-500/25">
-                                <i class="fas fa-paw"></i> Voir la fiche complète
+                            <a id="result-breed-link" href="#" class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 shadow-lg shadow-primary-500/25">
+                                <svg class="h-[1.1em] w-[1.1em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg> Voir la fiche complète
                             </a>
                             <button onclick="resetAll()" class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-xl transition-all border border-slate-200">
-                                <i class="fas fa-arrow-rotate-left"></i> Refaire le test
+                                <svg class="h-[1.1em] w-[1.1em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg> Refaire le test
                             </button>
                         </div>
                         <a href="/quel-chien-choisir" class="mt-6 block max-w-md mx-auto rounded-2xl border border-slate-200 bg-slate-50 p-4 text-left hover:border-primary-300">
@@ -382,693 +382,6 @@
     <!-- Header script -->
     <script src="/js/header.js?v={{V_HEADER}}"></script>
 
-    <script>
-    // ===== CONFIG =====
-    const API_URL = '/api/match-breed';
-    // 504 px = 18 × 18 tuiles de 28 px pour l'IA : assez pour un visage, presque rien en tokens
-    const MAX_PHOTO_SIZE = 504;
-
-    // ===== STATE =====
-    let currentImageBase64 = null;
-    let currentImageMimeType = null;
-    let webcamStream = null;
-    let breedsData = null;
-    let breedSlugs = null;
-    let currentResult = null;
-
-    // ===== LOADING MESSAGES =====
-    const loadingMessages = [
-        "Analyse de votre museau...",
-        "Comparaison des oreilles...",
-        "Évaluation du regard...",
-        "Vérification de la coiffure...",
-        "Consultation de l'encyclopédie canine...",
-        "Recherche de votre race idéale...",
-        "Calcul du taux de ressemblance...",
-    ];
-
-    // ===== INIT: Load breeds data =====
-    async function loadBreedsData() {
-        try {
-            const [breedsRes, slugsRes] = await Promise.all([
-                fetch('/data/breeds-index.json?v={{V_DATA}}'),
-                fetch('/data/breed-slugs.json')
-            ]);
-            const breedsJson = await breedsRes.json();
-            breedsData = breedsJson.breeds;
-            breedSlugs = await slugsRes.json();
-        } catch (e) {
-            console.error('Erreur chargement données races:', e);
-        }
-    }
-    loadBreedsData();
-
-    // ===== DRAG & DROP =====
-    
-    (function setupDragDrop() {
-        const zone = document.getElementById('capture-zone');
-        const overlay = document.getElementById('drag-overlay');
-        let dragCounter = 0;
-
-        zone.addEventListener('dragenter', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            dragCounter++;
-            if (!currentImageBase64 && !webcamStream) {
-                overlay.classList.remove('hidden');
-                zone.classList.add('active');
-            }
-        });
-
-        zone.addEventListener('dragleave', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            dragCounter--;
-            if (dragCounter === 0) {
-                overlay.classList.add('hidden');
-                zone.classList.remove('active');
-            }
-        });
-
-        zone.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-        });
-
-        zone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            dragCounter = 0;
-            overlay.classList.add('hidden');
-            zone.classList.remove('active');
-
-            const file = e.dataTransfer?.files?.[0];
-            if (file && file.type.startsWith('image/')) {
-                processFile(file);
-            }
-        });
-    })();
-
-    // ===== CAPTURE FUNCTIONS =====
-
-    function handleCaptureClick() {
-        // Only trigger file upload if no image and no webcam active
-        if (!currentImageBase64 && !webcamStream) {
-            document.getElementById('file-input').click();
-        }
-    }
-
-    async function startWebcam() {
-        try {
-            const video = document.getElementById('webcam-video');
-            webcamStream = await navigator.mediaDevices.getUserMedia({ 
-                video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 1280 } } 
-            });
-            video.srcObject = webcamStream;
-            
-            // Show webcam, hide placeholder
-            video.classList.remove('hidden');
-            document.getElementById('capture-placeholder').classList.add('hidden');
-            document.getElementById('action-buttons').classList.add('hidden');
-            document.getElementById('webcam-controls').classList.remove('hidden');
-            document.getElementById('capture-zone').classList.add('active');
-        } catch (e) {
-            alert('Impossible d\'accéder à la caméra. Vérifiez les permissions de votre navigateur.');
-            console.error(e);
-        }
-    }
-
-    function captureWebcam() {
-        const video = document.getElementById('webcam-video');
-        const canvas = document.createElement('canvas');
-        
-        // Square crop from center
-        const size = Math.min(video.videoWidth, video.videoHeight);
-        canvas.width = MAX_PHOTO_SIZE;
-        canvas.height = MAX_PHOTO_SIZE;
-        const ctx = canvas.getContext('2d');
-        
-        // Mirror + crop
-        ctx.translate(MAX_PHOTO_SIZE, 0);
-        ctx.scale(-1, 1);
-        const sx = (video.videoWidth - size) / 2;
-        const sy = (video.videoHeight - size) / 2;
-        ctx.drawImage(video, sx, sy, size, size, 0, 0, MAX_PHOTO_SIZE, MAX_PHOTO_SIZE);
-        
-        const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
-        currentImageBase64 = dataUrl.split(',')[1];
-        currentImageMimeType = 'image/jpeg';
-        
-        showImagePreview(dataUrl);
-        stopWebcam();
-    }
-
-    function stopWebcam() {
-        if (webcamStream) {
-            webcamStream.getTracks().forEach(t => t.stop());
-            webcamStream = null;
-        }
-        const video = document.getElementById('webcam-video');
-        video.srcObject = null;
-        video.classList.add('hidden');
-        document.getElementById('webcam-controls').classList.add('hidden');
-        document.getElementById('capture-zone').classList.remove('active');
-        
-        if (!currentImageBase64) {
-            document.getElementById('capture-placeholder').classList.remove('hidden');
-            document.getElementById('action-buttons').classList.remove('hidden');
-        }
-    }
-
-    function handleFileUpload(event) {
-        const file = event.target.files[0];
-        if (!file) return;
-        processFile(file);
-        event.target.value = ''; // reset
-    }
-
-    function processFile(file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const dataUrl = e.target.result;
-            
-            // Resize if needed
-            const img = new Image();
-            img.onload = function() {
-                const canvas = document.createElement('canvas');
-                const maxSize = MAX_PHOTO_SIZE;
-                let w = img.width, h = img.height;
-                if (w > maxSize || h > maxSize) {
-                    if (w > h) { h = (h / w) * maxSize; w = maxSize; }
-                    else { w = (w / h) * maxSize; h = maxSize; }
-                }
-                canvas.width = w;
-                canvas.height = h;
-                canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-                const resized = canvas.toDataURL('image/jpeg', 0.85);
-                currentImageBase64 = resized.split(',')[1];
-                currentImageMimeType = 'image/jpeg';
-                showImagePreview(resized);
-            };
-            img.src = dataUrl;
-        };
-        reader.readAsDataURL(file);
-    }
-
-    function showImagePreview(dataUrl) {
-        const preview = document.getElementById('image-preview');
-        preview.src = dataUrl;
-        preview.classList.remove('hidden');
-        document.getElementById('capture-placeholder').classList.add('hidden');
-        document.getElementById('action-buttons').classList.add('hidden');
-        document.getElementById('analyze-controls').classList.remove('hidden');
-        document.getElementById('capture-zone').classList.add('has-image');
-        document.getElementById('capture-zone').onclick = null;
-    }
-
-    function resetCapture() {
-        currentImageBase64 = null;
-        currentImageMimeType = null;
-        document.getElementById('image-preview').classList.add('hidden');
-        document.getElementById('image-preview').src = '';
-        document.getElementById('capture-placeholder').classList.remove('hidden');
-        document.getElementById('action-buttons').classList.remove('hidden');
-        document.getElementById('analyze-controls').classList.add('hidden');
-        document.getElementById('capture-zone').classList.remove('has-image');
-        document.getElementById('capture-zone').onclick = () => handleCaptureClick();
-    }
-
-    // ===== ANALYSIS =====
-
-    let remainingAttempts = null; // null = pas encore connu
-
-    async function analyzePhoto() {
-        if (!currentImageBase64) return;
-        
-        // Désactiver le bouton pour éviter le double-clic
-        const btnAnalyze = document.getElementById('btn-analyze');
-        btnAnalyze.disabled = true;
-        btnAnalyze.classList.add('opacity-50', 'cursor-not-allowed');
-        
-        // Show loading
-        document.getElementById('capture-section').classList.add('hidden');
-        document.getElementById('hero-section').classList.add('hidden');
-        document.getElementById('loading-section').classList.remove('hidden');
-        
-        // Animate loading
-        animateLoading();
-        
-        try {
-            const response = await fetch(API_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    image_base64: currentImageBase64,
-                    mime_type: currentImageMimeType
-                })
-            });
-
-            const responseData = await response.json().catch(() => ({}));
-
-            // Gérer le rate limit
-            if (response.status === 429) {
-                remainingAttempts = 0;
-                showError('🐾 Vous avez atteint la limite de 5 essais par jour. Revenez demain pour un nouveau test !');
-                return;
-            }
-
-            if (!response.ok) {
-                throw new Error(responseData.error || `Erreur serveur (${response.status})`);
-            }
-
-            // Mettre à jour les essais restants
-            if (responseData.remaining !== undefined) {
-                remainingAttempts = responseData.remaining;
-            }
-
-            // Réponse déjà validée par le serveur (schéma imposé à l'IA)
-            const result = responseData.result;
-            if (!result?.breed_slug) {
-                throw new Error('Réponse inattendue de l\'IA, veuillez réessayer');
-            }
-
-            // Valider que le slug existe
-            if (breedSlugs && !Object.values(breedSlugs).includes(result.breed_slug)) {
-                console.warn('Slug inconnu retourné:', result.breed_slug);
-                result.breed_slug = 'golden-retriever'; // fallback safe
-            }
-            
-            currentResult = result;
-            showResult(result);
-            
-        } catch (error) {
-            console.error('Erreur analyse:', error);
-            showError('😅 ' + error.message + '\n\nVeuillez réessayer avec une autre photo.');
-        }
-    }
-
-    function showError(message) {
-        if (window._loadingInterval) clearInterval(window._loadingInterval);
-        document.getElementById('loading-section').classList.add('hidden');
-        document.getElementById('hero-section').classList.remove('hidden');
-        document.getElementById('capture-section').classList.remove('hidden');
-        
-        // Réactiver le bouton
-        const btnAnalyze = document.getElementById('btn-analyze');
-        btnAnalyze.disabled = false;
-        btnAnalyze.classList.remove('opacity-50', 'cursor-not-allowed');
-        
-        // Afficher un message d'erreur élégant au lieu d'un alert
-        showToast(message);
-    }
-
-    function animateLoading() {
-        let step = 0;
-        const bar = document.getElementById('loading-bar');
-        const text = document.getElementById('loading-text');
-        
-        const interval = setInterval(() => {
-            step++;
-            if (step >= loadingMessages.length) {
-                clearInterval(interval);
-                bar.style.width = '95%';
-                return;
-            }
-            text.textContent = loadingMessages[step];
-            bar.style.width = `${Math.min(15 + step * 13, 95)}%`;
-        }, 700);
-        
-        // Store interval to clear later
-        window._loadingInterval = interval;
-    }
-
-    // ===== DISPLAY RESULT =====
-
-    function showResult(result) {
-        if (window._loadingInterval) clearInterval(window._loadingInterval);
-        
-        // Find breed data
-        const breed = breedsData?.find(b => {
-            const id = b.id;
-            return breedSlugs && breedSlugs[id] === result.breed_slug;
-        });
-        
-        // Fill in result data
-        const breedName = breed?.name_fr || result.breed_slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-        document.getElementById('result-breed-name').textContent = breedName;
-        result.breed_name = breedName;
-        document.getElementById('result-percentage').textContent = result.match_percentage;
-        document.getElementById('result-reason').textContent = result.reason;
-        
-        // User photo
-        document.getElementById('result-user-photo').src = `data:${currentImageMimeType};base64,${currentImageBase64}`;
-        
-        // Breed photo — utilise le chemin depuis breeds.json (nommé par slug)
-        const breedImgUrl = breed?.image?.url ? `/${breed.image.url}` : '/images/placeholder-race.svg';
-        document.getElementById('result-breed-photo').src = breedImgUrl;
-        document.getElementById('result-breed-photo').onerror = function() {
-            // Fallback to external URL from breeds data
-            if (breed?.images?.url) this.src = breed.images.url;
-        };
-        
-        // Breed link
-        document.getElementById('result-breed-link').href = `/races/${result.breed_slug}`;
-        
-        // Traits
-        const traitsContainer = document.getElementById('result-traits');
-        traitsContainer.replaceChildren(...result.traits_communs.map(t => {
-            const badge = document.createElement('span');
-            badge.className = 'trait-badge';
-            badge.textContent = t;
-            return badge;
-        }));
-        
-        // Share links
-        const shareText = `Je ressemble à un ${breedName} à ${result.match_percentage}% ! 🐕 Découvrez à quelle race de chien vous ressemblez :`;
-        const shareUrl = 'https://race-de-chien.com/tel-maitre-tel-chien';
-        
-        document.getElementById('share-x').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
-        document.getElementById('share-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`;
-        document.getElementById('share-wa').href = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`;
-        
-        // Show result, hide loading
-        document.getElementById('loading-section').classList.add('hidden');
-        document.getElementById('result-section').classList.remove('hidden');
-        
-        // Confetti!
-        launchConfetti();
-        
-        // Scroll to result
-        document.getElementById('result-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    // ===== RESET =====
-
-    function resetAll() {
-        currentResult = null;
-        document.getElementById('result-section').classList.add('hidden');
-        document.getElementById('hero-section').classList.remove('hidden');
-        document.getElementById('capture-section').classList.remove('hidden');
-        resetCapture();
-        
-        // Réactiver le bouton
-        const btnAnalyze = document.getElementById('btn-analyze');
-        btnAnalyze.disabled = false;
-        btnAnalyze.classList.remove('opacity-50', 'cursor-not-allowed');
-        
-        // Afficher le compteur d'essais restants si connu
-        if (remainingAttempts !== null && remainingAttempts <= 2) {
-            showToast(`🐾 Il vous reste ${remainingAttempts} essai${remainingAttempts > 1 ? 's' : ''} aujourd'hui`);
-        }
-        if (remainingAttempts === 0) {
-            showToast('🐾 Vous avez utilisé tous vos essais pour aujourd\'hui. Revenez demain !');
-        }
-        
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // ===== TOAST NOTIFICATION =====
-
-    function showToast(message) {
-        // Supprimer un éventuel toast existant
-        const existing = document.getElementById('toast-notification');
-        if (existing) existing.remove();
-        
-        const toast = document.createElement('div');
-        toast.id = 'toast-notification';
-        toast.style.cssText = `
-            position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-            background: #1e293b; color: white; padding: 16px 24px; border-radius: 16px;
-            font-size: 0.95rem; font-weight: 500; z-index: 1000; max-width: 90vw;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2); text-align: center;
-            animation: slide-up 0.4s ease-out; line-height: 1.5;
-            white-space: pre-line;
-        `;
-        toast.textContent = message;
-        document.body.appendChild(toast);
-        
-        setTimeout(() => {
-            toast.style.transition = 'opacity 0.4s, transform 0.4s';
-            toast.style.opacity = '0';
-            toast.style.transform = 'translateX(-50%) translateY(10px)';
-            setTimeout(() => toast.remove(), 400);
-        }, 4000);
-    }
-
-    // ===== CONFETTI =====
-
-    function launchConfetti() {
-        const colors = ['#3b82f6', '#9333ea', '#f97316', '#10b981', '#f43f5e', '#eab308'];
-        const shapes = ['●', '■', '▲', '🐾'];
-        
-        for (let i = 0; i < 40; i++) {
-            const piece = document.createElement('div');
-            piece.className = 'confetti-piece';
-            piece.textContent = shapes[Math.floor(Math.random() * shapes.length)];
-            piece.style.left = Math.random() * 100 + 'vw';
-            piece.style.color = colors[Math.floor(Math.random() * colors.length)];
-            piece.style.fontSize = (Math.random() * 12 + 8) + 'px';
-            piece.style.animationDuration = (Math.random() * 2 + 2) + 's';
-            piece.style.animationDelay = Math.random() * 0.5 + 's';
-            document.body.appendChild(piece);
-            
-            setTimeout(() => piece.remove(), 4000);
-        }
-    }
-
-    // ===== DOWNLOAD RESULT IMAGE =====
-
-    async function shareToApp(platform) {
-        // Try Web Share API (works on mobile — can share image directly to Instagram/TikTok)
-        if (navigator.share && navigator.canShare) {
-            try {
-                const canvas = document.getElementById('share-canvas');
-                canvas.width = 1080;
-                canvas.height = 1080;
-                const ctx = canvas.getContext('2d');
-
-                // Draw background
-                ctx.fillStyle = '#f8fafc';
-                ctx.fillRect(0, 0, 1080, 1080);
-
-                // Draw header gradient
-                const headerGrad = ctx.createLinearGradient(0, 0, 1080, 0);
-                headerGrad.addColorStop(0, '#3b82f6');
-                headerGrad.addColorStop(1, '#a855f7');
-                ctx.fillStyle = headerGrad;
-                ctx.fillRect(0, 0, 1080, 160);
-
-                ctx.fillStyle = 'white';
-                ctx.font = 'bold 36px Plus Jakarta Sans, sans-serif';
-                ctx.textAlign = 'center';
-                ctx.fillText('Je ressemble à un...', 540, 60);
-                ctx.font = 'bold 56px Plus Jakarta Sans, sans-serif';
-                ctx.fillText(currentResult.breed_name, 540, 125);
-
-                // Draw photos side by side
-                const userImg = document.getElementById('result-user-photo');
-                const breedImg = document.getElementById('result-breed-photo');
-                const photoY = 180;
-                const photoSize = 420;
-                ctx.drawImage(userImg, 100, photoY, photoSize, photoSize);
-                ctx.drawImage(breedImg, 560, photoY, photoSize, photoSize);
-
-                // VS circle
-                ctx.fillStyle = 'white';
-                ctx.beginPath();
-                ctx.arc(540, photoY + photoSize / 2, 32, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.fillStyle = '#1e293b';
-                ctx.font = 'bold 22px Plus Jakarta Sans, sans-serif';
-                ctx.fillText('VS', 540, photoY + photoSize / 2 + 8);
-
-                // Match percentage
-                ctx.font = 'bold 72px Plus Jakarta Sans, sans-serif';
-                ctx.fillStyle = '#3b82f6';
-                ctx.fillText(currentResult.match_percentage + '%', 540, 680);
-                ctx.font = '24px Plus Jakarta Sans, sans-serif';
-                ctx.fillStyle = '#64748b';
-                ctx.fillText('de ressemblance', 540, 720);
-
-                // Footer
-                ctx.font = 'bold 28px Plus Jakarta Sans, sans-serif';
-                ctx.fillStyle = '#334155';
-                ctx.fillText('race-de-chien.com/tel-maitre-tel-chien', 540, 1040);
-
-                const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-                const file = new File([blob], 'mon-chien-jumeau.png', { type: 'image/png' });
-
-                const shareData = {
-                    title: `Je ressemble à un ${currentResult.breed_name} !`,
-                    text: `Je ressemble à un ${currentResult.breed_name} à ${currentResult.match_percentage}% ! 🐕 Découvrez à quelle race de chien vous ressemblez :`,
-                    url: 'https://race-de-chien.com/tel-maitre-tel-chien',
-                    files: [file]
-                };
-
-                if (navigator.canShare(shareData)) {
-                    await navigator.share(shareData);
-                    return;
-                }
-            } catch (e) {
-                if (e.name === 'AbortError') return; // User cancelled
-                console.warn('Web Share failed, falling back:', e);
-            }
-        }
-
-        // Fallback: download the image + show instruction
-        await downloadResult();
-        const appName = platform === 'instagram' ? 'Instagram' : 'TikTok';
-        alert(`L'image a été téléchargée ! 📸\nOuvrez ${appName} et partagez-la depuis votre galerie.`);
-    }
-
-    async function downloadResult() {
-        if (!currentResult) return;
-        
-        const canvas = document.getElementById('share-canvas');
-        canvas.width = 1080;
-        canvas.height = 1080;
-        const ctx = canvas.getContext('2d');
-        
-        // Background
-        const gradient = ctx.createLinearGradient(0, 0, 1080, 1080);
-        gradient.addColorStop(0, '#3b82f6');
-        gradient.addColorStop(1, '#9333ea');
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, 1080, 1080);
-        
-        // White card
-        ctx.fillStyle = 'white';
-        roundRect(ctx, 40, 40, 1000, 1000, 30);
-        ctx.fill();
-        
-        // Title
-        ctx.fillStyle = '#1e293b';
-        ctx.font = 'bold 42px Plus Jakarta Sans, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('Tel Maître, Tel Chien 🐕', 540, 110);
-        
-        // Load and draw images
-        try {
-            const userImg = await loadImage(`data:${currentImageMimeType};base64,${currentImageBase64}`);
-            const breedForImg = breedsData?.find(b => breedSlugs?.[b.id] === currentResult.breed_slug);
-            const breedShareImgUrl = breedForImg?.image?.url ? `/${breedForImg.image.url}` : `/images/breeds/${currentResult.breed_slug}.jpg`;
-            
-            // User photo (left)
-            ctx.save();
-            roundRect(ctx, 80, 150, 420, 420, 20);
-            ctx.clip();
-            drawCover(ctx, userImg, 80, 150, 420, 420);
-            ctx.restore();
-            
-            // Breed photo (right)
-            try {
-                const breedImg = await loadImage(breedShareImgUrl);
-                ctx.save();
-                roundRect(ctx, 580, 150, 420, 420, 20);
-                ctx.clip();
-                drawCover(ctx, breedImg, 580, 150, 420, 420);
-                ctx.restore();
-            } catch(e) {
-                ctx.fillStyle = '#f1f5f9';
-                roundRect(ctx, 580, 150, 420, 420, 20);
-                ctx.fill();
-            }
-        } catch(e) {
-            console.error('Image load error for share canvas:', e);
-        }
-        
-        // VS badge
-        ctx.fillStyle = '#3b82f6';
-        ctx.beginPath();
-        ctx.arc(540, 360, 35, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.fillStyle = 'white';
-        ctx.font = 'bold 22px Plus Jakarta Sans, sans-serif';
-        ctx.fillText('VS', 540, 368);
-        
-        // Breed name
-        const breedName = document.getElementById('result-breed-name').textContent;
-        ctx.fillStyle = '#1e293b';
-        ctx.font = 'bold 38px Plus Jakarta Sans, sans-serif';
-        ctx.fillText(breedName, 540, 640);
-        
-        // Percentage
-        const pct = currentResult.match_percentage;
-        ctx.fillStyle = '#3b82f6';
-        ctx.font = 'bold 56px Plus Jakarta Sans, sans-serif';
-        ctx.fillText(`${pct}%`, 540, 710);
-        
-        // Reason (wrapped)
-        ctx.fillStyle = '#64748b';
-        ctx.font = '20px Plus Jakarta Sans, sans-serif';
-        wrapText(ctx, currentResult.reason, 540, 770, 880, 28);
-        
-        // Footer
-        ctx.fillStyle = '#94a3b8';
-        ctx.font = '18px Plus Jakarta Sans, sans-serif';
-        ctx.fillText('race-de-chien.com/tel-maitre-tel-chien', 540, 1010);
-        
-        // Download
-        const link = document.createElement('a');
-        link.download = `tel-maitre-tel-chien-${currentResult.breed_slug}.png`;
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-    }
-
-    // Canvas helper functions
-    function roundRect(ctx, x, y, w, h, r) {
-        ctx.beginPath();
-        ctx.moveTo(x + r, y);
-        ctx.lineTo(x + w - r, y);
-        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-        ctx.lineTo(x + w, y + h - r);
-        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-        ctx.lineTo(x + r, y + h);
-        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-        ctx.lineTo(x, y + r);
-        ctx.quadraticCurveTo(x, y, x + r, y);
-        ctx.closePath();
-    }
-
-    function drawCover(ctx, img, x, y, w, h) {
-        const ratio = Math.max(w / img.width, h / img.height);
-        const nw = img.width * ratio;
-        const nh = img.height * ratio;
-        ctx.drawImage(img, x + (w - nw) / 2, y + (h - nh) / 2, nw, nh);
-    }
-
-    function loadImage(src) {
-        return new Promise((resolve, reject) => {
-            const img = new Image();
-            img.crossOrigin = 'anonymous';
-            img.onload = () => resolve(img);
-            img.onerror = reject;
-            img.src = src;
-        });
-    }
-
-    function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
-        const words = text.split(' ');
-        let line = '';
-        let lineCount = 0;
-        for (const word of words) {
-            const test = line + word + ' ';
-            if (ctx.measureText(test).width > maxWidth && line) {
-                ctx.fillText(line.trim(), x, y + lineCount * lineHeight);
-                line = word + ' ';
-                lineCount++;
-                if (lineCount >= 4) { // Max 4 lines
-                    ctx.fillText(line.trim() + '...', x, y + lineCount * lineHeight);
-                    return;
-                }
-            } else {
-                line = test;
-            }
-        }
-        ctx.fillText(line.trim(), x, y + lineCount * lineHeight);
-    }
-    </script>
+    <script src="/js/tel-maitre.js?v={{V_TELMAITRE}}"></script>
 </body>
 </html>
