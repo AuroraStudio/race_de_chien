@@ -1,0 +1,1740 @@
+[
+ {
+  "slug": "petit-epagneul-de-munster",
+  "name_fr": "Petit épagneul de Münster",
+  "name": "Small Münsterländer",
+  "name_alt": [
+   "Kleiner Münsterländer",
+   "Petit Münsterländer",
+   "Heidewachtel"
+  ],
+  "origin": "Allemagne",
+  "country_code": "DE",
+  "groupe_fci": 7,
+  "numero_fci": 102,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Épagneul d'arrêt de taille moyenne, élégant et bien proportionné, au poil mi-long marron et blanc joliment frangé, le Petit épagneul de Münster est un chasseur polyvalent qui arrête, rapporte et travaille aussi bien en plaine qu'au bois ou à l'eau. Vif, équilibré et très proche de son maître, il fait un bon chien de famille à condition de pouvoir se dépenser chaque jour.",
+  "history": "L'élevage de la race est documenté dans la région de Münster, en Westphalie, depuis les années 1870, à partir d'anciens chiens leveurs et chiens d'arrêt locaux surnommés « Heidewachtel », les épagneuls de la lande. Une association allemande est fondée en 1912 pour sélectionner un chien de chasse pur, et le Dr Friedrich Jungklaus en rédige le premier standard en 1921. Reconnu par la FCI (standard n° 102), il est devenu l'un des chiens d'arrêt continentaux préférés des chasseurs français, avec plus de 1 800 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 50,
+    "max": 58,
+    "average": 53
+   },
+   "weight_kg": {
+    "min": 17,
+    "max": 26,
+    "average": 21.5
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Moyen",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Moyen",
+   "colors": [
+    "Marron et blanc",
+    "Rouan marron avec plages ou manteau marron",
+    "Marques feu admises au museau, aux yeux et aux pattes"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Polyvalent",
+    "Intelligent",
+    "Affectueux",
+    "Équilibré",
+    "Passionné"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 120,
+   "enfants": 5,
+   "chiens": 4,
+   "chats": 3,
+   "inconnus": 4,
+   "appartement": 2,
+   "solitude": 2,
+   "aboiements": 3,
+   "education": 4,
+   "premier_chien": 3,
+   "entretien_pelage": 3,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 2,
+   "instinct_chasse": 5,
+   "fugue": 3,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Dysplasie de la hanche",
+   "Otites (oreilles tombantes)",
+   "Épilepsie",
+   "Entropion / ectropion",
+   "Épillets et blessures de chasse"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "drahthaar",
+  "name_fr": "Chien d'arrêt allemand à poil dur (Drahthaar)",
+  "name": "German Wirehaired Pointer",
+  "name_alt": [
+   "Drahthaar",
+   "Deutsch Drahthaar",
+   "Braque allemand à poil dur"
+  ],
+  "origin": "Allemagne",
+  "country_code": "DE",
+  "groupe_fci": 7,
+  "numero_fci": 98,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Chien d'arrêt robuste et charpenté, reconnaissable à son poil dur « fil de fer », à sa barbe et à ses sourcils broussailleux, le Drahthaar a été sélectionné pour tout faire à la chasse, en plaine, au bois et au marais, avant comme après le coup de feu. Ferme, équilibré et très attaché à son maître, il se montre plus réservé avec les inconnus et demande un cadre cynégétique ou sportif exigeant.",
+  "history": "Son élevage débute à la fin du XIXe siècle en Allemagne, dans le sillage du Griffon Korthals, puis s'organise au début du XXe siècle autour des idées du baron de Zedlitz et Neukirch, dit « Hegewald », qui voulait un chien de chasse allemand à poil dur, efficace et ferme de caractère. Des croisements entre griffons, Stichelhaar, Pudelpointer et braques à poil court fixent le type, selon le principe que l'efficacité conditionne la morphologie. Le club allemand (Verein Deutsch-Drahthaar) est fondé en 1902, et la race, reconnue par la FCI (standard n° 98), est aujourd'hui l'un des chiens d'arrêt les plus répandus en Allemagne. En France, elle séduit surtout les chasseurs de grand gibier et les amateurs de chiens polyvalents, avec environ 700 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "large",
+   "height_cm": {
+    "min": 57,
+    "max": 68,
+    "average": 62.5
+   },
+   "weight_kg": {
+    "min": 25,
+    "max": 34,
+    "average": 29.5
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Moyen",
+   "type": "Dur",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Marron rouan (marron mêlé de blanc), avec ou sans plaques",
+    "Noir rouan (grisonné), avec ou sans plaques",
+    "Marron, avec ou sans tache blanche au poitrail",
+    "Rouan clair"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Polyvalent",
+    "Ferme",
+    "Endurant",
+    "Fidèle",
+    "Vigilant"
+   ],
+   "sociability": "Équilibré"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 120,
+   "enfants": 4,
+   "chiens": 3,
+   "chats": 2,
+   "inconnus": 3,
+   "appartement": 1,
+   "solitude": 2,
+   "aboiements": 3,
+   "education": 3,
+   "premier_chien": 2,
+   "entretien_pelage": 2,
+   "perte_poils": 2,
+   "bave": 2,
+   "chaleur": 3,
+   "froid": 5,
+   "garde": 3,
+   "instinct_chasse": 5,
+   "fugue": 3,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Dysplasie de la hanche et du coude",
+   "Maladie de von Willebrand",
+   "Dilatation-torsion de l'estomac",
+   "Entropion / ectropion",
+   "Otites"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "gascon-saintongeois",
+  "name_fr": "Gascon saintongeois",
+  "name": "Gascon Saintongeois",
+  "name_alt": [
+   "Grand gascon saintongeois",
+   "Petit gascon saintongeois",
+   "Chien de Virelade"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 21,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Chien courant du Sud-Ouest à la robe blanche tachée de noir et marquée de feu pâle, le Gascon saintongeois existe en deux variétés, le grand et le petit, qui diffèrent surtout par la taille. Chien d'ordre fin de nez, doté d'une très belle voix, il chasse en meute ou en petit lot le chevreuil, le sanglier et le lièvre ; calme et affectueux, il reste avant tout un chien de chasse plutôt qu'un chien de compagnie.",
+  "history": "Au milieu du XIXe siècle, le comte Joseph de Carayon-Latour, voulant régénérer le chien de Saintonge alors déclinant, en unit les derniers représentants aux Bleus de Gascogne du baron de Ruble : le Grand gascon saintongeois est né, au prix de la disparition du saintongeois d'origine. Au milieu du XXe siècle, des veneurs du Sud-Ouest sélectionnent les plus petits sujets de leurs portées pour fixer le Petit gascon saintongeois, destiné d'abord au lièvre. Les deux variétés partagent un même standard FCI (n° 21), et la race, bien implantée chez les chasseurs, dépasse les 600 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "large",
+   "height_cm": {
+    "min": 54,
+    "max": 72,
+    "average": 63
+   },
+   "weight_kg": {
+    "min": 25,
+    "max": 32,
+    "average": 28.5
+   },
+   "life_span_years": {
+    "min": 11,
+    "max": 13,
+    "average": 12
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Blanc taché de noir, parfois moucheté, marques feu pâle aux joues et au-dessus des yeux",
+    "Marque de chevreuil feuille morte fréquente au bas de la cuisse"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Calme",
+    "Affectueux",
+    "Endurant",
+    "Fin de nez",
+    "Grégaire"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 120,
+   "enfants": 4,
+   "chiens": 5,
+   "chats": 2,
+   "inconnus": 4,
+   "appartement": 1,
+   "solitude": 2,
+   "aboiements": 5,
+   "education": 2,
+   "premier_chien": 2,
+   "entretien_pelage": 1,
+   "perte_poils": 3,
+   "bave": 2,
+   "chaleur": 3,
+   "froid": 3,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Otites (oreilles longues)",
+   "Dysplasie de la hanche",
+   "Dilatation-torsion de l'estomac",
+   "Épillets et blessures de chasse"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "terrier-de-chasse-allemand",
+  "name_fr": "Terrier de chasse allemand (Jagdterrier)",
+  "name": "German Hunting Terrier",
+  "name_alt": [
+   "Jagdterrier",
+   "Deutscher Jagdterrier",
+   "Jagd"
+  ],
+  "origin": "Allemagne",
+  "country_code": "DE",
+  "groupe_fci": 3,
+  "numero_fci": 103,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Petit terrier noir et feu, compact et musclé, le Terrier de chasse allemand a été créé uniquement pour le travail : déterrage du renard et du blaireau, recherche et levée du sanglier en battue, pistage et rapport. Courageux, tenace et infatigable, ce n'est pas un terrier de salon et il ne convient qu'à des maîtres expérimentés, de préférence chasseurs.",
+  "history": "Après la Première Guerre mondiale, des chasseurs allemands, dont Rudolf Friess, Walter Zangenberg et Carl-Erich Grünewald, quittent le club du Fox-terrier pour créer un terrier noir et feu sélectionné sur ses seules aptitudes de chasse. À partir de terriers noir et feu offerts par un directeur de zoo, Lutz Heck, et de croisements avec l'ancien terrier anglais à poil dur et le Welsh terrier, ils fixent le type, et le club allemand de la race voit le jour en 1926. Reconnu par la FCI (standard n° 103), le Jagdterrier est très répandu chez les chasseurs français, avec près de 600 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "small",
+   "height_cm": {
+    "min": 33,
+    "max": 40,
+    "average": 36.5
+   },
+   "weight_kg": {
+    "min": 7.5,
+    "max": 10,
+    "average": 8.75
+   },
+   "life_span_years": {
+    "min": 13,
+    "max": 15,
+    "average": 14
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Dur",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Noir et feu",
+    "Marron foncé et feu",
+    "Gris-noir mêlé et feu",
+    "Petites marques blanches tolérées au poitrail et aux doigts"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Courageux",
+    "Tenace",
+    "Énergique",
+    "Têtu",
+    "Dur au mal"
+   ],
+   "sociability": "Réservé"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 120,
+   "enfants": 3,
+   "chiens": 2,
+   "chats": 1,
+   "inconnus": 2,
+   "appartement": 2,
+   "solitude": 2,
+   "aboiements": 4,
+   "education": 2,
+   "premier_chien": 1,
+   "entretien_pelage": 2,
+   "perte_poils": 2,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 3,
+   "instinct_chasse": 5,
+   "fugue": 4,
+   "robustesse": 5
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Luxation primaire du cristallin",
+   "Blessures de chasse (morsures au terrier, coups de sanglier)",
+   "Luxation de la rotule",
+   "Cataracte"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "griffon-bleu-de-gascogne",
+  "name_fr": "Griffon bleu de Gascogne",
+  "name": "Blue Gascony Griffon",
+  "name_alt": [],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 32,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Griffon rustique au poil dur et hirsute, à la robe mouchetée de noir et de blanc qui lui donne un reflet bleu ardoisé, le Griffon bleu de Gascogne est un chien courant de taille moyenne, fin de nez et bien gorgé. Spécialiste de la chasse à tir du lièvre, il est aussi un précieux auxiliaire sur le sanglier ; éveillé, voire remuant, il reste affectueux avec les siens.",
+  "history": "D'origine pyrénéenne très ancienne, il est issu du croisement de Bleus de Gascogne de taille moyenne avec des griffons. Après avoir presque disparu de la cynophilie officielle au XXe siècle, la race connaît un net renouveau, porté par les chasseurs du Sud-Ouest. Reconnue par la FCI (standard n° 32, révisé en 2023), elle dépasse les 500 inscriptions au LOF en 2025, en nette hausse sur un an.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 48,
+    "max": 57,
+    "average": 52.5
+   },
+   "weight_kg": {
+    "min": 18,
+    "max": 25,
+    "average": 21.5
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Moyen",
+   "type": "Dur",
+   "shedding": "Léger",
+   "maintenance": "Faible",
+   "colors": [
+    "Bleu (entièrement moucheté de noir et de blanc), avec ou sans taches noires",
+    "Marques feu pâle aux sourcils, aux joues et aux membres"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Ardent",
+    "Affectueux",
+    "Rustique",
+    "Éveillé",
+    "Fin de nez"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 4,
+   "chiens": 5,
+   "chats": 2,
+   "inconnus": 4,
+   "appartement": 1,
+   "solitude": 2,
+   "aboiements": 5,
+   "education": 2,
+   "premier_chien": 2,
+   "entretien_pelage": 2,
+   "perte_poils": 2,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Otites (oreilles longues)",
+   "Dysplasie de la hanche",
+   "Épillets et corps étrangers dans le poil",
+   "Blessures de chasse"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "chien-d-oysel-allemand",
+  "name_fr": "Chien d'oysel allemand (Wachtelhund)",
+  "name": "German Spaniel",
+  "name_alt": [
+   "Wachtelhund",
+   "Deutscher Wachtelhund",
+   "Épagneul allemand"
+  ],
+  "origin": "Allemagne",
+  "country_code": "DE",
+  "groupe_fci": 8,
+  "numero_fci": 104,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Leveur de gibier de taille moyenne, au poil long et souvent ondulé, marron ou rouan, le Chien d'oysel allemand quête sous le fusil, lève le gibier en donnant de la voix, rapporte et suit la voie du grand gibier blessé. Très passionné, endurant et docile avec son conducteur, il est élevé par des chasseurs pour des chasseurs et s'épanouit mal loin du terrain.",
+  "history": "Des chiens leveurs très semblables existent depuis des siècles dans la vénerie allemande, et l'appellation « Wachtelhund », chien de caille, est ancienne. L'élevage contrôlé débute au début du XXe siècle avec un premier représentant inscrit, Lord Augusta, venu de Haute-Bavière, et quelques chiennes ; Rudolf Friess sépare ensuite les variétés marron et rouan pour préserver la diversité d'une base d'élevage étroite. Reconnu par la FCI (standard n° 104, groupe des leveurs de gibier), il est apprécié des chasseurs français pour la battue et la recherche au sang, avec plus de 450 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 45,
+    "max": 54,
+    "average": 49.5
+   },
+   "weight_kg": {
+    "min": 18,
+    "max": 25,
+    "average": 21.5
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Long",
+   "type": "Ondulé",
+   "shedding": "Modéré",
+   "maintenance": "Moyen",
+   "colors": [
+    "Marron uni, souvent marqué de blanc au poitrail et aux doigts",
+    "Rouan marron, avec plaques ou manteau marron",
+    "Rouge uni ou rouan rouge (plus rare)",
+    "Marques feu possibles"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Passionné",
+    "Endurant",
+    "Docile",
+    "Courageux",
+    "Sûr de lui"
+   ],
+   "sociability": "Équilibré"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 120,
+   "enfants": 4,
+   "chiens": 4,
+   "chats": 2,
+   "inconnus": 3,
+   "appartement": 1,
+   "solitude": 2,
+   "aboiements": 4,
+   "education": 3,
+   "premier_chien": 2,
+   "entretien_pelage": 3,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 2,
+   "instinct_chasse": 5,
+   "fugue": 4,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Dysplasie de la hanche",
+   "Otites (oreilles tombantes)",
+   "Épilepsie",
+   "Épillets et blessures de chasse"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "berger-belge-groenendael",
+  "name_fr": "Berger belge Groenendael",
+  "name": "Belgian Shepherd Groenendael",
+  "name_alt": [
+   "Groenendael",
+   "Chien de berger belge Groenendael"
+  ],
+  "origin": "Belgique",
+  "country_code": "BE",
+  "groupe_fci": 1,
+  "numero_fci": 15,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Variété à poil long et noir du Chien de berger belge, le Groenendael est un chien médioligne, élégant et racé, dont l'abondante collerette d'un noir profond fait l'effet d'une fourrure. Vif, intelligent et très attaché à son maître, il excelle en obéissance, en agility et en garde, mais demande une éducation cohérente et beaucoup d'activité.",
+  "history": "Le Berger belge naît officiellement entre 1891 et 1897 sous l'impulsion du professeur Adolphe Reul, de l'école vétérinaire de Cureghem, qui recense et sélectionne les chiens de bergers du pays. La variété noire à poil long est fixée à Groenendael, près de Bruxelles, par Nicolas Rose à partir de son couple de chiens noirs, Picard d'Uccle et Petite. La FCI reconnaît une seule race (standard n° 15) en quatre variétés, Groenendael, Tervueren, Malinois et Laekenois, jugées séparément. En France, la Société centrale canine compte les variétés à part : le Groenendael totalise 380 inscriptions au LOF en 2025, loin derrière le Malinois.",
+  "physical": {
+   "size_category": "large",
+   "height_cm": {
+    "min": 56,
+    "max": 66,
+    "average": 61
+   },
+   "weight_kg": {
+    "min": 20,
+    "max": 30,
+    "average": 25
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Long",
+   "type": "Double",
+   "shedding": "Abondant",
+   "maintenance": "Élevé",
+   "colors": [
+    "Noir uni (noir zain)",
+    "Un peu de blanc toléré au poitrail et aux doigts"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Vif",
+    "Intelligent",
+    "Fidèle",
+    "Vigilant",
+    "Sensible"
+   ],
+   "sociability": "Réservé"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 120,
+   "enfants": 3,
+   "chiens": 3,
+   "chats": 3,
+   "inconnus": 2,
+   "appartement": 2,
+   "solitude": 2,
+   "aboiements": 3,
+   "education": 4,
+   "premier_chien": 2,
+   "entretien_pelage": 4,
+   "perte_poils": 4,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 5,
+   "garde": 4,
+   "instinct_chasse": 3,
+   "fugue": 2,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Épilepsie",
+   "Dysplasie de la hanche et du coude",
+   "Atrophie progressive de la rétine",
+   "Hypothyroïdie",
+   "Hémangiosarcome"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "chien-courant-suisse",
+  "name_fr": "Chien courant suisse",
+  "name": "Swiss Hound",
+  "name_alt": [
+   "Schweizer Laufhund",
+   "Chien courant bernois",
+   "Bruno du Jura",
+   "Chien courant lucernois",
+   "Chien courant de Schwyz"
+  ],
+  "origin": "Suisse",
+  "country_code": "CH",
+  "groupe_fci": 6,
+  "numero_fci": 59,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Chien courant de taille moyenne, à la tête sèche et noble coiffée de très longues oreilles, le Chien courant suisse se décline en quatre variétés de robe : bernois, Bruno du Jura, lucernois et schwytzois. Vif et passionné, il chasse le plus souvent seul, en donnant de la voix, le lièvre, le chevreuil ou le renard, tout en restant doux, docile et très attaché à son maître.",
+  "history": "Ses origines sont très anciennes : une mosaïque romaine découverte à Avenches figure déjà des chiens de meute proches des variétés actuelles, et le chien courant suisse est recherché dès le XVe siècle par les Italiens, puis au XVIIIe siècle par les Français, pour la chasse difficile du lièvre. En 1882, un standard est établi pour chacun des cinq types alors reconnus ; le courant de Thurgovie disparaît ensuite, et un standard unique réunit les quatre variétés restantes le 22 janvier 1933. Reconnu par la FCI (standard n° 59), il a ses adeptes chez les chasseurs français, en particulier dans l'Est, avec plus de 350 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 47,
+    "max": 59,
+    "average": 53
+   },
+   "weight_kg": {
+    "min": 15,
+    "max": 22,
+    "average": 18.5
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Bernois : blanc à taches ou selle noires, marques feu",
+    "Bruno du Jura : fauve à manteau noir, ou noir et feu",
+    "Lucernois : bleu (fortement moucheté), taches noires et marques feu",
+    "Schwytzois : blanc à taches ou selle fauve orangé"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Passionné",
+    "Doux",
+    "Docile",
+    "Endurant",
+    "Attaché à son maître"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 4,
+   "chiens": 4,
+   "chats": 2,
+   "inconnus": 4,
+   "appartement": 2,
+   "solitude": 2,
+   "aboiements": 5,
+   "education": 2,
+   "premier_chien": 2,
+   "entretien_pelage": 1,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Otites (oreilles très longues)",
+   "Dysplasie de la hanche",
+   "Obésité hors saison de chasse",
+   "Blessures de chasse et épillets"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "berger-de-picardie",
+  "name_fr": "Berger de Picardie (Berger picard)",
+  "name": "Berger Picard",
+  "name_alt": [
+   "Berger picard",
+   "Picard"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 1,
+  "numero_fci": 176,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Berger de taille moyenne, solide et rustique sans lourdeur, le Berger de Picardie se reconnaît à son poil dur et crissant, à ses grandes oreilles droites et à son aspect griffonné, avec sourcils, barbiche et moustaches. Équilibré, à la fois sage et hardi, il est un bon gardien et un excellent chien de famille, sensible et proche des enfants, mais parfois têtu.",
+  "history": "Ses origines sont très anciennes et sans doute communes aux bergers à poil dur du Nord-Ouest de l'Europe. Les premiers Picards sont jugés en exposition en 1863 avec les Beaucerons et les Briards ; Paul Mégnin rédige un premier standard en 1922 et la race est reconnue en 1925. Très éprouvé par les deux guerres mondiales, le cheptel est relancé après 1945 : Robert Montenot fonde en 1955 le club « Les Amis du Berger Picard » et un nouveau standard est approuvé par la SCC en 1964. Encore rare, la race progresse nettement en France, passant de 136 à 240 inscriptions au LOF entre 2024 et 2025.",
+  "physical": {
+   "size_category": "large",
+   "height_cm": {
+    "min": 55,
+    "max": 65,
+    "average": 60
+   },
+   "weight_kg": {
+    "min": 23,
+    "max": 32,
+    "average": 27.5
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Moyen",
+   "type": "Dur",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Fauve",
+    "Fauve charbonné",
+    "Fauve bringé",
+    "Gris, en général foncé",
+    "Petite tache blanche tolérée au poitrail et aux pieds"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Équilibré",
+    "Sensible",
+    "Fidèle",
+    "Têtu",
+    "Vigilant"
+   ],
+   "sociability": "Réservé"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 4,
+   "chiens": 3,
+   "chats": 3,
+   "inconnus": 2,
+   "appartement": 2,
+   "solitude": 3,
+   "aboiements": 2,
+   "education": 3,
+   "premier_chien": 3,
+   "entretien_pelage": 2,
+   "perte_poils": 2,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 4,
+   "instinct_chasse": 2,
+   "fugue": 2,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Dysplasie de la hanche",
+   "Atrophie progressive de la rétine",
+   "Cataracte",
+   "Dilatation-torsion de l'estomac"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "ariegeois",
+  "name_fr": "Ariégeois",
+  "name": "Ariegeois",
+  "name_alt": [],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 20,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Chien courant léger, élégant et distingué, à la robe blanche nettement tachée de noir, l'Ariégeois est un auxiliaire précieux en terrain difficile, qu'il chasse seul ou en meute. Spécialiste du lièvre, qu'il lance avec beaucoup d'initiative, il chasse aussi le chevreuil et le sanglier ; gai et sociable, il se met facilement aux ordres pour un chien courant.",
+  "history": "Originaire de l'Ariège, il est issu du croisement des briquets du pays avec un chien d'ordre, Bleu de Gascogne ou Gascon saintongeois, dont il a conservé le type avec moins de taille et plus de légèreté. Son standard est établi au début du XXe siècle, et la race est reconnue par la FCI (standard n° 20). Elle reste l'affaire des chasseurs, avec un peu plus de 200 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 50,
+    "max": 58,
+    "average": 54
+   },
+   "weight_kg": {
+    "min": 22,
+    "max": 28,
+    "average": 25
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Blanc à taches noir franc bien délimitées, parfois moucheté",
+    "Marques feu pâle aux joues et au-dessus des yeux"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Gai",
+    "Sociable",
+    "Léger",
+    "Entreprenant",
+    "Fin de nez"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 4,
+   "chiens": 5,
+   "chats": 2,
+   "inconnus": 4,
+   "appartement": 1,
+   "solitude": 2,
+   "aboiements": 5,
+   "education": 2,
+   "premier_chien": 2,
+   "entretien_pelage": 1,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 3,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Otites (oreilles longues)",
+   "Dysplasie de la hanche",
+   "Ectropion",
+   "Épillets et blessures de chasse"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "epagneul-picard",
+  "name_fr": "Épagneul picard",
+  "name": "Picardy Spaniel",
+  "name_alt": [],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 7,
+  "numero_fci": 108,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Épagneul d'arrêt rustique et médioligne, à la robe gris moucheté plaquée de marron et marquée de feu, l'Épagneul picard est un chasseur polyvalent du petit gibier, à l'arrêt ferme et au nez très fin, à l'aise au marais comme au bois. Doux, souple et de caractère facile, il s'adapte bien à la vie de famille et se montre un véritable ami des enfants.",
+  "history": "Chien ancestral de Picardie, façonné par la diversité des milieux de la région, de la plaine aux marais de la Somme, il est longtemps resté cantonné à sa province, ce qui explique sa faible diffusion. Distingué comme race au début du XXe siècle, il partage son club de race avec l'Épagneul bleu de Picardie et l'Épagneul de Pont-Audemer. Reconnu par la FCI (standard n° 108, révisé en 2023), il connaît un regain d'intérêt chez les chasseurs, avec 168 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 55,
+    "max": 62,
+    "average": 58.5
+   },
+   "weight_kg": {
+    "min": 20,
+    "max": 25,
+    "average": 22.5
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Moyen",
+   "type": "Ondulé",
+   "shedding": "Modéré",
+   "maintenance": "Moyen",
+   "colors": [
+    "Gris moucheté à plaques marron foncé",
+    "Marques feu à la tête et aux pattes (teinte « feuilles mortes »)"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Doux",
+    "Rustique",
+    "Calme",
+    "Affectueux",
+    "Fin de nez"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 5,
+   "chiens": 4,
+   "chats": 3,
+   "inconnus": 4,
+   "appartement": 2,
+   "solitude": 2,
+   "aboiements": 2,
+   "education": 4,
+   "premier_chien": 3,
+   "entretien_pelage": 2,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 3,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Dysplasie de la hanche",
+   "Otites (oreilles tombantes)",
+   "Entropion / ectropion",
+   "Épillets et blessures de chasse"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "basset-artesien-normand",
+  "name_fr": "Basset artésien normand",
+  "name": "Basset Artésien Normand",
+  "name_alt": [
+   "Basset artésien-normand",
+   "BAN"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 34,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Basset à poil ras, long et bien planté, à la tête noble rappelant le grand chien normand, le Basset artésien normand porte une robe fauve et blanche ou tricolore. Spécialiste du lapin, qu'il débusque dans les fourrés les plus denses, il chasse seul ou en groupe en donnant de la voix ; gai, très affectueux et calme à la maison, il fait aussi un agréable chien de famille, à l'odorat parfois plus fort que l'obéissance.",
+  "history": "L'élevage dirigé du basset français à poil ras commence dans les années 1870 : à partir d'une souche commune, Le Couteulx de Canteleu fixe un type utilitaire à antérieurs droits, dit d'Artois, tandis que Louis Lane développe un type à antérieurs tors, dit normand. Le nom de basset artésien normand est adopté en 1924, puis Léon Verrier, président du club à partir de 1927, renforce son caractère normand. Le Basset hound anglais descend en partie de ces bassets français. Reconnu par la FCI (standard n° 34), il a doublé ses inscriptions au LOF en un an, de 79 en 2024 à 158 en 2025.",
+  "physical": {
+   "size_category": "small",
+   "height_cm": {
+    "min": 30,
+    "max": 36,
+    "average": 33
+   },
+   "weight_kg": {
+    "min": 15,
+    "max": 20,
+    "average": 17.5
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 15,
+    "average": 13.5
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Tricolore (fauve à manteau noir et blanc)",
+    "Bicolore fauve et blanc",
+    "Manteau « poil de lièvre » ou « poil de blaireau » admis"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Affectueux",
+    "Gai",
+    "Calme",
+    "Têtu",
+    "Fin de nez"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 3,
+   "exercice_min_jour": 60,
+   "enfants": 5,
+   "chiens": 5,
+   "chats": 3,
+   "inconnus": 4,
+   "appartement": 3,
+   "solitude": 2,
+   "aboiements": 4,
+   "education": 2,
+   "premier_chien": 3,
+   "entretien_pelage": 1,
+   "perte_poils": 3,
+   "bave": 2,
+   "chaleur": 3,
+   "froid": 3,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 4,
+   "robustesse": 3
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Hernie discale (dos long)",
+   "Otites (oreilles longues)",
+   "Obésité",
+   "Défauts d'aplombs des antérieurs",
+   "Ectropion"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "petit-basset-griffon-vendeen",
+  "name_fr": "Petit basset griffon vendéen",
+  "name": "Petit Basset Griffon Vendéen",
+  "name_alt": [
+   "PBGV"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 67,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Petit chien courant au poil dur, aux sourcils et à la barbe fournis, au corps légèrement long et à la queue fièrement portée, le Petit basset griffon vendéen est un chasseur passionné qui aime la ronce et la broussaille, spécialiste du lapin. « Diable à la campagne, ange à la maison », selon son standard, il est joyeux, sociable et expressif, mais aussi têtu, bavard et prompt à suivre une piste.",
+  "history": "Les Petits bassets griffons vendéens ont longtemps partagé le standard des Grands bassets, dont ils ne différaient que par la taille, ce qui donnait des chiens trop lourds pour leur emploi. Abel Dezamy leur rédige au milieu du XXe siècle un standard propre, qui en fait un basset réduit harmonieusement dans ses proportions, et les croisements avec le Grand basset cessent en 1975. Reconnu par la FCI (standard n° 67), le PBGV est devenu populaire à l'étranger, jusqu'à remporter le Best in Show de Westminster en 2023, alors qu'il reste discret en France, avec 127 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "small",
+   "height_cm": {
+    "min": 34,
+    "max": 38,
+    "average": 36
+   },
+   "weight_kg": {
+    "min": 12,
+    "max": 18,
+    "average": 15
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Moyen",
+   "type": "Dur",
+   "shedding": "Léger",
+   "maintenance": "Moyen",
+   "colors": [
+    "Blanc et noir",
+    "Noir et feu",
+    "Blanc et orange",
+    "Tricolore",
+    "Fauve charbonné",
+    "Sable charbonné, avec ou sans blanc"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Joyeux",
+    "Passionné",
+    "Sociable",
+    "Têtu",
+    "Courageux"
+   ],
+   "sociability": "Très sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 75,
+   "enfants": 4,
+   "chiens": 5,
+   "chats": 2,
+   "inconnus": 5,
+   "appartement": 3,
+   "solitude": 2,
+   "aboiements": 5,
+   "education": 2,
+   "premier_chien": 3,
+   "entretien_pelage": 3,
+   "perte_poils": 2,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Glaucome primaire à angle ouvert",
+   "Luxation primaire du cristallin",
+   "Méningite aseptique sensible aux corticoïdes",
+   "Hernie discale",
+   "Otites"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "epagneul-bleu-de-picardie",
+  "name_fr": "Épagneul bleu de Picardie",
+  "name": "Blue Picardy Spaniel",
+  "name_alt": [
+   "Bleu de Picardie"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 7,
+  "numero_fci": 106,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Épagneul d'arrêt assez près de terre, au poil plat ou légèrement ondulé et à la robe gris-noir mouchetée aux reflets bleutés, l'Épagneul bleu de Picardie est un chien de contact qui quête à portée de fusil. Spécialiste de la bécasse et à l'aise sur tout le petit gibier, il est souple, doux et de caractère facile, très proche des enfants et calme à la maison pourvu qu'il ait sa sortie quotidienne.",
+  "history": "Au XIXe siècle, plusieurs auteurs décrivent en Picardie des épagneuls noirs ou noirs et blancs, dits épagneuls du Nord. Au début du XXe siècle, les bleus concourent encore avec les épagneuls picards avant que leur identité soit reconnue ; selon la tradition, des apports de setters anglais ont contribué à leur robe. Le standard est enregistré en 1938, et la race, reconnue par la FCI (standard n° 106), partage son club avec l'Épagneul picard et l'Épagneul de Pont-Audemer. Elle reste rare en France, avec 84 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 55,
+    "max": 62,
+    "average": 58.5
+   },
+   "weight_kg": {
+    "min": 19,
+    "max": 24,
+    "average": 21.5
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Moyen",
+   "type": "Ondulé",
+   "shedding": "Modéré",
+   "maintenance": "Moyen",
+   "colors": [
+    "Gris argenté à gris-noir moucheté, de teinte bleutée",
+    "Avec ou sans taches noires"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Doux",
+    "Calme",
+    "Docile",
+    "Affectueux",
+    "Fin de nez"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 5,
+   "chiens": 4,
+   "chats": 3,
+   "inconnus": 4,
+   "appartement": 2,
+   "solitude": 2,
+   "aboiements": 2,
+   "education": 4,
+   "premier_chien": 3,
+   "entretien_pelage": 3,
+   "perte_poils": 3,
+   "bave": 2,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 2,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Dysplasie de la hanche",
+   "Otites (oreilles tombantes)",
+   "Entropion / ectropion",
+   "Épillets et blessures de chasse"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "chien-d-artois",
+  "name_fr": "Chien d'Artois",
+  "name": "Artois Hound",
+  "name_alt": [
+   "Briquet d'Artois",
+   "Chien picard (ancien nom)"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 28,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Briquet bien charpenté et musclé, à la robe tricolore fauve foncé et à la tête souvent charbonnée, le Chien d'Artois est un rapprocheur appliqué, très fin de nez, à la vitesse moyenne mais soutenue. Utilisé surtout à la chasse à tir du lièvre, du chevreuil et du sanglier, il est vigoureux, rustique, équilibré et affectueux.",
+  "history": "Appelé autrefois chien picard, il était très recherché dans l'ancienne vénerie au temps d'Henri IV et de Louis XIII. À la fin du XIXe siècle, Le Couteulx de Canteleu le juge encore l'une des meilleures races pour le lièvre, bien que déjà métissée et difficile à trouver pure ; les tentatives de restauration de M. Levoir puis de M. Mallard ne suffisent pas, et la race passe pour perdue après la Seconde Guerre mondiale. Au début des années 1970, M. Audréchy, de Buigny-lès-Gamaches dans la Somme, reconstitue le cheptel avec Mme Pilat. Reconnu par la FCI (standard n° 28), le Chien d'Artois reste très rare, avec 57 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 52,
+    "max": 59,
+    "average": 55.5
+   },
+   "weight_kg": {
+    "min": 28,
+    "max": 30,
+    "average": 29
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Tricolore fauve foncé, tirant sur le poil de lièvre ou de blaireau, avec manteau ou grandes taches",
+    "Tête fauve, parfois charbonnée"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Vigoureux",
+    "Rustique",
+    "Affectueux",
+    "Équilibré",
+    "Fin de nez"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 4,
+   "chiens": 5,
+   "chats": 2,
+   "inconnus": 4,
+   "appartement": 1,
+   "solitude": 2,
+   "aboiements": 5,
+   "education": 2,
+   "premier_chien": 2,
+   "entretien_pelage": 1,
+   "perte_poils": 3,
+   "bave": 2,
+   "chaleur": 3,
+   "froid": 3,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Otites (oreilles longues)",
+   "Dysplasie de la hanche",
+   "Épillets et blessures de chasse"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "caniche-moyen",
+  "name_fr": "Caniche moyen",
+  "name": "Medium Poodle",
+  "name_alt": [
+   "Caniche"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 9,
+  "numero_fci": 172,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Variété intermédiaire du Caniche, entre le nain et le grand, le Caniche moyen mesure de 35 à 45 cm et porte une fourrure laineuse bouclée, plus rarement cordée, qui ne mue pratiquement pas. Intelligent, enjoué et réputé pour sa fidélité, il apprend avec une grande facilité et fait un compagnon polyvalent, aussi à l'aise en ville qu'en activité sportive.",
+  "history": "Le Caniche, race française selon la FCI, descend du Barbet et servait à l'origine à la chasse des oiseaux d'eau : son nom vient de « cane », la femelle du canard. Les deux races se séparent progressivement à partir du XVIIIe siècle, et le Caniche devient l'un des chiens de compagnie les plus populaires, décliné en quatre tailles (toy, nain, moyen et grand) qui partagent un standard unique (FCI n° 172, révisé en 2024). Le moyen est aujourd'hui la taille la moins répandue en France : 27 inscriptions au LOF en 2025, contre plus de 900 pour le nain.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 35,
+    "max": 45,
+    "average": 40
+   },
+   "weight_kg": {
+    "min": 8,
+    "max": 12,
+    "average": 10
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 16,
+    "average": 14
+   }
+  },
+  "coat": {
+   "length": "Moyen",
+   "type": "Bouclé",
+   "shedding": "Minimal",
+   "maintenance": "Élevé",
+   "colors": [
+    "Noir",
+    "Blanc",
+    "Marron",
+    "Gris",
+    "Fauve, du fauve clair au fauve rouge en passant par l'abricot",
+    "Autres couleurs prévues par le standard actuel : particolores, noir ou marron marqué de feu, tricolore, bringé"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Intelligent",
+    "Enjoué",
+    "Fidèle",
+    "Sensible",
+    "Vif"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 60,
+   "enfants": 5,
+   "chiens": 4,
+   "chats": 4,
+   "inconnus": 3,
+   "appartement": 4,
+   "solitude": 2,
+   "aboiements": 3,
+   "education": 5,
+   "premier_chien": 5,
+   "entretien_pelage": 5,
+   "perte_poils": 1,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 3,
+   "garde": 2,
+   "instinct_chasse": 2,
+   "fugue": 2,
+   "robustesse": 4
+  },
+  "hypoallergenique": true,
+  "sante_problemes": [
+   "Atrophie progressive de la rétine",
+   "Épilepsie",
+   "Luxation de la rotule",
+   "Maladie d'Addison",
+   "Otites"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "billy",
+  "name_fr": "Billy",
+  "name": "Billy",
+  "name_alt": [],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 25,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Grand chien courant du Poitou, bien bâti, fort et léger à la fois, à la robe blanche ou café au lait parfois tachée d'orange clair ou de citron, le Billy est un chien d'ordre réputé pour sa finesse de nez, sa vitesse et sa belle voix. Chien de meute avant tout, créancé sur le chevreuil et le sanglier, il est ardent et courageux, et vit rarement en simple chien de compagnie.",
+  "history": "Il est créé à la fin du XIXe siècle par Gaston Hublot du Rivault, au château de Billy, dans le Poitou, à partir des derniers chiens blancs de vieille souche française, Montemboeuf, Céris et Larrye. Presque anéantie par la Seconde Guerre mondiale, la race est sauvée par son fils, Anthony Hublot du Rivault, à partir de quelques sujets survivants. Reconnu par la FCI (standard n° 25), le Billy reste très confidentiel et vit surtout dans quelques équipages : 12 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "large",
+   "height_cm": {
+    "min": 58,
+    "max": 70,
+    "average": 64
+   },
+   "weight_kg": {
+    "min": 25,
+    "max": 32,
+    "average": 28.5
+   },
+   "life_span_years": {
+    "min": 11,
+    "max": 13,
+    "average": 12
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Blanc",
+    "Blanc café au lait",
+    "Blanc à taches ou manteau orange clair ou citron"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Ardent",
+    "Courageux",
+    "Fin de nez",
+    "Rapide",
+    "Grégaire"
+   ],
+   "sociability": "Équilibré"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 120,
+   "enfants": 3,
+   "chiens": 4,
+   "chats": 1,
+   "inconnus": 3,
+   "appartement": 1,
+   "solitude": 1,
+   "aboiements": 5,
+   "education": 1,
+   "premier_chien": 1,
+   "entretien_pelage": 1,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 3,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Dysplasie de la hanche",
+   "Dilatation-torsion de l'estomac",
+   "Otites",
+   "Blessures de chasse"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "berger-belge-laekenois",
+  "name_fr": "Berger belge Laekenois",
+  "name": "Belgian Shepherd Laekenois",
+  "name_alt": [
+   "Laekenois",
+   "Chien de berger belge Laekenois"
+  ],
+  "origin": "Belgique",
+  "country_code": "BE",
+  "groupe_fci": 1,
+  "numero_fci": 15,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Variété à poil dur du Chien de berger belge, la plus rare des quatre, le Laekenois porte un pelage rude, sec et ébouriffé de couleur fauve, discrètement charbonné au museau et à la queue. Il partage avec le Malinois, le Tervueren et le Groenendael la vivacité, l'intelligence et le goût du travail, avec la réputation d'être un peu plus posé, mais reste un chien d'activité qui demande une éducation cohérente.",
+  "history": "Comme les autres variétés, il est issu de la sélection menée à partir de 1891 par le professeur Adolphe Reul parmi les chiens de bergers belges. Il doit son nom au château royal de Laeken, près de Bruxelles, où des bergers gardaient avec ces chiens les troupeaux de la Couronne ; on les employait aussi autour de Boom pour surveiller les toiles de lin mises à blanchir dans les prés. Reconnue au sein du standard unique du Chien de berger belge (FCI n° 15), la variété est devenue rarissime : la France n'en a inscrit que 4 au LOF en 2025.",
+  "physical": {
+   "size_category": "large",
+   "height_cm": {
+    "min": 56,
+    "max": 66,
+    "average": 61
+   },
+   "weight_kg": {
+    "min": 20,
+    "max": 30,
+    "average": 25
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Moyen",
+   "type": "Dur",
+   "shedding": "Modéré",
+   "maintenance": "Moyen",
+   "colors": [
+    "Fauve avec traces de charbonné, surtout au museau et à la queue",
+    "Un peu de blanc toléré au poitrail et aux doigts"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Vif",
+    "Intelligent",
+    "Fidèle",
+    "Vigilant",
+    "Travailleur"
+   ],
+   "sociability": "Réservé"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 120,
+   "enfants": 3,
+   "chiens": 3,
+   "chats": 3,
+   "inconnus": 2,
+   "appartement": 2,
+   "solitude": 2,
+   "aboiements": 3,
+   "education": 4,
+   "premier_chien": 2,
+   "entretien_pelage": 2,
+   "perte_poils": 2,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 4,
+   "instinct_chasse": 3,
+   "fugue": 2,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Épilepsie",
+   "Dysplasie de la hanche et du coude",
+   "Atrophie progressive de la rétine",
+   "Hypothyroïdie"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "francais-tricolore",
+  "name_fr": "Français tricolore",
+  "name": "French Tricolour Hound",
+  "name_alt": [
+   "Chien français tricolore"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 219,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Grand chien d'ordre élégant et bien musclé, à la robe tricolore aux feux vifs, parfois cuivrés, le Français tricolore est un chien de meute créé pour la grande vénerie et la chasse du gros gibier, cerf, chevreuil et sanglier. Courageux, endurant et doté d'un nez très fin, il vit en équipage avec ses congénères : ce n'est pas un chien de compagnie, et la vie en appartement ou seul à la maison ne lui convient pas.",
+  "history": "Il est fixé dans les années 1950 par des veneurs qui voulaient un chien de meute de type plus français, moins marqué par le sang anglais que les anglo-français, à partir d'anglo-français tricolores retrempés de Poitevin et de Billy. Son standard est officialisé dans les années 1960, et la race est reconnue par la FCI (standard n° 219, révisé en 2023). Bien représenté dans les équipages de vénerie, il n'apparaît presque jamais dans les inscriptions individuelles au LOF : 115 en 2024, aucune en 2025.",
+  "physical": {
+   "size_category": "large",
+   "height_cm": {
+    "min": 60,
+    "max": 72,
+    "average": 66
+   },
+   "weight_kg": {
+    "min": 30,
+    "max": 35,
+    "average": 32.5
+   },
+   "life_span_years": {
+    "min": 10,
+    "max": 13,
+    "average": 11.5
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Tricolore à manteau plus ou moins étendu, feux vifs ou cuivrés",
+    "Poil « louvard » admis"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Courageux",
+    "Endurant",
+    "Grégaire",
+    "Calme",
+    "Fin de nez"
+   ],
+   "sociability": "Équilibré"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 120,
+   "enfants": 3,
+   "chiens": 5,
+   "chats": 1,
+   "inconnus": 3,
+   "appartement": 1,
+   "solitude": 1,
+   "aboiements": 5,
+   "education": 1,
+   "premier_chien": 1,
+   "entretien_pelage": 1,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 3,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Dysplasie de la hanche",
+   "Dilatation-torsion de l'estomac",
+   "Otites",
+   "Blessures de chasse (sanglier, clôtures)"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "francais-blanc-et-orange",
+  "name_fr": "Français blanc et orange",
+  "name": "French White and Orange Hound",
+  "name_alt": [
+   "Chien français blanc et orange"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 316,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Grand chien courant distingué à l'allure rustique, à la robe blanc-citron ou blanc et orange, le Français blanc et orange est un chien de meute destiné à la vénerie et à la chasse du grand gibier. Calme et facile à vivre au chenil, comme les chiens élevés en meute, il est aujourd'hui le plus rare des chiens courants français et n'a rien d'un chien de compagnie.",
+  "history": "L'un des derniers chiens courants français reconnus, il a été fixé par quelques veneurs à partir de chiens blancs et orange de type français, vraisemblablement apparentés au Billy et retrempés de sang anglais ; ses origines exactes restent mal documentées. Son standard est entré en vigueur en 1982, date de sa reconnaissance définitive par la FCI (standard n° 316). Il ne subsiste que dans de rares équipages, et presque aucun chien n'est inscrit individuellement au LOF : 4 en 2024, aucun en 2025.",
+  "physical": {
+   "size_category": "large",
+   "height_cm": {
+    "min": 62,
+    "max": 72,
+    "average": 66
+   },
+   "weight_kg": {
+    "min": 30,
+    "max": 35,
+    "average": 32.5
+   },
+   "life_span_years": {
+    "min": 10,
+    "max": 13,
+    "average": 11.5
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Blanc-citron",
+    "Blanc et orange, l'orange ne devant pas tirer sur le rouge"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Calme",
+    "Endurant",
+    "Grégaire",
+    "Rustique",
+    "Fin de nez"
+   ],
+   "sociability": "Équilibré"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 120,
+   "enfants": 3,
+   "chiens": 5,
+   "chats": 1,
+   "inconnus": 3,
+   "appartement": 1,
+   "solitude": 1,
+   "aboiements": 5,
+   "education": 1,
+   "premier_chien": 1,
+   "entretien_pelage": 1,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 3,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Dysplasie de la hanche",
+   "Dilatation-torsion de l'estomac",
+   "Otites",
+   "Blessures de chasse"
+  ],
+  "confiance": "faible"
+ }
+]

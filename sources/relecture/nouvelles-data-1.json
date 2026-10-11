@@ -1,0 +1,1860 @@
+[
+ {
+  "slug": "teckel",
+  "name_fr": "Teckel",
+  "name": "Dachshund",
+  "name_alt": [
+   "Dachshund",
+   "Dackel",
+   "Teckel nain",
+   "Teckel kaninchen"
+  ],
+  "origin": "Allemagne",
+  "country_code": "DE",
+  "groupe_fci": 4,
+  "numero_fci": 148,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Chien près de terre, long de corps et très musclé, le Teckel est un chasseur passionné, vif et persévérant, au flair remarquable et au caractère bien trempé. Cette fiche couvre toute la race : trois variétés de poil (ras, dur et long) et trois tailles (teckel standard, teckel nain et kaninchen), soit neuf variétés reconnues. Chien de déterrage et de recherche au sang à l'origine, il est aujourd'hui l'un des compagnons préférés des Français.",
+  "history": "Connu en Allemagne depuis le Moyen Âge, le Teckel descend de brachets et de bassets sélectionnés pour le déterrage du blaireau et du renard, d'où son nom allemand de Dachshund, « chien de blaireau ». Le Club allemand du Teckel, le plus ancien club de la race, est fondé en 1888, et l'élevage s'organise très tôt autour de trois tailles et de trois poils. La FCI lui réserve un groupe entier, le groupe 4, dont il est la seule race ; le standard en vigueur (2021) définit les trois tailles par le tour de poitrine, et non par la hauteur ou le poids. En France, il figure parmi les races les plus inscrites au LOF, avec 5 582 inscriptions en 2025, le poil dur devançant de peu le poil ras et le poil long.",
+  "physical": {
+   "size_category": "small",
+   "height_cm": {
+    "min": 13,
+    "max": 27,
+    "average": 20
+   },
+   "weight_kg": {
+    "min": 3,
+    "max": 11,
+    "average": 7
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 16,
+    "average": 14
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Moyen",
+   "colors": [
+    "Fauve",
+    "Noir et feu",
+    "Marron et feu",
+    "Arlequin (merle)",
+    "Bringé",
+    "Sanglier (poil dur)",
+    "Marron sanglier (poil dur)"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Courageux",
+    "Têtu",
+    "Affectueux",
+    "Vif",
+    "Persévérant"
+   ],
+   "sociability": "Équilibré"
+  },
+  "scores": {
+   "energie": 3,
+   "exercice_min_jour": 60,
+   "enfants": 3,
+   "chiens": 3,
+   "chats": 3,
+   "inconnus": 3,
+   "appartement": 4,
+   "solitude": 2,
+   "aboiements": 4,
+   "education": 2,
+   "premier_chien": 3,
+   "entretien_pelage": 2,
+   "perte_poils": 2,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 2,
+   "garde": 3,
+   "instinct_chasse": 5,
+   "fugue": 4,
+   "robustesse": 3
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Hernie discale (maladie du disque intervertébral)",
+   "Obésité",
+   "Atrophie progressive de la rétine (notamment chez le teckel nain à poil long)",
+   "Épilepsie",
+   "Maladies dentaires"
+  ],
+  "confiance": "haute",
+  "varietes": {
+   "poils": [
+    "Poil ras",
+    "Poil dur",
+    "Poil long"
+   ],
+   "tailles": [
+    "Teckel (standard) : tour de poitrine de plus de 37 à 47 cm chez le mâle, de plus de 35 à 45 cm chez la femelle",
+    "Teckel nain : tour de poitrine de plus de 32 à 37 cm chez le mâle, de plus de 30 à 35 cm chez la femelle",
+    "Kaninchen : tour de poitrine de 27 à 32 cm chez le mâle, de 25 à 30 cm chez la femelle"
+   ],
+   "note": "Tailles mesurées au tour de poitrine à partir de 15 mois (standard FCI n° 148, 2021). Inscriptions LOF 2025 : poil dur 2 061, poil ras 1 872, poil long 1 649."
+  }
+ },
+ {
+  "slug": "jack-russell-terrier",
+  "name_fr": "Jack Russell Terrier",
+  "name": "Jack Russell Terrier",
+  "name_alt": [
+   "Terrier Jack Russell",
+   "Jack Russell"
+  ],
+  "origin": "Grande-Bretagne (développé en Australie)",
+  "country_code": "GB",
+  "groupe_fci": 3,
+  "numero_fci": 345,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Petit terrier de travail robuste, agile et plein de personnalité, au corps souple un peu plus long que haut et à la robe à dominante blanche, le Jack Russell Terrier est vif, hardi et sans peur. Excellent compagnon pour des maîtres actifs, il réclame beaucoup d'exercice, d'occupation et une éducation constante pour canaliser son énergie et son instinct de chasse. Son poil peut être lisse, rude ou « fil de fer ».",
+  "history": "Il doit son nom au révérend John « Jack » Russell, pasteur et grand chasseur du Devon, qui sélectionna au XIXe siècle une souche de fox-terriers capables de suivre les foxhounds puis d'aller déloger le renard au terrier. De cette souche sont issues deux races : le Parson Russell Terrier, plus haut et plus carré, et le Jack Russell Terrier, plus court sur pattes, dont le type a été fixé en Australie, pays de développement de la race selon la FCI. Reconnu à titre provisoire par la FCI en 2000 puis définitivement en 2003 (standard n° 345), il est devenu très populaire en France, avec 1 641 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "small",
+   "height_cm": {
+    "min": 25,
+    "max": 30,
+    "average": 27.5
+   },
+   "weight_kg": {
+    "min": 5,
+    "max": 6,
+    "average": 5.5
+   },
+   "life_span_years": {
+    "min": 13,
+    "max": 16,
+    "average": 14.5
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Blanc et noir",
+    "Blanc et feu",
+    "Tricolore (blanc, noir et feu)"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Énergique",
+    "Hardi",
+    "Intelligent",
+    "Têtu",
+    "Joueur"
+   ],
+   "sociability": "Équilibré"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 90,
+   "enfants": 3,
+   "chiens": 2,
+   "chats": 2,
+   "inconnus": 3,
+   "appartement": 3,
+   "solitude": 2,
+   "aboiements": 4,
+   "education": 2,
+   "premier_chien": 2,
+   "entretien_pelage": 2,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 3,
+   "garde": 3,
+   "instinct_chasse": 5,
+   "fugue": 4,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Luxation primaire du cristallin",
+   "Luxation de la rotule",
+   "Maladie de Legg-Calvé-Perthes",
+   "Surdité congénitale",
+   "Ataxie spinocérébelleuse"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "basset-fauve-de-bretagne",
+  "name_fr": "Basset fauve de Bretagne",
+  "name": "Basset Fauve de Bretagne",
+  "name_alt": [
+   "Fauve de Bretagne",
+   "Basset fauve"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 36,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Petit chien courant trapu et vigoureux, au poil très dur et sec, à la robe fauve allant du froment doré au rouge brique, le Basset fauve de Bretagne est un chasseur courageux, débrouillard et opiniâtre. Passionné de chasse mais sociable, affectueux et équilibré, il fait aussi un excellent compagnon de famille, pourvu qu'on respecte son besoin de se dépenser et son caractère têtu.",
+  "history": "Il descend du Griffon fauve de Bretagne, vieux chien courant breton dont il a gardé la robe et les aptitudes. Très populaire au XIXe siècle dans sa région d'origine, il a acquis une renommée nationale dans les trente dernières années du XXe siècle, porté par ses nombreuses victoires en Coupe de France sur lapin. Reconnu par la FCI (standard n° 36), il chasse seul ou en petite meute le lapin, le lièvre, le renard, le chevreuil et même le sanglier. C'est aujourd'hui l'un des chiens courants français les plus inscrits au LOF (690 inscriptions en 2025), et il a aussi conquis de nombreux amateurs à l'étranger, notamment au Royaume-Uni.",
+  "physical": {
+   "size_category": "small",
+   "height_cm": {
+    "min": 32,
+    "max": 38,
+    "average": 35
+   },
+   "weight_kg": {
+    "min": 15,
+    "max": 18,
+    "average": 16.5
+   },
+   "life_span_years": {
+    "min": 11,
+    "max": 14,
+    "average": 12.5
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Dur",
+   "shedding": "Léger",
+   "maintenance": "Moyen",
+   "colors": [
+    "Froment doré",
+    "Fauve",
+    "Rouge brique"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Chasseur passionné",
+    "Sociable",
+    "Affectueux",
+    "Têtu",
+    "Courageux"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 75,
+   "enfants": 5,
+   "chiens": 5,
+   "chats": 3,
+   "inconnus": 4,
+   "appartement": 2,
+   "solitude": 2,
+   "aboiements": 4,
+   "education": 2,
+   "premier_chien": 3,
+   "entretien_pelage": 2,
+   "perte_poils": 2,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Otites",
+   "Problèmes de peau (dermatites)",
+   "Épilepsie",
+   "Ulcères de la cornée et cataracte",
+   "Troubles digestifs"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "braque-francais-type-pyrenees",
+  "name_fr": "Braque français, type Pyrénées",
+  "name": "Braque Français, Pyrenean type",
+  "name_alt": [
+   "Braque français de petite taille",
+   "Petit braque français"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 7,
+  "numero_fci": 134,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Version plus petite et plus légère du Braque français type Gascogne, le type Pyrénées est un chien d'arrêt rustique, musclé sans lourdeur, au poil court et fin. Doux, très attaché à son maître et facile à éduquer, c'est un chasseur polyvalent apprécié pour son arrêt ferme, qui fait aussi un compagnon de famille agréable s'il bénéficie de longues sorties chaque jour.",
+  "history": "Le Braque français compte parmi les plus anciennes races d'arrêt d'Europe : il descend des vieux braques du sud-ouest de la France et des Pyrénées centrales, où ils s'étaient maintenus à l'état pur. La race se présente sous deux types, le Gascogne, de grande taille, et le Pyrénées, plus petit et plus léger, mieux adapté à la chasse à pied d'aujourd'hui. Tous deux sont reconnus par la FCI (standards n° 133 et 134, révisés en 2023) et suivis par le même club de race. Le type Pyrénées est de loin le plus répandu des deux en France, avec plus de 600 inscriptions au LOF par an (623 en 2025).",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 49,
+    "max": 58,
+    "average": 53.5
+   },
+   "weight_kg": {
+    "min": 18,
+    "max": 25,
+    "average": 21.5
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 15,
+    "average": 13.5
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Marron",
+    "Marron et blanc",
+    "Marron et blanc fortement moucheté",
+    "Marron marqué de feu"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Doux",
+    "Affectueux",
+    "Docile",
+    "Chasseur",
+    "Équilibré"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 5,
+   "chiens": 4,
+   "chats": 3,
+   "inconnus": 4,
+   "appartement": 2,
+   "solitude": 2,
+   "aboiements": 2,
+   "education": 4,
+   "premier_chien": 3,
+   "entretien_pelage": 1,
+   "perte_poils": 3,
+   "bave": 2,
+   "chaleur": 3,
+   "froid": 2,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 3,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Dysplasie de la hanche",
+   "Entropion et ectropion",
+   "Otites",
+   "Torsion de l'estomac"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "griffon-nivernais",
+  "name_fr": "Griffon nivernais",
+  "name": "Griffon Nivernais",
+  "name_alt": [
+   "Barbouillaud",
+   "Chien de pays"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 17,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Chien courant de taille moyenne au poil long, hirsute et rêche, à la robe toujours charbonnée allant du gris loup au fauve, le Griffon nivernais a l'allure rustique et ébouriffée qui lui vaut le surnom de « barbouillaud ». Très fin de nez, courageux au ferme sans être téméraire, il est avant tout un spécialiste de la chasse du sanglier, en meute ou en petit effectif, bien plus qu'un chien de compagnie.",
+  "history": "Il descendrait des chiens ségusiens des Gaulois et des chiens gris de Saint Louis, très prisés des meutes royales jusqu'à ce que François Ier leur préfère les chiens blancs. Conservée par quelques gentilshommes du Nivernais, la race semblait éteinte à la Révolution, puis fut recréée un siècle plus tard à partir de sujets restés dans son berceau, avec des apports de Vendéen, de Foxhound et d'Otterhound. Son club est fondé en 1925 et la race est reconnue par la FCI (standard n° 17). Avec 571 inscriptions au LOF en 2025, c'est l'un des chiens courants les plus utilisés par les chasseurs de sanglier en France.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 53,
+    "max": 62,
+    "average": 57.5
+   },
+   "weight_kg": {
+    "min": 22,
+    "max": 28,
+    "average": 25
+   },
+   "life_span_years": {
+    "min": 10,
+    "max": 14,
+    "average": 12
+   }
+  },
+  "coat": {
+   "length": "Long",
+   "type": "Dur",
+   "shedding": "Léger",
+   "maintenance": "Moyen",
+   "colors": [
+    "Gris loup (sable charbonné)",
+    "Gris bleu (fauve charbonné de bleu)",
+    "Gris sanglier",
+    "Fauve charbonné (poil de lièvre)"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Courageux",
+    "Persévérant",
+    "Indépendant",
+    "Chasseur passionné",
+    "Rustique"
+   ],
+   "sociability": "Équilibré"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 4,
+   "chiens": 5,
+   "chats": 2,
+   "inconnus": 3,
+   "appartement": 1,
+   "solitude": 2,
+   "aboiements": 4,
+   "education": 2,
+   "premier_chien": 2,
+   "entretien_pelage": 2,
+   "perte_poils": 2,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 2,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Blessures de chasse (sanglier, ronces)",
+   "Otites",
+   "Dysplasie de la hanche",
+   "Maladies transmises par les tiques (piroplasmose)"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "dogue-de-bordeaux",
+  "name_fr": "Dogue de Bordeaux",
+  "name": "Dogue de Bordeaux",
+  "name_alt": [
+   "Mastiff français",
+   "Dogue"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 2,
+  "numero_fci": 116,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Molosse brachycéphale puissant et trapu, à la tête volumineuse et à la robe fauve unie de l'acajou à l'isabelle, le Dogue de Bordeaux est l'un des plus anciens chiens français. Calme, équilibré et très attaché à sa famille, il assure la garde avec vigilance et courage mais sans agressivité, et demande un maître expérimenté, capable de canaliser sa force. Il ne relève d'aucune catégorie de la loi de 1999 sur les chiens dits dangereux.",
+  "history": "Descendant probable des Alans, et notamment de l'Alan vautre décrit par Gaston Phébus au XIVe siècle, le dogue n'était plus guère connu qu'en Aquitaine au milieu du XIXe siècle, employé à la chasse au sanglier, à la garde des maisons et du bétail, au service des bouchers et aux combats. Il figure sous son nom actuel à la première exposition canine française, au Jardin d'acclimatation de Paris en 1863, et son premier standard est publié par Pierre Mégnin en 1896. Menacée d'extinction après la Seconde Guerre mondiale, la race reprend son essor dans les années 1960, notamment grâce à Raymond Triquet, auteur du standard de 1971, puis gagne une notoriété mondiale avec le film « Turner et Hooch » (1989). Reconnue par la FCI (standard n° 116), elle compte 517 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "large",
+   "height_cm": {
+    "min": 58,
+    "max": 68,
+    "average": 63
+   },
+   "weight_kg": {
+    "min": 45,
+    "max": 65,
+    "average": 55
+   },
+   "life_span_years": {
+    "min": 5,
+    "max": 9,
+    "average": 7
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Fauve acajou",
+    "Fauve",
+    "Isabelle",
+    "Masque noir, marron ou absent"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Calme",
+    "Affectueux",
+    "Protecteur",
+    "Courageux",
+    "Têtu"
+   ],
+   "sociability": "Réservé"
+  },
+  "scores": {
+   "energie": 2,
+   "exercice_min_jour": 45,
+   "enfants": 4,
+   "chiens": 2,
+   "chats": 2,
+   "inconnus": 2,
+   "appartement": 2,
+   "solitude": 3,
+   "aboiements": 2,
+   "education": 2,
+   "premier_chien": 1,
+   "entretien_pelage": 2,
+   "perte_poils": 3,
+   "bave": 5,
+   "chaleur": 1,
+   "froid": 2,
+   "garde": 5,
+   "instinct_chasse": 2,
+   "fugue": 1,
+   "robustesse": 1
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Cardiomyopathie dilatée et sténose aortique",
+   "Dysplasie de la hanche et du coude",
+   "Torsion de l'estomac",
+   "Cancers (lymphome notamment)",
+   "Coup de chaleur et gêne respiratoire liés au museau court"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "beagle-harrier",
+  "name_fr": "Beagle-harrier",
+  "name": "Beagle-Harrier",
+  "name_alt": [],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 290,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Chien courant de taille moyenne, bien charpenté et équilibré, à la robe tricolore ou tricolore grise, le Beagle-harrier tient à la fois du Beagle et du Harrier dont il est issu. Chasseur endurant à la voix bien timbrée, il chasse en meute ou en petit lot le lièvre, mais aussi le chevreuil, le renard ou le sanglier ; c'est avant tout un chien de chasse, rarement un chien de compagnie.",
+  "history": "Malgré ses deux ancêtres britanniques, le Beagle-harrier est une race française : il est né à la fin du XIXe siècle de croisements entre Beagle et Harrier, une création souvent attribuée au baron Gérard, qui cherchait un chien intermédiaire entre les deux. Longtemps confidentiel, il est reconnu par la FCI (standard n° 290, révisé en 2023). Avec 440 inscriptions au LOF en 2025, il fait partie des chiens courants de taille moyenne bien implantés chez les chasseurs français, mais reste peu connu du grand public.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 45,
+    "max": 50,
+    "average": 47.5
+   },
+   "weight_kg": {
+    "min": 18,
+    "max": 22,
+    "average": 20
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Tricolore (fauve à manteau noir et blanc)",
+    "Tricolore gris",
+    "Blanc et gris"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Endurant",
+    "Sociable",
+    "Doux",
+    "Têtu",
+    "Chasseur passionné"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 4,
+   "chiens": 5,
+   "chats": 3,
+   "inconnus": 4,
+   "appartement": 1,
+   "solitude": 2,
+   "aboiements": 5,
+   "education": 2,
+   "premier_chien": 2,
+   "entretien_pelage": 1,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 3,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Otites",
+   "Dysplasie de la hanche",
+   "Épilepsie",
+   "Blessures de chasse et maladies transmises par les tiques"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "flat-coated-retriever",
+  "name_fr": "Retriever à poil plat",
+  "name": "Flat-Coated Retriever",
+  "name_alt": [
+   "Flat-coated retriever",
+   "Flat"
+  ],
+  "origin": "Grande-Bretagne",
+  "country_code": "GB",
+  "groupe_fci": 8,
+  "numero_fci": 121,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Retriever élégant à la robe noire ou foie unie, au poil dense, fin et aussi plat que possible, le Flat-coated retriever se reconnaît à sa tête allongée et à sa queue toujours en mouvement. Optimiste, joueur et très sociable, il garde longtemps un tempérament de chiot ; excellent rapporteur au marais comme en plaine, il est aussi un compagnon de famille idéal pour des maîtres actifs.",
+  "history": "La race se forme en Grande-Bretagne au milieu du XIXe siècle, à partir du chien de Saint-Jean venu de Terre-Neuve, croisé notamment avec des setters et des colleys, pour obtenir un rapporteur au poil plat. Grâce à S. E. Shirley, fondateur du Kennel Club, elle devient à la fin du XIXe siècle le retriever préféré des gardes-chasse anglais, avant d'être supplantée par le Labrador et le Golden retriever. Tombée à de très faibles effectifs après la Seconde Guerre mondiale, elle a été relancée par quelques éleveurs passionnés. Reconnue par la FCI (standard n° 121), elle reste rare en France mais progresse nettement, avec 370 inscriptions au LOF en 2025 contre 257 en 2024.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 56,
+    "max": 62,
+    "average": 59
+   },
+   "weight_kg": {
+    "min": 25,
+    "max": 36,
+    "average": 30
+   },
+   "life_span_years": {
+    "min": 8,
+    "max": 12,
+    "average": 10
+   }
+  },
+  "coat": {
+   "length": "Moyen",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Moyen",
+   "colors": [
+    "Noir",
+    "Foie"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Joyeux",
+    "Sociable",
+    "Affectueux",
+    "Énergique",
+    "Coopératif"
+   ],
+   "sociability": "Très sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 5,
+   "chiens": 5,
+   "chats": 4,
+   "inconnus": 5,
+   "appartement": 2,
+   "solitude": 2,
+   "aboiements": 2,
+   "education": 4,
+   "premier_chien": 4,
+   "entretien_pelage": 3,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 1,
+   "instinct_chasse": 3,
+   "fugue": 2,
+   "robustesse": 2
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Cancers (sarcome histiocytaire notamment)",
+   "Dysplasie de la hanche",
+   "Luxation de la rotule",
+   "Glaucome (goniodysgénésie)",
+   "Torsion de l'estomac"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "berger-des-pyrenees-a-poil-long",
+  "name_fr": "Berger des Pyrénées à poil long",
+  "name": "Pyrenean Sheepdog, long-haired",
+  "name_alt": [
+   "Berger des Pyrénées",
+   "Labrit"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 1,
+  "numero_fci": 141,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Petit chien de berger sec et nerveux, au poil long ou mi-long dont la texture tient du poil de chèvre et de la laine, le Berger des Pyrénées concentre une énergie considérable dans un gabarit réduit. Vif, intelligent et entièrement dévoué à son maître, souvent méfiant envers les étrangers, il demande une éducation ferme et cohérente ainsi que beaucoup d'activité, physique comme mentale.",
+  "history": "Chien de travail des bergers pyrénéens depuis des siècles, il est resté pratiquement inconnu de la cynophilie officielle jusqu'au début du XXe siècle, son type variant beaucoup d'une vallée à l'autre. Pendant la Première Guerre mondiale, des Bergers des Pyrénées ont servi comme chiens de liaison et de recherche des blessés. Son premier standard est élaboré entre 1921 et 1925 par Bernard Sénac-Lagrange, puis remanié à plusieurs reprises par son club de race. Reconnu par la FCI (standard n° 141), il compte environ 350 inscriptions au LOF par an et s'illustre aussi bien au troupeau qu'en agility.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 40,
+    "max": 48,
+    "average": 44
+   },
+   "weight_kg": {
+    "min": 8,
+    "max": 15,
+    "average": 11
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 16,
+    "average": 14
+   }
+  },
+  "coat": {
+   "length": "Long",
+   "type": "Double",
+   "shedding": "Modéré",
+   "maintenance": "Moyen",
+   "colors": [
+    "Fauve plus ou moins foncé, charbonné ou non",
+    "Gris plus ou moins clair",
+    "Arlequin (bleu ardoisé)",
+    "Bringé",
+    "Noir",
+    "Noir marqué de blanc"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Vif",
+    "Intelligent",
+    "Dévoué",
+    "Méfiant",
+    "Courageux"
+   ],
+   "sociability": "Réservé"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 90,
+   "enfants": 3,
+   "chiens": 3,
+   "chats": 3,
+   "inconnus": 2,
+   "appartement": 2,
+   "solitude": 2,
+   "aboiements": 5,
+   "education": 3,
+   "premier_chien": 2,
+   "entretien_pelage": 3,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 4,
+   "instinct_chasse": 2,
+   "fugue": 2,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Dysplasie de la hanche",
+   "Luxation de la rotule",
+   "Épilepsie",
+   "Atrophie progressive de la rétine",
+   "Canal artériel persistant"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "epagneul-francais",
+  "name_fr": "Épagneul français",
+  "name": "French Spaniel",
+  "name_alt": [],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 7,
+  "numero_fci": 175,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Chien d'arrêt élégant et musclé, à la robe blanche et marron et au poil plat et soyeux, frangé aux oreilles, aux membres et à la queue, l'Épagneul français est l'un des plus anciens chiens d'arrêt d'Europe. Équilibré, doux, calme et docile, il arrête très fermement et rapporte volontiers, et se révèle un compagnon de famille idéal pour peu qu'il puisse se dépenser chaque jour.",
+  "history": "Descendant des chiens d'oysel décrits par Gaston Phébus au Moyen Âge, il est considéré comme l'ancêtre de nombreuses variétés d'épagneuls de chasse. Son premier standard est établi en 1891 par James de Connick, puis remanié à plusieurs reprises. Menacée de disparition au début du XXe siècle, la race est sauvée par l'abbé Fournier, qui en rassemble les meilleurs sujets, et son club de race voit le jour en 1921. Reconnu par la FCI (standard n° 175), il compte 236 inscriptions au LOF en 2025 et reste surtout l'affaire des chasseurs.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 55,
+    "max": 61,
+    "average": 58
+   },
+   "weight_kg": {
+    "min": 20,
+    "max": 27,
+    "average": 24
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Moyen",
+   "type": "Soyeux",
+   "shedding": "Modéré",
+   "maintenance": "Moyen",
+   "colors": [
+    "Blanc et marron (du cannelle au foie foncé)",
+    "Blanc et marron moucheté ou rouanné"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Doux",
+    "Calme",
+    "Docile",
+    "Affectueux",
+    "Équilibré"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 5,
+   "chiens": 5,
+   "chats": 4,
+   "inconnus": 4,
+   "appartement": 2,
+   "solitude": 2,
+   "aboiements": 2,
+   "education": 4,
+   "premier_chien": 4,
+   "entretien_pelage": 2,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 3,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 3,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Acropathie ulcéro-mutilante (neuropathie sensitive héréditaire)",
+   "Dysplasie de la hanche",
+   "Dysplasie du coude",
+   "Otites"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "briquet-griffon-vendeen",
+  "name_fr": "Briquet griffon vendéen",
+  "name": "Briquet Griffon Vendéen",
+  "name_alt": [
+   "Briquet vendéen"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 19,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Griffon de taille moyenne, plutôt ramassé, au poil long sans exagération et rude au toucher, le Briquet griffon vendéen est un chasseur passionné, rapide, endurant et plein d'initiative. Utilisé en meute à la chasse à tir du chevreuil et du sanglier comme du lièvre et du renard, il demande un maître capable de se faire obéir et reste avant tout un chien de chasse.",
+  "history": "« Briquet » désignait autrefois un chien courant de taille moyenne, et c'est la seule race à avoir conservé cette appellation. Sélectionné avant la Première Guerre mondiale par le comte d'Elva, comme une réduction harmonieuse du Grand griffon vendéen, le type Briquet a été décimé à plusieurs reprises par les guerres avant de réapparaître à Fontenay-le-Comte en 1946. Reconnu par la FCI (standard n° 19), il partage son club avec les trois autres griffons vendéens, et ses lots brillent en concours, comme en témoigne une Coupe de France sur chevreuil remportée en 1995. Ses effectifs restent modestes mais progressent (174 inscriptions au LOF en 2025).",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 48,
+    "max": 55,
+    "average": 51.5
+   },
+   "weight_kg": {
+    "min": 20,
+    "max": 24,
+    "average": 22
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Moyen",
+   "type": "Dur",
+   "shedding": "Léger",
+   "maintenance": "Moyen",
+   "colors": [
+    "Blanc et noir",
+    "Noir et feu",
+    "Noir marqué de sable",
+    "Blanc et orange",
+    "Tricolore",
+    "Fauve charbonné",
+    "Sable charbonné"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Passionné",
+    "Endurant",
+    "Indépendant",
+    "Sociable",
+    "Têtu"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 4,
+   "chiens": 5,
+   "chats": 3,
+   "inconnus": 4,
+   "appartement": 1,
+   "solitude": 2,
+   "aboiements": 5,
+   "education": 2,
+   "premier_chien": 2,
+   "entretien_pelage": 2,
+   "perte_poils": 2,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Otites",
+   "Dysplasie de la hanche",
+   "Problèmes de peau (dermatites)",
+   "Blessures de chasse et maladies transmises par les tiques"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "bruno-saint-hubert-francais",
+  "name_fr": "Bruno Saint-Hubert français",
+  "name": "Bruno Saint-Hubert Français",
+  "name_alt": [
+   "Bruno du Jura type Saint-Hubert",
+   "Bruno Saint-Hubert"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": null,
+  "reconnue_fci": false,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Chien courant de taille moyenne, musclé et à forte ossature, à la tête massive sans lourdeur et à la robe brun fauve à manteau ou selle noire, le Bruno Saint-Hubert français dégage une impression de puissance et de noblesse. Vif, tenace et courageux, mais doux et très attaché à son maître, il chasse seul ou en meute sur tous les terrains et se montre particulièrement efficace sur le sanglier et en recherche au sang.",
+  "history": "Il présente de nombreuses similitudes avec l'ancien Bruno du Jura type Saint-Hubert, la forme la plus lourde des chiens courants suisses, type aujourd'hui abandonné en Suisse. Des éleveurs français, réunis au sein du Club français des Brunos et des chiens courants suisses, ont poursuivi leur propre sélection, adaptée aux besoins des chasseurs d'aujourd'hui. La Société centrale canine l'a reconnu en 2003 comme race française (standard SCC n° 905, groupe 6), sans reconnaissance par la FCI à ce jour. Ses effectifs restent modestes, avec 159 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 47,
+    "max": 59,
+    "average": 53
+   },
+   "weight_kg": {
+    "min": 22,
+    "max": 30,
+    "average": 26
+   },
+   "life_span_years": {
+    "min": 11,
+    "max": 13,
+    "average": 12
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Brun fauve à manteau noir",
+    "Brun fauve à selle noire",
+    "Avec ou sans quatre-yeux"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Tenace",
+    "Courageux",
+    "Doux",
+    "Fidèle",
+    "Chasseur passionné"
+   ],
+   "sociability": "Équilibré"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 4,
+   "chiens": 4,
+   "chats": 2,
+   "inconnus": 3,
+   "appartement": 1,
+   "solitude": 2,
+   "aboiements": 5,
+   "education": 3,
+   "premier_chien": 2,
+   "entretien_pelage": 1,
+   "perte_poils": 3,
+   "bave": 2,
+   "chaleur": 3,
+   "froid": 3,
+   "garde": 2,
+   "instinct_chasse": 5,
+   "fugue": 4,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Otites",
+   "Dysplasie de la hanche",
+   "Entropion et ectropion",
+   "Blessures de chasse (sanglier)"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "cursinu",
+  "name_fr": "Cursinu",
+  "name": "Corsican Dog",
+  "name_alt": [
+   "Chien corse"
+  ],
+  "origin": "France (Corse)",
+  "country_code": "FR",
+  "groupe_fci": 5,
+  "numero_fci": null,
+  "reconnue_fci": false,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Chien rustique de taille moyenne, sec et musclé, au poil court ou mi-long et à la robe le plus souvent fauve bringé, le Cursinu est le chien traditionnel de la Corse. Polyvalent, il sert à la fois de chien de conduite pour les troupeaux, de gardien de la maison et de leveur au sanglier ; attaché à son maître et méfiant envers les étrangers, il a besoin d'espace, d'activité et d'une éducation ferme.",
+  "history": "Présent en Corse depuis au moins le XVIe siècle, le Cursinu a longtemps été l'auxiliaire indispensable des bergers, des éleveurs de porcs et des chasseurs de l'île, avant de décliner dans la seconde moitié du XXe siècle face aux races importées. L'Association de sauvegarde du chien corse, créée en 1989, a recensé et sélectionné les derniers sujets typés. La Société centrale canine l'a reconnu en 2003 et le classe dans le groupe 5 (chiens de type spitz et primitif) ; la race n'est pas reconnue par la FCI. Elle compte aujourd'hui environ 150 inscriptions au LOF par an (153 en 2025).",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 46,
+    "max": 58,
+    "average": 52
+   },
+   "weight_kg": {
+    "min": 20,
+    "max": 28,
+    "average": 24
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 15,
+    "average": 13.5
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Dur",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Fauve bringé",
+    "Fauve",
+    "Sable charbonné",
+    "Noir marqué de fauve"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Rustique",
+    "Fidèle",
+    "Méfiant",
+    "Courageux",
+    "Indépendant"
+   ],
+   "sociability": "Réservé"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 3,
+   "chiens": 3,
+   "chats": 2,
+   "inconnus": 2,
+   "appartement": 1,
+   "solitude": 2,
+   "aboiements": 3,
+   "education": 3,
+   "premier_chien": 2,
+   "entretien_pelage": 1,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 4,
+   "froid": 3,
+   "garde": 4,
+   "instinct_chasse": 5,
+   "fugue": 3,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Dysplasie de la hanche",
+   "Leishmaniose (zone méditerranéenne)",
+   "Blessures de chasse (sanglier)",
+   "Otites"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "grand-griffon-vendeen",
+  "name_fr": "Grand griffon vendéen",
+  "name": "Grand Griffon Vendéen",
+  "name_alt": [],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 282,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Le plus grand des quatre griffons vendéens est un chien courant de vieille race française, puissant et distingué, au poil long, parfois broussailleux et rude. Fin de nez, doté d'une belle gorge et ne refusant pas la ronce, il chasse en meute le grand gibier (sanglier, chevreuil, cerf) et a besoin de grands territoires ; docile mais volontaire et passionné, c'est un chien d'équipage bien plus qu'un chien de compagnie.",
+  "history": "À l'origine n'existait que le grand vendéen à poil ras, descendant des greffiers ou chiens blancs du roi ; les griffons fauves de Bretagne, les gris de Saint-Louis et les griffons de Bresse ont ensuite contribué à la création du grand griffon. Ancêtre des trois autres races vendéennes, il a été sélectionné au tournant du XXe siècle, notamment par le comte d'Elva, et il est suivi par le Club du griffon vendéen. Très éprouvé par les deux guerres mondiales, il a été patiemment reconstitué par quelques équipages. Reconnu par la FCI (standard n° 282), il reste rare, avec 107 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "large",
+   "height_cm": {
+    "min": 60,
+    "max": 68,
+    "average": 64
+   },
+   "weight_kg": {
+    "min": 30,
+    "max": 35,
+    "average": 32.5
+   },
+   "life_span_years": {
+    "min": 11,
+    "max": 13,
+    "average": 12
+   }
+  },
+  "coat": {
+   "length": "Long",
+   "type": "Dur",
+   "shedding": "Léger",
+   "maintenance": "Moyen",
+   "colors": [
+    "Blanc et noir",
+    "Noir et feu",
+    "Noir marqué de sable",
+    "Blanc et orange",
+    "Tricolore",
+    "Fauve charbonné",
+    "Sable charbonné"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Passionné",
+    "Docile",
+    "Volontaire",
+    "Endurant",
+    "Sociable"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 120,
+   "enfants": 4,
+   "chiens": 5,
+   "chats": 2,
+   "inconnus": 4,
+   "appartement": 1,
+   "solitude": 1,
+   "aboiements": 5,
+   "education": 2,
+   "premier_chien": 1,
+   "entretien_pelage": 2,
+   "perte_poils": 2,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Otites",
+   "Dysplasie de la hanche",
+   "Torsion de l'estomac",
+   "Blessures de chasse et maladies transmises par les tiques"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "berger-des-pyrenees-a-face-rase",
+  "name_fr": "Berger des Pyrénées à face rase",
+  "name": "Pyrenean Sheepdog, smooth-faced",
+  "name_alt": [
+   "Berger des Pyrénées face rase",
+   "Berger des Pyrénées"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 1,
+  "numero_fci": 138,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Variété du Berger des Pyrénées reconnaissable à sa tête couverte de poils courts et fins, d'où son nom, la face rase est un peu plus courte de corps et porte sur le corps un poil mi-long ou plus court. Vif, malléable et infatigable, parfois méfiant envers les étrangers, c'est un chien de travail qui demande beaucoup d'activité et une éducation cohérente.",
+  "history": "Cette variété se rencontrait surtout dans le piémont pyrénéen, où elle était très appréciée des maquignons et des conducteurs de bestiaux. Ses particularités lui ont valu une annexe au standard du Berger des Pyrénées dès les années 1920, à l'époque de Bernard Sénac-Lagrange. Elle est aujourd'hui reconnue par la FCI comme une race à part entière (standard n° 138) et suivie par le même club que la variété à poil long. Bien plus rare que cette dernière, elle compte environ 75 inscriptions au LOF par an.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 40,
+    "max": 54,
+    "average": 47
+   },
+   "weight_kg": {
+    "min": 10,
+    "max": 15,
+    "average": 12
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 16,
+    "average": 14
+   }
+  },
+  "coat": {
+   "length": "Moyen",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Fauve plus ou moins foncé, charbonné ou non",
+    "Gris plus ou moins clair",
+    "Arlequin (bleu ardoisé)",
+    "Bringé",
+    "Noir",
+    "Noir marqué de blanc"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Vif",
+    "Malléable",
+    "Dévoué",
+    "Méfiant",
+    "Endurant"
+   ],
+   "sociability": "Réservé"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 90,
+   "enfants": 3,
+   "chiens": 3,
+   "chats": 3,
+   "inconnus": 2,
+   "appartement": 2,
+   "solitude": 2,
+   "aboiements": 5,
+   "education": 3,
+   "premier_chien": 2,
+   "entretien_pelage": 2,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 4,
+   "instinct_chasse": 2,
+   "fugue": 2,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Dysplasie de la hanche",
+   "Luxation de la rotule",
+   "Épilepsie",
+   "Atrophie progressive de la rétine",
+   "Canal artériel persistant"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "grand-basset-griffon-vendeen",
+  "name_fr": "Grand basset griffon vendéen",
+  "name": "Grand Basset Griffon Vendéen",
+  "name_alt": [
+   "GBGV"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 33,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Basset de taille moyenne au corps allongé et aux membres droits, au poil dur, pas trop long et plat, le Grand basset griffon vendéen est le plus rapide de tous les bassets. Tenace, courageux, joyeux et un peu têtu, il chasse à tir le lièvre, le chevreuil ou le sanglier, et peut devenir un compagnon de famille sociable à condition de travailler le rappel dès son plus jeune âge.",
+  "history": "Comme tous les bassets, il est issu de chiens de plus grande taille, en l'occurrence le Grand griffon vendéen. Les premières sélections sont menées à la fin du XIXe siècle par le comte d'Elva, qui recherchait des sujets à jambes droites, puis Paul Dezamy fixe le type en conservant une taille suffisante pour prendre le lièvre à courre. Reconnu par la FCI (standard n° 33), il partage son club avec les trois autres races vendéennes. Il a gagné une belle notoriété à l'étranger, notamment au Royaume-Uni, mais reste rare en France, avec une cinquantaine d'inscriptions au LOF par an.",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 39,
+    "max": 44,
+    "average": 41.5
+   },
+   "weight_kg": {
+    "min": 18,
+    "max": 20,
+    "average": 19
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Moyen",
+   "type": "Dur",
+   "shedding": "Léger",
+   "maintenance": "Moyen",
+   "colors": [
+    "Blanc et noir",
+    "Noir et feu",
+    "Noir marqué de sable",
+    "Blanc et orange",
+    "Tricolore",
+    "Fauve charbonné",
+    "Sable charbonné"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Joyeux",
+    "Tenace",
+    "Courageux",
+    "Têtu",
+    "Sociable"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 5,
+   "chiens": 5,
+   "chats": 3,
+   "inconnus": 4,
+   "appartement": 2,
+   "solitude": 2,
+   "aboiements": 5,
+   "education": 2,
+   "premier_chien": 3,
+   "entretien_pelage": 3,
+   "perte_poils": 2,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Otites",
+   "Problèmes de peau (dermatites)",
+   "Épilepsie",
+   "Dysplasie de la hanche",
+   "Hernie discale (dos long)"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "petit-chien-lion",
+  "name_fr": "Petit chien lion",
+  "name": "Löwchen",
+  "name_alt": [
+   "Löwchen",
+   "Bichon petit chien lion"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 9,
+  "numero_fci": 233,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Petit chien vif et fier, au poil long, soyeux et ondulé, sans sous-poil, le Petit chien lion doit son nom à sa toilette traditionnelle qui lui donne la silhouette d'un lion miniature, crinière comprise. Très affectueux et obéissant avec ses maîtres, attentif et à l'aise en toutes circonstances, il sait rester calme et discret à la demande, ce qui en fait un excellent compagnon de ville.",
+  "history": "On reconnaît déjà sa silhouette dans des sculptures de la cathédrale d'Amiens au XIIIe siècle, puis sur des tapisseries du XVe siècle ; chéri des dames de la cour de Bourgogne, il apparaît souvent dans la peinture du XVIIe siècle, et Buffon le décrit au XVIIIe siècle en soulignant déjà sa rareté. Devenu extrêmement rare au milieu du XXe siècle, il a été sauvé par une poignée d'éleveurs européens, et le club français est fondé en 1947. Classé par la FCI parmi les bichons et apparentés (standard n° 233), il reste très confidentiel en France, avec 17 inscriptions au LOF en 2025.",
+  "physical": {
+   "size_category": "small",
+   "height_cm": {
+    "min": 26,
+    "max": 32,
+    "average": 29
+   },
+   "weight_kg": {
+    "min": 4,
+    "max": 8,
+    "average": 6
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 15,
+    "average": 13.5
+   }
+  },
+  "coat": {
+   "length": "Long",
+   "type": "Ondulé",
+   "shedding": "Minimal",
+   "maintenance": "Élevé",
+   "colors": [
+    "Toutes les couleurs et combinaisons de couleurs"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Affectueux",
+    "Vif",
+    "Obéissant",
+    "Attentif",
+    "Joueur"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 3,
+   "exercice_min_jour": 45,
+   "enfants": 4,
+   "chiens": 4,
+   "chats": 4,
+   "inconnus": 4,
+   "appartement": 5,
+   "solitude": 2,
+   "aboiements": 3,
+   "education": 4,
+   "premier_chien": 5,
+   "entretien_pelage": 4,
+   "perte_poils": 1,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 2,
+   "garde": 2,
+   "instinct_chasse": 1,
+   "fugue": 1,
+   "robustesse": 4
+  },
+  "hypoallergenique": true,
+  "sante_problemes": [
+   "Luxation de la rotule",
+   "Atrophie progressive de la rétine",
+   "Cataracte",
+   "Dysplasie de la hanche"
+  ],
+  "confiance": "haute"
+ },
+ {
+  "slug": "epagneul-de-pont-audemer",
+  "name_fr": "Épagneul de Pont-Audemer",
+  "name": "Pont-Audemer Spaniel",
+  "name_alt": [
+   "Pont-Audemer"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 7,
+  "numero_fci": 114,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Épagneul trapu et vigoureux, au poil frisé et légèrement bourru, à la robe marron ou marron et gris chiné aux reflets feuille morte, l'Épagneul de Pont-Audemer porte sur le crâne une huppe caractéristique. Chien d'arrêt normand spécialiste du marais et du gibier d'eau, il est gai, affectueux et facile à vivre, mais reste l'une des races françaises les plus rares.",
+  "history": "Originaire de la région de Pont-Audemer, dans l'Eure, il serait né au XIXe siècle de croisements entre de vieux épagneuls locaux et des chiens d'eau, probablement l'Irish water spaniel, dont il a gardé le poil frisé. Décimée par les guerres, la race a été sauvée de justesse dans la seconde moitié du XXe siècle par un apport contrôlé de sang Irish water spaniel, sous l'égide du club qui la réunit à l'Épagneul picard et à l'Épagneul bleu de Picardie. Reconnue par la FCI (standard n° 114), elle ne compte que quelques naissances inscrites chaque année en France (8 inscriptions au LOF en 2025, 19 en 2024).",
+  "physical": {
+   "size_category": "medium",
+   "height_cm": {
+    "min": 52,
+    "max": 58,
+    "average": 55
+   },
+   "weight_kg": {
+    "min": 18,
+    "max": 24,
+    "average": 21
+   },
+   "life_span_years": {
+    "min": 12,
+    "max": 14,
+    "average": 13
+   }
+  },
+  "coat": {
+   "length": "Moyen",
+   "type": "Bouclé",
+   "shedding": "Léger",
+   "maintenance": "Moyen",
+   "colors": [
+    "Marron",
+    "Marron et gris chiné",
+    "Reflets feuille morte"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Gai",
+    "Affectueux",
+    "Docile",
+    "Rustique",
+    "Chasseur"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 4,
+   "exercice_min_jour": 90,
+   "enfants": 5,
+   "chiens": 5,
+   "chats": 4,
+   "inconnus": 4,
+   "appartement": 2,
+   "solitude": 2,
+   "aboiements": 2,
+   "education": 4,
+   "premier_chien": 3,
+   "entretien_pelage": 3,
+   "perte_poils": 2,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 4,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 3,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Otites",
+   "Dysplasie de la hanche",
+   "Problèmes de peau (dermatites)"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "poitevin",
+  "name_fr": "Poitevin",
+  "name": "Poitevin",
+  "name_alt": [
+   "Chien du Haut-Poitou"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 24,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Grand chien courant très distingué, qui réunit force, élégance et légèreté, au poil court et brillant et à la robe tricolore à manteau noir ou à larges taches, le Poitevin est l'un des fleurons de la vénerie française. Rapide, endurant et doté d'un nez exceptionnel, c'est un pur chien de meute, élevé au chenil par les équipages de chasse à courre, et pratiquement jamais un chien de compagnie.",
+  "history": "Il descend des chiens courants réunis à la fin du XVIIe siècle par le marquis François de Larye, dans le Haut-Poitou, pour la chasse du loup. Presque anéantie par la Révolution puis par une épidémie de rage au XIXe siècle, la race a été reconstituée avec des apports de Foxhound anglais. Reconnu par la FCI (standard n° 24), il chasse aujourd'hui surtout le chevreuil et le sanglier dans les équipages de vénerie. Élevés en meute, ses chiens passent rarement par les inscriptions individuelles au LOF, d'où des chiffres très irréguliers (110 en 2024, une seule en 2025).",
+  "physical": {
+   "size_category": "large",
+   "height_cm": {
+    "min": 60,
+    "max": 72,
+    "average": 66
+   },
+   "weight_kg": {
+    "min": 28,
+    "max": 35,
+    "average": 31
+   },
+   "life_span_years": {
+    "min": 10,
+    "max": 13,
+    "average": 11.5
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Tricolore à manteau noir",
+    "Tricolore à larges taches noires",
+    "Blanc et orange (rare)",
+    "Poil louvard"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Endurant",
+    "Rapide",
+    "Passionné",
+    "Indépendant",
+    "Doux"
+   ],
+   "sociability": "Équilibré"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 120,
+   "enfants": 3,
+   "chiens": 5,
+   "chats": 2,
+   "inconnus": 3,
+   "appartement": 1,
+   "solitude": 1,
+   "aboiements": 5,
+   "education": 2,
+   "premier_chien": 1,
+   "entretien_pelage": 1,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 3,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Blessures de chasse (ronces, sanglier)",
+   "Dysplasie de la hanche",
+   "Torsion de l'estomac",
+   "Maladies transmises par les tiques (piroplasmose)"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "grand-anglo-francais-tricolore",
+  "name_fr": "Grand anglo-français tricolore",
+  "name": "Great Anglo-French Tricolour Hound",
+  "name_alt": [
+   "Anglo-français tricolore",
+   "Grand anglo"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 322,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Grand chien courant puissant et bien charpenté, au poil court et à la robe tricolore le plus souvent à manteau noir, le Grand anglo-français tricolore allie le nez et la voix des chiens français à l'endurance et à la vitesse du Foxhound. C'est la race la plus répandue dans les équipages de vénerie français : un pur chien de meute vivant au chenil, qui ne convient pas à la vie de famille.",
+  "history": "Il est né au XIXe siècle de croisements entre des chiens courants français, notamment le Poitevin et le Gascon-saintongeois, et le Foxhound anglais, à une époque où les équipages cherchaient à reconstituer des meutes rapides et résistantes. Longtemps désignés sous le terme générique d'anglo-français, ces chiens ont ensuite été répartis en races distinctes selon leur taille et leur robe, le tricolore étant reconnu par la FCI sous le standard n° 322. Il chasse à courre le cerf, le chevreuil, le sanglier ou le renard dans de nombreux équipages. Comme les autres chiens d'ordre, il passe peu par les inscriptions individuelles au LOF (65 en 2024, aucune en 2025).",
+  "physical": {
+   "size_category": "large",
+   "height_cm": {
+    "min": 60,
+    "max": 70,
+    "average": 65
+   },
+   "weight_kg": {
+    "min": 30,
+    "max": 35,
+    "average": 32
+   },
+   "life_span_years": {
+    "min": 10,
+    "max": 12,
+    "average": 11
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Tricolore à manteau noir",
+    "Tricolore à taches noires plus ou moins étendues",
+    "Poil mélangé dit louvard"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Endurant",
+    "Sociable",
+    "Doux",
+    "Indépendant",
+    "Passionné"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 120,
+   "enfants": 4,
+   "chiens": 5,
+   "chats": 2,
+   "inconnus": 4,
+   "appartement": 1,
+   "solitude": 1,
+   "aboiements": 5,
+   "education": 2,
+   "premier_chien": 1,
+   "entretien_pelage": 1,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 3,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Blessures de chasse (ronces, sanglier)",
+   "Dysplasie de la hanche",
+   "Torsion de l'estomac",
+   "Maladies transmises par les tiques (piroplasmose)"
+  ],
+  "confiance": "moyenne"
+ },
+ {
+  "slug": "francais-blanc-et-noir",
+  "name_fr": "Français blanc et noir",
+  "name": "French White and Black Hound",
+  "name_alt": [
+   "Blanc et noir"
+  ],
+  "origin": "France",
+  "country_code": "FR",
+  "groupe_fci": 6,
+  "numero_fci": 220,
+  "reconnue_fci": true,
+  "fci_provisoire": false,
+  "categorie_loi_fr": null,
+  "description": "Grand chien d'ordre distingué et équilibré, au poil ras et à la robe obligatoirement blanc et noir, souvent mouchetée de noir ou de bleu, le Français blanc et noir est un chasseur au nez fin, appliqué, sérieux et doté d'une belle gorge. Très apprécié des équipages de chevreuil, amical et proche de l'homme, il vit en meute au chenil et n'est pas destiné à la vie de compagnie.",
+  "history": "Il est issu du chien de Saintonge, dont l'origine reste incertaine mais qui doit probablement beaucoup aux chiens blancs greffiers du XVIe siècle. Apparu dans la seconde moitié du XIXe siècle, le type actuel a ensuite été retrempé avec le Poitevin et le Gascon-saintongeois. Doté d'un standard en 1957, révisé en 2007 par le Club du chien d'ordre, il est reconnu par la FCI (standard n° 220). Son cheptel, estimé à environ deux mille chiens à la fin des années 2000, vit presque entièrement en équipage, ce qui explique des inscriptions individuelles au LOF quasi inexistantes (une en 2024, aucune en 2025).",
+  "physical": {
+   "size_category": "large",
+   "height_cm": {
+    "min": 62,
+    "max": 72,
+    "average": 67
+   },
+   "weight_kg": {
+    "min": 30,
+    "max": 35,
+    "average": 32.5
+   },
+   "life_span_years": {
+    "min": 10,
+    "max": 12,
+    "average": 11
+   }
+  },
+  "coat": {
+   "length": "Court",
+   "type": "Lisse",
+   "shedding": "Modéré",
+   "maintenance": "Faible",
+   "colors": [
+    "Blanc et noir à manteau",
+    "Blanc et noir à taches",
+    "Mouchetures noires ou bleutées",
+    "Petites marques feu sur les membres"
+   ]
+  },
+  "temperament": {
+   "traits": [
+    "Amical",
+    "Appliqué",
+    "Endurant",
+    "Calme",
+    "Passionné"
+   ],
+   "sociability": "Sociable"
+  },
+  "scores": {
+   "energie": 5,
+   "exercice_min_jour": 120,
+   "enfants": 4,
+   "chiens": 5,
+   "chats": 2,
+   "inconnus": 4,
+   "appartement": 1,
+   "solitude": 1,
+   "aboiements": 5,
+   "education": 2,
+   "premier_chien": 1,
+   "entretien_pelage": 1,
+   "perte_poils": 3,
+   "bave": 1,
+   "chaleur": 3,
+   "froid": 3,
+   "garde": 1,
+   "instinct_chasse": 5,
+   "fugue": 5,
+   "robustesse": 4
+  },
+  "hypoallergenique": false,
+  "sante_problemes": [
+   "Blessures de chasse (ronces, sanglier)",
+   "Dysplasie de la hanche",
+   "Torsion de l'estomac",
+   "Maladies transmises par les tiques (piroplasmose)"
+  ],
+  "confiance": "moyenne"
+ }
+]

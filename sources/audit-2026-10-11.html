@@ -1,0 +1,566 @@
+<title>Audit Race de Chien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,500..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Rapport en une colonne de lecture (68ch), la démo des filtres s'élargit. Ton : carnet de vétérinaire, encre sur papier légèrement vert. */
+:root{
+  --bg:#f4f6f2; --surface:#ffffff; --ink:#1c2420; --muted:#5a6660; --line:#dce2dc;
+  --accent:#1e6a55; --accent-soft:#e1eee7; --accent-ink:#ffffff;
+  --warn:#9a5c00; --warn-soft:#f6ead4; --bad:#b0281f; --bad-soft:#f6dfdc; --good:#2c7a3a; --good-soft:#e2f0e2;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --s-1:.8125rem; --s0:1.0625rem; --s1:1.25rem; --s2:1.6rem; --s3:2.2rem; --s4:3rem;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111613; --surface:#18201c; --ink:#e4ebe6; --muted:#98a69e; --line:#2a3530;
+  --accent:#62c3a2; --accent-soft:#1a3329; --accent-ink:#0d1a14;
+  --warn:#e2a64a; --warn-soft:#3a2c14; --bad:#f07d73; --bad-soft:#3d1f1c; --good:#7fd08a; --good-soft:#1c3320; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111613; --surface:#18201c; --ink:#e4ebe6; --muted:#98a69e; --line:#2a3530;
+  --accent:#62c3a2; --accent-soft:#1a3329; --accent-ink:#0d1a14;
+  --warn:#e2a64a; --warn-soft:#3a2c14; --bad:#f07d73; --bad-soft:#3d1f1c; --good:#7fd08a; --good-soft:#1c3320; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:var(--s0);line-height:1.6;padding-inline:16px;padding-block:0 4rem}
+.wrap{max-width:46rem;margin-inline:auto}
+.wide{max-width:68rem;margin-inline:auto}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:var(--s4);font-weight:800;font-stretch:112%;letter-spacing:-.01em}
+h2{font-size:var(--s3);font-weight:800;font-stretch:108%;margin-top:4.5rem;padding-top:1.25rem;border-top:2px solid var(--ink)}
+h3{font-size:var(--s1);font-weight:700;margin-top:2.25rem}
+h4{font-size:var(--s0);font-weight:700;margin-top:1.5rem}
+p{margin:.75rem 0}
+a{color:var(--accent);text-underline-offset:2px}
+a:focus-visible,button:focus-visible,input:focus-visible,label:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.eyebrow{font-family:var(--f-mono);font-size:var(--s-1);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+header.top{padding-block:3rem 1rem}
+header.top .lede{font-size:var(--s1);color:var(--muted);max-width:40rem;margin-top:1rem}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin-top:1.25rem;font-family:var(--f-mono);font-size:var(--s-1);color:var(--muted)}
+.lead{font-size:1.15rem}
+ul,ol{padding-left:1.25rem;margin:.75rem 0}
+li{margin:.35rem 0}
+li::marker{color:var(--muted)}
+code{font-family:var(--f-mono);font-size:.85em;background:var(--accent-soft);padding:.05em .35em;border-radius:4px;overflow-wrap:anywhere}
+.chip{display:inline-flex;align-items:center;gap:.3em;font-family:var(--f-mono);font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:.15em .55em;border-radius:999px;white-space:nowrap;vertical-align:.12em}
+.chip.bad{background:var(--bad-soft);color:var(--bad)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+.chip.ok{background:var(--good-soft);color:var(--good)}
+.chip.info{background:var(--accent-soft);color:var(--accent)}
+.essentials{list-style:none;padding:0;margin:1.5rem 0;display:grid;gap:0;border-top:1px solid var(--line)}
+.essentials li{display:grid;grid-template-columns:7.5rem 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line);margin:0}
+.essentials li > div{min-width:0}
+.essentials strong{font-family:var(--f-display);font-weight:700}
+@media (max-width:560px){.essentials li{grid-template-columns:1fr;gap:.35rem}}
+.figures{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:1.5rem 0}
+.figures div{background:var(--surface);padding:1rem}
+.figures b{display:block;font-family:var(--f-display);font-size:var(--s3);font-weight:800;font-stretch:90%;line-height:1;font-variant-numeric:tabular-nums}
+.figures span{display:block;font-size:var(--s-1);color:var(--muted);margin-top:.4rem;line-height:1.35}
+@media (max-width:640px){.figures{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tablebox{overflow-x:auto;margin:1.25rem 0;border:1px solid var(--line);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;line-height:1.4}
+th,td{text-align:left;padding:.6rem .75rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-display);font-weight:700;font-size:var(--s-1);color:var(--muted);text-transform:uppercase;letter-spacing:.05em;background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--f-mono);font-size:.85rem;white-space:nowrap}
+.was{color:var(--bad);text-decoration:line-through;text-decoration-thickness:1px}
+.is{color:var(--good);font-weight:600}
+.note{border-left:3px solid var(--accent);background:var(--surface);padding:.85rem 1rem;margin:1.25rem 0}
+.note.warn{border-color:var(--warn)}
+.note.bad{border-color:var(--bad)}
+.note p:first-child{margin-top:0}.note p:last-child{margin-bottom:0}
+.options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0}
+.opt{background:var(--surface);border:1px solid var(--line);padding:1.1rem;display:flex;flex-direction:column;gap:.5rem;min-width:0}
+.opt.reco{border:2px solid var(--accent)}
+.opt h4{margin:0;font-size:var(--s1)}
+.opt .tag{font-family:var(--f-mono);font-size:var(--s-1);color:var(--muted)}
+.opt dl{display:grid;grid-template-columns:auto 1fr;gap:.25rem .75rem;margin:.25rem 0;font-size:.9rem}
+.opt dt{color:var(--muted)}
+.opt dd{margin:0;font-weight:600;font-variant-numeric:tabular-nums}
+.opt ul{font-size:.92rem;margin:.25rem 0}
+@media (max-width:820px){.options{grid-template-columns:1fr}}
+.quotes{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0;padding:0;list-style:none}
+.quotes li{margin:0;font-family:var(--f-mono);font-size:.82rem;background:var(--surface);border:1px solid var(--line);padding:.3rem .6rem;border-radius:6px}
+.tiers{display:grid;gap:1rem;margin:1.5rem 0}
+.tier{display:grid;grid-template-columns:9rem 1fr;gap:1rem;background:var(--surface);border:1px solid var(--line);padding:1rem 1.1rem}
+.tier > div{min-width:0}
+.tier .lvl{font-family:var(--f-display);font-weight:800;font-stretch:90%;font-size:var(--s1);line-height:1.1}
+.tier .lvl small{display:block;font-family:var(--f-mono);font-weight:400;font-size:var(--s-1);color:var(--muted);margin-top:.3rem;font-stretch:100%}
+@media (max-width:560px){.tier{grid-template-columns:1fr}}
+.phase{display:grid;grid-template-columns:2.5rem 1fr;gap:1rem;margin:1.25rem 0}
+.phase .n{font-family:var(--f-display);font-weight:800;font-size:var(--s2);color:var(--accent);line-height:1}
+.phase > div{min-width:0}
+.phase h4{margin:0}
+.phase ul{margin-top:.4rem}
+.effort{font-family:var(--f-mono);font-size:var(--s-1);color:var(--muted)}
+footer{margin-top:4rem;padding-top:1rem;border-top:1px solid var(--line);font-size:var(--s-1);color:var(--muted)}
+footer ul{padding-left:1rem}
+
+/* Démo des filtres */
+.demo{margin:1.75rem 0;background:var(--surface);border:1px solid var(--line);display:grid;grid-template-columns:20rem 1fr;font-family:var(--f-display)}
+.demo-side{padding:1.1rem;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:1.25rem;min-width:0}
+.demo-main{padding:1.1rem;min-width:0}
+.demo fieldset{border:0;padding:0;margin:0;min-width:0}
+.demo legend{font-weight:700;font-size:var(--s-1);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.5rem;padding:0}
+.pills{display:flex;flex-wrap:wrap;gap:.4rem}
+.pill{position:relative}
+.pill input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.pill span{display:inline-block;font-size:.88rem;font-weight:600;padding:.4rem .7rem;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s}
+.pill input:checked + span{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.pill input:focus-visible + span{outline:3px solid var(--accent);outline-offset:2px}
+.pill.hard span::after{content:" ●";font-size:.6rem;vertical-align:.2em;opacity:.7}
+.range-row{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);margin-top:.25rem}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.rythme-val{font-weight:700;font-size:.95rem}
+.sizes{display:grid;grid-template-columns:repeat(5,1fr);gap:.3rem}
+.sizes .pill span{width:100%;text-align:center;padding:.4rem .2rem;font-size:.78rem;border-radius:8px}
+.demo-hint{font-family:var(--f-body);font-size:.85rem;color:var(--muted);margin:0}
+.versus{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem}
+.versus div{padding:.75rem .9rem;border:1px solid var(--line);min-width:0}
+.versus .now{background:var(--bad-soft);border-color:transparent}
+.versus .new{background:var(--accent-soft);border-color:transparent}
+.versus b{display:block;font-size:var(--s2);font-weight:800;font-stretch:90%;line-height:1.05;font-variant-numeric:tabular-nums}
+.versus small{display:block;font-size:.8rem;line-height:1.35;margin-top:.3rem;font-family:var(--f-body);color:var(--ink);overflow-wrap:anywhere}
+.results{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.6rem}
+.res{border:1px solid var(--line);padding:.75rem .85rem;display:flex;flex-direction:column;gap:.45rem;margin:0;min-width:0;background:var(--bg)}
+.res-top{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem}
+.res a{font-weight:700;color:var(--ink);text-decoration:none;font-size:.98rem;line-height:1.25}
+.res a:hover{text-decoration:underline}
+.pct{font-family:var(--f-mono);font-weight:600;font-size:.85rem;white-space:nowrap}
+.pct.hi{color:var(--good)}.pct.mid{color:var(--warn)}.pct.lo{color:var(--bad)}
+.why{display:flex;flex-wrap:wrap;gap:.3rem}
+.why span{font-size:.72rem;font-weight:600;padding:.1rem .45rem;border-radius:4px}
+.why .y{background:var(--good-soft);color:var(--good)}
+.why .n{background:var(--warn-soft);color:var(--warn)}
+.why .x{background:var(--bad-soft);color:var(--bad)}
+.res .sub{font-size:.75rem;color:var(--muted);font-family:var(--f-mono)}
+.more{margin-top:.75rem;font-size:.85rem;color:var(--muted);font-family:var(--f-body)}
+.empty{padding:1.25rem;border:1px dashed var(--line);font-family:var(--f-body);color:var(--muted)}
+@media (max-width:860px){.demo{grid-template-columns:1fr}.demo-side{border-right:0;border-bottom:1px solid var(--line)}}
+@media (max-width:480px){.versus{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<div class="wrap">
+<header class="top">
+  <p class="eyebrow">race-de-chien.com · audit du 11 octobre 2026</p>
+  <h1>Race de Chien, l'audit</h1>
+  <p class="lede">Ce qui est cassé, ce qui est faux, ce qui manque, et comment faire des filtres l'outil qui aide vraiment quelqu'un à choisir son chien.</p>
+  <div class="meta"><span>169 fiches relues une par une</span><span>Statistiques LOF 2025 (SCC)</span><span>Site testé sur ordinateur et téléphone</span></div>
+</header>
+
+<section aria-labelledby="avancement">
+<h2 id="avancement">Avancement au 11 octobre, 23 h</h2>
+<p>Le plan ci-dessous a été réalisé et mis en ligne sur race-de-chien.com le soir même, sauf les points de la seconde liste.</p>
+<ul class="essentials">
+  <li><span><span class="chip ok">En ligne</span></span><div><strong>Tel Maître, Tel Chien réparé.</strong> Claude Haiku 5.5, photo réduite à 504 px, réponse imposée par un schéma, catalogue côté serveur. Coût mesuré : 0,0005 à 0,002 $ par analyse. Le catalogue passe de 169 à 179 races.</div></li>
+  <li><span><span class="chip ok">En ligne</span></span><div><strong>Données refaites.</strong> Les 447 erreurs sont corrigées. 20 notes harmonisées par race, une section santé réelle, les groupes FCI, les catégories légales et la popularité LOF 2025. Le Cocker anglais et le Bulldog anglais sont réécrits.</div></li>
+  <li><span><span class="chip ok">En ligne</span></span><div><strong>62 races ajoutées</strong>, dont 44 françaises : 231 races au total. Les 19 races non reconnues en France sont masquées par défaut.</div></li>
+  <li><span><span class="chip ok">En ligne</span></span><div><strong>Nouveaux filtres.</strong> Profils en un clic, questions « Ma vie » qui classent, critères du chien avec compteurs, score de compatibilité et raisons sur chaque carte. L'état est dans l'adresse et le tiroir mobile affiche « Voir les N races ».</div></li>
+  <li><span><span class="chip ok">En ligne</span></span><div><strong>Nouvelles pages.</strong> Le test « Quel chien est fait pour moi ? », 14 sélections thématiques, le comparateur sur 20 notes, des fiches avec jauges et un encart légal, les mentions légales et la confidentialité.</div></li>
+  <li><span><span class="chip ok">En ligne</span></span><div><strong>Technique et conformité.</strong> CSS compilé de 35 Ko (7 Ko compressé) à la place du CDN de 407 Ko. Numéros de version sur les fichiers. Google Analytics ne se charge qu'après consentement, et la sécurité du site est resserrée.</div></li>
+</ul>
+<h3>Reste à faire</h3>
+<ul>
+  <li><strong>53 photos de races.</strong> 10 nouvelles photos ont été générées, puis le quota d'images de Figma a été atteint. Les races concernées affichent « Photo à venir ». Les descriptions des photos sont prêtes pour reprendre la génération, y compris celle du Bulldog anglais.</li>
+  <li><strong>Mentions légales.</strong> Il faut y ajouter le SIRET et l'adresse d'Aurora : ces informations n'étaient trouvables nulle part, et la page de mentions légales d'aurorastudio.fr est vide.</li>
+  <li><strong>Plafond de dépense</strong> à poser dans la console Anthropic pour Tel Maître, Tel Chien.</li>
+  <li><strong>Relecture humaine</strong> des races à confiance moyenne : une trentaine de chiens courants français et quelques races rares.</li>
+</ul>
+</section>
+
+<section aria-labelledby="essentiel">
+<h2 id="essentiel">L'essentiel</h2>
+<ul class="essentials">
+  <li><span><span class="chip bad">En panne</span></span><div><strong>Tel Maître, Tel Chien ne répond plus.</strong> Le modèle d'IA appelé (<code>claude-sonnet-4-20250514</code>) a été retiré par Anthropic le 15 juin 2026, et chaque analyse finit en erreur 404. La réparation est faite et testée sur une version de test : le coût par analyse est divisé par 15 à 60.</div></li>
+  <li><span><span class="chip bad">Grave</span></span><div><strong>Les fiches sont fausses sur des points qui comptent.</strong> 447 erreurs dans les données, réparties sur 148 fiches sur 169. Le Labrador a un « pelage long à brosser tous les jours », le Saint-Bernard est « adapté à l'appartement », le Pit-bull convient « aux débutants ». La santé est vide sur les 169 fiches.</div></li>
+  <li><span><span class="chip warn">Important</span></span><div><strong>Il manque des races que les Français ont chez eux.</strong> Le Cocker anglais (4<sup>e</sup> race de France), le Teckel, le Chihuahua, le Jack Russell, le Bulldog anglais. Les races absentes représentent 20 % des chiots inscrits au LOF en 2025, et 40 races françaises sur 52 manquent.</div></li>
+  <li><span><span class="chip warn">Important</span></span><div><strong>Les filtres répondent à la base de données, pas aux gens.</strong> 55 réglages, un tiroir de 4 écrans sur téléphone, des options qui ne trouvent jamais rien. Et comme les données sont fausses, les filtres donnent des réponses fausses.</div></li>
+  <li><span><span class="chip warn">À régler</span></span><div><strong>Conformité.</strong> Google Analytics se charge sans demander le consentement, et le site n'a ni mentions légales ni politique de confidentialité. La CNIL exige les deux.</div></li>
+</ul>
+
+<h3>Par où commencer</h3>
+<ol>
+  <li>Réparer Tel Maître, Tel Chien (une demi-journée).</li>
+  <li>Remplacer les données par le nouveau jeu de notes déjà préparé, après relecture (2 à 3 jours).</li>
+  <li>Reconstruire les filtres autour de la vie des gens, avec profils en un clic et score de compatibilité (3 à 4 jours).</li>
+  <li>Ajouter les races manquantes, en commençant par les 20 plus inscrites au LOF.</li>
+</ol>
+</section>
+
+<section aria-labelledby="tmtc">
+<h2 id="tmtc">Tel Maître, Tel Chien</h2>
+<h3>Pourquoi ça ne marche plus</h3>
+<p>La page envoie le selfie à une fonction Vercel (<code>api/match-breed.js</code>) qui interroge Claude Sonnet 4. Ce modèle a été déprécié le 14 avril 2026 puis retiré le 15 juin 2026. Depuis, l'API répond <code>404 model: claude-sonnet-4-20250514</code>. La page affiche alors « Erreur serveur » à chaque essai, et l'essai compte quand même dans la limite de 5 par jour.</p>
+<p>L'appel était aussi coûteux. Chaque analyse envoyait un catalogue de 169 races (17 600 caractères), 3 400 caractères de consignes et une photo de 1024 px. Au total, environ 8 000 tokens par analyse, soit à peu près 3 centimes de dollar, sans cache.</p>
+<div class="note warn"><p>Trois défauts à corriger dans la foulée, quelle que soit l'option retenue. La liste des races est envoyée par le navigateur : n'importe qui peut la modifier et injecter du texte dans la consigne. La réponse est du texte libre, que la page tente de nettoyer avant de le lire. Enfin, la promesse « votre photo n'est ni stockée ni conservée » ne dit pas que la photo part chez un prestataire américain.</p></div>
+
+<h3>Trois façons de la remettre en route</h3>
+<div class="options">
+  <div class="opt reco">
+    <span class="tag">Option A · recommandée</span>
+    <h4>Claude Haiku 5.5, photo réduite</h4>
+    <dl><dt>Coût mesuré</dt><dd>0,50 à 2 $ les 1 000 analyses</dd><dt>Téléchargé</dt><dd>rien</dd><dt>Délai mesuré</dt><dd>4 à 6 s</dd><dt>Travail</dt><dd>fait le 11 octobre</dd></dl>
+    <ul>
+      <li>Photo ramenée à 504 px : 324 tokens au lieu de 1 369.</li>
+      <li>Réponse imposée par un schéma, avec la liste des 169 races. Impossible d'inventer une race ou de casser le format.</li>
+      <li>Catalogue gardé côté serveur et mis en cache.</li>
+      <li>Meilleure qualité des trois, parce que le modèle voit vraiment le visage.</li>
+    </ul>
+  </div>
+  <div class="opt">
+    <span class="tag">Option B · zéro token</span>
+    <h4>Analyse dans le téléphone</h4>
+    <dl><dt>Coût</dt><dd>0 €</dd><dt>Téléchargé</dt><dd>7 à 112 Mo au 1<sup>er</sup> essai</dd><dt>Délai</dt><dd>0,1 à 4 s</dd><dt>Travail</dt><dd>4 à 6 jours</dd></dl>
+    <ul>
+      <li>MediaPipe repère le visage, puis SigLIP (licence Apache) lit cheveux, barbe, lunettes, sourire.</li>
+      <li>La photo ne quitte jamais le téléphone. C'est un vrai argument.</li>
+      <li>Textes drôles écrits à l'avance (environ 0,11 $ une seule fois).</li>
+      <li>Correspondance moins fine, réglages à calibrer. Trop lourd pour les vieux téléphones en 4G.</li>
+    </ul>
+  </div>
+  <div class="opt">
+    <span class="tag">Option C · hybride</span>
+    <h4>Analyse locale, phrase par l'IA</h4>
+    <dl><dt>Coût</dt><dd>environ 0,10 $ les 1 000</dd><dt>Téléchargé</dt><dd>comme B</dd><dt>Délai</dt><dd>B + 1 s</dd><dt>Travail</dt><dd>5 à 7 jours</dd></dl>
+    <ul>
+      <li>Seuls des attributs anonymes partent sur le réseau (« cheveux bouclés, sourire »).</li>
+      <li>Pas moins cher que A : une petite photo ne coûte presque rien à Haiku 5.5.</li>
+      <li>La complexité de B, sans son avantage du zéro réseau.</li>
+    </ul>
+  </div>
+</div>
+<p><strong>Ma recommandation : l'option A maintenant.</strong> Elle répond à la demande « très peu de tokens » : 1 000 analyses coûtent moins qu'un café. Elle se fait en une demi-journée et donne le meilleur résultat. L'option B reste une belle évolution si « votre photo ne quitte pas votre téléphone » devient un argument de communication. Je déconseille l'option C.</p>
+<p>Une idée pour aller plus loin : relier le test au reste du site. « Physiquement, vous êtes un Briard. Pour votre vie, le chien idéal serait plutôt… » renvoie vers le test de compatibilité décrit plus bas. Le jeu devient une porte d'entrée vers l'outil utile.</p>
+<div class="note"><p><strong>Mise à jour du 11 octobre : option A réalisée sur une version de test.</strong> Les mesures réelles : 12 600 tokens de consignes lus depuis le cache, environ 270 pour la photo, 500 à 750 en sortie. Ça donne 0,0005 $ par analyse quand le cache est chaud et 0,002 $ quand il est froid (première analyse après 5 minutes sans visite). Sur 13 portraits de test, la première version de la consigne envoyait tous les barbus vers le Bouvier des Flandres. La consigne corrigée donne 10 races différentes, toujours en vouvoyant. La mention sur la photo est rectifiée et le critère « corpulence » est retiré. Il reste à poser un plafond de dépense dans la console Anthropic.</p></div>
+</section>
+
+<section aria-labelledby="fiches">
+<h2 id="fiches">Les fiches des races</h2>
+<p>Les données viennent de TheDogAPI, une base américaine traduite puis complétée automatiquement. J'ai fait relire chacune des 169 fiches contre les standards FCI et les sources françaises, champ par champ.</p>
+<div class="figures">
+  <div><b>447</b><span>erreurs dans les champs</span></div>
+  <div><b>148</b><span>fiches sur 169 en contiennent au moins une</span></div>
+  <div><b>175</b><span>erreurs graves ou moyennes, sur 100 fiches</span></div>
+  <div><b>0</b><span>problème de santé renseigné, sur 169 fiches</span></div>
+</div>
+
+<h3>Des champs remplis par défaut</h3>
+<p>Plusieurs champs ont la même valeur pour toutes les races, ce qui trahit un remplissage automatique :</p>
+<ul>
+  <li><strong>Santé</strong> : « Bonne » partout, aucune maladie connue, visite vétérinaire « annuelle » partout. La section Santé des fiches est un paragraphe générique.</li>
+  <li><strong>Intelligence</strong> et <strong>types d'activité</strong> : vides sur les 169 fiches.</li>
+  <li><strong>Expérience requise</strong> : « Débutant » pour 113 races, dont le Malinois, le Beauceron et le Pit-bull.</li>
+  <li><strong>Énergie</strong> : la moitié des races sont « très énergiques », dont des petits chiens de compagnie. Les minutes d'exercice en sont déduites mécaniquement (120, 90, 60 ou 30).</li>
+  <li><strong>Hauteur</strong> : plusieurs races affichent exactement « 40 à 40 cm », valeur de remplissage (Whippet, Pharaon, Schnauzer nain…).</li>
+</ul>
+
+<h3>Des erreurs qui se voient</h3>
+<div class="tablebox"><table>
+<thead><tr><th>Race</th><th>Sur le site</th><th>En réalité</th></tr></thead>
+<tbody>
+<tr><td>Labrador</td><td class="was">Poil long, brossage quotidien</td><td class="is">Poil court, entretien faible</td></tr>
+<tr><td>Bichon maltais</td><td class="was">Sans poil, entretien faible</td><td class="is">Poil très long, brossage quotidien</td></tr>
+<tr><td>Saint-Bernard, Terre-Neuve, Montagne des Pyrénées</td><td class="was">Adapté à l'appartement</td><td class="is">Chiens géants, jardin indispensable</td></tr>
+<tr><td>Yorkshire, Spitz nain, Schnauzer nain</td><td class="was">Pas adapté à l'appartement</td><td class="is">Parfaits en appartement</td></tr>
+<tr><td>Pit-bull, American Staffordshire</td><td class="was">Pour débutant, rien sur la loi</td><td class="is">Chiens catégorisés, maître confirmé</td></tr>
+<tr><td>Husky, Malamute, Kangal</td><td class="was">Facile à éduquer</td><td class="is">Indépendants, éducation difficile</td></tr>
+<tr><td>Caniches nain et toy</td><td class="was">Origine Allemagne</td><td class="is">Race française pour la FCI</td></tr>
+<tr><td>Petit lévrier italien</td><td class="was">Vit 6 à 8 ans</td><td class="is">Vit 12 à 15 ans</td></tr>
+<tr><td>Bichon frisé</td><td class="was">Vit 7 à 10 ans</td><td class="is">Vit 12 à 15 ans</td></tr>
+<tr><td>Shih Tzu</td><td class="was">Mauvais avec les enfants</td><td class="is">Bon avec les enfants</td></tr>
+<tr><td>Dobermann</td><td class="was">Pas protecteur</td><td class="is">Chien de garde par excellence</td></tr>
+<tr><td>Bull Terrier, Saint-Hubert</td><td class="was">Poil long</td><td class="is">Poil court</td></tr>
+</tbody></table></div>
+
+<h3>Deux fiches décrivent une autre race</h3>
+<p><strong>« Bouledogue Anglais »</strong> raconte l'histoire de l'Olde English Bulldogge, une race américaine créée dans les années 1970. Le vrai Bulldog anglais (1 156 chiots LOF en 2025) n'existe donc nulle part sur le site. <strong>« Cocker Spaniel »</strong> décrit le Cocker américain, déjà présent sur une autre fiche. Le Cocker anglais, 4<sup>e</sup> race de France avec 7 585 chiots, manque.</p>
+
+<h3>Le référentiel est américain</h3>
+<ul>
+  <li>Les groupes affichés (« Chien de sport », « Chien de travail ») sont ceux du club américain. En France, tout le monde utilise les 10 groupes de la FCI, ceux qu'on lit sur les pedigrees.</li>
+  <li>19 races présentes ne sont pas reconnues par la FCI. Elles n'ont donc pas de LOF possible et sont souvent introuvables en France : Coonhounds, Rat Terrier, Shiloh Shepherd, Husky d'Alaska…</li>
+  <li>28 noms ne suivent pas l'usage français : « Mastiff tibétain » au lieu de Dogue du Tibet, « Schnauzer standard » au lieu de Schnauzer moyen. Des restes d'anglais aussi : « Newfoundland, Canada », « Curious », « Charming », une description du Bedlington jamais traduite.</li>
+  <li>46 erreurs dans les textes d'histoire : légendes présentées comme des faits, dates fausses, filiations inversées.</li>
+</ul>
+
+<div class="note bad"><p><strong>Le point légal.</strong> Cinq races relèvent de la loi du 6 janvier 1999 sur les chiens dits dangereux : le Pit-bull, le Boerboel et l'American Bully (1<sup>re</sup> catégorie selon la morphologie), le Rottweiler et l'American Staffordshire (2<sup>e</sup> catégorie). Aucune fiche n'en parle : permis de détention, muselière, et pour la 1<sup>re</sup> catégorie acquisition et cession interdites. Un site qui présente le Pit-bull comme un chien « pour débutant » sans le signaler expose ses lecteurs, et sa crédibilité.</p></div>
+
+<h3>Ce que je propose à la place</h3>
+<p>Pendant la relecture, chaque race a reçu 20 notes de 1 à 5, sur le modèle des grands sites de référence : énergie (1 = pantouflard, 5 = sportif infatigable), enfants, chiens, chats, inconnus, appartement, solitude, aboiements, facilité d'éducation, premier chien, entretien du poil, perte de poils, bave, chaleur, froid, garde, instinct de chasse, fugue et robustesse. S'y ajoutent les minutes d'exercice réelles, 3 à 5 problèmes de santé fréquents, l'aptitude aux personnes allergiques, le groupe FCI et la catégorie légale. Ce jeu de données nourrit les filtres et les fiches.</p>
+<p>141 fiches ont un niveau de confiance élevé, 28 un niveau moyen : surtout des races rares ou non reconnues. Une passe d'harmonisation est nécessaire, parce que quatre relecteurs ont noté en parallèle. Une relecture humaine sur les 30 races les plus populaires sera aussi utile avant publication.</p>
+</section>
+
+<section aria-labelledby="manquantes">
+<h2 id="manquantes">Les races qui manquent</h2>
+<p>Comparaison avec les statistiques LOF 2025 de la Société Centrale Canine (199 699 chiots inscrits, 286 races). <strong>174 races sont absentes</strong>, dont 54 avec plus de 100 inscriptions par an. Ensemble, elles pèsent 39 258 inscriptions, <strong>20 % des chiots de race nés en France</strong>.</p>
+<div class="tablebox"><table>
+<thead><tr><th class="num">#</th><th>Race manquante</th><th class="num">Groupe FCI</th><th>Origine</th><th class="num">LOF 2025</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>Cocker anglais <span class="chip warn">fiche à réécrire</span></td><td class="num">8</td><td>Grande-Bretagne</td><td class="num">7&#8239;585</td></tr>
+<tr><td class="num">2</td><td>Teckel</td><td class="num">4</td><td>Allemagne</td><td class="num">5&#8239;582</td></tr>
+<tr><td class="num">3</td><td>Chihuahua</td><td class="num">9</td><td>Mexique</td><td class="num">2&#8239;898</td></tr>
+<tr><td class="num">4</td><td>Petit épagneul de Münster</td><td class="num">7</td><td>Allemagne</td><td class="num">1&#8239;823</td></tr>
+<tr><td class="num">5</td><td>Jack Russell Terrier</td><td class="num">3</td><td>Grande-Bretagne</td><td class="num">1&#8239;641</td></tr>
+<tr><td class="num">6</td><td>Bulldog anglais <span class="chip warn">fiche à réécrire</span></td><td class="num">2</td><td>Grande-Bretagne</td><td class="num">1&#8239;156</td></tr>
+<tr><td class="num">7</td><td>Bulldog continental</td><td class="num">2</td><td>Suisse</td><td class="num">773</td></tr>
+<tr><td class="num">8</td><td>Drahthaar</td><td class="num">7</td><td>Allemagne</td><td class="num">706</td></tr>
+<tr><td class="num">9</td><td>Basset fauve de Bretagne</td><td class="num">6</td><td>France</td><td class="num">690</td></tr>
+<tr><td class="num">10</td><td>Pointer anglais</td><td class="num">7</td><td>Grande-Bretagne</td><td class="num">671</td></tr>
+<tr><td class="num">11</td><td>Gascon saintongeois</td><td class="num">6</td><td>France</td><td class="num">664</td></tr>
+<tr><td class="num">12</td><td>Braque français, type Pyrénées</td><td class="num">7</td><td>France</td><td class="num">623</td></tr>
+<tr><td class="num">13</td><td>Colley à poil long</td><td class="num">1</td><td>Grande-Bretagne</td><td class="num">592</td></tr>
+<tr><td class="num">14</td><td>Terrier de chasse allemand</td><td class="num">3</td><td>Allemagne</td><td class="num">591</td></tr>
+<tr><td class="num">15</td><td>Griffon nivernais</td><td class="num">6</td><td>France</td><td class="num">571</td></tr>
+<tr><td class="num">16</td><td>Akita américain</td><td class="num">5</td><td>États-Unis</td><td class="num">549</td></tr>
+<tr><td class="num">17</td><td>Griffon bleu de Gascogne</td><td class="num">6</td><td>France</td><td class="num">529</td></tr>
+<tr><td class="num">18</td><td>Dogue de Bordeaux</td><td class="num">2</td><td>France</td><td class="num">517</td></tr>
+<tr><td class="num">19</td><td>Laïka de Iakoutie</td><td class="num">5</td><td>Russie</td><td class="num">481</td></tr>
+<tr><td class="num">20</td><td>Chien d'oysel allemand</td><td class="num">8</td><td>Allemagne</td><td class="num">461</td></tr>
+</tbody></table></div>
+<p><strong>Races françaises.</strong> Le site n'en compte que 5 sur 52 reconnues par la FCI. Il manque entre autres le Dogue de Bordeaux, le Berger des Pyrénées, le Berger picard, l'Épagneul français, le Braque d'Auvergne, le Petit basset griffon vendéen, le Grand caniche et une vingtaine de chiens courants. Pour un site français, c'est un axe éditorial naturel : un filtre « Races françaises » et une page dédiée.</p>
+<p><strong>À compléter aussi.</strong> Une page chapeau « Spitz allemand » (2 666 chiots, la SCC ne sépare pas les tailles), les Bergers belges Groenendael et Laekenois, et les Caniches moyen et grand.</p>
+<p><strong>À retirer ou à signaler.</strong> Les 19 races non reconnues par la FCI. Le plus simple : les garder avec une mention « race non reconnue en France », et les sortir des résultats par défaut.</p>
+</section>
+
+<section aria-labelledby="ux">
+<h2 id="ux">Expérience et interface</h2>
+<h3>Accueil</h3>
+<ul>
+  <li>Aucun titre principal (pas de <code>h1</code>) et aucune phrase qui dit à quoi sert le site. On arrive directement sur « 169 races trouvées ».</li>
+  <li>Sur téléphone, une carte occupe tout l'écran : il faut faire défiler environ 170 écrans pour voir la liste. La recherche par nom est cachée dans le tiroir des filtres.</li>
+  <li>Les cartes affichent un badge « Débutant / Intermédiaire » (souvent faux) et trois traits génériques : « Intelligent » figure sur 138 races, il ne distingue rien. Elles devraient montrer ce qui aide à choisir : taille, énergie, entretien, et le score de compatibilité quand des filtres sont actifs.</li>
+  <li>La comparaison se lance par une case discrète sur la photo, et les erreurs passent par des fenêtres d'alerte du navigateur.</li>
+</ul>
+<h3>Fiche race</h3>
+<ul>
+  <li>Le texte est généré à partir des champs, donc il répète leurs erreurs (« son pelage long nécessite un brossage quotidien » pour le Labrador).</li>
+  <li>La section Santé est vide, alors que c'est l'une des premières questions d'un futur maître.</li>
+  <li>Pas de jauges visuelles. Les 20 notes proposées se liraient en un coup d'œil, sous forme de barres.</li>
+  <li>Il manque l'essentiel pour la France : groupe FCI, popularité LOF, catégorie légale, budget mensuel indicatif.</li>
+</ul>
+<h3>Technique et conformité</h3>
+<ul>
+  <li>Tailwind est chargé depuis son CDN de démonstration (407 Ko de JavaScript) sur les 174 pages. Tailwind déconseille cet usage en production : le style est calculé dans le navigateur, ce qui ralentit l'affichage. Il faut compiler une feuille CSS.</li>
+  <li>Font Awesome est chargé en entier pour une poignée d'icônes.</li>
+  <li>Google Analytics se charge sans bandeau de consentement, et il n'y a ni mentions légales ni politique de confidentialité. C'est obligatoire, d'autant plus qu'une page envoie des photos de visages.</li>
+  <li>Rien ne s'enregistre dans l'adresse de la page : une recherche filtrée ne se partage pas, et Google ne peut pas indexer « chiens pour appartement ».</li>
+</ul>
+</section>
+
+<section aria-labelledby="filtres">
+<h2 id="filtres">Les filtres, le cœur du site</h2>
+<h3>Ce qui ne va pas</h3>
+<ol>
+  <li><strong>Les données sont fausses, donc les réponses aussi.</strong> « Adapté appartement » renvoie le Saint-Bernard et le Leonberg, mais ni le Yorkshire ni le Spitz nain.</li>
+  <li><strong>Trop de réglages.</strong> 55 contrôles, dont 18 traits de caractère. Sur téléphone, le tiroir fait 4 écrans de haut et le bouton « Filtres » cache une partie des interrupteurs.</li>
+  <li><strong>Rangés dans l'ordre de la base de données.</strong> Le premier filtre est le groupe, une notion technique et américaine. Personne ne commence sa recherche par là.</li>
+  <li><strong>Des doublons qui se contredisent.</strong> « Calme » existe comme trait et comme niveau d'énergie. « Protecteur » existe comme trait et comme « Chien de garde ». La durée d'exercice se déduit de l'énergie.</li>
+  <li><strong>Des options mortes.</strong> « Perte de poils : Léger » ne correspond à aucune race. Le trait « Intelligent » en sélectionne 138.</li>
+  <li><strong>Tout ou rien.</strong> Chaque filtre ajouté élimine des races. Trois ou quatre critères mènent à zéro résultat, sans proposer « les plus proches ».</li>
+  <li><strong>Aucun retour en direct.</strong> Pas de nombre de résultats à côté des options, pas de bouton « Voir les 23 races » dans le tiroir mobile.</li>
+  <li><strong>Rien n'est partageable</strong>, ni indexable par Google.</li>
+</ol>
+
+<h3>Ce que les gens cherchent vraiment</h3>
+<p>Suggestions de Google France relevées le 11 octobre, quand on tape le début de la question :</p>
+<ul class="quotes">
+  <li>race de chien pour appartement</li><li>race de chien pour enfant</li><li>race de chien pour famille avec enfants</li><li>race de chien pour personne âgée</li><li>quel chien choisir quand on a 70 ans</li><li>quel chien choisir quand on travaille</li><li>chien qui ne perd pas ses poils et qui n'aboie pas</li><li>race de chien qui n'aboie pas</li><li>chien calme et pantouflard</li><li>race de chien qui dort beaucoup</li><li>chien calme et affectueux de petite taille</li><li>race de chien calme et obéissant taille moyenne</li><li>race de chien pour courir</li><li>race de chien qui ne supporte pas la chaleur</li><li>race de chien qui vit le plus longtemps</li><li>race de chien qui ressemble à un loup</li><li>petit chien moins de 10 kg</li><li>quel chien choisir test gratuit</li>
+</ul>
+<p>Ces questions partent de la vie de la personne : son logement, sa famille, son temps, son rythme, ses allergies. Votre intuition « pantouflard ou dynamique, adapté aux enfants » est exactement celle-là. Et « quel chien choisir test gratuit » montre qu'un test guidé a sa place.</p>
+
+<h3>La nouvelle organisation, en trois étages</h3>
+<div class="tiers">
+  <div class="tier"><div class="lvl">Profils en un clic<small>visibles d'emblée, sans tiroir</small></div><div><p>Une rangée de boutons au-dessus de la liste, combinables entre eux : <em>Pantouflard, Sportif, Appartement, Jeunes enfants, Premier chien, Allergies, Discret, Je travaille la journée, Vit avec un chat, Senior, Supporte la chaleur, Races françaises</em>. Chacun reprend une recherche Google fréquente et devient aussi une page dédiée.</p></div></div>
+  <div class="tier"><div class="lvl">Ma vie<small>6 questions, score de compatibilité</small></div><div><p>Logement (appartement, maison sans jardin, avec jardin, campagne). Enfants (aucun, plus de 8 ans, jeunes enfants). Autres animaux. Temps seul par jour. Expérience. Et un curseur <strong>Pantouflard ⟷ Sportif</strong>. Ces réponses n'éliminent pas : elles classent, avec un pourcentage et la raison sur chaque carte (« ✓ appartement ✓ enfants · aboie souvent »).</p></div></div>
+  <div class="tier"><div class="lvl">Le chien<small>critères physiques et contraintes</small></div><div><p>Taille (5 silhouettes avec le poids), type de poil, entretien, perte de poils, aboiements, bave, chaleur, espérance de vie. Plus, replié : groupe FCI, pays d'origine, « exclure les chiens catégorisés ». Ceux-là filtrent vraiment, parce qu'ils sont éliminatoires (une allergie ne se négocie pas).</p></div></div>
+</div>
+<h4>Les règles de fonctionnement</h4>
+<ul>
+  <li><strong>Classer plutôt qu'éliminer</strong> pour tout ce qui relève du mode de vie. Il y a toujours une réponse, au pire « les 10 plus proches de vos critères ».</li>
+  <li><strong>Un nombre à côté de chaque option</strong> (« Appartement · 50 »), et les options grisées quand elles ne mènent à rien.</li>
+  <li><strong>Sur téléphone</strong> : profils en rangée défilante sous la recherche, tiroir en feuille basse avec un bouton fixe « Voir les 23 races », recherche par nom en haut de page.</li>
+  <li><strong>Tout dans l'adresse</strong> (<code>/?profil=appartement,enfants&amp;rythme=1-2</code>) : une recherche se partage et se retrouve.</li>
+  <li><strong>Des pages thématiques pour Google</strong> : /chiens-pour-appartement, /chiens-calmes, /chiens-pour-enfants, /chiens-qui-ne-perdent-pas-leurs-poils, /chiens-pour-personnes-agees, /chiens-qui-supportent-la-solitude, /chiens-sportifs, /races-francaises. Chaque page est une liste filtrée, avec une introduction rédigée.</li>
+  <li><strong>Le test « Quel chien est fait pour moi ? »</strong> : les 6 questions de « Ma vie », une par écran, en 45 secondes, avec le même moteur de score. C'est le pendant utile de Tel Maître, Tel Chien.</li>
+</ul>
+</section>
+</div>
+
+<div class="wide">
+<h3 id="demo-titre" style="max-width:46rem;margin-inline:auto">Essayez : la démo avec les données corrigées</h3>
+<p style="max-width:46rem;margin-inline:auto">Cette démo tourne sur les 169 races et les nouvelles notes. Combinez des profils et regardez, à gauche, ce que donnerait le site actuel pour la même demande. Le point ● signale un critère éliminatoire.</p>
+<div class="demo" id="demo" aria-labelledby="demo-titre">
+  <div class="demo-side">
+    <fieldset><legend>Mon profil</legend>
+      <div class="pills" id="profiles"></div>
+    </fieldset>
+    <fieldset><legend>Mon rythme</legend>
+      <label for="rythme" class="rythme-val" id="rythme-label">Peu importe</label>
+      <input type="range" id="rythme" min="0" max="5" step="1" value="0" aria-describedby="rythme-help">
+      <div class="range-row" id="rythme-help"><span>Peu importe</span><span>Pantouflard</span><span>Sportif</span></div>
+    </fieldset>
+    <fieldset><legend>Taille ●</legend>
+      <div class="sizes" id="sizes"></div>
+    </fieldset>
+    <fieldset><legend>Options</legend>
+      <div class="pills">
+        <label class="pill hard"><input type="checkbox" id="no-cat"><span>Exclure les chiens catégorisés</span></label>
+      </div>
+    </fieldset>
+    <p class="demo-hint">Les notes viennent de la relecture du 11 octobre. Elles doivent encore être harmonisées avant publication.</p>
+  </div>
+  <div class="demo-main">
+    <div class="versus" aria-live="polite">
+      <div class="now"><span class="eyebrow">Site actuel</span><b id="now-count">169</b><small id="now-detail">aucun filtre</small></div>
+      <div class="new"><span class="eyebrow">Proposé</span><b id="new-count">169</b><small id="new-detail">races classées par compatibilité</small></div>
+    </div>
+    <ul class="results" id="results"></ul>
+    <p class="more" id="more"></p>
+  </div>
+</div>
+</div>
+
+<div class="wrap">
+<section aria-labelledby="plan">
+<h2 id="plan">Plan d'action</h2>
+<div class="phase"><span class="n">1</span><div><h4>Réparer et sécuriser</h4><p class="effort">environ 1 jour</p><ul>
+  <li>Tel Maître, Tel Chien avec Claude Haiku 5.5 : photo réduite, réponse imposée par un schéma, catalogue côté serveur, mention claire sur la photo, plafond de dépense.</li>
+  <li>Corriger tout de suite les erreurs graves : chiens catégorisés et mention légale, expérience requise, appartement, pelages, espérances de vie.</li>
+  <li>Bandeau de consentement (ou une mesure d'audience exemptée), mentions légales, politique de confidentialité.</li>
+</ul></div></div>
+<div class="phase"><span class="n">2</span><div><h4>Données et filtres</h4><p class="effort">environ 1 semaine</p><ul>
+  <li>Nouveau fichier de données avec les 20 notes, la santé, le groupe FCI, la catégorie et les noms français, après harmonisation et relecture des 30 races phares.</li>
+  <li>Filtres en trois étages, profils en un clic, score de compatibilité, état dans l'adresse, tiroir mobile revu.</li>
+  <li>Cartes et fiches : jauges, section Santé réelle, encart légal, textes régénérés à partir des bonnes données.</li>
+</ul></div></div>
+<div class="phase"><span class="n">3</span><div><h4>Contenu et audience</h4><p class="effort">à étaler</p><ul>
+  <li>Réécrire le Cocker anglais et le Bulldog anglais, puis ajouter les races manquantes par ordre d'inscriptions LOF (le top 20 d'abord, puis les races françaises).</li>
+  <li>Pages thématiques et test « Quel chien est fait pour moi ? ».</li>
+  <li>Feuille CSS compilée à la place du CDN Tailwind, icônes allégées.</li>
+  <li>Plus tard, si l'argument compte : Tel Maître, Tel Chien entièrement dans le téléphone.</li>
+</ul></div></div>
+</section>
+
+<footer>
+  <p><strong>Sources et méthode.</strong> Code source du dépôt race_de_chien et site en ligne, inspectés le 11 octobre 2026. Relecture des 169 fiches contre les standards FCI et les sources françaises, en quatre lots parallèles. Chaque erreur porte une gravité et une justification, et chaque fiche un niveau de confiance.</p>
+  <ul>
+    <li>Société Centrale Canine, Statistiques LOF 2025 (janvier 2026) : centrale-canine.fr</li>
+    <li>Nomenclature FCI, consultée le 11 octobre 2026 : fci.be/fr/nomenclature</li>
+    <li>Chiens catégorisés : service-public.gouv.fr, fiche F1839 ; loi du 6 janvier 1999, arrêté du 27 avril 1999</li>
+    <li>Modèles et tarifs Claude : platform.claude.com, pages Models, Pricing, Model deprecations, Vision, Structured outputs</li>
+    <li>Transformers.js 4.3, SigLIP, MediaPipe Face Landmarker : temps mesurés sur un Mac M1 Pro, temps mobiles estimés</li>
+    <li>Suggestions Google France (autocomplétion), relevées le 11 octobre 2026</li>
+  </ul>
+</footer>
+</div>
+<script type="application/json" id="demo-data">{"keys":["energie","enfants","chiens","chats","appartement","solitude","aboiements","education","premier_chien","entretien_pelage","perte_poils","bave","chaleur","froid","garde","instinct_chasse","fugue","robustesse"],"breeds":[{"n":"Affenpinscher","s":"affenpinscher","t":1,"v":[3,2,3,3,5,2,4,2,3,3,1,1,3,3,3,3,2,4],"h":1,"c":0,"cur":[0,0,0,2,1,0,"toy"]},{"n":"Airedale Terrier","s":"airedale-terrier","t":3,"v":[4,4,3,2,2,2,3,3,2,3,2,1,3,4,4,4,3,4],"h":1,"c":0,"cur":[0,0,0,3,1,0,"medium"]},{"n":"Akbash","s":"akbash","t":5,"v":[3,3,2,3,1,4,4,2,1,2,3,1,3,5,5,2,4,4],"h":0,"c":0,"cur":[1,0,0,1,0,0,"giant"]},{"n":"Akita","s":"akita","t":4,"v":[3,2,1,1,2,3,1,2,1,3,4,1,2,5,5,4,3,3],"h":0,"c":0,"cur":[0,0,0,3,0,0,"large"]},{"n":"American Bully","s":"american-bully","t":3,"v":[3,4,2,2,3,2,2,3,2,1,2,2,2,2,2,2,2,2],"h":0,"c":1,"cur":[1,1,0,1,1,0,"medium"]},{"n":"Azawakh","s":"azawakh","t":4,"v":[4,2,3,1,2,2,2,2,1,1,2,1,5,1,3,5,4,3],"h":0,"c":0,"cur":[0,0,0,2,0,0,"large"]},{"n":"Barbet","s":"barbet","t":3,"v":[4,5,4,4,2,2,2,4,4,5,1,1,3,5,2,3,2,4],"h":1,"c":0,"cur":[0,1,1,3,1,1,"medium"]},{"n":"Basenji","s":"basenji","t":3,"v":[4,3,3,1,3,2,1,1,2,1,1,1,4,1,2,5,5,3],"h":1,"c":0,"cur":[0,0,0,3,0,0,"medium"]},{"n":"Basset Bleu de Gascogne","s":"basset-bleu-de-gascogne","t":2,"v":[3,5,5,3,2,2,4,2,3,1,3,2,3,3,1,5,5,4],"h":0,"c":0,"cur":[0,1,1,2,0,0,"small"]},{"n":"Basset Hound","s":"basset-hound","t":2,"v":[2,5,5,4,3,2,4,2,3,2,3,4,2,2,1,4,4,2],"h":0,"c":0,"cur":[1,1,1,0,0,0,"small"]},{"n":"Beagle","s":"beagle","t":2,"v":[4,5,5,3,3,1,5,2,3,1,3,1,3,3,1,5,5,4],"h":0,"c":0,"cur":[0,1,1,2,1,0,"small"]},{"n":"Bearded Collie","s":"bearded-collie","t":3,"v":[4,5,5,4,2,2,4,3,3,5,3,1,2,5,2,2,2,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"medium"]},{"n":"Beauceron","s":"beauceron","t":4,"v":[4,3,3,2,1,3,3,3,1,2,3,1,3,4,5,3,2,4],"h":0,"c":0,"cur":[0,0,0,2,1,0,"large"]},{"n":"Bedlington Terrier","s":"bedlington-terrier","t":3,"v":[3,4,3,2,4,2,2,3,3,4,1,1,3,2,3,5,4,3],"h":1,"c":0,"cur":[0,1,0,3,1,1,"medium"]},{"n":"Berger Allemand","s":"berger-allemand","t":4,"v":[4,4,3,3,2,2,3,5,3,3,5,2,3,4,5,3,2,2],"h":0,"c":0,"cur":[0,0,0,2,1,0,"large"]},{"n":"Berger Américain Miniature","s":"berger-americain-miniature","t":2,"v":[4,4,4,3,3,2,3,5,3,3,4,1,3,4,3,3,2,4],"h":0,"c":0,"cur":[0,0,1,3,1,0,"medium"]},{"n":"English Shepherd","s":"berger-anglais","t":3,"v":[4,4,3,3,2,3,3,4,3,3,4,1,3,4,4,3,2,4],"h":0,"c":0,"cur":[0,0,1,3,1,0,"medium"]},{"n":"Berger Australien","s":"berger-australien","t":3,"v":[5,4,4,3,1,2,3,5,2,3,4,1,3,4,3,3,2,4],"h":0,"c":0,"cur":[0,0,1,3,1,0,"medium"]},{"n":"Berger Belge Malinois","s":"berger-belge-malinois","t":4,"v":[5,2,3,2,1,1,3,4,1,1,3,1,3,4,5,4,2,4],"h":0,"c":0,"cur":[0,0,0,3,1,0,"large"]},{"n":"Berger Belge Tervueren","s":"berger-belge-tervueren","t":4,"v":[5,3,3,3,2,2,3,4,2,4,4,1,3,5,4,3,2,4],"h":0,"c":0,"cur":[0,0,0,3,1,0,"large"]},{"n":"Berger Blanc Suisse","s":"berger-blanc-suisse","t":3,"v":[4,5,4,4,2,2,4,4,4,3,5,1,2,5,3,2,2,3],"h":0,"c":0,"cur":[0,1,1,2,1,0,"large"]},{"n":"Berger du Caucase","s":"berger-du-caucase","t":4,"v":[2,2,1,2,1,4,4,1,1,3,4,2,1,5,5,2,2,3],"h":0,"c":0,"cur":[0,0,0,3,0,0,"large"]},{"n":"Berger Hollandais","s":"berger-hollandais","t":3,"v":[5,3,3,3,2,2,3,4,2,2,3,1,3,4,4,3,2,5],"h":0,"c":0,"cur":[0,0,0,3,0,0,"medium"]},{"n":"Bichon Frisé","s":"bichon-frise","t":1,"v":[3,5,5,5,5,1,3,3,5,5,1,1,3,2,1,1,1,4],"h":1,"c":0,"cur":[0,1,1,3,1,1,"toy"]},{"n":"Bichon Havanais","s":"bichon-havanais","t":1,"v":[3,5,5,5,5,1,3,4,5,4,1,1,3,2,1,1,1,4],"h":1,"c":0,"cur":[1,1,1,1,1,1,"toy"]},{"n":"Bichon Maltais","s":"bichon-maltais","t":1,"v":[3,3,4,4,5,1,4,3,4,5,1,1,3,1,2,1,1,4],"h":1,"c":0,"cur":[1,1,1,1,1,1,"toy"]},{"n":"Bobtail","s":"bobtail-berger-anglais-ancien","t":3,"v":[3,5,4,4,2,2,3,3,3,5,4,2,1,5,2,2,2,3],"h":0,"c":0,"cur":[0,1,1,2,1,0,"medium"]},{"n":"Boerboel","s":"boerboel","t":4,"v":[3,3,1,2,1,3,2,2,1,1,2,4,3,2,5,2,2,3],"h":0,"c":1,"cur":[0,0,0,2,0,0,"large"]},{"n":"Border Collie","s":"border-collie","t":3,"v":[5,3,4,3,1,1,3,5,2,3,4,1,3,4,2,4,2,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"medium"]},{"n":"Border Terrier","s":"border-terrier","t":2,"v":[4,5,4,2,3,2,3,3,4,2,2,1,3,4,2,5,4,5],"h":0,"c":0,"cur":[0,1,0,3,1,0,"small"]},{"n":"Boston Terrier","s":"boston-terrier","t":3,"v":[3,5,4,4,5,2,2,4,5,1,2,2,1,2,2,2,2,2],"h":0,"c":0,"cur":[0,1,1,3,1,0,"medium"]},{"n":"Alapaha Blue Blood Bulldog","s":"bouledogue-alapaha","t":3,"v":[3,3,2,2,2,3,2,2,1,1,2,3,3,2,5,3,2,3],"h":0,"c":0,"cur":[1,0,0,0,0,0,"medium"]},{"n":"Bouledogue Américain","s":"bouledogue-americain","t":4,"v":[4,3,2,2,2,3,2,3,2,1,3,3,3,2,4,4,2,3],"h":0,"c":0,"cur":[1,1,0,0,0,0,"large"]},{"n":"Olde English Bulldogge","s":"bouledogue-anglais","t":3,"v":[3,4,3,3,3,2,2,3,3,1,2,3,2,2,3,2,2,3],"h":0,"c":0,"cur":[1,1,1,0,1,0,"small"]},{"n":"Bouledogue Français","s":"bouledogue-francais","t":2,"v":[2,5,4,4,5,2,2,3,4,2,3,2,1,2,2,1,1,1],"h":0,"c":0,"cur":[1,1,1,0,1,0,"small"]},{"n":"Bouvier Australien","s":"bouvier-australien","t":3,"v":[5,3,2,2,1,2,2,4,1,1,3,1,4,3,4,4,3,5],"h":0,"c":0,"cur":[0,0,0,3,1,0,"medium"]},{"n":"Bouvier Bernois","s":"bouvier-bernois","t":4,"v":[3,5,4,4,2,2,2,4,4,3,5,2,1,5,3,1,1,1],"h":0,"c":0,"cur":[1,1,1,1,0,0,"large"]},{"n":"Bouvier d'Appenzell","s":"bouvier-d-appenzell","t":3,"v":[5,3,3,3,1,2,5,3,2,2,4,1,3,5,5,2,2,4],"h":0,"c":0,"cur":[0,0,0,3,0,0,"medium"]},{"n":"Bouvier des Flandres","s":"bouvier-des-flandres","t":4,"v":[3,4,3,3,2,3,2,3,2,4,2,2,2,5,5,2,1,3],"h":1,"c":0,"cur":[1,1,1,1,1,0,"large"]},{"n":"Boxer","s":"boxer","t":3,"v":[4,5,3,3,3,2,2,3,3,1,3,3,2,2,4,3,2,2],"h":0,"c":0,"cur":[0,1,1,3,0,0,"medium"]},{"n":"Boykin Spaniel","s":"boykin-spaniel","t":3,"v":[4,5,5,4,2,2,2,4,4,3,3,1,3,3,1,4,3,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"medium"]},{"n":"Braque Allemand à Poil Court","s":"braque-allemand-a-poil-court","t":4,"v":[5,4,4,2,1,2,3,4,2,1,3,2,3,2,2,5,4,4],"h":0,"c":0,"cur":[0,1,0,3,1,0,"medium"]},{"n":"Braque de Weimar","s":"braque-de-weimar","t":4,"v":[5,3,4,2,2,1,3,3,2,1,3,2,3,2,3,5,4,3],"h":0,"c":0,"cur":[0,1,0,3,1,0,"large"]},{"n":"Braque Hongrois à Poil Dur","s":"braque-hongrois-a-poil-dur","t":3,"v":[5,4,4,3,2,1,2,4,3,2,2,1,3,4,2,5,3,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"medium"]},{"n":"Braque Italien","s":"braque-italien","t":4,"v":[4,4,4,3,2,2,2,3,3,1,3,4,3,2,2,5,3,3],"h":0,"c":0,"cur":[1,1,1,1,1,0,"large"]},{"n":"Berger de Brie (Briard)","s":"briard","t":4,"v":[4,4,3,3,2,2,3,3,2,5,3,1,2,4,5,2,2,4],"h":0,"c":0,"cur":[0,0,0,2,1,0,"large"]},{"n":"Bull Terrier","s":"bull-terrier","t":3,"v":[4,3,2,1,3,2,2,2,2,1,3,1,3,2,3,4,3,3],"h":0,"c":0,"cur":[0,0,0,3,1,0,"medium"]},{"n":"Bull Terrier Miniature","s":"bull-terrier-miniature","t":2,"v":[4,3,2,1,4,2,2,2,2,1,3,1,3,2,3,4,3,3],"h":0,"c":0,"cur":[0,1,0,3,1,0,"small"]},{"n":"Bullmastiff","s":"bullmastiff","t":4,"v":[2,4,2,2,2,3,2,2,2,1,3,4,1,2,5,2,1,2],"h":0,"c":0,"cur":[0,1,0,2,0,0,"large"]},{"n":"Cairn Terrier","s":"cairn-terrier","t":2,"v":[4,4,3,2,4,3,4,3,4,2,2,1,3,4,3,5,4,4],"h":0,"c":0,"cur":[0,1,0,3,1,0,"small"]},{"n":"Cane Corso","s":"cane-corso","t":4,"v":[3,3,2,2,2,3,2,3,1,1,3,3,2,2,5,3,2,3],"h":0,"c":0,"cur":[0,1,0,2,0,0,"large"]},{"n":"Caniche Nain","s":"caniche-nain","t":2,"v":[4,4,4,4,5,2,4,5,5,5,1,1,3,2,2,2,2,4],"h":1,"c":0,"cur":[0,1,1,3,1,1,"small"]},{"n":"Caniche Toy","s":"caniche-toy","t":1,"v":[3,3,4,4,5,2,4,5,4,5,1,1,3,1,2,2,1,4],"h":1,"c":0,"cur":[0,1,1,2,1,1,"toy"]},{"n":"Carlin","s":"carlin","t":2,"v":[2,5,4,4,5,2,2,3,3,2,4,2,1,2,1,1,1,1],"h":0,"c":0,"cur":[1,1,1,0,1,0,"small"]},{"n":"Cavalier King Charles Spaniel","s":"cavalier-king-charles","t":2,"v":[3,5,5,5,5,2,2,4,5,3,3,1,2,2,1,3,3,1],"h":0,"c":0,"cur":[1,1,1,1,1,0,"small"]},{"n":"Chien Chinois à Crête","s":"chien-chinois-a-crete","t":2,"v":[3,3,4,4,5,2,3,3,4,3,1,1,2,1,1,2,2,3],"h":1,"c":0,"cur":[0,1,1,2,1,0,"small"]},{"n":"Chien d'Eau Espagnol","s":"chien-d-eau-espagnol","t":3,"v":[4,3,3,3,3,2,3,4,3,3,1,1,4,3,4,3,2,4],"h":1,"c":0,"cur":[0,0,1,3,1,1,"medium"]},{"n":"Chien de Montagne des Pyrénées","s":"chien-de-montagne-des-pyrenees","t":5,"v":[2,4,3,3,1,4,5,2,1,3,5,2,2,5,5,2,4,3],"h":0,"c":0,"cur":[1,0,1,1,0,0,"giant"]},{"n":"Chien de Saint-Hubert","s":"chien-de-saint-hubert","t":4,"v":[3,4,4,3,1,2,4,2,2,2,3,5,2,3,2,4,5,2],"h":0,"c":0,"cur":[0,1,1,2,0,0,"large"]},{"n":"Chien du Pharaon","s":"chien-du-pharaon","t":3,"v":[4,4,4,2,3,2,3,3,3,1,2,1,4,1,2,5,5,4],"h":0,"c":0,"cur":[0,1,0,3,1,0,"medium"]},{"n":"Chien Finnois de Laponie","s":"chien-finnois-de-laponie","t":3,"v":[4,5,4,3,2,3,4,4,4,3,5,1,1,5,3,3,3,4],"h":0,"c":0,"cur":[0,1,1,2,1,0,"medium"]},{"n":"Chien Léopard Catahoula","s":"chien-leopard-catahoula","t":3,"v":[5,3,2,2,1,2,3,3,1,1,3,1,4,3,4,4,3,4],"h":0,"c":0,"cur":[0,0,0,3,0,0,"medium"]},{"n":"Chien nu du Mexique (Xoloitzcuintle)","s":"chien-nu-mexicain-xoloitzcuintli","t":3,"v":[3,3,3,3,4,3,2,3,3,2,1,1,3,1,4,3,3,4],"h":1,"c":0,"cur":[0,1,0,2,1,0,"medium"]},{"n":"Chinook","s":"chinook","t":3,"v":[3,5,4,3,2,2,2,4,4,2,4,1,2,5,1,2,2,3],"h":0,"c":0,"cur":[0,1,1,2,0,0,"medium"]},{"n":"Chow-Chow","s":"chow-chow","t":3,"v":[2,2,2,3,4,4,2,2,1,4,4,2,1,5,4,3,2,2],"h":0,"c":0,"cur":[0,0,0,0,0,0,"medium"]},{"n":"Clumber Spaniel","s":"clumber-spaniel","t":3,"v":[2,4,4,4,3,3,2,3,4,3,4,4,2,3,2,4,2,2],"h":0,"c":0,"cur":[0,1,1,2,1,0,"medium"]},{"n":"Cocker Américain","s":"cocker-americain","t":2,"v":[3,4,4,4,4,2,3,4,4,5,3,2,3,3,1,3,2,2],"h":0,"c":0,"cur":[0,1,1,2,1,0,"small"]},{"n":"Cocker anglais (Cocker Spaniel anglais)","s":"cocker-spaniel","t":2,"v":[4,5,4,4,3,2,3,4,4,4,3,1,3,3,1,4,3,3],"h":0,"c":0,"cur":[0,1,1,3,1,0,"small"]},{"n":"Coonhound Bleuté","s":"coonhound-bleute","t":4,"v":[4,4,4,2,1,2,5,2,2,1,3,3,4,3,2,5,5,4],"h":0,"c":0,"cur":[0,1,0,2,1,0,"large"]},{"n":"Coonhound Noir et Feu","s":"coonhound-noir-et-feu","t":4,"v":[3,4,4,2,1,2,5,2,2,1,3,3,3,3,2,5,5,3],"h":0,"c":0,"cur":[0,1,0,2,1,0,"large"]},{"n":"Coton de Tuléar","s":"coton-de-tulear","t":1,"v":[3,5,5,5,5,2,3,4,5,5,1,1,3,3,1,1,2,4],"h":1,"c":0,"cur":[0,1,1,3,1,0,"toy"]},{"n":"Dalmatien","s":"dalmatien","t":3,"v":[5,3,4,3,2,2,3,3,3,1,5,1,4,2,3,3,4,3],"h":0,"c":0,"cur":[0,0,0,3,1,0,"medium"]},{"n":"Dobermann","s":"dobermann","t":4,"v":[4,4,3,2,2,2,3,5,2,1,3,2,3,1,5,3,2,2],"h":0,"c":0,"cur":[0,0,0,3,0,0,"large"]},{"n":"Dogue Allemand","s":"dogue-allemand","t":5,"v":[3,4,4,3,2,3,2,3,3,1,3,3,2,2,4,2,2,1],"h":0,"c":0,"cur":[0,1,1,2,0,0,"giant"]},{"n":"Dogue Argentin","s":"dogue-argentin","t":4,"v":[4,3,1,1,1,2,2,3,1,1,3,2,3,2,5,5,3,3],"h":0,"c":0,"cur":[0,0,0,3,0,0,"large"]},{"n":"Dogue des Canaries","s":"dogue-des-canaries","t":4,"v":[3,2,1,1,1,3,2,2,1,1,3,3,2,2,5,3,2,3],"h":0,"c":0,"cur":[0,0,0,2,0,0,"large"]},{"n":"Épagneul Breton","s":"epagneul-breton","t":3,"v":[5,5,5,4,2,2,2,5,4,2,3,1,3,3,1,5,3,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"medium"]},{"n":"Épagneul d'Eau Américain","s":"epagneul-d-eau-americain","t":3,"v":[4,4,3,3,2,2,3,4,3,3,2,1,3,4,2,4,3,4],"h":0,"c":0,"cur":[0,0,1,3,1,1,"medium"]},{"n":"Épagneul Japonais","s":"epagneul-japonais","t":1,"v":[2,3,4,5,5,3,2,3,4,3,3,1,1,2,1,1,1,2],"h":0,"c":0,"cur":[1,0,1,1,0,0,"toy"]},{"n":"Épagneul nain continental (Papillon)","s":"epagneul-papillon","t":1,"v":[4,3,4,4,5,2,4,5,4,3,3,1,3,2,2,3,2,4],"h":0,"c":0,"cur":[0,1,1,2,1,0,"toy"]},{"n":"Épagneul Tibétain","s":"epagneul-tibetain","t":1,"v":[3,3,4,4,5,3,3,3,4,2,3,1,3,4,3,2,2,4],"h":0,"c":0,"cur":[0,0,1,3,0,0,"toy"]},{"n":"Eurasier","s":"eurasier","t":3,"v":[3,4,4,4,3,2,2,3,4,3,4,1,2,5,3,2,2,4],"h":0,"c":0,"cur":[1,0,1,1,1,0,"medium"]},{"n":"Field Spaniel","s":"field-spaniel","t":3,"v":[3,4,4,4,2,2,2,4,4,3,3,1,3,3,2,4,3,4],"h":0,"c":0,"cur":[0,1,1,1,1,0,"medium"]},{"n":"Fox Terrier à Poil Dur","s":"fox-terrier-a-poil-dur","t":2,"v":[5,3,2,1,3,2,5,2,2,4,2,1,3,3,3,5,5,4],"h":0,"c":0,"cur":[0,0,0,3,1,0,"small"]},{"n":"Fox Terrier à Poil Lisse","s":"fox-terrier-a-poil-lisse","t":2,"v":[5,4,2,1,3,2,4,2,2,1,3,1,3,2,3,5,4,4],"h":0,"c":0,"cur":[0,1,0,3,1,0,"small"]},{"n":"Foxhound Américain","s":"foxhound-americain","t":3,"v":[5,4,5,2,1,2,5,2,2,1,3,1,4,3,2,5,5,4],"h":0,"c":0,"cur":[0,1,0,2,0,0,"medium"]},{"n":"Golden Retriever","s":"golden-retriever","t":3,"v":[4,5,5,4,3,2,2,5,5,3,5,2,3,4,1,3,2,3],"h":0,"c":0,"cur":[0,1,1,2,1,0,"medium"]},{"n":"Griffon d'arrêt à poil dur Korthals","s":"griffon-d-arret-a-poil-dur","t":3,"v":[4,5,4,3,2,2,2,4,3,2,2,2,3,4,2,5,3,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"large"]},{"n":"Harrier","s":"harrier","t":3,"v":[4,4,5,2,1,2,5,2,2,1,3,1,3,3,1,5,5,4],"h":0,"c":0,"cur":[0,1,0,2,1,0,"medium"]},{"n":"Husky d'Alaska","s":"husky-d-alaska","t":3,"v":[5,4,5,1,1,1,3,3,1,2,4,1,2,5,1,4,5,4],"h":0,"c":0,"cur":[0,0,0,2,0,0,"large"]},{"n":"Husky Sibérien","s":"husky-siberien","t":3,"v":[5,4,5,1,2,1,3,2,2,3,5,1,2,5,1,5,5,4],"h":0,"c":0,"cur":[0,1,0,3,0,0,"medium"]},{"n":"Chien de berger kangal","s":"kangal","t":5,"v":[3,3,2,3,1,4,4,2,1,2,4,2,4,4,5,2,3,4],"h":0,"c":0,"cur":[0,0,0,2,0,0,"giant"]},{"n":"Spitz-loup (Keeshond)","s":"keeshond-loulou-hollandais","t":3,"v":[3,5,4,4,4,2,4,4,4,4,4,1,2,5,3,2,2,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"medium"]},{"n":"Kelpie Australien","s":"kelpie-australien","t":3,"v":[5,3,4,2,1,2,3,5,1,1,3,1,5,3,3,4,3,5],"h":0,"c":0,"cur":[0,0,0,3,1,0,"medium"]},{"n":"King Charles Spaniel","s":"king-charles-spaniel","t":1,"v":[2,4,4,4,5,2,2,3,4,3,3,1,1,2,1,2,1,2],"h":0,"c":0,"cur":[1,1,1,1,1,0,"toy"]},{"n":"Komondor","s":"komondor","t":5,"v":[3,3,2,3,1,4,4,2,1,5,1,1,2,5,5,2,2,4],"h":1,"c":0,"cur":[0,0,0,2,0,0,"giant"]},{"n":"Kooikerhondje","s":"kooikerhondje","t":2,"v":[4,3,4,3,3,2,3,4,3,2,3,1,3,3,2,4,3,3],"h":0,"c":0,"cur":[0,1,1,3,1,0,"medium"]},{"n":"Kuvasz","s":"kuvasz","t":5,"v":[3,3,2,3,1,3,4,2,1,3,4,1,2,5,5,2,3,4],"h":0,"c":0,"cur":[0,0,0,2,0,0,"giant"]},{"n":"Labrador Retriever","s":"labrador-retriever","t":3,"v":[4,5,5,4,3,2,2,5,5,2,4,2,3,4,1,3,2,3],"h":0,"c":0,"cur":[0,1,1,2,1,0,"medium"]},{"n":"Lagotto Romagnolo","s":"lagotto-romagnolo","t":3,"v":[4,4,4,3,3,2,3,4,3,4,1,1,3,3,3,3,3,4],"h":1,"c":0,"cur":[0,1,1,3,1,1,"medium"]},{"n":"Lancashire Heeler","s":"lancashire-heeler","t":1,"v":[4,4,3,2,4,2,4,4,3,1,3,1,3,3,3,4,3,4],"h":0,"c":0,"cur":[0,1,0,3,1,0,"toy"]},{"n":"Leonberg","s":"leonberg","t":5,"v":[3,5,4,4,2,3,2,4,3,4,5,3,2,5,3,1,2,2],"h":0,"c":0,"cur":[1,1,1,1,0,0,"giant"]},{"n":"Lévrier Afghan","s":"levrier-afghan","t":4,"v":[4,2,4,1,3,3,1,1,1,5,1,1,3,4,1,5,5,3],"h":1,"c":0,"cur":[0,0,0,2,0,0,"large"]},{"n":"Lévrier écossais (Deerhound)","s":"levrier-ecossais","t":5,"v":[3,4,4,1,2,3,1,3,3,2,2,1,3,4,1,5,5,2],"h":0,"c":0,"cur":[1,1,0,1,1,0,"giant"]},{"n":"Greyhound","s":"levrier-greyhound","t":5,"v":[2,4,4,1,4,3,1,3,4,1,2,1,3,1,1,5,5,4],"h":0,"c":0,"cur":[1,1,0,1,0,0,"giant"]},{"n":"Lévrier Irlandais","s":"levrier-irlandais","t":5,"v":[3,4,4,2,1,3,1,3,3,2,3,1,2,4,1,5,4,1],"h":0,"c":0,"cur":[1,1,0,1,1,0,"giant"]},{"n":"Lhassa Apso","s":"lhassa-apso","t":1,"v":[2,3,3,3,5,3,4,2,3,5,1,1,2,4,4,2,2,4],"h":1,"c":0,"cur":[0,0,0,3,0,0,"toy"]},{"n":"Malamute de l'Alaska","s":"malamute-d-alaska","t":4,"v":[4,4,2,1,1,2,2,2,1,3,5,1,1,5,1,5,4,4],"h":0,"c":0,"cur":[0,0,0,3,0,0,"large"]},{"n":"Dogue du Tibet","s":"mastiff-tibetain","t":4,"v":[2,2,2,2,1,4,4,1,1,4,4,2,2,5,5,2,3,4],"h":0,"c":0,"cur":[0,0,0,2,0,0,"large"]},{"n":"Norfolk Terrier","s":"norfolk-terrier","t":1,"v":[4,4,4,2,4,2,3,3,4,2,2,1,3,3,2,5,4,4],"h":0,"c":0,"cur":[0,1,0,3,1,0,"toy"]},{"n":"Norwich Terrier","s":"norwich-terrier","t":1,"v":[4,4,4,2,4,2,3,3,4,2,2,1,3,3,2,5,4,4],"h":0,"c":0,"cur":[0,1,0,3,1,0,"toy"]},{"n":"Pékinois","s":"pekinois","t":1,"v":[1,2,3,4,5,3,3,2,3,5,4,1,1,3,2,1,1,2],"h":0,"c":0,"cur":[1,0,0,0,0,0,"toy"]},{"n":"Petit chien russe (Russkiy Toy)","s":"petit-chien-russe","t":1,"v":[3,2,3,4,5,2,4,3,4,2,2,1,3,1,2,2,2,3],"h":0,"c":0,"cur":[0,1,1,2,1,0,"toy"]},{"n":"Petit Lévrier Italien","s":"petit-levrier-italien","t":2,"v":[3,3,4,3,5,2,2,2,3,1,2,1,3,1,1,4,4,3],"h":0,"c":0,"cur":[1,1,1,1,1,0,"small"]},{"n":"Pinscher Allemand","s":"pinscher-allemand","t":3,"v":[5,3,3,2,2,2,3,3,2,1,2,1,3,2,4,4,3,4],"h":0,"c":0,"cur":[0,0,0,3,0,0,"medium"]},{"n":"Pinscher Nain","s":"pinscher-nain","t":1,"v":[4,2,3,2,4,2,4,3,3,1,2,1,3,1,3,4,4,4],"h":0,"c":0,"cur":[0,0,0,2,1,0,"small"]},{"n":"American Pit Bull Terrier (pit-bull)","s":"pit-bull-americain","t":3,"v":[4,3,1,1,3,2,2,3,1,1,3,2,3,2,2,4,3,4],"h":0,"c":1,"cur":[0,1,0,3,1,0,"medium"]},{"n":"Plott","s":"plott-hound","t":3,"v":[4,4,3,2,1,2,5,2,2,1,3,2,4,3,3,5,5,4],"h":0,"c":0,"cur":[0,0,0,2,1,0,"medium"]},{"n":"Puli","s":"puli","t":3,"v":[4,3,3,3,3,2,4,3,2,5,1,1,2,5,4,2,2,4],"h":1,"c":0,"cur":[0,0,0,3,1,0,"medium"]},{"n":"Pumi","s":"pumi","t":3,"v":[5,3,3,2,3,2,5,4,2,3,1,1,3,4,3,3,2,4],"h":1,"c":0,"cur":[0,0,0,3,1,0,"medium"]},{"n":"Rat Terrier","s":"rat-terrier","t":2,"v":[4,4,4,2,4,2,3,4,3,1,3,1,3,1,3,5,4,5],"h":0,"c":0,"cur":[0,1,0,3,1,0,"small"]},{"n":"Redbone Coonhound","s":"redbone-coonhound","t":4,"v":[4,4,4,2,2,2,5,3,3,1,3,2,4,3,2,5,5,4],"h":0,"c":0,"cur":[0,1,0,2,1,0,"medium"]},{"n":"Retriever de la Baie de Chesapeake","s":"retriever-de-la-baie-de-chesapeake","t":3,"v":[4,4,3,3,2,2,2,3,2,2,4,2,3,5,4,4,2,4],"h":0,"c":0,"cur":[0,0,0,2,1,0,"medium"]},{"n":"Retriever de la Nouvelle-Écosse","s":"retriever-de-la-nouvelle-ecosse","t":3,"v":[5,4,4,3,2,2,3,4,3,3,4,1,3,5,2,4,3,3],"h":0,"c":0,"cur":[0,1,1,3,1,0,"medium"]},{"n":"Rhodesian Ridgeback","s":"rhodesian-ridgeback","t":4,"v":[4,3,3,2,2,3,2,2,2,1,3,1,5,2,4,5,4,4],"h":0,"c":0,"cur":[0,0,0,2,0,0,"large"]},{"n":"Rottweiler","s":"rottweiler","t":4,"v":[3,3,2,2,2,3,2,4,1,1,3,3,2,4,5,3,2,3],"h":0,"c":2,"cur":[0,1,0,2,0,0,"large"]},{"n":"Saint-Bernard","s":"saint-bernard","t":5,"v":[2,4,4,4,2,3,2,3,3,3,4,5,1,5,3,1,2,2],"h":0,"c":0,"cur":[1,1,1,1,0,0,"giant"]},{"n":"Saluki","s":"saluki","t":4,"v":[4,3,4,1,3,2,1,2,2,2,2,1,4,2,1,5,5,4],"h":0,"c":0,"cur":[0,0,0,1,0,0,"large"]},{"n":"Samoyède","s":"samoyede","t":3,"v":[4,5,4,3,2,2,4,3,3,4,5,1,2,5,1,3,4,4],"h":0,"c":0,"cur":[0,1,1,3,0,0,"medium"]},{"n":"Schipperke","s":"schipperke","t":2,"v":[4,4,3,3,3,3,4,3,3,2,3,1,3,4,4,4,3,4],"h":0,"c":0,"cur":[0,0,0,3,0,0,"small"]},{"n":"Schnauzer Géant","s":"schnauzer-geant","t":4,"v":[5,3,2,2,1,2,3,3,1,4,2,1,3,4,5,3,2,3],"h":1,"c":0,"cur":[0,0,0,3,0,1,"large"]},{"n":"Schnauzer Nain","s":"schnauzer-nain","t":2,"v":[3,4,3,3,4,3,4,4,4,4,1,1,3,3,3,3,2,3],"h":1,"c":0,"cur":[0,1,0,3,1,1,"medium"]},{"n":"Schnauzer moyen","s":"schnauzer-standard","t":3,"v":[4,4,3,3,3,3,3,3,3,4,1,1,3,3,4,3,2,4],"h":1,"c":0,"cur":[0,0,0,3,0,1,"medium"]},{"n":"Setter Anglais","s":"setter-anglais","t":4,"v":[4,5,5,3,2,2,3,3,3,4,3,2,3,3,1,4,4,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"large"]},{"n":"Setter Gordon","s":"setter-gordon","t":4,"v":[4,4,4,3,2,2,3,3,2,4,3,2,2,4,2,4,4,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"large"]},{"n":"Setter irlandais rouge","s":"setter-irlandais","t":4,"v":[5,4,5,3,2,2,3,3,2,4,3,2,3,3,1,4,4,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"large"]},{"n":"Shar-Peï","s":"shar-pei","t":3,"v":[2,3,2,2,4,4,2,2,2,2,3,2,2,3,4,3,2,2],"h":0,"c":0,"cur":[0,0,0,2,0,0,"medium"]},{"n":"Shetland Sheepdog (Berger des Shetland)","s":"shetland-sheepdog-berger-des-shetland","t":2,"v":[4,4,4,4,3,2,5,5,4,4,5,1,3,4,2,2,2,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"small"]},{"n":"Shiba Inu","s":"shiba-inu","t":2,"v":[3,3,2,2,4,4,2,2,2,2,4,1,3,5,3,5,5,4],"h":0,"c":0,"cur":[0,0,0,3,0,0,"small"]},{"n":"Shih Tzu","s":"shih-tzu","t":1,"v":[2,4,4,4,5,3,3,3,5,5,1,1,1,2,1,1,1,3],"h":1,"c":0,"cur":[1,0,1,0,1,1,"toy"]},{"n":"Shiloh Shepherd","s":"shiloh-shepherd","t":5,"v":[3,4,4,3,1,2,2,4,3,3,4,1,2,4,3,2,2,3],"h":0,"c":0,"cur":[1,1,1,1,1,0,"large"]},{"n":"Spinone Italien","s":"spinone-italien","t":4,"v":[3,5,4,3,2,3,2,3,3,3,3,3,2,4,1,4,3,3],"h":0,"c":0,"cur":[1,1,1,1,1,0,"large"]},{"n":"American Eskimo Dog (Chien esquimau américain)","s":"spitz-americain","t":2,"v":[4,4,4,3,3,2,4,4,3,4,5,1,2,5,3,3,3,4],"h":0,"c":0,"cur":[0,1,0,3,1,0,"small"]},{"n":"Spitz Finlandais","s":"spitz-finlandais","t":3,"v":[4,4,3,3,2,3,5,2,2,3,4,1,2,5,3,5,4,4],"h":0,"c":0,"cur":[0,0,0,3,0,0,"medium"]},{"n":"Spitz Japonais","s":"spitz-japonais","t":2,"v":[3,5,4,4,4,3,3,4,4,3,4,1,2,4,2,2,2,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"small"]},{"n":"Spitz Nain (Loulou de Poméranie)","s":"spitz-nain-loulou-de-pomeranie","t":1,"v":[3,2,3,4,5,3,5,3,4,4,4,1,2,3,2,2,2,3],"h":0,"c":0,"cur":[0,0,0,2,1,0,"toy"]},{"n":"Springer Spaniel Anglais","s":"springer-spaniel-anglais","t":3,"v":[5,5,4,3,2,2,3,5,3,3,3,2,3,3,2,4,3,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"medium"]},{"n":"Staffordshire Bull Terrier","s":"staffordshire-bull-terrier","t":2,"v":[4,5,2,2,4,2,2,3,3,1,3,2,3,2,2,3,3,4],"h":0,"c":0,"cur":[0,1,0,3,1,0,"small"]},{"n":"American Staffordshire Terrier","s":"staffordshire-terrier-americain","t":3,"v":[4,4,2,2,3,2,2,3,1,1,3,2,3,2,3,3,3,4],"h":0,"c":2,"cur":[0,0,0,2,1,0,"medium"]},{"n":"Terre-Neuve","s":"terre-neuve","t":4,"v":[2,5,4,4,2,3,2,4,3,5,5,5,1,5,2,1,1,2],"h":0,"c":0,"cur":[1,1,1,1,0,0,"large"]},{"n":"Terrier Australien","s":"terrier-australien","t":1,"v":[4,4,3,2,4,3,3,3,4,2,2,1,3,3,3,5,3,4],"h":1,"c":0,"cur":[0,1,0,3,1,0,"toy"]},{"n":"Silky Terrier australien","s":"terrier-australien-a-poil-soyeux","t":1,"v":[3,3,3,2,5,3,4,3,4,4,1,1,3,2,2,4,3,4],"h":1,"c":0,"cur":[0,1,0,2,1,0,"toy"]},{"n":"Scottish Terrier","s":"terrier-ecossais","t":1,"v":[3,3,2,2,4,4,3,2,2,4,2,1,3,3,4,5,3,3],"h":1,"c":0,"cur":[0,0,0,3,0,0,"toy"]},{"n":"Irish Terrier","s":"terrier-irlandais","t":3,"v":[4,4,1,2,3,3,3,3,2,3,2,1,3,3,4,4,3,4],"h":1,"c":0,"cur":[0,0,0,3,1,0,"medium"]},{"n":"Terrier Irlandais à Poil Doux","s":"terrier-irlandais-a-poil-doux","t":3,"v":[4,4,3,3,4,3,3,3,3,5,1,1,3,3,2,3,3,3],"h":1,"c":0,"cur":[0,1,1,3,1,1,"medium"]},{"n":"Terrier Irlandais de Glen of Imaal","s":"terrier-irlandais-de-glen-of-imaal","t":2,"v":[3,4,2,2,3,3,2,2,3,3,2,1,3,3,3,4,3,4],"h":0,"c":0,"cur":[0,1,0,2,1,0,"small"]},{"n":"Terrier Tibétain","s":"terrier-tibetain","t":2,"v":[3,4,4,4,4,3,3,3,4,5,1,1,2,5,3,2,2,4],"h":1,"c":0,"cur":[0,1,1,3,1,0,"small"]},{"n":"Thai Ridgeback","s":"thai-ridgeback","t":3,"v":[4,2,2,1,2,3,2,1,1,1,2,1,5,1,4,5,4,4],"h":0,"c":0,"cur":[0,0,0,2,0,0,"medium"]},{"n":"Toy Fox Terrier","s":"toy-fox-terrier","t":1,"v":[4,3,3,3,5,2,4,4,4,1,2,1,3,1,2,4,3,4],"h":0,"c":0,"cur":[0,1,0,2,1,0,"toy"]},{"n":"Toy Terrier Anglais (Noir et Feu)","s":"toy-terrier-anglais-noir-et-feu","t":1,"v":[3,2,3,2,5,2,3,3,3,1,2,1,3,1,2,4,2,4],"h":0,"c":0,"cur":[0,0,0,2,1,0,"toy"]},{"n":"Treeing Walker Coonhound","s":"treeing-walker-coonhound","t":4,"v":[5,4,5,2,1,2,5,2,2,1,3,2,4,3,2,5,5,4],"h":0,"c":0,"cur":[0,1,0,3,1,0,"medium"]},{"n":"Spitz des Wisigoths (Vallhund suédois)","s":"vallhund-suedois","t":2,"v":[4,4,4,3,3,3,4,4,3,2,4,1,3,4,3,3,2,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"medium"]},{"n":"Braque hongrois à poil court (Vizsla)","s":"vizsla-braque-hongrois","t":3,"v":[5,5,4,3,2,1,2,4,3,1,2,2,3,1,2,5,3,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"medium"]},{"n":"Welsh Corgi Cardigan","s":"welsh-corgi-cardigan","t":2,"v":[4,4,3,3,3,3,4,4,3,3,4,1,3,4,3,3,2,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"small"]},{"n":"Welsh Corgi Pembroke","s":"welsh-corgi-pembroke","t":1,"v":[4,4,3,3,3,3,4,4,4,2,5,1,3,4,3,3,2,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"toy"]},{"n":"Welsh Springer Spaniel","s":"welsh-springer-spaniel","t":3,"v":[4,5,4,3,2,2,3,4,3,3,3,2,3,3,2,4,3,4],"h":0,"c":0,"cur":[0,1,1,3,1,0,"medium"]},{"n":"West Highland White Terrier","s":"west-highland-white-terrier","t":1,"v":[3,3,3,2,4,3,4,3,4,4,2,1,3,4,3,5,3,3],"h":1,"c":0,"cur":[0,0,0,3,0,0,"toy"]},{"n":"Whippet","s":"whippet","t":3,"v":[3,4,5,2,5,3,1,3,4,1,2,1,3,1,1,5,4,5],"h":0,"c":0,"cur":[1,1,0,1,1,0,"medium"]},{"n":"Yorkshire Terrier","s":"yorkshire-terrier","t":1,"v":[3,3,3,3,5,3,4,3,4,5,1,1,3,1,2,3,2,3],"h":1,"c":0,"cur":[0,1,0,2,1,1,"toy"]}]}</script>
+<script>
+(function(){
+  var D = JSON.parse(document.getElementById('demo-data').textContent);
+  var B = D.breeds;
+  var I = {}; D.keys.forEach(function(k,i){ I[k]=i; });
+  function u(b,k){ return (b.v[I[k]]-1)/4; }
+  var SIZE_CUR = {toy:1,small:2,medium:3,large:4,giant:5};
+  var PROFILES = [
+    {id:'appart', label:'Appartement', yes:'Appartement', no:'Besoin d’espace', fit:function(b){return u(b,'appartement');}, cur:function(b){return b.cur[0]===1;}},
+    {id:'enfants', label:'Jeunes enfants', yes:'Enfants', no:'Prudence enfants', fit:function(b){return u(b,'enfants');}, cur:function(b){return b.cur[1]===1;}},
+    {id:'premier', label:'Premier chien', yes:'Premier chien', no:'Maître expérimenté', fit:function(b){return u(b,'premier_chien');}, cur:function(b){return b.cur[4]===1;}},
+    {id:'allergie', label:'Allergies', hard:true, yes:'Perd très peu', no:'', fit:function(b){return b.h?1:0;}, cur:function(b){return b.cur[5]===1;}},
+    {id:'discret', label:'Discret', yes:'Discret', no:'Aboie souvent', fit:function(b){return 1-u(b,'aboiements');}, cur:null},
+    {id:'travail', label:'Je travaille la journée', yes:'Supporte la solitude', no:'N’aime pas rester seul', fit:function(b){return u(b,'solitude');}, cur:null},
+    {id:'chat', label:'Vit avec un chat', yes:'Chat', no:'Chasse les chats', fit:function(b){return u(b,'chats');}, cur:function(b){return b.cur[2]===1;}},
+    {id:'senior', label:'Senior, vie calme', yes:'Vie calme', no:'Trop exigeant', fit:function(b){return (1-u(b,'energie') + u(b,'education') + u(b,'premier_chien') + (b.t<=3?1:0.25))/4;}, cur:null},
+    {id:'chaleur', label:'Supporte la chaleur', yes:'Chaleur', no:'Craint la chaleur', fit:function(b){return u(b,'chaleur');}, cur:null}
+  ];
+  var RYTHME = ['Peu importe','Grand pantouflard','Plutôt calme','Équilibré','Actif','Sportif infatigable'];
+  var SIZES = ['Très petit','Petit','Moyen','Grand','Géant'];
+  var SIZE_CM = ['moins de 28 cm','28 à 40 cm','40 à 60 cm','60 à 70 cm','plus de 70 cm'];
+
+  var pWrap = document.getElementById('profiles');
+  PROFILES.forEach(function(p){
+    var l = document.createElement('label'); l.className = 'pill' + (p.hard?' hard':'');
+    l.innerHTML = '<input type="checkbox" id="p-'+p.id+'" value="'+p.id+'"><span>'+p.label+'</span>';
+    pWrap.appendChild(l);
+  });
+  var sWrap = document.getElementById('sizes');
+  SIZES.forEach(function(s,i){
+    var l = document.createElement('label'); l.className = 'pill'; l.title = SIZE_CM[i];
+    l.innerHTML = '<input type="checkbox" id="t-'+(i+1)+'" value="'+(i+1)+'"><span>'+s+'</span>';
+    sWrap.appendChild(l);
+  });
+  var rythme = document.getElementById('rythme');
+  var noCat = document.getElementById('no-cat');
+
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+
+  function render(){
+    var act = PROFILES.filter(function(p){ return document.getElementById('p-'+p.id).checked; });
+    var sizes = SIZES.map(function(_,i){return i+1;}).filter(function(n){ return document.getElementById('t-'+n).checked; });
+    var r = +rythme.value;
+    document.getElementById('rythme-label').textContent = RYTHME[r];
+
+    // Site actuel : filtres booléens stricts
+    var missing = act.filter(function(p){return !p.cur;}).map(function(p){return p.label;});
+    if (noCat.checked) missing.push('Exclure les catégorisés');
+    var now = B.filter(function(b){
+      for (var i=0;i<act.length;i++){ if (act[i].cur && !act[i].cur(b)) return false; }
+      if (r>0){ var e=b.cur[3]; var want = r<=2?0 : r===3?1 : r===4?2 : 3; if (e!==want) return false; }
+      if (sizes.length && sizes.indexOf(SIZE_CUR[b.cur[6]])<0) return false;
+      return true;
+    });
+    var anyFilter = act.length || r>0 || sizes.length || noCat.checked;
+    document.getElementById('now-count').textContent = now.length;
+    var nd = !anyFilter ? 'aucun filtre' :
+      (now.length ? 'dont ' + now.slice(0,4).map(function(b){return b.n;}).join(', ') + (now.length>4?'…':'') : 'aucun résultat, aucune suggestion');
+    if (missing.length) nd += '. Critères inexistants sur le site : ' + missing.join(', ').toLowerCase();
+    document.getElementById('now-detail').textContent = nd;
+
+    // Proposé : critères éliminatoires puis classement
+    var pool = B.filter(function(b){
+      if (sizes.length && sizes.indexOf(b.t)<0) return false;
+      if (noCat.checked && b.c) return false;
+      for (var i=0;i<act.length;i++){ if (act[i].hard && !act[i].fit(b)) return false; }
+      return true;
+    });
+    var soft = act.filter(function(p){return !p.hard;});
+    var scored = pool.map(function(b){
+      var fits = soft.map(function(p){ return {p:p, f:p.fit(b)}; });
+      if (r>0){ var f = 1 - Math.abs(b.v[I.energie]-r)/4; fits.push({p:{yes:'Rythme '+RYTHME[r].toLowerCase(), no:(b.v[I.energie]>r?'Plus actif':'Plus calme')}, f:f}); }
+      var score = fits.length ? fits.reduce(function(a,x){return a+x.f;},0)/fits.length : 1;
+      return {b:b, s:score, fits:fits};
+    }).sort(function(a,b){ return b.s-a.s || a.b.n.localeCompare(b.b.n,'fr'); });
+
+    var good = scored.filter(function(x){return x.s>=0.75;}).length;
+    document.getElementById('new-count').textContent = (soft.length||r>0) ? good : scored.length;
+    document.getElementById('new-detail').textContent = (soft.length||r>0)
+      ? 'races à 75 % ou plus, sur ' + scored.length + ' classées. Jamais de liste vide.'
+      : (anyFilter ? 'races après critères éliminatoires' : 'races classées par compatibilité');
+
+    var ul = document.getElementById('results');
+    if (!scored.length){ ul.innerHTML = '<li class="empty">Aucune race ne passe les critères éliminatoires. Le site proposerait d’en assouplir un.</li>'; document.getElementById('more').textContent=''; return; }
+    var top = scored.slice(0,12);
+    ul.innerHTML = top.map(function(x){
+      var pct = Math.round(x.s*100);
+      var cls = pct>=75?'hi':pct>=55?'mid':'lo';
+      var why = x.fits.map(function(f){
+        if (f.f>=0.75) return '<span class="y">✓ '+esc(f.p.yes)+'</span>';
+        if (f.f<=0.35 && f.p.no) return '<span class="n">'+esc(f.p.no)+'</span>';
+        return '';
+      }).join('');
+      if (x.b.c) why += '<span class="x">Catégorie '+x.b.c+'</span>';
+      if (act.some(function(p){return p.id==='allergie';})) why = '<span class="y">✓ Perd très peu</span>' + why;
+      return '<li class="res"><div class="res-top"><a href="https://race-de-chien.com/races/'+esc(x.b.s)+'" target="_blank" rel="noopener">'+esc(x.b.n)+'</a>'+
+        ((soft.length||r>0)?'<span class="pct '+cls+'">'+pct+' %</span>':'')+'</div>'+
+        '<span class="sub">'+SIZES[x.b.t-1]+' · énergie '+x.b.v[I.energie]+'/5</span>'+
+        (why?'<div class="why">'+why+'</div>':'')+'</li>';
+    }).join('');
+    document.getElementById('more').textContent = scored.length>12 ? 'Et ' + (scored.length-12) + ' autres races, classées.' : '';
+  }
+  document.getElementById('demo').addEventListener('change', render);
+  rythme.addEventListener('input', render);
+  // Exemple de départ : petit chien calme pour appartement
+  document.getElementById('p-appart').checked = true;
+  rythme.value = 2;
+  render();
+})();
+</script>

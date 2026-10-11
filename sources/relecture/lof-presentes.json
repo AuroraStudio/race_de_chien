@@ -1,0 +1,1016 @@
+{
+  "affenpinscher": {
+    "lof_2025": 21,
+    "lof_2024": 16,
+    "nom_scc": "AFFENPINSCHER",
+    "note": ""
+  },
+  "levrier-afghan": {
+    "lof_2025": 86,
+    "lof_2024": 43,
+    "nom_scc": "LEVRIER AFGHAN",
+    "note": ""
+  },
+  "airedale-terrier": {
+    "lof_2025": 168,
+    "lof_2024": 157,
+    "nom_scc": "AIREDALE TERRIER",
+    "note": ""
+  },
+  "akbash": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Race non reconnue par la FCI ni par la SCC : pas de LOF. En France, le berger turc reconnu est le Kangal (ligne CHIEN DE BERGER KANGAL)."
+  },
+  "akita": {
+    "lof_2025": 795,
+    "lof_2024": 1017,
+    "nom_scc": "AKITA",
+    "note": "Ligne SCC AKITA (Akita japonais, FCI n° 255). L'Akita américain est une race distincte au LOF (ligne AKITA AMERICAIN : 549 en 2025, 585 en 2024) : à ne pas additionner. À vérifier : la fiche TheDogAPI peut décrire le type américain."
+  },
+  "bouledogue-alapaha": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Alapaha Blue Blood Bulldog : non reconnu par la FCI ni par la SCC, pas de LOF."
+  },
+  "husky-d-alaska": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Alaskan Husky : type de chien de traîneau sans standard, pas une race reconnue, pas de LOF."
+  },
+  "malamute-d-alaska": {
+    "lof_2025": 290,
+    "lof_2024": 454,
+    "nom_scc": "MALAMUTE DE L'ALASKA",
+    "note": ""
+  },
+  "bouledogue-americain": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "American Bulldog : non reconnu par la FCI ni par la SCC, pas de LOF."
+  },
+  "american-bully": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "American Bully : non reconnu par la FCI ni par la SCC, pas de LOF."
+  },
+  "cocker-americain": {
+    "lof_2025": 327,
+    "lof_2024": 274,
+    "nom_scc": "COCKER SPANIEL AMERICAIN",
+    "note": ""
+  },
+  "spitz-americain": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "American Eskimo Dog : non reconnu par la FCI ni par la SCC, pas de LOF. La race LOF la plus proche est le Spitz allemand blanc (compté dans la ligne SPITZ ALLEMAND, AUTRES COULEURS)."
+  },
+  "foxhound-americain": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Race reconnue par la FCI (n° 303) mais absente du tableau SCC : aucune inscription LOF en 2024 ni en 2025."
+  },
+  "pit-bull-americain": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "American Pit Bull Terrier : non reconnu par la FCI ni par la SCC, pas de LOF (chien de 1re catégorie en France)."
+  },
+  "staffordshire-terrier-americain": {
+    "lof_2025": 1954,
+    "lof_2024": 2738,
+    "nom_scc": "STAFFORDSHIRE TERRIER AMERICAIN",
+    "note": ""
+  },
+  "epagneul-d-eau-americain": {
+    "lof_2025": 0,
+    "lof_2024": 0,
+    "nom_scc": "CHIEN D'EAU AMERICAIN",
+    "note": "Ligne SCC présente avec 0 inscription en 2024 et en 2025 (1 confirmation en 2025)."
+  },
+  "bouvier-d-appenzell": {
+    "lof_2025": 29,
+    "lof_2024": 30,
+    "nom_scc": "BOUVIER DE L'APPENZELL",
+    "note": ""
+  },
+  "bouvier-australien": {
+    "lof_2025": 242,
+    "lof_2024": 255,
+    "nom_scc": "BOUVIER AUSTRALIEN",
+    "note": ""
+  },
+  "kelpie-australien": {
+    "lof_2025": 115,
+    "lof_2024": 94,
+    "nom_scc": "KELPIE AUSTRALIEN",
+    "note": ""
+  },
+  "berger-australien": {
+    "lof_2025": 14609,
+    "lof_2024": 15664,
+    "nom_scc": "BERGER AUSTRALIEN",
+    "note": "1re race de France en 2025."
+  },
+  "terrier-australien-a-poil-soyeux": {
+    "lof_2025": 33,
+    "lof_2024": 14,
+    "nom_scc": "TERRIER AUSTRALIEN A POIL SOYEUX",
+    "note": ""
+  },
+  "terrier-australien": {
+    "lof_2025": 4,
+    "lof_2024": 12,
+    "nom_scc": "TERRIER AUSTRALIEN",
+    "note": ""
+  },
+  "azawakh": {
+    "lof_2025": 17,
+    "lof_2024": 26,
+    "nom_scc": "AZAWAKH",
+    "note": ""
+  },
+  "barbet": {
+    "lof_2025": 46,
+    "lof_2024": 37,
+    "nom_scc": "BARBET",
+    "note": ""
+  },
+  "basenji": {
+    "lof_2025": 195,
+    "lof_2024": 242,
+    "nom_scc": "BASENJI",
+    "note": ""
+  },
+  "basset-bleu-de-gascogne": {
+    "lof_2025": 176,
+    "lof_2024": 144,
+    "nom_scc": "BASSET BLEU DE GASCOGNE",
+    "note": ""
+  },
+  "basset-hound": {
+    "lof_2025": 703,
+    "lof_2024": 798,
+    "nom_scc": "BASSET HOUND",
+    "note": ""
+  },
+  "beagle": {
+    "lof_2025": 3089,
+    "lof_2024": 3514,
+    "nom_scc": "BEAGLE",
+    "note": ""
+  },
+  "bearded-collie": {
+    "lof_2025": 280,
+    "lof_2024": 228,
+    "nom_scc": "BEARDED COLLIE",
+    "note": ""
+  },
+  "beauceron": {
+    "lof_2025": 2486,
+    "lof_2024": 2429,
+    "nom_scc": "BERGER DE BEAUCE",
+    "note": "Total de la race. Variétés SCC : noir et feu 1 978 (2025) / 1 991 (2024), arlequin 508 / 438."
+  },
+  "bedlington-terrier": {
+    "lof_2025": 11,
+    "lof_2024": 9,
+    "nom_scc": "BEDLINGTON TERRIER",
+    "note": ""
+  },
+  "berger-belge-malinois": {
+    "lof_2025": 6094,
+    "lof_2024": 6270,
+    "nom_scc": "CHIEN DE BERGER BELGE – MALINOIS",
+    "note": "Variété de la ligne CHIEN DE BERGER BELGE (total 4 variétés : 7 405 en 2025, 7 765 en 2024). Chiffre = variété Malinois seule."
+  },
+  "berger-belge-tervueren": {
+    "lof_2025": 927,
+    "lof_2024": 1134,
+    "nom_scc": "CHIEN DE BERGER BELGE – TERVUEREN",
+    "note": "Variété de la ligne CHIEN DE BERGER BELGE (total 4 variétés : 7 405 en 2025, 7 765 en 2024). Chiffre = variété Tervueren seule."
+  },
+  "bouvier-bernois": {
+    "lof_2025": 2514,
+    "lof_2024": 2765,
+    "nom_scc": "BOUVIER BERNOIS",
+    "note": ""
+  },
+  "bichon-frise": {
+    "lof_2025": 939,
+    "lof_2024": 1044,
+    "nom_scc": "BICHON A POIL FRISE",
+    "note": ""
+  },
+  "coonhound-noir-et-feu": {
+    "lof_2025": 16,
+    "lof_2024": 28,
+    "nom_scc": "CHIEN N. ET F. POUR LA CHASSE AU RATON LAVEUR",
+    "note": "Nom SCC complet : Chien noir et feu pour la chasse au raton laveur (Black and Tan Coonhound, FCI n° 300)."
+  },
+  "chien-de-saint-hubert": {
+    "lof_2025": 92,
+    "lof_2024": 205,
+    "nom_scc": "CHIEN DE SAINT HUBERT",
+    "note": "Ne pas confondre avec le Bruno Saint-Hubert français (race SCC distincte, 159 en 2025)."
+  },
+  "coonhound-bleute": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Bluetick Coonhound : non reconnu par la FCI ni par la SCC, pas de LOF."
+  },
+  "boerboel": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Boerboel : non reconnu par la FCI ni par la SCC, pas de LOF."
+  },
+  "border-collie": {
+    "lof_2025": 2820,
+    "lof_2024": 2764,
+    "nom_scc": "BORDER COLLIE",
+    "note": ""
+  },
+  "border-terrier": {
+    "lof_2025": 360,
+    "lof_2024": 409,
+    "nom_scc": "BORDER TERRIER",
+    "note": ""
+  },
+  "boston-terrier": {
+    "lof_2025": 654,
+    "lof_2024": 806,
+    "nom_scc": "TERRIER DE BOSTON",
+    "note": ""
+  },
+  "bouvier-des-flandres": {
+    "lof_2025": 141,
+    "lof_2024": 144,
+    "nom_scc": "BOUVIER DES FLANDRES",
+    "note": ""
+  },
+  "boxer": {
+    "lof_2025": 1518,
+    "lof_2024": 1654,
+    "nom_scc": "BOXER",
+    "note": "Total de la race. Variétés SCC : fauve 777 (2025) / 895 (2024), bringé 659 / 687, hors standard 82 / 72."
+  },
+  "boykin-spaniel": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Boykin Spaniel : non reconnu par la FCI ni par la SCC, pas de LOF."
+  },
+  "braque-italien": {
+    "lof_2025": 16,
+    "lof_2024": 29,
+    "nom_scc": "BRAQUE ITALIEN",
+    "note": ""
+  },
+  "briard": {
+    "lof_2025": 201,
+    "lof_2024": 315,
+    "nom_scc": "BERGER DE BRIE",
+    "note": ""
+  },
+  "epagneul-breton": {
+    "lof_2025": 3793,
+    "lof_2024": 3953,
+    "nom_scc": "EPAGNEUL BRETON",
+    "note": "Total de la race. Variétés SCC : blanc et orange 1 946 (2025) / 2 101 (2024), autres couleurs 1 847 / 1 852."
+  },
+  "bullmastiff": {
+    "lof_2025": 139,
+    "lof_2024": 191,
+    "nom_scc": "BULLMASTIFF",
+    "note": ""
+  },
+  "bull-terrier": {
+    "lof_2025": 525,
+    "lof_2024": 450,
+    "nom_scc": "BULL TERRIER",
+    "note": "Bull terrier standard seul ; le Bull terrier miniature a sa propre ligne (384 en 2025)."
+  },
+  "bull-terrier-miniature": {
+    "lof_2025": 384,
+    "lof_2024": 407,
+    "nom_scc": "BULL TERRIER MINIATURE",
+    "note": ""
+  },
+  "cairn-terrier": {
+    "lof_2025": 643,
+    "lof_2024": 592,
+    "nom_scc": "CAIRN TERRIER",
+    "note": ""
+  },
+  "cane-corso": {
+    "lof_2025": 3465,
+    "lof_2024": 3353,
+    "nom_scc": "CHIEN DE COUR ITALIEN",
+    "note": ""
+  },
+  "welsh-corgi-cardigan": {
+    "lof_2025": 254,
+    "lof_2024": 270,
+    "nom_scc": "WELSH CORGI CARDIGAN",
+    "note": ""
+  },
+  "chien-leopard-catahoula": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Catahoula Leopard Dog : non reconnu par la FCI ni par la SCC, pas de LOF."
+  },
+  "berger-du-caucase": {
+    "lof_2025": 11,
+    "lof_2024": 28,
+    "nom_scc": "BERGER DU CAUCASE",
+    "note": ""
+  },
+  "cavalier-king-charles": {
+    "lof_2025": 6108,
+    "lof_2024": 6431,
+    "nom_scc": "CAVALIER KING CHARLES",
+    "note": "Total de la race. Variétés SCC 2025 : blenheim 2 310, tricolore 2 146, noir et feu 866, ruby 786."
+  },
+  "retriever-de-la-baie-de-chesapeake": {
+    "lof_2025": 15,
+    "lof_2024": 3,
+    "nom_scc": "RETRIEVER DE LA BAIE DE CHESAPEAKE",
+    "note": ""
+  },
+  "chien-chinois-a-crete": {
+    "lof_2025": 178,
+    "lof_2024": 279,
+    "nom_scc": "CHIEN CHINOIS A CRETE",
+    "note": ""
+  },
+  "shar-pei": {
+    "lof_2025": 392,
+    "lof_2024": 418,
+    "nom_scc": "SHAR PEI",
+    "note": ""
+  },
+  "chinook": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Chinook : non reconnu par la FCI ni par la SCC, pas de LOF."
+  },
+  "chow-chow": {
+    "lof_2025": 532,
+    "lof_2024": 695,
+    "nom_scc": "CHOW CHOW",
+    "note": ""
+  },
+  "clumber-spaniel": {
+    "lof_2025": 31,
+    "lof_2024": 37,
+    "nom_scc": "CLUMBER SPANIEL",
+    "note": ""
+  },
+  "cocker-spaniel": {
+    "lof_2025": 7585,
+    "lof_2024": 6784,
+    "nom_scc": "COCKER SPANIEL ANGLAIS",
+    "note": "Chiffres du Cocker spaniel anglais (fiche à réécrire en Cocker anglais). Variétés SCC 2025 : « noir - noir et feu - … » (libellé tronqué dans le PDF) 2 753, rouge et doré 2 442, autres couleurs 2 390. Le Cocker américain a sa propre ligne (slug cocker-americain)."
+  },
+  "coton-de-tulear": {
+    "lof_2025": 1401,
+    "lof_2024": 1395,
+    "nom_scc": "COTON DE TULEAR",
+    "note": ""
+  },
+  "dalmatien": {
+    "lof_2025": 636,
+    "lof_2024": 834,
+    "nom_scc": "DALMATIEN",
+    "note": ""
+  },
+  "dobermann": {
+    "lof_2025": 475,
+    "lof_2024": 395,
+    "nom_scc": "DOBERMANN",
+    "note": ""
+  },
+  "dogue-argentin": {
+    "lof_2025": 439,
+    "lof_2024": 440,
+    "nom_scc": "DOGUE ARGENTIN",
+    "note": ""
+  },
+  "berger-hollandais": {
+    "lof_2025": 771,
+    "lof_2024": 883,
+    "nom_scc": "BERGER HOLLANDAIS",
+    "note": "La SCC ne sépare pas les 3 variétés de poil."
+  },
+  "setter-anglais": {
+    "lof_2025": 5086,
+    "lof_2024": 4900,
+    "nom_scc": "SETTER ANGLAIS",
+    "note": ""
+  },
+  "berger-anglais": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "English Shepherd (américain) : non reconnu par la FCI ni par la SCC, pas de LOF. Sans rapport avec le Bobtail (ligne CHIEN DE BERGER ANGLAIS ANCESTRAL)."
+  },
+  "springer-spaniel-anglais": {
+    "lof_2025": 1329,
+    "lof_2024": 1301,
+    "nom_scc": "ENGLISH SPRINGER SPANIEL",
+    "note": ""
+  },
+  "toy-terrier-anglais-noir-et-feu": {
+    "lof_2025": 13,
+    "lof_2024": 23,
+    "nom_scc": "TERRIER D'AGREMENT ANGLAIS NOIR ET FEU",
+    "note": ""
+  },
+  "eurasier": {
+    "lof_2025": 2375,
+    "lof_2024": 2306,
+    "nom_scc": "EURASIER",
+    "note": ""
+  },
+  "field-spaniel": {
+    "lof_2025": 8,
+    "lof_2024": 42,
+    "nom_scc": "FIELD SPANIEL",
+    "note": ""
+  },
+  "chien-finnois-de-laponie": {
+    "lof_2025": 796,
+    "lof_2024": 802,
+    "nom_scc": "CHIEN FINNOIS DE LAPONIE",
+    "note": "Ne pas confondre avec le Berger finnois de Laponie (Lapinporokoira), ligne distincte (8 en 2025)."
+  },
+  "spitz-finlandais": {
+    "lof_2025": 21,
+    "lof_2024": 27,
+    "nom_scc": "SPITZ FINLANDAIS",
+    "note": ""
+  },
+  "bouledogue-francais": {
+    "lof_2025": 2695,
+    "lof_2024": 3187,
+    "nom_scc": "BOULEDOGUE FRANCAIS",
+    "note": "Total de la race. Variétés SCC 2025 : fauve 1 620, bringé 628, caille 260, fauve et blanc 186, hors standard 1."
+  },
+  "pinscher-allemand": {
+    "lof_2025": 35,
+    "lof_2024": 50,
+    "nom_scc": "PINSCHER ALLEMAND",
+    "note": ""
+  },
+  "berger-allemand": {
+    "lof_2025": 5614,
+    "lof_2024": 6307,
+    "nom_scc": "BERGER ALLEMAND",
+    "note": "Total de la race. Variétés SCC : poil court 3 671 (2025) / 4 316 (2024), poil long 1 943 / 1 991."
+  },
+  "braque-allemand-a-poil-court": {
+    "lof_2025": 1287,
+    "lof_2024": 1138,
+    "nom_scc": "BRAQUE ALLEMAND A POIL COURT",
+    "note": ""
+  },
+  "schnauzer-geant": {
+    "lof_2025": 93,
+    "lof_2024": 87,
+    "nom_scc": "SCHNAUZER GEANT",
+    "note": ""
+  },
+  "terrier-irlandais-de-glen-of-imaal": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Race reconnue par la FCI (n° 302) mais absente du tableau SCC : aucune inscription LOF en 2024 ni en 2025."
+  },
+  "golden-retriever": {
+    "lof_2025": 15062,
+    "lof_2024": 14402,
+    "nom_scc": "GOLDEN RETRIEVER",
+    "note": "2e race de France en 2025."
+  },
+  "setter-gordon": {
+    "lof_2025": 541,
+    "lof_2024": 640,
+    "nom_scc": "SETTER GORDON",
+    "note": ""
+  },
+  "dogue-allemand": {
+    "lof_2025": 756,
+    "lof_2024": 735,
+    "nom_scc": "DOGUE ALLEMAND",
+    "note": ""
+  },
+  "levrier-greyhound": {
+    "lof_2025": 31,
+    "lof_2024": 61,
+    "nom_scc": "GREYHOUND",
+    "note": ""
+  },
+  "harrier": {
+    "lof_2025": 1,
+    "lof_2024": 0,
+    "nom_scc": "HARRIER",
+    "note": ""
+  },
+  "bichon-havanais": {
+    "lof_2025": 1259,
+    "lof_2024": 1076,
+    "nom_scc": "BICHON HAVANAIS",
+    "note": ""
+  },
+  "setter-irlandais": {
+    "lof_2025": 461,
+    "lof_2024": 452,
+    "nom_scc": "SETTER IRLANDAIS ROUGE",
+    "note": "Setter irlandais rouge. Le Setter irlandais rouge et blanc a sa propre ligne (10 en 2025, 0 en 2024), non incluse."
+  },
+  "terrier-irlandais": {
+    "lof_2025": 29,
+    "lof_2024": 43,
+    "nom_scc": "TERRIER IRLANDAIS",
+    "note": ""
+  },
+  "levrier-irlandais": {
+    "lof_2025": 136,
+    "lof_2024": 172,
+    "nom_scc": "LEVRIER IRLANDAIS",
+    "note": ""
+  },
+  "petit-levrier-italien": {
+    "lof_2025": 510,
+    "lof_2024": 491,
+    "nom_scc": "PETIT LEVRIER ITALIEN",
+    "note": ""
+  },
+  "epagneul-japonais": {
+    "lof_2025": 58,
+    "lof_2024": 60,
+    "nom_scc": "EPAGNEUL JAPONAIS",
+    "note": ""
+  },
+  "spitz-japonais": {
+    "lof_2025": 418,
+    "lof_2024": 454,
+    "nom_scc": "SPITZ JAPONAIS",
+    "note": ""
+  },
+  "kangal": {
+    "lof_2025": 219,
+    "lof_2024": 218,
+    "nom_scc": "CHIEN DE BERGER KANGAL",
+    "note": ""
+  },
+  "keeshond-loulou-hollandais": {
+    "lof_2025": 346,
+    "lof_2024": 363,
+    "nom_scc": "SPITZ ALLEMAND – LOUP",
+    "note": "Variété « loup » (Wolfspitz / Keeshond) de la ligne SPITZ ALLEMAND (total 2 666 en 2025, 3 013 en 2024). Chiffre = variété loup seule."
+  },
+  "king-charles-spaniel": {
+    "lof_2025": 25,
+    "lof_2024": 32,
+    "nom_scc": "EPAGNEUL KING CHARLES",
+    "note": ""
+  },
+  "komondor": {
+    "lof_2025": 0,
+    "lof_2024": 1,
+    "nom_scc": "KOMONDOR",
+    "note": "Ligne SCC présente : 0 inscription en 2025, 1 en 2024."
+  },
+  "kooikerhondje": {
+    "lof_2025": 34,
+    "lof_2024": 49,
+    "nom_scc": "PETIT CHIEN HOLLANDAIS DE CHASSE AU GIBIER D'EAU",
+    "note": ""
+  },
+  "kuvasz": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Race reconnue par la FCI (n° 54) mais absente du tableau SCC : aucune inscription LOF en 2024 ni en 2025."
+  },
+  "labrador-retriever": {
+    "lof_2025": 6531,
+    "lof_2024": 6483,
+    "nom_scc": "RETRIEVER DU LABRADOR",
+    "note": ""
+  },
+  "lagotto-romagnolo": {
+    "lof_2025": 607,
+    "lof_2024": 631,
+    "nom_scc": "CHIEN D'EAU ROMAGNOL",
+    "note": ""
+  },
+  "lancashire-heeler": {
+    "lof_2025": 14,
+    "lof_2024": 8,
+    "nom_scc": "LANCASHIRE HEELER",
+    "note": ""
+  },
+  "leonberg": {
+    "lof_2025": 723,
+    "lof_2024": 781,
+    "nom_scc": "CHIEN DE LEONBERG",
+    "note": ""
+  },
+  "lhassa-apso": {
+    "lof_2025": 579,
+    "lof_2024": 516,
+    "nom_scc": "LHASSA APSO",
+    "note": ""
+  },
+  "bichon-maltais": {
+    "lof_2025": 681,
+    "lof_2024": 805,
+    "nom_scc": "BICHON MALTAIS",
+    "note": ""
+  },
+  "berger-americain-miniature": {
+    "lof_2025": 6197,
+    "lof_2024": 5606,
+    "nom_scc": "BERGER AMERICAIN MINIATURE",
+    "note": ""
+  },
+  "pinscher-nain": {
+    "lof_2025": 482,
+    "lof_2024": 394,
+    "nom_scc": "PINSCHER NAIN",
+    "note": ""
+  },
+  "schnauzer-nain": {
+    "lof_2025": 413,
+    "lof_2024": 464,
+    "nom_scc": "SCHNAUZER NAIN",
+    "note": "La SCC ne sépare pas les couleurs."
+  },
+  "terre-neuve": {
+    "lof_2025": 641,
+    "lof_2024": 754,
+    "nom_scc": "TERRE NEUVE",
+    "note": ""
+  },
+  "norfolk-terrier": {
+    "lof_2025": 27,
+    "lof_2024": 26,
+    "nom_scc": "NORFOLK TERRIER",
+    "note": ""
+  },
+  "norwich-terrier": {
+    "lof_2025": 16,
+    "lof_2024": 25,
+    "nom_scc": "NORWICH TERRIER",
+    "note": ""
+  },
+  "retriever-de-la-nouvelle-ecosse": {
+    "lof_2025": 417,
+    "lof_2024": 339,
+    "nom_scc": "RETRIEVER DE LA NOUVELLE ECOSSE",
+    "note": ""
+  },
+  "bouledogue-anglais": {
+    "lof_2025": 1156,
+    "lof_2024": 1326,
+    "nom_scc": "BULLDOG",
+    "note": "Chiffres du Bulldog (FCI n° 149), fiche à réécrire en Bulldog anglais. Ne pas confondre avec le Bulldog continental (773 en 2025)."
+  },
+  "bobtail-berger-anglais-ancien": {
+    "lof_2025": 148,
+    "lof_2024": 157,
+    "nom_scc": "CHIEN DE BERGER ANGLAIS ANCESTRAL",
+    "note": ""
+  },
+  "epagneul-papillon": {
+    "lof_2025": 616,
+    "lof_2024": 584,
+    "nom_scc": "EPAGNEUL NAIN CONTINENTAL",
+    "note": "La SCC compte ensemble les deux variétés Papillon et Phalène (pas de détail par variété)."
+  },
+  "pekinois": {
+    "lof_2025": 74,
+    "lof_2024": 87,
+    "nom_scc": "EPAGNEUL PEKINOIS",
+    "note": ""
+  },
+  "welsh-corgi-pembroke": {
+    "lof_2025": 1669,
+    "lof_2024": 1465,
+    "nom_scc": "WELSH CORGI PEMBROKE",
+    "note": ""
+  },
+  "chien-du-pharaon": {
+    "lof_2025": 10,
+    "lof_2024": 22,
+    "nom_scc": "CHIEN DU PHARAON",
+    "note": ""
+  },
+  "plott-hound": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Plott Hound : non reconnu par la FCI ni par la SCC, pas de LOF."
+  },
+  "spitz-nain-loulou-de-pomeranie": {
+    "lof_2025": 2320,
+    "lof_2024": 2650,
+    "nom_scc": "SPITZ ALLEMAND – AUTRES COULEURS",
+    "note": "La SCC ne sépare pas les tailles du Spitz allemand : chiffre = variété « autres couleurs » de la ligne SPITZ ALLEMAND, qui regroupe nain (Loulou de Poméranie), petit, moyen et grand (tout sauf le Spitz loup / Keeshond). Total Spitz allemand : 2 666 en 2025, 3 013 en 2024. Le nain seul n'est pas connu."
+  },
+  "caniche-nain": {
+    "lof_2025": 949,
+    "lof_2024": 850,
+    "nom_scc": "CANICHE – NAIN (UNICOLORE + AUTRES COULEURS)",
+    "note": "Somme des deux variétés SCC Caniche nain : unicolore 916 + autres couleurs 33 (2025) ; 804 + 46 (2024). Total Caniche toutes tailles : 1 429 en 2025, 1 373 en 2024."
+  },
+  "caniche-toy": {
+    "lof_2025": 280,
+    "lof_2024": 255,
+    "nom_scc": "CANICHE – TOY (UNICOLORE + AUTRES COULEURS)",
+    "note": "Somme des deux variétés SCC Caniche toy : unicolore 264 + autres couleurs 16 (2025) ; 252 + 3 (2024). Total Caniche toutes tailles : 1 429 en 2025, 1 373 en 2024."
+  },
+  "dogue-des-canaries": {
+    "lof_2025": 142,
+    "lof_2024": 187,
+    "nom_scc": "PRESA CANARIO",
+    "note": ""
+  },
+  "carlin": {
+    "lof_2025": 902,
+    "lof_2024": 1133,
+    "nom_scc": "CARLIN",
+    "note": ""
+  },
+  "puli": {
+    "lof_2025": 9,
+    "lof_2024": 10,
+    "nom_scc": "PULI",
+    "note": ""
+  },
+  "pumi": {
+    "lof_2025": 16,
+    "lof_2024": 0,
+    "nom_scc": "PUMI",
+    "note": ""
+  },
+  "chien-de-montagne-des-pyrenees": {
+    "lof_2025": 320,
+    "lof_2024": 387,
+    "nom_scc": "CHIEN DE MONTAGNE DES PYRENEES",
+    "note": ""
+  },
+  "rat-terrier": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Rat Terrier : non reconnu par la FCI ni par la SCC, pas de LOF."
+  },
+  "redbone-coonhound": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Redbone Coonhound : non reconnu par la FCI ni par la SCC, pas de LOF."
+  },
+  "rhodesian-ridgeback": {
+    "lof_2025": 553,
+    "lof_2024": 560,
+    "nom_scc": "CHIEN DE RHODESIE A CRETE DORSALE",
+    "note": ""
+  },
+  "rottweiler": {
+    "lof_2025": 2836,
+    "lof_2024": 2726,
+    "nom_scc": "ROTTWEILER",
+    "note": ""
+  },
+  "petit-chien-russe": {
+    "lof_2025": 144,
+    "lof_2024": 180,
+    "nom_scc": "PETIT CHIEN RUSSE",
+    "note": "La SCC ne sépare pas les variétés poil court / poil long."
+  },
+  "saint-bernard": {
+    "lof_2025": 601,
+    "lof_2024": 617,
+    "nom_scc": "SAINT BERNARD",
+    "note": "La SCC ne sépare pas les variétés poil court / poil long."
+  },
+  "saluki": {
+    "lof_2025": 56,
+    "lof_2024": 39,
+    "nom_scc": "SALUKI",
+    "note": ""
+  },
+  "samoyede": {
+    "lof_2025": 1274,
+    "lof_2024": 1366,
+    "nom_scc": "SAMOYEDE",
+    "note": ""
+  },
+  "schipperke": {
+    "lof_2025": 238,
+    "lof_2024": 198,
+    "nom_scc": "SCHIPPERKE",
+    "note": ""
+  },
+  "levrier-ecossais": {
+    "lof_2025": 13,
+    "lof_2024": 26,
+    "nom_scc": "LEVRIER ECOSSAIS",
+    "note": ""
+  },
+  "terrier-ecossais": {
+    "lof_2025": 263,
+    "lof_2024": 320,
+    "nom_scc": "TERRIER ECOSSAIS",
+    "note": ""
+  },
+  "shetland-sheepdog-berger-des-shetland": {
+    "lof_2025": 1966,
+    "lof_2024": 2045,
+    "nom_scc": "CHIEN DE BERGER DES SHETLAND",
+    "note": ""
+  },
+  "shiba-inu": {
+    "lof_2025": 2429,
+    "lof_2024": 2552,
+    "nom_scc": "SHIBA",
+    "note": ""
+  },
+  "shih-tzu": {
+    "lof_2025": 2096,
+    "lof_2024": 2439,
+    "nom_scc": "SHIH TZU",
+    "note": ""
+  },
+  "shiloh-shepherd": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Shiloh Shepherd : non reconnu par la FCI ni par la SCC, pas de LOF."
+  },
+  "husky-siberien": {
+    "lof_2025": 2756,
+    "lof_2024": 3244,
+    "nom_scc": "HUSKY DE SIBERIE",
+    "note": ""
+  },
+  "fox-terrier-a-poil-lisse": {
+    "lof_2025": 196,
+    "lof_2024": 254,
+    "nom_scc": "FOX TERRIER POIL LISSE",
+    "note": ""
+  },
+  "terrier-irlandais-a-poil-doux": {
+    "lof_2025": 20,
+    "lof_2024": 33,
+    "nom_scc": "TERRIER IRLANDAIS A POIL DOUX",
+    "note": ""
+  },
+  "chien-d-eau-espagnol": {
+    "lof_2025": 59,
+    "lof_2024": 59,
+    "nom_scc": "CHIEN D'EAU ESPAGNOL",
+    "note": ""
+  },
+  "spinone-italien": {
+    "lof_2025": 7,
+    "lof_2024": 4,
+    "nom_scc": "SPINONE",
+    "note": ""
+  },
+  "staffordshire-bull-terrier": {
+    "lof_2025": 8694,
+    "lof_2024": 9108,
+    "nom_scc": "STAFFORDSHIRE BULL TERRIER",
+    "note": "3e race de France en 2025."
+  },
+  "schnauzer-standard": {
+    "lof_2025": 91,
+    "lof_2024": 98,
+    "nom_scc": "SCHNAUZER MOYEN",
+    "note": "Schnauzer standard = Schnauzer moyen pour la SCC."
+  },
+  "vallhund-suedois": {
+    "lof_2025": 133,
+    "lof_2024": 119,
+    "nom_scc": "SPITZ DES VISIGOTHS",
+    "note": "Vallhund suédois = Spitz des Visigoths pour la SCC."
+  },
+  "thai-ridgeback": {
+    "lof_2025": 16,
+    "lof_2024": 8,
+    "nom_scc": "CHIEN THAILANDAIS A CRETE DORSALE",
+    "note": ""
+  },
+  "mastiff-tibetain": {
+    "lof_2025": 132,
+    "lof_2024": 130,
+    "nom_scc": "DOGUE DU TIBET",
+    "note": ""
+  },
+  "epagneul-tibetain": {
+    "lof_2025": 333,
+    "lof_2024": 328,
+    "nom_scc": "EPAGNEUL TIBETAIN",
+    "note": ""
+  },
+  "terrier-tibetain": {
+    "lof_2025": 167,
+    "lof_2024": 233,
+    "nom_scc": "TERRIER TIBETAIN",
+    "note": ""
+  },
+  "toy-fox-terrier": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Toy Fox Terrier : non reconnu par la FCI ni par la SCC, pas de LOF."
+  },
+  "treeing-walker-coonhound": {
+    "lof_2025": null,
+    "lof_2024": null,
+    "nom_scc": null,
+    "note": "Treeing Walker Coonhound : non reconnu par la FCI ni par la SCC, pas de LOF."
+  },
+  "vizsla-braque-hongrois": {
+    "lof_2025": 216,
+    "lof_2024": 249,
+    "nom_scc": "BRAQUE HONGROIS A POIL COURT",
+    "note": "Vizsla à poil court. Le Braque hongrois à poil dur a sa propre ligne (slug braque-hongrois-a-poil-dur)."
+  },
+  "braque-de-weimar": {
+    "lof_2025": 829,
+    "lof_2024": 801,
+    "nom_scc": "BRAQUE DE WEIMAR",
+    "note": "La SCC ne sépare pas poil court / poil long."
+  },
+  "welsh-springer-spaniel": {
+    "lof_2025": 34,
+    "lof_2024": 10,
+    "nom_scc": "WELSH SPRINGER SPANIEL",
+    "note": ""
+  },
+  "west-highland-white-terrier": {
+    "lof_2025": 973,
+    "lof_2024": 978,
+    "nom_scc": "WEST HIGHLAND WHITE TERRIER",
+    "note": ""
+  },
+  "whippet": {
+    "lof_2025": 1455,
+    "lof_2024": 1502,
+    "nom_scc": "WHIPPET",
+    "note": ""
+  },
+  "berger-blanc-suisse": {
+    "lof_2025": 2390,
+    "lof_2024": 2520,
+    "nom_scc": "BERGER BLANC SUISSE",
+    "note": ""
+  },
+  "fox-terrier-a-poil-dur": {
+    "lof_2025": 300,
+    "lof_2024": 361,
+    "nom_scc": "FOX TERRIER POIL DUR",
+    "note": ""
+  },
+  "griffon-d-arret-a-poil-dur": {
+    "lof_2025": 789,
+    "lof_2024": 764,
+    "nom_scc": "GRIFFON A POIL DUR KORTHALS",
+    "note": ""
+  },
+  "braque-hongrois-a-poil-dur": {
+    "lof_2025": 15,
+    "lof_2024": 24,
+    "nom_scc": "BRAQUE HONGROIS A POIL DUR",
+    "note": ""
+  },
+  "chien-nu-mexicain-xoloitzcuintli": {
+    "lof_2025": 23,
+    "lof_2024": 36,
+    "nom_scc": "CHIEN NU DU MEXIQUE",
+    "note": "La SCC ne sépare pas les 3 tailles."
+  },
+  "yorkshire-terrier": {
+    "lof_2025": 2163,
+    "lof_2024": 2408,
+    "nom_scc": "YORKSHIRE TERRIER",
+    "note": ""
+  }
+}

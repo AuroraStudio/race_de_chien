@@ -4,3 +4,4 @@ templates/
 generate-breeds.cjs
 tailwind.config.cjs
 css/tailwind.src.css
+sources/

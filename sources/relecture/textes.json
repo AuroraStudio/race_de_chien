@@ -1,0 +1,1345 @@
+{
+ "patches": {
+  "affenpinscher": {
+   "description": "Petit pinscher robuste au poil dur et hirsute, dont la face expressive rappelle celle d'un singe. Sûr de lui et plein d'aplomb, il a un caractère bien trempé malgré sa petite taille.",
+   "history": "Originaire d'Allemagne, où de petits pinschers à poil dur chassaient déjà les rats dans les maisons, les cuisines et les écuries au XVIIe siècle. La race a été fixée à Munich et à Berlin. Son nom signifie « pinscher singe » (Affe = singe en allemand) : ce n'est pas un terrier, et la FCI le classe avec les pinschers et les schnauzers."
+  },
+  "airedale-terrier": {
+   "description": "Le plus grand des terriers, l'Airedale est un chien athlétique au poil dur noir et feu, à l'allure fière et attentive. Surnommé le « roi des terriers », il allie intelligence, polyvalence, courage et un caractère ouvert.",
+   "history": "Développé au XIXe siècle dans la vallée de l'Aire, dans le Yorkshire, en croisant l'Otterhound avec des terriers locaux. Les ouvriers de la région l'utilisaient pour chasser la loutre et le rat ; son intelligence et son courage en ont ensuite fait un chien de police, un chien de guerre et un compagnon polyvalent."
+  },
+  "akbash": {
+   "description": "Grand chien de protection des troupeaux originaire de Turquie, à la robe entièrement blanche et à la silhouette athlétique et élancée. Indépendant et très protecteur, il vit au milieu du bétail ; sa couleur aidait les bergers à le distinguer des loups à distance.",
+   "history": "Race ancienne de l'ouest de la Turquie, utilisée depuis des siècles pour garder les troupeaux. Son nom signifie « tête blanche » en turc (ak baş). Introduit en Amérique du Nord dans les années 1970 pour protéger le bétail des prédateurs, il n'est pas reconnu par la FCI et n'est donc pas inscrit au LOF en France."
+  },
+  "akita": {
+   "description": "Grand chien puissant de type spitz originaire du Japon, au double pelage dense, aux petites oreilles dressées et à la queue enroulée sur le dos. Plus fin de tête que l'Akita américain, il impressionne par sa dignité et son tempérament courageux et loyal.",
+   "history": "Race japonaise ancienne de la préfecture montagneuse d'Akita, utilisée pour chasser le gros gibier comme le sanglier et l'ours, puis comme chien de garde. Symbole de santé et de bonheur au Japon, elle a été déclarée « monument naturel » en 1931. Presque disparue après la Seconde Guerre mondiale, elle a été préservée par des éleveurs japonais ; les chiens partis aux États-Unis ont donné l'Akita américain, aujourd'hui une race distincte."
+  },
+  "american-bully": {
+   "description": "Chien de compagnie compact et très musclé, à la tête large et à l'allure assurée, issu de l'American Pit Bull Terrier et d'autres races de type bull. Il est réputé affectueux et attaché à sa famille. En France, ce chien non inscrit au LOF est le plus souvent classé en 1re catégorie après diagnose vétérinaire, selon sa morphologie : acquisition, cession et importation interdites, stérilisation obligatoire, permis de détention, muselière et laisse dans les lieux publics.",
+   "history": "Développé aux États-Unis dans les années 1980 et 1990 comme chien de compagnie, à partir de l'American Pit Bull Terrier, de l'American Staffordshire Terrier et d'autres races de type bulldog, pour obtenir un chien au caractère plus doux et au physique plus massif. Reconnu par l'United Kennel Club en 2013, il ne l'est pas par la FCI."
+  },
+  "azawakh": {
+   "traits": [
+    "Indépendant",
+    "Loyal",
+    "Vigilant",
+    "Protecteur",
+    "Affectueux",
+    "Réservé"
+   ]
+  },
+  "basenji": {
+   "description": "Chien de type primitif, élégant et léger, originaire d'Afrique centrale, à la queue enroulée, au front ridé et au poil court et fin. Surnommé le « chien qui n'aboie pas », il s'exprime par des vocalises rappelant le yodel plutôt que par de vrais aboiements.",
+   "history": "Race ancienne d'Afrique centrale, souvent rapprochée des chiens représentés dans l'art de l'Égypte antique. Les peuples du bassin du Congo, notamment pygmées, l'utilisaient comme chasseur polyvalent pour sa vitesse et son silence. Il s'est implanté en Angleterre puis aux États-Unis dans les années 1930.",
+   "traits": [
+    "Indépendant",
+    "Intelligent",
+    "Vigilant",
+    "Énergique",
+    "Curieux",
+    "Affectueux"
+   ]
+  },
+  "basset-bleu-de-gascogne": {
+   "description": "Basset français à la robe bleue mouchetée caractéristique, aux longues oreilles tombantes et au flair exceptionnel. Bas sur pattes mais solide, il se distingue par son expression noble et sa belle voix de chien courant.",
+   "history": "Issu du Grand bleu de Gascogne, chien courant de la Gascogne médiévale, et sélectionné pour chasser le lièvre et le petit gibier. Devenu très rare, il a été relancé au début du XXe siècle par l'éleveur Alain Bourbon."
+  },
+  "basset-hound": {
+   "history": "Issu des bassets français, eux-mêmes descendants des chiens courants de l'abbaye de Saint-Hubert, et sélectionné pour chasser le lapin et le lièvre en terrain couvert. Importé en Angleterre dans la seconde moitié du XIXe siècle, il y a été croisé avec le Saint-Hubert et fixé dans son type actuel ; la FCI le rattache donc à la Grande-Bretagne."
+  },
+  "beagle": {
+   "traits": [
+    "Amical",
+    "Doux",
+    "Vigilant",
+    "Extraverti",
+    "Curieux",
+    "Énergique"
+   ]
+  },
+  "beauceron": {
+   "history": "Ancienne race de berger française, aussi appelée Berger de Beauce, développée dans les plaines du Bassin parisien pour conduire et protéger les troupeaux de moutons. Cousin du Briard, dont il a été distingué à la fin du XIXe siècle, il a servi comme chien de liaison et de garde pendant les deux guerres mondiales."
+  },
+  "bedlington-terrier": {
+   "description": "Terrier à l'allure d'agneau, gracieux et souple, au dos arqué, à la tête en forme de poire et au poil épais, frisé et vaporeux, qui le rend unique parmi les terriers.",
+   "history": "Développé à Bedlington, dans le Northumberland, au début du XIXe siècle pour chasser les nuisibles dans les mines et les fermes. Les braconniers l'appréciaient, d'où son surnom de « chien des gitans ». Ses ancêtres comprendraient le Dandie Dinmont Terrier, le Whippet et l'Otterhound."
+  },
+  "berger-americain-miniature": {
+   "traits": [
+    "Intelligent",
+    "Énergique",
+    "Dévoué",
+    "Loyal",
+    "Désireux de plaire",
+    "Travailleur"
+   ]
+  },
+  "berger-anglais": {
+   "name_fr": "English Shepherd",
+   "description": "Chien de berger de taille moyenne, très intelligent et polyvalent, au double pelage dense et doté d'un fort sens du travail. Chien de ferme à tout faire, il est dévoué à sa famille et s'adapte facilement. Cette race américaine n'est reconnue ni par la FCI ni par la SCC (elle est donc absente du LOF) ; à ne pas confondre avec le Bobtail.",
+   "history": "Développé aux États-Unis à partir des chiens de ferme de type colley amenés d'Angleterre et d'Écosse par les premiers colons. Il servait à conduire le bétail, garder la ferme et chasser les nuisibles. Seul l'United Kennel Club (UKC) le reconnaît, depuis 1927."
+  },
+  "berger-australien": {
+   "history": "Malgré son nom, le Berger australien a été développé dans l'Ouest américain au XIXe siècle. Ses ancêtres seraient des chiens de berger arrivés avec les troupeaux importés d'Australie, souvent menés par des bergers basques, et des colleys britanniques. Son intelligence et sa polyvalence l'ont rendu indispensable dans les ranchs.",
+   "traits": [
+    "Intelligent",
+    "Énergique",
+    "Travailleur",
+    "Loyal",
+    "Dévoué",
+    "Athlétique"
+   ]
+  },
+  "berger-belge-malinois": {
+   "description": "Chien de berger de taille moyenne, athlétique et bien proportionné, à l'allure fière, au poil court fauve charbonné et au masque noir. D'une vive intelligence et d'une grande ardeur au travail, il est particulièrement apprécié par la police et l'armée.",
+   "history": "Développé à la fin du XIXe siècle dans la région de Malines, en Belgique, c'est l'une des quatre variétés du Berger belge. D'abord sélectionné pour la garde des troupeaux, il a vite été adopté par les forces de l'ordre et les armées du monde entier pour son ardeur au travail.",
+   "traits": [
+    "Intelligent",
+    "Confiant",
+    "Énergique",
+    "Loyal",
+    "Vigilant",
+    "Travailleur",
+    "Protecteur"
+   ]
+  },
+  "berger-blanc-suisse": {
+   "description": "Issu du Berger allemand à robe blanche, le Berger blanc suisse est un grand chien de travail athlétique aux oreilles dressées, au double pelage blanc et à l'allure assurée. Il se distingue par son expression noble et son tempérament doux.",
+   "history": "Développé à partir de Bergers allemands à robe blanche. Quand le blanc a été exclu du standard allemand dans les années 1930, l'élevage s'est poursuivi en Amérique du Nord, d'où les chiens sont revenus en Europe. C'est la Suisse qui a fait reconnaître la race, inscrite à son livre des origines en 1991, puis reconnue par la FCI en 2003 (définitivement en 2011), d'où son nom."
+  },
+  "berger-du-caucase": {
+   "description": "Chien de protection des troupeaux massif et puissant, au double pelage épais qui résiste aux intempéries. Imposant et redoutable, il a été sélectionné pour défendre les troupeaux contre les loups, les ours et les voleurs dans les montagnes du Caucase.",
+   "history": "Race ancienne des montagnes du Caucase, sélectionnée par les bergers pour son courage, sa taille et son endurance. Standardisée en Union soviétique au XXe siècle, elle a aussi servi de chien de garde dans l'armée et les prisons."
+  },
+  "berger-hollandais": {
+   "traits": [
+    "Intelligent",
+    "Loyal",
+    "Vigilant",
+    "Énergique",
+    "Athlétique",
+    "Travailleur",
+    "Indépendant"
+   ]
+  },
+  "bichon-frise": {
+   "history": "Issu des petits chiens de type barbichon du bassin méditerranéen, il était autrefois appelé Ténériffe. Compagnon prisé des cours européennes à la Renaissance, il a été fixé en France et en Belgique, où son standard a été établi en 1933 sous le nom de Bichon à poil frisé.",
+   "traits": [
+    "Joyeux",
+    "Joueur",
+    "Affectueux",
+    "Intelligent",
+    "Doux",
+    "Énergique"
+   ]
+  },
+  "bichon-maltais": {
+   "traits": [
+    "Joueur",
+    "Doux",
+    "Affectueux",
+    "Charmeur",
+    "Intrépide",
+    "Vigilant",
+    "Adaptable"
+   ]
+  },
+  "bobtail-berger-anglais-ancien": {
+   "history": "Développé dans l'ouest de l'Angleterre à la fin du XVIIIe siècle, probablement à partir d'anciens chiens de berger comme le Bearded Collie et l'Owtcharka de Russie méridionale. Il conduisait bovins et moutons jusqu'aux marchés. Selon la tradition, sa queue était coupée pour signaler un chien de travail exempté de taxe, d'où son nom de « bobtail » (queue écourtée)."
+  },
+  "boerboel": {
+   "description": "Grand molosse de type mastiff originaire d'Afrique du Sud, puissant et musclé, au poil court et dense et au tempérament assuré. Gardien de famille réputé, son nom signifie « chien de fermier ». En France, ce chien non inscrit au LOF relève de la 1re catégorie (type mastiff, les « boerbulls » cités par l'arrêté du 27 avril 1999) : acquisition, cession et importation interdites, stérilisation obligatoire."
+  },
+  "border-collie": {
+   "history": "Développé par les bergers de la frontière entre l'Angleterre et l'Écosse pour conduire les moutons sur les collines, et sélectionné uniquement sur ses aptitudes au travail. La plupart des Border Collies actuels descendent d'un chien célèbre, Old Hemp, né en 1893.",
+   "traits": [
+    "Intelligent",
+    "Énergique",
+    "Vigilant",
+    "Travailleur",
+    "Loyal",
+    "Désireux de plaire"
+   ]
+  },
+  "bouledogue-alapaha": {
+   "name_fr": "Alapaha Blue Blood Bulldog",
+   "description": "Bouledogue puissant et athlétique, à la musculature marquée et à la robe le plus souvent blanche avec des taches, parfois merle. Chien de prise sélectionné pour le travail à la ferme, la conduite du bétail et la garde de la famille, il a un fort instinct de protection.",
+   "history": "Développé dans la région de la rivière Alapaha, dans le sud de la Géorgie, comme chien de prise polyvalent pour maîtriser bovins et porcs et garder la ferme. La famille Lane l'a préservé au XXe siècle à partir des anciens bouledogues de plantation. Son nom complet, Alapaha Blue Blood Bulldog, renvoie à la lignée (« sang bleu ») et non à la couleur de la robe. Il n'est pas reconnu par la FCI."
+  },
+  "bouledogue-americain": {
+   "description": "Chien puissant et athlétique à poil court, de type molosse, à la tête large et à la musculature développée, connu pour son assurance, sa force et sa loyauté envers sa famille. Il a été sélectionné pour le travail à la ferme et la garde. En France, ce chien non inscrit au LOF n'est pas nommé par la loi de 1999, mais une diagnose vétérinaire peut le classer en 1re catégorie selon sa morphologie : à vérifier avant toute acquisition."
+  },
+  "bouledogue-francais": {
+   "description": "Petit molosse compact et musclé, reconnaissable à ses grandes oreilles droites « en chauve-souris », à son museau très court et à son poil ras et lisse. Chien de compagnie par excellence, il est enjoué, attentif et très attaché à son maître."
+  },
+  "bouvier-australien": {
+   "description": "Chien de travail compact et musclé, à la robe bleue ou rouge mouchetée caractéristique et à l'endurance exceptionnelle, sélectionné pour conduire les bovins. On l'appelle aussi « Heeler », car il pousse le bétail en lui mordillant les talons.",
+   "history": "Développé en Australie au XIXe siècle en croisant des chiens de berger britanniques, notamment des colleys bleu merle, avec le dingo, puis avec des apports de Dalmatien et de Kelpie noir et feu. Le but : obtenir un bouvier robuste, adapté aux conditions difficiles de l'élevage australien."
+  },
+  "bouvier-bernois": {
+   "history": "Développé dans le canton de Berne, en Suisse, comme chien de ferme polyvalent pour la garde, la conduite du bétail et le trait de charrettes, notamment pour livrer le lait. Devenu rare à la fin du XIXe siècle, il a été sauvé au début du XXe siècle par des éleveurs suisses passionnés, dont le professeur Albert Heim.",
+   "traits": [
+    "Calme",
+    "Doux",
+    "Loyal",
+    "Intelligent",
+    "Affectueux",
+    "Patient"
+   ]
+  },
+  "bouvier-d-appenzell": {
+   "description": "Bouvier suisse musclé et agile de taille moyenne, à la robe tricolore caractéristique et à la queue enroulée serrée sur le dos. Vif, assuré et travailleur, il associe instinct de bouvier et réelles qualités de garde.",
+   "history": "L'un des quatre bouviers suisses, utilisé pendant des siècles dans la région d'Appenzell comme chien de ferme polyvalent pour conduire le bétail, garder la ferme et tirer des charrettes. La race a été fixée à la fin du XIXe siècle grâce au forestier Max Siber et au professeur Albert Heim.",
+   "traits": [
+    "Énergique",
+    "Intelligent",
+    "Confiant",
+    "Loyal",
+    "Vigilant",
+    "Travailleur"
+   ]
+  },
+  "bouvier-des-flandres": {
+   "history": "Formé aux XIXe et XXe siècles chez les bouviers, fermiers et marchands de bestiaux des Flandres belges et françaises, comme chien de ferme polyvalent : conduite des bovins, trait de charrettes et garde. Presque disparu après la Première Guerre mondiale, il a été reconstitué par des éleveurs passionnés, notamment à partir de Nic, un chien ayant servi dans l'armée belge."
+  },
+  "boxer": {
+   "description": "Chien de travail de taille moyenne, puissant et athlétique, au museau court et au poil ras. Connu pour son caractère joueur et joyeux et son visage expressif, il allie énergie débordante et grande douceur avec les siens.",
+   "history": "Développé à Munich à la fin du XIXe siècle à partir du Bullenbeisser, ancien chien de chasse au gros gibier aujourd'hui disparu, croisé avec le Bulldog anglais. Chien de garde, il a été l'un des premiers chiens de police et de guerre en Allemagne, avant de devenir un chien de famille très populaire."
+  },
+  "boykin-spaniel": {
+   "description": "Épagneul de taille moyenne, énergique et polyvalent, spécialisé dans le débusquage et le rapport, au pelage brun foie ou chocolat, très ardent au travail, particulièrement dans l'eau. Connu pour son tempérament aimable et son endurance."
+  },
+  "braque-allemand-a-poil-court": {
+   "history": "Développé en Allemagne au XIXe siècle à partir des anciens braques allemands, issus de chiens d'arrêt méditerranéens, avec des croisements de Pointer anglais qui ont affiné la race à la fin du siècle. Le but : un chien d'arrêt polyvalent, capable de chasser en plaine, au bois et à l'eau, et de rapporter."
+  },
+  "braque-de-weimar": {
+   "description": "Grand chien d'arrêt élancé et athlétique, à la robe gris argenté caractéristique et aux yeux ambrés ou gris-bleu saisissants. Rapide, endurant et intelligent, il a d'abord été sélectionné pour la chasse au gros gibier ; sa robe et sa discrétion lui valent le surnom de « fantôme gris »."
+  },
+  "braque-hongrois-a-poil-dur": {
+   "description": "Chien d'arrêt hongrois de taille moyenne, au poil dense et dur et à la robe roux doré. Robuste mais élancé, très polyvalent, il a été sélectionné pour l'arrêt et le rapport en terrain difficile."
+  },
+  "braque-italien": {
+   "description": "Grand chien d'arrêt italien, noble et puissant, à la tête sculptée, aux longues oreilles tombantes et à la robe blanche ou blanche tachée d'orange ou de marron. D'ancienne lignée italienne, il est réputé pour son flair et la fermeté de son arrêt.",
+   "history": "L'un des plus anciens chiens d'arrêt d'Europe, attesté par l'iconographie italienne dès la Renaissance (XIVe et XVe siècles), notamment à la cour des Médicis et des Gonzague. Sélectionné pour chasser le gibier à plumes sur les terrains variés d'Italie, il excelle à l'arrêt comme au rapport."
+  },
+  "bull-terrier": {
+   "history": "Développé en Angleterre au XIXe siècle en croisant des bulldogs avec des terriers, d'abord pour les combats de chiens. Vers 1860, James Hinks a fixé un Bull Terrier blanc plus élégant ; la célèbre tête en forme d'œuf ne s'est imposée qu'au début du XXe siècle."
+  },
+  "bull-terrier-miniature": {
+   "description": "Petit terrier musclé et compact, à la tête en forme d'œuf et aux petits yeux triangulaires. Version réduite du Bull Terrier, il est connu pour son caractère comique, espiègle et vif et sa silhouette carrée et robuste.",
+   "history": "Issu du Bull Terrier, dont il partage l'histoire : des sujets de petite taille existaient déjà dans la race au XIXe siècle. Sélectionnée pour les amateurs d'un compagnon plus compact, la variété miniature a été reconnue par le Kennel Club britannique en 1939."
+  },
+  "caniche-nain": {
+   "description": "Version réduite du Caniche, élégante, sportive et très intelligente, au poil bouclé qui ne mue presque pas et à l'allure fière.",
+   "history": "Le Caniche descend des chiens d'eau européens, notamment du Barbet, et servait à l'origine à rapporter le gibier d'eau ; la FCI le reconnaît comme race française. Son nom anglais, « Poodle », vient de l'allemand « Pudel » (barboter), sans indiquer pour autant son origine. La variété naine a été sélectionnée à partir de caniches plus grands pour la compagnie."
+  },
+  "caniche-toy": {
+   "description": "Plus petite variété du Caniche (24 à 28 cm au garrot selon le standard FCI), au poil bouclé et dense qui ne mue presque pas et au tempérament vif et attentif. Compagnon élégant et fier, il est réputé pour sa facilité d'éducation et son aisance dans les exercices et les tours.",
+   "history": "Le Caniche descend des chiens d'eau européens, notamment du Barbet, et rapportait à l'origine le gibier d'eau ; la FCI le reconnaît comme race française. Son nom anglais, « Poodle », vient de l'allemand « Pudel » (barboter), sans indiquer son origine. La variété toy a été sélectionnée à partir du Caniche nain pour la compagnie et l'exposition."
+  },
+  "carlin": {
+   "traits": [
+    "Affectueux",
+    "Joueur",
+    "Amical",
+    "Charmeur",
+    "Adaptable"
+   ]
+  },
+  "chien-chinois-a-crete": {
+   "description": "Petit chien élégant et fin d'ossature, qui existe en deux variétés : le Nu, à la peau douce avec des touffes de poils sur la tête, les pattes et la queue, et le Powderpuff, entièrement couvert d'un poil doux et voilé.",
+   "traits": [
+    "Affectueux",
+    "Vigilant",
+    "Joueur",
+    "Vif",
+    "Intelligent",
+    "Doux"
+   ]
+  },
+  "chien-d-eau-espagnol": {
+   "traits": [
+    "Loyal",
+    "Intelligent",
+    "Travailleur",
+    "Athlétique",
+    "Énergique",
+    "Vigilant"
+   ]
+  },
+  "chien-de-montagne-des-pyrenees": {
+   "description": "Chien de protection des troupeaux majestueux et très puissant, au double pelage blanc et épais, doté d'un instinct de gardien naturel forgé par le travail en montagne.",
+   "history": "Race ancienne utilisée depuis des siècles par les bergers des Pyrénées pour protéger les troupeaux contre les loups et les ours. Apprécié aussi comme chien de garde des châteaux, il a été adopté à la cour de Louis XIV. Standardisé en 1927, il retrouve aujourd'hui son rôle de gardien face au retour des grands prédateurs."
+  },
+  "chien-de-saint-hubert": {
+   "description": "Grand chien courant imposant, à l'expression noble et digne, reconnaissable à sa tête ridée, à ses longues oreilles tombantes, à sa peau ample et à ses babines pendantes. Son odorat extraordinaire en fait le pisteur le plus réputé de tous les chiens.",
+   "history": "Race ancienne développée au Moyen Âge par les moines de l'abbaye de Saint-Hubert, dans les Ardennes belges. Introduit en Angleterre, où on l'appelle Bloodhound, il a été apprécié pendant des siècles pour pister le gibier, puis les personnes, au point de devenir indispensable aux forces de l'ordre."
+  },
+  "chien-du-pharaon": {
+   "description": "Chien de type primitif élégant et de taille moyenne, au poil court et fauve, à l'expression vive, capable de « rougir » de la truffe et des oreilles quand il est excité. Gracieux, puissant et rapide, il chasse autant à la vue qu'à l'odorat et à l'ouïe.",
+   "history": "Chien national de Malte, où on l'appelle « Kelb tal-Fenek » (chien à lapin) et où il chasse traditionnellement le lapin. Son nom évoque des ancêtres égyptiens amenés par les Phéniciens, mais les études génétiques ne confirment pas cette filiation directe."
+  },
+  "chien-finnois-de-laponie": {
+   "description": "Chien de type spitz de taille moyenne, robuste, au double pelage épais et abondant et à l'expression douce. Sélectionné par le peuple sami pour conduire les rennes, il supporte sans peine le froid arctique.",
+   "history": "Ancienne race de spitz du peuple sami, en Laponie, utilisée pour rassembler, conduire et protéger les troupeaux de rennes. Presque disparue après la Seconde Guerre mondiale, elle a été restaurée avec succès par des éleveurs finlandais."
+  },
+  "chien-leopard-catahoula": {
+   "description": "Chien de berger et de chasse de taille moyenne à grande, athlétique, connu pour ses motifs de robe tachetés ou merle caractéristiques, ses yeux hétérochromes saisissants et sa grande ardeur au travail. Ce chien polyvalent excelle tant à la conduite de troupeaux qu'à la chasse.",
+   "traits": [
+    "Indépendant",
+    "Intelligent",
+    "Loyal",
+    "Protecteur",
+    "Énergique",
+    "Travailleur"
+   ]
+  },
+  "chien-nu-mexicain-xoloitzcuintli": {
+   "description": "Ancienne race du Mexique, qui existe en trois tailles (standard, intermédiaire et miniature) et en deux variétés, nue ou à poil court. Elle est connue pour son tempérament loyal, calme et vigilant."
+  },
+  "chow-chow": {
+   "traits": [
+    "Loyal",
+    "Indépendant",
+    "Réservé",
+    "Vigilant",
+    "Calme",
+    "Protecteur"
+   ]
+  },
+  "cocker-americain": {
+   "description": "L'un des plus petits épagneuls de chasse, le Cocker américain est un chien compact à la tête finement ciselée, au long pelage soyeux et abondant, aux longues oreilles et à l'expression douce.",
+   "history": "Développé aux États-Unis à partir de Cockers anglais importés à la fin du XIXe siècle. Les éleveurs américains ont sélectionné un chien plus petit, à la tête plus ronde et au pelage plus fourni, d'abord pour chasser la caille et la bécasse, puis pour les expositions. Reconnu comme race distincte par l'AKC en 1946, il appartient au groupe 8 de la FCI."
+  },
+  "coonhound-bleute": {
+   "traits": [
+    "Amical",
+    "Intelligent",
+    "Loyal",
+    "Dévoué",
+    "Travailleur"
+   ]
+  },
+  "coton-de-tulear": {
+   "history": "Originaire de Madagascar, où il était le compagnon de la noblesse, il descend de petits chiens blancs de type bichon arrivés avec les navigateurs et les marchands. Il doit son nom au port de Tuléar (Toliara) et a été reconnu par la FCI en 1987.",
+   "traits": [
+    "Joyeux",
+    "Joueur",
+    "Affectueux",
+    "Vigilant",
+    "Amical",
+    "Intelligent",
+    "Adaptable"
+   ]
+  },
+  "dalmatien": {
+   "history": "Race ancienne dont les racines sont attribuées à la Dalmatie, en Croatie. Il a d'abord été utilisé comme chien de carrosse, capable de courir des kilomètres aux côtés des attelages et de garder chevaux et voitures. Il a aussi fait carrière dans les cirques et est devenu l'emblème des casernes de pompiers américaines."
+  },
+  "dobermann": {
+   "description": "Grand chien de travail élancé, athlétique et puissant, à l'allure fière et vigilante. Connu pour sa loyauté et son intelligence exceptionnelles, il allie force, élégance et agilité.",
+   "history": "Créé à la fin du XIXe siècle à Apolda, en Thuringe, par Karl Friedrich Louis Dobermann, un collecteur d'impôts qui voulait un chien de protection. Il aurait associé le Rottweiler, le Pinscher allemand et d'anciens chiens de berger allemands, entre autres."
+  },
+  "epagneul-breton": {
+   "description": "Chien d'arrêt de taille moyenne, compact et énergique, à la robe blanc et orange, blanc et marron ou blanc et noir, et au poil fin légèrement frangé. Polyvalent à l'arrêt comme au rapport, ce chasseur agile allie endurance et intelligence.",
+   "history": "Des chiens de ce type apparaissent dans l'iconographie dès le XVIIe siècle, mais la race moderne a été fixée à la fin du XIXe siècle dans le centre de la Bretagne, avec des apports de setters anglais. Le club de race et le premier standard datent de 1907."
+  },
+  "epagneul-d-eau-americain": {
+   "description": "Épagneul de chasse polyvalent de taille moyenne, au pelage bouclé ou ondulé de couleur foie ou chocolat, sélectionné pour rapporter le gibier d'eau dans les eaux froides et sur les berges marécageuses de la région des Grands Lacs.",
+   "history": "Développé au XIXe siècle dans les vallées des rivières Fox et Wolf, au Wisconsin, comme chasseur compact et polyvalent capable de travailler depuis une barque. Ses ancêtres comprennent probablement l'Épagneul d'eau irlandais et le Retriever à poil bouclé. Chien emblème du Wisconsin depuis 1985, il a contribué à la création du Boykin Spaniel ; l'AKC l'a reconnu en 1940, la FCI ne le reconnaît pas."
+  },
+  "epagneul-papillon": {
+   "description": "Petit épagneul nain fin et élégant, aux grandes oreilles dressées et frangées qui évoquent les ailes d'un papillon, d'où son nom (la variété aux oreilles tombantes s'appelle Phalène). Son poil soyeux et abondant accompagne un tempérament vif, sociable et énergique."
+  },
+  "field-spaniel": {
+   "description": "Épagneul de chasse de taille moyenne, au poil soyeux et brillant noir, foie ou rouan, bâti pour l'endurance et l'agilité sur le terrain. Docile et sensible, il a un caractère noble et facile à vivre.",
+   "history": "Développé en Angleterre à la fin du XIXe siècle à partir du Cocker et d'autres épagneuls, d'abord pour les expositions, puis resélectionné pour le travail. Proche de l'extinction après les deux guerres mondiales, la race a été reconstituée par quelques éleveurs."
+  },
+  "fox-terrier-a-poil-lisse": {
+   "description": "Petit terrier compact et énergique, au poil court et lisse à dominante blanche et à l'expression vive. Robuste et audacieux, il possède l'esprit vif typique des terriers."
+  },
+  "foxhound-americain": {
+   "description": "Chien courant élégant et puissant, haut sur pattes et d'ossature légère, connu pour son endurance remarquable, sa vitesse et sa voix mélodieuse. L'une des plus anciennes races américaines, sélectionnée pour chasser en meute sur de longues distances.",
+   "history": "Issu de Foxhounds anglais importés dans l'Amérique coloniale dès 1650, puis adapté aux terrains américains et à la chasse au renard. George Washington a joué un rôle clé dans son développement en sélectionnant des chiens plus légers, plus grands et plus rapides, capables de chasser le renard roux sur des terrains variés."
+  },
+  "golden-retriever": {
+   "description": "Retriever athlétique au pelage doré dense, brillant et légèrement ondulé, au caractère particulièrement amical. Chien de chasse à l'origine, il est aujourd'hui aussi apprécié comme chien de famille que comme chien d'assistance."
+  },
+  "griffon-d-arret-a-poil-dur": {
+   "description": "Chien d'arrêt polyvalent au poil dur et rêche, à la barbe et aux sourcils marqués. Réputé pour son arrêt, son rapport et sa façon de chasser près du chasseur, il a un caractère intelligent et coopératif.",
+   "history": "Développé à la fin du XIXe siècle par le Néerlandais Eduard Karel Korthals, qui a travaillé en Allemagne et en France, en croisant divers chiens d'arrêt et griffons européens. Son objectif : le chien d'arrêt polyvalent idéal pour la chasse à pied. La FCI le rattache à la France, où la race s'est surtout développée."
+  },
+  "harrier": {
+   "history": "Chien courant anglais utilisé pour chasser le lièvre en meute, attesté depuis au moins le XIIIe siècle. Plus ancien que le Foxhound anglais, il descendrait d'anciens chiens courants comme le Talbot et de chiens courants français ; des apports de Foxhound ont ensuite contribué à le fixer."
+  },
+  "husky-d-alaska": {
+   "description": "Chien de traîneau athlétique sélectionné sur ses performances et non sur son apparence, d'où des robes et des silhouettes très variables. Ce n'est pas une race reconnue, ni par la FCI ni par la SCC, mais un type de chien de travail réputé pour sa vitesse et son endurance exceptionnelles.",
+   "history": "Développé en Alaska par les mushers, qui ont croisé des chiens nordiques (Husky sibérien, Malamute, chiens de village inuits) avec des races européennes comme le Pointer, le Greyhound ou le Saluki. Le but : réunir vitesse, endurance et envie de courir pour les courses de traîneau, qu'il domine aujourd'hui, en vitesse comme en longue distance.",
+   "traits": [
+    "Énergique",
+    "Intelligent",
+    "Travailleur",
+    "Athlétique",
+    "Amical",
+    "Indépendant"
+   ]
+  },
+  "husky-siberien": {
+   "history": "Développé par le peuple tchouktche de Sibérie comme chien de traîneau d'endurance, capable de tirer des charges légères sur de longues distances dans le froid. Amené en Alaska en 1908 pour les courses de traîneau, il est devenu célèbre lors de la course au sérum vers Nome, en 1925. La race a été fixée aux États-Unis, que la FCI retient comme pays d'origine."
+  },
+  "keeshond-loulou-hollandais": {
+   "history": "Variété du Spitz allemand, le Spitz-loup est devenu aux Pays-Bas le chien des bateliers, qui le gardaient à bord des péniches du Rhin. Au XVIIIe siècle, il a servi d'emblème au parti des Patriotes, mené par Cornelis (Kees) de Gyselaer, d'où son nom de Keeshond. La FCI le rattache à l'Allemagne."
+  },
+  "kelpie-australien": {
+   "history": "Développé en Australie à la fin du XIXe siècle à partir de colleys de travail importés d'Écosse, pour obtenir un chien de berger capable de mener seul les moutons sur de vastes distances et sous un climat difficile. L'apport de dingo souvent évoqué relève de la légende : les études génétiques ne l'ont pas confirmé.",
+   "description": "Chien de berger athlétique de taille moyenne avec une énergie et une intelligence exceptionnelles, développé pour travailler les moutons sur de vastes distances dans les conditions difficiles australiennes. Connu pour sa constitution souple et agile et son ardeur au travail inépuisable.",
+   "traits": [
+    "Intelligent",
+    "Énergique",
+    "Loyal",
+    "Travailleur",
+    "Vigilant"
+   ]
+  },
+  "komondor": {
+   "history": "Race ancienne d'origine asiatique, arrivée en Hongrie avec les tribus magyares au IXe siècle (certains auteurs évoquent plutôt les Coumans, au XIIIe siècle). Sélectionné comme gardien de troupeaux indépendant, il protégeait moutons et bovins contre les loups et les ours."
+  },
+  "kuvasz": {
+   "history": "Ancienne race hongroise d'origine asiatique, arrivée dans le bassin des Carpates avec les tribus magyares. Redoutable gardien de troupeaux, il a aussi été le chien de garde des rois et de la noblesse de Hongrie, apprécié pour sa loyauté et son courage."
+  },
+  "labrador-retriever": {
+   "history": "Issu du chien de Saint-Jean, utilisé par les pêcheurs de Terre-Neuve pour rapporter les filets et les poissons échappés. Il a été développé et fixé en Angleterre au XIXe siècle par l'aristocratie britannique pour la chasse au gibier d'eau : la FCI le rattache donc à la Grande-Bretagne."
+  },
+  "lagotto-romagnolo": {
+   "description": "Chien d'eau rustique de taille moyenne, au pelage dense, bouclé et imperméable, doté d'un odorat exceptionnel. C'est la seule race reconnue comme spécialiste de la recherche des truffes.",
+   "traits": [
+    "Affectueux",
+    "Intelligent",
+    "Énergique",
+    "Loyal",
+    "Vigilant",
+    "Travailleur"
+   ]
+  },
+  "lancashire-heeler": {
+   "history": "Développé dans le Lancashire, en Angleterre, comme chien de ferme polyvalent pour conduire le bétail en lui mordillant les talons et chasser les rats. Il serait issu de croisements entre Welsh Corgi et Manchester Terrier. La FCI ne le reconnaît qu'à titre provisoire, depuis 2016."
+  },
+  "levrier-afghan": {
+   "description": "Lévrier ancien et élégant au long pelage soyeux et à l'allure aristocratique, sélectionné pour chasser le gros gibier en terrain montagneux.",
+   "history": "Lévrier ancien des régions montagneuses d'Afghanistan, où il chassait la gazelle, le cerf, le loup ou le lièvre. Apprécié pour sa vitesse, son endurance et sa capacité à poursuivre seul le gibier sur un terrain accidenté, il a été introduit en Occident par des officiers britanniques au début du XXe siècle.",
+   "traits": [
+    "Indépendant",
+    "Digne",
+    "Réservé",
+    "Loyal",
+    "Confiant"
+   ]
+  },
+  "levrier-greyhound": {
+   "history": "Les lévriers de l'art égyptien, grec et romain sont souvent présentés comme ses ancêtres, mais les études génétiques ne le confirment pas. La race moderne a été fixée en Grande-Bretagne, d'abord pour chasser le lièvre à vue, puis pour les courses. C'est le chien le plus rapide du monde, capable d'approcher les 70 km/h."
+  },
+  "malamute-d-alaska": {
+   "description": "Chien de trait arctique de type spitz, d'une force et d'une robustesse remarquables, le Malamute de l'Alaska est un grand chien de traîneau au double pelage épais, à la poitrine profonde et au corps bien musclé. Il a l'allure d'un loup et porte sa queue en panache sur le dos.",
+   "history": "L'un des plus anciens chiens de traîneau arctiques, développé par les Inuits Mahlemiut du nord-ouest de l'Alaska. Indispensable à leur survie, il tirait de lourdes charges sur la glace, aidait à la chasse au phoque et tenait les ours polaires à distance.",
+   "traits": [
+    "Affectueux",
+    "Amical",
+    "Loyal",
+    "Joueur",
+    "Intelligent",
+    "Énergique",
+    "Indépendant"
+   ]
+  },
+  "mastiff-tibetain": {
+   "name_fr": "Dogue du Tibet",
+   "history": "Ancienne race de gardien développée dans l'Himalaya, utilisée par les nomades tibétains et les monastères pour protéger le bétail, les villages et les campements. On l'a longtemps présenté comme l'ancêtre des molosses modernes, une hypothèse aujourd'hui discutée."
+  },
+  "pekinois": {
+   "history": "Race ancienne de la cour impériale chinoise, vénérée au Palais impérial de Pékin, où sa possession était réservée à la famille de l'empereur. Il est arrivé en Europe en 1860, rapporté par les troupes britanniques après le sac du Palais d'Été."
+  },
+  "petit-levrier-italien": {
+   "history": "Race ancienne dont l'origine remonterait à plus de 2 000 ans dans le bassin méditerranéen. Prisé par la noblesse de la Grèce antique, de Rome puis de la Renaissance italienne, il a été le compagnon de nombreuses cours européennes."
+  },
+  "pinscher-nain": {
+   "description": "Petit chien compact et élégant, à l'allure fière et à la démarche relevée caractéristique (allure « hackney »). Plein de fougue et sûr de lui, il a l'aplomb d'un grand chien dans un petit format."
+  },
+  "pit-bull-americain": {
+   "name_fr": "American Pit Bull Terrier",
+   "description": "Terrier musclé de taille moyenne, athlétique et agile, au poil court, d'une force exceptionnelle pour sa taille, assuré et très affectueux avec les humains. En France, c'est un chien de 1re catégorie (loi du 6 janvier 1999) : acquisition, cession et importation interdites, stérilisation obligatoire, permis de détention, muselière et laisse dans les lieux publics.",
+   "history": "Développé aux États-Unis au XIXe siècle à partir de chiens de type bull and terrier venus d'Angleterre et d'Irlande. Ses ancêtres anglais combattaient des taureaux, mais l'American Pit Bull Terrier a surtout été sélectionné pour les combats de chiens, avant de servir aussi de chien de ferme et de compagnie. L'United Kennel Club l'a reconnu en 1898 ; la FCI ne le reconnaît pas."
+  },
+  "pumi": {
+   "description": "Chien de berger hongrois de taille moyenne, agile et vif, à l'expression malicieuse de terrier, au poil bouclé en tire-bouchons et aux oreilles dressées dont la pointe retombe. Toujours en alerte, il est infatigable au travail."
+  },
+  "retriever-de-la-nouvelle-ecosse": {
+   "description": "Le plus petit des retrievers, ce chien de chasse athlétique et énergique se reconnaît à sa robe rousse marquée de blanc. Il a été sélectionné pour attirer le gibier d'eau, puis le rapporter.",
+   "history": "Développé en Nouvelle-Écosse, au Canada, au XIXe siècle. Il attirait les canards en jouant sur la rive (« tolling »), puis les rapportait une fois tirés. Reconnu par le Canadian Kennel Club en 1945, puis par la FCI."
+  },
+  "rottweiler": {
+   "description": "Grand chien de travail robuste et musclé, à la robe noire marquée de feu, connu pour sa force, son instinct de protection et son assurance. Gardien loyal, il est très attaché à sa famille. En France, c'est un chien de 2e catégorie, inscrit au LOF ou non : permis de détention, évaluation comportementale, assurance responsabilité civile, muselière et laisse dans les lieux publics."
+  },
+  "saluki": {
+   "history": "L'une des plus anciennes races de chiens domestiques, chérie depuis des millénaires par les princes et les tribus bédouines du Moyen-Orient pour la chasse à la gazelle. Les Bédouins le considéraient comme un don de Dieu et le distinguaient des autres chiens."
+  },
+  "schipperke": {
+   "description": "Petit chien de type spitz, compact, au visage de renard, au double pelage noir et épais et à la collerette abondante autour du cou. Certains naissent sans queue, mais la queue entière est admise par le standard FCI. Agile et sûr de lui, il est d'une curiosité sans limite.",
+   "history": "Développé en Flandre, en Belgique, comme petit chien de garde et ratier, chez les artisans comme sur les péniches des canaux. Son nom, souvent traduit par « petit batelier », pourrait aussi signifier « petit berger » : la FCI le classe d'ailleurs parmi les chiens de berger.",
+   "traits": [
+    "Vigilant",
+    "Confiant",
+    "Énergique",
+    "Intelligent",
+    "Indépendant",
+    "Curieux"
+   ]
+  },
+  "schnauzer-geant": {
+   "history": "Développé en Bavière et dans le Wurtemberg à partir du Schnauzer moyen, croisé avec des races plus grandes comme le Dogue allemand ou le Bouvier des Flandres. Il conduisait le bétail jusqu'aux marchés et gardait fermes et brasseries, avant de devenir chien de police au début du XXe siècle."
+  },
+  "schnauzer-nain": {
+   "description": "Petit chien robuste et carré, au poil dur, aux sourcils broussailleux et à la barbe caractéristiques. Vif, attentif et sociable, il fait un excellent chien d'alerte en format compact.",
+   "history": "Développé en Allemagne à la fin du XIXe siècle en croisant le Schnauzer moyen avec des races plus petites comme l'Affenpinscher et peut-être le Caniche, pour obtenir un chien de ferme et un ratier plus compact."
+  },
+  "schnauzer-standard": {
+   "name_fr": "Schnauzer Moyen"
+  },
+  "setter-anglais": {
+   "description": "Chien d'arrêt élégant et athlétique, reconnaissable à sa robe mouchetée (belton), à ses franges soyeuses et à ses allures gracieuses. Passionné à la chasse, il est doux et très sociable à la maison."
+  },
+  "spinone-italien": {
+   "history": "Ancienne race italienne, notamment piémontaise, que certains auteurs font remonter à l'Antiquité sans preuve solide. Elle est en tout cas représentée dès la Renaissance et a été sélectionnée comme chien d'arrêt polyvalent pour chasser dans les terrains denses et épineux, au bois comme au marais."
+  },
+  "spitz-americain": {
+   "description": "Chien de compagnie compact de type spitz, au double pelage blanc et dense, aux lèvres, à la truffe et au tour des yeux noirs, à la tête en forme de coin et à la queue en panache portée sur le dos. Il existe en trois tailles (toy, miniature et standard) et frappe par son expression vive et attentive.",
+   "history": "Descendant des spitz allemands blancs amenés aux États-Unis par des immigrants allemands. Pendant la Première Guerre mondiale, le sentiment anti-allemand a fait rebaptiser la race « American Eskimo ». Vedette des cirques à la fin du XIXe et au début du XXe siècle, elle a été reconnue par l'AKC en 1995, mais pas par la FCI."
+  },
+  "spitz-finlandais": {
+   "description": "Chien de chasse de type spitz de taille moyenne, à l'allure de renard, au double pelage dense roux doré, aux oreilles dressées et à la queue en panache enroulée. Chien national de Finlande, il signale le gibier perché dans les arbres en aboyant, d'où son surnom de « chien aboyeur »."
+  },
+  "spitz-nain-loulou-de-pomeranie": {
+   "history": "Plus petite variété du Spitz allemand, il descend de spitz plus grands, réduits en taille dans la région de Poméranie. La reine Victoria, qui en a élevé, a beaucoup contribué à sa popularité et à la miniaturisation de la race au XIXe siècle."
+  },
+  "springer-spaniel-anglais": {
+   "description": "Épagneul de chasse de taille moyenne, athlétique et compact, aux longues oreilles et au poil soyeux frangé. Enthousiaste et toujours prêt à coopérer, il a une expression douce et intelligente et se montre très polyvalent sur le terrain.",
+   "history": "Développé en Angleterre comme chien de chasse polyvalent chargé de trouver le gibier et de le faire lever (« to spring »), puis de le rapporter. Longtemps distingué du Cocker par la seule taille au sein d'une même portée, il a été reconnu comme race distincte par le Kennel Club britannique en 1902."
+  },
+  "staffordshire-bull-terrier": {
+   "history": "Développé au XIXe siècle dans le Staffordshire, en Angleterre. Après l'interdiction des combats de taureaux en 1835, les croisements entre bulldogs et terriers ont surtout servi aux combats de chiens et à la chasse aux rats. Quand ces pratiques ont disparu, les éleveurs en ont fait le compagnon affectueux et loyal qu'il est aujourd'hui ; le Kennel Club l'a reconnu en 1935."
+  },
+  "staffordshire-terrier-americain": {
+   "name_fr": "American Staffordshire Terrier",
+   "description": "Terrier musclé et trapu mais agile, d'une force remarquable pour sa taille, à la tête large, au poil court et lisse et au caractère assuré et affectueux. En France, l'American Staffordshire Terrier inscrit au LOF est un chien de 2e catégorie (permis de détention, muselière et laisse dans les lieux publics) ; un chien de ce type sans pedigree relève de la 1re catégorie.",
+   "history": "Issu des chiens de type bull and terrier arrivés d'Angleterre aux États-Unis au XIXe siècle, alors utilisés dans les combats de chiens. Sélectionné ensuite pour être plus lourd que le Staffordshire Bull Terrier anglais et employé comme chien de ferme et de compagnie, il a été reconnu par l'AKC en 1936 sous le nom de Staffordshire Terrier, devenu American Staffordshire Terrier en 1972.",
+   "traits": [
+    "Confiant",
+    "Courageux",
+    "Loyal",
+    "Intelligent",
+    "Affectueux"
+   ]
+  },
+  "terrier-ecossais": {
+   "history": "L'une des plus anciennes races de terriers des Highlands écossais, sélectionnée pour chasser le renard, le blaireau et les nuisibles en terrain rocheux. Longtemps confondue avec d'autres terriers écossais, elle a été fixée à la fin du XIXe siècle en Grande-Bretagne."
+  },
+  "terrier-irlandais-a-poil-doux": {
+   "history": "Ancienne race irlandaise utilisée depuis plus de 200 ans comme chien de ferme polyvalent pour conduire les troupeaux, garder la ferme et chasser les nuisibles. Surnommé « le lévrier irlandais du pauvre », car les paysans, qui n'avaient pas le droit de posséder les chiens de chasse des nobles, l'employaient à tout. Reconnu par l'Irish Kennel Club en 1937."
+  },
+  "terrier-irlandais-de-glen-of-imaal": {
+   "history": "Originaire de la vallée de Glen of Imaal, dans le comté de Wicklow, il servait de chien de ferme polyvalent pour chasser le blaireau, le renard et les nuisibles, et faisait autrefois tourner la broche dans les cuisines. Reconnu par l'Irish Kennel Club en 1934."
+  },
+  "terrier-tibetain": {
+   "description": "Chien compact de construction carrée, au double pelage long et abondant et aux larges pieds en raquette adaptés à la neige. Malgré son nom, ce n'est pas un terrier mais un chien de compagnie, surnommé le « chien sacré du Tibet »."
+  },
+  "treeing-walker-coonhound": {
+   "description": "Chien courant athlétique, de taille moyenne à grande, à la robe tricolore caractéristique, sélectionné pour pister le raton laveur et l'acculer dans les arbres. Rapide, endurant et intelligent, il a une voix puissante et reconnaissable.",
+   "history": "Issu des Foxhounds anglais importés en Virginie en 1742 par Thomas Walker. Au XIXe siècle, des éleveurs du Kentucky, notamment les familles Walker et Maupin, y ont ajouté le sang d'un chien rapide d'origine inconnue, « Tennessee Lead », pour gagner en vitesse et en flair. Il n'est pas reconnu par la FCI."
+  },
+  "welsh-corgi-cardigan": {
+   "history": "Considéré comme l'une des plus anciennes races de bouviers britanniques ; selon la tradition, ses ancêtres seraient arrivés au Pays de Galles avec les Celtes. Développé dans le Cardiganshire comme chien de ferme polyvalent, il conduisait le bétail en lui mordillant les talons et gardait la ferme."
+  },
+  "welsh-corgi-pembroke": {
+   "description": "Chien de berger bas sur pattes, solide et bien charpenté, à la tête rappelant celle du renard et à l'expression vive. Certains naissent avec une queue courte, d'autres avec une queue entière, que le standard FCI admet. Intelligent et robuste, il a une allure inimitable.",
+   "history": "Ancienne race de bouvier du Pembrokeshire, au Pays de Galles ; selon la tradition, ses ancêtres seraient arrivés avec des tisserands flamands en 1107. Sa petite taille lui permettait de mordiller les talons du bétail tout en esquivant les coups de sabot."
+  },
+  "welsh-springer-spaniel": {
+   "history": "Ancienne race galloise sélectionnée pour lever et rapporter le gibier à plumes ; des épagneuls sont déjà mentionnés dans les lois galloises du Xe siècle. Le Kennel Club britannique l'a reconnue comme race distincte en 1902."
+  },
+  "west-highland-white-terrier": {
+   "history": "Développé dans les Highlands écossais pour chasser le renard, le blaireau et les nuisibles. On attribue la sélection de la robe blanche au colonel Edward Donald Malcolm de Poltalloch : selon la légende, l'un de ses terriers roux, confondu avec un renard, avait été tué par accident."
+  },
+  "whippet": {
+   "history": "Développé dans le nord de l'Angleterre aux XVIIIe et XIXe siècles par les familles ouvrières, qui croisaient de petits greyhounds avec des terriers pour la chasse au lapin et les courses. Le Kennel Club britannique l'a reconnu en 1890."
+  }
+ },
+ "full": {
+  "cocker-spaniel": {
+   "id": "86",
+   "name": "Cocker Anglais",
+   "name_fr": "Cocker Anglais",
+   "origin": "Angleterre",
+   "country_code": "GB",
+   "breed_group": "Chien de sport",
+   "description": "Épagneul de chasse compact et joyeux, à la tête bien ciselée, aux longues oreilles frangées et au poil soyeux, plat et brillant. Très populaire en France, le Cocker anglais est réputé pour sa queue toujours en mouvement, son flair et son tempérament affectueux.",
+   "history": "Issu des anciens épagneuls britanniques, le Cocker doit son nom à la bécasse (woodcock), qu'il levait pour les chasseurs. Longtemps séparé du Springer par la seule taille, il a été reconnu comme race distincte par le Kennel Club britannique en 1892 ; le chien Obo, né en 1879, est considéré comme le père de la race moderne. Des sujets exportés en Amérique ont ensuite donné le Cocker américain.",
+   "bred_for": null,
+   "physical": {
+    "size_category": "small",
+    "height_cm": {
+     "min": 38,
+     "max": 41,
+     "average": 39.5
+    },
+    "weight_kg": {
+     "min": 13,
+     "max": 15,
+     "average": 14
+    },
+    "life_span_years": {
+     "min": 12,
+     "max": 14,
+     "average": 13
+    }
+   },
+   "coat": {
+    "length": "Moyen",
+    "type": "Soyeux",
+    "shedding": "Modéré",
+    "maintenance": "Élevé"
+   },
+   "temperament": {
+    "traits": [
+     "Joyeux",
+     "Affectueux",
+     "Énergique",
+     "Intelligent",
+     "Doux"
+    ],
+    "sociability": "Très sociable",
+    "energy_level": "high",
+    "good_with_children": true,
+    "good_with_dogs": true,
+    "good_with_cats": true,
+    "protective": false
+   },
+   "training": {
+    "trainability": "Facile",
+    "experience_required": "Débutant",
+    "intelligence_level": null
+   },
+   "living": {
+    "ideal_environment": "Maison avec jardin",
+    "apartment_friendly": true,
+    "exercise_needs": {
+     "daily_minutes": 90,
+     "activity_types": []
+    }
+   },
+   "health": {
+    "general_health": "Bonne",
+    "common_issues": [],
+    "vet_visits_frequency": "Annuelle"
+   },
+   "scores": {
+    "energie": 4,
+    "exercice_min_jour": 90,
+    "enfants": 5,
+    "chiens": 4,
+    "chats": 4,
+    "inconnus": 4,
+    "appartement": 3,
+    "solitude": 2,
+    "aboiements": 3,
+    "education": 4,
+    "premier_chien": 4,
+    "entretien_pelage": 4,
+    "perte_poils": 3,
+    "bave": 1,
+    "chaleur": 3,
+    "froid": 3,
+    "garde": 1,
+    "instinct_chasse": 4,
+    "fugue": 3,
+    "robustesse": 3
+   },
+   "hypoallergenique": false,
+   "sante_problemes": [
+    "Otites",
+    "Atrophie progressive de la rétine (APR)",
+    "Néphropathie familiale",
+    "Dysplasie de la hanche",
+    "Agressivité idiopathique (« rage syndrome »), surtout chez les robes unies"
+   ],
+   "groupe_fci": 8,
+   "categorie_loi_fr": null
+  },
+  "bouledogue-anglais": {
+   "id": "179",
+   "name": "Bulldog Anglais",
+   "name_fr": "Bulldog Anglais",
+   "origin": "Angleterre",
+   "country_code": "GB",
+   "breed_group": "Chien de compagnie",
+   "description": "Molosse compact et trapu, bas sur pattes, à la tête massive et large, au museau très court et au poil ras. Derrière son air renfrogné se cache un chien calme, affectueux et très attaché à sa famille, qui supporte mal la chaleur et l'effort en raison de sa morphologie brachycéphale.",
+   "history": "Descendant des chiens utilisés en Angleterre pour les combats contre les taureaux, interdits en 1835. Les amateurs ont ensuite sélectionné un chien de compagnie plus calme et plus trapu ; le Bulldog Club, fondé en 1875, en a rédigé le premier standard. Emblème de la ténacité britannique, il fait aujourd'hui l'objet d'efforts de sélection pour améliorer sa respiration et sa santé.",
+   "bred_for": null,
+   "physical": {
+    "size_category": "small",
+    "height_cm": {
+     "min": 31,
+     "max": 40,
+     "average": 35.5
+    },
+    "weight_kg": {
+     "min": 22,
+     "max": 25,
+     "average": 23.5
+    },
+    "life_span_years": {
+     "min": 8,
+     "max": 10,
+     "average": 9
+    }
+   },
+   "coat": {
+    "length": "Court",
+    "type": "Lisse",
+    "shedding": "Modéré",
+    "maintenance": "Moyen"
+   },
+   "temperament": {
+    "traits": [
+     "Calme",
+     "Affectueux",
+     "Courageux",
+     "Têtu",
+     "Doux"
+    ],
+    "sociability": "Sociable",
+    "energy_level": "low",
+    "good_with_children": true,
+    "good_with_dogs": true,
+    "good_with_cats": true,
+    "protective": false
+   },
+   "training": {
+    "trainability": "Moyen",
+    "experience_required": "Intermédiaire",
+    "intelligence_level": null
+   },
+   "living": {
+    "ideal_environment": "Appartement",
+    "apartment_friendly": true,
+    "exercise_needs": {
+     "daily_minutes": 30,
+     "activity_types": []
+    }
+   },
+   "health": {
+    "general_health": "Bonne",
+    "common_issues": [],
+    "vet_visits_frequency": "Annuelle"
+   },
+   "scores": {
+    "energie": 1,
+    "exercice_min_jour": 30,
+    "enfants": 5,
+    "chiens": 3,
+    "chats": 4,
+    "inconnus": 4,
+    "appartement": 5,
+    "solitude": 3,
+    "aboiements": 1,
+    "education": 2,
+    "premier_chien": 3,
+    "entretien_pelage": 2,
+    "perte_poils": 3,
+    "bave": 4,
+    "chaleur": 1,
+    "froid": 2,
+    "garde": 2,
+    "instinct_chasse": 1,
+    "fugue": 1,
+    "robustesse": 1
+   },
+   "hypoallergenique": false,
+   "sante_problemes": [
+    "Syndrome obstructif respiratoire des brachycéphales (BOAS)",
+    "Dermatite des plis et allergies cutanées",
+    "Dysplasie de la hanche et du coude",
+    "Entropion, ectropion et prolapsus de la glande nictitante (« cherry eye »)",
+    "Mises bas presque toujours par césarienne"
+   ],
+   "groupe_fci": 2,
+   "categorie_loi_fr": null
+  }
+ },
+ "name_alt": {
+  "affenpinscher": [
+   "Pinscher singe"
+  ],
+  "levrier-afghan": [
+   "Afghan",
+   "Afghan Hound",
+   "Tazi"
+  ],
+  "airedale-terrier": [
+   "Airedale",
+   "Roi des terriers"
+  ],
+  "akbash": [
+   "Akbash Dog"
+  ],
+  "akita": [
+   "Akita Inu",
+   "Akita japonais"
+  ],
+  "bouledogue-alapaha": [
+   "Bouledogue Alapaha",
+   "Alapaha Bulldog"
+  ],
+  "husky-d-alaska": [
+   "Alaskan Husky"
+  ],
+  "malamute-d-alaska": [
+   "Malamute de l'Alaska",
+   "Alaskan Malamute",
+   "Malamute"
+  ],
+  "bouledogue-americain": [
+   "American Bulldog",
+   "Bulldog américain"
+  ],
+  "american-bully": [
+   "Bully",
+   "XL Bully"
+  ],
+  "cocker-americain": [
+   "American Cocker Spaniel",
+   "Cocker Spaniel américain"
+  ],
+  "spitz-americain": [
+   "American Eskimo Dog",
+   "Chien esquimau américain",
+   "Eskie"
+  ],
+  "foxhound-americain": [
+   "American Foxhound"
+  ],
+  "pit-bull-americain": [
+   "Pit-bull",
+   "Pitbull",
+   "Pit Bull américain",
+   "APBT"
+  ],
+  "staffordshire-terrier-americain": [
+   "Amstaff",
+   "Staffordshire Terrier américain"
+  ],
+  "epagneul-d-eau-americain": [
+   "American Water Spaniel"
+  ],
+  "bouvier-d-appenzell": [
+   "Appenzeller",
+   "Appenzeller Sennenhund"
+  ],
+  "bouvier-australien": [
+   "Australian Cattle Dog",
+   "Blue Heeler",
+   "Red Heeler",
+   "Heeler"
+  ],
+  "kelpie-australien": [
+   "Kelpie",
+   "Australian Kelpie"
+  ],
+  "berger-australien": [
+   "Aussie",
+   "Australian Shepherd"
+  ],
+  "terrier-australien-a-poil-soyeux": [
+   "Silky Terrier",
+   "Australian Silky Terrier"
+  ],
+  "terrier-australien": [
+   "Australian Terrier"
+  ],
+  "azawakh": [
+   "Lévrier touareg"
+  ],
+  "barbet": [
+   "Chien d'eau français"
+  ],
+  "basenji": [
+   "Chien du Congo",
+   "Terrier du Congo"
+  ],
+  "basset-bleu-de-gascogne": [
+   "Basset bleu"
+  ],
+  "basset-hound": [
+   "Basset"
+  ],
+  "beagle": [],
+  "bearded-collie": [
+   "Beardie",
+   "Colley barbu"
+  ],
+  "beauceron": [
+   "Berger de Beauce",
+   "Bas-rouge"
+  ],
+  "bedlington-terrier": [
+   "Bedlington"
+  ],
+  "berger-belge-malinois": [
+   "Malinois"
+  ],
+  "berger-belge-tervueren": [
+   "Tervueren",
+   "Tervuren"
+  ],
+  "bouvier-bernois": [
+   "Bernois",
+   "Berner Sennenhund"
+  ],
+  "bichon-frise": [
+   "Bichon à poil frisé"
+  ],
+  "coonhound-noir-et-feu": [
+   "Black and Tan Coonhound"
+  ],
+  "chien-de-saint-hubert": [
+   "Saint-Hubert",
+   "Bloodhound"
+  ],
+  "coonhound-bleute": [
+   "Bluetick Coonhound"
+  ],
+  "boerboel": [
+   "Mastiff sud-africain",
+   "Boerbull"
+  ],
+  "border-collie": [
+   "Border"
+  ],
+  "border-terrier": [],
+  "boston-terrier": [
+   "Boston"
+  ],
+  "bouvier-des-flandres": [],
+  "boxer": [
+   "Boxer allemand"
+  ],
+  "boykin-spaniel": [],
+  "braque-italien": [
+   "Bracco italiano"
+  ],
+  "briard": [
+   "Berger de Brie"
+  ],
+  "epagneul-breton": [
+   "Breton"
+  ],
+  "bullmastiff": [],
+  "bull-terrier": [
+   "English Bull Terrier"
+  ],
+  "bull-terrier-miniature": [
+   "Bull Terrier nain",
+   "Mini Bull Terrier"
+  ],
+  "cairn-terrier": [
+   "Cairn"
+  ],
+  "cane-corso": [
+   "Dogue italien",
+   "Cane Corso Italiano"
+  ],
+  "welsh-corgi-cardigan": [
+   "Corgi Cardigan",
+   "Cardigan"
+  ],
+  "chien-leopard-catahoula": [
+   "Catahoula",
+   "Catahoula Leopard Dog"
+  ],
+  "berger-du-caucase": [
+   "Owtcharka du Caucase",
+   "Ovtcharka du Caucase",
+   "Caucasien"
+  ],
+  "cavalier-king-charles": [
+   "Cavalier King Charles Spaniel",
+   "Cavalier"
+  ],
+  "retriever-de-la-baie-de-chesapeake": [
+   "Chesapeake Bay Retriever",
+   "Chessie"
+  ],
+  "chien-chinois-a-crete": [
+   "Chinese Crested",
+   "Chien chinois nu",
+   "Powderpuff"
+  ],
+  "shar-pei": [
+   "Shar Pei",
+   "Sharpei"
+  ],
+  "chinook": [],
+  "chow-chow": [
+   "Chow"
+  ],
+  "clumber-spaniel": [
+   "Clumber"
+  ],
+  "cocker-spaniel": [
+   "Cocker",
+   "Cocker Spaniel",
+   "Cocker Spaniel anglais",
+   "English Cocker Spaniel"
+  ],
+  "coton-de-tulear": [
+   "Coton"
+  ],
+  "dalmatien": [],
+  "dobermann": [
+   "Doberman",
+   "Pinscher Dobermann"
+  ],
+  "dogue-argentin": [
+   "Dogo Argentino"
+  ],
+  "berger-hollandais": [
+   "Hollandse Herder",
+   "Dutch Shepherd"
+  ],
+  "setter-anglais": [
+   "English Setter"
+  ],
+  "berger-anglais": [
+   "Berger anglais"
+  ],
+  "springer-spaniel-anglais": [
+   "Springer",
+   "English Springer Spaniel"
+  ],
+  "toy-terrier-anglais-noir-et-feu": [
+   "English Toy Terrier",
+   "Toy Terrier"
+  ],
+  "eurasier": [],
+  "field-spaniel": [],
+  "chien-finnois-de-laponie": [
+   "Lapinkoira",
+   "Finnish Lapphund",
+   "Chien lapon"
+  ],
+  "spitz-finlandais": [
+   "Finnish Spitz"
+  ],
+  "bouledogue-francais": [
+   "Bouledogue",
+   "Frenchie"
+  ],
+  "pinscher-allemand": [
+   "Pinscher moyen",
+   "Pinscher"
+  ],
+  "berger-allemand": [
+   "Berger alsacien"
+  ],
+  "braque-allemand-a-poil-court": [
+   "Kurzhaar",
+   "Braque allemand"
+  ],
+  "schnauzer-geant": [
+   "Riesenschnauzer"
+  ],
+  "terrier-irlandais-de-glen-of-imaal": [
+   "Glen of Imaal Terrier",
+   "Glen"
+  ],
+  "golden-retriever": [
+   "Golden"
+  ],
+  "setter-gordon": [
+   "Gordon Setter"
+  ],
+  "dogue-allemand": [
+   "Danois",
+   "Great Dane"
+  ],
+  "levrier-greyhound": [
+   "Greyhound",
+   "Lévrier anglais"
+  ],
+  "harrier": [],
+  "bichon-havanais": [
+   "Havanais"
+  ],
+  "setter-irlandais": [
+   "Setter irlandais rouge",
+   "Irish Setter",
+   "Red Setter"
+  ],
+  "terrier-irlandais": [
+   "Irish Terrier"
+  ],
+  "levrier-irlandais": [
+   "Irish Wolfhound"
+  ],
+  "petit-levrier-italien": [
+   "Levrette d'Italie",
+   "Lévrier italien",
+   "Italian Greyhound"
+  ],
+  "epagneul-japonais": [
+   "Chin",
+   "Japanese Chin"
+  ],
+  "spitz-japonais": [],
+  "kangal": [
+   "Chien de berger kangal",
+   "Berger d'Anatolie",
+   "Berger anatolien"
+  ],
+  "keeshond-loulou-hollandais": [
+   "Spitz-loup",
+   "Keeshond",
+   "Wolfspitz"
+  ],
+  "king-charles-spaniel": [
+   "King Charles"
+  ],
+  "komondor": [],
+  "kooikerhondje": [
+   "Kooiker",
+   "Petit chien hollandais de chasse au gibier d'eau"
+  ],
+  "kuvasz": [],
+  "labrador-retriever": [
+   "Labrador"
+  ],
+  "lagotto-romagnolo": [
+   "Chien d'eau romagnol",
+   "Lagotto"
+  ],
+  "lancashire-heeler": [],
+  "leonberg": [
+   "Leonberger"
+  ],
+  "lhassa-apso": [
+   "Lhasa Apso"
+  ],
+  "bichon-maltais": [
+   "Maltais"
+  ],
+  "berger-americain-miniature": [
+   "Miniature American Shepherd",
+   "Mini Aussie",
+   "Berger australien miniature"
+  ],
+  "pinscher-nain": [
+   "Zwergpinscher",
+   "Pinscher miniature"
+  ],
+  "schnauzer-nain": [
+   "Schnauzer miniature",
+   "Zwergschnauzer"
+  ],
+  "terre-neuve": [
+   "Newfoundland"
+  ],
+  "norfolk-terrier": [],
+  "norwich-terrier": [],
+  "retriever-de-la-nouvelle-ecosse": [
+   "Nova Scotia Duck Tolling Retriever",
+   "Toller"
+  ],
+  "bouledogue-anglais": [
+   "Bouledogue anglais",
+   "English Bulldog",
+   "Bulldog"
+  ],
+  "bobtail-berger-anglais-ancien": [
+   "Bobtail",
+   "Old English Sheepdog",
+   "Berger anglais ancien"
+  ],
+  "epagneul-papillon": [
+   "Papillon",
+   "Épagneul nain continental",
+   "Phalène"
+  ],
+  "pekinois": [
+   "Épagneul pékinois"
+  ],
+  "welsh-corgi-pembroke": [
+   "Corgi",
+   "Corgi Pembroke"
+  ],
+  "chien-du-pharaon": [
+   "Pharaoh Hound",
+   "Kelb tal-Fenek"
+  ],
+  "plott-hound": [
+   "Plott"
+  ],
+  "spitz-nain-loulou-de-pomeranie": [
+   "Loulou de Poméranie",
+   "Pomeranian",
+   "Spitz nain",
+   "Zwergspitz"
+  ],
+  "caniche-nain": [
+   "Caniche",
+   "Poodle"
+  ],
+  "caniche-toy": [
+   "Caniche",
+   "Toy Poodle"
+  ],
+  "dogue-des-canaries": [
+   "Presa Canario",
+   "Perro de Presa Canario"
+  ],
+  "carlin": [
+   "Pug",
+   "Mops"
+  ],
+  "puli": [],
+  "pumi": [],
+  "chien-de-montagne-des-pyrenees": [
+   "Patou",
+   "Montagne des Pyrénées",
+   "Pyrénéen"
+  ],
+  "rat-terrier": [],
+  "redbone-coonhound": [
+   "Redbone"
+  ],
+  "rhodesian-ridgeback": [
+   "Ridgeback"
+  ],
+  "rottweiler": [],
+  "petit-chien-russe": [
+   "Russkiy Toy",
+   "Toy russe",
+   "Russian Toy"
+  ],
+  "saint-bernard": [],
+  "saluki": [
+   "Lévrier persan"
+  ],
+  "samoyede": [],
+  "schipperke": [],
+  "levrier-ecossais": [
+   "Deerhound",
+   "Scottish Deerhound"
+  ],
+  "terrier-ecossais": [
+   "Scottish Terrier",
+   "Scottie"
+  ],
+  "shetland-sheepdog-berger-des-shetland": [
+   "Sheltie",
+   "Berger des Shetland"
+  ],
+  "shiba-inu": [
+   "Shiba"
+  ],
+  "shih-tzu": [],
+  "shiloh-shepherd": [],
+  "husky-siberien": [
+   "Husky",
+   "Siberian Husky"
+  ],
+  "fox-terrier-a-poil-lisse": [
+   "Fox Terrier",
+   "Fox lisse"
+  ],
+  "terrier-irlandais-a-poil-doux": [
+   "Wheaten",
+   "Soft-coated Wheaten Terrier"
+  ],
+  "chien-d-eau-espagnol": [
+   "Perro de agua español"
+  ],
+  "spinone-italien": [
+   "Spinone",
+   "Griffon italien"
+  ],
+  "staffordshire-bull-terrier": [
+   "Staffie",
+   "Staffy"
+  ],
+  "schnauzer-standard": [
+   "Schnauzer Standard",
+   "Schnauzer"
+  ],
+  "vallhund-suedois": [
+   "Spitz des Wisigoths",
+   "Västgötaspets",
+   "Swedish Vallhund"
+  ],
+  "thai-ridgeback": [
+   "Chien thaïlandais à crête dorsale"
+  ],
+  "mastiff-tibetain": [
+   "Mastiff tibétain",
+   "Tibetan Mastiff",
+   "Do-khyi"
+  ],
+  "epagneul-tibetain": [
+   "Tibetan Spaniel"
+  ],
+  "terrier-tibetain": [
+   "Tibetan Terrier"
+  ],
+  "toy-fox-terrier": [],
+  "treeing-walker-coonhound": [
+   "Walker Coonhound"
+  ],
+  "vizsla-braque-hongrois": [
+   "Vizsla",
+   "Braque hongrois à poil court",
+   "Braque hongrois"
+  ],
+  "braque-de-weimar": [
+   "Weimaraner"
+  ],
+  "welsh-springer-spaniel": [
+   "Welsh Springer"
+  ],
+  "west-highland-white-terrier": [
+   "Westie"
+  ],
+  "whippet": [],
+  "berger-blanc-suisse": [
+   "Berger blanc",
+   "White Swiss Shepherd"
+  ],
+  "fox-terrier-a-poil-dur": [
+   "Fox Terrier",
+   "Fox à poil dur"
+  ],
+  "griffon-d-arret-a-poil-dur": [
+   "Griffon Korthals",
+   "Korthals"
+  ],
+  "braque-hongrois-a-poil-dur": [
+   "Vizsla à poil dur"
+  ],
+  "chien-nu-mexicain-xoloitzcuintli": [
+   "Xoloitzcuintle",
+   "Xolo",
+   "Chien nu du Mexique"
+  ],
+  "yorkshire-terrier": [
+   "Yorkshire",
+   "Yorkie"
+  ]
+ }
+}

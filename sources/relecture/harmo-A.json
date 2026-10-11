@@ -1,0 +1,52 @@
+{
+ "energie": {
+  "bouledogue-anglais": 1,
+  "bullmastiff": 1,
+  "saint-bernard": 1,
+  "dogue-allemand": 2,
+  "levrier-irlandais": 2,
+  "west-highland-white-terrier": 4
+ },
+ "exercice_min_jour": {
+  "bouledogue-anglais": 30,
+  "saint-bernard": 45,
+  "golden-retriever": 90,
+  "labrador-retriever": 90,
+  "fox-terrier-a-poil-lisse": 90,
+  "foxhound-americain": 120,
+  "redbone-coonhound": 90,
+  "bouvier-d-appenzell": 120
+ },
+ "appartement": {
+  "bouledogue-anglais": 4,
+  "whippet": 4,
+  "levrier-irlandais": 2,
+  "braque-allemand-a-poil-court": 2,
+  "shiloh-shepherd": 2,
+  "redbone-coonhound": 1,
+  "berger-hollandais": 1
+ },
+ "solitude": {
+  "bichon-frise": 2,
+  "bichon-havanais": 2,
+  "bichon-maltais": 2,
+  "bouledogue-anglais": 3,
+  "akita": 4,
+  "kuvasz": 4,
+  "chow-chow": 5,
+  "shar-pei": 5
+ },
+ "fugue": {
+  "fox-terrier-a-poil-dur": 4,
+  "cavalier-king-charles": 2,
+  "kangal": 4,
+  "bouledogue-anglais": 1
+ },
+ "_notes": {
+  "energie": "Le Bouledogue Anglais était à 3, au-dessus du Bouledogue Français et du Carlin : il passe à 1 avec le Pékinois, le Bullmastiff et le Saint-Bernard, les vrais pantouflards (la note 1 n'était utilisée qu'une fois). Les géants calmes Dogue Allemand et Lévrier Irlandais passent à 2, au niveau du Greyhound et du Terre-Neuve, sous le Cane Corso et le Rottweiler. Le Westie remonte à 4 comme le Cairn, son proche cousin.",
+  "exercice_min_jour": "Ajustement sur l'énergie et sur les races voisines : le Labrador et le Golden passent de 75 à 90 min (le Cocker et le Chesapeake étaient déjà à 90), les deux Fox Terriers sont alignés à 90, le Redbone à 90 comme les autres coonhounds, le Foxhound Américain et l'Appenzeller (énergie 5) passent à 120. Le Bouledogue Anglais descend de 60 à 30 min et le Saint-Bernard de 60 à 45, comme le Bullmastiff.",
+  "appartement": "Le Bouledogue Anglais passe de 3 à 4 (calme, proche du Bouledogue Français à 5, mais lourd et sensible à la chaleur). Le Whippet descend de 5 à 4 comme le Greyhound, car la note 5 reste réservée aux chiens de compagnie. Le Lévrier Irlandais passe à 2 comme le Dogue Allemand et le Saint-Bernard. Le Braque Allemand passe à 2 comme le Weimar et le Vizsla, et le Shiloh Shepherd à 2 comme le Berger Allemand. Le Redbone descend à 1 comme les autres coonhounds, et le Berger Hollandais à 1 comme le Malinois.",
+  "solitude": "La note 5 n'était jamais utilisée : le Chow-Chow et le Shar-Peï, les races les plus indépendantes, la prennent. L'Akita est aligné à 4 sur le Shiba, et le Kuvasz à 4 sur les autres chiens de protection de troupeau. Les trois bichons passent de 1 à 2 comme le Coton de Tuléar, le Cavalier et les caniches, le 1 restant réservé aux chiens de travail à forte dépendance (Border, Malinois, Weimar, Vizsla, Husky) et au Beagle. Le Bouledogue Anglais, très calme, passe à 3.",
+  "fugue": "Le Fox Terrier à poil dur était à 5 et le poil lisse à 4 : les deux sont alignés à 4, avec le Border Terrier et le Cairn, sous les chiens courants et les lévriers. Le Cavalier King Charles passe de 3 à 2, près du King Charles et des autres chiens de compagnie. Le Kangal passe à 4 comme l'Akbash et le Montagne des Pyrénées, qui étendent leur territoire. Le Bouledogue Anglais passe à 1 comme le Bouledogue Français."
+ }
+}

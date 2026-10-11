@@ -1,0 +1,61 @@
+{
+ "entretien_pelage": {
+  "berger-belge-malinois": 2,
+  "kelpie-australien": 2,
+  "bouvier-australien": 2,
+  "bouledogue-anglais": 2,
+  "welsh-corgi-cardigan": 2,
+  "airedale-terrier": 4,
+  "terre-neuve": 4
+ },
+ "perte_poils": {
+  "bobtail-berger-anglais-ancien": 3,
+  "akbash": 4,
+  "bouledogue-anglais": 3,
+  "boerboel": 3,
+  "bouledogue-alapaha": 3,
+  "american-bully": 3,
+  "schnauzer-geant": 1
+ },
+ "bave": {
+  "dogue-allemand": 4,
+  "braque-italien": 3
+ },
+ "chaleur": {
+  "bouledogue-anglais": 1,
+  "chien-finnois-de-laponie": 2,
+  "saluki": 5,
+  "chien-nu-mexicain-xoloitzcuintli": 4,
+  "chien-chinois-a-crete": 3,
+  "berger-blanc-suisse": 3
+ },
+ "froid": {
+  "dobermann": 2,
+  "vizsla-braque-hongrois": 2,
+  "rat-terrier": 2,
+  "coton-de-tulear": 2,
+  "shih-tzu": 3,
+  "rottweiler": 3,
+  "basset-hound": 3,
+  "barbet": 4,
+  "norfolk-terrier": 4,
+  "norwich-terrier": 4,
+  "terrier-ecossais": 4
+ },
+ "hypoallergenique": {
+  "cairn-terrier": true,
+  "border-terrier": true,
+  "fox-terrier-a-poil-dur": true,
+  "norfolk-terrier": true,
+  "norwich-terrier": true,
+  "terrier-irlandais-de-glen-of-imaal": true
+ },
+ "_notes": {
+  "entretien_pelage": "Poils courts doubles alignés à 2 (Malinois, Kelpie, Bouvier australien) comme le Beauceron, le Berger hollandais et le Labrador. Bouledogue anglais remonté à 2 pour l'entretien des plis, comme le Bouledogue français, le Carlin et le Shar-Peï. Airedale aligné sur le Fox à poil dur (épilation régulière), Corgi Cardigan sur le Pembroke, Terre-Neuve ramené à 4 pour ne pas égaler les races à toilettage professionnel (Caniche, Bichon, Afghan).",
+  "perte_poils": "Molosses et bull à poil court harmonisés à 3 (Boerboel, Alapaha, American Bully, Bouledogue anglais) comme le Boxer, le Cane Corso et le Pit Bull. Akbash aligné à 4 sur les autres gardiens de troupeau (Kangal, Kuvasz, Caucase), Bobtail ramené à 3 comme le Bearded Collie et le Briard. Schnauzer géant passé à 1 comme le nain et le moyen.",
+  "bave": "Échelle globalement cohérente. Dogue allemand monté à 4 avec le Bullmastiff, le Boerboel et le Basset Hound, Braque italien ramené à 3 au niveau du Spinone.",
+  "chaleur": "Bouledogue anglais descendu à 1, au niveau des autres brachycéphales (Bouledogue français, Carlin, Pékinois). Saluki monté à 5 comme l'Azawakh et les ridgebacks. Chien finnois de Laponie aligné à 2 sur les autres spitz (le 1 reste réservé aux brachycéphales et aux géants à fourrure épaisse), Berger blanc suisse aligné sur le Berger allemand, chiens nus remontés (Xolo 4, Chinois à crête 3).",
+  "froid": "Dobermann, Vizsla et Rat Terrier passés à 2 : le 1 reste réservé aux lévriers fins, aux chiens nus et aux toys à poil ras. Petits terriers écossais et anglais à double poil dur alignés à 4 (Norfolk, Norwich, Scottish, comme Cairn, Westie et Border). Rottweiler ramené à 3 (sous-poil limité), Basset Hound aligné sur le Beagle, Shih Tzu remonté à 3 près du Lhassa et du Pékinois, Coton aligné sur les autres bichons, Barbet ramené à 4.",
+  "hypoallergenique": "Terriers à poil dur épilé qui perdent très peu (perte_poils 2) passés à true pour s'aligner sur l'Airedale, le Westie, le Scottish, l'Irish et l'Australian Terrier déjà à true : Cairn, Border, Fox à poil dur, Norfolk, Norwich, Glen of Imaal. Aucune race à perte_poils 3 ou plus n'est à true, toutes les races à perte_poils 1 sont à true."
+ }
+}

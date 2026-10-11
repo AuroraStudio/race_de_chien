@@ -1,0 +1,35 @@
+{
+  "enfants": {
+    "berger-du-caucase": 1,
+    "saint-bernard": 5,
+    "setter-irlandais": 5,
+    "levrier-afghan": 3,
+    "fox-terrier-a-poil-dur": 4,
+    "dalmatien": 4,
+    "braque-hongrois-a-poil-dur": 5
+  },
+  "chiens": {
+    "terrier-irlandais": 2
+  },
+  "chats": {
+    "levrier-greyhound": 2,
+    "toy-fox-terrier": 2,
+    "harrier": 3,
+    "bouledogue-anglais": 4,
+    "lhassa-apso": 4,
+    "pit-bull-americain": 2
+  },
+  "inconnus": {
+    "staffordshire-terrier-americain": 4
+  },
+  "garde": {
+    "bouvier-d-appenzell": 4
+  },
+  "_notes": {
+    "enfants": "Le 1 n'était jamais utilisé : le Berger du Caucase, le plus déconseillé aux familles avec jeunes enfants, passe à 1, les autres molosses méfiants restent à 2. Les deux fox-terriers sont alignés à 4 (même tempérament, notés 3 et 4 selon le lot). Le Saint-Bernard rejoint le Terre-neuve, le Leonberg et le Bouvier bernois à 5, le Setter irlandais rejoint le Setter anglais à 5, le Braque hongrois à poil dur rejoint le Vizsla à 5. Le Dalmatien (3 → 4) et le Lévrier afghan (2 → 3, comme le Saluki) sont remis au niveau de races comparables.",
+    "chiens": "Échelle globalement cohérente entre les lots. Seul le Terrier irlandais était à 1, au niveau des molosses de combat (Pit, Dogue argentin, Presa, Akita) : il passe à 2 avec les autres terriers réputés querelleurs (fox-terriers, Scottish, Glen of Imaal, Bull terrier).",
+    "chats": "Alignements par famille : le Greyhound rejoint le Whippet et le Lévrier irlandais à 2 (souvent adopté après test chat), les lévriers de course pure (Saluki, Afghan, Azawakh, Deerhound) restent à 1. Le Harrier rejoint le Beagle à 3, le Toy fox terrier rejoint les petits ratiers (Pinscher nain, Toy terrier anglais, Rat terrier) à 2, le Pit bull rejoint l'Amstaff et le Staffie à 2. Le Bouledogue anglais (peu d'instinct de chasse) rejoint le Bouledogue français à 4, le Lhassa rejoint le Shih tzu et le Terrier tibétain à 4.",
+    "inconnus": "Échelle cohérente, les cinq niveaux sont bien utilisés. L'American Staffordshire terrier était à 3 alors que le Pit bull, le Staffie, l'American bully et le Bull terrier sont à 4 : il est aligné à 4, ces races étant toutes très sociables avec les humains.",
+    "garde": "L'écart de moyenne entre lots vient de l'ordre alphabétique (beaucoup de chiens de garde dans le premier lot), pas d'une dérive. Seul le Bouvier d'Appenzell était surévalué à 5, au niveau des vrais chiens de protection (Rottweiler, Malinois, chiens de troupeau type Kangal) : il passe à 4, comme les sentinelles vigilantes (Tervueren, Schnauzer moyen, Pinscher)."
+  }
+}

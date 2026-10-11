@@ -1,0 +1,31 @@
+{
+  "aboiements": {
+    "fox-terrier-a-poil-dur": 4
+  },
+  "education": {},
+  "premier_chien": {
+    "american-bully": 1,
+    "kelpie-australien": 2,
+    "husky-d-alaska": 2,
+    "levrier-afghan": 2,
+    "beauceron": 2,
+    "carlin": 4,
+    "bouvier-bernois": 3
+  },
+  "instinct_chasse": {
+    "pit-bull-americain": 3,
+    "husky-d-alaska": 5
+  },
+  "robustesse": {
+    "coonhound-noir-et-feu": 4,
+    "chien-de-montagne-des-pyrenees": 4,
+    "chien-du-pharaon": 5
+  },
+  "_notes": {
+    "aboiements": "Échelle déjà cohérente d'un lot à l'autre : lévriers, Basenji et Akita à 1, molosses et retrievers à 2, chiens de troupeau à 3, petits terriers et spitz à 4, chiens courants, Spitz finlandais, Sheltie, Pumi et Loulou à 5. Une seule correction : le Fox-terrier à poil dur passe de 5 à 4, pour être aligné sur le Fox à poil lisse, le Westie, le Cairn et le Schnauzer nain.",
+    "education": "Aucune note modifiée. Les gradients sont cohérents entre les quatre lots : Border, Caniches, Golden, Labrador, Berger allemand, Sheltie, Kelpie à 5 ; chiens courants, molosses de garde, nordiques, terriers têtus et primitifs à 2 ; Basenji, Lévrier afghan, Berger du Caucase, Dogue du Tibet et Thai Ridgeback à 1.",
+    "premier_chien": "Le lot 3 était plus sévère que les autres : Kelpie, Husky d'Alaska et Lévrier afghan remontent de 1 à 2, au niveau du Border, de l'Australien, du Husky sibérien, du Saluki et du Basenji. Le Beauceron passe à 2 comme le Briard et le Dobermann ; le Carlin passe à 4 comme le Bouledogue français (la santé relève de la robustesse) ; le Bouvier bernois descend à 3 avec le Leonberg, le Terre-neuve et le Saint-Bernard. L'American Bully descend à 1 : il est classé en 1re catégorie en France, comme le Pit-bull et le Boerboel.",
+    "instinct_chasse": "Le Pit-bull redescend de 4 à 3, à égalité avec l'American Staffordshire et le Staffie (même type). Le Husky d'Alaska passe à 5, comme le Husky sibérien et le Malamute. Le reste tient (lévriers, chiens courants, braques et petits terriers à 5 ; races de compagnie et géants placides à 1).",
+    "robustesse": "Le lot 2 était plus sévère : le Coonhound noir et feu passe à 4 comme les autres coonhounds, et le Montagne des Pyrénées à 4 comme les autres chiens de protection des troupeaux (Kuvasz, Akbash, Kangal, Komondor, Dogue du Tibet). Le Chien du pharaon, l'une des races les plus saines, passe à 5 avec le Whippet, le Kelpie et le Border terrier. Le « Bouledogue anglais » est laissé à 3 volontairement, car la fiche décrit en réalité l'Olde English Bulldogge, et non le Bulldog FCI brachycéphale (qui mériterait 1)."
+  }
+}
