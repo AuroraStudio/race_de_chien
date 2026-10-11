@@ -106,6 +106,7 @@ dogue-argentin | Dogue Argentin | Large, puissant | Pelage: blanc pur
 bouledogue-americain | Bouledogue Américain | Large, musclé, déterminé | Pelage: blanc, bringé
 bouledogue-alapaha | Bouledogue Alapaha | Large, puissant, mâchoire carrée | Pelage: blanc tacheté, bringé
 king-charles-spaniel | King Charles Spaniel | Rond, doux, yeux globuleux | Pelage: noir et feu, tricolore
+dogue-de-bordeaux | Dogue de Bordeaux | Tête énorme et ridée, museau court, regard sérieux | Pelage: fauve acajou
 
 CATÉGORIE 2 — VISAGES ALLONGÉS & FINS (dolichocéphales)
 Correspondance humaine : visage long/ovale étroit, nez proéminent, mâchoire fine, profil élégant
@@ -159,6 +160,10 @@ vallhund-suedois | Vallhund Suédois | Triangulaire, loup miniature | Pelage: gr
 chien-nu-mexicain-xoloitzcuintli | Xoloitzcuintli | Fin, anguleux, sans poils | Pelage: noir, gris, bronze, nu
 kangal | Kangal | Large triangulaire, masque noir | Pelage: fauve avec masque noir
 berger-du-caucase | Berger du Caucase | Massif, fourrure dense | Pelage: gris, fauve, bringé
+akita-americain | Akita américain | Tête d'ours large, petits yeux, masque noir | Pelage: pinto, fauve, blanc
+laika-de-iakoutie | Laïka de Iakoutie | Triangulaire, oreilles dressées, regard vif | Pelage: blanc taché de noir
+spitz-allemand | Spitz allemand | Tête de renard, petites oreilles pointues, collerette | Pelage: orange, blanc, noir
+cursinu | Cursinu | Rustique, oreilles mi-dressées, regard attentif | Pelage: fauve bringé
 
 CATÉGORIE 4 — VISAGES OVALES / PROPORTIONNÉS (type retriever / sportif)
 Correspondance humaine : traits harmonieux/équilibrés, expression ouverte et amicale, visage ni trop rond ni trop long
@@ -186,6 +191,17 @@ chien-d-eau-espagnol | Chien d'Eau Espagnol | Rond, bouclé, vif | Pelage: marro
 epagneul-d-eau-americain | Épagneul d'Eau Américain | Ovale, bouclé, attentif | Pelage: chocolat, foie
 griffon-d-arret-a-poil-dur | Griffon d'Arrêt à poil dur | Barbu, broussailleux, sage | Pelage: gris acier, marron
 spinone-italien | Spinone Italien | Ovale, barbu, mélancolique | Pelage: blanc, blanc et orange, rouan
+flat-coated-retriever | Retriever à poil plat | Long et fin, regard doux, poil brillant | Pelage: noir, foie
+epagneul-francais | Épagneul français | Doux, oreilles frangées, regard bienveillant | Pelage: blanc et marron
+epagneul-picard | Épagneul picard | Doux, oreilles frangées, sourcils feu | Pelage: gris moucheté à plaques marron
+epagneul-bleu-de-picardie | Épagneul bleu de Picardie | Doux, oreilles ondulées | Pelage: gris bleuté moucheté de noir
+epagneul-de-pont-audemer | Épagneul de Pont-Audemer | Toupet bouclé sur le crâne, oreilles frisées, air rieur | Pelage: marron et gris chiné
+braque-d-auvergne | Braque d'Auvergne | Noble, tête noire, regard franc | Pelage: blanc moucheté de noir (reflet bleu)
+braque-du-bourbonnais | Braque du Bourbonnais | Ovale, regard doux, oreilles tombantes | Pelage: blanc moucheté lie-de-vin
+braque-francais-type-gascogne | Braque français type Gascogne | Ovale, bajoues légères, oreilles longues | Pelage: marron et blanc moucheté
+braque-saint-germain | Braque Saint-Germain | Fin, truffe rose, regard doux | Pelage: blanc à taches orange
+braque-de-l-ariege | Braque de l'Ariège | Long et noble, oreilles tombantes | Pelage: blanc et orange
+chien-d-oysel-allemand | Chien d'oysel allemand | Doux, oreilles frangées, regard éveillé | Pelage: marron, rouan marron
 
 CATÉGORIE 5 — VISAGES CARRÉS / ROBUSTES (molosses / terriers musclés)
 Correspondance humaine : mâchoire carrée/proéminente, traits forts, expression déterminée, visage large
@@ -225,6 +241,9 @@ chien-chinois-a-crete | Chien Chinois à Crête | Fin, crête capillaire | Pelag
 petit-chien-russe | Petit Chien Russe | Minuscule, grands yeux | Pelage: noir et feu, marron et feu
 toy-fox-terrier | Toy Fox Terrier | Petit, fin, alerte | Pelage: blanc, noir et blanc
 toy-terrier-anglais-noir-et-feu | Toy Terrier Anglais | Petit, fin, yeux brillants | Pelage: noir et feu
+grand-caniche | Grand caniche | Long museau, toupet bouclé, port altier | Pelage: noir, blanc, abricot, gris
+caniche-moyen | Caniche moyen | Visage fin, boucles serrées, regard malicieux | Pelage: abricot, noir, blanc, marron
+petit-chien-lion | Petit chien lion | Tête courte et ronde, crinière, regard fier | Pelage: toutes couleurs
 
 CATÉGORIE 7 — VISAGES DE TRAVAIL / EXPRESSIFS (bergers / bouviers)
 Correspondance humaine : traits marqués, regard profond/intense, expression sage ou bienveillante, souvent cheveux épais
@@ -250,6 +269,12 @@ shiloh-shepherd | Shiloh Shepherd | Triangulaire large, pelucheux | Pelage: sabl
 chinook | Chinook | Ovale, amical, doux | Pelage: fauve, miel, doré
 puli | Puli | Cordelettes, expression cachée | Pelage: noir, blanc, gris
 pumi | Pumi | Expressif, oreilles semi-dressées, bouclé | Pelage: noir, gris, blanc, fauve
+colley-a-poil-long | Colley à poil long | Tête fine en coin, collerette blanche, regard doux | Pelage: zibeline et blanc, tricolore
+berger-belge-groenendael | Berger belge Groenendael | Fin et alerte, oreilles dressées, collerette | Pelage: noir
+berger-belge-laekenois | Berger belge Laekenois | Poil dur ébouriffé, barbe, oreilles dressées | Pelage: fauve charbonné
+berger-de-picardie | Berger picard | Grandes oreilles dressées, sourcils et barbe, poil rêche | Pelage: fauve, gris
+berger-des-pyrenees-a-poil-long | Berger des Pyrénées à poil long | Petit visage triangulaire, mèches sur les yeux, très vif | Pelage: fauve, gris, arlequin
+berger-des-pyrenees-a-face-rase | Berger des Pyrénées à face rase | Visage fin et ras, regard espiègle | Pelage: fauve, gris
 
 CATÉGORIE 8 — VISAGES TERRIER / VIFS
 Correspondance humaine : traits vifs/espiègles, expression malicieuse, souvent cheveux texturés/en bataille
@@ -271,6 +296,8 @@ terrier-australien-a-poil-soyeux | Terrier Australien à poil soyeux | Fin, soye
 terrier-tibetain | Terrier Tibétain | Couvert de poils, amical | Pelage: varié, blanc, doré, noir
 rat-terrier | Rat Terrier | Fin, oreilles dressées, alerte | Pelage: blanc avec taches
 lancashire-heeler | Lancashire Heeler | Petit, rusé | Pelage: noir et feu
+parson-russell-terrier | Parson Russell terrier | Carré, oreilles pliées, regard malicieux | Pelage: blanc et feu
+terrier-de-chasse-allemand | Terrier de chasse allemand | Petit, mâchoire forte, regard décidé | Pelage: noir et feu
 
 CATÉGORIE 9 — CHIENS DE CHASSE / OREILLES TOMBANTES
 Correspondance humaine : expression douce ou mélancolique, yeux tombants, traits relâchés
@@ -288,11 +315,36 @@ harrier | Harrier | Ovale, oreilles tombantes, grand beagle | Pelage: tricolore
 foxhound-americain | Foxhound Américain | Long, oreilles tombantes, doux | Pelage: tricolore
 dalmatien | Dalmatien | Long et élégant, alerte, tacheté | Pelage: blanc tacheté noir ou foie
 chien-leopard-catahoula | Chien Léopard Catahoula | Triangulaire, yeux vairons | Pelage: merle, bringé
+griffon-nivernais | Griffon nivernais | Barbu, poil ébouriffé, regard mélancolique | Pelage: gris loup
+griffon-bleu-de-gascogne | Griffon bleu de Gascogne | Barbu, poil dur, longues oreilles | Pelage: bleu moucheté, marques feu
+griffon-fauve-de-bretagne | Griffon fauve de Bretagne | Poil dur, sourcils marqués, regard vif | Pelage: fauve doré à rouge brique
+briquet-griffon-vendeen | Briquet griffon vendéen | Barbu, ébouriffé, oreilles souples | Pelage: fauve, blanc et orange
+grand-griffon-vendeen | Grand griffon vendéen | Barbe et moustache, poil rêche, air bonhomme | Pelage: blanc et orange, tricolore
+beagle-harrier | Beagle-harrier | Ovale, grands yeux doux, oreilles tombantes | Pelage: tricolore
+porcelaine | Porcelaine | Fin et élégant, très longues oreilles | Pelage: blanc à petites taches orange
+chien-courant-suisse | Chien courant suisse | Tête longue, oreilles très longues | Pelage: blanc à taches noires et feu
+petit-bleu-de-gascogne | Petit bleu de Gascogne | Allongé, longues oreilles fines | Pelage: moucheté noir et blanc, feu
+grand-bleu-de-gascogne | Grand bleu de Gascogne | Majestueux, très longues oreilles, babines | Pelage: bleu moucheté, marques feu
+ariegeois | Ariégeois | Fin, longues oreilles, regard doux | Pelage: blanc à taches noires
+bruno-saint-hubert-francais | Bruno Saint-Hubert français | Grosse tête, babines, regard triste | Pelage: brun fauve à manteau noir
+anglo-francais-de-petite-venerie | Anglo-français de petite vénerie | Ovale, oreilles tombantes, regard franc | Pelage: tricolore
+chien-d-artois | Chien d'Artois | Tête large, longues oreilles, air sérieux | Pelage: tricolore fauve foncé
+billy | Billy | Long et fin, regard doux | Pelage: blanc café au lait
+poitevin | Poitevin | Très élancé, tête fine, regard vif | Pelage: tricolore à manteau noir
+francais-tricolore | Français tricolore | Long, oreilles tombantes, air noble | Pelage: tricolore à feux vifs
+francais-blanc-et-noir | Français blanc et noir | Long, oreilles tombantes | Pelage: blanc et noir, marques feu
+francais-blanc-et-orange | Français blanc et orange | Long, oreilles tombantes, regard doux | Pelage: blanc et orange
+grand-anglo-francais-tricolore | Grand anglo-français tricolore | Puissant, oreilles mi-longues | Pelage: tricolore à manteau noir
+grand-anglo-francais-blanc-et-noir | Grand anglo-français blanc et noir | Puissant, regard franc | Pelage: blanc et noir, feu pâle
+grand-anglo-francais-blanc-et-orange | Grand anglo-français blanc et orange | Puissant, regard doux | Pelage: blanc et orange
 
 CATÉGORIE 10 — CORGI / COURTS SUR PATTES
 welsh-corgi-pembroke | Welsh Corgi Pembroke | Triangulaire joyeux, oreilles dressées | Pelage: rouge, fauve, tricolore
 welsh-corgi-cardigan | Welsh Corgi Cardigan | Large, oreilles arrondies | Pelage: varié, bringé, bleu merle
-teckel | Teckel | Long museau, oreilles tombantes, regard fier | Pelage: fauve, noir et feu, poil ras, dur ou long`;
+teckel | Teckel | Long museau, oreilles tombantes, regard fier | Pelage: fauve, noir et feu, poil ras, dur ou long
+basset-artesien-normand | Basset artésien normand | Long corps, très longues oreilles, regard triste | Pelage: tricolore, fauve et blanc
+petit-basset-griffon-vendeen | Petit basset griffon vendéen | Barbe, sourcils broussailleux, air joyeux | Pelage: blanc et orange
+grand-basset-griffon-vendeen | Grand basset griffon vendéen | Barbu, poil rêche, air enjoué | Pelage: blanc et orange, tricolore`;
 
 
 
