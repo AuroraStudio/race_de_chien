@@ -148,8 +148,8 @@
         const inCmp = compare.includes(b.slug);
         return `<li class="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
             <a href="/races/${b.slug}" class="flex sm:block">
-                <div class="relative w-[38%] shrink-0 overflow-hidden bg-slate-100 sm:w-auto sm:aspect-[4/3]">${img}${pct}${isNew}</div>
-                <div class="min-w-0 flex-1 p-3 pb-12 sm:p-4">
+                <div class="relative m-2.5 mr-0 aspect-[4/3] w-[40%] shrink-0 self-start overflow-hidden rounded-xl bg-slate-100 sm:m-0 sm:w-auto sm:rounded-none">${img}${pct}${isNew}</div>
+                <div class="min-w-0 flex-1 p-3 pb-12 sm:p-4 sm:pb-14">
                     <h3 class="text-[15px] font-bold leading-snug text-slate-900 sm:text-[17px]">${esc(b.name_fr)}</h3>
                     <p class="mt-0.5 text-xs text-slate-500 sm:text-sm">${esc(b.origin || '')}${b.fci?.group ? ` · ${esc(S.FCI_GROUPS[b.fci.group])}` : ''}</p>
                     ${rank ? `<p class="mt-1">${rank}</p>` : ''}
@@ -161,7 +161,7 @@
                     ${reasons || law ? `<div class="mt-3 flex flex-wrap gap-1.5">${law}${reasons}</div>` : ''}
                 </div>
             </a>
-            <button type="button" class="absolute bottom-2.5 right-2.5 flex h-8 items-center gap-1 rounded-full px-3 text-xs font-bold shadow transition-colors sm:bottom-auto sm:right-3 sm:top-3 sm:h-9 ${inCmp ? 'bg-primary-600 text-white' : 'bg-white/95 text-slate-700 hover:bg-white'}" data-compare="${b.slug}" aria-pressed="${pressed(inCmp)}" aria-label="Comparer ${esc(b.name_fr)}">${inCmp ? '✓ Comparer' : '+ Comparer'}</button>
+            <button type="button" class="absolute bottom-3 right-3 flex h-8 items-center gap-1 rounded-full border px-3 text-xs font-bold transition-colors ${inCmp ? 'border-primary-600 bg-primary-600 text-white' : 'border-slate-200 bg-white text-slate-700 hover:border-primary-300 hover:text-primary-700'}" data-compare="${b.slug}" aria-pressed="${pressed(inCmp)}" aria-label="Comparer ${esc(b.name_fr)}">${inCmp ? '✓ Comparer' : '+ Comparer'}</button>
         </li>`;
     }
 

@@ -54,11 +54,13 @@
             <th scope="col" class="min-w-[180px] p-3 align-top">
                 <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white">
                     <div class="aspect-[4/3] bg-slate-100">${b.image ? `<img src="/${b.image.url.replace(/\.jpg$/, '-480.webp')}" alt="" class="h-full w-full object-cover">` : '<div class="flex h-full items-center justify-center text-4xl">🐾</div>'}</div>
-                    <div class="p-3 text-left">
-                        <a href="/races/${b.slug}" class="font-bold text-slate-900 hover:text-primary-700">${esc(b.name_fr)}</a>
-                        <p class="text-xs font-normal text-slate-500">${esc(b.origin || '')}</p>
+                    <div class="flex items-start justify-between gap-2 p-3 text-left">
+                        <div class="min-w-0">
+                            <a href="/races/${b.slug}" class="font-bold text-slate-900 hover:text-primary-700">${esc(b.name_fr)}</a>
+                            <p class="text-xs font-normal text-slate-500">${esc(b.origin || '')}</p>
+                        </div>
+                        <button type="button" data-remove="${b.slug}" class="shrink-0 rounded-full border border-slate-200 px-2.5 py-1 text-xs font-bold text-slate-600 hover:border-red-200 hover:text-red-700" aria-label="Retirer ${esc(b.name_fr)}">Retirer</button>
                     </div>
-                    <button type="button" data-remove="${b.slug}" class="absolute right-2 top-2 rounded-full bg-white/95 px-2.5 py-1 text-xs font-bold text-slate-700 shadow hover:bg-white" aria-label="Retirer ${esc(b.name_fr)}">Retirer</button>
                 </div>
             </th>`).join('');
         const facts = [
