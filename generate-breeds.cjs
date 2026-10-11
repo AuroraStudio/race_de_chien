@@ -344,7 +344,7 @@ ${head}
 ${body}
 <!-- @footer -->
 ${scripts}
-    <script src="/js/header.js?v={{V_HEADER}}"></script>
+    <script src="/js/header.js?v={{V_HEADER}}" defer></script>
 </body>
 </html>
 `, commonVars);
