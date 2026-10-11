@@ -455,6 +455,10 @@ export default async function handler(req, res) {
         return res.status(502).json({ error: 'L\'analyse a échoué, réessayez dans un instant' });
     }
 
+    // Suivi du coût : tokens lus en cache, écrits en cache, image + consigne, sortie
+    const u = response.usage || {};
+    console.log(`usage cache_read=${u.cache_read_input_tokens} cache_write=${u.cache_creation_input_tokens} input=${u.input_tokens} output=${u.output_tokens}`);
+
     if (response.stop_reason === 'refusal') {
         return res.status(422).json({ error: 'Cette photo n\'a pas pu être analysée, essayez-en une autre' });
     }
