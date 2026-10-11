@@ -1,5 +1,11 @@
 // Rate limiting — Vercel KV si disponible, sinon mémoire (reset au redéploiement)
-const RATE_LIMIT_MAX = 5; // 5 essais max par IP
+import Anthropic from '@anthropic-ai/sdk';
+
+// Haiku 5.5 : le modèle le moins cher, largement suffisant pour ce jeu (≈ 0,0003 $ par analyse)
+const MODEL = 'claude-haiku-5-5';
+
+// 5 essais par IP en production ; marge plus large sur les déploiements de test
+const RATE_LIMIT_MAX = process.env.VERCEL_ENV === 'preview' ? 50 : 5;
 const RATE_LIMIT_WINDOW = 24 * 60 * 60; // 24h en secondes
 const MAX_IMAGE_SIZE = 2 * 1024 * 1024; // ~2MB en base64
 
@@ -231,6 +237,7 @@ leonberg | Léonberg | Large, masque noir, crinière | Pelage: fauve doré, sabl
 saint-bernard | Saint-Bernard | Massif, babines, yeux doux | Pelage: blanc et roux
 chien-de-montagne-des-pyrenees | Chien de Montagne des Pyrénées | Large et doux, blanc | Pelage: blanc pur
 kuvasz | Kuvasz | Allongé, blanc, noble | Pelage: blanc pur
+akbash | Akbash | Long et fin, regard calme, oreilles tombantes | Pelage: blanc pur
 komondor | Komondor | Cordelettes, invisible | Pelage: blanc en cordelettes
 kelpie-australien | Kelpie Australien | Fin, triangulaire, très alerte | Pelage: noir, chocolat, rouge
 shiloh-shepherd | Shiloh Shepherd | Triangulaire large, pelucheux | Pelage: sable, bicolore
@@ -277,6 +284,103 @@ CATÉGORIE 10 — CORGI / COURTS SUR PATTES
 welsh-corgi-pembroke | Welsh Corgi Pembroke | Triangulaire joyeux, oreilles dressées | Pelage: rouge, fauve, tricolore
 welsh-corgi-cardigan | Welsh Corgi Cardigan | Large, oreilles arrondies | Pelage: varié, bringé, bleu merle`;
 
+
+
+// Liste fermée des slugs, tirée du catalogue : le modèle ne peut répondre qu'une de ces races
+export const BREED_SLUGS = [...BREED_CATALOG.matchAll(/^([a-z0-9-]+) \| /gm)].map(m => m[1]);
+
+// Prompt système stable (consignes + catalogue) : mis en cache d'une requête à l'autre
+export const SYSTEM_PROMPT = `Tu es un expert en morphologie canine et humaine comparée, avec beaucoup d'humour et de bienveillance. Ta mission : trouver la race de chien qui ressemble le plus à la personne sur la photo.
+
+Tu disposes de ${BREED_SLUGS.length} races classées en 10 catégories morphologiques. Explore toute la diversité : les races rares et atypiques sont aussi valables que les populaires.
+
+${BREED_CATALOG}
+
+MÉTHODE
+1. Observe le visage :
+• Forme : rond, ovale, allongé, carré, triangulaire, en cœur
+• Front, yeux (taille, écartement, forme), nez (longueur, distance nez-yeux), mâchoire et menton, pommettes
+• Expression : douce, intense, joyeuse, noble, espiègle, mélancolique, déterminée
+• Cheveux, critère majeur :
+  - Couleur : blond clair ou doré → races crème ou dorées ; roux → races rousses ; châtain → fauve ou marron ; brun foncé → noir et feu ; noir → races noires ; gris ou blanc → races grises ou blanches
+  - Texture : lisses → poil lisse ; bouclés → Caniche, Lagotto, Barbet ; ondulés → Setter, Épagneul ; crépus → Bichon, Komondor
+  - Longueur : courts, mi-longs, longs (Lévrier Afghan, Shih Tzu, Yorkshire)
+• Barbe ou moustache → Schnauzer, Fox Terrier à poil dur, Griffon, Bouvier des Flandres
+2. Repère les 2 ou 3 catégories les plus proches, puis compare avec chaque race de ces catégories.
+3. Pondère : forme du visage 35 %, couleur et texture des cheveux 30 %, expression et regard 25 %, impression générale 10 %.
+
+RÈGLES ANTI-BIAIS
+- Ne choisis pas par défaut le Golden Retriever, le Labrador, le Husky, le Berger Allemand ou le Berger Australien : seulement si l'analyse y mène clairement.
+- Blond ≠ Golden ou Labrador. Pense aussi au Braque de Weimar, au Saluki, au Vizsla, au Samoyède, au Kuvasz, au Whippet.
+- Brun ≠ Berger Allemand. Pense aussi au Setter, au Beauceron, à l'Épagneul, au Dobermann, au Kelpie.
+- Bouclé ≠ Caniche. Pense aussi au Lagotto, au Barbet, au Chien d'eau espagnol, au Bedlington.
+- Barbu ≠ Schnauzer. Pense aussi au Briard, au Bouvier des Flandres, au Griffon, au Spinone.
+- Visage rond ≠ Bouledogue. Pense aussi au Carlin, au Chow-Chow, au Shar-Pei, à l'Épagneul japonais, au King Charles.
+
+TON
+- Toujours positif, drôle et bienveillant, jamais moqueur.
+- Ne commente jamais le poids, la silhouette, l'âge apparent, la couleur de peau ni l'origine de la personne.
+- S'il n'y a pas de visage humain net, base-toi quand même sur ce que tu vois, avec humour.
+
+RÉPONSE
+- breed_slug : un slug exact du catalogue.
+- match_percentage : un entier entre 75 et 95.
+- reason : 2 ou 3 phrases drôles et personnalisées, qui citent les traits observés.
+- traits_communs : 4 traits physiques ou d'expression partagés, de 1 à 4 mots chacun, positifs.`;
+
+export const RESULT_SCHEMA = {
+    type: 'object',
+    properties: {
+        breed_slug: { type: 'string', enum: BREED_SLUGS },
+        match_percentage: { type: 'integer' },
+        reason: { type: 'string' },
+        traits_communs: { type: 'array', items: { type: 'string' } }
+    },
+    required: ['breed_slug', 'match_percentage', 'reason', 'traits_communs'],
+    additionalProperties: false
+};
+
+// Le schéma ne sait pas borner les nombres ni la taille des listes : on le fait ici
+export function normalizeResult(raw) {
+    if (!raw || !BREED_SLUGS.includes(raw.breed_slug)) {
+        throw new Error('Race inconnue dans la réponse');
+    }
+    const pct = Math.round(Number(raw.match_percentage));
+    const traits = (Array.isArray(raw.traits_communs) ? raw.traits_communs : [])
+        .map(t => String(t).trim().slice(0, 40))
+        .filter(Boolean)
+        .slice(0, 5);
+    return {
+        breed_slug: raw.breed_slug,
+        match_percentage: Number.isFinite(pct) ? Math.min(95, Math.max(75, pct)) : 85,
+        reason: String(raw.reason || '').trim().slice(0, 600),
+        traits_communs: traits
+    };
+}
+
+export function buildRequest(imageBase64, mimeType) {
+    return {
+        model: MODEL,
+        max_tokens: 1500,
+        system: [
+            { type: 'text', text: SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } }
+        ],
+        messages: [{
+            role: 'user',
+            content: [
+                { type: 'image', source: { type: 'base64', media_type: mimeType, data: imageBase64 } },
+                { type: 'text', text: 'Analyse cette photo selon la méthode, puis réponds.' }
+            ]
+        }],
+        output_config: {
+            effort: 'low',
+            format: { type: 'json_schema', schema: RESULT_SCHEMA }
+        }
+    };
+}
+
+let client = null;
+
 export default async function handler(req, res) {
     // CORS
     const allowedOrigins = ['https://race-de-chien.com', 'https://www.race-de-chien.com'];
@@ -298,147 +402,70 @@ export default async function handler(req, res) {
     // Rate limiting
     const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || 'unknown';
     const rateInfo = await getRateLimitInfo(ip);
-    
+
     res.setHeader('X-RateLimit-Limit', RATE_LIMIT_MAX);
     res.setHeader('X-RateLimit-Remaining', rateInfo.remaining);
 
     if (!rateInfo.allowed) {
-        return res.status(429).json({ 
+        return res.status(429).json({
             error: 'rate_limit',
             message: 'Vous avez atteint la limite de 5 essais par jour. Revenez demain !',
             remaining: 0
         });
     }
 
-    // API key check
-    const apiKey = process.env.ANTHROPIC_API_KEY;
-    if (!apiKey) {
+    if (!process.env.ANTHROPIC_API_KEY) {
         return res.status(500).json({ error: 'API key not configured' });
     }
 
-    try {
-        const { image_base64, mime_type, slug_list } = req.body;
+    const { image_base64, mime_type } = req.body || {};
 
-        // Validation
-        if (!image_base64 || !mime_type || !slug_list) {
-            return res.status(400).json({ error: 'Missing required fields' });
-        }
-
-        const allowedMimes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
-        if (!allowedMimes.includes(mime_type)) {
-            return res.status(400).json({ error: 'Type d\'image non supporté' });
-        }
-
-        if (image_base64.length > MAX_IMAGE_SIZE) {
-            return res.status(400).json({ error: 'Image trop volumineuse (2MB max)' });
-        }
-
-        const systemPrompt = `Tu es un expert en morphologie canine et humaine comparée. Ta mission : trouver la race de chien qui ressemble MORPHOLOGIQUEMENT le plus à la personne sur la photo.
-
-IMPORTANT : Tu disposes de 169 races classées en 10 catégories morphologiques. Tu DOIS explorer toute la diversité. Les races rares et atypiques sont aussi valables que les populaires.
-
-${BREED_CATALOG}`;
-
-        const userPrompt = `Analyse cette photo en suivant ces étapes OBLIGATOIRES :
-
-ÉTAPE 1 — ANALYSE BIOMÉTRIQUE DU VISAGE HUMAIN
-Évalue ces critères morphologiques :
-• FORME DU VISAGE : rond, ovale, allongé, carré, triangulaire, en cœur, rectangulaire
-• PROPORTIONS : rapport largeur/hauteur du visage
-• FRONT : haut ou bas, large ou étroit
-• YEUX : taille, écartement (distance inter-oculaire), forme (ronds, en amande, tombants), couleur
-• NEZ : longueur, largeur, forme — et surtout la DISTANCE NEZ-YEUX (courte → brachycéphale / longue → dolichocéphale)
-• MÂCHOIRE & MENTON : proéminent ou en retrait, carré ou pointu, largeur
-• POMMETTES : hautes ou basses, saillantes ou discrètes
-• EXPRESSION : douce, intense, joyeuse, noble, espiègle, mélancolique, déterminée
-• CHEVEUX — critère majeur :
-  - COULEUR : blond clair/doré → races crème/doré ; roux → races roux/acajou ; châtain → races fauve/marron ; brun foncé → races noir et feu ; noir → races noires ; gris/blanc → races grises/blanches
-  - TEXTURE : lisses → pelage lisse ; bouclés/frisés → Caniche, Lagotto, Barbet ; ondulés → Setter, Épagneul ; crépus → Bichon, Komondor
-  - LONGUEUR : courts → races à poil court ; mi-longs → races à poil moyen ; longs → Lévrier Afghan, Shih Tzu, Yorkshire
-• PILOSITÉ FACIALE : barbe/moustache → Schnauzer, Fox Terrier, Griffon, Bouvier des Flandres
-• CORPULENCE visible : fine → lévriers ; athlétique → bergers/sportifs ; robuste → bouviers ; massive → molosses
-
-ÉTAPE 2 — MATCHING PAR CATÉGORIE
-Identifie les 2-3 catégories morphologiques les plus proches parmi les 10, puis compare avec chaque race de ces catégories.
-
-ÉTAPE 3 — SÉLECTION FINALE (pondération)
-• Forme du visage et proportions : 35%
-• Couleur et texture des cheveux vs pelage : 25%
-• Expression et regard : 20%
-• Corpulence : 10%
-• Impression générale / "feeling" de ressemblance : 10%
-
-RÈGLES ANTI-BIAIS (TRÈS IMPORTANT) :
-- INTERDIT de choisir par défaut : Golden Retriever, Labrador, Husky, Berger Allemand ou Berger Australien. Ces races ne doivent être choisies QUE si l'analyse morphologique détaillée y mène clairement.
-- Blonde ≠ Golden/Labrador. Pense aussi à : Braque de Weimar, Saluki, Vizsla, Samoyède, Kuvasz, Spitz, Whippet...
-- Brun(e) ≠ Berger Allemand. Pense aussi à : Setter, Beauceron, Épagneul, Dobermann, Kelpie, Boykin...
-- Cheveux bouclés ≠ Caniche. Pense aussi à : Lagotto, Barbet, Chien d'Eau Espagnol, Bedlington Terrier...
-- Barbu ≠ Schnauzer. Pense aussi à : Briard, Bouvier des Flandres, Griffon, Spinone, Fox Terrier à poil dur...
-- Visage rond ≠ Bouledogue. Pense aussi à : Carlin, Chow-Chow, Shar-Pei, Épagneul Japonais, King Charles...
-- EXPLORE les races rares : Azawakh, Schipperke, Vallhund, Chinook, Pumi, Kooikerhondje, Chien du Pharaon, etc.
-
-Réponds UNIQUEMENT en JSON valide, sans markdown, sans backticks :
-{
-  "breed_slug": "slug-exact-du-catalogue",
-  "match_percentage": 84,
-  "reason": "Explication drôle et bienveillante en 2-3 phrases, personnalisée selon les traits physiques observés",
-  "traits_communs": ["Trait 1", "Trait 2", "Trait 3", "Trait 4"],
-  "morpho_analysis": "Résumé des critères morphologiques clés ayant guidé le choix"
-}
-
-Règles pour la réponse :
-- Toujours positif, drôle et bienveillant — jamais moqueur
-- Le breed_slug DOIT correspondre EXACTEMENT à un slug du catalogue
-- Pourcentage entre 75 et 95
-- 4 à 5 traits communs positifs
-- Si pas de visage humain clair, base-toi sur ce que tu vois quand même`;
-
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'x-api-key': apiKey,
-                'anthropic-version': '2023-06-01'
-            },
-            body: JSON.stringify({
-                model: 'claude-sonnet-4-20250514',
-                max_tokens: 800,
-                system: systemPrompt,
-                messages: [{
-                    role: 'user',
-                    content: [
-                        {
-                            type: 'image',
-                            source: {
-                                type: 'base64',
-                                media_type: mime_type,
-                                data: image_base64
-                            }
-                        },
-                        {
-                            type: 'text',
-                            text: userPrompt
-                        }
-                    ]
-                }]
-            })
-        });
-
-        if (!response.ok) {
-            const errData = await response.json().catch(() => ({}));
-            return res.status(response.status).json({ error: errData.error?.message || 'API error' });
-        }
-
-        await incrementRateLimit(ip);
-
-        const data = await response.json();
-        return res.status(200).json({ 
-            ...data, 
-            remaining: Math.max(0, rateInfo.remaining - 1) 
-        });
-
-    } catch (error) {
-        console.error('Proxy error:', error);
-        return res.status(500).json({ error: 'Internal server error' });
+    if (!image_base64 || !mime_type) {
+        return res.status(400).json({ error: 'Photo manquante' });
     }
+
+    const allowedMimes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+    if (!allowedMimes.includes(mime_type)) {
+        return res.status(400).json({ error: 'Type d\'image non supporté' });
+    }
+
+    if (image_base64.length > MAX_IMAGE_SIZE) {
+        return res.status(400).json({ error: 'Image trop volumineuse (2MB max)' });
+    }
+
+    client ??= new Anthropic();
+
+    let response;
+    try {
+        response = await client.messages.create(buildRequest(image_base64, mime_type));
+    } catch (error) {
+        console.error('Erreur API Claude:', error.status, error.message);
+        if (error instanceof Anthropic.RateLimitError || error.status === 529) {
+            return res.status(503).json({ error: 'L\'IA est très sollicitée, réessayez dans un instant' });
+        }
+        if (error instanceof Anthropic.BadRequestError) {
+            return res.status(400).json({ error: 'Cette photo n\'a pas pu être analysée, essayez-en une autre' });
+        }
+        return res.status(502).json({ error: 'L\'analyse a échoué, réessayez dans un instant' });
+    }
+
+    if (response.stop_reason === 'refusal') {
+        return res.status(422).json({ error: 'Cette photo n\'a pas pu être analysée, essayez-en une autre' });
+    }
+
+    const textBlock = response.content.find(block => block.type === 'text');
+    let result;
+    try {
+        result = normalizeResult(JSON.parse(textBlock?.text ?? ''));
+    } catch (error) {
+        console.error('Réponse illisible:', response.stop_reason, textBlock?.text?.slice(0, 200));
+        return res.status(502).json({ error: 'Réponse inattendue de l\'IA, réessayez' });
+    }
+
+    await incrementRateLimit(ip);
+
+    return res.status(200).json({
+        result,
+        remaining: Math.max(0, rateInfo.remaining - 1)
+    });
 }

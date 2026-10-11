@@ -242,7 +242,7 @@
                 </p>
                 <p class="text-sm text-slate-400 flex items-center justify-center gap-2">
                     <i class="fas fa-shield-halved text-green-500"></i>
-                    Votre photo n'est ni stockée ni conservée — analyse unique puis suppression.
+                    Votre photo est analysée par l'IA Claude d'Anthropic. Nous ne la conservons pas, et elle ne sert pas à entraîner l'IA.
                 </p>
             </section>
 
@@ -453,6 +453,8 @@
     <script>
     // ===== CONFIG =====
     const API_URL = '/api/match-breed';
+    // 504 px = 18 × 18 tuiles de 28 px pour l'IA : assez pour un visage, presque rien en tokens
+    const MAX_PHOTO_SIZE = 504;
 
     // ===== STATE =====
     let currentImageBase64 = null;
@@ -570,16 +572,16 @@
         
         // Square crop from center
         const size = Math.min(video.videoWidth, video.videoHeight);
-        canvas.width = 1024;
-        canvas.height = 1024;
+        canvas.width = MAX_PHOTO_SIZE;
+        canvas.height = MAX_PHOTO_SIZE;
         const ctx = canvas.getContext('2d');
         
         // Mirror + crop
-        ctx.translate(1024, 0);
+        ctx.translate(MAX_PHOTO_SIZE, 0);
         ctx.scale(-1, 1);
         const sx = (video.videoWidth - size) / 2;
         const sy = (video.videoHeight - size) / 2;
-        ctx.drawImage(video, sx, sy, size, size, 0, 0, 1024, 1024);
+        ctx.drawImage(video, sx, sy, size, size, 0, 0, MAX_PHOTO_SIZE, MAX_PHOTO_SIZE);
         
         const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
         currentImageBase64 = dataUrl.split(',')[1];
@@ -622,7 +624,7 @@
             const img = new Image();
             img.onload = function() {
                 const canvas = document.createElement('canvas');
-                const maxSize = 1024;
+                const maxSize = MAX_PHOTO_SIZE;
                 let w = img.width, h = img.height;
                 if (w > maxSize || h > maxSize) {
                     if (w > h) { h = (h / w) * maxSize; w = maxSize; }
@@ -685,9 +687,6 @@
         animateLoading();
         
         try {
-            // Build slug list from data
-            const slugList = breedSlugs ? Object.values(breedSlugs).join(', ') : '';
-            
             const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: {
@@ -695,8 +694,7 @@
                 },
                 body: JSON.stringify({
                     image_base64: currentImageBase64,
-                    mime_type: currentImageMimeType,
-                    slug_list: slugList
+                    mime_type: currentImageMimeType
                 })
             });
 
@@ -718,16 +716,10 @@
                 remainingAttempts = responseData.remaining;
             }
 
-            const text = responseData.content[0].text.trim();
-            
-            // Parse JSON (handle potential markdown wrapping)
-            let result;
-            try {
-                const cleaned = text.replace(/```json\s*/g, '').replace(/```\s*/g, '').trim();
-                result = JSON.parse(cleaned);
-            } catch (parseErr) {
-                console.error('JSON parse error:', text);
-                throw new Error('Réponse inattendue de l\'IA — veuillez réessayer');
+            // Réponse déjà validée par le serveur (schéma imposé à l'IA)
+            const result = responseData.result;
+            if (!result?.breed_slug) {
+                throw new Error('Réponse inattendue de l\'IA, veuillez réessayer');
             }
 
             // Valider que le slug existe
@@ -794,6 +786,7 @@
         // Fill in result data
         const breedName = breed?.name_fr || result.breed_slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
         document.getElementById('result-breed-name').textContent = breedName;
+        result.breed_name = breedName;
         document.getElementById('result-percentage').textContent = result.match_percentage;
         document.getElementById('result-reason').textContent = result.reason;
         
@@ -813,9 +806,12 @@
         
         // Traits
         const traitsContainer = document.getElementById('result-traits');
-        traitsContainer.innerHTML = result.traits_communs.map(t => 
-            `<span class="trait-badge">${t}</span>`
-        ).join('');
+        traitsContainer.replaceChildren(...result.traits_communs.map(t => {
+            const badge = document.createElement('span');
+            badge.className = 'trait-badge';
+            badge.textContent = t;
+            return badge;
+        }));
         
         // Share links
         const shareText = `Je ressemble à un ${breedName} à ${result.match_percentage}% ! 🐕 Découvrez à quelle race de chien vous ressemblez :`;
