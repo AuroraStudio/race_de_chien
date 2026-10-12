@@ -24,8 +24,10 @@
     <div class="site-header"></div>
     <div class="h-[68px]" aria-hidden="true"></div>
 
-    <main id="races" class="max-w-[1600px] mx-auto px-4 sm:px-6">
-        <section class="pt-8 pb-5" aria-labelledby="titre">
+    <main id="races">
+        <!-- Bandeau d'entrée : titre, recherche, deux portes et profils, sur fond blanc pour le distinguer de l'outil -->
+        <section class="border-b border-slate-200 bg-white" aria-labelledby="titre">
+          <div class="mx-auto max-w-[1600px] px-4 pb-7 pt-9 sm:px-6 sm:pb-8 sm:pt-12">
             <h1 id="titre" class="max-w-3xl text-[34px] leading-[1.04] tracking-[-0.03em] text-slate-900 sm:text-5xl"><span class="block font-medium">Trouvez la race de chien</span> <span class="block font-extrabold">faite pour vous</span></h1>
             <p class="mt-3 max-w-[60ch] text-[17px] leading-relaxed text-slate-600">{{COUNT}} races notées sur 20 critères. Dites-nous comment vous vivez : on classe les races et on vous dit pourquoi.</p>
 
@@ -41,13 +43,14 @@
                 </div>
             </div>
 
-            <div class="mt-5">
-                <p class="filter-title mb-2">Votre profil en un clic</p>
+            <div class="mt-7 border-t border-slate-100 pt-6">
+                <p class="filter-title mb-3">Votre profil en un clic</p>
                 <div id="profiles" class="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0" role="group" aria-label="Profils">{{PROFILE_BUTTONS}}</div>
             </div>
+          </div>
         </section>
 
-        <div class="lg:grid lg:grid-cols-[300px_minmax(0,1fr)] lg:gap-8 pb-28">
+        <div class="mx-auto max-w-[1600px] px-4 pb-28 pt-6 sm:px-6 lg:grid lg:grid-cols-[340px_minmax(0,1fr)] lg:gap-10 lg:pt-10">
             <!-- Filtres : colonne sur ordinateur, feuille plein écran sur téléphone -->
             <aside id="filters" class="hidden fixed inset-0 z-[55] flex-col bg-white lg:static lg:z-auto lg:flex lg:bg-transparent" aria-label="Filtres">
                 <div class="flex items-center justify-between border-b border-slate-200 px-5 py-4 lg:hidden">
@@ -57,26 +60,26 @@
                     </button>
                 </div>
 
-                <div class="flex-1 overflow-y-auto overflow-x-hidden px-5 py-5 lg:sticky lg:top-[84px] lg:max-h-[calc(100vh-100px)] lg:py-1 lg:pl-1 lg:pr-3 custom-scrollbar">
-                    <div class="space-y-7">
+                <div class="flex-1 overflow-y-auto overflow-x-hidden px-5 py-5 lg:sticky lg:top-[92px] lg:max-h-[calc(100vh-112px)] lg:rounded-3xl lg:border lg:border-slate-200 lg:bg-white lg:p-5 custom-scrollbar">
+                    <div class="space-y-8">
                         <section aria-labelledby="f-vie">
                             <div class="mb-3 flex items-baseline justify-between">
                                 <h2 id="f-vie" class="text-base font-bold text-slate-900">Ma vie</h2>
                                 <span class="text-xs text-slate-500">classe les races</span>
                             </div>
-                            <div id="questions" class="space-y-4"></div>
-                            <div class="mt-4">
+                            <div id="questions" class="space-y-5"></div>
+                            <div class="mt-5">
                                 <p id="q-rythme" class="mb-1.5 text-sm font-semibold text-slate-700">Mon rythme</p>
                                 <div id="rythme" class="grid grid-cols-5 gap-1 rounded-xl bg-slate-100 p-1" role="group" aria-labelledby="q-rythme"></div>
                                 <p id="rythme-label" class="mt-1.5 text-xs leading-snug text-slate-500" aria-live="polite"></p>
                             </div>
-                            <div class="mt-4">
+                            <div class="mt-5">
                                 <p class="mb-2 text-sm font-semibold text-slate-700">À la maison et dans le quotidien</p>
                                 <div id="soft" class="flex flex-wrap gap-2"></div>
                             </div>
                         </section>
 
-                        <section aria-labelledby="f-chien" class="border-t border-slate-200 pt-6">
+                        <section aria-labelledby="f-chien" class="border-t border-slate-200 pt-7">
                             <div class="mb-3 flex items-baseline justify-between">
                                 <h2 id="f-chien" class="text-base font-bold text-slate-900">Le chien</h2>
                                 <span class="text-xs text-slate-500">filtre les races</span>
@@ -90,7 +93,7 @@
                             <div id="hard-toggles" class="mt-4 flex flex-wrap gap-2"></div>
                         </section>
 
-                        <details class="border-t border-slate-200 pt-6 group" id="more">
+                        <details class="border-t border-slate-200 pt-7 group" id="more">
                             <summary class="flex cursor-pointer list-none items-center justify-between text-base font-bold text-slate-900">
                                 Groupes de races (FCI)
                                 {{icon:caret-down|h-[18px] w-[18px] transition-transform group-open:rotate-180}}
@@ -110,7 +113,7 @@
             </aside>
 
             <section aria-labelledby="results-title" class="min-w-0">
-                <div class="sticky top-[68px] z-30 -mx-4 mb-4 bg-slate-50/95 px-4 py-3 backdrop-blur sm:mx-0 sm:px-0 lg:static lg:bg-transparent lg:py-0 lg:backdrop-blur-0">
+                <div class="sticky top-[68px] z-30 -mx-4 mb-4 bg-slate-50/95 px-4 py-3 backdrop-blur sm:mx-0 sm:px-0 lg:static lg:mb-6 lg:bg-transparent lg:py-0 lg:backdrop-blur-0">
                     <div class="flex flex-wrap items-center justify-between gap-3">
                         <div>
                             <h2 id="results-title" class="text-xl font-bold text-slate-900" aria-live="polite"><span id="count">{{COUNT}}</span> races</h2>
@@ -135,7 +138,7 @@
                     <div id="active" class="mt-3 hidden flex-wrap gap-2"></div>
                 </div>
 
-                <ul id="grid" class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4" aria-describedby="results-title"></ul>
+                <ul id="grid" class="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 xl:grid-cols-3 2xl:grid-cols-4" aria-describedby="results-title"></ul>
                 <div id="empty" class="hidden rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center"></div>
                 <div id="list-more" class="mt-8 hidden text-center" aria-live="polite">
                     <p id="more-status" class="text-sm text-slate-500"></p>
