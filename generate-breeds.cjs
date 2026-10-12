@@ -169,14 +169,15 @@ function picture(b, cls, opts = {}) {
 
 function staticCard(b, extra = {}) {
     const h = extra.h || 'h3';
-    const pct = extra.pct != null ? `<span class="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-sm font-extrabold shadow ${extra.pct >= 75 ? 'text-emerald-700' : extra.pct >= 55 ? 'text-amber-700' : 'text-slate-500'}">${extra.pct} %</span>` : '';
+    // Score à côté du nom, jamais sur la photo
+    const pct = extra.pct != null ? `<span class="score ${extra.pct >= 75 ? 'score-hi' : extra.pct >= 55 ? 'score-mid' : 'score-lo'}" title="${extra.pct} % de compatibilité">${extra.pct} %<span class="sr-only"> de compatibilité</span></span>` : '';
     const reasons = (extra.reasons || []).slice(0, 4).map(x => `<span class="${x.ok ? 'chip-ok' : 'chip-ko'}">${x.ok ? '✓ ' : ''}${esc(x.text)}</span>`).join('');
     const law = b.legal_category ? `<span class="chip-law">Catégorie ${esc(b.legal_category)}</span>` : '';
     return `<li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/${b.slug}" class="block">
-                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">${picture(b, 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105', { eager: extra.eager, soon: extra.soon })}${pct}</div>
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">${picture(b, 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105', { eager: extra.eager, soon: extra.soon })}</div>
                     <div class="p-4">
-                        <${h} class="text-[17px] font-bold leading-snug text-slate-900">${esc(b.name_fr)}</${h}>
+                        <div class="flex items-start justify-between gap-2"><${h} class="text-[17px] font-bold leading-snug text-slate-900">${esc(b.name_fr)}</${h}>${pct}</div>
                         <p class="mt-0.5 text-sm text-slate-500">${esc(b.origin || '')}${b.fci?.group ? ` · ${esc(S.FCI_GROUPS[b.fci.group])}` : ''}</p>
                         ${extra.note ? `<p class="mt-2 text-sm text-slate-600">${esc(extra.note)}</p>` : ''}
                         ${reasons || law ? `<div class="mt-3 flex flex-wrap gap-1.5">${law}${reasons}</div>` : ''}

@@ -45,6 +45,19 @@
     .chip-ok { @apply inline-flex items-center rounded-md bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-700; }
     .chip-ko { @apply inline-flex items-center rounded-md bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-700; }
     .chip-law { @apply inline-flex items-center rounded-md bg-red-50 px-2 py-0.5 text-xs font-semibold text-red-700; }
+    /* Score de compatibilité : à côté du nom, jamais sur la photo */
+    .score { @apply inline-flex shrink-0 items-center rounded-lg px-2 py-0.5 text-[13px] font-extrabold leading-5 tabular-nums ring-1 ring-inset sm:text-sm; }
+    .score-hi { @apply bg-emerald-50 text-emerald-700 ring-emerald-200; }
+    .score-mid { @apply bg-amber-50 text-amber-800 ring-amber-200; }
+    .score-lo { @apply bg-slate-100 text-slate-600 ring-slate-200; }
+    /* Case « Comparer » du pied de carte : une sélection multiple se lit comme une case à cocher */
+    .cmp { @apply -mr-2 inline-flex h-10 items-center gap-2 rounded-lg px-2 text-[13px] font-semibold text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-primary-500 sm:h-9; }
+    .cmp-box { @apply flex h-[18px] w-[18px] items-center justify-center rounded-[5px] border-[1.5px] border-slate-300 bg-white text-white transition-colors; }
+    .cmp-box svg { @apply opacity-0 transition-opacity; }
+    .cmp:hover .cmp-box { @apply border-primary-400; }
+    .cmp[aria-pressed="true"] { @apply text-primary-700; }
+    .cmp[aria-pressed="true"] .cmp-box { @apply border-primary-600 bg-primary-600; }
+    .cmp[aria-pressed="true"] .cmp-box svg { @apply opacity-100; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -134,25 +134,33 @@
         return `<span class="gauge" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= v ? 'on' : ''}"></i>`).join('')}</span>`;
     }
 
+    // Score de compatibilité, posé à côté du nom : la photo reste entièrement lisible
+    function scoreBadge(pct) {
+        if (pct == null) return '';
+        const tier = pct >= 75 ? 'score-hi' : pct >= 55 ? 'score-mid' : 'score-lo';
+        return `<span class="score ${tier}" title="${pct} % de compatibilité avec vos critères">${pct} %<span class="sr-only"> de compatibilité</span></span>`;
+    }
+    const CHECK = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17.5 19 7"/></svg>';
+
     function card(r, i) {
         const b = r.breed;
         const img = b.image
             ? `<picture><source srcset="${srcset(b)}" sizes="(min-width: 1024px) 330px, (min-width: 640px) 45vw, 38vw" type="image/webp"><img src="/${b.image.url}" alt="${esc(b.name_fr)}" width="${b.image.width}" height="${b.image.height}" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:static" ${i < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`
             : `<div class="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-gradient-to-br sm:static sm:h-full from-primary-50 via-white to-secondary-50 text-slate-400"><span class="text-3xl sm:text-5xl" aria-hidden="true">🐾</span><span class="text-[10px] font-semibold uppercase tracking-wider sm:text-xs">Photo à venir</span></div>`;
-        const pct = r.pct != null
-            ? `<span class="absolute left-2 top-2 rounded-full bg-white/95 px-2 py-0.5 text-xs font-extrabold shadow sm:left-3 sm:top-3 sm:px-2.5 sm:py-1 sm:text-sm ${r.pct >= 75 ? 'text-emerald-700' : r.pct >= 55 ? 'text-amber-700' : 'text-slate-500'}">${r.pct} %</span>` : '';
-        const rank = b.lof?.['2025'] && b.lofRank && b.lofRank <= 30 ? `<span class="text-[11px] font-semibold text-primary-700">${b.lofRank === 1 ? '1re' : b.lofRank + 'e'} race en France</span>` : '';
+        const rank = b.lof?.['2025'] && b.lofRank && b.lofRank <= 30 ? `<span class="font-semibold text-primary-700">${b.lofRank === 1 ? '1re' : b.lofRank + 'e'} race en France</span>` : '';
+        const isNew = b.is_new ? '<span class="rounded-md bg-slate-900 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">Nouveau</span>' : '';
         const reasons = r.reasons.slice(0, 4).map(x => `<span class="${x.ok ? 'chip-ok' : 'chip-ko'}">${x.ok ? '✓ ' : ''}${esc(x.text)}</span>`).join('');
         const law = b.legal_category ? `<span class="chip-law">Catégorie ${esc(b.legal_category)}</span>` : '';
-        const isNew = b.is_new ? '<span class="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 rounded-full bg-slate-900/85 px-2 py-0.5 text-[11px] font-semibold text-white">Nouveau</span>' : '';
         const inCmp = compare.includes(b.slug);
-        return `<li class="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
-            <a href="/races/${b.slug}" class="flex sm:block">
-                <div class="relative m-2.5 mr-0 aspect-[4/3] w-[40%] shrink-0 self-start overflow-hidden rounded-xl bg-slate-100 sm:m-0 sm:w-auto sm:rounded-none">${img}${pct}${isNew}</div>
-                <div class="min-w-0 flex-1 p-3 pb-12 sm:p-4 sm:pb-14">
-                    <h3 class="text-[15px] font-bold leading-snug text-slate-900 sm:text-[17px]">${esc(b.name_fr)}</h3>
+        return `<li class="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
+            <a href="/races/${b.slug}" class="flex flex-1 sm:block">
+                <div class="relative m-2.5 mr-0 aspect-[4/3] w-[40%] shrink-0 self-start overflow-hidden rounded-xl bg-slate-100 sm:m-0 sm:w-auto sm:rounded-none">${img}</div>
+                <div class="min-w-0 flex-1 p-3 sm:p-4">
+                    <div class="flex items-start justify-between gap-2">
+                        <h3 class="text-[15px] font-bold leading-snug text-slate-900 sm:text-[17px]">${esc(b.name_fr)}</h3>
+                        ${scoreBadge(r.pct)}
+                    </div>
                     <p class="mt-0.5 text-xs text-slate-500 sm:text-sm">${esc(b.origin || '')}${b.fci?.group ? ` · ${esc(S.FCI_GROUPS[b.fci.group])}` : ''}</p>
-                    ${rank ? `<p class="mt-1">${rank}</p>` : ''}
                     <dl class="mt-2.5 grid grid-cols-3 gap-2 text-[10px] text-slate-500 sm:mt-3 sm:gap-3 sm:text-[11px]">
                         <div><dt class="mb-1">Énergie</dt><dd>${gauge(b.scores.energie)}</dd></div>
                         <div><dt class="mb-1">Enfants</dt><dd>${gauge(b.scores.enfants)}</dd></div>
@@ -161,7 +169,10 @@
                     ${reasons || law ? `<div class="mt-3 flex flex-wrap gap-1.5">${law}${reasons}</div>` : ''}
                 </div>
             </a>
-            <button type="button" class="absolute bottom-3 right-3 flex h-8 items-center gap-1 rounded-full border px-3 text-xs font-bold transition-colors ${inCmp ? 'border-primary-600 bg-primary-600 text-white' : 'border-slate-200 bg-white text-slate-700 hover:border-primary-300 hover:text-primary-700'}" data-compare="${b.slug}" aria-pressed="${pressed(inCmp)}" aria-label="Comparer ${esc(b.name_fr)}">${inCmp ? '✓ Comparer' : '+ Comparer'}</button>
+            <div class="flex min-h-[48px] items-center justify-between gap-3 border-t border-slate-100 pl-3 pr-3 text-xs sm:pl-4 sm:pr-4">
+                <span class="flex min-w-0 items-center gap-2">${rank}${isNew}</span>
+                <button type="button" class="cmp" data-compare="${b.slug}" aria-pressed="${pressed(inCmp)}" aria-label="Comparer ${esc(b.name_fr)}"><span class="cmp-box">${CHECK}</span>Comparer</button>
+            </div>
         </li>`;
     }
 
