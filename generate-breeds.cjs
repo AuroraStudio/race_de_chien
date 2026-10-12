@@ -996,10 +996,14 @@ const noscript = breeds.map(b => `                            <li><a href="/race
 const TM_SLUGS = ['golden-retriever', 'bouledogue-francais', 'berger-australien', 'cavalier-king-charles-spaniel', 'chihuahua'];
 const tmPortraits = TM_SLUGS.map(slug => breeds.find(b => b.slug === slug)).filter(b => b?.image).map((b, i) =>
     `<li class="h-[60px] w-[80px] overflow-hidden rounded-xl bg-slate-200 ring-4 ring-slate-50 sm:h-[72px] sm:w-[96px] ${i % 2 ? 'translate-y-1.5' : ''}"><img src="/${b.image.url.replace(/\.jpg$/, '-480.webp')}" alt="${esc(b.name_fr)}" width="96" height="72" class="h-full w-full object-cover"></li>`).join('');
+// Ligne de tri telle que le script l'écrit pour l'état par défaut : rien ne bouge quand il prend la main
+const hiddenNonFci = breeds.filter(b => b.fci?.recognized === false).length;
+const sortHint = `<span class="hidden sm:inline">classées par popularité en France (LOF 2025)</span><span class="sm:hidden">classées par popularité en France (LOF 2025)</span>`
+    + (hiddenNonFci ? ` · ${hiddenNonFci} non reconnues masquées <button type="button" data-toggle="nonfci" class="font-semibold text-primary-700 underline underline-offset-2 hover:text-primary-800">Afficher</button>` : '');
 const profileButtons = S.PROFILES.map(p => `<button type="button" class="opt" data-profile="${p.id}" aria-pressed="false">${icon(p.icon)}${esc(p.label)}</button>`).join('');
 for (const f of fs.readdirSync(path.join(ROOT, 'templates/pages'))) {
     if (!f.endsWith('.html')) continue;
-    const html = fill(read(`templates/pages/${f}`), { ...commonVars, SELECTION_CARDS: selectionCards, NOSCRIPT_LIST: noscript, PROFILE_BUTTONS: profileButtons, GROUP_LINKS: groupLinks, TM_PORTRAITS: tmPortraits });
+    const html = fill(read(`templates/pages/${f}`), { ...commonVars, SELECTION_CARDS: selectionCards, NOSCRIPT_LIST: noscript, PROFILE_BUTTONS: profileButtons, GROUP_LINKS: groupLinks, TM_PORTRAITS: tmPortraits, SORT_HINT: sortHint });
     write(f, html);
 }
 
