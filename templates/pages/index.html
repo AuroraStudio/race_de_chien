@@ -26,18 +26,18 @@
 
     <main id="races" class="max-w-[1600px] mx-auto px-4 sm:px-6">
         <section class="pt-8 pb-5" aria-labelledby="titre">
-            <h1 id="titre" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 text-balance">Trouvez la race de chien <span class="gradient-text">faite pour vous</span></h1>
-            <p class="mt-2 max-w-2xl text-slate-600">{{COUNT}} races décrites et notées sur 20 critères. Dites-nous comment vous vivez : on classe les races de la plus compatible à la moins compatible, et on vous dit pourquoi.</p>
+            <h1 id="titre" class="max-w-3xl text-[34px] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900 sm:text-5xl">Trouvez la race de chien <span class="text-primary-700">faite pour vous</span></h1>
+            <p class="mt-3 max-w-[60ch] text-[17px] leading-relaxed text-slate-600">{{COUNT}} races notées sur 20 critères. Dites-nous comment vous vivez : on classe les races et on vous dit pourquoi.</p>
 
             <div class="mt-5 flex flex-col gap-3 lg:flex-row lg:items-center">
                 <div class="relative flex-1 max-w-xl">
                     <label for="search" class="sr-only">Rechercher une race</label>
-                    <svg class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-                    <input id="search" type="search" autocomplete="off" placeholder="Rechercher une race : Malinois, Teckel, Golden…" class="w-full rounded-2xl border border-slate-200 bg-white py-3 pl-11 pr-4 text-[15px] shadow-sm focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-100">
+                    <span class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">{{icon:magnifying-glass|h-5 w-5}}</span>
+                    <input id="search" type="search" autocomplete="off" placeholder="Rechercher une race" class="w-full rounded-xl border border-slate-300 bg-white py-3 pl-11 pr-4 text-[15px] shadow-sm focus:border-primary-500 focus:outline-none focus:ring-4 focus:ring-primary-100">
                 </div>
                 <div class="flex flex-wrap gap-2">
-                    <a href="/quel-chien-choisir" class="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800">🧭 Faire le test en 45 secondes</a>
-                    <a href="/tel-maitre-tel-chien" class="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 hover:border-primary-300">📸 À quel chien je ressemble ?</a>
+                    <a href="/quel-chien-choisir" class="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800">{{icon:compass|h-5 w-5}}Quel chien pour moi ?</a>
+                    <a href="/tel-maitre-tel-chien" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-800 hover:border-primary-300 hover:text-primary-700">{{icon:camera|h-5 w-5}}Tel Maître, Tel Chien</a>
                 </div>
             </div>
 
@@ -53,7 +53,7 @@
                 <div class="flex items-center justify-between border-b border-slate-200 px-5 py-4 lg:hidden">
                     <p class="text-lg font-bold text-slate-900">Filtres</p>
                     <button id="filters-close" type="button" class="rounded-lg p-2 text-slate-500 hover:bg-slate-100" aria-label="Fermer les filtres">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+                        {{icon:x|h-6 w-6}}
                     </button>
                 </div>
 
@@ -93,7 +93,7 @@
                         <details class="border-t border-slate-200 pt-6 group" id="more">
                             <summary class="flex cursor-pointer list-none items-center justify-between text-base font-bold text-slate-900">
                                 Groupes de races (FCI)
-                                <svg class="transition-transform group-open:rotate-180" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                                {{icon:caret-down|h-[18px] w-[18px] transition-transform group-open:rotate-180}}
                             </summary>
                             <p class="mt-2 text-xs text-slate-500">Les 10 groupes officiels de la Fédération cynologique internationale, ceux des pedigrees français.</p>
                             <div id="groups" class="mt-3 flex flex-col gap-1.5"></div>
@@ -118,7 +118,7 @@
                         </div>
                         <div class="flex items-center gap-2">
                             <button id="filters-open" type="button" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm font-semibold text-slate-800 lg:hidden">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+                                {{icon:sliders-horizontal|h-[18px] w-[18px]}}
                                 Filtres <span id="active-count" class="hidden rounded-full bg-primary-600 px-1.5 text-xs text-white">0</span>
                             </button>
                             <label for="sort" class="sr-only">Trier</label>
@@ -142,21 +142,22 @@
                     <button id="more-btn" type="button" class="sr-only focus:not-sr-only focus:mt-3 focus:inline-flex focus:rounded-2xl focus:border focus:border-slate-300 focus:bg-white focus:px-6 focus:py-3 focus:text-sm focus:font-semibold">Afficher les races suivantes</button>
                 </div>
 
-                <section class="mt-16 rounded-3xl border border-slate-200 bg-white p-6 sm:p-8" aria-labelledby="selections-titre">
-                    <h2 id="selections-titre" class="text-xl font-bold text-slate-900">Sélections toutes prêtes</h2>
-                    <p class="mt-1 text-sm text-slate-600">Les questions qu'on nous pose le plus, avec les races qui y répondent le mieux.</p>
-                    <ul class="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+                <template id="interlude">
+                    <li class="interlude col-span-full rounded-3xl bg-slate-900 p-6 text-slate-300 sm:p-8">
+                        <h2 class="text-xl font-bold text-white">Envie d’une liste toute faite ?</h2>
+                        <p class="mt-1 max-w-[60ch] text-sm text-slate-400">Les questions qu’on nous pose le plus, avec les races qui y répondent le mieux.</p>
+                        <ul class="mt-5 flex flex-wrap gap-2">
 {{SELECTION_CARDS}}
-                    </ul>
-                    <h3 class="mt-8 text-sm font-bold text-slate-900">Par groupe de races</h3>
-                    <ul class="mt-3 flex flex-wrap gap-2">{{GROUP_LINKS}}</ul>
-                    <p class="mt-6 text-sm"><a href="/liste-des-races" class="font-semibold text-primary-700 hover:underline">Toutes les races de A à Z →</a> <span class="mx-2 text-slate-300" aria-hidden="true">·</span> <a href="/chiens-categorises" class="font-semibold text-primary-700 hover:underline">Chiens de 1re et 2e catégorie →</a></p>
-                </section>
-
-                <section class="mt-8 rounded-3xl bg-slate-900 p-6 text-slate-300 sm:p-8" aria-labelledby="methode-titre">
-                    <h2 id="methode-titre" class="text-xl font-bold text-white">Comment les races sont notées</h2>
-                    <p class="mt-2 max-w-3xl text-sm leading-relaxed">Chaque race est notée de 1 à 5 sur 20 critères : énergie, enfants, chats, appartement, solitude, aboiements, éducation, perte de poils, chaleur… Les notes viennent des standards de la FCI, des clubs de race et de sources vétérinaires, relues race par race en octobre 2026 puis harmonisées pour être comparables. Un chien reste un individu : la race donne une tendance, pas une garantie.</p>
-                </section>
+                        </ul>
+                        <h3 class="mt-7 text-sm font-semibold text-white">Par groupe de races</h3>
+                        <ul class="mt-3 flex flex-wrap gap-2">{{GROUP_LINKS}}</ul>
+                        <p class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm"><a href="/liste-des-races" class="inline-flex items-center gap-1.5 font-semibold text-white hover:underline">Toutes les races de A à Z{{icon:arrow-right|h-4 w-4}}</a><a href="/chiens-categorises" class="inline-flex items-center gap-1.5 font-semibold text-white hover:underline">Chiens de 1re et 2e catégorie{{icon:arrow-right|h-4 w-4}}</a></p>
+                        <details class="mt-6 border-t border-white/10 pt-5">
+                            <summary class="cursor-pointer text-sm font-semibold text-white">Comment les races sont notées</summary>
+                            <p class="mt-2 max-w-[70ch] text-sm leading-relaxed text-slate-400">Chaque race est notée de 1 à 5 sur 20 critères : énergie, enfants, chats, appartement, solitude, aboiements, éducation, perte de poils, chaleur… Les notes viennent des standards de la FCI, des clubs de race et de sources vétérinaires, relues race par race en octobre 2026 puis harmonisées pour être comparables. Le pourcentage indique à quel point une race répond à vos critères. Un chien reste un individu : la race donne une tendance, pas une garantie.</p>
+                        </details>
+                    </li>
+                </template>
 
                 <noscript>
                     <div class="mt-8 rounded-2xl bg-white p-6">

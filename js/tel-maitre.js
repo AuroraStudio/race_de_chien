@@ -374,7 +374,6 @@ function showResult(result) {
     document.getElementById('result-section').classList.remove('hidden');
     
     // Confetti!
-    launchConfetti();
     
     // Scroll to result
     document.getElementById('result-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -433,26 +432,7 @@ function showToast(message) {
     }, 4000);
 }
 
-// ===== CONFETTI =====
 
-function launchConfetti() {
-    const colors = ['#3b82f6', '#9333ea', '#f97316', '#10b981', '#f43f5e', '#eab308'];
-    const shapes = ['●', '■', '▲', '🐾'];
-    
-    for (let i = 0; i < 40; i++) {
-        const piece = document.createElement('div');
-        piece.className = 'confetti-piece';
-        piece.textContent = shapes[Math.floor(Math.random() * shapes.length)];
-        piece.style.left = Math.random() * 100 + 'vw';
-        piece.style.color = colors[Math.floor(Math.random() * colors.length)];
-        piece.style.fontSize = (Math.random() * 12 + 8) + 'px';
-        piece.style.animationDuration = (Math.random() * 2 + 2) + 's';
-        piece.style.animationDelay = Math.random() * 0.5 + 's';
-        document.body.appendChild(piece);
-        
-        setTimeout(() => piece.remove(), 4000);
-    }
-}
 
 // ===== DOWNLOAD RESULT IMAGE =====
 
@@ -469,18 +449,15 @@ async function shareToApp(platform) {
             ctx.fillStyle = '#f8fafc';
             ctx.fillRect(0, 0, 1080, 1080);
 
-            // Draw header gradient
-            const headerGrad = ctx.createLinearGradient(0, 0, 1080, 0);
-            headerGrad.addColorStop(0, '#3b82f6');
-            headerGrad.addColorStop(1, '#a855f7');
-            ctx.fillStyle = headerGrad;
+            // Bandeau encre, comme sur la page
+            ctx.fillStyle = '#0f172a';
             ctx.fillRect(0, 0, 1080, 160);
 
             ctx.fillStyle = 'white';
-            ctx.font = 'bold 36px Plus Jakarta Sans, sans-serif';
+            ctx.font = 'bold 36px Bricolage Grotesque, sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText('Je ressemble à un...', 540, 60);
-            ctx.font = 'bold 56px Plus Jakarta Sans, sans-serif';
+            ctx.font = 'bold 56px Bricolage Grotesque, sans-serif';
             ctx.fillText(currentResult.breed_name, 540, 125);
 
             // Draw photos side by side
@@ -497,19 +474,19 @@ async function shareToApp(platform) {
             ctx.arc(540, photoY + photoSize / 2, 32, 0, Math.PI * 2);
             ctx.fill();
             ctx.fillStyle = '#1e293b';
-            ctx.font = 'bold 22px Plus Jakarta Sans, sans-serif';
+            ctx.font = 'bold 22px Bricolage Grotesque, sans-serif';
             ctx.fillText('VS', 540, photoY + photoSize / 2 + 8);
 
             // Match percentage
-            ctx.font = 'bold 72px Plus Jakarta Sans, sans-serif';
-            ctx.fillStyle = '#3b82f6';
+            ctx.font = 'bold 72px Bricolage Grotesque, sans-serif';
+            ctx.fillStyle = '#2563eb';
             ctx.fillText(currentResult.match_percentage + '%', 540, 680);
-            ctx.font = '24px Plus Jakarta Sans, sans-serif';
+            ctx.font = '24px Bricolage Grotesque, sans-serif';
             ctx.fillStyle = '#64748b';
             ctx.fillText('de ressemblance', 540, 720);
 
             // Footer
-            ctx.font = 'bold 28px Plus Jakarta Sans, sans-serif';
+            ctx.font = 'bold 28px Bricolage Grotesque, sans-serif';
             ctx.fillStyle = '#334155';
             ctx.fillText('race-de-chien.com/tel-maitre-tel-chien', 540, 1040);
 
@@ -548,10 +525,7 @@ async function downloadResult() {
     const ctx = canvas.getContext('2d');
     
     // Background
-    const gradient = ctx.createLinearGradient(0, 0, 1080, 1080);
-    gradient.addColorStop(0, '#3b82f6');
-    gradient.addColorStop(1, '#9333ea');
-    ctx.fillStyle = gradient;
+    ctx.fillStyle = '#0f172a';
     ctx.fillRect(0, 0, 1080, 1080);
     
     // White card
@@ -561,7 +535,7 @@ async function downloadResult() {
     
     // Title
     ctx.fillStyle = '#1e293b';
-    ctx.font = 'bold 42px Plus Jakarta Sans, sans-serif';
+    ctx.font = 'bold 42px Bricolage Grotesque, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Tel Maître, Tel Chien 🐕', 540, 110);
     
@@ -596,34 +570,34 @@ async function downloadResult() {
     }
     
     // VS badge
-    ctx.fillStyle = '#3b82f6';
+    ctx.fillStyle = '#2563eb';
     ctx.beginPath();
     ctx.arc(540, 360, 35, 0, Math.PI * 2);
     ctx.fill();
     ctx.fillStyle = 'white';
-    ctx.font = 'bold 22px Plus Jakarta Sans, sans-serif';
+    ctx.font = 'bold 22px Bricolage Grotesque, sans-serif';
     ctx.fillText('VS', 540, 368);
     
     // Breed name
     const breedName = document.getElementById('result-breed-name').textContent;
     ctx.fillStyle = '#1e293b';
-    ctx.font = 'bold 38px Plus Jakarta Sans, sans-serif';
+    ctx.font = 'bold 38px Bricolage Grotesque, sans-serif';
     ctx.fillText(breedName, 540, 640);
     
     // Percentage
     const pct = currentResult.match_percentage;
-    ctx.fillStyle = '#3b82f6';
-    ctx.font = 'bold 56px Plus Jakarta Sans, sans-serif';
+    ctx.fillStyle = '#2563eb';
+    ctx.font = 'bold 56px Bricolage Grotesque, sans-serif';
     ctx.fillText(`${pct}%`, 540, 710);
     
     // Reason (wrapped)
     ctx.fillStyle = '#64748b';
-    ctx.font = '20px Plus Jakarta Sans, sans-serif';
+    ctx.font = '20px Bricolage Grotesque, sans-serif';
     wrapText(ctx, currentResult.reason, 540, 770, 880, 28);
     
     // Footer
     ctx.fillStyle = '#94a3b8';
-    ctx.font = '18px Plus Jakarta Sans, sans-serif';
+    ctx.font = '18px Bricolage Grotesque, sans-serif';
     ctx.fillText('race-de-chien.com/tel-maitre-tel-chien', 540, 1010);
     
     // Download
@@ -684,4 +658,10 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         }
     }
     ctx.fillText(line.trim(), x, y + lineCount * lineHeight);
+}
+
+// Sur un écran tactile, on ne parle ni de clic ni de glisser-déposer
+if (window.matchMedia && matchMedia('(pointer: coarse)').matches) {
+    const hint = document.getElementById('capture-hint');
+    if (hint) hint.textContent = 'Touchez ici ou utilisez les boutons ci-dessous';
 }

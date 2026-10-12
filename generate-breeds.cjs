@@ -93,6 +93,7 @@ function fromOrigin(origin) {
     return `de ${o}`;
 }
 const SIZE_WORD = { toy: 'très petit', small: 'petit', medium: 'moyen', large: 'grand', giant: 'géant' };
+const SIZE_LABEL = { toy: 'Très petit', small: 'Petit', medium: 'Moyen', large: 'Grand', giant: 'Géant' };
 
 const SCORE_META = {
     energie: { label: 'Énergie', words: ['Très calme', 'Calme', 'Modérée', 'Élevée', 'Débordante'], neutral: true },
@@ -132,10 +133,10 @@ function tone(k, v) {
     return fav >= 4 ? 'good' : fav <= 2 ? 'watch' : 'mid';
 }
 const TONE = {
-    good: { text: 'text-emerald-700', bar: 'bg-emerald-500' },
-    mid: { text: 'text-slate-800', bar: 'bg-slate-400' },
-    watch: { text: 'text-amber-700', bar: 'bg-amber-500' },
-    neutral: { text: 'text-slate-800', bar: 'bg-primary-500' }
+    good: { text: 'text-emerald-700', bar: 'bg-slate-500' },
+    mid: { text: 'text-slate-800', bar: 'bg-slate-500' },
+    watch: { text: 'text-amber-700', bar: 'bg-slate-500' },
+    neutral: { text: 'text-slate-800', bar: 'bg-slate-500' }
 };
 function gauge(k, v, cls = '') {
     const t = TONE[tone(k, v)];
@@ -143,8 +144,8 @@ function gauge(k, v, cls = '') {
 }
 // Les 8 notes qui pèsent le plus dans le choix, résumées en tête de fiche
 const KEY_SCORES = [
-    ['energie', '⚡', 'Énergie'], ['enfants', '👶', 'Enfants'], ['appartement', '🏢', 'Appartement'], ['solitude', '🏠', 'Seul à la maison'],
-    ['premier_chien', '🌱', 'Premier chien'], ['chats', '🐈', 'Avec les chats'], ['aboiements', '🔊', 'Aboiements'], ['perte_poils', '🧹', 'Perte de poils']
+    ['energie', 'lightning', 'Énergie'], ['enfants', 'baby', 'Enfants'], ['appartement', 'buildings', 'Appartement'], ['solitude', 'house', 'Seul à la maison'],
+    ['premier_chien', 'plant', 'Premier chien'], ['chats', 'cat', 'Avec les chats'], ['aboiements', 'speaker-high', 'Aboiements'], ['perte_poils', 'broom', 'Perte de poils']
 ];
 
 // Versions réduites de chaque photo (créées par sources/photos/ajouter-photos.py) : les cartes chargent 9 Ko au lieu de 60
@@ -160,7 +161,7 @@ const SIZES_HERO = '(min-width: 1024px) 620px, calc(100vw - 32px)';
 
 function picture(b, cls, opts = {}) {
     if (!b.image) {
-        return `<div class="flex h-full w-full flex-col items-center justify-center gap-1 bg-gradient-to-br from-primary-50 via-white to-secondary-50 text-slate-400 ${opts.box || ''}"><span class="${opts.big ? 'text-7xl' : 'text-4xl'}" aria-hidden="true">🐾</span><span class="text-xs font-semibold uppercase tracking-wider">Photo à venir</span></div>`;
+        return `<div class="flex h-full w-full flex-col items-center justify-center gap-1 bg-slate-100 text-slate-400 ${opts.box || ''}">${icon('paw-print', opts.big ? 'h-16 w-16' : 'h-10 w-10')}<span class="text-xs font-medium text-slate-500">Photo à venir</span></div>`;
     }
     const src = `/${b.image.url}`;
     const load = opts.eager ? 'fetchpriority="high"' : opts.soon ? '' : 'loading="lazy"';
@@ -171,7 +172,11 @@ function staticCard(b, extra = {}) {
     const h = extra.h || 'h3';
     // Score à côté du nom, jamais sur la photo
     const pct = extra.pct != null ? `<span class="score ${extra.pct >= 75 ? 'score-hi' : extra.pct >= 55 ? 'score-mid' : 'score-lo'}" title="${extra.pct} % de compatibilité">${extra.pct} %<span class="sr-only"> de compatibilité</span></span>` : '';
-    const reasons = (extra.reasons || []).slice(0, 4).map(x => `<span class="${x.ok ? 'chip-ok' : 'chip-ko'}">${x.ok ? '✓ ' : ''}${esc(x.text)}</span>`).join('');
+    const reasons = (extra.reasons || []).slice(0, 4).map(x => `<span class="${x.ok ? 'chip-ok' : 'chip-ko'}">${icon(x.ok ? 'check' : 'warning-circle')}${esc(x.text)}</span>`).join('');
+    // Repères pour départager des races qui répondent toutes au critère : taille, énergie, entretien, et ce qu'il faut prévoir
+    const keyFacts = extra.facts ? `<p class="mt-2 text-sm text-slate-600">${esc(SIZE_LABEL[b.physical?.size_category] || '')} · énergie ${esc(SCORE_META.energie.words[b.scores.energie - 1].toLowerCase())} · entretien ${esc(SCORE_META.entretien_pelage.words[b.scores.entretien_pelage - 1].toLowerCase())}</p>` : '';
+    const watch = extra.facts ? watchOuts(b, extra.skip)[0] : null;
+    const watchChip = watch ? `<span class="chip-ko">${icon('warning-circle')}${esc(watch)}</span>` : '';
     const law = b.legal_category ? `<span class="chip-law">Catégorie ${esc(b.legal_category)}</span>` : '';
     return `<li class="group overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
                 <a href="/races/${b.slug}" class="block">
@@ -179,8 +184,9 @@ function staticCard(b, extra = {}) {
                     <div class="p-4">
                         <div class="flex items-start justify-between gap-2"><${h} class="text-[17px] font-bold leading-snug text-slate-900">${esc(b.name_fr)}</${h}>${pct}</div>
                         <p class="mt-0.5 text-sm text-slate-500">${esc(b.origin || '')}${b.fci?.group ? ` · ${esc(S.FCI_GROUPS[b.fci.group])}` : ''}</p>
+                        ${keyFacts}
                         ${extra.note ? `<p class="mt-2 text-sm text-slate-600">${esc(extra.note)}</p>` : ''}
-                        ${reasons || law ? `<div class="mt-3 flex flex-wrap gap-1.5">${law}${reasons}</div>` : ''}
+                        ${reasons || law || watchChip ? `<div class="mt-3 flex flex-wrap gap-1.5">${law}${reasons}${watchChip}</div>` : ''}
                     </div>
                 </a>
             </li>`;
@@ -219,6 +225,24 @@ function forWho(b) {
     return { yes: yes.slice(0, 4), no: no.slice(0, 4) };
 }
 
+// Ce qu'il faut prévoir, en mots courts pour une étiquette (le critère de la page est passé dans skip)
+function watchOuts(b, skip = []) {
+    const s = b.scores, w = [];
+    const add = (key, cond, text) => { if (cond && !skip.includes(key)) w.push(text); };
+    add('solitude', s.solitude <= 2, 'Supporte mal la solitude');
+    add('perte_poils', s.perte_poils >= 4, 'Perd beaucoup de poils');
+    add('energie', s.energie >= 5, 'Très énergique');
+    add('appartement', s.appartement <= 2, 'Pas fait pour l’appartement');
+    add('entretien_pelage', s.entretien_pelage >= 4, 'Entretien du poil important');
+    add('aboiements', s.aboiements >= 4, 'Aboie volontiers');
+    add('education', s.education <= 2, 'Éducation exigeante');
+    add('enfants', s.enfants <= 2, 'Prudence avec de jeunes enfants');
+    add('chats', s.chats <= 2, 'À éviter avec un chat');
+    add('chaleur', s.chaleur <= 2, 'Craint la chaleur');
+    add('bave', s.bave >= 4, 'Bave beaucoup');
+    return w;
+}
+
 const SIM_KEYS = ['energie', 'enfants', 'appartement', 'education', 'premier_chien', 'entretien_pelage', 'perte_poils', 'garde', 'solitude'];
 function similar(b, limit = 4) {
     const size = S.SIZE_ID[b.physical.size_category];
@@ -241,6 +265,26 @@ const LAW = {
 };
 
 // ============================================
+// ICÔNES : une seule famille, Phosphor Regular (MIT), insérée en SVG
+// ============================================
+
+const ICON_DIR = path.join(ROOT, 'node_modules/@phosphor-icons/core/assets/regular');
+const iconSrc = {};
+function icon(name, cls = 'h-5 w-5') {
+    if (!iconSrc[name]) iconSrc[name] = fs.readFileSync(path.join(ICON_DIR, `${name}.svg`), 'utf8').trim();
+    return iconSrc[name].replace('<svg ', `<svg class="${cls}" aria-hidden="true" focusable="false" `);
+}
+// Celles que les scripts du navigateur dessinent (en-tête, accueil, test, comparateur, Tel Maître)
+const CLIENT_ICONS = ['camera', 'list', 'x', 'check', 'warning-circle', 'paw-print', 'plus', 'arrow-right', 'arrow-left',
+    'couch', 'person-simple-walk', 'tree', 'boot', 'person-simple-run', 'buildings', 'house', 'farm', 'user', 'student', 'baby',
+    'cat', 'dog', 'prohibit', 'hourglass-simple-low', 'hourglass-simple-medium', 'hourglass-simple-high', 'plant', 'thumbs-up',
+    'graduation-cap', 'smiley', 'broom', 'sparkle', 'speaker-simple-slash', 'clock', 'armchair', 'sun', 'flag', 'arrow-counter-clockwise'];
+write('js/icons.js', `// Généré par generate-breeds.cjs : icônes Phosphor (MIT) dessinées par les scripts du site
+window.RDCIcons = ${JSON.stringify(Object.fromEntries(CLIENT_ICONS.map(n => [n, icon(n, '__C__')])))};
+window.RDCIcon = function (name, cls) { return (window.RDCIcons[name] || '').replace('__C__', cls || 'h-5 w-5'); };
+`);
+
+// ============================================
 // PARTIALS ET VERSIONS
 // ============================================
 
@@ -248,6 +292,7 @@ const versions = {
     V_SCORING: hash('js/scoring.js'),
     V_APP: hash('js/app.js'),
     V_HEADER: hash('js/header.js'),
+    V_ICONS: hash('js/icons.js'),
     V_COMPARE: fs.existsSync(path.join(ROOT, 'js/compare.js')) ? hash('js/compare.js') : '1',
     V_QUIZ: fs.existsSync(path.join(ROOT, 'js/quiz.js')) ? hash('js/quiz.js') : '1',
     V_TELMAITRE: hash('js/tel-maitre.js'),
@@ -259,59 +304,59 @@ const versions = {
 // ============================================
 
 const SELECTIONS = [
-    { slug: 'chiens-pour-appartement', seo: 'Chiens pour appartement : les races qui s’y plaisent', short: 'Chiens pour appartement', icon: '🏢', state: { logement: 'appart' },
+    { slug: 'chiens-pour-appartement', seo: 'Chiens pour appartement : les races qui s’y plaisent', short: 'Chiens pour appartement', icon: 'buildings', state: { logement: 'appart' },
       title: 'Chiens pour appartement : les races qui s’y plaisent vraiment',
       intro: 'Un chien peut être heureux en appartement si ses besoins d’activité sont couverts dehors. Nous avons classé les races selon leur adaptation à un logement sans jardin : calme à l’intérieur, aboiements, taille, besoin d’espace.',
       avoid: 'Les races qui supportent le moins un appartement' },
-    { slug: 'chiens-calmes', short: 'Chiens calmes et pantouflards', icon: '🛋️', state: { rythme: 1 },
+    { slug: 'chiens-calmes', short: 'Chiens calmes et pantouflards', icon: 'couch', state: { rythme: 1 },
       title: 'Races de chiens calmes et pantouflards',
       intro: 'Vous rêvez d’un compagnon de canapé plutôt que d’un athlète ? Voici les races les moins énergiques, qui se contentent de promenades tranquilles et adorent la sieste.',
       avoid: 'Les races les plus énergiques' },
-    { slug: 'chiens-pour-enfants', short: 'Chiens pour enfants', icon: '👶', state: { enfants: 'jeunes' },
+    { slug: 'chiens-pour-enfants', short: 'Chiens pour enfants', icon: 'baby', state: { enfants: 'jeunes' },
       title: 'Chiens pour enfants : les races les plus douces en famille',
       intro: 'Patience, tolérance aux câlins un peu maladroits, absence d’agressivité : certaines races sont réputées pour leur douceur avec les petits. Aucune race ne dispense de surveiller un enfant avec un chien.',
       avoid: 'Les races à éviter avec de jeunes enfants' },
-    { slug: 'chiens-qui-perdent-peu-de-poils', seo: 'Chien qui ne perd pas ses poils : les races pour allergiques', short: 'Chiens qui perdent peu de poils', icon: '🤧', state: { hypo: true },
+    { slug: 'chiens-qui-perdent-peu-de-poils', seo: 'Chien qui ne perd pas ses poils : les races pour allergiques', short: 'Chiens qui perdent peu de poils', icon: 'broom', state: { hypo: true },
       title: 'Chiens qui perdent peu de poils : les races conseillées aux personnes allergiques',
       intro: 'Aucun chien n’est vraiment hypoallergénique : l’allergie vient de protéines présentes dans la salive et les squames. Les races à poil qui pousse en continu (caniches, bichons, schnauzers…) perdent très peu de poils et sont souvent mieux tolérées. Passez du temps avec la race avant de vous décider.' },
-    { slug: 'chiens-pour-personnes-agees', seo: 'Chiens pour personnes âgées : races calmes et faciles', short: 'Chiens pour personnes âgées', icon: '🧓', state: { rythme: 2, experience: 'premier', sizes: [1, 2, 3] },
+    { slug: 'chiens-pour-personnes-agees', seo: 'Chiens pour personnes âgées : races calmes et faciles', short: 'Chiens pour personnes âgées', icon: 'armchair', state: { rythme: 2, experience: 'premier', sizes: [1, 2, 3] },
       title: 'Chiens pour personnes âgées : calmes, faciles et pas trop grands',
       intro: 'Pour une retraite paisible, mieux vaut un chien calme, facile à éduquer, de petite ou moyenne taille, qui ne tire pas en laisse. Notre sélection croise ces critères.' },
-    { slug: 'chiens-qui-supportent-la-solitude', seo: 'Chiens qui supportent la solitude : les races indépendantes', short: 'Chiens qui supportent la solitude', icon: '⏰', state: { seul: 'long' },
+    { slug: 'chiens-qui-supportent-la-solitude', seo: 'Chiens qui supportent la solitude : les races indépendantes', short: 'Chiens qui supportent la solitude', icon: 'clock', state: { seul: 'long' },
       title: 'Chiens qui supportent la solitude : les races les plus indépendantes',
       intro: 'Aucun chien n’est fait pour rester seul huit heures par jour tous les jours. Certaines races, plus indépendantes, vivent cependant mieux les absences. Pensez aussi au promeneur ou à la garderie.',
       avoid: 'Les races qui vivent le plus mal la solitude' },
-    { slug: 'chiens-sportifs', seo: 'Chiens sportifs : les races pour courir et randonner', short: 'Chiens sportifs', icon: '🏃', state: { rythme: 5 },
+    { slug: 'chiens-sportifs', seo: 'Chiens sportifs : les races pour courir et randonner', short: 'Chiens sportifs', icon: 'person-simple-run', state: { rythme: 5 },
       title: 'Chiens sportifs : les meilleures races pour courir et randonner',
       intro: 'Canicross, trail, randonnée, vélo : ces races ont l’endurance et l’envie de vous suivre. Elles demandent en retour une à deux heures d’activité par jour et de la stimulation mentale.' },
-    { slug: 'premier-chien', short: 'Pour un premier chien', icon: '🐣', state: { experience: 'premier' },
+    { slug: 'premier-chien', short: 'Pour un premier chien', icon: 'plant', state: { experience: 'premier' },
       title: 'Premier chien : les races les plus faciles à vivre',
       intro: 'Facile à éduquer, bonne humeur, peu de comportements difficiles : ces races pardonnent les erreurs de débutant. Une éducation positive dès l’arrivée du chiot reste indispensable.',
       avoid: 'Les races déconseillées pour un premier chien' },
-    { slug: 'chiens-qui-aboient-peu', short: 'Chiens qui aboient peu', icon: '🤫', state: { discret: true },
+    { slug: 'chiens-qui-aboient-peu', short: 'Chiens qui aboient peu', icon: 'speaker-simple-slash', state: { discret: true },
       title: 'Chiens qui aboient peu : les races les plus discrètes',
       intro: 'Pour un immeuble ou des voisins proches, certaines races sont nettement plus silencieuses que d’autres. L’éducation et l’activité comptent aussi beaucoup : un chien qui s’ennuie aboie.' },
-    { slug: 'races-francaises', short: 'Races françaises', icon: '🇫🇷', state: { france: true },
+    { slug: 'races-francaises', short: 'Races françaises', icon: 'flag', state: { france: true },
       title: 'Les races de chiens françaises',
       intro: 'La France compte une cinquantaine de races reconnues : bergers, braques, épagneuls, chiens courants, molosses et chiens de compagnie. Les voici, de la plus inscrite au LOF à la plus rare.' },
-    { slug: 'petits-chiens', short: 'Petits chiens', icon: '🐕', state: { sizes: [1, 2] }, all: true,
+    { slug: 'petits-chiens', short: 'Petits chiens', icon: 'dog', state: { sizes: [1, 2] }, all: true,
       title: 'Petits chiens : toutes les races de petite taille',
       intro: 'Moins de 40 cm au garrot : des chiens faciles à emmener partout. Petit ne veut pas dire calme : beaucoup de terriers débordent d’énergie.' },
-    { slug: 'chiens-de-taille-moyenne', short: 'Chiens de taille moyenne', icon: '🐕‍🦺', state: { sizes: [3] }, all: true,
+    { slug: 'chiens-de-taille-moyenne', short: 'Chiens de taille moyenne', icon: 'dog', state: { sizes: [3] }, all: true,
       title: 'Chiens de taille moyenne : toutes les races de 40 à 60 cm',
       intro: 'Entre 40 et 60 cm au garrot, les chiens de taille moyenne sont le compromis le plus courant : assez robustes pour les longues balades, assez compacts pour la voiture et la maison. Bergers, épagneuls, braques, spitz : les tempéraments vont du très calme au très sportif.' },
-    { slug: 'grands-chiens', short: 'Grands chiens', icon: '🦮', state: { sizes: [4, 5] }, all: true,
+    { slug: 'grands-chiens', short: 'Grands chiens', icon: 'dog', state: { sizes: [4, 5] }, all: true,
       title: 'Grands chiens : toutes les races de plus de 60 cm',
       intro: 'Plus de 60 cm au garrot : chiens de garde, de troupeau, de trait ou de chasse. Souvent calmes à la maison, ils ont besoin d’espace et d’une éducation précoce, et coûtent plus cher à nourrir et à soigner. Leur espérance de vie est aussi plus courte que celle des petits chiens.' },
-    { slug: 'chiens-de-garde', short: 'Chiens de garde', icon: '🛡️', state: { nocat: true },
+    { slug: 'chiens-de-garde', short: 'Chiens de garde', icon: 'shield-check', state: { nocat: true },
       custom: b => ({ pct: Math.round(((b.scores.garde - 1) / 4) * 100), ok: b.scores.garde >= 4 }),
       title: 'Chiens de garde : les races à fort instinct de protection',
       intro: 'Un bon chien de garde prévient plus qu’il n’attaque. Ces races ont un instinct de protection marqué ; elles demandent une socialisation précoce et un maître ferme et juste. Nous excluons les chiens catégorisés.' },
-    { slug: 'chiens-qui-supportent-la-chaleur', short: 'Chiens qui supportent la chaleur', icon: '☀️', state: { chaleur: true },
+    { slug: 'chiens-qui-supportent-la-chaleur', short: 'Chiens qui supportent la chaleur', icon: 'sun', state: { chaleur: true },
       title: 'Chiens qui supportent la chaleur : les races pour le Sud',
       intro: 'Poil court, museau long, silhouette fine : certaines races encaissent mieux les étés chauds. À l’inverse, les chiens à museau écrasé souffrent vite. Promenades tôt le matin et eau fraîche restent la règle.',
       avoid: 'Les races qui craignent le plus la chaleur' },
-    { slug: 'chiens-et-chats', short: 'Chiens qui s’entendent avec les chats', icon: '🐱', state: { chat: true },
+    { slug: 'chiens-et-chats', short: 'Chiens qui s’entendent avec les chats', icon: 'cat', state: { chat: true },
       title: 'Chiens qui s’entendent avec les chats',
       intro: 'Les races au faible instinct de chasse cohabitent plus facilement avec un chat, surtout si elles le côtoient dès le plus jeune âge.',
       avoid: 'Les races à éviter avec un chat' }
@@ -340,14 +385,15 @@ function fill(tpl, vars) {
         .replace('<!-- @head -->', read('templates/partials/head.html'))
         .replace('<!-- @footer -->', read('templates/partials/footer.html'));
     for (const [k, v] of Object.entries(vars)) html = html.split(`{{${k}}}`).join(v);
-    return html;
+    // {{icon:nom|classes}} dans les modèles
+    return html.replace(/\{\{icon:([a-z0-9-]+)(?:\|([^}]*))?\}\}/g, (m, name, cls) => icon(name, cls || undefined));
 }
 
 const commonVars = {
     COUNT: String(COUNT),
     UPDATED: DATE_FR,
-    SELECTION_LINKS: SELECTIONS.slice(0, 7).map(s => `                        <li><a href="/selections/${s.slug}" class="hover:text-white">${esc(s.short)}</a></li>`).join('\n'),
-    POPULAR_LINKS: popular.slice(0, 7).map(b => `                        <li><a href="/races/${b.slug}" class="hover:text-white">${esc(b.name_fr)}</a></li>`).join('\n'),
+    SELECTION_LINKS: SELECTIONS.slice(0, 7).map(s => `                        <li><a href="/selections/${s.slug}" class="inline-block py-1.5 hover:text-white">${esc(s.short)}</a></li>`).join('\n'),
+    POPULAR_LINKS: popular.slice(0, 7).map(b => `                        <li><a href="/races/${b.slug}" class="inline-block py-1.5 hover:text-white">${esc(b.name_fr)}</a></li>`).join('\n'),
     ...versions
 };
 
@@ -497,15 +543,15 @@ function breedPage(b) {
                     ${picture(b, 'absolute inset-0 h-full w-full object-cover', { eager: true, big: true, sizes: SIZES_HERO, alt: `${b.name_fr}, chien de race` })}
                 </div>
                 <div class="flex flex-col justify-center p-6 lg:py-10 lg:pr-10">
-                    <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">${esc(b.name_fr)}</h1>
+                               <h1 class="display">${esc(b.name_fr)}</h1>
                     ${(b.name_alt || []).length ? `<p class="mt-1 text-sm text-slate-500">Aussi appelé ${b.name_alt.map(esc).join(', ')}</p>` : ''}
                     ${badges.length ? `<div class="mt-4 flex flex-wrap gap-2">${badges.join('')}</div>` : ''}
                     <dl class="mt-6 grid grid-cols-2 gap-x-6 gap-y-4">
-                        ${facts.map(([k, v]) => `<div><dt class="text-xs font-semibold uppercase tracking-wider text-slate-500">${k}</dt><dd class="mt-0.5 font-semibold text-slate-900">${esc(v)}</dd></div>`).join('')}
+                        ${facts.map(([k, v]) => `<div><dt class="text-[13px] text-slate-500">${k}</dt><dd class="mt-0.5 font-semibold text-slate-900">${esc(v)}</dd></div>`).join('')}
                     </dl>
                     <div class="mt-6 flex flex-wrap gap-2">
                         <a href="/quel-chien-choisir?race=${b.slug}" class="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800">Est-il fait pour moi ?</a>
-                        <button type="button" data-compare-one="${b.slug}" class="rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-800 hover:border-primary-300">+ Comparer</button>
+                        <button type="button" data-compare-one="${b.slug}" aria-pressed="false" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-800 hover:border-primary-300 aria-pressed:border-primary-600 aria-pressed:bg-primary-50 aria-pressed:text-primary-800"><span data-off class="inline-flex items-center gap-2">${icon('plus', 'h-[18px] w-[18px]')}Comparer</span><span data-on hidden class="inline-flex items-center gap-2">${icon('check', 'h-[18px] w-[18px]')}Dans la comparaison</span></button>
                     </div>
                 </div>
             </header>
@@ -517,14 +563,14 @@ function breedPage(b) {
                 <div class="min-w-0 space-y-10">
                     <section aria-labelledby="pour-qui">
                         <h2 id="pour-qui" class="text-2xl font-bold text-slate-900">Pour qui ?</h2>
-                        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                        <div class="mt-4 grid items-start gap-4 sm:grid-cols-2">
                             <div class="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-5">
                                 <p class="font-bold text-emerald-900">Idéal pour</p>
-                                <ul class="mt-2 space-y-1.5 text-sm text-emerald-950">${(who.yes.length ? who.yes : ['un maître qui connaît bien la race']).map(x => `<li class="flex gap-2"><span aria-hidden="true">✓</span><span>${esc(x)}</span></li>`).join('')}</ul>
+                                <ul class="mt-2 space-y-1.5 text-sm text-emerald-950">${(who.yes.length ? who.yes : ['un maître qui connaît bien la race']).map(x => `<li class="flex gap-2">${icon('check', 'mt-0.5 h-4 w-4 shrink-0 text-emerald-700')}<span>${esc(x)}</span></li>`).join('')}</ul>
                             </div>
                             <div class="rounded-2xl border border-amber-200 bg-amber-50/60 p-5">
                                 <p class="font-bold text-amber-900">Moins adapté pour</p>
-                                <ul class="mt-2 space-y-1.5 text-sm text-amber-950">${(who.no.length ? who.no : ['peu de contre-indications : il s’adapte à beaucoup de foyers']).map(x => `<li class="flex gap-2"><span aria-hidden="true">!</span><span>${esc(x)}</span></li>`).join('')}</ul>
+                                <ul class="mt-2 space-y-1.5 text-sm text-amber-950">${(who.no.length ? who.no : ['peu de contre-indications : il s’adapte à beaucoup de foyers']).map(x => `<li class="flex gap-2">${icon('warning-circle', 'mt-0.5 h-4 w-4 shrink-0 text-amber-700')}<span>${esc(x)}</span></li>`).join('')}</ul>
                             </div>
                         </div>
                     </section>
@@ -543,7 +589,7 @@ function breedPage(b) {
                     <section aria-labelledby="sante">
                         <h2 id="sante" class="text-2xl font-bold text-slate-900">Santé</h2>
                         <p class="mt-3 leading-relaxed text-slate-700">Espérance de vie de ${range(p.life_span_years?.min, p.life_span_years?.max, 'ans')}, robustesse ${word('robustesse')}. ${issues.length ? 'Les affections les plus fréquentes dans la race :' : ''}</p>
-                        ${issues.length ? `<ul class="mt-3 grid gap-2 sm:grid-cols-2">${issues.map(i => `<li class="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700">${esc(i)}</li>`).join('')}</ul>` : ''}
+                        ${issues.length ? `<ul class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">${issues.map(i => `<li class="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700">${esc(i)}</li>`).join('')}</ul>` : ''}
                         <p class="mt-3 text-sm text-slate-500">Choisissez un éleveur qui fait pratiquer les dépistages de la race sur les parents, et demandez-en les résultats.</p>
                     </section>
 
@@ -551,65 +597,68 @@ function breedPage(b) {
                         <h2 id="entretien" class="text-2xl font-bold text-slate-900">Poil et entretien</h2>
                         <p class="mt-3 leading-relaxed text-slate-700">Poil ${esc((coat.length || '').toLowerCase())}${coat.type ? `, ${esc(coat.type.toLowerCase())}` : ''}. Perte de poils ${word('perte_poils')}, entretien ${word('entretien_pelage')}.${(coat.colors || []).length ? ` Robes : ${coat.colors.map(esc).join(', ')}.` : ''}</p>
                     </section>
-
-                    <section aria-labelledby="notes" class="scroll-mt-24">
-                        <h2 id="notes" class="text-2xl font-bold text-slate-900">Toutes ses notes</h2>
-                        <p class="mt-2 text-sm text-slate-600">De 1 à 5, comparables d’une race à l’autre. En vert ce qui est un atout pour la plupart des foyers, en orange ce qu’il faut prévoir.</p>
-                        <div class="mt-5 gap-4 sm:columns-2">
-                            ${SCORE_GROUPS.map(([g, keys]) => `<div class="mb-4 break-inside-avoid rounded-2xl border border-slate-200 bg-white p-4">
-                                <h3 class="text-sm font-bold text-slate-900">${g}</h3>
-                                <dl class="mt-3 space-y-3">
-                                    ${keys.map(k => `<div class="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-3 gap-y-1.5 text-sm">
-                                        <dt class="text-slate-600">${SCORE_META[k].label}</dt>
-                                        <dd class="text-right font-semibold ${TONE[tone(k, s[k])].text}">${SCORE_META[k].words[s[k] - 1]}<span class="sr-only">, ${s[k]} sur 5</span></dd>
-                                        <dd class="col-span-2">${gauge(k, s[k])}</dd>
-                                    </div>`).join('')}
-                                </dl>
-                            </div>`).join('')}
-                        </div>
-                    </section>
-
-                    ${inSelections.length ? `<section aria-labelledby="selections-race">
-                        <h2 id="selections-race" class="text-2xl font-bold text-slate-900">Dans nos sélections</h2>
-                        <ul class="mt-4 flex flex-wrap gap-2">${inSelections.map(x => `<li><a href="/selections/${x.slug}" class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-primary-300 hover:text-primary-700"><span aria-hidden="true">${x.icon}</span>${esc(x.short)}</a></li>`).join('')}</ul>
-                    </section>` : ''}
-
-                    <section aria-labelledby="faq">
-                        <h2 id="faq" class="text-2xl font-bold text-slate-900">Questions fréquentes sur ${esc(le(b.name_fr))}</h2>
-                        <div class="mt-4 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
-                            ${faq(b).map(([q, a]) => `<div class="p-5"><h3 class="font-bold text-slate-900">${esc(q)}</h3><p class="mt-1.5 text-sm leading-relaxed text-slate-700">${a}</p></div>`).join('')}
-                        </div>
-                    </section>
                 </div>
 
                 <aside class="order-first min-w-0 lg:order-none" aria-labelledby="bref">
                     <div class="rounded-3xl border border-slate-200 bg-white p-5 lg:sticky lg:top-[88px]">
                         <h2 id="bref" class="text-lg font-bold text-slate-900">En bref</h2>
-                        <p class="mt-1 text-xs text-slate-500"><span class="font-semibold text-emerald-700">En vert</span> un atout, <span class="font-semibold text-amber-700">en orange</span> ce qu’il faut prévoir.</p>
+                        <p class="mt-1 text-[13px] text-slate-500"><span class="font-semibold text-emerald-700">En vert</span> un atout, <span class="font-semibold text-amber-700">en orange</span> ce qu’il faut prévoir.</p>
                         <dl class="mt-4 grid grid-cols-2 gap-2">
-                            ${KEY_SCORES.map(([k, icon, label]) => `<div class="rounded-2xl bg-slate-50 p-3">
-                                <dt class="flex items-center gap-1.5 text-xs font-medium text-slate-500"><span aria-hidden="true">${icon}</span>${label}</dt>
+                            ${KEY_SCORES.map(([k, ic, label]) => `<div class="rounded-2xl bg-slate-50 p-3">
+                                <dt class="flex items-center gap-1.5 text-[13px] text-slate-500">${icon(ic, 'h-4 w-4 shrink-0')}${label}</dt>
                                 <dd class="mt-1 text-[15px] font-bold leading-tight ${TONE[tone(k, s[k])].text}">${SCORE_META[k].words[s[k] - 1]}<span class="sr-only">, ${s[k]} sur 5</span></dd>
                                 <dd class="mt-2">${gauge(k, s[k])}</dd>
                             </div>`).join('')}
                         </dl>
-                        <a href="#notes" class="mt-4 flex items-center justify-center gap-1 rounded-xl border border-slate-200 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:border-primary-300 hover:text-primary-700">Toutes ses notes <span aria-hidden="true">↓</span></a>
+                        <a href="#notes" class="mt-4 flex items-center justify-center gap-1 rounded-xl border border-slate-200 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:border-primary-300 hover:text-primary-700">Toutes ses notes${icon('arrow-down', 'h-4 w-4')}</a>
                     </div>
                 </aside>
+            </div>
+
+            <div class="mt-12 space-y-12">
+
+                <section aria-labelledby="notes" class="scroll-mt-24">
+                    <h2 id="notes" class="text-2xl font-bold text-slate-900">Toutes ses notes</h2>
+                    <p class="mt-2 text-sm text-slate-600">De 1 à 5, comparables d’une race à l’autre. En vert ce qui est un atout pour la plupart des foyers, en orange ce qu’il faut prévoir.</p>
+                    <div class="mt-5 gap-4 sm:columns-2 lg:columns-3">
+                        ${SCORE_GROUPS.map(([g, keys]) => `<div class="mb-4 break-inside-avoid rounded-2xl border border-slate-200 bg-white p-4">
+                            <h3 class="text-sm font-bold text-slate-900">${g}</h3>
+                            <dl class="mt-3 space-y-3">
+                                ${keys.map(k => `<div class="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-3 gap-y-1.5 text-sm">
+                                    <dt class="text-slate-600">${SCORE_META[k].label}</dt>
+                                    <dd class="text-right font-semibold ${TONE[tone(k, s[k])].text}">${SCORE_META[k].words[s[k] - 1]}<span class="sr-only">, ${s[k]} sur 5</span></dd>
+                                    <dd class="col-span-2">${gauge(k, s[k])}</dd>
+                                </div>`).join('')}
+                            </dl>
+                        </div>`).join('')}
+                    </div>
+                </section>
+
+                ${inSelections.length ? `<section aria-labelledby="selections-race">
+                    <h2 id="selections-race" class="text-2xl font-bold text-slate-900">Dans nos sélections</h2>
+                    <ul class="mt-4 flex flex-wrap gap-2">${inSelections.map(x => `<li><a href="/selections/${x.slug}" class="opt">${icon(x.icon)}${esc(x.short)}</a></li>`).join('')}</ul>
+                </section>` : ''}
+
+                <section aria-labelledby="faq" class="max-w-3xl">
+                    <h2 id="faq" class="text-2xl font-bold text-slate-900">Questions fréquentes sur ${esc(le(b.name_fr))}</h2>
+                    <div class="mt-4 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
+                        ${faq(b).map(([q, a]) => `<div class="p-5"><h3 class="font-bold text-slate-900">${esc(q)}</h3><p class="mt-1.5 text-sm leading-relaxed text-slate-700">${a}</p></div>`).join('')}
+                    </div>
+                </section>
             </div>
         </article>
 
         <section class="mt-14" aria-labelledby="similaires">
             <h2 id="similaires" class="text-2xl font-bold text-slate-900">Races proches</h2>
-            <p class="mt-1 text-sm text-slate-600">Même gabarit et notes voisines.${gUrl ? ` <a href="${gUrl}" class="font-semibold text-primary-700 hover:underline">Toutes les races du groupe ${esc(groupLabel)} →</a>` : ''}</p>
-            <ul class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <p class="mt-1 text-sm text-slate-600">Même gabarit et notes voisines.${gUrl ? ` <a href="${gUrl}" class="inline-flex items-center gap-1 font-semibold text-primary-700 hover:underline">Toutes les races du groupe ${esc(groupLabel)}${icon('arrow-right', 'h-4 w-4')}</a>` : ''}</p>
+            <ul class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             ${sims.map(o => staticCard(o)).join('')}
             </ul>
         </section>
 
         <section class="mt-14 grid gap-4 sm:grid-cols-2">
-            <a href="/quel-chien-choisir" class="rounded-3xl bg-slate-900 p-6 text-white hover:bg-slate-800"><p class="text-lg font-bold">🧭 Quel chien est fait pour moi ?</p><p class="mt-1 text-sm text-slate-300">8 questions sur votre vie, votre classement personnalisé en 45 secondes.</p></a>
-            <a href="/tel-maitre-tel-chien" class="rounded-3xl border border-slate-200 bg-white p-6 hover:border-primary-300"><p class="text-lg font-bold text-slate-900">📸 À quelle race je ressemble ?</p><p class="mt-1 text-sm text-slate-600">Un selfie, et l’IA vous trouve votre sosie canin.</p></a>
+            <a href="/quel-chien-choisir" class="rounded-3xl bg-slate-900 p-6 text-white hover:bg-slate-800"><p class="flex items-center gap-2 text-lg font-bold">${icon('compass', 'h-6 w-6')}Quel chien pour moi ?</p><p class="mt-1 text-sm text-slate-300">8 questions sur votre vie, votre classement personnalisé en 45 secondes.</p></a>
+            <a href="/tel-maitre-tel-chien" class="rounded-3xl border border-slate-200 bg-white p-6 hover:border-primary-300"><p class="flex items-center gap-2 text-lg font-bold text-slate-900">${icon('camera', 'h-6 w-6')}Tel Maître, Tel Chien</p><p class="mt-1 text-sm text-slate-600">Un selfie, et l’IA vous trouve votre sosie canin.</p></a>
         </section>
     </main>`;
 
@@ -619,7 +668,7 @@ function breedPage(b) {
         if (!btn) return;
         var slug = btn.getAttribute('data-compare-one');
         function list() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
-        function paint() { var on = list().indexOf(slug) >= 0; btn.textContent = on ? '✓ Dans la comparaison' : '+ Comparer'; btn.setAttribute('aria-pressed', on ? 'true' : 'false'); }
+        function paint() { var on = list().indexOf(slug) >= 0; btn.querySelector('[data-off]').hidden = on; btn.querySelector('[data-on]').hidden = !on; btn.setAttribute('aria-pressed', on ? 'true' : 'false'); }
         btn.addEventListener('click', function () {
             var l = list(), i = l.indexOf(slug);
             if (i >= 0) l.splice(i, 1); else { if (l.length >= 3) l.shift(); l.push(slug); }
@@ -645,6 +694,9 @@ function breedPage(b) {
 function selectionPage(sel) {
     const url = `${SITE_URL}/selections/${sel.slug}`;
     const { top, avoid, state } = selectionResults(sel);
+    // Le critère de la page ne revient pas dans « à prévoir »
+    const SKIP = { logement: ['appartement'], seul: ['solitude'], rythme: ['energie'], enfants: ['enfants'], hypo: ['perte_poils'], chat: ['chats'], discret: ['aboiements'], chaleur: ['chaleur'], experience: ['education'] };
+    const skip = Object.keys(sel.state).flatMap(k => SKIP[k] || []);
     const q = S.toQuery(state);
     const description = clip(`${sel.intro.split('. ')[0]}. ${sel.all ? `Les ${top.length} races, avec photos et notes.` : `Notre classement de ${top.length} races, avec les raisons.`}`);
     const ld = {
@@ -656,25 +708,24 @@ function selectionPage(sel) {
     <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
         <nav class="pt-6 pb-4 text-sm text-slate-500" aria-label="Fil d'Ariane"><a href="/" class="hover:text-primary-600">Races de chiens</a><span class="mx-1.5" aria-hidden="true">›</span><span class="text-slate-800" aria-current="page">${esc(sel.short)}</span></nav>
         <header class="max-w-3xl">
-            <p class="text-4xl" aria-hidden="true">${sel.icon}</p>
-            <h1 class="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">${esc(sel.title)}</h1>
+            <h1 class="display">${esc(sel.title)}</h1>
             <p class="mt-3 leading-relaxed text-slate-700">${esc(sel.intro)}</p>
             <p class="mt-3 text-sm text-slate-500">Classement établi à partir de nos notes de 1 à 5 sur 20 critères, à jour du ${DATE_FR}.</p>
             <a href="/?${q}" class="mt-5 inline-flex rounded-xl bg-primary-600 px-4 py-2.5 text-sm font-bold text-white hover:bg-primary-700">Affiner avec vos propres critères</a>
         </header>
-        <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        ${top.map((r, i) => staticCard(r.breed, { pct: r.pct, reasons: r.reasons, h: 'h2', eager: i === 0, soon: i > 0 && i < 4 })).join('')}
+        <ul class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        ${top.map((r, i) => staticCard(r.breed, { facts: true, skip, h: 'h2', eager: i === 0, soon: i > 0 && i < 4 })).join('')}
         </ul>
         ${avoid.length ? `
         <section class="mt-14" aria-labelledby="eviter">
             <h2 id="eviter" class="text-2xl font-bold text-slate-900">${esc(sel.avoid)}</h2>
-            <ul class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            ${avoid.map(r => staticCard(r.breed, { pct: r.pct, reasons: r.reasons })).join('')}
+            <ul class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            ${avoid.map(r => staticCard(r.breed, { reasons: r.reasons.filter(x => !x.ok) })).join('')}
             </ul>
         </section>` : ''}
         <section class="mt-14 rounded-3xl border border-slate-200 bg-white p-6" aria-labelledby="autres">
             <h2 id="autres" class="text-lg font-bold text-slate-900">Autres sélections</h2>
-            <ul class="mt-3 flex flex-wrap gap-2">${others.map(o => `<li><a href="/selections/${o.slug}" class="opt">${o.icon} ${esc(o.short)}</a></li>`).join('')}</ul>
+            <ul class="mt-3 flex flex-wrap gap-2">${others.map(o => `<li><a href="/selections/${o.slug}" class="opt">${icon(o.icon)}${esc(o.short)}</a></li>`).join('')}</ul>
         </section>
     </main>`;
     return page({ head: headMeta({ title: withBrand(sel.seo || sel.title), description, url }) + ldTag([ld, crumbsLd([[sel.short, `/selections/${sel.slug}`]])]), body });
@@ -754,14 +805,13 @@ function groupPage(g) {
     <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
         ${crumbs([['Groupes de races', '/groupes-de-races'], [G.h1]])}
         <header class="max-w-3xl">
-            <p class="text-sm font-semibold uppercase tracking-wider text-primary-700">Groupe ${g} de la FCI</p>
-            <h1 class="mt-1 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">${esc(G.h1)}</h1>
+            <h1 class="display">${esc(G.h1)}</h1>
             <p class="mt-3 leading-relaxed text-slate-700">${esc(G.intro)}</p>
-            <p class="mt-3 text-sm text-slate-500">${list.length} races, de la plus inscrite au LOF en 2025 à la plus rare.</p>
+            <p class="mt-3 text-sm text-slate-500">Groupe ${g} de la FCI, ${list.length} races, de la plus inscrite au LOF en 2025 à la plus rare.</p>
             <a href="/?groups=${g}" class="mt-5 inline-flex rounded-xl bg-primary-600 px-4 py-2.5 text-sm font-bold text-white hover:bg-primary-700">Classer ces races selon votre vie</a>
         </header>
-        <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        ${list.map((b, i) => staticCard(b, { h: 'h2', eager: i === 0, soon: i > 0 && i < 4 })).join('')}
+        <ul class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        ${list.map((b, i) => staticCard(b, { facts: true, h: 'h2', eager: i === 0, soon: i > 0 && i < 4 })).join('')}
         </ul>
         <section class="mt-14 rounded-3xl border border-slate-200 bg-white p-6" aria-labelledby="autres-groupes">
             <h2 id="autres-groupes" class="text-lg font-bold text-slate-900">Les autres groupes</h2>
@@ -780,7 +830,7 @@ function groupsIndexPage() {
         const lead = list[0];
         return `<li class="overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover"><a href="/groupes/${G.slug}" class="flex gap-4 p-4">
             <div class="h-20 w-28 shrink-0 overflow-hidden rounded-xl bg-slate-100">${lead?.image ? picture(lead, 'h-full w-full object-cover', { sizes: '112px', alt: '' }) : ''}</div>
-            <div class="min-w-0"><p class="text-xs font-semibold uppercase tracking-wider text-primary-700">Groupe ${g}</p><h2 class="font-bold leading-snug text-slate-900">${esc(G.h1)}</h2><p class="mt-0.5 text-sm text-slate-500">${list.length} races · ${list.slice(0, 3).map(b => esc(b.name_fr)).join(', ')}…</p></div>
+            <div class="min-w-0"><h2 class="font-bold leading-snug text-slate-900">${esc(G.h1)}</h2><p class="mt-0.5 text-sm text-slate-500">Groupe ${g}, ${list.length} races : ${list.slice(0, 3).map(b => esc(b.name_fr)).join(', ')}…</p></div>
         </a></li>`;
     }).join('');
     const teckel = groupBreeds(4)[0];
@@ -788,7 +838,7 @@ function groupsIndexPage() {
     <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
         ${crumbs([['Groupes de races']])}
         <header class="max-w-3xl">
-            <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Les groupes de races de chiens</h1>
+                       <h1 class="display">Les groupes de races de chiens</h1>
             <p class="mt-3 leading-relaxed text-slate-700">La Fédération cynologique internationale (FCI), à laquelle appartient la Société Centrale Canine, classe les races en 10 groupes selon leur fonction d’origine : garde des troupeaux, chasse, compagnie… Connaître le groupe d’une race, c’est déjà connaître une bonne part de son caractère.</p>
         </header>
         <ul class="mt-10 grid gap-4 md:grid-cols-2">${cards}</ul>
@@ -813,7 +863,7 @@ function azPage() {
     <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
         ${crumbs([['Liste de A à Z']])}
         <header class="max-w-3xl">
-            <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Liste des races de chiens de A à Z</h1>
+                       <h1 class="display">Liste des races de chiens de A à Z</h1>
             <p class="mt-3 leading-relaxed text-slate-700">Les ${COUNT} races du site, par ordre alphabétique. Pour trouver celles qui vont avec votre vie, <a href="/" class="font-semibold text-primary-700 underline">classez-les selon vos critères</a> ou <a href="/quel-chien-choisir" class="font-semibold text-primary-700 underline">faites le test</a>.</p>
         </header>
         <nav class="sticky top-[68px] z-10 -mx-4 mt-6 border-y border-slate-200 bg-slate-50/95 px-4 py-2 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border" aria-label="Lettres">
@@ -821,7 +871,7 @@ function azPage() {
         </nav>
         ${letters.map(l => `<section class="mt-8 scroll-mt-32" id="lettre-${l}" aria-labelledby="h-${l}">
             <h2 id="h-${l}" class="text-2xl font-extrabold text-slate-900">${l}</h2>
-            <ul class="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">${byLetter[l].map(item).join('')}</ul>
+            <ul class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">${byLetter[l].map(item).join('')}</ul>
         </section>`).join('')}
     </main>`;
     return page({ head: headMeta({ title: withBrand(title), description, url }) + ldTag(crumbsLd([['Liste de A à Z', '/liste-des-races']])), body });
@@ -836,19 +886,19 @@ function categorizedPage() {
     <main class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
         ${crumbs([['Chiens catégorisés']])}
         <article>
-            <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Chiens de 1re et 2e catégorie : la liste et les obligations</h1>
+                       <h1 class="display">Chiens de 1re et 2e catégorie : la liste et les obligations</h1>
             <p class="mt-3 leading-relaxed text-slate-700">La loi du 6 janvier 1999 classe certains chiens jugés potentiellement dangereux en deux catégories, définies par l’arrêté du 27 avril 1999. Le classement dépend de la race et, pour les chiens sans pedigree, de leur apparence.</p>
 
             <section class="mt-10" aria-labelledby="cat1">
                 <h2 id="cat1" class="text-2xl font-bold text-slate-900">1re catégorie : chiens d’attaque</h2>
                 <p class="mt-3 leading-relaxed text-slate-700">Ce sont des chiens <strong>sans pedigree LOF</strong> dont l’apparence se rapproche du Staffordshire terrier ou de l’American Staffordshire terrier (les chiens souvent appelés « pit-bulls »), du Mastiff (« boerbulls ») ou du Tosa. Les races non reconnues en France, comme l’American Bully ou le Boerboel, y sont rattachées quand elles en ont l’apparence.</p>
-                <ul class="mt-5 grid gap-5 sm:grid-cols-3">${cat('1').map(b => staticCard(b)).join('')}</ul>
+                <ul class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">${cat('1').map(b => staticCard(b)).join('')}</ul>
             </section>
 
             <section class="mt-10" aria-labelledby="cat2">
                 <h2 id="cat2" class="text-2xl font-bold text-slate-900">2e catégorie : chiens de garde et de défense</h2>
                 <p class="mt-3 leading-relaxed text-slate-700">Ce sont les Staffordshire terriers, American Staffordshire terriers et Tosas <strong>inscrits au LOF</strong>, les Rottweilers avec ou sans pedigree, et les chiens sans pedigree d’apparence proche du Rottweiler. Le Staffordshire Bull Terrier, race différente, n’est pas catégorisé.</p>
-                <ul class="mt-5 grid gap-5 sm:grid-cols-3">${cat('2').map(b => staticCard(b)).join('')}</ul>
+                <ul class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">${cat('2').map(b => staticCard(b)).join('')}</ul>
             </section>
 
             <section class="mt-10" aria-labelledby="obligations">
@@ -922,12 +972,12 @@ write('chiens-categorises.html', categorizedPage());
 // 4. Pages à partir des modèles
 const selectionCards = SELECTIONS.map(s => {
     const { top } = selectionResults(s);
-    return `                        <li><a href="/selections/${s.slug}" class="flex items-center gap-3 rounded-2xl border border-slate-200 px-4 py-3 hover:border-primary-300 hover:bg-primary-50"><span class="text-2xl" aria-hidden="true">${s.icon}</span><span><span class="block text-sm font-semibold text-slate-900">${esc(s.short)}</span><span class="block text-xs text-slate-500">${top.length} races</span></span></a></li>`;
+    return `                        <li><a href="/selections/${s.slug}" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20">${icon(s.icon, 'h-[18px] w-[18px] text-slate-300')}${esc(s.short)}<span class="tabular-nums text-slate-400">${top.length}</span></a></li>`;
 }).join('\n');
-const groupLinks = Object.entries(GROUPS).map(([g, G]) => `<li><a href="/groupes/${G.slug}" class="inline-flex rounded-full border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-primary-300 hover:text-primary-700">${esc(G.title)} <span class="ml-1 text-slate-400">${groupBreeds(Number(g)).length}</span></a></li>`).join('');
+const groupLinks = Object.entries(GROUPS).map(([g, G]) => `<li><a href="/groupes/${G.slug}" class="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-2 text-sm font-medium text-slate-200 hover:border-white/40 hover:text-white">${esc(G.title)}<span class="tabular-nums text-slate-400">${groupBreeds(Number(g)).length}</span></a></li>`).join('');
 const noscript = breeds.map(b => `                            <li><a href="/races/${b.slug}">${esc(b.name_fr)}</a></li>`).join('\n');
 // Boutons de profil écrits dans la page (le JS les redessine à l'identique) : la liste ne saute pas au chargement
-const profileButtons = S.PROFILES.map(p => `<button type="button" class="opt" data-profile="${p.id}" aria-pressed="false"><span aria-hidden="true">${p.icon}</span>${esc(p.label)}</button>`).join('');
+const profileButtons = S.PROFILES.map(p => `<button type="button" class="opt" data-profile="${p.id}" aria-pressed="false">${icon(p.icon)}${esc(p.label)}</button>`).join('');
 for (const f of fs.readdirSync(path.join(ROOT, 'templates/pages'))) {
     if (!f.endsWith('.html')) continue;
     const html = fill(read(`templates/pages/${f}`), { ...commonVars, SELECTION_CARDS: selectionCards, NOSCRIPT_LIST: noscript, PROFILE_BUTTONS: profileButtons, GROUP_LINKS: groupLinks });

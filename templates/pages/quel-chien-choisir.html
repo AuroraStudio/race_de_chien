@@ -18,25 +18,24 @@
     <div class="h-[68px]" aria-hidden="true"></div>
 
     <main class="max-w-3xl mx-auto min-h-screen px-4 sm:px-6 pb-20">
-        <header class="pt-8 text-center">
-            <p class="text-4xl" aria-hidden="true">🧭</p>
-            <h1 class="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Quel chien est fait pour moi ?</h1>
-            <p class="mx-auto mt-2 max-w-xl text-slate-600">8 questions sur votre vie, 45 secondes, et les races les plus compatibles parmi {{COUNT}}, avec les raisons.</p>
+        <header id="quiz-intro" class="pt-8">
+            <h1 class="display">Quel chien est fait pour moi ?</h1>
+            <p class="mt-2 max-w-[60ch] text-[17px] text-slate-600">8 questions sur votre vie, et les races les plus compatibles parmi {{COUNT}}, avec les raisons.</p>
         </header>
 
         <section id="quiz" class="mt-8 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8" aria-live="polite">
             <div class="flex items-center justify-between text-xs font-semibold text-slate-500">
                 <span id="step-label">Question 1 sur 8</span>
-                <button id="back" type="button" class="invisible rounded-lg px-2 py-1 hover:bg-slate-100">← Précédente</button>
+                <button id="back" type="button" class="invisible inline-flex items-center gap-1 rounded-lg px-2 py-1 text-slate-600 hover:bg-slate-100 hover:text-slate-900">{{icon:arrow-left|h-4 w-4}}Précédente</button>
             </div>
-            <div class="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100"><div id="bar" class="h-full rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 transition-all" style="width:12.5%"></div></div>
+            <div class="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100"><div id="bar" class="h-full rounded-full bg-primary-600 transition-all" style="width:12.5%"></div></div>
             <h2 id="question" class="mt-6 text-xl font-bold text-slate-900 sm:text-2xl"></h2>
             <p id="help" class="mt-1 text-sm text-slate-500"></p>
             <div id="answers" class="mt-5 grid gap-3 sm:grid-cols-2"></div>
             <div id="next-wrap" class="mt-5 hidden text-right"><button id="next" type="button" class="rounded-xl bg-primary-600 px-5 py-3 text-sm font-bold text-white hover:bg-primary-700">Continuer</button></div>
         </section>
 
-        <section id="results" class="mt-8 hidden" aria-labelledby="results-title">
+        <section id="results" class="mt-8 hidden scroll-mt-24" aria-labelledby="results-title">
             <div class="rounded-3xl bg-slate-900 p-6 text-white sm:p-8">
                 <h2 id="results-title" class="text-2xl font-extrabold">Vos races les plus compatibles</h2>
                 <p id="summary" class="mt-2 text-sm text-slate-300"></p>
@@ -46,7 +45,7 @@
                     <button id="restart" type="button" class="rounded-xl border border-white/30 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/10">Recommencer le test</button>
                 </div>
             </div>
-            <ol id="top" class="mt-6 grid gap-4 sm:grid-cols-2"></ol>
+            <ol id="top" class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2"></ol>
             <p class="mt-6 text-center text-sm text-slate-500">Un chien reste un individu : la race donne une tendance. Rencontrez des chiens de la race et parlez à des éleveurs ou à des refuges avant de décider.</p>
         </section>
     </main>

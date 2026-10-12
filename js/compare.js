@@ -45,7 +45,7 @@
             $('table').innerHTML = '';
             $('empty').classList.remove('hidden');
             const sugg = breeds.filter(b => b.lof?.['2025']).sort((a, b) => b.lof['2025'] - a.lof['2025']).slice(0, 8);
-            $('suggest').innerHTML = sugg.map(b => `<button type="button" class="opt" data-add="${b.slug}">+ ${esc(b.name_fr)}</button>`).join('');
+            $('suggest').innerHTML = sugg.map(b => `<button type="button" class="opt" data-add="${b.slug}">${window.RDCIcon('plus')}${esc(b.name_fr)}</button>`).join('');
             return;
         }
         $('empty').classList.add('hidden');
@@ -53,7 +53,7 @@
         const head = list.map(b => `
             <th scope="col" class="min-w-[180px] p-3 align-top">
                 <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white">
-                    <div class="aspect-[4/3] bg-slate-100">${b.image ? `<img src="/${b.image.url.replace(/\.jpg$/, '-480.webp')}" alt="" class="h-full w-full object-cover">` : '<div class="flex h-full items-center justify-center text-4xl">🐾</div>'}</div>
+                    <div class="aspect-[4/3] bg-slate-100">${b.image ? `<img src="/${b.image.url.replace(/\.jpg$/, '-480.webp')}" alt="" class="h-full w-full object-cover">` : `<div class="flex h-full items-center justify-center text-slate-400">${window.RDCIcon('paw-print', 'h-10 w-10')}</div>`}</div>
                     <div class="flex items-start justify-between gap-2 p-3 text-left">
                         <div class="min-w-0">
                             <a href="/races/${b.slug}" class="font-bold text-slate-900 hover:text-primary-700">${esc(b.name_fr)}</a>
@@ -75,7 +75,7 @@
         ];
         const factRows = facts.map(([label, f]) => `<tr class="border-t border-slate-200"><th scope="row" class="px-3 py-2.5 text-left text-sm font-medium text-slate-600">${label}</th>${list.map(b => `<td class="px-3 py-2.5 text-sm font-semibold text-slate-900">${f(b)}</td>`).join('')}</tr>`).join('');
         const scoreRows = ROWS.map(([group, rows]) => `
-            <tr><th colspan="${cols + 1}" class="px-3 pb-1 pt-6 text-left text-xs font-bold uppercase tracking-wider text-slate-500">${group}</th></tr>
+            <tr><th colspan="${cols + 1}" class="px-3 pb-1 pt-6 text-left text-[13px] font-semibold text-slate-600">${group}</th></tr>
             ${rows.map(([k, label, reverse]) => {
                 const vals = list.map(b => b.scores[k]);
                 const best = reverse === null || cols < 2 ? null : (reverse ? Math.min(...vals) : Math.max(...vals));

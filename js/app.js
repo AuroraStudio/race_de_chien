@@ -5,11 +5,11 @@
     const COMPARE_KEY = 'rdc-compare';
     const COAT_OPTIONS = ['Court', 'Moyen', 'Long', 'Sans poil'];
     const RYTHME_LEVELS = [
-        { v: 1, icon: '🛋️', label: 'Canapé', desc: 'Grand pantouflard : de courtes sorties, 30 à 45 minutes par jour.' },
-        { v: 2, icon: '🚶', label: 'Calme', desc: 'Plutôt calme : des balades tranquilles, environ 45 minutes par jour.' },
-        { v: 3, icon: '🌳', label: 'Modéré', desc: 'Équilibré : une belle promenade et des jeux, environ 1 heure par jour.' },
-        { v: 4, icon: '🥾', label: 'Actif', desc: 'Actif : de longues sorties et des randonnées, environ 1 h 30 par jour.' },
-        { v: 5, icon: '🏃', label: 'Sportif', desc: 'Sportif : course, canicross, vélo, 2 heures et plus par jour.' }
+        { v: 1, icon: 'couch', label: 'Canapé', desc: 'Grand pantouflard : de courtes sorties, 30 à 45 minutes par jour.' },
+        { v: 2, icon: 'person-simple-walk', label: 'Calme', desc: 'Plutôt calme : des balades tranquilles, environ 45 minutes par jour.' },
+        { v: 3, icon: 'tree', label: 'Modéré', desc: 'Équilibré : une belle promenade et des jeux, environ 1 heure par jour.' },
+        { v: 4, icon: 'boot', label: 'Actif', desc: 'Actif : de longues sorties et des randonnées, environ 1 h 30 par jour.' },
+        { v: 5, icon: 'person-simple-run', label: 'Sportif', desc: 'Sportif : course, canicross, vélo, 2 heures et plus par jour.' }
     ];
     const ENTRETIEN = [{ v: 0, label: 'Peu importe' }, { v: 2, label: 'Faible' }, { v: 3, label: 'Moyen au plus' }];
 
@@ -19,6 +19,7 @@
     let lastResults = [];
     let compare = readCompare();
     const $ = id => document.getElementById(id);
+    const ic = (n, c) => window.RDCIcon(n, c);
     const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
     function readCompare() {
@@ -41,7 +42,7 @@
 
     function renderProfiles() {
         $('profiles').innerHTML = S.PROFILES.map(p =>
-            `<button type="button" class="opt" data-profile="${p.id}" aria-pressed="${pressed(p.is(state))}"><span aria-hidden="true">${p.icon}</span>${esc(p.label)}</button>`
+            `<button type="button" class="opt" data-profile="${p.id}" aria-pressed="${pressed(p.is(state))}">${ic(p.icon)}${esc(p.label)}</button>`
         ).join('');
     }
 
@@ -54,7 +55,7 @@
                 </div>
             </div>`).join('');
         $('rythme').innerHTML = RYTHME_LEVELS.map(l =>
-            `<button type="button" class="seg !px-0 flex flex-col items-center gap-0.5" data-rythme="${l.v}" aria-pressed="${pressed(state.rythme === l.v)}" title="${esc(S.RYTHME[l.v])}"><span class="text-lg leading-none" aria-hidden="true">${l.icon}</span><span class="text-[11px]">${l.label}</span></button>`).join('');
+            `<button type="button" class="seg !px-0 flex flex-col items-center gap-0.5" data-rythme="${l.v}" aria-pressed="${pressed(state.rythme === l.v)}" title="${esc(S.RYTHME[l.v])}">${ic(l.icon, 'h-5 w-5')}<span class="text-[11px]">${l.label}</span></button>`).join('');
         $('rythme-label').textContent = state.rythme ? RYTHME_LEVELS[state.rythme - 1].desc : 'Peu importe. Touchez un niveau pour classer les races selon leur énergie.';
         $('soft').innerHTML = Object.entries(S.SOFT).map(([key, c]) =>
             `<button type="button" class="opt" data-soft="${key}" aria-pressed="${pressed(state[key])}">${esc(c.label)}</button>`).join('');
@@ -76,7 +77,7 @@
             const on = state.sizes.includes(z.id);
             const n = countWith({ sizes: [z.id] });
             return `<button type="button" class="seg !px-0.5 border border-slate-200 bg-white ${n === 0 && !on ? 'opacity-40' : ''}" data-size="${z.id}" aria-pressed="${pressed(on)}" title="${z.hint}">
-                <span class="block">${z.label}</span><span class="block text-[10px] text-slate-400">${n}</span></button>`;
+                <span class="block">${z.label}</span><span class="block text-[11px] text-slate-500">${n}</span></button>`;
         }).join('');
         $('coats').innerHTML = COAT_OPTIONS.map(c => {
             const on = state.coats.includes(c);
@@ -100,7 +101,7 @@
             const on = state.groups.includes(g);
             const n = countWith({ groups: [g] });
             return `<button type="button" class="flex items-center justify-between rounded-lg px-3 py-2 text-left text-sm ${on ? 'bg-primary-600 text-white' : 'bg-white text-slate-700 hover:bg-primary-50'} border ${on ? 'border-primary-600' : 'border-slate-200'} ${n === 0 && !on ? 'opacity-40' : ''}" data-group="${g}" aria-pressed="${pressed(on)}">
-                <span>${g ? `<span class="mr-1.5 font-semibold">${g}</span>` : ''}${esc(l)}</span><span class="text-xs ${on ? 'text-white/80' : 'text-slate-400'}">${n}</span></button>`;
+                <span>${g ? `<span class="mr-1.5 font-semibold">${g}</span>` : ''}${esc(l)}</span><span class="text-xs tabular-nums ${on ? 'text-white/80' : 'text-slate-500'}">${n}</span></button>`;
         }).join('');
     }
 
@@ -131,7 +132,7 @@
         return `${base}-480.webp 480w, ${base}-768.webp 768w, ${base}.webp ${b.image.width}w`;
     }
     function gauge(v) {
-        return `<span class="gauge" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= v ? 'on' : ''}"></i>`).join('')}</span>`;
+        return `<span class="gauge" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= v ? 'on' : ''}"></i>`).join('')}</span><span class="sr-only">${v} sur 5</span>`;
     }
 
     // Score de compatibilité, posé à côté du nom : la photo reste entièrement lisible
@@ -145,14 +146,14 @@
     function card(r, i) {
         const b = r.breed;
         const img = b.image
-            ? `<picture><source srcset="${srcset(b)}" sizes="(min-width: 1024px) 330px, (min-width: 640px) 45vw, 38vw" type="image/webp"><img src="/${b.image.url}" alt="${esc(b.name_fr)}" width="${b.image.width}" height="${b.image.height}" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:static" ${i < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`
-            : `<div class="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-gradient-to-br sm:static sm:h-full from-primary-50 via-white to-secondary-50 text-slate-400"><span class="text-3xl sm:text-5xl" aria-hidden="true">🐾</span><span class="text-[10px] font-semibold uppercase tracking-wider sm:text-xs">Photo à venir</span></div>`;
+            ? `<picture><source srcset="${srcset(b)}" sizes="(min-width: 1024px) 330px, (min-width: 640px) 45vw, 38vw" type="image/webp"><img src="/${b.image.url}" alt="" width="${b.image.width}" height="${b.image.height}" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:static" ${i < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`
+            : `<div class="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-slate-100 text-slate-400 sm:static sm:h-full">${ic('paw-print', 'h-8 w-8 sm:h-10 sm:w-10')}<span class="text-[11px] font-medium text-slate-500 sm:text-xs">Photo à venir</span></div>`;
         const rank = b.lof?.['2025'] && b.lofRank && b.lofRank <= 30 ? `<span class="font-semibold text-primary-700">${b.lofRank === 1 ? '1re' : b.lofRank + 'e'} race en France</span>` : '';
-        const isNew = b.is_new ? '<span class="rounded-md bg-slate-900 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">Nouveau</span>' : '';
-        const reasons = r.reasons.slice(0, 4).map(x => `<span class="${x.ok ? 'chip-ok' : 'chip-ko'}">${x.ok ? '✓ ' : ''}${esc(x.text)}</span>`).join('');
+        const isNew = b.is_new ? '<span class="rounded-md bg-slate-900 px-1.5 py-0.5 text-[11px] font-semibold text-white">Nouveau</span>' : '';
+        const reasons = r.reasons.slice(0, 4).map(x => `<span class="${x.ok ? 'chip-ok' : 'chip-ko'}">${ic(x.ok ? 'check' : 'warning-circle')}${esc(x.text)}</span>`).join('');
         const law = b.legal_category ? `<span class="chip-law">Catégorie ${esc(b.legal_category)}</span>` : '';
         const inCmp = compare.includes(b.slug);
-        return `<li class="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover">
+        return `<li class="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover rise" style="--i:${i % PAGE}">
             <a href="/races/${b.slug}" class="flex flex-1 sm:block">
                 <div class="relative m-2.5 mr-0 aspect-[4/3] w-[40%] shrink-0 self-start overflow-hidden rounded-xl bg-slate-100 sm:m-0 sm:w-auto sm:rounded-none">${img}</div>
                 <div class="min-w-0 flex-1 p-3 sm:p-4">
@@ -161,7 +162,7 @@
                         ${scoreBadge(r.pct)}
                     </div>
                     <p class="mt-0.5 text-xs text-slate-500 sm:text-sm">${esc(b.origin || '')}${b.fci?.group ? ` · ${esc(S.FCI_GROUPS[b.fci.group])}` : ''}</p>
-                    <dl class="mt-2.5 grid grid-cols-3 gap-2 text-[10px] text-slate-500 sm:mt-3 sm:gap-3 sm:text-[11px]">
+                    <dl class="mt-2.5 grid grid-cols-3 gap-2 text-[11px] text-slate-500 sm:mt-3 sm:gap-3">
                         <div><dt class="mb-1">Énergie</dt><dd>${gauge(b.scores.energie)}</dd></div>
                         <div><dt class="mb-1">Enfants</dt><dd>${gauge(b.scores.enfants)}</dd></div>
                         <div><dt class="mb-1">Entretien</dt><dd>${gauge(b.scores.entretien_pelage)}</dd></div>
@@ -198,7 +199,10 @@
         $('count').textContent = results.length;
         $('apply-count').textContent = results.length;
         const hints = { compat: 'classées par compatibilité avec votre vie', popularite: 'classées par popularité en France (LOF 2025)', nom: 'classées par nom', taille: 'de la plus petite à la plus grande', vie: 'de la plus longue espérance de vie à la plus courte' };
-        $('sort-hint').textContent = hints[sort] + (scored ? ` · ${good} à 75 % ou plus` : '');
+        const hidden = !state.nonfci && !state.q ? breeds.filter(b => b.fci?.recognized === false && S.passesHard(b, { ...state, nonfci: true })).length : 0;
+        // Version courte sur mobile : l'en-tête des résultats reste collé en haut de l'écran
+        $('sort-hint').innerHTML = `<span class="hidden sm:inline">${esc(hints[sort])}${scored ? `, ${good} races à 75 % ou plus` : ''}</span><span class="sm:hidden">${scored ? `${good} races à 75 % ou plus` : esc(hints[sort])}</span>`
+            + (hidden ? ` · ${hidden} non reconnues masquées <button type="button" data-toggle="nonfci" class="font-semibold text-primary-700 underline underline-offset-2 hover:text-primary-800">Afficher</button>` : '');
         $('sort').value = state.sort;
 
         const chips = activeChips(criteria);
@@ -222,6 +226,7 @@
         } else {
             empty.classList.add('hidden');
             grid.innerHTML = results.slice(0, shown).map(card).join('');
+            placeInterlude();
         }
         renderMore();
 
@@ -230,6 +235,18 @@
             const qs = S.toQuery(state);
             history.replaceState(null, '', qs ? `/?${qs}` : '/');
         }
+    }
+
+    // Sélections, groupes et méthode : insérés dans la liste après les 24 premières races,
+    // sinon le chargement automatique les repousserait tout en bas
+    function placeInterlude() {
+        const tpl = $('interlude');
+        const grid = $('grid');
+        if (!tpl || grid.querySelector('.interlude')) return;
+        const cards = grid.children;
+        const node = tpl.content.firstElementChild.cloneNode(true);
+        if (cards.length > PAGE) cards[PAGE - 1].after(node);
+        else grid.append(node);
     }
 
     // ---------- Chargement automatique au défilement ----------
@@ -248,7 +265,8 @@
         if (shown >= lastResults.length) return;
         const from = shown;
         shown += PAGE;
-        $('grid').insertAdjacentHTML('beforeend', lastResults.slice(from, shown).map(card).join(''));
+        $('grid').insertAdjacentHTML('beforeend', lastResults.slice(from, shown).map((r, k) => card(r, from + k)).join(''));
+        placeInterlude();
         renderMore();
     }
 
@@ -293,7 +311,7 @@
         $('compare-thumbs').innerHTML = compare.map(slug => {
             const b = breeds.find(x => x.slug === slug);
             return b?.image ? `<img src="/${b.image.url.replace(/\.jpg$/, '-480.webp')}" alt="" class="h-9 w-9 rounded-full border-2 border-white object-cover">`
-                : `<span class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-primary-100 text-xs">🐾</span>`;
+                : `<span class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-slate-100 text-slate-400">${ic('paw-print', 'h-4 w-4')}</span>`;
         }).join('');
     }
 

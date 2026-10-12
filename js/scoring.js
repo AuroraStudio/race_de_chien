@@ -82,18 +82,18 @@
 
     // Profils en un clic : raccourcis qui positionnent l'état
     const PROFILES = [
-        { id: 'pantouflard', label: 'Pantouflard', icon: '🛋️', set: { rythme: 1 }, is: s => s.rythme === 1 || s.rythme === 2 },
-        { id: 'sportif', label: 'Sportif', icon: '🏃', set: { rythme: 5 }, is: s => s.rythme >= 4 },
-        { id: 'appartement', label: 'Appartement', icon: '🏢', set: { logement: 'appart' }, is: s => s.logement === 'appart' },
-        { id: 'enfants', label: 'Jeunes enfants', icon: '👶', set: { enfants: 'jeunes' }, is: s => s.enfants === 'jeunes' },
-        { id: 'premier', label: 'Premier chien', icon: '🐣', set: { experience: 'premier' }, is: s => s.experience === 'premier' },
-        { id: 'allergies', label: 'Allergies', icon: '🤧', set: { hypo: true }, is: s => s.hypo },
-        { id: 'discret', label: 'Discret', icon: '🤫', set: { discret: true }, is: s => s.discret },
-        { id: 'travail', label: 'Je travaille la journée', icon: '⏰', set: { seul: 'long' }, is: s => s.seul === 'long' },
-        { id: 'chat', label: 'Vit avec un chat', icon: '🐱', set: { chat: true }, is: s => s.chat },
-        { id: 'senior', label: 'Senior, vie calme', icon: '🧓', set: { rythme: 2, experience: 'premier', sizes: [1, 2, 3] }, is: s => s.rythme === 2 && s.experience === 'premier' },
-        { id: 'chaleur', label: 'Supporte la chaleur', icon: '☀️', set: { chaleur: true }, is: s => s.chaleur },
-        { id: 'francaises', label: 'Races françaises', icon: '🇫🇷', set: { france: true }, is: s => s.france }
+        { id: 'pantouflard', label: 'Pantouflard', icon: 'couch', set: { rythme: 1 }, is: s => s.rythme === 1 || s.rythme === 2 },
+        { id: 'sportif', label: 'Sportif', icon: 'person-simple-run', set: { rythme: 5 }, is: s => s.rythme >= 4 },
+        { id: 'appartement', label: 'Appartement', icon: 'buildings', set: { logement: 'appart' }, is: s => s.logement === 'appart' },
+        { id: 'enfants', label: 'Jeunes enfants', icon: 'baby', set: { enfants: 'jeunes' }, is: s => s.enfants === 'jeunes' },
+        { id: 'premier', label: 'Premier chien', icon: 'plant', set: { experience: 'premier' }, is: s => s.experience === 'premier' },
+        { id: 'allergies', label: 'Allergies', icon: 'broom', set: { hypo: true }, is: s => s.hypo },
+        { id: 'discret', label: 'Discret', icon: 'speaker-simple-slash', set: { discret: true }, is: s => s.discret },
+        { id: 'travail', label: 'Je travaille la journée', icon: 'clock', set: { seul: 'long' }, is: s => s.seul === 'long' },
+        { id: 'chat', label: 'Vit avec un chat', icon: 'cat', set: { chat: true }, is: s => s.chat },
+        { id: 'senior', label: 'Senior, vie calme', icon: 'armchair', set: { rythme: 2, experience: 'premier', sizes: [1, 2, 3] }, is: s => s.rythme === 2 && s.experience === 'premier' },
+        { id: 'chaleur', label: 'Supporte la chaleur', icon: 'sun', set: { chaleur: true }, is: s => s.chaleur },
+        { id: 'francaises', label: 'Races françaises', icon: 'flag', set: { france: true }, is: s => s.france }
     ];
 
     function emptyState() {
@@ -156,7 +156,8 @@
         if (state.france && b.country_code !== 'FR') return false;
         if (state.groups.length && !state.groups.includes(b.fci?.group || 0)) return false;
         if (state.nocat && b.legal_category) return false;
-        if (!state.nonfci && b.fci && b.fci.recognized === false) return false;
+        // Les races non reconnues par la FCI sont masquées par défaut, sauf quand on les cherche par leur nom
+        if (!state.nonfci && !state.q && b.fci && b.fci.recognized === false) return false;
         return true;
     }
 

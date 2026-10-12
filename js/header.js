@@ -32,7 +32,9 @@ function renderHeader() {
     const path = location.pathname.replace(/\/$/, '') || '/';
     const navItem = l => `<a href="${l.href}" class="text-sm font-medium ${path === l.href ? 'text-primary-600' : 'text-slate-600 hover:text-primary-600'} transition-colors"${path === l.href ? ' aria-current="page"' : ''}>${l.label}</a>`;
 
+    const ic = (n, c) => (window.RDCIcon ? window.RDCIcon(n, c) : '');
     const headerHTML = `
+        <a href="#contenu" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[70] focus:rounded-xl focus:bg-white focus:px-4 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-primary-700 focus:shadow-lg">Aller au contenu</a>
         <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200">
             <div class="max-w-[1600px] mx-auto px-4 sm:px-6 py-3">
                 <div class="flex items-center justify-between gap-4">
@@ -48,25 +50,25 @@ function renderHeader() {
                     </a>
 
                     <div class="hidden xl:flex flex-1 justify-center px-6 min-w-0">
-                        <p class="text-sm text-slate-400 italic text-center leading-snug" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:520px;">« ${quote} »</p>
+                        <p class="text-sm text-slate-500 italic text-center leading-snug" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:520px;">«&nbsp;${quote}&nbsp;»</p>
                     </div>
 
                     <nav class="hidden md:flex items-center gap-6 shrink-0" aria-label="Navigation principale">
                         ${NAV_LINKS.map(navItem).join('')}
-                        <a href="/tel-maitre-tel-chien" class="relative text-sm font-semibold px-3 py-1.5 rounded-lg bg-white transition-shadow hover:shadow-lg"><span aria-hidden="true" style="position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:linear-gradient(135deg,#3b82f6,#9333ea);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></span><span class="gradient-text">📸 Tel Maître, Tel Chien</span></a>
+                        <a href="/tel-maitre-tel-chien" class="inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-sm font-semibold transition-colors ${path === '/tel-maitre-tel-chien' ? 'border-primary-600 bg-primary-600 text-white' : 'border-primary-200 bg-primary-50 text-primary-700 hover:border-primary-300 hover:bg-primary-100'}"${path === '/tel-maitre-tel-chien' ? ' aria-current="page"' : ''}>${ic('camera', 'h-[18px] w-[18px]')}Tel Maître, Tel Chien</a>
                     </nav>
 
-                    <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-primary-600" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    <button id="mobile-menu-btn" class="md:hidden -mr-2 flex h-11 w-11 items-center justify-center rounded-xl text-slate-700 hover:bg-slate-100" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
+                        ${ic('list', 'h-6 w-6')}
                     </button>
                 </div>
             </div>
 
             <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100">
                 <nav class="px-6 py-4 space-y-3" aria-label="Navigation mobile">
-                    ${NAV_LINKS.map(l => `<a href="${l.href}" class="block text-sm font-medium text-slate-700 hover:text-primary-600">${l.label}</a>`).join('')}
-                    <a href="/tel-maitre-tel-chien" class="block text-sm font-bold text-primary-600">📸 Tel Maître, Tel Chien</a>
-                    <p class="text-xs text-slate-400 italic pt-2 border-t border-slate-100">« ${quote} »</p>
+                    ${NAV_LINKS.map(l => `<a href="${l.href}" class="block py-1 text-[15px] font-medium text-slate-800 hover:text-primary-600">${l.label}</a>`).join('')}
+                    <a href="/tel-maitre-tel-chien" class="flex items-center gap-2 py-1 text-[15px] font-semibold text-primary-700">${ic('camera', 'h-5 w-5')}Tel Maître, Tel Chien</a>
+                    <p class="text-sm text-slate-500 italic pt-3 border-t border-slate-100">«&nbsp;${quote}&nbsp;»</p>
                 </nav>
             </div>
         </header>
@@ -75,6 +77,13 @@ function renderHeader() {
     document.querySelectorAll('.site-header').forEach(el => {
         el.innerHTML = headerHTML;
     });
+    // Cible du lien « Aller au contenu »
+    const main = document.querySelector('main');
+    if (main) {
+        if (!main.id) main.id = 'contenu';
+        main.setAttribute('tabindex', '-1');
+        document.querySelector('a[href="#contenu"]')?.setAttribute('href', '#' + main.id);
+    }
 
     setupMobileMenu();
 }
