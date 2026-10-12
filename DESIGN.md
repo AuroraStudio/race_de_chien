@@ -290,7 +290,7 @@ Une base ardoise froide, un bleu d'action franc et trois couleurs de verdict ré
 
 ## Layout
 
-Deux largeurs. Les pages d'outil (accueil) vont jusqu'à container-app (1600 px), avec une colonne de filtres de 300 px collante à 84 px du haut sur ordinateur et une grille de cartes à 1, 2, 3 puis 4 colonnes (640, 1280, 1536 px), espacées de card-gap. Les pages de lecture (fiche, sélection, groupe) tiennent dans container-read (1152 px) ; la fiche passe en deux colonnes à 1024 px, texte à gauche, « En bref » collant de 340 px à droite (en tête sur téléphone). Marges latérales gutter.
+Deux largeurs. Les pages d'outil (accueil) vont jusqu'à container-app (1600 px), en trois zones : un bandeau d'entrée blanc pleine largeur (titre, recherche, portes, profils en un clic), puis sur le fond page un panneau de filtres blanc de 340 px, arrondi à 24 px et collant à 92 px du haut sur ordinateur et une grille de cartes à 1, 2, 3 puis 4 colonnes (640, 1280, 1536 px), espacées de card-gap. Les pages de lecture (fiche, sélection, groupe) tiennent dans container-read (1152 px) ; la fiche passe en deux colonnes à 1024 px, texte à gauche, « En bref » collant de 340 px à droite (en tête sur téléphone). Marges latérales gutter.
 
 Sur téléphone, les filtres deviennent une feuille plein écran avec barre d'action en bas, la barre de résultats colle sous l'en-tête (68 px) en fond page translucide, les profils défilent horizontalement sans barre, et la carte de race passe en ligne : photo à 40 % à gauche (coins card intérieurs), texte à droite. Les sections d'une page de lecture sont séparées de section (56 px). La liste se charge au défilement ; un panneau sombre (intermède) s'insère dans la grille sur toute la largeur.
 
