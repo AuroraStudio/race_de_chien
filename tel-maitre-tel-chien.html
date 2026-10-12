@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/css/site.css?v=74ac1f4c38">
+    <link rel="stylesheet" href="/css/site.css?v=b0c54a81df">
     <script src="/js/icons.js?v=6757305099" defer></script>
     <meta name="theme-color" content="#2563eb">
 
@@ -89,7 +89,7 @@
             font-weight: 800;
             font-size: 1.5rem;
             padding: 8px 20px;
-            border-radius: 50px;
+            border-radius: 9999px;
             display: inline-block;
         }
 
@@ -104,7 +104,7 @@
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 0.85rem;
+            font-size: 0.8125rem;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -140,8 +140,8 @@
             background: #eff6ff;
             border: 1px solid #bfdbfe;
             padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.8125rem;
             font-weight: 600;
             color: #1e40af;
         }
@@ -198,7 +198,7 @@
                     <button id="btn-webcam" onclick="startWebcam()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-colors">
                         <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,56H180.28L166.65,35.56A8,8,0,0,0,160,32H96a8,8,0,0,0-6.65,3.56L75.71,56H48A24,24,0,0,0,24,80V192a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V80A24,24,0,0,0,208,56Zm8,136a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H80a8,8,0,0,0,6.66-3.56L100.28,48h55.43l13.63,20.44A8,8,0,0,0,176,72h32a8,8,0,0,1,8,8ZM128,88a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,88Zm0,72a28,28,0,1,1,28-28A28,28,0,0,1,128,160Z"/></svg> Prendre un selfie
                     </button>
-                    <button id="btn-upload" onclick="document.getElementById('file-input').click()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-xl transition-all hover:-translate-y-0.5 border border-slate-200 shadow-sm">
+                    <button id="btn-upload" onclick="document.getElementById('file-input').click()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-xl transition-colors border border-slate-200 shadow-sm">
                         <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V158.75l-26.07-26.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L40,149.37V56ZM40,172l52-52,80,80H40Zm176,28H194.63l-36-36,20-20L216,181.38V200ZM144,100a12,12,0,1,1,12,12A12,12,0,0,1,144,100Z"/></svg> Importer une photo
                     </button>
                     <input type="file" id="file-input" accept="image/*" class="hidden" onchange="handleFileUpload(event)">
@@ -206,7 +206,7 @@
 
                 <!-- Webcam capture button (shown when webcam is active) -->
                 <div id="webcam-controls" class="hidden flex items-center justify-center gap-3 mt-5">
-                    <button onclick="captureWebcam()" class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-colors text-lg">
+                    <button onclick="captureWebcam()" class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl transition-colors text-lg">
                         <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm0-160a72,72,0,1,0,72,72A72.08,72.08,0,0,0,128,56Zm0,128a56,56,0,1,1,56-56A56.06,56.06,0,0,1,128,184Z"/></svg> Capturer
                     </button>
                     <button onclick="stopWebcam()" class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-xl transition-all">

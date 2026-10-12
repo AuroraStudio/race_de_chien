@@ -50,7 +50,7 @@
         const cur = answers[st.key];
         $('answers').innerHTML = st.answers.map(([v, icon, label]) => {
             const on = st.multi ? (cur || []).includes(v) : cur === v;
-            return `<button type="button" data-v="${v}" aria-pressed="${on}" class="flex items-center gap-3 rounded-2xl border-2 px-4 py-4 text-left text-[15px] font-semibold transition-colors ${on ? 'border-primary-600 bg-primary-50 text-primary-900' : 'border-slate-200 bg-white text-slate-800 hover:border-primary-300'}"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${on ? 'bg-primary-600 text-white' : 'bg-slate-100 text-slate-600'}">${answerIcon(icon)}</span>${esc(label)}</button>`;
+            return `<button type="button" data-v="${v}" aria-pressed="${on}" class="flex items-center gap-3 rounded-xl border-2 px-4 py-4 text-left text-[15px] font-semibold transition-colors ${on ? 'border-primary-600 bg-primary-50 text-primary-900' : 'border-slate-200 bg-white text-slate-800 hover:border-primary-300'}"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${on ? 'bg-primary-600 text-white' : 'bg-slate-100 text-slate-600'}">${answerIcon(icon)}</span>${esc(label)}</button>`;
         }).join('');
         $('next-wrap').classList.toggle('hidden', !st.multi);
         $('answers').querySelector('button')?.focus({ preventScroll: true });

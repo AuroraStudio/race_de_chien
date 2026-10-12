@@ -581,11 +581,11 @@ function breedPage(b) {
                         <div class="mt-4 grid items-start gap-4 sm:grid-cols-2">
                             <div class="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-5">
                                 <p class="font-bold text-emerald-900">Idéal pour</p>
-                                <ul class="mt-2 space-y-1.5 text-sm text-emerald-950">${(who.yes.length ? who.yes : ['un maître qui connaît bien la race']).map(x => `<li class="flex gap-2">${icon('check', 'mt-0.5 h-4 w-4 shrink-0 text-emerald-700')}<span>${esc(x)}</span></li>`).join('')}</ul>
+                                <ul class="mt-2 space-y-1.5 text-sm text-emerald-800">${(who.yes.length ? who.yes : ['un maître qui connaît bien la race']).map(x => `<li class="flex gap-2">${icon('check', 'mt-0.5 h-4 w-4 shrink-0 text-emerald-700')}<span>${esc(x)}</span></li>`).join('')}</ul>
                             </div>
                             <div class="rounded-2xl border border-amber-200 bg-amber-50/60 p-5">
                                 <p class="font-bold text-amber-900">Moins adapté pour</p>
-                                <ul class="mt-2 space-y-1.5 text-sm text-amber-950">${(who.no.length ? who.no : ['peu de contre-indications : il s’adapte à beaucoup de foyers']).map(x => `<li class="flex gap-2">${icon('warning-circle', 'mt-0.5 h-4 w-4 shrink-0 text-amber-700')}<span>${esc(x)}</span></li>`).join('')}</ul>
+                                <ul class="mt-2 space-y-1.5 text-sm text-amber-800">${(who.no.length ? who.no : ['peu de contre-indications : il s’adapte à beaucoup de foyers']).map(x => `<li class="flex gap-2">${icon('warning-circle', 'mt-0.5 h-4 w-4 shrink-0 text-amber-700')}<span>${esc(x)}</span></li>`).join('')}</ul>
                             </div>
                         </div>
                     </section>

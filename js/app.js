@@ -209,7 +209,7 @@
         const active = $('active');
         active.classList.toggle('hidden', chips.length === 0);
         active.classList.toggle('flex', chips.length > 0);
-        active.innerHTML = chips.map((c, i) => `<button type="button" class="inline-flex items-center gap-1.5 rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-800 hover:bg-primary-100" data-chip="${i}">${esc(c.label)} <span aria-hidden="true">×</span><span class="sr-only">retirer</span></button>`).join('')
+        active.innerHTML = chips.map((c, i) => `<button type="button" class="inline-flex items-center gap-1.5 rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-800 hover:bg-primary-100" data-chip="${i}">${esc(c.label)}${ic('x', 'h-3.5 w-3.5')}<span class="sr-only">retirer</span></button>`).join('')
             + (chips.length > 1 ? '<button type="button" id="clear-all" class="text-xs font-semibold text-slate-500 underline hover:text-slate-800">Tout effacer</button>' : '');
         active._chips = chips;
         const ac = $('active-count');
