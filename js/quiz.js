@@ -127,6 +127,25 @@
         </li>`;
     }
 
+    // Classement du test : toutes les races à 60 % ou plus (au moins 24), chargées par paquets au défilement
+    const BATCH = 24;
+    let list = [], shownN = 0;
+    function showMore() {
+        if (shownN >= list.length) return;
+        const from = shownN;
+        shownN = Math.min(list.length, shownN + BATCH);
+        $('top').insertAdjacentHTML('beforeend', list.slice(from, shownN).map((r, k) => card(r, from + k + 1)).join(''));
+        renderMore();
+    }
+    function renderMore() {
+        const total = list.length + 1;
+        $('top-more').textContent = shownN < list.length ? `${shownN + 1} races affichées sur ${total}` : (total > 1 ? `Les ${total} races les plus compatibles sont affichées.` : '');
+        if (io && shownN < list.length) { io.unobserve($('top-more')); io.observe($('top-more')); }
+    }
+    const io = 'IntersectionObserver' in window
+        ? new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) showMore(); }, { rootMargin: '100000px 0px 800px 0px' })
+        : null;
+
     async function showResults() {
         await ready;
         const state = toState();
@@ -136,10 +155,15 @@
         $('results').classList.remove('hidden');
         const good = results.filter(r => r.pct >= 75).length;
         $('summary').textContent = results.length
-            ? `${good}\u00a0races dépassent 75\u00a0% de compatibilité avec vos réponses.${results.length > 1 ? ` Voici les ${Math.min(9, results.length - 1)} suivantes.` : ''}`
+            ? `${good}\u00a0races dépassent 75\u00a0% de compatibilité avec vos réponses. Le classement continue en dessous, jusqu’à 60\u00a0%.`
             : 'Aucune race ne remplit vos critères éliminatoires : élargissez la taille ou le critère des poils.';
         $('top-first').innerHTML = results.length ? featured(results[0]) : '';
-        $('top').innerHTML = results.slice(1, 10).map((r, k) => card(r, k + 1)).join('');
+        const rest = results.slice(1);
+        const above = rest.filter(r => r.pct >= 60).length;
+        list = rest.slice(0, Math.max(above, Math.min(BATCH, rest.length)));
+        shownN = 0;
+        $('top').innerHTML = '';
+        showMore();
         $('full-list').href = '/?' + S.toQuery(state);
         // Arrivée depuis une fiche : « Est-il fait pour moi ? »
         const race = new URLSearchParams(location.search).get('race');
