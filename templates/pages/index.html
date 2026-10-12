@@ -26,7 +26,7 @@
 
     <main id="races" class="max-w-[1600px] mx-auto px-4 sm:px-6">
         <section class="pt-8 pb-5" aria-labelledby="titre">
-            <h1 id="titre" class="max-w-3xl text-[34px] font-extrabold leading-[1.04] tracking-[-0.03em] text-slate-900 sm:text-5xl">Trouvez la race de chien <span class="text-primary-700">faite pour vous</span></h1>
+            <h1 id="titre" class="max-w-3xl text-[34px] leading-[1.04] tracking-[-0.03em] text-slate-900 sm:text-5xl"><span class="block font-medium">Trouvez la race de chien</span> <span class="block font-extrabold">faite pour vous</span></h1>
             <p class="mt-3 max-w-[60ch] text-[17px] leading-relaxed text-slate-600">{{COUNT}} races notées sur 20 critères. Dites-nous comment vous vivez : on classe les races et on vous dit pourquoi.</p>
 
             <div class="mt-5 flex flex-col gap-3 lg:flex-row lg:items-center">
@@ -154,7 +154,7 @@
                         <p class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm"><a href="/liste-des-races" class="inline-flex items-center gap-1.5 font-semibold text-white hover:underline">Toutes les races de A à Z{{icon:arrow-right|h-4 w-4}}</a><a href="/chiens-categorises" class="inline-flex items-center gap-1.5 font-semibold text-white hover:underline">Chiens de 1re et 2e catégorie{{icon:arrow-right|h-4 w-4}}</a></p>
                         <details class="mt-6 border-t border-white/10 pt-5">
                             <summary class="cursor-pointer text-sm font-semibold text-white">Comment les races sont notées</summary>
-                            <p class="mt-2 max-w-[70ch] text-sm leading-relaxed text-slate-400">Chaque race est notée de 1 à 5 sur 20 critères : énergie, enfants, chats, appartement, solitude, aboiements, éducation, perte de poils, chaleur… Les notes viennent des standards de la FCI, des clubs de race et de sources vétérinaires, relues race par race en octobre 2026 puis harmonisées pour être comparables. Le pourcentage indique à quel point une race répond à vos critères. Un chien reste un individu : la race donne une tendance, pas une garantie.</p>
+                            <p class="mt-2 max-w-[70ch] text-sm leading-relaxed text-slate-400">Chaque race est notée de 1 à 5 sur 20 critères : énergie, enfants, chats, appartement, solitude, aboiements, éducation, perte de poils, chaleur… Les notes viennent des standards de la FCI, des clubs de race et de sources vétérinaires, relues race par race en octobre 2026 puis harmonisées pour être comparables. Le pourcentage indique à quel point une race répond à vos critères. Les photos des races sont générées par intelligence artificielle, dans un même style studio, pour comparer les races à l’identique. Un chien reste un individu : la race donne une tendance, pas une garantie.</p>
                         </details>
                     </li>
                 </template>
@@ -174,8 +174,8 @@
     <div id="compare-bar" class="fixed inset-x-0 bottom-0 z-40 translate-y-full border-t border-slate-200 bg-white/95 backdrop-blur transition-transform" style="padding-bottom:env(safe-area-inset-bottom)">
         <div class="mx-auto flex max-w-[1600px] items-center justify-between gap-3 px-4 py-3 sm:px-6">
             <div class="flex min-w-0 items-center gap-3">
-                <div id="compare-thumbs" class="flex -space-x-2"></div>
-                <p class="truncate text-sm font-semibold text-slate-800"><span id="compare-n">0</span> sur 3 à comparer</p>
+                <div id="compare-thumbs" class="flex -space-x-3"></div>
+                <p class="whitespace-nowrap text-sm font-semibold text-slate-800"><span id="compare-n">0</span>&nbsp;sur&nbsp;3<span class="hidden sm:inline"> à comparer</span></p>
             </div>
             <div class="flex shrink-0 gap-2">
                 <button id="compare-clear" type="button" class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100">Vider</button>

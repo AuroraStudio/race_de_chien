@@ -148,7 +148,7 @@
         const img = b.image
             ? `<picture><source srcset="${srcset(b)}" sizes="(min-width: 1024px) 330px, (min-width: 640px) 45vw, 38vw" type="image/webp"><img src="/${b.image.url}" alt="" width="${b.image.width}" height="${b.image.height}" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:static" ${i < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`
             : `<div class="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-slate-100 text-slate-400 sm:static sm:h-full">${ic('paw-print', 'h-8 w-8 sm:h-10 sm:w-10')}<span class="text-[11px] font-medium text-slate-500 sm:text-xs">Photo à venir</span></div>`;
-        const rank = b.lof?.['2025'] && b.lofRank && b.lofRank <= 30 ? `<span class="font-semibold text-primary-700">${b.lofRank === 1 ? '1re' : b.lofRank + 'e'} race en France</span>` : '';
+        const rank = b.lof?.['2025'] && b.lofRank && b.lofRank <= 30 ? `<span class="font-medium text-slate-600">${b.lofRank === 1 ? '1re' : b.lofRank + 'e'}\u00a0race en France</span>` : '';
         const isNew = b.is_new ? '<span class="rounded-md bg-slate-900 px-1.5 py-0.5 text-[11px] font-semibold text-white">Nouveau</span>' : '';
         const reasons = r.reasons.slice(0, 4).map(x => `<span class="${x.ok ? 'chip-ok' : 'chip-ko'}">${ic(x.ok ? 'check' : 'warning-circle')}${esc(x.text)}</span>`).join('');
         const law = b.legal_category ? `<span class="chip-law">Catégorie ${esc(b.legal_category)}</span>` : '';

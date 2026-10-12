@@ -537,7 +537,7 @@ async function downloadResult() {
     ctx.fillStyle = '#1e293b';
     ctx.font = 'bold 42px Bricolage Grotesque, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('Tel Maître, Tel Chien 🐕', 540, 110);
+    ctx.fillText('Tel Maître, Tel Chien', 540, 110);
     
     // Load and draw images
     try {
@@ -660,8 +660,8 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
     ctx.fillText(line.trim(), x, y + lineCount * lineHeight);
 }
 
-// Sur un écran tactile, on ne parle ni de clic ni de glisser-déposer
-if (window.matchMedia && matchMedia('(pointer: coarse)').matches) {
+// Avec une souris, on propose aussi le glisser-déposer (le texte par défaut vaut pour les écrans tactiles)
+if (window.matchMedia && matchMedia('(pointer: fine)').matches) {
     const hint = document.getElementById('capture-hint');
-    if (hint) hint.textContent = 'Touchez ici ou utilisez les boutons ci-dessous';
+    if (hint) hint.innerHTML = 'Cliquez ici, <span class="whitespace-nowrap">glissez-déposez</span> une photo, ou utilisez les boutons <span class="whitespace-nowrap">ci-dessous</span>';
 }

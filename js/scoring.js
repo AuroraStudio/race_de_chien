@@ -48,16 +48,16 @@
             weight: 2,
             options: [
                 { id: 'aucun', label: 'Aucun', fit: null },
-                { id: 'grands', label: 'Plus de 8 ans', fit: b => clamp(b.scores.enfants / 4), yes: 'Enfants', no: 'Prudence enfants' },
+                { id: 'grands', label: 'Plus de 8\u00a0ans', fit: b => clamp(b.scores.enfants / 4), yes: 'Enfants', no: 'Prudence enfants' },
                 { id: 'jeunes', label: 'Jeunes enfants', fit: b => u(b, 'enfants'), yes: 'Jeunes enfants', no: 'Prudence enfants' }
             ]
         },
         seul: {
             label: 'Seul dans la journée',
             options: [
-                { id: 'court', label: 'Moins de 2 h', fit: null },
-                { id: 'moyen', label: '2 à 4 h', fit: b => clamp(b.scores.solitude / 4), yes: 'Supporte la solitude', no: 'N’aime pas rester seul' },
-                { id: 'long', label: '4 h et plus', fit: b => u(b, 'solitude'), yes: 'Supporte la solitude', no: 'N’aime pas rester seul' }
+                { id: 'court', label: 'Moins de 2\u00a0h', fit: null },
+                { id: 'moyen', label: '2 à 4\u00a0h', fit: b => clamp(b.scores.solitude / 4), yes: 'Supporte la solitude', no: 'N’aime pas rester seul' },
+                { id: 'long', label: '4\u00a0h et plus', fit: b => u(b, 'solitude'), yes: 'Supporte la solitude', no: 'N’aime pas rester seul' }
             ]
         },
         experience: {

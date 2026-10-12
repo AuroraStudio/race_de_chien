@@ -40,9 +40,24 @@ function stamp(p, html) {
     lastmod[p] = { h, d };
     return html.split(DATE_FR).join(d.split('-').reverse().join('/')).split(DATE).join(d);
 }
+// Typographie française : espace insécable avant : ; ? ! » et après «, entre un nombre et son unité.
+// Appliquée au texte des pages seulement, jamais dans les balises, les scripts ou les styles.
+function frTypo(html) {
+    let raw = false;
+    return html.split(/(<[^>]+>)/).map(part => {
+        if (part.startsWith('<')) {
+            if (/^<(script|style)\b/i.test(part)) raw = true;
+            else if (/^<\/(script|style)/i.test(part)) raw = false;
+            return part;
+        }
+        if (raw) return part;
+        return part.replace(/(\S) ([:;?!»])/g, '$1\u00a0$2').replace(/« /g, '«\u00a0')
+            .replace(/(\d) (h|min|minutes|ans|cm|kg|%)(?![\p{L}])/gu, '$1\u00a0$2');
+    }).join('');
+}
 const write = (p, s) => {
     fs.mkdirSync(path.dirname(path.join(ROOT, p)), { recursive: true });
-    fs.writeFileSync(path.join(ROOT, p), p.endsWith('.html') ? stamp(p, s) : s, 'utf8');
+    fs.writeFileSync(path.join(ROOT, p), p.endsWith('.html') ? stamp(p, frTypo(s)) : s, 'utf8');
     written.push(p);
 };
 const hash = p => crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, p))).digest('hex').slice(0, 10);
@@ -508,12 +523,12 @@ function breedPage(b) {
     }];
 
     const badges = [];
-    if (b.lofRank) badges.push(`<span class="rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-800">${ordinal(b.lofRank)} race en France · ${fmtInt(b.lof['2025'])} chiots LOF en 2025</span>`);
-    if (b.legal_category) badges.push(`<span class="rounded-full bg-red-50 px-3 py-1 text-xs font-semibold text-red-700">Chien de ${b.legal_category === '1' ? '1re' : '2e'} catégorie</span>`);
-    if (b.hypoallergenic) badges.push('<span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">Perd très peu de poils</span>');
-    if (b.fci?.recognized === false) badges.push('<span class="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800">Race non reconnue par la FCI</span>');
-    if (b.fci?.scc_only) badges.push('<span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">Reconnue par la SCC, pas encore par la FCI</span>');
-    if (b.fci?.provisional) badges.push('<span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">Reconnue à titre provisoire (FCI)</span>');
+    if (b.lofRank) badges.push(`<span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700">${ordinal(b.lofRank)} race en France · ${fmtInt(b.lof['2025'])} chiots LOF en 2025</span>`);
+    if (b.legal_category) badges.push(`<span class="rounded-md bg-red-50 px-2.5 py-1 text-xs font-semibold text-red-700">Chien de ${b.legal_category === '1' ? '1re' : '2e'} catégorie</span>`);
+    if (b.hypoallergenic) badges.push('<span class="rounded-md bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">Perd très peu de poils</span>');
+    if (b.fci?.recognized === false) badges.push('<span class="rounded-md bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-800">Race non reconnue par la FCI</span>');
+    if (b.fci?.scc_only) badges.push('<span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700">Reconnue par la SCC, pas encore par la FCI</span>');
+    if (b.fci?.provisional) badges.push('<span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700">Reconnue à titre provisoire (FCI)</span>');
 
     const facts = [
         ['Taille au garrot', range(p.height_cm?.min, p.height_cm?.max, 'cm')],
@@ -642,7 +657,7 @@ function breedPage(b) {
                 <section aria-labelledby="faq" class="max-w-3xl">
                     <h2 id="faq" class="text-2xl font-bold text-slate-900">Questions fréquentes sur ${esc(le(b.name_fr))}</h2>
                     <div class="mt-4 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
-                        ${faq(b).map(([q, a]) => `<div class="p-5"><h3 class="font-bold text-slate-900">${esc(q)}</h3><p class="mt-1.5 text-sm leading-relaxed text-slate-700">${a}</p></div>`).join('')}
+                        ${faq(b).map(([q, a]) => `<div class="p-5"><h3 class="font-bold text-slate-900">${esc(q).replace(/(\S+-(?:il|elle|on))\b/g, '<span class="whitespace-nowrap">$1</span>')}</h3><p class="mt-1.5 text-sm leading-relaxed text-slate-700">${a}</p></div>`).join('')}
                     </div>
                 </section>
             </div>
@@ -977,10 +992,14 @@ const selectionCards = SELECTIONS.map(s => {
 const groupLinks = Object.entries(GROUPS).map(([g, G]) => `<li><a href="/groupes/${G.slug}" class="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-2 text-sm font-medium text-slate-200 hover:border-white/40 hover:text-white">${esc(G.title)}<span class="tabular-nums text-slate-400">${groupBreeds(Number(g)).length}</span></a></li>`).join('');
 const noscript = breeds.map(b => `                            <li><a href="/races/${b.slug}">${esc(b.name_fr)}</a></li>`).join('\n');
 // Boutons de profil écrits dans la page (le JS les redessine à l'identique) : la liste ne saute pas au chargement
+// Tel Maître : cinq portraits de la collection en tête de page (le chien d'abord)
+const TM_SLUGS = ['golden-retriever', 'bouledogue-francais', 'berger-australien', 'cavalier-king-charles-spaniel', 'chihuahua'];
+const tmPortraits = TM_SLUGS.map(slug => breeds.find(b => b.slug === slug)).filter(b => b?.image).map((b, i) =>
+    `<li class="h-[60px] w-[80px] overflow-hidden rounded-xl bg-slate-200 ring-4 ring-slate-50 sm:h-[72px] sm:w-[96px] ${i % 2 ? 'translate-y-1.5' : ''}"><img src="/${b.image.url.replace(/\.jpg$/, '-480.webp')}" alt="${esc(b.name_fr)}" width="96" height="72" class="h-full w-full object-cover"></li>`).join('');
 const profileButtons = S.PROFILES.map(p => `<button type="button" class="opt" data-profile="${p.id}" aria-pressed="false">${icon(p.icon)}${esc(p.label)}</button>`).join('');
 for (const f of fs.readdirSync(path.join(ROOT, 'templates/pages'))) {
     if (!f.endsWith('.html')) continue;
-    const html = fill(read(`templates/pages/${f}`), { ...commonVars, SELECTION_CARDS: selectionCards, NOSCRIPT_LIST: noscript, PROFILE_BUTTONS: profileButtons, GROUP_LINKS: groupLinks });
+    const html = fill(read(`templates/pages/${f}`), { ...commonVars, SELECTION_CARDS: selectionCards, NOSCRIPT_LIST: noscript, PROFILE_BUTTONS: profileButtons, GROUP_LINKS: groupLinks, TM_PORTRAITS: tmPortraits });
     write(f, html);
 }
 

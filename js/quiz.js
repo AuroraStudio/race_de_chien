@@ -96,15 +96,14 @@
         const b = r.breed;
         const src = b.image ? '/' + b.image.url.replace(/\.jpg$/, '') : null;
         const img = src
-            ? `<picture><source srcset="${src}-480.webp 480w, ${src}-768.webp 768w" sizes="(min-width: 640px) 360px, 100vw" type="image/webp"><img src="/${b.image.url}" alt="" width="${b.image.width}" height="${b.image.height}" class="h-full w-full object-cover"></picture>`
+            ? `<picture><source srcset="${src}-480.webp 480w, ${src}-768.webp 768w" sizes="(min-width: 640px) 400px, calc(100vw - 32px)" type="image/webp"><img src="/${b.image.url}" alt="" width="${b.image.width}" height="${b.image.height}" class="h-full w-full object-cover"></picture>`
             : `<div class="flex h-full items-center justify-center bg-slate-100 text-slate-400">${window.RDCIcon('paw-print', 'h-12 w-12')}</div>`;
         const ok = r.reasons.filter(x => x.ok).slice(0, 4);
         const ko = [...r.reasons.filter(x => !x.ok).map(x => x.text), ...watchOuts(b)].slice(0, 3);
-        return `<li class="rise col-span-full overflow-hidden rounded-3xl border border-slate-200 bg-white sm:grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
-            <div class="aspect-[4/3] bg-slate-100 sm:aspect-auto">${img}</div>
+        return `<li class="rise overflow-hidden rounded-3xl border border-slate-200 bg-white sm:grid sm:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+            <div class="aspect-[16/10] bg-slate-100 sm:aspect-auto sm:min-h-[340px]">${img}</div>
             <div class="p-5 sm:p-7">
-                <p class="text-sm font-semibold text-primary-700">Votre meilleure correspondance</p>
-                <div class="mt-1 flex items-start justify-between gap-3"><h3 class="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl">${esc(b.name_fr)}</h3>${scoreBadge(r.pct)}</div>
+                <div class="flex items-start justify-between gap-3"><h3 class="display">${esc(b.name_fr)}</h3><span class="mt-2 shrink-0">${scoreBadge(r.pct)}</span></div>
                 ${ok.length ? `<p class="mt-4 text-sm font-semibold text-slate-900">Pourquoi</p><div class="mt-1.5 flex flex-wrap gap-1.5">${ok.map(chip).join('')}</div>` : ''}
                 ${ko.length ? `<p class="mt-4 text-sm font-semibold text-slate-900">À prévoir</p><div class="mt-1.5 flex flex-wrap gap-1.5">${ko.map(t => chip({ ok: false, text: t })).join('')}</div>` : ''}
                 <a href="/races/${b.slug}" class="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary-600 px-4 py-2.5 text-sm font-bold text-white hover:bg-primary-700">Voir la fiche${window.RDCIcon('arrow-right', 'h-4 w-4')}</a>
@@ -137,9 +136,10 @@
         $('results').classList.remove('hidden');
         const good = results.filter(r => r.pct >= 75).length;
         $('summary').textContent = results.length
-            ? `${good} races dépassent 75 % de compatibilité avec vos réponses. Voici les dix premières, avec ce qu’il faut prévoir.`
+            ? `${good}\u00a0races dépassent 75\u00a0% de compatibilité avec vos réponses.${results.length > 1 ? ` Voici les ${Math.min(9, results.length - 1)} suivantes.` : ''}`
             : 'Aucune race ne remplit vos critères éliminatoires : élargissez la taille ou le critère des poils.';
-        $('top').innerHTML = results.length ? featured(results[0]) + results.slice(1, 10).map((r, k) => card(r, k + 1)).join('') : '';
+        $('top-first').innerHTML = results.length ? featured(results[0]) : '';
+        $('top').innerHTML = results.slice(1, 10).map((r, k) => card(r, k + 1)).join('');
         $('full-list').href = '/?' + S.toQuery(state);
         // Arrivée depuis une fiche : « Est-il fait pour moi ? »
         const race = new URLSearchParams(location.search).get('race');
