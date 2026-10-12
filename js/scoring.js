@@ -101,7 +101,7 @@
             q: '', logement: null, enfants: null, seul: null, experience: null, rythme: 0,
             chat: false, chien: false, discret: false, chaleur: false, bave: false,
             sizes: [], coats: [], hypo: false, entretien: 0, france: false, groups: [],
-            nocat: false, nonfci: false, sort: 'auto'
+            nocat: false, sort: 'auto'
         };
     }
 
@@ -156,8 +156,6 @@
         if (state.france && b.country_code !== 'FR') return false;
         if (state.groups.length && !state.groups.includes(b.fci?.group || 0)) return false;
         if (state.nocat && b.legal_category) return false;
-        // Les races non reconnues par la FCI sont masquées par défaut, sauf quand on les cherche par leur nom
-        if (!state.nonfci && !state.q && b.fci && b.fci.recognized === false) return false;
         return true;
     }
 
@@ -199,7 +197,7 @@
         if (state.q) p.set('q', state.q);
         for (const k of ['logement', 'enfants', 'seul', 'experience']) if (state[k]) p.set(k, state[k]);
         if (state.rythme) p.set('rythme', state.rythme);
-        for (const k of ['chat', 'chien', 'discret', 'chaleur', 'bave', 'hypo', 'france', 'nocat', 'nonfci']) if (state[k]) p.set(k, '1');
+        for (const k of ['chat', 'chien', 'discret', 'chaleur', 'bave', 'hypo', 'france', 'nocat']) if (state[k]) p.set(k, '1');
         if (state.entretien) p.set('entretien', state.entretien);
         for (const k of LISTS) if (state[k].length) p.set(k, state[k].join(','));
         if (state.coats.length) p.set('poil', state.coats.join(','));
@@ -215,7 +213,7 @@
             if (v && QUESTIONS[k].options.some(o => o.id === v)) s[k] = v;
         }
         s.rythme = Math.max(0, Math.min(5, parseInt(p.get('rythme') || '0', 10) || 0));
-        for (const k of ['chat', 'chien', 'discret', 'chaleur', 'bave', 'hypo', 'france', 'nocat', 'nonfci']) s[k] = p.get(k) === '1';
+        for (const k of ['chat', 'chien', 'discret', 'chaleur', 'bave', 'hypo', 'france', 'nocat']) s[k] = p.get(k) === '1';
         s.entretien = Math.max(0, Math.min(5, parseInt(p.get('entretien') || '0', 10) || 0));
         for (const k of LISTS) s[k] = (p.get(k) || '').split(',').filter(Boolean).map(Number).filter(n => Number.isFinite(n) && n >= 0);
         s.coats = (p.get('poil') || '').split(',').filter(Boolean);

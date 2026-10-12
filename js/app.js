@@ -87,16 +87,15 @@
         const toggles = [
             { key: 'hypo', label: 'Perd très peu de poils', hint: 'utile en cas d’allergie' },
             { key: 'france', label: 'Races françaises' },
-            { key: 'nocat', label: 'Exclure les chiens catégorisés' },
-            { key: 'nonfci', label: 'Inclure les races non reconnues en France' }
+            { key: 'nocat', label: 'Exclure les chiens catégorisés' }
         ];
         $('hard-toggles').innerHTML = toggles.map(t => {
             const n = countWith({ [t.key]: !state[t.key] });
-            const label = t.key === 'nonfci' ? t.label : `${t.label} <span class="count">${state[t.key] ? '' : n}</span>`;
+            const label = `${t.label} <span class="count">${state[t.key] ? '' : n}</span>`;
             return `<button type="button" class="opt opt-wrap" data-toggle="${t.key}" aria-pressed="${pressed(state[t.key])}" ${t.hint ? `title="${t.hint}"` : ''}>${label}</button>`;
         }).join('');
         const groups = [...Object.entries(S.FCI_GROUPS).map(([g, l]) => [Number(g), l])];
-        if (state.nonfci) groups.push([0, 'Races non reconnues']);
+        groups.push([0, 'Races non reconnues']);
         $('groups').innerHTML = groups.map(([g, l]) => {
             const on = state.groups.includes(g);
             const n = countWith({ groups: [g] });
@@ -120,7 +119,6 @@
         if (state.hypo) chips.push({ label: 'Perd très peu de poils', clear: { hypo: false } });
         if (state.france) chips.push({ label: 'Races françaises', clear: { france: false } });
         if (state.nocat) chips.push({ label: 'Sans chiens catégorisés', clear: { nocat: false } });
-        if (state.nonfci) chips.push({ label: 'Avec races non reconnues', clear: { nonfci: false } });
         for (const g of state.groups) chips.push({ label: `Groupe ${g || 'non reconnu'}`, clear: { groups: state.groups.filter(x => x !== g) } });
         return chips;
     }
@@ -199,10 +197,8 @@
         $('count').textContent = results.length;
         $('apply-count').textContent = results.length;
         const hints = { compat: 'classées par compatibilité avec votre vie', popularite: 'classées par popularité en France (LOF 2025)', nom: 'classées par nom', taille: 'de la plus petite à la plus grande', vie: 'de la plus longue espérance de vie à la plus courte' };
-        const hidden = !state.nonfci && !state.q ? breeds.filter(b => b.fci?.recognized === false && S.passesHard(b, { ...state, nonfci: true })).length : 0;
         // Version courte sur mobile : l'en-tête des résultats reste collé en haut de l'écran
-        $('sort-hint').innerHTML = `<span class="hidden sm:inline">${esc(hints[sort])}${scored ? `, ${good} races à 75 % ou plus` : ''}</span><span class="sm:hidden">${scored ? `${good} races à 75 % ou plus` : esc(hints[sort])}</span>`
-            + (hidden ? ` · ${hidden} non reconnues masquées <button type="button" data-toggle="nonfci" class="font-semibold text-primary-700 underline underline-offset-2 hover:text-primary-800">Afficher</button>` : '');
+        $('sort-hint').innerHTML = `<span class="hidden sm:inline">${esc(hints[sort])}${scored ? `, ${good} races à 75 % ou plus` : ''}</span><span class="sm:hidden">${scored ? `${good} races à 75 % ou plus` : esc(hints[sort])}</span>`;
         $('sort').value = state.sort;
 
         const chips = activeChips(criteria);

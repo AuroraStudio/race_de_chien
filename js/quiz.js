@@ -145,7 +145,7 @@
         const race = new URLSearchParams(location.search).get('race');
         const target = race && breeds.find(b => b.slug === race);
         if (target) {
-            const all = S.rank(breeds, { ...state, sizes: [], hypo: false, nonfci: true }).results;
+            const all = S.rank(breeds, { ...state, sizes: [], hypo: false }).results;
             const r = all.find(x => x.breed.slug === race);
             const rankPos = results.findIndex(x => x.breed.slug === race);
             const box = $('race-check');
