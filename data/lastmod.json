@@ -1,1070 +1,2130 @@
 {
  "404.html": {
-  "h": "22f266e66920",
-  "d": "2026-10-12"
+  "h": "5ab343fb0fa2",
+  "d": "2026-10-13"
  },
  "breed.html": {
   "h": "46b407614666",
   "d": "2026-10-11"
  },
  "chiens-categorises.html": {
-  "h": "2aafd1b6b1a1",
-  "d": "2026-10-12"
+  "h": "d46e3b026e4e",
+  "d": "2026-10-13"
  },
  "compare.html": {
-  "h": "04a150e67ce4",
-  "d": "2026-10-12"
+  "h": "0aa73de0e021",
+  "d": "2026-10-13"
  },
  "confidentialite.html": {
-  "h": "b3685961f82c",
-  "d": "2026-10-12"
+  "h": "746e88ae141d",
+  "d": "2026-10-13"
+ },
+ "en/active-dog-breeds.html": {
+  "h": "69c795a3daea",
+  "d": "2026-10-13"
+ },
+ "en/apartment-dogs.html": {
+  "h": "603a3aa6a469",
+  "d": "2026-10-13"
+ },
+ "en/breeds/affenpinscher.html": {
+  "h": "37f69534ce73",
+  "d": "2026-10-13"
+ },
+ "en/breeds/afghan-hound.html": {
+  "h": "fcc9b98986f0",
+  "d": "2026-10-13"
+ },
+ "en/breeds/airedale-terrier.html": {
+  "h": "aac9e1cd41eb",
+  "d": "2026-10-13"
+ },
+ "en/breeds/akbash.html": {
+  "h": "7e119c26729e",
+  "d": "2026-10-13"
+ },
+ "en/breeds/akita.html": {
+  "h": "b6b63d75e32f",
+  "d": "2026-10-13"
+ },
+ "en/breeds/alapaha-blue-blood-bulldog.html": {
+  "h": "cb280bf6ae68",
+  "d": "2026-10-13"
+ },
+ "en/breeds/alaskan-husky.html": {
+  "h": "60d9c6d4d396",
+  "d": "2026-10-13"
+ },
+ "en/breeds/alaskan-malamute.html": {
+  "h": "0c89f08f7708",
+  "d": "2026-10-13"
+ },
+ "en/breeds/american-akita.html": {
+  "h": "d35f7333c049",
+  "d": "2026-10-13"
+ },
+ "en/breeds/american-bulldog.html": {
+  "h": "5a5cb29a20bf",
+  "d": "2026-10-13"
+ },
+ "en/breeds/american-bully.html": {
+  "h": "ee7e3838e987",
+  "d": "2026-10-13"
+ },
+ "en/breeds/american-cocker-spaniel.html": {
+  "h": "b09ea18757d6",
+  "d": "2026-10-13"
+ },
+ "en/breeds/american-eskimo-dog.html": {
+  "h": "8762ee32950c",
+  "d": "2026-10-13"
+ },
+ "en/breeds/american-foxhound.html": {
+  "h": "de85981761f8",
+  "d": "2026-10-13"
+ },
+ "en/breeds/american-pit-bull-terrier.html": {
+  "h": "22810ca9a194",
+  "d": "2026-10-13"
+ },
+ "en/breeds/american-staffordshire-terrier.html": {
+  "h": "e2e3f68c77d1",
+  "d": "2026-10-13"
+ },
+ "en/breeds/american-water-spaniel.html": {
+  "h": "fa028fd7cf3d",
+  "d": "2026-10-13"
+ },
+ "en/breeds/anglo-francais-de-petite-venerie.html": {
+  "h": "763fb19e1b91",
+  "d": "2026-10-13"
+ },
+ "en/breeds/appenzeller-sennenhund.html": {
+  "h": "30db76b63833",
+  "d": "2026-10-13"
+ },
+ "en/breeds/ariege-pointing-dog.html": {
+  "h": "6ca56612586f",
+  "d": "2026-10-13"
+ },
+ "en/breeds/ariegeois.html": {
+  "h": "5d6a5ff438d6",
+  "d": "2026-10-13"
+ },
+ "en/breeds/artois-hound.html": {
+  "h": "72a1014ab7ae",
+  "d": "2026-10-13"
+ },
+ "en/breeds/australian-cattle-dog.html": {
+  "h": "13c48947f2e3",
+  "d": "2026-10-13"
+ },
+ "en/breeds/australian-kelpie.html": {
+  "h": "2095282f8494",
+  "d": "2026-10-13"
+ },
+ "en/breeds/australian-shepherd.html": {
+  "h": "80b103a08796",
+  "d": "2026-10-13"
+ },
+ "en/breeds/australian-silky-terrier.html": {
+  "h": "b845f77a749d",
+  "d": "2026-10-13"
+ },
+ "en/breeds/australian-terrier.html": {
+  "h": "e7b464bbacfc",
+  "d": "2026-10-13"
+ },
+ "en/breeds/azawakh.html": {
+  "h": "e96950b96fad",
+  "d": "2026-10-13"
+ },
+ "en/breeds/barbet.html": {
+  "h": "d22105c74806",
+  "d": "2026-10-13"
+ },
+ "en/breeds/basenji.html": {
+  "h": "a42203194393",
+  "d": "2026-10-13"
+ },
+ "en/breeds/basset-artesien-normand.html": {
+  "h": "00b286e08e10",
+  "d": "2026-10-13"
+ },
+ "en/breeds/basset-bleu-de-gascogne.html": {
+  "h": "b8f3073c1da2",
+  "d": "2026-10-13"
+ },
+ "en/breeds/basset-fauve-de-bretagne.html": {
+  "h": "ab50974757b8",
+  "d": "2026-10-13"
+ },
+ "en/breeds/basset-hound.html": {
+  "h": "b7d8ec90112d",
+  "d": "2026-10-13"
+ },
+ "en/breeds/beagle-harrier.html": {
+  "h": "39f404de29b3",
+  "d": "2026-10-13"
+ },
+ "en/breeds/beagle.html": {
+  "h": "2b8030908f25",
+  "d": "2026-10-13"
+ },
+ "en/breeds/bearded-collie.html": {
+  "h": "ce1edcca41a9",
+  "d": "2026-10-13"
+ },
+ "en/breeds/beauceron.html": {
+  "h": "e1f77973ee51",
+  "d": "2026-10-13"
+ },
+ "en/breeds/bedlington-terrier.html": {
+  "h": "7c72bcf17780",
+  "d": "2026-10-13"
+ },
+ "en/breeds/belgian-groenendael.html": {
+  "h": "2cfe59110401",
+  "d": "2026-10-13"
+ },
+ "en/breeds/belgian-laekenois.html": {
+  "h": "3ec16f09839d",
+  "d": "2026-10-13"
+ },
+ "en/breeds/belgian-malinois.html": {
+  "h": "fcf0b2c5ce82",
+  "d": "2026-10-13"
+ },
+ "en/breeds/belgian-tervuren.html": {
+  "h": "131c74e8e740",
+  "d": "2026-10-13"
+ },
+ "en/breeds/berger-picard.html": {
+  "h": "4fbd1fe804ea",
+  "d": "2026-10-13"
+ },
+ "en/breeds/bernese-mountain-dog.html": {
+  "h": "04126ffc480a",
+  "d": "2026-10-13"
+ },
+ "en/breeds/bichon-frise.html": {
+  "h": "362160545c13",
+  "d": "2026-10-13"
+ },
+ "en/breeds/billy.html": {
+  "h": "e6b3d24648f8",
+  "d": "2026-10-13"
+ },
+ "en/breeds/black-and-tan-coonhound.html": {
+  "h": "81f11ded3ecd",
+  "d": "2026-10-13"
+ },
+ "en/breeds/bloodhound.html": {
+  "h": "b72adf70256f",
+  "d": "2026-10-13"
+ },
+ "en/breeds/blue-picardy-spaniel.html": {
+  "h": "f4652c75c7c8",
+  "d": "2026-10-13"
+ },
+ "en/breeds/bluetick-coonhound.html": {
+  "h": "230e2e446140",
+  "d": "2026-10-13"
+ },
+ "en/breeds/boerboel.html": {
+  "h": "a3d40da44cb3",
+  "d": "2026-10-13"
+ },
+ "en/breeds/border-collie.html": {
+  "h": "a6208a8c7405",
+  "d": "2026-10-13"
+ },
+ "en/breeds/border-terrier.html": {
+  "h": "0883b869c782",
+  "d": "2026-10-13"
+ },
+ "en/breeds/boston-terrier.html": {
+  "h": "11a2cd5d9ebb",
+  "d": "2026-10-13"
+ },
+ "en/breeds/bouvier-des-flandres.html": {
+  "h": "98f9cdd4c5f5",
+  "d": "2026-10-13"
+ },
+ "en/breeds/boxer.html": {
+  "h": "b049621a395b",
+  "d": "2026-10-13"
+ },
+ "en/breeds/boykin-spaniel.html": {
+  "h": "f00a62d24c2c",
+  "d": "2026-10-13"
+ },
+ "en/breeds/bracco-italiano.html": {
+  "h": "144ee762a90e",
+  "d": "2026-10-13"
+ },
+ "en/breeds/braque-d-auvergne.html": {
+  "h": "aed71d05d631",
+  "d": "2026-10-13"
+ },
+ "en/breeds/braque-du-bourbonnais.html": {
+  "h": "11e45d164d58",
+  "d": "2026-10-13"
+ },
+ "en/breeds/braque-francais-gascogne-type.html": {
+  "h": "63ada9694310",
+  "d": "2026-10-13"
+ },
+ "en/breeds/braque-francais-pyrenean-type.html": {
+  "h": "d9dfce3ebabb",
+  "d": "2026-10-13"
+ },
+ "en/breeds/braque-saint-germain.html": {
+  "h": "19c084e3dbe7",
+  "d": "2026-10-13"
+ },
+ "en/breeds/briard.html": {
+  "h": "b9a3f91d1505",
+  "d": "2026-10-13"
+ },
+ "en/breeds/briquet-griffon-vendeen.html": {
+  "h": "cf3d2a7367b5",
+  "d": "2026-10-13"
+ },
+ "en/breeds/brittany.html": {
+  "h": "0929fc5076b2",
+  "d": "2026-10-13"
+ },
+ "en/breeds/bruno-saint-hubert-francais.html": {
+  "h": "ab1d2fb069a4",
+  "d": "2026-10-13"
+ },
+ "en/breeds/bull-terrier.html": {
+  "h": "d632e203ac78",
+  "d": "2026-10-13"
+ },
+ "en/breeds/bullmastiff.html": {
+  "h": "0ce06d6f49af",
+  "d": "2026-10-13"
+ },
+ "en/breeds/cairn-terrier.html": {
+  "h": "24cdd33aa250",
+  "d": "2026-10-13"
+ },
+ "en/breeds/cane-corso.html": {
+  "h": "baf4c43b8af9",
+  "d": "2026-10-13"
+ },
+ "en/breeds/cardigan-welsh-corgi.html": {
+  "h": "5d38aba99f14",
+  "d": "2026-10-13"
+ },
+ "en/breeds/catahoula-leopard-dog.html": {
+  "h": "870629af5c9d",
+  "d": "2026-10-13"
+ },
+ "en/breeds/caucasian-shepherd-dog.html": {
+  "h": "ea3ebc5e2c4a",
+  "d": "2026-10-13"
+ },
+ "en/breeds/cavalier-king-charles-spaniel.html": {
+  "h": "5e47096346ef",
+  "d": "2026-10-13"
+ },
+ "en/breeds/chesapeake-bay-retriever.html": {
+  "h": "91f07db8c82b",
+  "d": "2026-10-13"
+ },
+ "en/breeds/chihuahua.html": {
+  "h": "4bd6fda70242",
+  "d": "2026-10-13"
+ },
+ "en/breeds/chinese-crested.html": {
+  "h": "e0517d4eb938",
+  "d": "2026-10-13"
+ },
+ "en/breeds/chinook.html": {
+  "h": "bfce3e7ac9f2",
+  "d": "2026-10-13"
+ },
+ "en/breeds/chow-chow.html": {
+  "h": "76a624997610",
+  "d": "2026-10-13"
+ },
+ "en/breeds/clumber-spaniel.html": {
+  "h": "e8fc487f0a27",
+  "d": "2026-10-13"
+ },
+ "en/breeds/continental-bulldog.html": {
+  "h": "abbdf3835c7f",
+  "d": "2026-10-13"
+ },
+ "en/breeds/coton-de-tulear.html": {
+  "h": "7b9b453a6b1f",
+  "d": "2026-10-13"
+ },
+ "en/breeds/cursinu.html": {
+  "h": "db7c8215fc30",
+  "d": "2026-10-13"
+ },
+ "en/breeds/dachshund.html": {
+  "h": "238b4ad4d718",
+  "d": "2026-10-13"
+ },
+ "en/breeds/dalmatian.html": {
+  "h": "939618eb5e3d",
+  "d": "2026-10-13"
+ },
+ "en/breeds/doberman-pinscher.html": {
+  "h": "17c117374cec",
+  "d": "2026-10-13"
+ },
+ "en/breeds/dogo-argentino.html": {
+  "h": "c73a73aa7011",
+  "d": "2026-10-13"
+ },
+ "en/breeds/dogue-de-bordeaux.html": {
+  "h": "a1680ac725ff",
+  "d": "2026-10-13"
+ },
+ "en/breeds/dutch-shepherd.html": {
+  "h": "39961ec6b078",
+  "d": "2026-10-13"
+ },
+ "en/breeds/english-bulldog.html": {
+  "h": "8436dc0cb773",
+  "d": "2026-10-13"
+ },
+ "en/breeds/english-cocker-spaniel.html": {
+  "h": "65e923fbccf8",
+  "d": "2026-10-13"
+ },
+ "en/breeds/english-pointer.html": {
+  "h": "496b8985eb4b",
+  "d": "2026-10-13"
+ },
+ "en/breeds/english-setter.html": {
+  "h": "4a95db5cced7",
+  "d": "2026-10-13"
+ },
+ "en/breeds/english-shepherd.html": {
+  "h": "f584bd9f3bf1",
+  "d": "2026-10-13"
+ },
+ "en/breeds/english-springer-spaniel.html": {
+  "h": "c96af752980c",
+  "d": "2026-10-13"
+ },
+ "en/breeds/english-toy-terrier.html": {
+  "h": "986384cf12a8",
+  "d": "2026-10-13"
+ },
+ "en/breeds/eurasier.html": {
+  "h": "1d5443195797",
+  "d": "2026-10-13"
+ },
+ "en/breeds/field-spaniel.html": {
+  "h": "53f0a89441c8",
+  "d": "2026-10-13"
+ },
+ "en/breeds/finnish-lapphund.html": {
+  "h": "ca3332e51bd7",
+  "d": "2026-10-13"
+ },
+ "en/breeds/finnish-spitz.html": {
+  "h": "9145a8187017",
+  "d": "2026-10-13"
+ },
+ "en/breeds/flat-coated-retriever.html": {
+  "h": "286b3fd95ed7",
+  "d": "2026-10-13"
+ },
+ "en/breeds/french-bulldog.html": {
+  "h": "bd9eda5e3b8c",
+  "d": "2026-10-13"
+ },
+ "en/breeds/french-spaniel.html": {
+  "h": "a6e48cc4c386",
+  "d": "2026-10-13"
+ },
+ "en/breeds/french-tricolour-hound.html": {
+  "h": "587e9dd2edd6",
+  "d": "2026-10-13"
+ },
+ "en/breeds/french-white-and-black-hound.html": {
+  "h": "80f047c4d4c3",
+  "d": "2026-10-13"
+ },
+ "en/breeds/french-white-and-orange-hound.html": {
+  "h": "f4570b895ce1",
+  "d": "2026-10-13"
+ },
+ "en/breeds/gascon-saintongeois.html": {
+  "h": "7d3e381b4660",
+  "d": "2026-10-13"
+ },
+ "en/breeds/german-hunting-terrier.html": {
+  "h": "5b7c785d58af",
+  "d": "2026-10-13"
+ },
+ "en/breeds/german-pinscher.html": {
+  "h": "44f11cc617fd",
+  "d": "2026-10-13"
+ },
+ "en/breeds/german-shepherd.html": {
+  "h": "4dd369f9d71d",
+  "d": "2026-10-13"
+ },
+ "en/breeds/german-shorthaired-pointer.html": {
+  "h": "da159c256a3e",
+  "d": "2026-10-13"
+ },
+ "en/breeds/german-spaniel.html": {
+  "h": "f443f96ac1df",
+  "d": "2026-10-13"
+ },
+ "en/breeds/german-spitz.html": {
+  "h": "7a97c19d4d27",
+  "d": "2026-10-13"
+ },
+ "en/breeds/german-wirehaired-pointer.html": {
+  "h": "ad5d5a0bf62b",
+  "d": "2026-10-13"
+ },
+ "en/breeds/giant-schnauzer.html": {
+  "h": "3a9fc8469c82",
+  "d": "2026-10-13"
+ },
+ "en/breeds/glen-of-imaal-terrier.html": {
+  "h": "b3ebd720de84",
+  "d": "2026-10-13"
+ },
+ "en/breeds/golden-retriever.html": {
+  "h": "58b01bafb418",
+  "d": "2026-10-13"
+ },
+ "en/breeds/gordon-setter.html": {
+  "h": "54bd24d1e96b",
+  "d": "2026-10-13"
+ },
+ "en/breeds/grand-basset-griffon-vendeen.html": {
+  "h": "5539e5bf3592",
+  "d": "2026-10-13"
+ },
+ "en/breeds/grand-bleu-de-gascogne.html": {
+  "h": "88acd7116b40",
+  "d": "2026-10-13"
+ },
+ "en/breeds/grand-griffon-vendeen.html": {
+  "h": "7c64a9ee6582",
+  "d": "2026-10-13"
+ },
+ "en/breeds/great-anglo-french-tricolour-hound.html": {
+  "h": "534486767816",
+  "d": "2026-10-13"
+ },
+ "en/breeds/great-anglo-french-white-and-black-hound.html": {
+  "h": "e623ad95092c",
+  "d": "2026-10-13"
+ },
+ "en/breeds/great-anglo-french-white-and-orange-hound.html": {
+  "h": "c7880ca481de",
+  "d": "2026-10-13"
+ },
+ "en/breeds/great-dane.html": {
+  "h": "90739d118373",
+  "d": "2026-10-13"
+ },
+ "en/breeds/great-pyrenees.html": {
+  "h": "06f550f31be8",
+  "d": "2026-10-13"
+ },
+ "en/breeds/greyhound.html": {
+  "h": "d4bc537ccb35",
+  "d": "2026-10-13"
+ },
+ "en/breeds/griffon-bleu-de-gascogne.html": {
+  "h": "bab97896f86f",
+  "d": "2026-10-13"
+ },
+ "en/breeds/griffon-fauve-de-bretagne.html": {
+  "h": "e952ab0bc4ae",
+  "d": "2026-10-13"
+ },
+ "en/breeds/griffon-nivernais.html": {
+  "h": "bcbdc831dcb1",
+  "d": "2026-10-13"
+ },
+ "en/breeds/harrier.html": {
+  "h": "0d28a007f53a",
+  "d": "2026-10-13"
+ },
+ "en/breeds/havanese.html": {
+  "h": "b2226af2afb4",
+  "d": "2026-10-13"
+ },
+ "en/breeds/irish-setter.html": {
+  "h": "dcf3fe7e341a",
+  "d": "2026-10-13"
+ },
+ "en/breeds/irish-terrier.html": {
+  "h": "f2ba81af2f79",
+  "d": "2026-10-13"
+ },
+ "en/breeds/irish-wolfhound.html": {
+  "h": "c8074486ee16",
+  "d": "2026-10-13"
+ },
+ "en/breeds/italian-greyhound.html": {
+  "h": "e53277d1780a",
+  "d": "2026-10-13"
+ },
+ "en/breeds/jack-russell-terrier.html": {
+  "h": "d67658fbfb6c",
+  "d": "2026-10-13"
+ },
+ "en/breeds/japanese-chin.html": {
+  "h": "3606d3e4d669",
+  "d": "2026-10-13"
+ },
+ "en/breeds/japanese-spitz.html": {
+  "h": "c14475cbbc90",
+  "d": "2026-10-13"
+ },
+ "en/breeds/kangal-shepherd-dog.html": {
+  "h": "c33220ad3b10",
+  "d": "2026-10-13"
+ },
+ "en/breeds/keeshond.html": {
+  "h": "c9115a1a859a",
+  "d": "2026-10-13"
+ },
+ "en/breeds/king-charles-spaniel.html": {
+  "h": "d11256d0171a",
+  "d": "2026-10-13"
+ },
+ "en/breeds/komondor.html": {
+  "h": "b2fb07f7c562",
+  "d": "2026-10-13"
+ },
+ "en/breeds/kuvasz.html": {
+  "h": "04a1110a0aa0",
+  "d": "2026-10-13"
+ },
+ "en/breeds/labrador-retriever.html": {
+  "h": "bbd2da68a81c",
+  "d": "2026-10-13"
+ },
+ "en/breeds/lagotto-romagnolo.html": {
+  "h": "0ed321615497",
+  "d": "2026-10-13"
+ },
+ "en/breeds/lancashire-heeler.html": {
+  "h": "959808e99e8a",
+  "d": "2026-10-13"
+ },
+ "en/breeds/leonberger.html": {
+  "h": "50bebeec9fdf",
+  "d": "2026-10-13"
+ },
+ "en/breeds/lhasa-apso.html": {
+  "h": "b48fa2d217f3",
+  "d": "2026-10-13"
+ },
+ "en/breeds/lowchen.html": {
+  "h": "5666ba46897b",
+  "d": "2026-10-13"
+ },
+ "en/breeds/maltese.html": {
+  "h": "ce6f64e094ae",
+  "d": "2026-10-13"
+ },
+ "en/breeds/medium-poodle.html": {
+  "h": "16a62a4be506",
+  "d": "2026-10-13"
+ },
+ "en/breeds/miniature-american-shepherd.html": {
+  "h": "8da290d5fa03",
+  "d": "2026-10-13"
+ },
+ "en/breeds/miniature-bull-terrier.html": {
+  "h": "f09193fc9914",
+  "d": "2026-10-13"
+ },
+ "en/breeds/miniature-pinscher.html": {
+  "h": "9fc879097dc3",
+  "d": "2026-10-13"
+ },
+ "en/breeds/miniature-poodle.html": {
+  "h": "03f4348af991",
+  "d": "2026-10-13"
+ },
+ "en/breeds/miniature-schnauzer.html": {
+  "h": "13d73398da3f",
+  "d": "2026-10-13"
+ },
+ "en/breeds/nederlandse-kooikerhondje.html": {
+  "h": "8c4a026f710f",
+  "d": "2026-10-13"
+ },
+ "en/breeds/newfoundland.html": {
+  "h": "71840990ee99",
+  "d": "2026-10-13"
+ },
+ "en/breeds/norfolk-terrier.html": {
+  "h": "db36b99e907e",
+  "d": "2026-10-13"
+ },
+ "en/breeds/norwich-terrier.html": {
+  "h": "d287e6eee5f7",
+  "d": "2026-10-13"
+ },
+ "en/breeds/nova-scotia-duck-tolling-retriever.html": {
+  "h": "435747d0153e",
+  "d": "2026-10-13"
+ },
+ "en/breeds/old-english-sheepdog.html": {
+  "h": "86e6c1f28d4b",
+  "d": "2026-10-13"
+ },
+ "en/breeds/papillon.html": {
+  "h": "c79ff0e875f4",
+  "d": "2026-10-13"
+ },
+ "en/breeds/parson-russell-terrier.html": {
+  "h": "cf91981b65d1",
+  "d": "2026-10-13"
+ },
+ "en/breeds/pekingese.html": {
+  "h": "4bdde03ad9a2",
+  "d": "2026-10-13"
+ },
+ "en/breeds/pembroke-welsh-corgi.html": {
+  "h": "b33e0ef6afb3",
+  "d": "2026-10-13"
+ },
+ "en/breeds/petit-basset-griffon-vendeen.html": {
+  "h": "7e7fa3407de1",
+  "d": "2026-10-13"
+ },
+ "en/breeds/petit-bleu-de-gascogne.html": {
+  "h": "6d1846b8f343",
+  "d": "2026-10-13"
+ },
+ "en/breeds/pharaoh-hound.html": {
+  "h": "c59f6f19514e",
+  "d": "2026-10-13"
+ },
+ "en/breeds/picardy-spaniel.html": {
+  "h": "f8def7d37ef6",
+  "d": "2026-10-13"
+ },
+ "en/breeds/plott-hound.html": {
+  "h": "f34a9ec23d3e",
+  "d": "2026-10-13"
+ },
+ "en/breeds/poitevin.html": {
+  "h": "a679d778891c",
+  "d": "2026-10-13"
+ },
+ "en/breeds/pomeranian.html": {
+  "h": "b958e8a7de20",
+  "d": "2026-10-13"
+ },
+ "en/breeds/pont-audemer-spaniel.html": {
+  "h": "56b0ad5154b1",
+  "d": "2026-10-13"
+ },
+ "en/breeds/porcelaine.html": {
+  "h": "3678b2ae318b",
+  "d": "2026-10-13"
+ },
+ "en/breeds/presa-canario.html": {
+  "h": "86ec9a853e09",
+  "d": "2026-10-13"
+ },
+ "en/breeds/pug.html": {
+  "h": "e5c706a16fd1",
+  "d": "2026-10-13"
+ },
+ "en/breeds/puli.html": {
+  "h": "f0b556ea99bb",
+  "d": "2026-10-13"
+ },
+ "en/breeds/pumi.html": {
+  "h": "84df4c2177a0",
+  "d": "2026-10-13"
+ },
+ "en/breeds/pyrenean-sheepdog-long-haired.html": {
+  "h": "fdf36eb9901c",
+  "d": "2026-10-13"
+ },
+ "en/breeds/pyrenean-sheepdog-smooth-faced.html": {
+  "h": "80e2fef27425",
+  "d": "2026-10-13"
+ },
+ "en/breeds/rat-terrier.html": {
+  "h": "e082693929dd",
+  "d": "2026-10-13"
+ },
+ "en/breeds/redbone-coonhound.html": {
+  "h": "c99a65c418b5",
+  "d": "2026-10-13"
+ },
+ "en/breeds/rhodesian-ridgeback.html": {
+  "h": "781cb96595d2",
+  "d": "2026-10-13"
+ },
+ "en/breeds/rottweiler.html": {
+  "h": "0e14725afcf5",
+  "d": "2026-10-13"
+ },
+ "en/breeds/rough-collie.html": {
+  "h": "947cfdc76200",
+  "d": "2026-10-13"
+ },
+ "en/breeds/russian-toy.html": {
+  "h": "af878e90919d",
+  "d": "2026-10-13"
+ },
+ "en/breeds/saint-bernard.html": {
+  "h": "2ff60ac786e9",
+  "d": "2026-10-13"
+ },
+ "en/breeds/saluki.html": {
+  "h": "b988262a321b",
+  "d": "2026-10-13"
+ },
+ "en/breeds/samoyed.html": {
+  "h": "8574967d1bec",
+  "d": "2026-10-13"
+ },
+ "en/breeds/schipperke.html": {
+  "h": "627b45ea9728",
+  "d": "2026-10-13"
+ },
+ "en/breeds/scottish-deerhound.html": {
+  "h": "f7e63e4fb6f6",
+  "d": "2026-10-13"
+ },
+ "en/breeds/scottish-terrier.html": {
+  "h": "5df3ab354071",
+  "d": "2026-10-13"
+ },
+ "en/breeds/shar-pei.html": {
+  "h": "6be56e80a719",
+  "d": "2026-10-13"
+ },
+ "en/breeds/shetland-sheepdog.html": {
+  "h": "f5ee2fafe912",
+  "d": "2026-10-13"
+ },
+ "en/breeds/shiba-inu.html": {
+  "h": "f5808600d1f7",
+  "d": "2026-10-13"
+ },
+ "en/breeds/shih-tzu.html": {
+  "h": "3ba3e1c1215f",
+  "d": "2026-10-13"
+ },
+ "en/breeds/shiloh-shepherd.html": {
+  "h": "79d826079c23",
+  "d": "2026-10-13"
+ },
+ "en/breeds/siberian-husky.html": {
+  "h": "d9043fb4f597",
+  "d": "2026-10-13"
+ },
+ "en/breeds/small-munsterlander.html": {
+  "h": "6fa5b3e80b9e",
+  "d": "2026-10-13"
+ },
+ "en/breeds/smooth-fox-terrier.html": {
+  "h": "38a8e54d9de2",
+  "d": "2026-10-13"
+ },
+ "en/breeds/soft-coated-wheaten-terrier.html": {
+  "h": "2d16ea915607",
+  "d": "2026-10-13"
+ },
+ "en/breeds/spanish-water-dog.html": {
+  "h": "371f5b6d9305",
+  "d": "2026-10-13"
+ },
+ "en/breeds/spinone-italiano.html": {
+  "h": "2ebac7ee6b4c",
+  "d": "2026-10-13"
+ },
+ "en/breeds/staffordshire-bull-terrier.html": {
+  "h": "ef71366a48a9",
+  "d": "2026-10-13"
+ },
+ "en/breeds/standard-poodle.html": {
+  "h": "9084ec29d15e",
+  "d": "2026-10-13"
+ },
+ "en/breeds/standard-schnauzer.html": {
+  "h": "62665268d2ae",
+  "d": "2026-10-13"
+ },
+ "en/breeds/swedish-vallhund.html": {
+  "h": "5eb19d257927",
+  "d": "2026-10-13"
+ },
+ "en/breeds/swiss-hound.html": {
+  "h": "2c67eb4a320f",
+  "d": "2026-10-13"
+ },
+ "en/breeds/thai-ridgeback.html": {
+  "h": "dc4d2a281f41",
+  "d": "2026-10-13"
+ },
+ "en/breeds/tibetan-mastiff.html": {
+  "h": "1f4ac90d4172",
+  "d": "2026-10-13"
+ },
+ "en/breeds/tibetan-spaniel.html": {
+  "h": "a25660634144",
+  "d": "2026-10-13"
+ },
+ "en/breeds/tibetan-terrier.html": {
+  "h": "288d9e56dcc2",
+  "d": "2026-10-13"
+ },
+ "en/breeds/toy-fox-terrier.html": {
+  "h": "dd2acd03a3ff",
+  "d": "2026-10-13"
+ },
+ "en/breeds/toy-poodle.html": {
+  "h": "dde97e82e370",
+  "d": "2026-10-13"
+ },
+ "en/breeds/treeing-walker-coonhound.html": {
+  "h": "47077852335d",
+  "d": "2026-10-13"
+ },
+ "en/breeds/vizsla.html": {
+  "h": "72ce115ce006",
+  "d": "2026-10-13"
+ },
+ "en/breeds/weimaraner.html": {
+  "h": "058d5fc6c15e",
+  "d": "2026-10-13"
+ },
+ "en/breeds/welsh-springer-spaniel.html": {
+  "h": "13c8715de4e6",
+  "d": "2026-10-13"
+ },
+ "en/breeds/west-highland-white-terrier.html": {
+  "h": "4764accdb748",
+  "d": "2026-10-13"
+ },
+ "en/breeds/whippet.html": {
+  "h": "7c6780767374",
+  "d": "2026-10-13"
+ },
+ "en/breeds/white-swiss-shepherd-dog.html": {
+  "h": "5a7768789831",
+  "d": "2026-10-13"
+ },
+ "en/breeds/wire-fox-terrier.html": {
+  "h": "b553e04814ec",
+  "d": "2026-10-13"
+ },
+ "en/breeds/wirehaired-pointing-griffon.html": {
+  "h": "3fcf03503e5c",
+  "d": "2026-10-13"
+ },
+ "en/breeds/wirehaired-vizsla.html": {
+  "h": "ae80dddd7df4",
+  "d": "2026-10-13"
+ },
+ "en/breeds/xoloitzcuintli.html": {
+  "h": "f7d9d664f3f8",
+  "d": "2026-10-13"
+ },
+ "en/breeds/yakutian-laika.html": {
+  "h": "cf9b017cae92",
+  "d": "2026-10-13"
+ },
+ "en/breeds/yorkshire-terrier.html": {
+  "h": "e6081ea0ff6a",
+  "d": "2026-10-13"
+ },
+ "en/calm-dog-breeds.html": {
+  "h": "dfcdf3103d32",
+  "d": "2026-10-13"
+ },
+ "en/compare.html": {
+  "h": "83b1ea6d9e29",
+  "d": "2026-10-13"
+ },
+ "en/dog-breed-groups.html": {
+  "h": "1fab1ebe5250",
+  "d": "2026-10-13"
+ },
+ "en/dog-breeds-a-z.html": {
+  "h": "31deaf2f9e9b",
+  "d": "2026-10-13"
+ },
+ "en/dogs-for-first-time-owners.html": {
+  "h": "34f31679d99f",
+  "d": "2026-10-13"
+ },
+ "en/dogs-for-hot-weather.html": {
+  "h": "b88308b323f8",
+  "d": "2026-10-13"
+ },
+ "en/dogs-for-kids.html": {
+  "h": "dc53dbee5e69",
+  "d": "2026-10-13"
+ },
+ "en/dogs-for-seniors.html": {
+  "h": "cf957452e33c",
+  "d": "2026-10-13"
+ },
+ "en/dogs-good-with-cats.html": {
+  "h": "c84953ce1fcb",
+  "d": "2026-10-13"
+ },
+ "en/dogs-that-can-be-left-alone.html": {
+  "h": "7093d0e11fa3",
+  "d": "2026-10-13"
+ },
+ "en/french-dog-breeds.html": {
+  "h": "9f1e6a82546c",
+  "d": "2026-10-13"
+ },
+ "en/groups/companion-and-toy-dogs.html": {
+  "h": "8b8f4b00aa1a",
+  "d": "2026-10-13"
+ },
+ "en/groups/pinschers-molossers-and-swiss-mountain-dogs.html": {
+  "h": "bbc3782b1e28",
+  "d": "2026-10-13"
+ },
+ "en/groups/pointing-dogs.html": {
+  "h": "769ed70d044a",
+  "d": "2026-10-13"
+ },
+ "en/groups/retrievers-flushing-dogs-and-water-dogs.html": {
+  "h": "65c5c8f7ec6a",
+  "d": "2026-10-13"
+ },
+ "en/groups/scent-hounds.html": {
+  "h": "13b1772104e0",
+  "d": "2026-10-13"
+ },
+ "en/groups/sheepdogs-and-cattle-dogs.html": {
+  "h": "81d80f99be3d",
+  "d": "2026-10-13"
+ },
+ "en/groups/sighthounds.html": {
+  "h": "a01f849f2917",
+  "d": "2026-10-13"
+ },
+ "en/groups/spitz-and-primitive-dogs.html": {
+  "h": "215d8a343146",
+  "d": "2026-10-13"
+ },
+ "en/groups/terriers.html": {
+  "h": "7dc0f83abae9",
+  "d": "2026-10-13"
+ },
+ "en/guard-dog-breeds.html": {
+  "h": "a1647c6dd82c",
+  "d": "2026-10-13"
+ },
+ "en/hypoallergenic-dogs.html": {
+  "h": "ff34446536be",
+  "d": "2026-10-13"
+ },
+ "en/index.html": {
+  "h": "caffbf711904",
+  "d": "2026-10-13"
+ },
+ "en/large-dog-breeds.html": {
+  "h": "48a5efe1e622",
+  "d": "2026-10-13"
+ },
+ "en/legal-notice.html": {
+  "h": "b8fd54b5f3d2",
+  "d": "2026-10-13"
+ },
+ "en/medium-dog-breeds.html": {
+  "h": "71cc9a63145f",
+  "d": "2026-10-13"
+ },
+ "en/privacy.html": {
+  "h": "1f7d2fe2a2f1",
+  "d": "2026-10-13"
+ },
+ "en/quiet-dog-breeds.html": {
+  "h": "09100b7181e0",
+  "d": "2026-10-13"
+ },
+ "en/restricted-dogs-france.html": {
+  "h": "adae26cef57a",
+  "d": "2026-10-13"
+ },
+ "en/small-dog-breeds.html": {
+  "h": "11a80bb5beb2",
+  "d": "2026-10-13"
+ },
+ "en/what-dog-do-i-look-like.html": {
+  "h": "3cf4f60239e1",
+  "d": "2026-10-13"
+ },
+ "en/what-dog-should-i-get.html": {
+  "h": "10c7f58f8d0c",
+  "d": "2026-10-13"
  },
  "groupes-de-races.html": {
-  "h": "4b5fef2987b0",
-  "d": "2026-10-12"
+  "h": "043a43ea1a5f",
+  "d": "2026-10-13"
  },
  "groupes/chiens-courants.html": {
-  "h": "4f1c9d9f2ecd",
-  "d": "2026-10-12"
+  "h": "0daedfd8c1c1",
+  "d": "2026-10-13"
  },
  "groupes/chiens-d-arret.html": {
-  "h": "3d77056d75c7",
-  "d": "2026-10-12"
+  "h": "685ebfae6ab9",
+  "d": "2026-10-13"
  },
  "groupes/chiens-de-berger-et-bouviers.html": {
-  "h": "6f1fe2a5f7a1",
-  "d": "2026-10-12"
+  "h": "97a01995f849",
+  "d": "2026-10-13"
  },
  "groupes/chiens-de-compagnie.html": {
-  "h": "2121c981433a",
-  "d": "2026-10-12"
+  "h": "041d7faf75a7",
+  "d": "2026-10-13"
  },
  "groupes/levriers.html": {
-  "h": "0e36e3c6a8d4",
-  "d": "2026-10-12"
+  "h": "a2f75f8632b8",
+  "d": "2026-10-13"
  },
  "groupes/molosses-pinschers-et-bouviers-suisses.html": {
-  "h": "794e7fc88aad",
-  "d": "2026-10-12"
+  "h": "25bef56e4559",
+  "d": "2026-10-13"
  },
  "groupes/rapporteurs-leveurs-et-chiens-d-eau.html": {
-  "h": "e0d876bcf547",
-  "d": "2026-10-12"
+  "h": "95a693d59ba2",
+  "d": "2026-10-13"
  },
  "groupes/spitz-et-chiens-primitifs.html": {
-  "h": "cddfb7356cda",
-  "d": "2026-10-12"
+  "h": "4121c83c19be",
+  "d": "2026-10-13"
  },
  "groupes/terriers.html": {
-  "h": "87a063c6edd3",
-  "d": "2026-10-12"
+  "h": "944809ef291d",
+  "d": "2026-10-13"
  },
  "index.html": {
-  "h": "5ac1b41ecd0d",
-  "d": "2026-10-12"
+  "h": "b785afb61540",
+  "d": "2026-10-13"
  },
  "liste-des-races.html": {
-  "h": "4e7489d2a4df",
-  "d": "2026-10-12"
+  "h": "6c11763793e9",
+  "d": "2026-10-13"
  },
  "mentions-legales.html": {
-  "h": "706367ad70e5",
-  "d": "2026-10-12"
+  "h": "b7946f944560",
+  "d": "2026-10-13"
  },
  "quel-chien-choisir.html": {
-  "h": "b8351e7c2555",
-  "d": "2026-10-12"
+  "h": "257dc54ec068",
+  "d": "2026-10-13"
  },
  "races/affenpinscher.html": {
-  "h": "4d8cf371667d",
-  "d": "2026-10-12"
+  "h": "f20eccfd68c1",
+  "d": "2026-10-13"
  },
  "races/airedale-terrier.html": {
-  "h": "7a77ecf3ad0f",
-  "d": "2026-10-12"
+  "h": "17f317908d0d",
+  "d": "2026-10-13"
  },
  "races/akbash.html": {
-  "h": "4b5186d5b8d9",
-  "d": "2026-10-12"
+  "h": "d76dfad8426a",
+  "d": "2026-10-13"
  },
  "races/akita-americain.html": {
-  "h": "b4014690956c",
-  "d": "2026-10-12"
+  "h": "4b1fa99036af",
+  "d": "2026-10-13"
  },
  "races/akita.html": {
-  "h": "83d6d2b72afa",
-  "d": "2026-10-12"
+  "h": "85ce551704d4",
+  "d": "2026-10-13"
  },
  "races/american-bully.html": {
-  "h": "88ce64192542",
-  "d": "2026-10-12"
+  "h": "cd6d92fead55",
+  "d": "2026-10-13"
  },
  "races/anglo-francais-de-petite-venerie.html": {
-  "h": "cbc279deff32",
-  "d": "2026-10-12"
+  "h": "5e6de65e425d",
+  "d": "2026-10-13"
  },
  "races/ariegeois.html": {
-  "h": "dfe311bc20eb",
-  "d": "2026-10-12"
+  "h": "e338b12e5b31",
+  "d": "2026-10-13"
  },
  "races/azawakh.html": {
-  "h": "ef2b483ce9d3",
-  "d": "2026-10-12"
+  "h": "32bf0f4a6c59",
+  "d": "2026-10-13"
  },
  "races/barbet.html": {
-  "h": "d3540ac92e94",
-  "d": "2026-10-12"
+  "h": "950e9c72739e",
+  "d": "2026-10-13"
  },
  "races/basenji.html": {
-  "h": "923eb4b016a0",
-  "d": "2026-10-12"
+  "h": "d780575f1c13",
+  "d": "2026-10-13"
  },
  "races/basset-artesien-normand.html": {
-  "h": "7fe1f4d814e4",
-  "d": "2026-10-12"
+  "h": "db7bb357c40c",
+  "d": "2026-10-13"
  },
  "races/basset-bleu-de-gascogne.html": {
-  "h": "24271c5f88b6",
-  "d": "2026-10-12"
+  "h": "f1a2da834c43",
+  "d": "2026-10-13"
  },
  "races/basset-fauve-de-bretagne.html": {
-  "h": "3d102847c986",
-  "d": "2026-10-12"
+  "h": "10e8d17422e4",
+  "d": "2026-10-13"
  },
  "races/basset-hound.html": {
-  "h": "c2c36a875e91",
-  "d": "2026-10-12"
+  "h": "08226a83d74c",
+  "d": "2026-10-13"
  },
  "races/beagle-harrier.html": {
-  "h": "cbf3593396a6",
-  "d": "2026-10-12"
+  "h": "52c3ce01fa23",
+  "d": "2026-10-13"
  },
  "races/beagle.html": {
-  "h": "a4e18aad3e65",
-  "d": "2026-10-12"
+  "h": "1fcd59caca28",
+  "d": "2026-10-13"
  },
  "races/bearded-collie.html": {
-  "h": "25780518c4c5",
-  "d": "2026-10-12"
+  "h": "3af35dc0f8d7",
+  "d": "2026-10-13"
  },
  "races/beauceron.html": {
-  "h": "58a8b7e071c0",
-  "d": "2026-10-12"
+  "h": "f24e56b70342",
+  "d": "2026-10-13"
  },
  "races/bedlington-terrier.html": {
-  "h": "b3216fed48be",
-  "d": "2026-10-12"
+  "h": "947cbc396f43",
+  "d": "2026-10-13"
  },
  "races/berger-allemand.html": {
-  "h": "a7641e7af150",
-  "d": "2026-10-12"
+  "h": "9d093ce8f281",
+  "d": "2026-10-13"
  },
  "races/berger-americain-miniature.html": {
-  "h": "19fb092658b4",
-  "d": "2026-10-12"
+  "h": "47f1bb6f9e5b",
+  "d": "2026-10-13"
  },
  "races/berger-anglais.html": {
-  "h": "9ab3da975b3c",
-  "d": "2026-10-12"
+  "h": "ba02011f5338",
+  "d": "2026-10-13"
  },
  "races/berger-australien.html": {
-  "h": "240bd7bc8136",
-  "d": "2026-10-12"
+  "h": "ea9e465d9a8b",
+  "d": "2026-10-13"
  },
  "races/berger-belge-groenendael.html": {
-  "h": "01cb1ccad77c",
-  "d": "2026-10-12"
+  "h": "13d2c46b815e",
+  "d": "2026-10-13"
  },
  "races/berger-belge-laekenois.html": {
-  "h": "7dbc1d54d98e",
-  "d": "2026-10-12"
+  "h": "9ca4c2344a2b",
+  "d": "2026-10-13"
  },
  "races/berger-belge-malinois.html": {
-  "h": "85102b4567cb",
-  "d": "2026-10-12"
+  "h": "1ea4fdb16dc5",
+  "d": "2026-10-13"
  },
  "races/berger-belge-tervueren.html": {
-  "h": "0231e5a28f51",
-  "d": "2026-10-12"
+  "h": "4c3cd457e97d",
+  "d": "2026-10-13"
  },
  "races/berger-blanc-suisse.html": {
-  "h": "77aa77f61713",
-  "d": "2026-10-12"
+  "h": "a4e3b2c6ebb0",
+  "d": "2026-10-13"
  },
  "races/berger-de-picardie.html": {
-  "h": "8fdad6f7afdc",
-  "d": "2026-10-12"
+  "h": "38e72dd52c80",
+  "d": "2026-10-13"
  },
  "races/berger-des-pyrenees-a-face-rase.html": {
-  "h": "3f79656c40a4",
-  "d": "2026-10-12"
+  "h": "25d2d3211aae",
+  "d": "2026-10-13"
  },
  "races/berger-des-pyrenees-a-poil-long.html": {
-  "h": "b096d1228d60",
-  "d": "2026-10-12"
+  "h": "0d31017a9a46",
+  "d": "2026-10-13"
  },
  "races/berger-du-caucase.html": {
-  "h": "9c2e693b71c5",
-  "d": "2026-10-12"
+  "h": "5d8284f01084",
+  "d": "2026-10-13"
  },
  "races/berger-hollandais.html": {
-  "h": "0b030d9e38ba",
-  "d": "2026-10-12"
+  "h": "01fb8413c7fa",
+  "d": "2026-10-13"
  },
  "races/bichon-frise.html": {
-  "h": "af656bc0d644",
-  "d": "2026-10-12"
+  "h": "40d35ddcbf81",
+  "d": "2026-10-13"
  },
  "races/bichon-havanais.html": {
-  "h": "b5bd93873a8e",
-  "d": "2026-10-12"
+  "h": "c47af9d06a7b",
+  "d": "2026-10-13"
  },
  "races/bichon-maltais.html": {
-  "h": "6bef3850ca03",
-  "d": "2026-10-12"
+  "h": "d599115a63fb",
+  "d": "2026-10-13"
  },
  "races/billy.html": {
-  "h": "0297c7328120",
-  "d": "2026-10-12"
+  "h": "2cc5e54410c0",
+  "d": "2026-10-13"
  },
  "races/bobtail-berger-anglais-ancien.html": {
-  "h": "eed9586861c4",
-  "d": "2026-10-12"
+  "h": "233777489a59",
+  "d": "2026-10-13"
  },
  "races/boerboel.html": {
-  "h": "db531a6c7d68",
-  "d": "2026-10-12"
+  "h": "e2f7d4021a4e",
+  "d": "2026-10-13"
  },
  "races/border-collie.html": {
-  "h": "0eddb024eed0",
-  "d": "2026-10-12"
+  "h": "e2ffff3ac442",
+  "d": "2026-10-13"
  },
  "races/border-terrier.html": {
-  "h": "d7a5adb42363",
-  "d": "2026-10-12"
+  "h": "272875e43cf1",
+  "d": "2026-10-13"
  },
  "races/boston-terrier.html": {
-  "h": "19ce93299a94",
-  "d": "2026-10-12"
+  "h": "b8fde5377701",
+  "d": "2026-10-13"
  },
  "races/bouledogue-alapaha.html": {
-  "h": "d5512909ffdd",
-  "d": "2026-10-12"
+  "h": "fdf177ecfa2f",
+  "d": "2026-10-13"
  },
  "races/bouledogue-americain.html": {
-  "h": "2d8c7e240ccb",
-  "d": "2026-10-12"
+  "h": "b4a05f7a602e",
+  "d": "2026-10-13"
  },
  "races/bouledogue-anglais.html": {
-  "h": "788988d9a38b",
-  "d": "2026-10-12"
+  "h": "773111542954",
+  "d": "2026-10-13"
  },
  "races/bouledogue-francais.html": {
-  "h": "4f21e0c8bfb9",
-  "d": "2026-10-12"
+  "h": "550df25b9599",
+  "d": "2026-10-13"
  },
  "races/bouvier-australien.html": {
-  "h": "f2659997aff4",
-  "d": "2026-10-12"
+  "h": "69d1d9171c9a",
+  "d": "2026-10-13"
  },
  "races/bouvier-bernois.html": {
-  "h": "6441966cb137",
-  "d": "2026-10-12"
+  "h": "a44e241ff7ac",
+  "d": "2026-10-13"
  },
  "races/bouvier-d-appenzell.html": {
-  "h": "7bcd68d72382",
-  "d": "2026-10-12"
+  "h": "c537e05d88b4",
+  "d": "2026-10-13"
  },
  "races/bouvier-des-flandres.html": {
-  "h": "6b7d9b93c121",
-  "d": "2026-10-12"
+  "h": "e1883fba0f93",
+  "d": "2026-10-13"
  },
  "races/boxer.html": {
-  "h": "a41a533cb00e",
-  "d": "2026-10-12"
+  "h": "b208e80c14b2",
+  "d": "2026-10-13"
  },
  "races/boykin-spaniel.html": {
-  "h": "6d2fed011c6c",
-  "d": "2026-10-12"
+  "h": "e242e1d879b5",
+  "d": "2026-10-13"
  },
  "races/braque-allemand-a-poil-court.html": {
-  "h": "944bc8e3e7d9",
-  "d": "2026-10-12"
+  "h": "3c81585cc62f",
+  "d": "2026-10-13"
  },
  "races/braque-d-auvergne.html": {
-  "h": "efa2c4deb232",
-  "d": "2026-10-12"
+  "h": "6c1d4202229a",
+  "d": "2026-10-13"
  },
  "races/braque-de-l-ariege.html": {
-  "h": "0a100aa6c35d",
-  "d": "2026-10-12"
+  "h": "cecf48a4f504",
+  "d": "2026-10-13"
  },
  "races/braque-de-weimar.html": {
-  "h": "57f3e37f9d43",
-  "d": "2026-10-12"
+  "h": "2bbfc6a0a514",
+  "d": "2026-10-13"
  },
  "races/braque-du-bourbonnais.html": {
-  "h": "068a094673b2",
-  "d": "2026-10-12"
+  "h": "d72aebc4a5bc",
+  "d": "2026-10-13"
  },
  "races/braque-francais-type-gascogne.html": {
-  "h": "e2ef4e8143e9",
-  "d": "2026-10-12"
+  "h": "8ac1a244cc2b",
+  "d": "2026-10-13"
  },
  "races/braque-francais-type-pyrenees.html": {
-  "h": "5d28b5640c26",
-  "d": "2026-10-12"
+  "h": "70b5b8a151ff",
+  "d": "2026-10-13"
  },
  "races/braque-hongrois-a-poil-dur.html": {
-  "h": "06b0f2b0d751",
-  "d": "2026-10-12"
+  "h": "40173faf8a9d",
+  "d": "2026-10-13"
  },
  "races/braque-italien.html": {
-  "h": "29d13a91612d",
-  "d": "2026-10-12"
+  "h": "05016d1bad34",
+  "d": "2026-10-13"
  },
  "races/braque-saint-germain.html": {
-  "h": "bb7fda362ad1",
-  "d": "2026-10-12"
+  "h": "41aaf1d2280f",
+  "d": "2026-10-13"
  },
  "races/briard.html": {
-  "h": "7ce9910139cc",
-  "d": "2026-10-12"
+  "h": "12454b012b28",
+  "d": "2026-10-13"
  },
  "races/briquet-griffon-vendeen.html": {
-  "h": "95a5138cfaa6",
-  "d": "2026-10-12"
+  "h": "fcf60b681b59",
+  "d": "2026-10-13"
  },
  "races/bruno-saint-hubert-francais.html": {
-  "h": "e9c803c70e96",
-  "d": "2026-10-12"
+  "h": "d7bfc5b4d0c8",
+  "d": "2026-10-13"
  },
  "races/bull-terrier-miniature.html": {
-  "h": "8dfd54d5e506",
-  "d": "2026-10-12"
+  "h": "6b010770846f",
+  "d": "2026-10-13"
  },
  "races/bull-terrier.html": {
-  "h": "41067d9795fc",
-  "d": "2026-10-12"
+  "h": "f3de548c2fed",
+  "d": "2026-10-13"
  },
  "races/bulldog-continental.html": {
-  "h": "5b754c9c092a",
-  "d": "2026-10-12"
+  "h": "6f6e8ef394e8",
+  "d": "2026-10-13"
  },
  "races/bullmastiff.html": {
-  "h": "1812de3c8d11",
-  "d": "2026-10-12"
+  "h": "2b18fbe0e4ec",
+  "d": "2026-10-13"
  },
  "races/cairn-terrier.html": {
-  "h": "c2252a2c6f90",
-  "d": "2026-10-12"
+  "h": "73b810f8e32f",
+  "d": "2026-10-13"
  },
  "races/cane-corso.html": {
-  "h": "c717fa361a62",
-  "d": "2026-10-12"
+  "h": "d0084b00036e",
+  "d": "2026-10-13"
  },
  "races/caniche-moyen.html": {
-  "h": "77060a27bb80",
-  "d": "2026-10-12"
+  "h": "ee9d924d9d58",
+  "d": "2026-10-13"
  },
  "races/caniche-nain.html": {
-  "h": "214aa464a988",
-  "d": "2026-10-12"
+  "h": "00c9c3184ec7",
+  "d": "2026-10-13"
  },
  "races/caniche-toy.html": {
-  "h": "88b2c3c6b9a8",
-  "d": "2026-10-12"
+  "h": "33a9c23dfbaf",
+  "d": "2026-10-13"
  },
  "races/carlin.html": {
-  "h": "e8c069cf5da4",
-  "d": "2026-10-12"
+  "h": "53e989fe94fe",
+  "d": "2026-10-13"
  },
  "races/cavalier-king-charles.html": {
-  "h": "7ecab715ccf2",
-  "d": "2026-10-12"
+  "h": "0853745f1efd",
+  "d": "2026-10-13"
  },
  "races/chien-chinois-a-crete.html": {
-  "h": "8c327886b4cd",
-  "d": "2026-10-12"
+  "h": "022c15a7d5e9",
+  "d": "2026-10-13"
  },
  "races/chien-courant-suisse.html": {
-  "h": "3a7f9e532891",
-  "d": "2026-10-12"
+  "h": "91e0c11de9b8",
+  "d": "2026-10-13"
  },
  "races/chien-d-artois.html": {
-  "h": "31a5333175d6",
-  "d": "2026-10-12"
+  "h": "a5c0e467211c",
+  "d": "2026-10-13"
  },
  "races/chien-d-eau-espagnol.html": {
-  "h": "21d375a5ef21",
-  "d": "2026-10-12"
+  "h": "fc531ad457e4",
+  "d": "2026-10-13"
  },
  "races/chien-d-oysel-allemand.html": {
-  "h": "5dfa8f76fada",
-  "d": "2026-10-12"
+  "h": "5ff4dc4aa829",
+  "d": "2026-10-13"
  },
  "races/chien-de-montagne-des-pyrenees.html": {
-  "h": "2e9931cdf862",
-  "d": "2026-10-12"
+  "h": "b9ec436a87c4",
+  "d": "2026-10-13"
  },
  "races/chien-de-saint-hubert.html": {
-  "h": "303605fbc56b",
-  "d": "2026-10-12"
+  "h": "441325ef6513",
+  "d": "2026-10-13"
  },
  "races/chien-du-pharaon.html": {
-  "h": "8190a274f84e",
-  "d": "2026-10-12"
+  "h": "3a3be82e14cd",
+  "d": "2026-10-13"
  },
  "races/chien-finnois-de-laponie.html": {
-  "h": "6b2fd55b4668",
-  "d": "2026-10-12"
+  "h": "006eede3406e",
+  "d": "2026-10-13"
  },
  "races/chien-leopard-catahoula.html": {
-  "h": "ea690dbbb73d",
-  "d": "2026-10-12"
+  "h": "a021bb7d2287",
+  "d": "2026-10-13"
  },
  "races/chien-nu-mexicain-xoloitzcuintli.html": {
-  "h": "9dd0f6d4d518",
-  "d": "2026-10-12"
+  "h": "616fc2146cc7",
+  "d": "2026-10-13"
  },
  "races/chihuahua.html": {
-  "h": "895fb390ed08",
-  "d": "2026-10-12"
+  "h": "16ca66c0ce18",
+  "d": "2026-10-13"
  },
  "races/chinook.html": {
-  "h": "aeba0ce602c0",
-  "d": "2026-10-12"
+  "h": "5f48ff4c7063",
+  "d": "2026-10-13"
  },
  "races/chow-chow.html": {
-  "h": "011415b52d40",
-  "d": "2026-10-12"
+  "h": "1e0271322022",
+  "d": "2026-10-13"
  },
  "races/clumber-spaniel.html": {
-  "h": "303de24069f9",
-  "d": "2026-10-12"
+  "h": "c5b1879977c8",
+  "d": "2026-10-13"
  },
  "races/cocker-americain.html": {
-  "h": "d55574f91d43",
-  "d": "2026-10-12"
+  "h": "0980ce5dc93a",
+  "d": "2026-10-13"
  },
  "races/cocker-spaniel.html": {
-  "h": "258ef504ba13",
-  "d": "2026-10-12"
+  "h": "578dcfa55fdf",
+  "d": "2026-10-13"
  },
  "races/colley-a-poil-long.html": {
-  "h": "952bf296a157",
-  "d": "2026-10-12"
+  "h": "83d0992d62d2",
+  "d": "2026-10-13"
  },
  "races/coonhound-bleute.html": {
-  "h": "0fcce6626894",
-  "d": "2026-10-12"
+  "h": "704f83c6387c",
+  "d": "2026-10-13"
  },
  "races/coonhound-noir-et-feu.html": {
-  "h": "35825189540c",
-  "d": "2026-10-12"
+  "h": "69172ab7066b",
+  "d": "2026-10-13"
  },
  "races/coton-de-tulear.html": {
-  "h": "b1f00d4800e0",
-  "d": "2026-10-12"
+  "h": "3aaf0827a69e",
+  "d": "2026-10-13"
  },
  "races/cursinu.html": {
-  "h": "835a330b21f6",
-  "d": "2026-10-12"
+  "h": "9f58d376a4f5",
+  "d": "2026-10-13"
  },
  "races/dalmatien.html": {
-  "h": "82e0fa83d023",
-  "d": "2026-10-12"
+  "h": "8eb9b3c436f1",
+  "d": "2026-10-13"
  },
  "races/dobermann.html": {
-  "h": "c274fc7e404c",
-  "d": "2026-10-12"
+  "h": "ea5e860d57b9",
+  "d": "2026-10-13"
  },
  "races/dogue-allemand.html": {
-  "h": "b644f8cd9082",
-  "d": "2026-10-12"
+  "h": "0b5b44b6c0b4",
+  "d": "2026-10-13"
  },
  "races/dogue-argentin.html": {
-  "h": "1b664ead7a5c",
-  "d": "2026-10-12"
+  "h": "7225571556fe",
+  "d": "2026-10-13"
  },
  "races/dogue-de-bordeaux.html": {
-  "h": "1b8adb08bd8f",
-  "d": "2026-10-12"
+  "h": "8c4207c6015e",
+  "d": "2026-10-13"
  },
  "races/dogue-des-canaries.html": {
-  "h": "725cdf3442a5",
-  "d": "2026-10-12"
+  "h": "99fbeea74644",
+  "d": "2026-10-13"
  },
  "races/drahthaar.html": {
-  "h": "6b2b30419d9b",
-  "d": "2026-10-12"
+  "h": "44c28b9f67c8",
+  "d": "2026-10-13"
  },
  "races/epagneul-bleu-de-picardie.html": {
-  "h": "50c3115058c3",
-  "d": "2026-10-12"
+  "h": "19b42bd1deba",
+  "d": "2026-10-13"
  },
  "races/epagneul-breton.html": {
-  "h": "ad6de079b9d2",
-  "d": "2026-10-12"
+  "h": "00f293f1912c",
+  "d": "2026-10-13"
  },
  "races/epagneul-d-eau-americain.html": {
-  "h": "f8cad66b6ff5",
-  "d": "2026-10-12"
+  "h": "23c743d457bb",
+  "d": "2026-10-13"
  },
  "races/epagneul-de-pont-audemer.html": {
-  "h": "01e7653b9eea",
-  "d": "2026-10-12"
+  "h": "8fa09711acf5",
+  "d": "2026-10-13"
  },
  "races/epagneul-francais.html": {
-  "h": "70b305e2fae4",
-  "d": "2026-10-12"
+  "h": "bccb5fd4c449",
+  "d": "2026-10-13"
  },
  "races/epagneul-japonais.html": {
-  "h": "18a230ff4060",
-  "d": "2026-10-12"
+  "h": "373c157f3b82",
+  "d": "2026-10-13"
  },
  "races/epagneul-papillon.html": {
-  "h": "9d1ee6df69d6",
-  "d": "2026-10-12"
+  "h": "6b1b3aa5c4ed",
+  "d": "2026-10-13"
  },
  "races/epagneul-picard.html": {
-  "h": "2031bbffcd17",
-  "d": "2026-10-12"
+  "h": "a537318a5727",
+  "d": "2026-10-13"
  },
  "races/epagneul-tibetain.html": {
-  "h": "3c4df163d26c",
-  "d": "2026-10-12"
+  "h": "7fa9b95e0c6e",
+  "d": "2026-10-13"
  },
  "races/eurasier.html": {
-  "h": "21b28a3b0156",
-  "d": "2026-10-12"
+  "h": "9a531fcd8a61",
+  "d": "2026-10-13"
  },
  "races/field-spaniel.html": {
-  "h": "a1042c019eeb",
-  "d": "2026-10-12"
+  "h": "eb3fc224561b",
+  "d": "2026-10-13"
  },
  "races/flat-coated-retriever.html": {
-  "h": "ec0335c442a3",
-  "d": "2026-10-12"
+  "h": "d381f33e8b49",
+  "d": "2026-10-13"
  },
  "races/fox-terrier-a-poil-dur.html": {
-  "h": "dcffbcd4ef37",
-  "d": "2026-10-12"
+  "h": "eeb412403be1",
+  "d": "2026-10-13"
  },
  "races/fox-terrier-a-poil-lisse.html": {
-  "h": "023fb16f923b",
-  "d": "2026-10-12"
+  "h": "663716f48640",
+  "d": "2026-10-13"
  },
  "races/foxhound-americain.html": {
-  "h": "39528f29359a",
-  "d": "2026-10-12"
+  "h": "44efdbffbdde",
+  "d": "2026-10-13"
  },
  "races/francais-blanc-et-noir.html": {
-  "h": "b6878934e355",
-  "d": "2026-10-12"
+  "h": "4ca22e131536",
+  "d": "2026-10-13"
  },
  "races/francais-blanc-et-orange.html": {
-  "h": "37f43df09ef2",
-  "d": "2026-10-12"
+  "h": "49e509a4f6f7",
+  "d": "2026-10-13"
  },
  "races/francais-tricolore.html": {
-  "h": "7217b14fd303",
-  "d": "2026-10-12"
+  "h": "388ac5d5ae68",
+  "d": "2026-10-13"
  },
  "races/gascon-saintongeois.html": {
-  "h": "a8d23a47e816",
-  "d": "2026-10-12"
+  "h": "c0c225f1cd92",
+  "d": "2026-10-13"
  },
  "races/golden-retriever.html": {
-  "h": "8b81291dda37",
-  "d": "2026-10-12"
+  "h": "534d7a7b6c31",
+  "d": "2026-10-13"
  },
  "races/grand-anglo-francais-blanc-et-noir.html": {
-  "h": "6a42446a709b",
-  "d": "2026-10-12"
+  "h": "fe1011af078d",
+  "d": "2026-10-13"
  },
  "races/grand-anglo-francais-blanc-et-orange.html": {
-  "h": "898eb16ba6ae",
-  "d": "2026-10-12"
+  "h": "d9ca8d96463d",
+  "d": "2026-10-13"
  },
  "races/grand-anglo-francais-tricolore.html": {
-  "h": "db204d4cb68b",
-  "d": "2026-10-12"
+  "h": "f0616c5981c5",
+  "d": "2026-10-13"
  },
  "races/grand-basset-griffon-vendeen.html": {
-  "h": "fff24f059bb3",
-  "d": "2026-10-12"
+  "h": "29a3e0388684",
+  "d": "2026-10-13"
  },
  "races/grand-bleu-de-gascogne.html": {
-  "h": "898c0fb9456b",
-  "d": "2026-10-12"
+  "h": "d68e03e19fda",
+  "d": "2026-10-13"
  },
  "races/grand-caniche.html": {
-  "h": "7633c9bb19a9",
-  "d": "2026-10-12"
+  "h": "f287e5b522d3",
+  "d": "2026-10-13"
  },
  "races/grand-griffon-vendeen.html": {
-  "h": "c24d4e8dfaf3",
-  "d": "2026-10-12"
+  "h": "b52d81bb2010",
+  "d": "2026-10-13"
  },
  "races/griffon-bleu-de-gascogne.html": {
-  "h": "21302464d699",
-  "d": "2026-10-12"
+  "h": "39d5dc4d8596",
+  "d": "2026-10-13"
  },
  "races/griffon-d-arret-a-poil-dur.html": {
-  "h": "4bdaee880a75",
-  "d": "2026-10-12"
+  "h": "6e903d501062",
+  "d": "2026-10-13"
  },
  "races/griffon-fauve-de-bretagne.html": {
-  "h": "16fcb795c3e5",
-  "d": "2026-10-12"
+  "h": "63ffc532b49d",
+  "d": "2026-10-13"
  },
  "races/griffon-nivernais.html": {
-  "h": "3847379bb9a9",
-  "d": "2026-10-12"
+  "h": "c4ef0c1ad321",
+  "d": "2026-10-13"
  },
  "races/harrier.html": {
-  "h": "ee76d64476a8",
-  "d": "2026-10-12"
+  "h": "1c871d374f40",
+  "d": "2026-10-13"
  },
  "races/husky-d-alaska.html": {
-  "h": "00e619acb42c",
-  "d": "2026-10-12"
+  "h": "b7a833f32ba8",
+  "d": "2026-10-13"
  },
  "races/husky-siberien.html": {
-  "h": "de6410bc1bd5",
-  "d": "2026-10-12"
+  "h": "7c4d899631a5",
+  "d": "2026-10-13"
  },
  "races/jack-russell-terrier.html": {
-  "h": "b3073a2139e7",
-  "d": "2026-10-12"
+  "h": "bacd1eb3423a",
+  "d": "2026-10-13"
  },
  "races/kangal.html": {
-  "h": "eb73e6393239",
-  "d": "2026-10-12"
+  "h": "439439fa2f49",
+  "d": "2026-10-13"
  },
  "races/keeshond-loulou-hollandais.html": {
-  "h": "8786e90af7d3",
-  "d": "2026-10-12"
+  "h": "e6024c6bdf10",
+  "d": "2026-10-13"
  },
  "races/kelpie-australien.html": {
-  "h": "205caba5a18f",
-  "d": "2026-10-12"
+  "h": "c0b93301bc58",
+  "d": "2026-10-13"
  },
  "races/king-charles-spaniel.html": {
-  "h": "95e43b417eed",
-  "d": "2026-10-12"
+  "h": "128b1ce78b1e",
+  "d": "2026-10-13"
  },
  "races/komondor.html": {
-  "h": "d1208c4b3ac5",
-  "d": "2026-10-12"
+  "h": "4acac20e34c1",
+  "d": "2026-10-13"
  },
  "races/kooikerhondje.html": {
-  "h": "78ad7b526191",
-  "d": "2026-10-12"
+  "h": "50571e2ce6ac",
+  "d": "2026-10-13"
  },
  "races/kuvasz.html": {
-  "h": "c857b47de387",
-  "d": "2026-10-12"
+  "h": "c629b0d315fd",
+  "d": "2026-10-13"
  },
  "races/labrador-retriever.html": {
-  "h": "8dac94037ea8",
-  "d": "2026-10-12"
+  "h": "d80178e5bc6e",
+  "d": "2026-10-13"
  },
  "races/lagotto-romagnolo.html": {
-  "h": "37f1b5ab3dcb",
-  "d": "2026-10-12"
+  "h": "fb685bf1faa9",
+  "d": "2026-10-13"
  },
  "races/laika-de-iakoutie.html": {
-  "h": "7d109770fbda",
-  "d": "2026-10-12"
+  "h": "5f2715939643",
+  "d": "2026-10-13"
  },
  "races/lancashire-heeler.html": {
-  "h": "5f5551fd802a",
-  "d": "2026-10-12"
+  "h": "436f1bddbb49",
+  "d": "2026-10-13"
  },
  "races/leonberg.html": {
-  "h": "a240d36651f9",
-  "d": "2026-10-12"
+  "h": "38ca0e33b982",
+  "d": "2026-10-13"
  },
  "races/levrier-afghan.html": {
-  "h": "a1a03c8b07a0",
-  "d": "2026-10-12"
+  "h": "29e1028b1c53",
+  "d": "2026-10-13"
  },
  "races/levrier-ecossais.html": {
-  "h": "54e2e9c3109f",
-  "d": "2026-10-12"
+  "h": "e7bdcf02c4e0",
+  "d": "2026-10-13"
  },
  "races/levrier-greyhound.html": {
-  "h": "c23a600b772b",
-  "d": "2026-10-12"
+  "h": "7cc7430c8121",
+  "d": "2026-10-13"
  },
  "races/levrier-irlandais.html": {
-  "h": "674da81d7d57",
-  "d": "2026-10-12"
+  "h": "40a317f8c8ad",
+  "d": "2026-10-13"
  },
  "races/lhassa-apso.html": {
-  "h": "538ada5c8c8a",
-  "d": "2026-10-12"
+  "h": "f5b9d3d125cd",
+  "d": "2026-10-13"
  },
  "races/malamute-d-alaska.html": {
-  "h": "e239ba2a4246",
-  "d": "2026-10-12"
+  "h": "332a23027d76",
+  "d": "2026-10-13"
  },
  "races/mastiff-tibetain.html": {
-  "h": "ebbf92d1620a",
-  "d": "2026-10-12"
+  "h": "afaed57921fd",
+  "d": "2026-10-13"
  },
  "races/norfolk-terrier.html": {
-  "h": "201027fcea14",
-  "d": "2026-10-12"
+  "h": "dec09faea9e7",
+  "d": "2026-10-13"
  },
  "races/norwich-terrier.html": {
-  "h": "693535b47738",
-  "d": "2026-10-12"
+  "h": "4d81512152c7",
+  "d": "2026-10-13"
  },
  "races/parson-russell-terrier.html": {
-  "h": "aafc19032897",
-  "d": "2026-10-12"
+  "h": "5af507e5520d",
+  "d": "2026-10-13"
  },
  "races/pekinois.html": {
-  "h": "f21c37c8f567",
-  "d": "2026-10-12"
+  "h": "37983f65ec3e",
+  "d": "2026-10-13"
  },
  "races/petit-basset-griffon-vendeen.html": {
-  "h": "829e5aa7600a",
-  "d": "2026-10-12"
+  "h": "ef80ed84c856",
+  "d": "2026-10-13"
  },
  "races/petit-bleu-de-gascogne.html": {
-  "h": "1dbcb2fd5437",
-  "d": "2026-10-12"
+  "h": "57d0862a3f20",
+  "d": "2026-10-13"
  },
  "races/petit-chien-lion.html": {
-  "h": "d11779c0907e",
-  "d": "2026-10-12"
+  "h": "c6cb783e7dba",
+  "d": "2026-10-13"
  },
  "races/petit-chien-russe.html": {
-  "h": "9966d85e8274",
-  "d": "2026-10-12"
+  "h": "499e4f6bc08f",
+  "d": "2026-10-13"
  },
  "races/petit-epagneul-de-munster.html": {
-  "h": "14d40631253a",
-  "d": "2026-10-12"
+  "h": "077b68d7198d",
+  "d": "2026-10-13"
  },
  "races/petit-levrier-italien.html": {
-  "h": "27000a2d64d7",
-  "d": "2026-10-12"
+  "h": "58d6426e459f",
+  "d": "2026-10-13"
  },
  "races/pinscher-allemand.html": {
-  "h": "bfb4055e39ad",
-  "d": "2026-10-12"
+  "h": "bd5602cfc86a",
+  "d": "2026-10-13"
  },
  "races/pinscher-nain.html": {
-  "h": "6df629eb2d3f",
-  "d": "2026-10-12"
+  "h": "b90202e33ef1",
+  "d": "2026-10-13"
  },
  "races/pit-bull-americain.html": {
-  "h": "fb5b649fec77",
-  "d": "2026-10-12"
+  "h": "dffb37732483",
+  "d": "2026-10-13"
  },
  "races/plott-hound.html": {
-  "h": "d00d299d3745",
-  "d": "2026-10-12"
+  "h": "89f808e55d4b",
+  "d": "2026-10-13"
  },
  "races/pointer-anglais.html": {
-  "h": "cd20fdee5a06",
-  "d": "2026-10-12"
+  "h": "081bc4b60459",
+  "d": "2026-10-13"
  },
  "races/poitevin.html": {
-  "h": "47d931d08f29",
-  "d": "2026-10-12"
+  "h": "437dbadaf50f",
+  "d": "2026-10-13"
  },
  "races/porcelaine.html": {
-  "h": "5b47cfeb7877",
-  "d": "2026-10-12"
+  "h": "27f8bdde5970",
+  "d": "2026-10-13"
  },
  "races/puli.html": {
-  "h": "f9ae6f249520",
-  "d": "2026-10-12"
+  "h": "aba241a7b7ff",
+  "d": "2026-10-13"
  },
  "races/pumi.html": {
-  "h": "77ad6bef0d5c",
-  "d": "2026-10-12"
+  "h": "3f98c6c34b1d",
+  "d": "2026-10-13"
  },
  "races/rat-terrier.html": {
-  "h": "b6624645a338",
-  "d": "2026-10-12"
+  "h": "25e4820e5157",
+  "d": "2026-10-13"
  },
  "races/redbone-coonhound.html": {
-  "h": "a1de724915f1",
-  "d": "2026-10-12"
+  "h": "b85dc980bfea",
+  "d": "2026-10-13"
  },
  "races/retriever-de-la-baie-de-chesapeake.html": {
-  "h": "558041430bba",
-  "d": "2026-10-12"
+  "h": "a4a3e9989a32",
+  "d": "2026-10-13"
  },
  "races/retriever-de-la-nouvelle-ecosse.html": {
-  "h": "fbfd3adead37",
-  "d": "2026-10-12"
+  "h": "43c63f840bba",
+  "d": "2026-10-13"
  },
  "races/rhodesian-ridgeback.html": {
-  "h": "0634416dd921",
-  "d": "2026-10-12"
+  "h": "f11f2ac0978e",
+  "d": "2026-10-13"
  },
  "races/rottweiler.html": {
-  "h": "12c7c41fef85",
-  "d": "2026-10-12"
+  "h": "bbac27a92536",
+  "d": "2026-10-13"
  },
  "races/saint-bernard.html": {
-  "h": "3e7f3de256af",
-  "d": "2026-10-12"
+  "h": "9080e9a7bb94",
+  "d": "2026-10-13"
  },
  "races/saluki.html": {
-  "h": "5f19116c2282",
-  "d": "2026-10-12"
+  "h": "a4709edb8ea2",
+  "d": "2026-10-13"
  },
  "races/samoyede.html": {
-  "h": "022b16dacdf1",
-  "d": "2026-10-12"
+  "h": "eb885be88c2f",
+  "d": "2026-10-13"
  },
  "races/schipperke.html": {
-  "h": "07c389a00e68",
-  "d": "2026-10-12"
+  "h": "7b2a0d43f495",
+  "d": "2026-10-13"
  },
  "races/schnauzer-geant.html": {
-  "h": "4f852fe91134",
-  "d": "2026-10-12"
+  "h": "ed96b529065a",
+  "d": "2026-10-13"
  },
  "races/schnauzer-nain.html": {
-  "h": "24678baf5618",
-  "d": "2026-10-12"
+  "h": "4391fa482d1e",
+  "d": "2026-10-13"
  },
  "races/schnauzer-standard.html": {
-  "h": "b03a9dde9ff3",
-  "d": "2026-10-12"
+  "h": "bd99be133813",
+  "d": "2026-10-13"
  },
  "races/setter-anglais.html": {
-  "h": "c68563414434",
-  "d": "2026-10-12"
+  "h": "f4c01044c241",
+  "d": "2026-10-13"
  },
  "races/setter-gordon.html": {
-  "h": "d8043fae5633",
-  "d": "2026-10-12"
+  "h": "ec40c59b0e1f",
+  "d": "2026-10-13"
  },
  "races/setter-irlandais.html": {
-  "h": "27d4a207f118",
-  "d": "2026-10-12"
+  "h": "b4e0436b3a52",
+  "d": "2026-10-13"
  },
  "races/shar-pei.html": {
-  "h": "72116f83ed5d",
-  "d": "2026-10-12"
+  "h": "e28c0d243238",
+  "d": "2026-10-13"
  },
  "races/shetland-sheepdog-berger-des-shetland.html": {
-  "h": "8883e7bd32c0",
-  "d": "2026-10-12"
+  "h": "b3f74eee1e85",
+  "d": "2026-10-13"
  },
  "races/shiba-inu.html": {
-  "h": "8cf1fce97b51",
-  "d": "2026-10-12"
+  "h": "cd225d35a457",
+  "d": "2026-10-13"
  },
  "races/shih-tzu.html": {
-  "h": "62c7dad048de",
-  "d": "2026-10-12"
+  "h": "709af53a9d7b",
+  "d": "2026-10-13"
  },
  "races/shiloh-shepherd.html": {
-  "h": "6a7e228c4388",
-  "d": "2026-10-12"
+  "h": "4586482edf46",
+  "d": "2026-10-13"
  },
  "races/spinone-italien.html": {
-  "h": "dfa14cfbe3a4",
-  "d": "2026-10-12"
+  "h": "e1841f72d265",
+  "d": "2026-10-13"
  },
  "races/spitz-allemand.html": {
-  "h": "f6bd8be114fb",
-  "d": "2026-10-12"
+  "h": "f3203d6789fe",
+  "d": "2026-10-13"
  },
  "races/spitz-americain.html": {
-  "h": "b3b025319d23",
-  "d": "2026-10-12"
+  "h": "e314cc412046",
+  "d": "2026-10-13"
  },
  "races/spitz-finlandais.html": {
-  "h": "cb9c5abe8d92",
-  "d": "2026-10-12"
+  "h": "866f321d1da2",
+  "d": "2026-10-13"
  },
  "races/spitz-japonais.html": {
-  "h": "edb1200085d8",
-  "d": "2026-10-12"
+  "h": "942fef44ccf5",
+  "d": "2026-10-13"
  },
  "races/spitz-nain-loulou-de-pomeranie.html": {
-  "h": "98d0fafcf458",
-  "d": "2026-10-12"
+  "h": "cccceecb5771",
+  "d": "2026-10-13"
  },
  "races/springer-spaniel-anglais.html": {
-  "h": "470b9881c351",
-  "d": "2026-10-12"
+  "h": "3ad9a3eb2ba5",
+  "d": "2026-10-13"
  },
  "races/staffordshire-bull-terrier.html": {
-  "h": "a1a0f4ddf867",
-  "d": "2026-10-12"
+  "h": "72c433fca5e4",
+  "d": "2026-10-13"
  },
  "races/staffordshire-terrier-americain.html": {
-  "h": "cc103aa3e652",
-  "d": "2026-10-12"
+  "h": "bf586bbf5cff",
+  "d": "2026-10-13"
  },
  "races/teckel.html": {
-  "h": "f4e3101bc46f",
-  "d": "2026-10-12"
+  "h": "c4ecce8b85f8",
+  "d": "2026-10-13"
  },
  "races/terre-neuve.html": {
-  "h": "8b283f3ffcea",
-  "d": "2026-10-12"
+  "h": "50e5f26df749",
+  "d": "2026-10-13"
  },
  "races/terrier-australien-a-poil-soyeux.html": {
-  "h": "8accbbb6c636",
-  "d": "2026-10-12"
+  "h": "5722cbf1b832",
+  "d": "2026-10-13"
  },
  "races/terrier-australien.html": {
-  "h": "d63776a0016a",
-  "d": "2026-10-12"
+  "h": "07cff0bdd151",
+  "d": "2026-10-13"
  },
  "races/terrier-de-chasse-allemand.html": {
-  "h": "de3db3de322d",
-  "d": "2026-10-12"
+  "h": "ba8842260a16",
+  "d": "2026-10-13"
  },
  "races/terrier-ecossais.html": {
-  "h": "76f4af226f2a",
-  "d": "2026-10-12"
+  "h": "b868bdf9f2de",
+  "d": "2026-10-13"
  },
  "races/terrier-irlandais-a-poil-doux.html": {
-  "h": "fe7c2ce2d6d1",
-  "d": "2026-10-12"
+  "h": "e649bc7388c0",
+  "d": "2026-10-13"
  },
  "races/terrier-irlandais-de-glen-of-imaal.html": {
-  "h": "3005836623a5",
-  "d": "2026-10-12"
+  "h": "39a4653ac07d",
+  "d": "2026-10-13"
  },
  "races/terrier-irlandais.html": {
-  "h": "22ce3d0835a5",
-  "d": "2026-10-12"
+  "h": "37ef96cc890d",
+  "d": "2026-10-13"
  },
  "races/terrier-tibetain.html": {
-  "h": "de4e96051f4e",
-  "d": "2026-10-12"
+  "h": "4bf1c1ef9161",
+  "d": "2026-10-13"
  },
  "races/thai-ridgeback.html": {
-  "h": "d25c52b29c2d",
-  "d": "2026-10-12"
+  "h": "f3c738d2fe95",
+  "d": "2026-10-13"
  },
  "races/toy-fox-terrier.html": {
-  "h": "9b2d5a0c44b4",
-  "d": "2026-10-12"
+  "h": "795788fedf51",
+  "d": "2026-10-13"
  },
  "races/toy-terrier-anglais-noir-et-feu.html": {
-  "h": "8f7e153dcf47",
-  "d": "2026-10-12"
+  "h": "a8a610b8501f",
+  "d": "2026-10-13"
  },
  "races/treeing-walker-coonhound.html": {
-  "h": "0773f15410b3",
-  "d": "2026-10-12"
+  "h": "b8f88a411502",
+  "d": "2026-10-13"
  },
  "races/vallhund-suedois.html": {
-  "h": "5fa28317b591",
-  "d": "2026-10-12"
+  "h": "9a31267f6338",
+  "d": "2026-10-13"
  },
  "races/vizsla-braque-hongrois.html": {
-  "h": "c9292a1bf3d6",
-  "d": "2026-10-12"
+  "h": "3103c50dd3eb",
+  "d": "2026-10-13"
  },
  "races/welsh-corgi-cardigan.html": {
-  "h": "73b5740108eb",
-  "d": "2026-10-12"
+  "h": "988ecf2846a8",
+  "d": "2026-10-13"
  },
  "races/welsh-corgi-pembroke.html": {
-  "h": "459d106ada83",
-  "d": "2026-10-12"
+  "h": "ed1efa95a25d",
+  "d": "2026-10-13"
  },
  "races/welsh-springer-spaniel.html": {
-  "h": "345bbb10ec0e",
-  "d": "2026-10-12"
+  "h": "ac58315d166b",
+  "d": "2026-10-13"
  },
  "races/west-highland-white-terrier.html": {
-  "h": "55ee8203ae84",
-  "d": "2026-10-12"
+  "h": "b253476dcce4",
+  "d": "2026-10-13"
  },
  "races/whippet.html": {
-  "h": "8989cb967e28",
-  "d": "2026-10-12"
+  "h": "e659b47404ef",
+  "d": "2026-10-13"
  },
  "races/yorkshire-terrier.html": {
-  "h": "cf081a8637eb",
-  "d": "2026-10-12"
+  "h": "c120a7ad543c",
+  "d": "2026-10-13"
  },
  "selections/chiens-calmes.html": {
-  "h": "89b03cc3637e",
-  "d": "2026-10-12"
+  "h": "8b97c555c5bf",
+  "d": "2026-10-13"
  },
  "selections/chiens-de-garde.html": {
-  "h": "87acece39380",
-  "d": "2026-10-12"
+  "h": "66f9680e69cc",
+  "d": "2026-10-13"
  },
  "selections/chiens-de-taille-moyenne.html": {
-  "h": "20a62b008fb1",
-  "d": "2026-10-12"
+  "h": "0ef7fdad6c58",
+  "d": "2026-10-13"
  },
  "selections/chiens-et-chats.html": {
-  "h": "176f44f42869",
-  "d": "2026-10-12"
+  "h": "5a18259605ce",
+  "d": "2026-10-13"
  },
  "selections/chiens-pour-appartement.html": {
-  "h": "cbe040082bb1",
-  "d": "2026-10-12"
+  "h": "7f0d0bc08be2",
+  "d": "2026-10-13"
  },
  "selections/chiens-pour-enfants.html": {
-  "h": "c4ddb36481fa",
-  "d": "2026-10-12"
+  "h": "6fa27294a9fc",
+  "d": "2026-10-13"
  },
  "selections/chiens-pour-personnes-agees.html": {
-  "h": "542886ea5976",
-  "d": "2026-10-12"
+  "h": "7839cb3019e3",
+  "d": "2026-10-13"
  },
  "selections/chiens-qui-aboient-peu.html": {
-  "h": "9d0eb73dd316",
-  "d": "2026-10-12"
+  "h": "0626aa21d2f8",
+  "d": "2026-10-13"
  },
  "selections/chiens-qui-perdent-peu-de-poils.html": {
-  "h": "f519b98ffee7",
-  "d": "2026-10-12"
+  "h": "b6e351947883",
+  "d": "2026-10-13"
  },
  "selections/chiens-qui-supportent-la-chaleur.html": {
-  "h": "9e007fd94e56",
-  "d": "2026-10-12"
+  "h": "a61de9b848cc",
+  "d": "2026-10-13"
  },
  "selections/chiens-qui-supportent-la-solitude.html": {
-  "h": "73c89e86ebc4",
-  "d": "2026-10-12"
+  "h": "3a91ca5e86c9",
+  "d": "2026-10-13"
  },
  "selections/chiens-sportifs.html": {
-  "h": "ca53ea257a1a",
-  "d": "2026-10-12"
+  "h": "b595fd638c69",
+  "d": "2026-10-13"
  },
  "selections/grands-chiens.html": {
-  "h": "c82bd8b28e8b",
-  "d": "2026-10-12"
+  "h": "46035a4f91f2",
+  "d": "2026-10-13"
  },
  "selections/petits-chiens.html": {
-  "h": "8c8533f2c77f",
-  "d": "2026-10-12"
+  "h": "a8b0a4e0bf47",
+  "d": "2026-10-13"
  },
  "selections/premier-chien.html": {
-  "h": "333b07bed3e5",
-  "d": "2026-10-12"
+  "h": "e745364ca73c",
+  "d": "2026-10-13"
  },
  "selections/races-francaises.html": {
-  "h": "6f92ab58da37",
-  "d": "2026-10-12"
+  "h": "7a62e24a6f40",
+  "d": "2026-10-13"
  },
  "tel-maitre-tel-chien.html": {
-  "h": "790ec1be9fad",
-  "d": "2026-10-12"
+  "h": "927de287a4c3",
+  "d": "2026-10-13"
  }
 }

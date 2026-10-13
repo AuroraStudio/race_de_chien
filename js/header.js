@@ -19,6 +19,9 @@ const dogQuotes = [
     T`Mon chien détruit tout ce qu'il touche. Sauf mon cœur, celui-là il le garde intact.`
 ];
 
+// Guillemets de la langue de la page
+const QUOTE_MARKS = (document.documentElement.lang || 'fr') === 'fr' ? ['«&nbsp;', '&nbsp;»'] : ['“', '”'];
+
 function getRandomQuote() {
     return dogQuotes[Math.floor(Math.random() * dogQuotes.length)];
 }
@@ -65,7 +68,7 @@ function renderHeader() {
                     </a>
 
                     <div class="hidden xl:flex flex-1 justify-center px-6 min-w-0">
-                        <p class="text-sm text-slate-500 italic text-center leading-snug" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:520px;">«&nbsp;${quote}&nbsp;»</p>
+                        <p class="text-sm text-slate-500 italic text-center leading-snug" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:520px;">${QUOTE_MARKS[0]}${quote}${QUOTE_MARKS[1]}</p>
                     </div>
 
                     <nav class="hidden md:flex items-center gap-6 shrink-0" aria-label="${T`Navigation principale`}">
@@ -85,7 +88,7 @@ function renderHeader() {
                     ${NAV_LINKS.map(l => `<a href="${l.href}" class="block py-1 text-[15px] font-medium text-slate-800 hover:text-primary-600">${l.label}</a>`).join('')}
                     <a href="${TM_HREF}" class="flex items-center gap-2 py-1 text-[15px] font-semibold text-primary-700">${ic('camera', 'h-5 w-5')}${T`Tel Maître, Tel Chien`}</a>
                     ${alt ? `${altLink('flex items-center gap-2 py-1 text-[15px] font-medium text-slate-800 hover:text-primary-600')}${ic('globe', 'h-5 w-5')}${LANG_LABEL[alt.lang] || alt.lang}</a>` : ''}
-                    <p class="text-sm text-slate-500 italic pt-3 border-t border-slate-100">«&nbsp;${quote}&nbsp;»</p>
+                    <p class="text-sm text-slate-500 italic pt-3 border-t border-slate-100">${QUOTE_MARKS[0]}${quote}${QUOTE_MARKS[1]}</p>
                 </nav>
             </div>
         </header>
