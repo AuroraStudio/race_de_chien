@@ -71,7 +71,7 @@ Ratings (label: levels 1 to 5). Keep these exact words, also lowercased inside s
 - Robustesse / Hardiness: Fragile, Plutôt fragile Rather fragile, Moyenne Average, Bonne Good, Excellente Excellent
 Rating groups: Mode de vie Lifestyle · Famille et sociabilité Family and sociability · Éducation et caractère Training and temperament ·
 Entretien et voisinage Care and neighbors · Climat et santé Climate and health.
-Sizes: Très petit Toy · Petit Small · Moyen Medium · Grand Large · Géant Giant.
+Sizes: Très petit Very small · Petit Small · Moyen Medium · Grand Large · Géant Giant.
 
 FCI groups (short labels): Bergers et bouviers → Sheepdogs and cattle dogs · Molosses, pinschers et bouviers suisses →
 Pinschers, molossers and Swiss mountain dogs · Terriers → Terriers · Teckels → Dachshunds · Spitz et chiens primitifs →

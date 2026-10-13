@@ -19,8 +19,26 @@ const W = {
     perte_poils: [['quasi nulle', 'faible', 'modérée', 'forte', 'très forte'], ['It sheds almost nothing', 'It sheds little', 'It sheds moderately', 'It sheds heavily', 'It sheds very heavily']],
     entretien_pelage: [['minimal', 'faible', 'moyen', 'important', 'très important'], ['minimal', 'low', 'average', 'high', 'very high']]
 };
+// Mots de chaque critère, de la note 1 à 5 (guide.md)
+const BY_K = {
+    energie: ['Very calm', 'Calm', 'Moderate', 'High', 'Boundless'], appartement: ['Impossible', 'Difficult', 'Possible', 'Good', 'Perfect'],
+    solitude: ['Very poorly', 'Poorly', 'A few hours', 'Well', 'Very well'], enfants: ['Avoid', 'Caution', 'Fair', 'Good', 'Excellent'],
+    chiens: ['Avoid', 'Caution', 'Fair', 'Good', 'Excellent'], chats: ['Avoid', 'Caution', 'Fair', 'Good', 'Excellent'],
+    inconnus: ['Very wary', 'Reserved', 'Polite', 'Open', 'Very open'], education: ['Very hard', 'Hard', 'Average', 'Easy', 'Very easy'],
+    premier_chien: ['Not advised', 'Poor fit', 'Possible', 'Good fit', 'Ideal'], garde: ['None', 'Low', 'Moderate', 'Strong', 'Very strong'],
+    instinct_chasse: ['Very low', 'Low', 'Moderate', 'Strong', 'Very strong'], fugue: ['Very low', 'Low', 'Moderate', 'High', 'Very high'],
+    entretien_pelage: ['Minimal', 'Low', 'Average', 'High', 'Very high'], perte_poils: ['Almost none', 'Low', 'Moderate', 'Heavy', 'Very heavy'],
+    bave: ['Never', 'Rarely', 'A little', 'Often', 'A lot'], aboiements: ['Very quiet', 'Quiet', 'Moderate', 'Frequent', 'Very vocal'],
+    chaleur: ['Very low', 'Low', 'Average', 'Good', 'Excellent'], froid: ['Very low', 'Low', 'Average', 'Good', 'Excellent'],
+    robustesse: ['Fragile', 'Rather fragile', 'Average', 'Good', 'Excellent']
+};
+// L'énergie et la robustesse dites en phrase, du niveau 1 au niveau 5
+const ENERGY_SAID = ['it is a very calm dog', 'it is a calm dog', 'its energy is moderate', 'its energy is high', 'its energy is boundless'];
+const ENERGY_CARD = ['very calm', 'calm', 'moderate energy', 'high energy', 'boundless energy'];
+const HARDY_SAID = ['the breed is fragile', 'the breed is rather fragile', 'its hardiness is average', 'the breed is hardy', 'the breed is very hardy'];
 const COAT_CARE = ['its coat needs minimal care', 'its coat needs little care', 'its coat needs average care', 'its coat needs a lot of care', 'its coat needs a great deal of care'];
 const word = (k, fr) => { const i = W[k][0].indexOf(fr); return i < 0 ? null : W[k][1][i]; };
+const level = (k, fr) => W[k][0].indexOf(fr);
 
 // Mots des notes affichés seuls (« En bref », « Toutes ses notes »)
 const LEVEL = {
@@ -69,7 +87,7 @@ const EXTRA = {
     'Son poil demande un toilettage régulier, parfois chez un professionnel.': 'Its coat needs regular grooming, sometimes by a professional.'
 };
 // Noms propres en tête d'une maladie : on ne met pas de minuscule
-const PROPER = /^(Addison|Cushing|Legg|Von|Willebrand|Wobbler|Horner|Chiari|Ehlers|Stockard|Collie|Scottie|Shar|Westie|Cavalier|Alaskan|Siberian|Dalmatian|Irish|Lyme|Leishmania|Lafora|Fanconi|Hodgkin|Sertoli|Sjögren|Krabbe|Pelger|Glanzmann|Tyzzer|Vogt|VKH|PRA|CEA|MDR1|DM|IVDD|BOAS)/;
+const PROPER = /^(Addison|Cushing|Legg|Von|Willebrand|Wobbler|Horner|Chiari|Ehlers|Stockard|Collie|Scottie|Shar|Westie|Cavalier|Alaskan|Siberian|Dalmatian|Irish|Lyme|Lafora|Fanconi|Hodgkin|Sertoli|Sjögren|Krabbe|Pelger|Glanzmann|Tyzzer|Vogt|VKH|PRA|CEA|MDR1|DM|IVDD|BOAS)/;
 
 module.exports = function modeles({ breeds, names, dict }) {
     const nfr = s => s.replace(/ /g, ' ');
@@ -140,9 +158,11 @@ module.exports = function modeles({ breeds, names, dict }) {
         }],
         // Repères des cartes de sélection
         [/^(Très petit|Petit|Moyen|Grand|Géant) · énergie (.+?) · entretien (.+)$/, m => {
-            const e = word('energie', m[2]), c = word('entretien_pelage', m[3]);
-            return e && c && `${SIZE[m[1]]} · ${e} energy · ${c} coat care`;
+            const e = level('energie', m[2]), c = word('entretien_pelage', m[3]);
+            return e >= 0 && c && `${SIZE[m[1]]} · ${ENERGY_CARD[e]} · ${c} coat care`;
         }],
+        // Note d'un critère connu (data-ctx) : le mot anglais propre à ce critère
+        [/^([a-z_]+)§.+?<g1>, (\d) sur 5<\/g1>$/, m => BY_K[m[1]] && `${BY_K[m[1]][m[2] - 1]}<g1>, ${m[2]} out of 5</g1>`],
         // Note avec sa valeur pour les lecteurs d'écran
         [/^(.+?)<g1>, (\d) sur 5<\/g1>$/, m => LEVEL[m[1]] && `${LEVEL[m[1]]}<g1>, ${m[2]} out of 5</g1>`],
         // FAQ
@@ -174,25 +194,27 @@ module.exports = function modeles({ breeds, names, dict }) {
             return a && rest ? [a, ...rest].join(' ') : null;
         }],
         [new RegExp(`^Comptez environ (\\d+)${SP}minutes d’activité par jour, pour une énergie (.+?)\\.(.*)$`), m => {
-            const e = word('energie', m[2]), rest = sentences(m[3], EXTRA);
-            return e && rest ? [`Allow about ${m[1]} minutes of activity a day: its energy is ${e}.`, ...rest].join(' ') : null;
+            const e = level('energie', m[2]), rest = sentences(m[3], EXTRA);
+            return e >= 0 && rest ? [`Allow about ${m[1]} minutes of activity a day: ${ENERGY_SAID[e]}.`, ...rest].join(' ') : null;
         }],
         [new RegExp(`^Elle est de (.+?), pour une robustesse (.+?)\\.(?: Les problèmes de santé à surveiller en priorité${SP}: (.+)\\.)?$`), m => {
-            const life = range(m[1]), r = word('robustesse', m[2]);
-            if (!life || !r) return null;
-            let out = `Life expectancy is ${life}, and its hardiness is ${r}.`;
+            const life = range(m[1]), r = level('robustesse', m[2]);
+            if (!life || r < 0) return null;
+            let out = `Life expectancy is ${life}, and ${HARDY_SAID[r]}.`;
             if (m[3]) {
                 // Les deux affections citées : leur traduction vient de la liste « Santé » de la fiche
                 const issues = ISSUES.get(nfr(m[3]));
                 const tr = (issues || []).map(issue);
                 if (!issues || tr.some(t => t == null)) return null;
-                out += ` The main health problems to watch for are ${tr.map(t => lcFirst(t.replace(/<\/?[gx]\d+\/?>/g, ''))).join(' and ')}.`;
+                const named = tr.map(t => lcFirst(t.replace(/<\/?[gx]\d+\/?>/g, '')));
+                // Une affection qui contient déjà « and » : pas de deuxième « and » dans la phrase
+                out += ` The main health problems to watch for are ${named.join(named.some(x => / and /.test(x)) ? ', as well as ' : ' and ')}.`;
             }
             return out;
         }],
         [new RegExp(`^Espérance de vie de (.+?), robustesse (.+?)\\.( Les affections les plus fréquentes dans la race${SP}:)?$`), m => {
-            const life = range(m[1]), r = word('robustesse', m[2]);
-            return life && r ? `Life expectancy is ${life}, and its hardiness is ${r}.${m[3] ? ' The most common health problems in the breed:' : ''}` : null;
+            const life = range(m[1]), r = level('robustesse', m[2]);
+            return life && r >= 0 ? `Life expectancy is ${life}, and ${HARDY_SAID[r]}.${m[3] ? ' The most common health problems in the breed:' : ''}` : null;
         }],
         [/^Même gabarit et notes voisines\. <g1>Toutes les races du groupe (.+?)<x2\/><\/g1>$/, m => GROUP[m[1]] && `Same size and similar ratings. <g1>All ${GROUP[m[1]].charAt(0).toLowerCase() + GROUP[m[1]].slice(1)}<x2/></g1>`]
     ];

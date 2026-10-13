@@ -659,7 +659,7 @@ function breedPage(b) {
                         <dl class="mt-4 grid grid-cols-2 gap-2">
                             ${KEY_SCORES.map(([k, ic, label]) => `<div class="rounded-2xl bg-slate-50 p-3">
                                 <dt class="flex items-center gap-1.5 text-[13px] text-slate-500">${icon(ic, 'h-4 w-4 shrink-0')}${label}</dt>
-                                <dd class="mt-1 text-[15px] font-bold leading-tight ${TONE[tone(k, s[k])].text}">${SCORE_META[k].words[s[k] - 1]}<span class="sr-only">, ${s[k]} sur 5</span></dd>
+                                <dd class="mt-1 text-[15px] font-bold leading-tight ${TONE[tone(k, s[k])].text}" data-ctx="${k}">${SCORE_META[k].words[s[k] - 1]}<span class="sr-only">, ${s[k]} sur 5</span></dd>
                                 <dd class="mt-2">${gauge(k, s[k])}</dd>
                             </div>`).join('')}
                         </dl>
@@ -679,7 +679,7 @@ function breedPage(b) {
                             <dl class="mt-3 space-y-3">
                                 ${keys.map(k => `<div class="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-3 gap-y-1.5 text-sm">
                                     <dt class="text-slate-600">${SCORE_META[k].label}</dt>
-                                    <dd class="text-right font-semibold ${TONE[tone(k, s[k])].text}">${SCORE_META[k].words[s[k] - 1]}<span class="sr-only">, ${s[k]} sur 5</span></dd>
+                                    <dd class="text-right font-semibold ${TONE[tone(k, s[k])].text}" data-ctx="${k}">${SCORE_META[k].words[s[k] - 1]}<span class="sr-only">, ${s[k]} sur 5</span></dd>
                                     <dd class="col-span-2">${gauge(k, s[k])}</dd>
                                 </div>`).join('')}
                             </dl>
