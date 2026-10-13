@@ -1,0 +1,50 @@
+{
+  "actif": false,
+  "lang": "de",
+  "locale": "de_DE",
+  "switchLabel": "Deutsch",
+  "ordinal": "function (n) { return n + '.'; }",
+  "pages": {
+    "/": "/de",
+    "/quel-chien-choisir": "/de/welcher-hund-passt-zu-mir",
+    "/compare": "/de/vergleichen",
+    "/tel-maitre-tel-chien": "/de/welcher-hund-bin-ich",
+    "/liste-des-races": "/de/hunderassen-a-z",
+    "/groupes-de-races": "/de/rassegruppen",
+    "/chiens-categorises": "/de/listenhunde-in-frankreich",
+    "/mentions-legales": "/de/impressum",
+    "/confidentialite": "/de/datenschutz"
+  },
+  "breedsPrefix": "/de/rassen/",
+  "groupsPrefix": "/de/gruppen/",
+  "selectionsPrefix": "/de/",
+  "selections": {
+    "chiens-pour-appartement": "wohnungshunde",
+    "chiens-calmes": "ruhige-hunderassen",
+    "chiens-pour-enfants": "hunde-fuer-kinder",
+    "chiens-qui-perdent-peu-de-poils": "hypoallergene-hunde",
+    "chiens-pour-personnes-agees": "hunde-fuer-senioren",
+    "chiens-qui-supportent-la-solitude": "hunde-die-allein-bleiben-koennen",
+    "chiens-sportifs": "sportliche-hunderassen",
+    "premier-chien": "anfaengerhunde",
+    "chiens-qui-aboient-peu": "hunde-die-wenig-bellen",
+    "races-francaises": "franzoesische-hunderassen",
+    "petits-chiens": "kleine-hunderassen",
+    "chiens-de-taille-moyenne": "mittelgrosse-hunderassen",
+    "grands-chiens": "grosse-hunderassen",
+    "chiens-de-garde": "wachhunde",
+    "chiens-qui-supportent-la-chaleur": "hunde-fuer-heisses-klima",
+    "chiens-et-chats": "hunde-die-sich-mit-katzen-vertragen"
+  },
+  "groups": {
+    "chiens-de-berger-et-bouviers": "huete-und-treibhunde",
+    "molosses-pinschers-et-bouviers-suisses": "pinscher-schnauzer-molosser-und-schweizer-sennenhunde",
+    "terriers": "terrier",
+    "spitz-et-chiens-primitifs": "spitze-und-hunde-vom-urtyp",
+    "chiens-courants": "laufhunde-und-schweisshunde",
+    "chiens-d-arret": "vorstehhunde",
+    "rapporteurs-leveurs-et-chiens-d-eau": "apportier-stoeber-und-wasserhunde",
+    "chiens-de-compagnie": "gesellschafts-und-begleithunde",
+    "levriers": "windhunde"
+  }
+}

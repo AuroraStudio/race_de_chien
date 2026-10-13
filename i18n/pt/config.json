@@ -1,0 +1,50 @@
+{
+  "actif": false,
+  "lang": "pt",
+  "locale": "pt_BR",
+  "switchLabel": "Português",
+  "ordinal": "function (n) { return n + 'ª'; }",
+  "pages": {
+    "/": "/pt",
+    "/quel-chien-choisir": "/pt/qual-cachorro-escolher",
+    "/compare": "/pt/comparar",
+    "/tel-maitre-tel-chien": "/pt/com-qual-cachorro-eu-pareco",
+    "/liste-des-races": "/pt/racas-de-cachorro-a-z",
+    "/groupes-de-races": "/pt/grupos-de-racas",
+    "/chiens-categorises": "/pt/caes-perigosos-na-franca",
+    "/mentions-legales": "/pt/aviso-legal",
+    "/confidentialite": "/pt/privacidade"
+  },
+  "breedsPrefix": "/pt/racas/",
+  "groupsPrefix": "/pt/grupos/",
+  "selectionsPrefix": "/pt/",
+  "selections": {
+    "chiens-pour-appartement": "cachorros-para-apartamento",
+    "chiens-calmes": "racas-de-cachorro-calmas",
+    "chiens-pour-enfants": "cachorros-para-criancas",
+    "chiens-qui-perdent-peu-de-poils": "cachorros-hipoalergenicos",
+    "chiens-pour-personnes-agees": "cachorros-para-idosos",
+    "chiens-qui-supportent-la-solitude": "cachorros-que-ficam-bem-sozinhos",
+    "chiens-sportifs": "cachorros-esportistas",
+    "premier-chien": "cachorros-para-iniciantes",
+    "chiens-qui-aboient-peu": "cachorros-que-latem-pouco",
+    "races-francaises": "racas-de-cachorro-francesas",
+    "petits-chiens": "racas-de-cachorro-pequenas",
+    "chiens-de-taille-moyenne": "racas-de-cachorro-medias",
+    "grands-chiens": "racas-de-cachorro-grandes",
+    "chiens-de-garde": "cachorros-de-guarda",
+    "chiens-qui-supportent-la-chaleur": "cachorros-para-clima-quente",
+    "chiens-et-chats": "cachorros-que-se-dao-bem-com-gatos"
+  },
+  "groups": {
+    "chiens-de-berger-et-bouviers": "caes-pastores-e-boiadeiros",
+    "molosses-pinschers-et-bouviers-suisses": "pinschers-schnauzers-molossos-e-boiadeiros-suicos",
+    "terriers": "terriers",
+    "spitz-et-chiens-primitifs": "spitz-e-caes-do-tipo-primitivo",
+    "chiens-courants": "sabujos-e-caes-de-busca",
+    "chiens-d-arret": "caes-de-aponte",
+    "rapporteurs-leveurs-et-chiens-d-eau": "retrievers-levantadores-e-caes-dagua",
+    "chiens-de-compagnie": "caes-de-companhia",
+    "levriers": "lebreis"
+  }
+}

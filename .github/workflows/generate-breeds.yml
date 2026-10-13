@@ -40,6 +40,6 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add -A races/ selections/ groupes/ en/ es/ *.html sitemap.xml robots.txt css/site.css data/breeds-index*.json data/lastmod.json js/icons.js js/i18n.*.js
+          git add -A races/ selections/ groupes/ en/ es/ de/ pt/ *.html sitemap.xml robots.txt css/site.css data/breeds-index*.json data/lastmod.json js/icons.js js/i18n.*.js
           git diff --staged --quiet || git commit -m "build: régénérer le site statique [auto]"
           git push

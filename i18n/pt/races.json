@@ -1,0 +1,695 @@
+{
+  "affenpinscher": {
+    "name": "Affenpinscher"
+  },
+  "airedale-terrier": {
+    "name": "Airedale Terrier"
+  },
+  "akbash": {
+    "name": "Akbash"
+  },
+  "akita": {
+    "name": "Akita Inu"
+  },
+  "akita-americain": {
+    "name": "Akita Americano"
+  },
+  "bouledogue-alapaha": {
+    "name": "Alapaha Blue Blood Bulldog"
+  },
+  "american-bully": {
+    "name": "American Bully"
+  },
+  "spitz-americain": {
+    "name": "Cão Esquimó Americano"
+  },
+  "pit-bull-americain": {
+    "name": "American Pit Bull Terrier"
+  },
+  "staffordshire-terrier-americain": {
+    "name": "American Staffordshire Terrier"
+  },
+  "anglo-francais-de-petite-venerie": {
+    "name": "Anglo-Francês de Pequena Venaria"
+  },
+  "ariegeois": {
+    "name": "Ariégeois"
+  },
+  "azawakh": {
+    "name": "Azawakh"
+  },
+  "barbet": {
+    "name": "Barbet"
+  },
+  "basenji": {
+    "name": "Basenji"
+  },
+  "basset-bleu-de-gascogne": {
+    "name": "Basset Bleu de Gascogne"
+  },
+  "basset-hound": {
+    "name": "Basset Hound"
+  },
+  "basset-artesien-normand": {
+    "name": "Basset Artésien Normand"
+  },
+  "basset-fauve-de-bretagne": {
+    "name": "Basset Fauve de Bretagne"
+  },
+  "beagle": {
+    "name": "Beagle"
+  },
+  "beagle-harrier": {
+    "name": "Beagle-Harrier"
+  },
+  "bearded-collie": {
+    "name": "Bearded Collie"
+  },
+  "beauceron": {
+    "name": "Pastor de Beauce"
+  },
+  "bedlington-terrier": {
+    "name": "Bedlington Terrier"
+  },
+  "berger-allemand": {
+    "name": "Pastor Alemão"
+  },
+  "berger-americain-miniature": {
+    "name": "Pastor Americano Miniatura"
+  },
+  "berger-australien": {
+    "name": "Pastor Australiano"
+  },
+  "berger-belge-malinois": {
+    "name": "Pastor Belga Malinois"
+  },
+  "berger-belge-tervueren": {
+    "name": "Pastor Belga Tervueren"
+  },
+  "berger-blanc-suisse": {
+    "name": "Pastor Branco Suíço"
+  },
+  "berger-hollandais": {
+    "name": "Pastor Holandês"
+  },
+  "berger-belge-groenendael": {
+    "name": "Pastor Belga Groenendael"
+  },
+  "berger-belge-laekenois": {
+    "name": "Pastor Belga Laekenois"
+  },
+  "briard": {
+    "name": "Pastor de Brie"
+  },
+  "berger-de-picardie": {
+    "name": "Pastor de Picardia"
+  },
+  "berger-des-pyrenees-a-face-rase": {
+    "name": "Pastor dos Pirineus de Face Rasa"
+  },
+  "berger-des-pyrenees-a-poil-long": {
+    "name": "Pastor dos Pirineus de Pelo Longo"
+  },
+  "berger-du-caucase": {
+    "name": "Pastor do Cáucaso"
+  },
+  "bichon-frise": {
+    "name": "Bichon Frisé"
+  },
+  "bichon-havanais": {
+    "name": "Bichon Havanês"
+  },
+  "bichon-maltais": {
+    "name": "Maltês"
+  },
+  "billy": {
+    "name": "Billy"
+  },
+  "bobtail-berger-anglais-ancien": {
+    "name": "Old English Sheepdog"
+  },
+  "boerboel": {
+    "name": "Boerboel"
+  },
+  "border-collie": {
+    "name": "Border Collie"
+  },
+  "border-terrier": {
+    "name": "Border Terrier"
+  },
+  "boston-terrier": {
+    "name": "Boston Terrier"
+  },
+  "bouledogue-americain": {
+    "name": "Buldogue Americano"
+  },
+  "bouledogue-francais": {
+    "name": "Buldogue Francês"
+  },
+  "bouvier-australien": {
+    "name": "Boiadeiro Australiano"
+  },
+  "bouvier-bernois": {
+    "name": "Boiadeiro Bernês"
+  },
+  "bouvier-d-appenzell": {
+    "name": "Boiadeiro de Appenzell"
+  },
+  "bouvier-des-flandres": {
+    "name": "Boiadeiro de Flandres"
+  },
+  "boxer": {
+    "name": "Boxer"
+  },
+  "boykin-spaniel": {
+    "name": "Boykin Spaniel"
+  },
+  "braque-allemand-a-poil-court": {
+    "name": "Braco Alemão de Pelo Curto"
+  },
+  "braque-hongrois-a-poil-dur": {
+    "name": "Vizsla de Pelo Duro"
+  },
+  "braque-italien": {
+    "name": "Braco Italiano"
+  },
+  "braque-saint-germain": {
+    "name": "Braco Saint-Germain"
+  },
+  "braque-d-auvergne": {
+    "name": "Braco de Auvergne"
+  },
+  "braque-de-weimar": {
+    "name": "Weimaraner"
+  },
+  "braque-de-l-ariege": {
+    "name": "Braco de Ariège"
+  },
+  "braque-du-bourbonnais": {
+    "name": "Braco de Bourbonnais"
+  },
+  "braque-francais-type-gascogne": {
+    "name": "Braco Francês (Tipo Gasconha)"
+  },
+  "braque-francais-type-pyrenees": {
+    "name": "Braco Francês (Tipo Pirineus)"
+  },
+  "vizsla-braque-hongrois": {
+    "name": "Vizsla"
+  },
+  "briquet-griffon-vendeen": {
+    "name": "Briquet Griffon Vendéen"
+  },
+  "bruno-saint-hubert-francais": {
+    "name": "Bruno Saint-Hubert Français"
+  },
+  "bull-terrier": {
+    "name": "Bull Terrier"
+  },
+  "bull-terrier-miniature": {
+    "name": "Bull Terrier Miniatura"
+  },
+  "bouledogue-anglais": {
+    "name": "Buldogue Inglês"
+  },
+  "bulldog-continental": {
+    "name": "Buldogue Continental"
+  },
+  "bullmastiff": {
+    "name": "Bullmastiff"
+  },
+  "cairn-terrier": {
+    "name": "Cairn Terrier"
+  },
+  "cane-corso": {
+    "name": "Cane Corso"
+  },
+  "caniche-nain": {
+    "name": "Poodle Miniatura"
+  },
+  "caniche-toy": {
+    "name": "Poodle Toy"
+  },
+  "caniche-moyen": {
+    "name": "Poodle Médio"
+  },
+  "carlin": {
+    "name": "Pug"
+  },
+  "cavalier-king-charles": {
+    "name": "Cavalier King Charles Spaniel"
+  },
+  "chien-chinois-a-crete": {
+    "name": "Cão de Crista Chinês"
+  },
+  "chien-finnois-de-laponie": {
+    "name": "Lapphund Finlandês"
+  },
+  "chien-leopard-catahoula": {
+    "name": "Cão Leopardo de Catahoula"
+  },
+  "chien-courant-suisse": {
+    "name": "Sabujo Suíço"
+  },
+  "chien-d-artois": {
+    "name": "Cão de Artois"
+  },
+  "chien-d-eau-espagnol": {
+    "name": "Cão d'Água Espanhol"
+  },
+  "drahthaar": {
+    "name": "Braco Alemão de Pelo Duro"
+  },
+  "chien-d-oysel-allemand": {
+    "name": "Spaniel Alemão"
+  },
+  "chien-de-montagne-des-pyrenees": {
+    "name": "Cão de Montanha dos Pirineus"
+  },
+  "chien-de-saint-hubert": {
+    "name": "Bloodhound"
+  },
+  "kangal": {
+    "name": "Kangal"
+  },
+  "chien-du-pharaon": {
+    "name": "Cão do Faraó"
+  },
+  "chien-nu-mexicain-xoloitzcuintli": {
+    "name": "Xoloitzcuintle"
+  },
+  "chihuahua": {
+    "name": "Chihuahua"
+  },
+  "chinook": {
+    "name": "Chinook"
+  },
+  "chow-chow": {
+    "name": "Chow Chow"
+  },
+  "clumber-spaniel": {
+    "name": "Clumber Spaniel"
+  },
+  "cocker-americain": {
+    "name": "Cocker Spaniel Americano"
+  },
+  "cocker-spaniel": {
+    "name": "Cocker Spaniel Inglês"
+  },
+  "colley-a-poil-long": {
+    "name": "Collie de Pelo Longo"
+  },
+  "coonhound-bleute": {
+    "name": "Bluetick Coonhound"
+  },
+  "coonhound-noir-et-feu": {
+    "name": "Black and Tan Coonhound"
+  },
+  "coton-de-tulear": {
+    "name": "Coton de Tuléar"
+  },
+  "cursinu": {
+    "name": "Cursinu"
+  },
+  "dalmatien": {
+    "name": "Dálmata"
+  },
+  "dobermann": {
+    "name": "Dobermann"
+  },
+  "dogue-allemand": {
+    "name": "Dogue Alemão"
+  },
+  "dogue-argentin": {
+    "name": "Dogo Argentino"
+  },
+  "dogue-de-bordeaux": {
+    "name": "Dogue de Bordeaux"
+  },
+  "dogue-des-canaries": {
+    "name": "Presa Canário"
+  },
+  "mastiff-tibetain": {
+    "name": "Mastim Tibetano"
+  },
+  "berger-anglais": {
+    "name": "English Shepherd"
+  },
+  "eurasier": {
+    "name": "Eurasier"
+  },
+  "field-spaniel": {
+    "name": "Field Spaniel"
+  },
+  "fox-terrier-a-poil-dur": {
+    "name": "Fox Terrier de Pelo Duro"
+  },
+  "fox-terrier-a-poil-lisse": {
+    "name": "Fox Terrier de Pelo Liso"
+  },
+  "foxhound-americain": {
+    "name": "Foxhound Americano"
+  },
+  "francais-blanc-et-noir": {
+    "name": "Francês Branco e Preto"
+  },
+  "francais-blanc-et-orange": {
+    "name": "Francês Branco e Laranja"
+  },
+  "francais-tricolore": {
+    "name": "Francês Tricolor"
+  },
+  "gascon-saintongeois": {
+    "name": "Gascon Saintongeois"
+  },
+  "golden-retriever": {
+    "name": "Golden Retriever"
+  },
+  "grand-anglo-francais-blanc-et-noir": {
+    "name": "Grande Anglo-Francês Branco e Preto"
+  },
+  "grand-anglo-francais-blanc-et-orange": {
+    "name": "Grande Anglo-Francês Branco e Laranja"
+  },
+  "grand-anglo-francais-tricolore": {
+    "name": "Grande Anglo-Francês Tricolor"
+  },
+  "grand-basset-griffon-vendeen": {
+    "name": "Grand Basset Griffon Vendéen"
+  },
+  "grand-bleu-de-gascogne": {
+    "name": "Grand Bleu de Gascogne"
+  },
+  "grand-caniche": {
+    "name": "Poodle Standard"
+  },
+  "grand-griffon-vendeen": {
+    "name": "Grand Griffon Vendéen"
+  },
+  "levrier-greyhound": {
+    "name": "Greyhound"
+  },
+  "griffon-bleu-de-gascogne": {
+    "name": "Griffon Bleu de Gascogne"
+  },
+  "griffon-d-arret-a-poil-dur": {
+    "name": "Griffon Korthals"
+  },
+  "griffon-fauve-de-bretagne": {
+    "name": "Griffon Fauve de Bretagne"
+  },
+  "griffon-nivernais": {
+    "name": "Griffon Nivernais"
+  },
+  "harrier": {
+    "name": "Harrier"
+  },
+  "husky-siberien": {
+    "name": "Husky Siberiano"
+  },
+  "husky-d-alaska": {
+    "name": "Husky do Alasca"
+  },
+  "terrier-irlandais": {
+    "name": "Terrier Irlandês"
+  },
+  "jack-russell-terrier": {
+    "name": "Jack Russell Terrier"
+  },
+  "kelpie-australien": {
+    "name": "Kelpie Australiano"
+  },
+  "king-charles-spaniel": {
+    "name": "King Charles Spaniel"
+  },
+  "komondor": {
+    "name": "Komondor"
+  },
+  "kooikerhondje": {
+    "name": "Kooikerhondje"
+  },
+  "kuvasz": {
+    "name": "Kuvasz"
+  },
+  "labrador-retriever": {
+    "name": "Labrador Retriever"
+  },
+  "lagotto-romagnolo": {
+    "name": "Lagotto Romagnolo"
+  },
+  "lancashire-heeler": {
+    "name": "Lancashire Heeler"
+  },
+  "laika-de-iakoutie": {
+    "name": "Laika da Iacútia"
+  },
+  "leonberg": {
+    "name": "Leonberger"
+  },
+  "lhassa-apso": {
+    "name": "Lhasa Apso"
+  },
+  "levrier-afghan": {
+    "name": "Galgo Afegão"
+  },
+  "levrier-irlandais": {
+    "name": "Irish Wolfhound"
+  },
+  "levrier-ecossais": {
+    "name": "Deerhound"
+  },
+  "malamute-d-alaska": {
+    "name": "Malamute do Alasca"
+  },
+  "norfolk-terrier": {
+    "name": "Norfolk Terrier"
+  },
+  "norwich-terrier": {
+    "name": "Norwich Terrier"
+  },
+  "parson-russell-terrier": {
+    "name": "Parson Russell Terrier"
+  },
+  "petit-levrier-italien": {
+    "name": "Galgo Italiano"
+  },
+  "petit-basset-griffon-vendeen": {
+    "name": "Petit Basset Griffon Vendéen"
+  },
+  "petit-bleu-de-gascogne": {
+    "name": "Petit Bleu de Gascogne"
+  },
+  "petit-chien-lion": {
+    "name": "Pequeno Cão Leão"
+  },
+  "petit-chien-russe": {
+    "name": "Toy Russo"
+  },
+  "petit-epagneul-de-munster": {
+    "name": "Pequeno Münsterländer"
+  },
+  "pinscher-allemand": {
+    "name": "Pinscher Alemão"
+  },
+  "pinscher-nain": {
+    "name": "Pinscher Miniatura"
+  },
+  "plott-hound": {
+    "name": "Plott Hound"
+  },
+  "pointer-anglais": {
+    "name": "Pointer Inglês"
+  },
+  "poitevin": {
+    "name": "Poitevin"
+  },
+  "porcelaine": {
+    "name": "Porcelaine"
+  },
+  "puli": {
+    "name": "Puli"
+  },
+  "pumi": {
+    "name": "Pumi"
+  },
+  "pekinois": {
+    "name": "Pequinês"
+  },
+  "rat-terrier": {
+    "name": "Rat Terrier"
+  },
+  "redbone-coonhound": {
+    "name": "Redbone Coonhound"
+  },
+  "retriever-de-la-baie-de-chesapeake": {
+    "name": "Chesapeake Bay Retriever"
+  },
+  "retriever-de-la-nouvelle-ecosse": {
+    "name": "Retriever da Nova Escócia"
+  },
+  "flat-coated-retriever": {
+    "name": "Flat-Coated Retriever"
+  },
+  "rhodesian-ridgeback": {
+    "name": "Rhodesian Ridgeback"
+  },
+  "rottweiler": {
+    "name": "Rottweiler"
+  },
+  "saint-bernard": {
+    "name": "São Bernardo"
+  },
+  "saluki": {
+    "name": "Saluki"
+  },
+  "samoyede": {
+    "name": "Samoieda"
+  },
+  "schipperke": {
+    "name": "Schipperke"
+  },
+  "schnauzer-geant": {
+    "name": "Schnauzer Gigante"
+  },
+  "schnauzer-standard": {
+    "name": "Schnauzer Standard"
+  },
+  "schnauzer-nain": {
+    "name": "Schnauzer Miniatura"
+  },
+  "terrier-ecossais": {
+    "name": "Scottish Terrier"
+  },
+  "setter-anglais": {
+    "name": "Setter Inglês"
+  },
+  "setter-gordon": {
+    "name": "Setter Gordon"
+  },
+  "setter-irlandais": {
+    "name": "Setter Irlandês Vermelho"
+  },
+  "shar-pei": {
+    "name": "Shar-Pei"
+  },
+  "shetland-sheepdog-berger-des-shetland": {
+    "name": "Pastor de Shetland"
+  },
+  "shiba-inu": {
+    "name": "Shiba Inu"
+  },
+  "shih-tzu": {
+    "name": "Shih Tzu"
+  },
+  "shiloh-shepherd": {
+    "name": "Shiloh Shepherd"
+  },
+  "terrier-australien-a-poil-soyeux": {
+    "name": "Silky Terrier Australiano"
+  },
+  "spinone-italien": {
+    "name": "Spinone Italiano"
+  },
+  "spitz-finlandais": {
+    "name": "Spitz Finlandês"
+  },
+  "spitz-japonais": {
+    "name": "Spitz Japonês"
+  },
+  "spitz-nain-loulou-de-pomeranie": {
+    "name": "Lulu da Pomerânia"
+  },
+  "spitz-allemand": {
+    "name": "Spitz Alemão"
+  },
+  "vallhund-suedois": {
+    "name": "Vallhund Sueco"
+  },
+  "keeshond-loulou-hollandais": {
+    "name": "Keeshond"
+  },
+  "springer-spaniel-anglais": {
+    "name": "Springer Spaniel Inglês"
+  },
+  "staffordshire-bull-terrier": {
+    "name": "Staffordshire Bull Terrier"
+  },
+  "teckel": {
+    "name": "Dachshund"
+  },
+  "terre-neuve": {
+    "name": "Terra-Nova"
+  },
+  "terrier-australien": {
+    "name": "Terrier Australiano"
+  },
+  "terrier-irlandais-de-glen-of-imaal": {
+    "name": "Glen of Imaal Terrier"
+  },
+  "terrier-irlandais-a-poil-doux": {
+    "name": "Soft Coated Wheaten Terrier"
+  },
+  "terrier-tibetain": {
+    "name": "Terrier Tibetano"
+  },
+  "terrier-de-chasse-allemand": {
+    "name": "Terrier Alemão de Caça"
+  },
+  "thai-ridgeback": {
+    "name": "Thai Ridgeback"
+  },
+  "toy-fox-terrier": {
+    "name": "Toy Fox Terrier"
+  },
+  "toy-terrier-anglais-noir-et-feu": {
+    "name": "Toy Terrier Inglês"
+  },
+  "treeing-walker-coonhound": {
+    "name": "Treeing Walker Coonhound"
+  },
+  "welsh-corgi-cardigan": {
+    "name": "Welsh Corgi Cardigan"
+  },
+  "welsh-corgi-pembroke": {
+    "name": "Welsh Corgi Pembroke"
+  },
+  "welsh-springer-spaniel": {
+    "name": "Springer Spaniel Galês"
+  },
+  "west-highland-white-terrier": {
+    "name": "West Highland White Terrier"
+  },
+  "whippet": {
+    "name": "Whippet"
+  },
+  "yorkshire-terrier": {
+    "name": "Yorkshire Terrier"
+  },
+  "epagneul-breton": {
+    "name": "Épagneul Bretão"
+  },
+  "epagneul-japonais": {
+    "name": "Chin Japonês"
+  },
+  "epagneul-tibetain": {
+    "name": "Spaniel Tibetano"
+  },
+  "epagneul-bleu-de-picardie": {
+    "name": "Épagneul Azul da Picardia"
+  },
+  "epagneul-d-eau-americain": {
+    "name": "Spaniel d'Água Americano"
+  },
+  "epagneul-de-pont-audemer": {
+    "name": "Épagneul de Pont-Audemer"
+  },
+  "epagneul-francais": {
+    "name": "Épagneul Francês"
+  },
+  "epagneul-papillon": {
+    "name": "Papillon"
+  },
+  "epagneul-picard": {
+    "name": "Épagneul Picardo"
+  }
+}

@@ -37,7 +37,9 @@ const DATE = '__LASTMOD__', DATE_FR = '__LASTMOD_FR__';
 const FMT_DATE = {
     fr: d => d.split('-').reverse().join('/'),
     en: d => new Date(`${d}T00:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }),
-    es: d => new Date(`${d}T00:00:00Z`).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
+    es: d => new Date(`${d}T00:00:00Z`).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }),
+    de: d => new Date(`${d}T00:00:00Z`).toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }),
+    pt: d => new Date(`${d}T00:00:00Z`).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
 };
 function stamp(p, html, fmt = FMT_DATE.fr) {
     if (!html.includes('<html')) return html;
@@ -70,9 +72,15 @@ const writeFile = (p, s) => {
 // Autres langues (i18n/<langue>/) : chargées plus bas, une fois les sélections et les groupes connus
 let L10N = [];
 const pageUrl = p => (p === 'index.html' ? '/' : `/${p.replace(/\.html$/, '')}`);
-// Liens vers les autres langues, dans le pied de page : chacune écrite dans sa propre langue
-const langLinks = (versions, cur) => versions.filter(v => v.lang !== cur)
-    .map(v => `<li><a href="${v.url}" hreflang="${v.lang}" lang="${v.lang}" class="inline-flex items-center gap-1.5 py-1.5 hover:text-white">${icon('globe', 'h-4 w-4')}${v.label}</a></li>`).join('\n');
+// Sélecteur de langue du pied de page : un menu repliable sans script, chaque langue écrite dans sa propre langue
+const langLinks = (versions, cur) => `<details class="lang-menu relative" translate="no">
+            <summary class="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-lg px-2 py-1.5 font-medium text-slate-300 hover:text-white [&::-webkit-details-marker]:hidden">${icon('globe', 'h-4 w-4')}${versions.find(v => v.lang === cur).label}${icon('caret-down', 'h-3.5 w-3.5')}</summary>
+            <ul class="absolute bottom-full right-0 z-10 mb-2 w-44 rounded-2xl border border-slate-700 bg-slate-800 p-1.5 text-sm shadow-lg">
+                ${versions.map(v => (v.lang === cur
+        ? `<li><span aria-current="true" class="flex items-center gap-2 rounded-xl px-3 py-2 font-semibold text-white">${icon('check', 'h-4 w-4')}${v.label}</span></li>`
+        : `<li><a href="${v.url}" hreflang="${v.lang}" lang="${v.lang}" class="flex items-center gap-2 rounded-xl px-3 py-2 text-slate-300 hover:bg-slate-700 hover:text-white"><span class="h-4 w-4" aria-hidden="true"></span>${v.label}</a></li>`)).join('')}
+            </ul>
+        </details>`;
 /**
  * Écrit une page en français, puis sa version dans chaque autre langue (même page, phrases traduites).
  * variants : { en: html } quand la version d'une langue part d'un autre rendu (ordre alphabétique des noms traduits).
@@ -326,7 +334,7 @@ function icon(name, cls = 'h-5 w-5') {
     return iconSrc[name].replace('<svg ', `<svg class="${cls}" aria-hidden="true" focusable="false" `);
 }
 // Celles que les scripts du navigateur dessinent (en-tête, accueil, test, comparateur, Tel Maître)
-const CLIENT_ICONS = ['camera', 'list', 'globe', 'x', 'check', 'warning-circle', 'paw-print', 'plus', 'arrow-right', 'arrow-left',
+const CLIENT_ICONS = ['camera', 'list', 'globe', 'caret-down', 'x', 'check', 'warning-circle', 'paw-print', 'plus', 'arrow-right', 'arrow-left',
     'couch', 'person-simple-walk', 'tree', 'boot', 'person-simple-run', 'buildings', 'house', 'farm', 'user', 'student', 'baby',
     'cat', 'dog', 'prohibit', 'hourglass-simple-low', 'hourglass-simple-medium', 'hourglass-simple-high', 'plant', 'thumbs-up',
     'graduation-cap', 'smiley', 'broom', 'sparkle', 'speaker-simple-slash', 'clock', 'armchair', 'sun', 'flag', 'arrow-counter-clockwise'];
