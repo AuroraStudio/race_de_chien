@@ -429,11 +429,13 @@ export function normalizeResult(raw) {
 // Langue de la page : la consigne système (en cache) reste la même, seule la demande précise la langue de la réponse
 const ASK = {
     fr: 'Analyse cette photo selon la méthode, puis réponds.',
-    en: 'Analyse cette photo selon la méthode, puis réponds. Rédige reason et traits_communs en anglais américain, en t\'adressant à la personne avec « you ». Garde le même ton.'
+    en: 'Analyse cette photo selon la méthode, puis réponds. Rédige reason et traits_communs en anglais américain, en t\'adressant à la personne avec « you ». Garde le même ton.',
+    es: 'Analyse cette photo selon la méthode, puis réponds. Rédige reason et traits_communs en espagnol neutre (compris en Espagne et en Amérique latine), en tutoyant la personne (« tú »). Garde le même ton.'
 };
 // Messages d'erreur affichés à la personne
 const MSG = {
     fr: { limit: 'Vous avez atteint la limite de 5 essais par jour. Revenez demain !', forbidden: 'Requête refusée.', missing: 'Photo manquante', type: 'Type d\'image non supporté', size: 'Image trop volumineuse (2MB max)', busy: 'L\'IA est très sollicitée, réessayez dans un instant', photo: 'Cette photo n\'a pas pu être analysée, essayez-en une autre', failed: 'L\'analyse a échoué, réessayez dans un instant', odd: 'Réponse inattendue de l\'IA, réessayez' },
+    es: { limit: 'Has alcanzado el límite de 5 intentos al día. ¡Vuelve mañana!', forbidden: 'Solicitud rechazada.', missing: 'No se ha recibido ninguna foto', type: 'Tipo de imagen no admitido', size: 'Imagen demasiado grande (2 MB como máximo)', busy: 'La IA está muy solicitada, inténtalo de nuevo en un momento', photo: 'No se ha podido analizar esta foto, prueba con otra', failed: 'El análisis ha fallado, inténtalo de nuevo en un momento', odd: 'Respuesta inesperada de la IA, inténtalo de nuevo' },
     en: { limit: 'You have reached the limit of 5 tries per day. Come back tomorrow!', forbidden: 'Request refused.', missing: 'No photo received', type: 'Unsupported image type', size: 'Image too large (2 MB max)', busy: 'The AI is very busy, try again in a moment', photo: 'This photo could not be analyzed, try another one', failed: 'The analysis failed, try again in a moment', odd: 'Unexpected answer from the AI, try again' }
 };
 
@@ -481,7 +483,7 @@ export default async function handler(req, res) {
     // Les navigateurs envoient toujours Origin sur un POST : un appel sans Origin ou depuis un autre site n'est pas notre page.
     // Ce n'est pas une barrière absolue (un script peut l'imiter), mais ça écarte les robots qui viendraient consommer le quota.
     const isProd = process.env.VERCEL_ENV === 'production';
-    const lang = req.body?.lang === 'en' ? 'en' : 'fr';
+    const lang = ['en', 'es'].includes(req.body?.lang) ? req.body.lang : 'fr';
     const msg = MSG[lang];
     if (isProd && !allowedOrigins.includes(origin)) {
         return res.status(403).json({ error: 'forbidden', message: msg.forbidden });

@@ -1,0 +1,384 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="stylesheet" href="/css/site.css?v=7888c74f8f">
+    <script src="/js/i18n.es.js?v=94923acaca" defer></script>
+    <script src="/js/icons.js?v=a7e0153b82" defer=""></script>
+    <meta name="theme-color" content="#2563eb">
+
+    <meta name="description" content="Tómate un selfie y descubre a qué raza de perro te pareces, entre 231 razas. Un test divertido basado en la IA.">
+    <title>Tal Dueño, Tal Perro: ¿a qué raza te pareces? | Race de Chien</title>
+    <link rel="canonical" href="https://race-de-chien.com/es/a-que-perro-me-parezco">
+    <meta name="rdc-data" content="/data/breeds-index.es.json?v=cbdb886925">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tal Dueño, Tal Perro: ¿a qué raza de perro te pareces?">
+    <meta property="og:description" content="Tómate un selfie y descubre a qué raza de perro te pareces, entre 231 razas. Un test divertido basado en la IA.">
+    <meta property="og:url" content="https://race-de-chien.com/es/a-que-perro-me-parezco">
+    <meta property="og:image" content="https://race-de-chien.com/images/breeds/bouledogue-francais.jpg">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Race de Chien">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tal Dueño, Tal Perro: ¿a qué raza de perro te pareces?">
+    <meta name="twitter:description" content="Tómate un selfie y descubre a qué raza de perro te pareces.">
+    <meta name="twitter:image" content="https://race-de-chien.com/images/breeds/bouledogue-francais.jpg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Tal Dueño, Tal Perro","url":"https://race-de-chien.com/es/a-que-perro-me-parezco","description":"Descubre a qué raza de perro te pareces gracias a la IA","applicationCategory":"Entertainment","operatingSystem":"Web"}</script>
+
+    <style>
+        /* ===== ANIMATION ===== */
+        @keyframes slide-up {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slide-up 0.6s cubic-bezier(.16, 1, .3, 1) forwards; }
+
+        /* ===== CAPTURE ZONE ===== */
+        .capture-zone {
+            position: relative;
+            border: 3px dashed #cbd5e1;
+            border-radius: 24px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .capture-zone:hover, .capture-zone.active {
+            border-color: #2563eb;
+            background: rgba(37, 99, 235, 0.03);
+        }
+        .capture-zone.has-image {
+            border-style: solid;
+            border-color: #2563eb;
+        }
+
+        /* ===== WEBCAM VIDEO ===== */
+        #webcam-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 21px;
+            transform: scaleX(-1);
+        }
+
+        /* ===== RESULT CARD ===== */
+        .result-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 24px 60px -24px rgba(15, 23, 42, 0.25);
+            overflow: hidden;
+        }
+        .match-badge {
+            background: #2563eb;
+            color: white;
+            font-weight: 800;
+            font-size: 1.5rem;
+            padding: 8px 20px;
+            border-radius: 9999px;
+            display: inline-block;
+        }
+
+        /* ===== COMPARISON ===== */
+        .vs-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #0f172a;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.8125rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            box-shadow: 0 0 0 4px #fff;
+        }
+
+        /* ===== SHARE BUTTON STYLES ===== */
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: white;
+        }
+        .share-btn:hover { filter: brightness(1.08); }
+        .share-btn-x { background: #0f172a; justify-content: center; }
+        .share-btn-x i, .share-btn-x span { line-height: 1; }
+        .share-btn-fb { background: #1464cc; }
+        .share-btn-wa { background: #075e54; }
+        .share-btn-download { background: #2563eb; }
+        .share-btn-ig { background: #b7307a; }
+        .share-btn-tiktok { background: #0f172a; }
+
+        /* ===== TRAIT BADGE ===== */
+        .trait-badge {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: #1e40af;
+        }
+
+    </style>
+    <link rel="alternate" hreflang="fr" href="https://race-de-chien.com/tel-maitre-tel-chien">
+    <link rel="alternate" hreflang="en" href="https://race-de-chien.com/en/what-dog-do-i-look-like">
+    <link rel="alternate" hreflang="es" href="https://race-de-chien.com/es/a-que-perro-me-parezco">
+    <link rel="alternate" hreflang="x-default" href="https://race-de-chien.com/tel-maitre-tel-chien">
+</head>
+<body class="bg-slate-50 font-sans">
+
+    <!-- Header -->
+    <div class="site-header"></div>
+
+    <!-- Main Content -->
+    <main class="min-h-screen pt-24 pb-20">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+
+            <!-- ===== HERO SECTION ===== -->
+            <section id="hero-section" class="text-center mb-10">
+                <ul class="mb-6 flex justify-center -space-x-3" aria-label="Algunas razas de la colección"><li class="h-[60px] w-[80px] overflow-hidden rounded-xl bg-slate-200 ring-4 ring-slate-50 sm:h-[72px] sm:w-[96px] "><img src="/images/breeds/golden-retriever-480.webp" alt="Golden Retriever" width="96" height="72" class="h-full w-full object-cover"></li><li class="h-[60px] w-[80px] overflow-hidden rounded-xl bg-slate-200 ring-4 ring-slate-50 sm:h-[72px] sm:w-[96px] translate-y-1.5"><img src="/images/breeds/bouledogue-francais-480.webp" alt="Bulldog Francés" width="96" height="72" class="h-full w-full object-cover"></li><li class="h-[60px] w-[80px] overflow-hidden rounded-xl bg-slate-200 ring-4 ring-slate-50 sm:h-[72px] sm:w-[96px] "><img src="/images/breeds/berger-australien-480.webp" alt="Pastor Australiano" width="96" height="72" class="h-full w-full object-cover"></li><li class="h-[60px] w-[80px] overflow-hidden rounded-xl bg-slate-200 ring-4 ring-slate-50 sm:h-[72px] sm:w-[96px] translate-y-1.5"><img src="/images/breeds/chihuahua-480.webp" alt="Chihuahua" width="96" height="72" class="h-full w-full object-cover"></li></ul>
+                <h1 class="display mb-4"><span class="font-medium">Tal Dueño,</span> Tal Perro</h1>
+                <p class="text-[17px] text-slate-600 max-w-xl mx-auto mb-3">
+                    Tómate un selfie: la IA busca la raza que más se te parece entre nuestras <strong class="text-slate-800">231 razas</strong>.
+                </p>
+                <p class="mx-auto max-w-md text-sm text-slate-600"><svg class="mr-1 inline-block h-4 w-4 -translate-y-px align-middle text-emerald-600" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"></path></svg>Tu foto la analiza la IA Claude de Anthropic. No la conservamos y no se usa para entrenar a la IA.</p>
+            </section>
+
+            <!-- ===== CAPTURE SECTION ===== -->
+            <section id="capture-section">
+                <div id="capture-zone" class="capture-zone min-h-[320px] sm:min-h-[400px] flex flex-col items-center justify-center p-8 bg-white cursor-pointer" onclick="handleCaptureClick()">
+                    
+                    <!-- Default state (no image, no webcam) -->
+                    <div id="capture-placeholder" class="text-center">
+                        <span class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-50 text-primary-700"><svg class="h-9 w-9" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,56H180.28L166.65,35.56A8,8,0,0,0,160,32H96a8,8,0,0,0-6.65,3.56L75.71,56H48A24,24,0,0,0,24,80V192a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V80A24,24,0,0,0,208,56Zm8,136a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H80a8,8,0,0,0,6.66-3.56L100.28,48h55.43l13.63,20.44A8,8,0,0,0,176,72h32a8,8,0,0,1,8,8ZM128,88a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,88Zm0,72a28,28,0,1,1,28-28A28,28,0,0,1,128,160Z"></path></svg></span>
+                        <p class="text-slate-700 font-semibold text-lg mb-2">Tómate un selfie o sube una foto</p>
+                        <p id="capture-hint" class="text-slate-500 text-sm mb-6">Toca aquí o usa los botones <span class="whitespace-nowrap">de abajo</span></p>
+                    </div>
+
+                    <!-- Drag overlay -->
+                    <div id="drag-overlay" class="hidden absolute inset-0 bg-primary-500/10 border-2 border-primary-500 rounded-[21px] flex items-center justify-center z-20">
+                        <div class="text-center">
+                            <span class="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-primary-700"><svg class="h-8 w-8" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"></path></svg></span>
+                            <p class="text-primary-600 font-bold text-lg">Suelta tu foto aquí</p>
+                        </div>
+                    </div>
+
+                    <!-- Webcam preview -->
+                    <video id="webcam-video" class="hidden absolute inset-0" autoplay="" playsinline="" muted=""></video>
+                    
+                    <!-- Image preview -->
+                    <img id="image-preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="hidden w-full h-full object-contain absolute inset-0 rounded-[21px] bg-slate-100" alt="Tu foto">
+                </div>
+
+                <!-- Action buttons -->
+                <div id="action-buttons" class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-5">
+                    <button id="btn-webcam" onclick="startWebcam()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-colors">
+                        <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,56H180.28L166.65,35.56A8,8,0,0,0,160,32H96a8,8,0,0,0-6.65,3.56L75.71,56H48A24,24,0,0,0,24,80V192a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V80A24,24,0,0,0,208,56Zm8,136a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H80a8,8,0,0,0,6.66-3.56L100.28,48h55.43l13.63,20.44A8,8,0,0,0,176,72h32a8,8,0,0,1,8,8ZM128,88a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,88Zm0,72a28,28,0,1,1,28-28A28,28,0,0,1,128,160Z"></path></svg> Tomar un selfie
+                    </button>
+                    <button id="btn-upload" onclick="document.getElementById('file-input').click()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-xl transition-colors border border-slate-200 shadow-sm">
+                        <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V158.75l-26.07-26.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L40,149.37V56ZM40,172l52-52,80,80H40Zm176,28H194.63l-36-36,20-20L216,181.38V200ZM144,100a12,12,0,1,1,12,12A12,12,0,0,1,144,100Z"></path></svg> Subir una foto
+                    </button>
+                    <input type="file" id="file-input" accept="image/*" class="hidden" onchange="handleFileUpload(event)">
+                </div>
+
+                <!-- Webcam capture button (shown when webcam is active) -->
+                <div id="webcam-controls" class="hidden flex items-center justify-center gap-3 mt-5">
+                    <button onclick="captureWebcam()" class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl transition-colors text-lg">
+                        <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm0-160a72,72,0,1,0,72,72A72.08,72.08,0,0,0,128,56Zm0,128a56,56,0,1,1,56-56A56.06,56.06,0,0,1,128,184Z"></path></svg> Capturar
+                    </button>
+                    <button onclick="stopWebcam()" class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-xl transition-all">
+                        <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg> Cancelar
+                    </button>
+                </div>
+
+                <!-- Analyze button (shown when image is ready) -->
+                <div id="analyze-controls" class="hidden flex flex-col items-center gap-3 mt-5">
+                    <button id="btn-analyze" onclick="analyzePhoto()" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-bold rounded-xl transition-colors text-lg">
+                        <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M48,64a8,8,0,0,1,8-8H72V40a8,8,0,0,1,16,0V56h16a8,8,0,0,1,0,16H88V88a8,8,0,0,1-16,0V72H56A8,8,0,0,1,48,64ZM184,192h-8v-8a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0v-8h8a8,8,0,0,0,0-16Zm56-48H224V128a8,8,0,0,0-16,0v16H192a8,8,0,0,0,0,16h16v16a8,8,0,0,0,16,0V160h16a8,8,0,0,0,0-16ZM219.31,80,80,219.31a16,16,0,0,1-22.62,0L36.68,198.63a16,16,0,0,1,0-22.63L176,36.69a16,16,0,0,1,22.63,0l20.68,20.68A16,16,0,0,1,219.31,80Zm-54.63,32L144,91.31l-96,96L68.68,208ZM208,68.69,187.31,48l-32,32L176,100.69Z"></path></svg> ¡Descubrir mi raza!
+                    </button>
+                    <button onclick="resetCapture()" class="inline-flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                        <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a96,96,0,0,1-94.71,96H128A95.38,95.38,0,0,1,62.1,197.8a8,8,0,0,1,11-11.63A80,80,0,1,0,71.43,71.39a3.07,3.07,0,0,1-.26.25L44.59,96H72a8,8,0,0,1,0,16H24a8,8,0,0,1-8-8V56a8,8,0,0,1,16,0V85.8L60.25,60A96,96,0,0,1,224,128Z"></path></svg> Cambiar de foto
+                    </button>
+                </div>
+            </section>
+
+            <!-- ===== LOADING SECTION ===== -->
+            <section id="loading-section" class="hidden text-center py-16">
+                <span class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-50 text-primary-700"><svg class="h-9 w-9" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M212,80a28,28,0,1,0,28,28A28,28,0,0,0,212,80Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,212,120ZM72,108a28,28,0,1,0-28,28A28,28,0,0,0,72,108ZM44,120a12,12,0,1,1,12-12A12,12,0,0,1,44,120ZM92,88A28,28,0,1,0,64,60,28,28,0,0,0,92,88Zm0-40A12,12,0,1,1,80,60,12,12,0,0,1,92,48Zm72,40a28,28,0,1,0-28-28A28,28,0,0,0,164,88Zm0-40a12,12,0,1,1-12,12A12,12,0,0,1,164,48Zm23.12,100.86a35.3,35.3,0,0,1-16.87-21.14,44,44,0,0,0-84.5,0A35.25,35.25,0,0,1,69,148.82,40,40,0,0,0,88,224a39.48,39.48,0,0,0,15.52-3.13,64.09,64.09,0,0,1,48.87,0,40,40,0,0,0,34.73-72ZM168,208a24,24,0,0,1-9.45-1.93,80.14,80.14,0,0,0-61.19,0,24,24,0,0,1-20.71-43.26,51.22,51.22,0,0,0,24.46-30.67,28,28,0,0,1,53.78,0,51.27,51.27,0,0,0,24.53,30.71A24,24,0,0,1,168,208Z"></path></svg></span>
+                <p id="loading-text" class="text-lg font-semibold text-slate-700 mb-4">Analizando tu hocico...</p>
+                <div class="w-full max-w-sm mx-auto bg-slate-100 rounded-full h-3 overflow-hidden mb-4">
+                    <div id="loading-bar" class="h-full bg-primary-600 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+            </section>
+
+            <!-- ===== RESULT SECTION ===== -->
+            <section id="result-section" class="hidden">
+                <div class="result-card animate-slide-up">
+                    
+                    <!-- Match header -->
+                    <div class="bg-slate-900 px-6 py-10 sm:py-12 text-center text-white">
+                        <p class="text-sm font-medium text-slate-300 mb-2">Te pareces a un…</p>
+                        <h2 id="result-breed-name" class="text-3xl sm:text-5xl font-extrabold mb-4"></h2>
+                        <div class="match-badge">
+                            <span id="result-percentage"></span>%
+                        </div>
+                    </div>
+
+                    <!-- Photo comparison -->
+                    <div class="relative grid grid-cols-2 gap-0">
+                        <div class="aspect-square overflow-hidden bg-slate-100">
+                            <img id="result-user-photo" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="w-full h-full object-cover" alt="Tu foto">
+                        </div>
+                        <div class="aspect-square overflow-hidden bg-slate-100">
+                            <img id="result-breed-photo" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="w-full h-full object-cover" alt="Raza de perro">
+                        </div>
+                        <div class="vs-circle">VS</div>
+                    </div>
+
+                    <!-- Share section — right below photos for max visibility -->
+                    <div class="bg-slate-50 px-6 sm:px-10 py-6 text-center border-b border-slate-100">
+                        <p class="text-sm font-bold text-slate-800 mb-4">Comparte tu resultado</p>
+                        <div class="flex flex-wrap justify-center gap-3 mb-3">
+                            <a id="share-x" href="#" target="_blank" class="share-btn share-btn-x" style="padding:10px 16px;">
+                                <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z"></path></svg>
+                            </a>
+                            <a id="share-fb" href="#" target="_blank" class="share-btn share-btn-fb">
+                                <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"></path></svg> Facebook
+                            </a>
+                            <a id="share-wa" href="#" target="_blank" class="share-btn share-btn-wa">
+                                <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"></path></svg> WhatsApp
+                            </a>
+                            <button onclick="shareToApp('instagram')" class="share-btn share-btn-ig">
+                                <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path></svg> Instagram
+                            </button>
+                            <button onclick="shareToApp('tiktok')" class="share-btn share-btn-tiktok">
+                                <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,72a48.05,48.05,0,0,1-48-48,8,8,0,0,0-8-8H128a8,8,0,0,0-8,8V156a20,20,0,1,1-28.57-18.08A8,8,0,0,0,96,130.69V88a8,8,0,0,0-9.4-7.88C50.91,86.48,24,119.1,24,156a76,76,0,0,0,152,0V116.29A103.25,103.25,0,0,0,224,128a8,8,0,0,0,8-8V80A8,8,0,0,0,224,72Zm-8,39.64a87.19,87.19,0,0,1-43.33-16.15A8,8,0,0,0,160,102v54a60,60,0,0,1-120,0c0-25.9,16.64-49.13,40-57.6v27.67A36,36,0,1,0,136,156V32h24.5A64.14,64.14,0,0,0,216,87.5Z"></path></svg> TikTok
+                            </button>
+                            <button onclick="downloadResult()" class="share-btn share-btn-download">
+                                <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"></path></svg> Descargar la imagen
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Details -->
+                    <div class="px-6 sm:px-10 py-8 sm:py-10">
+
+                        <!-- Reason -->
+                        <p id="result-reason" class="text-slate-600 text-base sm:text-lg leading-relaxed text-center max-w-lg mx-auto mb-10"></p>
+
+
+                        <!-- Traits communs -->
+                        <div class="text-center mb-10">
+                            <h3 class="text-sm font-semibold text-slate-800 mb-4">Tus rasgos en común</h3>
+                            <div id="result-traits" class="flex flex-wrap justify-center gap-2.5"></div>
+                        </div>
+
+                        <!-- CTA buttons -->
+                        <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                            <a id="result-breed-link" href="#" class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-colors">
+                                <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M212,80a28,28,0,1,0,28,28A28,28,0,0,0,212,80Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,212,120ZM72,108a28,28,0,1,0-28,28A28,28,0,0,0,72,108ZM44,120a12,12,0,1,1,12-12A12,12,0,0,1,44,120ZM92,88A28,28,0,1,0,64,60,28,28,0,0,0,92,88Zm0-40A12,12,0,1,1,80,60,12,12,0,0,1,92,48Zm72,40a28,28,0,1,0-28-28A28,28,0,0,0,164,88Zm0-40a12,12,0,1,1-12,12A12,12,0,0,1,164,48Zm23.12,100.86a35.3,35.3,0,0,1-16.87-21.14,44,44,0,0,0-84.5,0A35.25,35.25,0,0,1,69,148.82,40,40,0,0,0,88,224a39.48,39.48,0,0,0,15.52-3.13,64.09,64.09,0,0,1,48.87,0,40,40,0,0,0,34.73-72ZM168,208a24,24,0,0,1-9.45-1.93,80.14,80.14,0,0,0-61.19,0,24,24,0,0,1-20.71-43.26,51.22,51.22,0,0,0,24.46-30.67,28,28,0,0,1,53.78,0,51.27,51.27,0,0,0,24.53,30.71A24,24,0,0,1,168,208Z"></path></svg> Ver la ficha completa
+                            </a>
+                            <button onclick="resetAll()" class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-xl transition-all border border-slate-200">
+                                <svg class="h-5 w-5 shrink-0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a96,96,0,0,1-94.71,96H128A95.38,95.38,0,0,1,62.1,197.8a8,8,0,0,1,11-11.63A80,80,0,1,0,71.43,71.39a3.07,3.07,0,0,1-.26.25L44.59,96H72a8,8,0,0,1,0,16H24a8,8,0,0,1-8-8V56a8,8,0,0,1,16,0V85.8L60.25,60A96,96,0,0,1,224,128Z"></path></svg> Repetir el test
+                            </button>
+                        </div>
+                        <a href="/es/que-perro-elegir" class="mt-6 block max-w-md mx-auto rounded-2xl border border-slate-200 bg-slate-50 p-4 text-left hover:border-primary-300">
+                            <span class="block font-bold text-slate-900">Físicamente es tu doble. Pero ¿encaja con tu vida?</span> <span class="block text-sm text-slate-600">8 preguntas sobre tu vivienda, tu familia y tu ritmo: descubre las razas que de verdad son para ti →</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-14">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <span class="relative mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-2xl" aria-hidden="true"><span style="position:absolute;inset:0;border-radius:inherit;padding:2px;background:linear-gradient(135deg,#3b82f6,#9333ea);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></span>🐕</span>
+                <p class="text-white font-bold text-2xl mb-2">Race de Chien</p>
+                <p class="text-slate-400 text-sm max-w-md mx-auto">231 razas descritas y evaluadas según 20 criterios para encontrar el perro que encaja con tu vida.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 text-center sm:text-left text-sm">
+                <div>
+                    <p class="text-white font-semibold text-sm mb-3">Elegir</p>
+                    <ul class="space-y-0.5">
+                        <li><a href="/es/razas-de-perros-a-z" class="inline-block py-1.5 hover:text-white">Todas las razas de la A a la Z</a></li>
+                        <li><a href="/es/grupos-de-razas" class="inline-block py-1.5 hover:text-white">Grupos de razas</a></li>
+                        <li><a href="/es/que-perro-elegir" class="inline-block py-1.5 hover:text-white">¿Qué perro es para mí?</a></li>
+                        <li><a href="/es/comparar" class="inline-block py-1.5 hover:text-white">Comparar razas</a></li>
+                        <li><a href="/es/a-que-perro-me-parezco" class="inline-block py-1.5 hover:text-white">Tal Dueño, Tal Perro</a></li>
+                        <li><a href="/es/perros-peligrosos-en-francia" class="inline-block py-1.5 hover:text-white">Perros peligrosos en Francia</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-white font-semibold text-sm mb-3">Selecciones</p>
+                    <ul class="space-y-0.5">
+                        <li><a href="/es/perros-para-apartamento" class="inline-block py-1.5 hover:text-white">Perros para apartamento</a></li>
+                        <li><a href="/es/razas-de-perros-tranquilos" class="inline-block py-1.5 hover:text-white">Perros tranquilos y caseros</a></li>
+                        <li><a href="/es/perros-para-ninos" class="inline-block py-1.5 hover:text-white">Perros para niños</a></li>
+                        <li><a href="/es/perros-hipoalergenicos" class="inline-block py-1.5 hover:text-white">Perros que sueltan poco pelo</a></li>
+                        <li><a href="/es/perros-para-personas-mayores" class="inline-block py-1.5 hover:text-white">Perros para personas mayores</a></li>
+                        <li><a href="/es/perros-que-soportan-la-soledad" class="inline-block py-1.5 hover:text-white">Perros que soportan la soledad</a></li>
+                        <li><a href="/es/perros-deportistas" class="inline-block py-1.5 hover:text-white">Perros deportistas</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-white font-semibold text-sm mb-3">Razas populares en Francia</p>
+                    <ul class="space-y-0.5">
+                        <li><a href="/es/razas/golden-retriever" class="inline-block py-1.5 hover:text-white">Golden Retriever</a></li>
+                        <li><a href="/es/razas/pastor-australiano" class="inline-block py-1.5 hover:text-white">Pastor Australiano</a></li>
+                        <li><a href="/es/razas/staffordshire-bull-terrier" class="inline-block py-1.5 hover:text-white">Staffordshire Bull Terrier</a></li>
+                        <li><a href="/es/razas/cocker-spaniel-ingles" class="inline-block py-1.5 hover:text-white">Cocker Spaniel Inglés</a></li>
+                        <li><a href="/es/razas/labrador-retriever" class="inline-block py-1.5 hover:text-white">Labrador Retriever</a></li>
+                        <li><a href="/es/razas/pastor-americano-miniatura" class="inline-block py-1.5 hover:text-white">Pastor Americano Miniatura</a></li>
+                        <li><a href="/es/razas/cavalier-king-charles-spaniel" class="inline-block py-1.5 hover:text-white">Cavalier King Charles Spaniel</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-white font-semibold text-sm mb-3">El sitio</p>
+                    <ul class="space-y-0.5">
+<li><a href="/tel-maitre-tel-chien" hreflang="fr" lang="fr" class="inline-flex items-center gap-1.5 py-1.5 hover:text-white"><svg class="h-4 w-4" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24h0A104,104,0,1,0,232,128,104.12,104.12,0,0,0,128,24Zm88,104a87.61,87.61,0,0,1-3.33,24H174.16a157.44,157.44,0,0,0,0-48h38.51A87.61,87.61,0,0,1,216,128ZM102,168H154a115.11,115.11,0,0,1-26,45A115.27,115.27,0,0,1,102,168Zm-3.9-16a140.84,140.84,0,0,1,0-48h59.88a140.84,140.84,0,0,1,0,48ZM40,128a87.61,87.61,0,0,1,3.33-24H81.84a157.44,157.44,0,0,0,0,48H43.33A87.61,87.61,0,0,1,40,128ZM154,88H102a115.11,115.11,0,0,1,26-45A115.27,115.27,0,0,1,154,88Zm52.33,0H170.71a135.28,135.28,0,0,0-22.3-45.6A88.29,88.29,0,0,1,206.37,88ZM107.59,42.4A135.28,135.28,0,0,0,85.29,88H49.63A88.29,88.29,0,0,1,107.59,42.4ZM49.63,168H85.29a135.28,135.28,0,0,0,22.3,45.6A88.29,88.29,0,0,1,49.63,168Zm98.78,45.6a135.28,135.28,0,0,0,22.3-45.6h35.66A88.29,88.29,0,0,1,148.41,213.6Z"/></svg>Français</a></li>
+<li><a href="/en/what-dog-do-i-look-like" hreflang="en" lang="en" class="inline-flex items-center gap-1.5 py-1.5 hover:text-white"><svg class="h-4 w-4" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24h0A104,104,0,1,0,232,128,104.12,104.12,0,0,0,128,24Zm88,104a87.61,87.61,0,0,1-3.33,24H174.16a157.44,157.44,0,0,0,0-48h38.51A87.61,87.61,0,0,1,216,128ZM102,168H154a115.11,115.11,0,0,1-26,45A115.27,115.27,0,0,1,102,168Zm-3.9-16a140.84,140.84,0,0,1,0-48h59.88a140.84,140.84,0,0,1,0,48ZM40,128a87.61,87.61,0,0,1,3.33-24H81.84a157.44,157.44,0,0,0,0,48H43.33A87.61,87.61,0,0,1,40,128ZM154,88H102a115.11,115.11,0,0,1,26-45A115.27,115.27,0,0,1,154,88Zm52.33,0H170.71a135.28,135.28,0,0,0-22.3-45.6A88.29,88.29,0,0,1,206.37,88ZM107.59,42.4A135.28,135.28,0,0,0,85.29,88H49.63A88.29,88.29,0,0,1,107.59,42.4ZM49.63,168H85.29a135.28,135.28,0,0,0,22.3,45.6A88.29,88.29,0,0,1,49.63,168Zm98.78,45.6a135.28,135.28,0,0,0,22.3-45.6h35.66A88.29,88.29,0,0,1,148.41,213.6Z"/></svg>English</a></li>
+                        <li><a href="/es/aviso-legal" class="inline-block py-1.5 hover:text-white">Aviso legal</a></li>
+                        <li><a href="/es/privacidad" class="inline-block py-1.5 hover:text-white">Privacidad</a></li>
+                        <li><a href="#" data-open-consent="" class="inline-block py-1.5 hover:text-white">Gestionar las cookies</a></li>
+                        <li><a href="/sitemap.xml" class="inline-block py-1.5 hover:text-white">Mapa del sitio</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-700/50 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+                <p>© 2026 Race de Chien. Datos: estándares FCI, estadísticas LOF 2025 (libro de orígenes francés) de la Société Centrale Canine (el club canino francés). Fotos de las razas generadas por IA.</p>
+                <p>Creado por <a href="https://aurorastudio.fr" target="_blank" rel="noopener" class="text-slate-300 hover:text-white font-medium">Aurora</a></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Canvas for generating share image (hidden) -->
+    <canvas id="share-canvas" class="hidden"></canvas>
+
+    <!-- Header script -->
+    <script src="/js/header.js?v=736f8c0232" defer=""></script>
+
+    <script src="/js/tel-maitre.js?v=797f5ed53d" defer=""></script>
+
+
+</body></html>

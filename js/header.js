@@ -20,7 +20,7 @@ const dogQuotes = [
 ];
 
 // Guillemets de la langue de la page
-const QUOTE_MARKS = (document.documentElement.lang || 'fr') === 'fr' ? ['«&nbsp;', '&nbsp;»'] : ['“', '”'];
+const QUOTE_MARKS = { fr: ['«&nbsp;', '&nbsp;»'], es: ['«', '»'] }[document.documentElement.lang || 'fr'] || ['“', '”'];
 
 function getRandomQuote() {
     return dogQuotes[Math.floor(Math.random() * dogQuotes.length)];
@@ -34,12 +34,12 @@ const NAV_LINKS = [
 ];
 const TM_HREF = P('/tel-maitre-tel-chien');
 
-// Version de la page dans l'autre langue, d'après les balises hreflang posées par le générateur
-const LANG_LABEL = { fr: 'Version française', en: 'English version' };
-function otherLanguage() {
+// Versions de la page dans les autres langues, d'après les balises hreflang posées par le générateur
+const LANG_LABEL = { fr: 'Français', en: 'English', es: 'Español' };
+function otherLanguages() {
     const lang = document.documentElement.lang || 'fr';
-    const l = [...document.querySelectorAll('link[rel="alternate"][hreflang]')].find(x => x.hreflang !== 'x-default' && x.hreflang !== lang);
-    return l ? { lang: l.hreflang, path: new URL(l.href).pathname } : null;
+    return [...document.querySelectorAll('link[rel="alternate"][hreflang]')].filter(x => x.hreflang !== 'x-default' && x.hreflang !== lang)
+        .map(l => ({ lang: l.hreflang, path: new URL(l.href).pathname }));
 }
 
 function renderHeader() {
@@ -48,9 +48,9 @@ function renderHeader() {
     const navItem = l => `<a href="${l.href}" class="${l.cls || ''} text-sm font-medium ${path === l.href ? 'text-primary-600' : 'text-slate-600 hover:text-primary-600'} transition-colors"${path === l.href ? ' aria-current="page"' : ''}>${l.label}</a>`;
 
     const ic = (n, c) => (window.RDCIcon ? window.RDCIcon(n, c) : '');
-    const alt = otherLanguage();
-    // Le lien garde les filtres, le test ou la comparaison en cours (mis à jour au clic)
-    const altLink = cls => (alt ? `<a href="${alt.path}" hreflang="${alt.lang}" lang="${alt.lang}" data-lang-switch="${alt.path}" class="${cls}">` : '');
+    const alts = otherLanguages();
+    // Chaque lien garde les filtres, le test ou la comparaison en cours (mis à jour au clic)
+    const altLink = (a, cls, inner) => `<a href="${a.path}" hreflang="${a.lang}" lang="${a.lang}" data-lang-switch="${a.path}" class="${cls}">${inner}</a>`;
     const headerHTML = `
         <a href="#contenu" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[70] focus:rounded-xl focus:bg-white focus:px-4 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-primary-700 focus:shadow-lg">${T`Aller au contenu`}</a>
         <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200">
@@ -73,7 +73,7 @@ function renderHeader() {
 
                     <nav class="hidden md:flex items-center gap-6 shrink-0" aria-label="${T`Navigation principale`}">
                         ${NAV_LINKS.map(navItem).join('')}
-                        ${alt ? `${altLink('hidden lg:inline-flex items-center gap-1 text-sm font-semibold text-slate-600 hover:text-primary-600 transition-colors')}${ic('globe', 'h-4 w-4')}<span aria-hidden="true">${alt.lang.toUpperCase()}</span><span class="sr-only">${LANG_LABEL[alt.lang] || alt.lang}</span></a>` : ''}
+                        ${alts.length ? `<span class="hidden lg:inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600">${ic('globe', 'h-4 w-4')}${alts.map(a => altLink(a, 'hover:text-primary-600 transition-colors', `<span aria-hidden="true">${a.lang.toUpperCase()}</span><span class="sr-only">${LANG_LABEL[a.lang] || a.lang}</span>`)).join('')}</span>` : ''}
                         <a href="${TM_HREF}" class="inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-sm font-semibold transition-colors ${path === TM_HREF ? 'border-primary-600 bg-primary-600 text-white' : 'border-primary-200 bg-primary-50 text-primary-700 hover:border-primary-300 hover:bg-primary-100'}"${path === TM_HREF ? ' aria-current="page"' : ''}>${ic('camera', 'h-[18px] w-[18px]')}${T`Tel Maître, Tel Chien`}</a>
                     </nav>
 
@@ -87,7 +87,7 @@ function renderHeader() {
                 <nav class="px-6 py-4 space-y-3" aria-label="${T`Navigation mobile`}">
                     ${NAV_LINKS.map(l => `<a href="${l.href}" class="block py-1 text-[15px] font-medium text-slate-800 hover:text-primary-600">${l.label}</a>`).join('')}
                     <a href="${TM_HREF}" class="flex items-center gap-2 py-1 text-[15px] font-semibold text-primary-700">${ic('camera', 'h-5 w-5')}${T`Tel Maître, Tel Chien`}</a>
-                    ${alt ? `${altLink('flex items-center gap-2 py-1 text-[15px] font-medium text-slate-800 hover:text-primary-600')}${ic('globe', 'h-5 w-5')}${LANG_LABEL[alt.lang] || alt.lang}</a>` : ''}
+                    ${alts.map(a => altLink(a, 'flex items-center gap-2 py-1 text-[15px] font-medium text-slate-800 hover:text-primary-600', `${ic('globe', 'h-5 w-5')}${LANG_LABEL[a.lang] || a.lang}`)).join('')}
                     <p class="text-sm text-slate-500 italic pt-3 border-t border-slate-100">${QUOTE_MARKS[0]}${quote}${QUOTE_MARKS[1]}</p>
                 </nav>
             </div>

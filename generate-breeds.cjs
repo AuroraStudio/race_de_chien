@@ -36,7 +36,8 @@ const DATE = '__LASTMOD__', DATE_FR = '__LASTMOD_FR__';
 // Date affichée « mis à jour le » selon la langue de la page
 const FMT_DATE = {
     fr: d => d.split('-').reverse().join('/'),
-    en: d => new Date(`${d}T00:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
+    en: d => new Date(`${d}T00:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }),
+    es: d => new Date(`${d}T00:00:00Z`).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
 };
 function stamp(p, html, fmt = FMT_DATE.fr) {
     if (!html.includes('<html')) return html;
@@ -69,8 +70,9 @@ const writeFile = (p, s) => {
 // Autres langues (i18n/<langue>/) : chargées plus bas, une fois les sélections et les groupes connus
 let L10N = [];
 const pageUrl = p => (p === 'index.html' ? '/' : `/${p.replace(/\.html$/, '')}`);
-// Lien vers l'autre langue, dans le pied de page
-const langSwitch = (lang, href, label) => `<li><a href="${href}" hreflang="${lang}" lang="${lang}" class="inline-flex items-center gap-1.5 py-1.5 hover:text-white">${icon('globe', 'h-4 w-4')}${label}</a></li>`;
+// Liens vers les autres langues, dans le pied de page : chacune écrite dans sa propre langue
+const langLinks = (versions, cur) => versions.filter(v => v.lang !== cur)
+    .map(v => `<li><a href="${v.url}" hreflang="${v.lang}" lang="${v.lang}" class="inline-flex items-center gap-1.5 py-1.5 hover:text-white">${icon('globe', 'h-4 w-4')}${v.label}</a></li>`).join('\n');
 /**
  * Écrit une page en français, puis sa version dans chaque autre langue (même page, phrases traduites).
  * variants : { en: html } quand la version d'une langue part d'un autre rendu (ordre alphabétique des noms traduits).
@@ -83,16 +85,16 @@ const write = (p, s, variants = {}) => {
     const head = alts.length
         ? [['fr', url], ...alts.map(([L, u]) => [L.lang, u]), ['x-default', url]].map(([l, u]) => `<link rel="alternate" hreflang="${l}" href="${abs(u)}">`).join('\n    ')
         : '';
+    const versions = [{ lang: 'fr', url, label: 'Français' }, ...alts.map(([L, u]) => ({ lang: L.lang, url: u, label: L.cfg.switchLabel }))];
     const finish = (html, sw) => (head ? html.replace('</head>', `    ${head}\n</head>`) : html).replace(/__LANG_SWITCH__\n?/, sw ? `${sw}\n` : '');
     for (const [L, u] of alts) {
         let html = L.localize(frTypo(variants[L.lang] || s), p);
         html = html.replace(/\/data\/breeds-index\.json(\?v=[\w-]+)?/g, `/data/breeds-index.${L.lang}.json?v=${L.vData}`)
             .replace('<script src="/js/icons.js', `<script src="/js/i18n.${L.lang}.js?v=${L.vClient}" defer></script>\n    <script src="/js/icons.js`);
         const file = L.fileOf(u);
-        writeFile(file, stamp(file, finish(html, langSwitch('fr', url, 'Version française')), FMT_DATE[L.lang] || FMT_DATE.fr));
+        writeFile(file, stamp(file, finish(html, langLinks(versions, L.lang)), FMT_DATE[L.lang] || FMT_DATE.fr));
     }
-    const [L0, u0] = alts[0] || [];
-    writeFile(p, stamp(p, finish(frTypo(s), L0 && langSwitch(L0.lang, u0, L0.cfg.switchLabel))));
+    writeFile(p, stamp(p, finish(frTypo(s), alts.length ? langLinks(versions, 'fr') : '')));
 };
 const hash = p => crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, p))).digest('hex').slice(0, 10);
 

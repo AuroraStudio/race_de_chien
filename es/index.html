@@ -1,0 +1,508 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="stylesheet" href="/css/site.css?v=7888c74f8f">
+    <script src="/js/i18n.es.js?v=94923acaca" defer></script>
+    <script src="/js/icons.js?v=a7e0153b82" defer=""></script>
+    <meta name="theme-color" content="#2563eb">
+
+    <title>Race de Chien: encuentra tu raza ideal entre 231 razas</title>
+    <meta name="description" content="231 razas de perros puntuadas en 20 criterios: apartamento, niños, energía, pelo, soledad. Perfiles en un clic, % de compatibilidad y fichas verificadas.">
+    <link rel="canonical" href="https://race-de-chien.com/es">
+    <meta name="robots" content="index, follow">
+    <meta name="rdc-data" content="/data/breeds-index.es.json?v=cbdb886925">
+    <link rel="preload" href="/data/breeds-index.es.json?v=cbdb886925" as="fetch" crossorigin="">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Race de Chien: encuentra la raza perfecta para ti">
+    <meta property="og:description" content="231 razas puntuadas en 20 criterios, ordenadas según tu estilo de vida.">
+    <meta property="og:url" content="https://race-de-chien.com/es">
+    <meta property="og:image" content="https://race-de-chien.com/images/breeds/bouledogue-francais.jpg">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Race de Chien">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Race de Chien","url":"https://race-de-chien.com/es","potentialAction":{"@type":"SearchAction","target":"https://race-de-chien.com/es?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+    <link rel="alternate" hreflang="fr" href="https://race-de-chien.com/">
+    <link rel="alternate" hreflang="en" href="https://race-de-chien.com/en">
+    <link rel="alternate" hreflang="es" href="https://race-de-chien.com/es">
+    <link rel="alternate" hreflang="x-default" href="https://race-de-chien.com/">
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-800">
+    <div class="site-header"></div>
+    <div class="h-[68px]" aria-hidden="true"></div>
+
+    <main id="races">
+        <!-- Bandeau d'entrée : titre, recherche, deux portes et profils, sur fond blanc pour le distinguer de l'outil -->
+        <section class="border-b border-slate-200 bg-white" aria-labelledby="titre">
+          <div class="mx-auto max-w-[1600px] px-4 pb-7 pt-9 sm:px-6 sm:pb-8 sm:pt-12">
+            <h1 id="titre" class="max-w-3xl text-[34px] leading-[1.04] tracking-[-0.03em] text-slate-900 sm:text-5xl"><span class="block font-medium">Encuentra la raza de perro</span> <span class="block font-extrabold">perfecta para ti</span></h1>
+            <p class="mt-3 max-w-[60ch] text-[17px] leading-relaxed text-slate-600">231 razas puntuadas en 20 criterios. Cuéntanos cómo vives: ordenamos las razas y te decimos por qué.</p>
+
+            <div class="mt-5 flex flex-col gap-3 lg:flex-row lg:items-center">
+                <div class="relative flex-1 max-w-xl">
+                    <label for="search" class="sr-only">Buscar una raza</label>
+                    <span class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg></span>
+                    <input id="search" type="search" autocomplete="off" placeholder="Buscar una raza" class="w-full rounded-xl border border-slate-300 bg-white py-3 pl-11 pr-4 text-[15px] shadow-sm focus:border-primary-500 focus:outline-none focus:ring-4 focus:ring-primary-100">
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <a href="/es/que-perro-elegir" class="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white hover:bg-slate-800"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216ZM172.42,72.84l-64,32a8.05,8.05,0,0,0-3.58,3.58l-32,64A8,8,0,0,0,80,184a8.1,8.1,0,0,0,3.58-.84l64-32a8.05,8.05,0,0,0,3.58-3.58l32-64a8,8,0,0,0-10.74-10.74ZM138,138,97.89,158.11,118,118l40.15-20.07Z"></path></svg>¿Qué perro es para mí?</a> <a href="/es/a-que-perro-me-parezco" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-800 hover:border-primary-300 hover:text-primary-700"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,56H180.28L166.65,35.56A8,8,0,0,0,160,32H96a8,8,0,0,0-6.65,3.56L75.71,56H48A24,24,0,0,0,24,80V192a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V80A24,24,0,0,0,208,56Zm8,136a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H80a8,8,0,0,0,6.66-3.56L100.28,48h55.43l13.63,20.44A8,8,0,0,0,176,72h32a8,8,0,0,1,8,8ZM128,88a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,88Zm0,72a28,28,0,1,1,28-28A28,28,0,0,1,128,160Z"></path></svg>Tal Dueño, Tal Perro</a>
+                </div>
+            </div>
+
+            <div class="mt-7 border-t border-slate-100 pt-6">
+                <p class="filter-title mb-3">Tu perfil en un clic</p>
+                <div id="profiles" class="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0" role="group" aria-label="Perfiles"><button type="button" class="opt" data-profile="pantouflard" aria-pressed="false"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,106.17V72a16,16,0,0,0-16-16H32A16,16,0,0,0,16,72v34.17A16,16,0,0,0,8,120v48a16,16,0,0,0,16,16h8v16a8,8,0,0,0,16,0V184H208v16a8,8,0,0,0,16,0V184h8a16,16,0,0,0,16-16V120A16,16,0,0,0,240,106.17ZM224,104h-8a16,16,0,0,0-16,16v16H136V72h88ZM120,72v64H56V120a16,16,0,0,0-16-16H32V72Zm112,96H24V120H40v24a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V120h16Z"></path></svg>Casero</button><button type="button" class="opt" data-profile="sportif" aria-pressed="false"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M152,88a32,32,0,1,0-32-32A32,32,0,0,0,152,88Zm0-48a16,16,0,1,1-16,16A16,16,0,0,1,152,40Zm67.31,100.68c-.61.28-7.49,3.28-19.67,3.28-13.85,0-34.55-3.88-60.69-20a169.31,169.31,0,0,1-15.41,32.34,104.29,104.29,0,0,1,31.31,15.81C173.92,186.65,184,207.35,184,232a8,8,0,0,1-16,0c0-41.7-34.69-56.71-54.14-61.85-.55.7-1.12,1.41-1.69,2.1-19.64,23.8-44.25,36.18-71.63,36.18A92.29,92.29,0,0,1,31.2,208,8,8,0,0,1,32.8,192c25.92,2.58,48.47-7.49,67-30,12.49-15.14,21-33.61,25.25-47C86.13,92.35,61.27,111.63,61,111.84A8,8,0,1,1,51,99.36c1.5-1.2,37.22-29,89.51,6.57,45.47,30.91,71.93,20.31,72.18,20.19a8,8,0,1,1,6.63,14.56Z"></path></svg>Deportista</button><button type="button" class="opt" data-profile="appartement" aria-pressed="false"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,208H224V96a16,16,0,0,0-16-16H144V32a16,16,0,0,0-24.88-13.32L39.12,72A16,16,0,0,0,32,85.34V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM208,96V208H144V96ZM48,85.34,128,32V208H48ZM112,112v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm-32,0v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm0,56v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Zm32,0v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Z"></path></svg>Apartamento</button><button type="button" class="opt" data-profile="enfants" aria-pressed="false"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M92,140a12,12,0,1,1,12-12A12,12,0,0,1,92,140Zm72-24a12,12,0,1,0,12,12A12,12,0,0,0,164,116Zm-12.27,45.23a45,45,0,0,1-47.46,0,8,8,0,0,0-8.54,13.54,61,61,0,0,0,64.54,0,8,8,0,0,0-8.54-13.54ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88.11,88.11,0,0,0-84.09-87.91C120.32,56.38,120,71.88,120,72a8,8,0,0,0,16,0,8,8,0,0,1,16,0,24,24,0,0,1-48,0c0-.73.13-14.3,8.46-30.63A88,88,0,1,0,216,128Z"></path></svg>Niños pequeños</button><button type="button" class="opt" data-profile="premier" aria-pressed="false"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M247.63,47.89a8,8,0,0,0-7.52-7.52c-51.76-3-93.32,12.74-111.18,42.22-11.8,19.49-11.78,43.16-.16,65.74a71.34,71.34,0,0,0-14.17,27L98.33,159c7.82-16.33,7.52-33.35-1-47.49-13.2-21.79-43.67-33.47-81.5-31.25a8,8,0,0,0-7.52,7.52c-2.23,37.83,9.46,68.3,31.25,81.5A45.82,45.82,0,0,0,63.44,176,54.58,54.58,0,0,0,87,170.33l25,25V224a8,8,0,0,0,16,0V194.51a55.61,55.61,0,0,1,12.27-35,73.91,73.91,0,0,0,33.31,8.4,60.9,60.9,0,0,0,31.83-8.86C234.89,141.21,250.67,99.65,247.63,47.89ZM47.81,155.6C32.47,146.31,23.79,124.32,24,96c28.32-.24,50.31,8.47,59.6,23.81,4.85,8,5.64,17.33,2.46,26.94L61.65,122.34a8,8,0,0,0-11.31,11.31l24.41,24.41C65.14,161.24,55.82,160.45,47.81,155.6Zm149.31-10.22c-13.4,8.11-29.15,8.73-45.15,2l53.69-53.7a8,8,0,0,0-11.31-11.31L140.65,136c-6.76-16-6.15-31.76,2-45.15,13.94-23,47-35.82,89.33-34.83C232.94,98.34,220.14,131.44,197.12,145.38Z"></path></svg>Primer perro</button><button type="button" class="opt" data-profile="allergies" aria-pressed="false"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M235.5,216.81c-22.56-11-35.5-34.58-35.5-64.8V134.73a15.94,15.94,0,0,0-10.09-14.87L165,110a8,8,0,0,1-4.48-10.34l21.32-53a28,28,0,0,0-16.1-37,28.14,28.14,0,0,0-35.82,16,.61.61,0,0,0,0,.12L108.9,79a8,8,0,0,1-10.37,4.49L73.11,73.14A15.89,15.89,0,0,0,55.74,76.8C34.68,98.45,24,123.75,24,152a111.45,111.45,0,0,0,31.18,77.53A8,8,0,0,0,61,232H232a8,8,0,0,0,3.5-15.19ZM67.14,88l25.41,10.3a24,24,0,0,0,31.23-13.45l21-53c2.56-6.11,9.47-9.27,15.43-7a12,12,0,0,1,6.88,15.92L145.69,93.76a24,24,0,0,0,13.43,31.14L184,134.73V152c0,.33,0,.66,0,1L55.77,101.71A108.84,108.84,0,0,1,67.14,88Zm48,128a87.53,87.53,0,0,1-24.34-42,8,8,0,0,0-15.49,4,105.16,105.16,0,0,0,18.36,38H64.44A95.54,95.54,0,0,1,40,152a85.9,85.9,0,0,1,7.73-36.29l137.8,55.12c3,18,10.56,33.48,21.89,45.16Z"></path></svg>Alergias</button><button type="button" class="opt" data-profile="discret" aria-pressed="false"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M192,152V104a8,8,0,0,1,16,0v48a8,8,0,0,1-16,0Zm40-72a8,8,0,0,0-8,8v80a8,8,0,0,0,16,0V88A8,8,0,0,0,232,80ZM221.92,210.62a8,8,0,1,1-11.84,10.76L168,175.09V224a8,8,0,0,1-12.91,6.31L85.25,176H40a16,16,0,0,1-16-16V96A16,16,0,0,1,40,80H81.55L50.08,45.38A8,8,0,0,1,61.92,34.62ZM152,157.49,96.1,96H40v64H88a7.94,7.94,0,0,1,4.91,1.69L152,207.64ZM125.06,69.31l26.94-21v58.47a8,8,0,0,0,16,0V32a8,8,0,0,0-12.91-6.31l-39.85,31a8,8,0,0,0,9.82,12.63Z"></path></svg>Discreto</button><button type="button" class="opt" data-profile="travail" aria-pressed="false"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg>Trabajo durante el día</button><button type="button" class="opt" data-profile="chat" aria-pressed="false"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M96,140a12,12,0,1,1-12-12A12,12,0,0,1,96,140Zm76-12a12,12,0,1,0,12,12A12,12,0,0,0,172,128Zm60-80v88c0,52.93-46.65,96-104,96S24,188.93,24,136V48A16,16,0,0,1,51.31,36.69c.14.14.26.27.38.41L69,57a111.22,111.22,0,0,1,118.1,0L204.31,37.1c.12-.14.24-.27.38-.41A16,16,0,0,1,232,48Zm-16,0-21.56,24.8A8,8,0,0,1,183.63,74,88.86,88.86,0,0,0,168,64.75V88a8,8,0,1,1-16,0V59.05a97.43,97.43,0,0,0-16-2.72V88a8,8,0,1,1-16,0V56.33a97.43,97.43,0,0,0-16,2.72V88a8,8,0,1,1-16,0V64.75A88.86,88.86,0,0,0,72.37,74a8,8,0,0,1-10.81-1.17L40,48v88c0,41.66,35.21,76,80,79.67V195.31l-13.66-13.66a8,8,0,0,1,11.32-11.31L128,180.68l10.34-10.34a8,8,0,0,1,11.32,11.31L136,195.31v20.36c44.79-3.69,80-38,80-79.67Z"></path></svg>Vive con un gato</button><button type="button" class="opt" data-profile="senior" aria-pressed="false"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216,88.8V72a40,40,0,0,0-40-40H80A40,40,0,0,0,40,72V88.8a40,40,0,0,0,0,78.4V200a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V167.2a40,40,0,0,0,0-78.4ZM80,48h96a24,24,0,0,1,24,24V88.8A40.07,40.07,0,0,0,168,128H88A40.07,40.07,0,0,0,56,88.8V72A24,24,0,0,1,80,48ZM208.39,152H208a8,8,0,0,0-8,8v40H56V160a8,8,0,0,0-8-8h-.39A24,24,0,1,1,72,128v40a8,8,0,0,0,16,0V144h80v24a8,8,0,0,0,16,0V128a24,24,0,1,1,24.39,24Z"></path></svg>Persona mayor, vida tranquila</button><button type="button" class="opt" data-profile="chaleur" aria-pressed="false"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"></path></svg>Soporta el calor</button><button type="button" class="opt" data-profile="francaises" aria-pressed="false"><svg class="h-5 w-5" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V56A8,8,0,0,0,218.76,50c-28,24.23-51.72,12.49-79.21-1.12C111.07,34.76,78.78,18.79,42.76,50ZM216,172.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V59.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z"></path></svg>Razas francesas</button></div>
+            </div>
+          </div>
+        </section>
+
+        <div class="mx-auto max-w-[1600px] px-4 pb-28 pt-6 sm:px-6 lg:grid lg:grid-cols-[340px_minmax(0,1fr)] lg:gap-10 lg:pt-10">
+            <!-- Filtres : colonne sur ordinateur, feuille plein écran sur téléphone -->
+            <aside id="filters" class="hidden fixed inset-0 z-[55] flex-col bg-white lg:static lg:z-auto lg:flex lg:bg-transparent" aria-label="Filtros">
+                <div class="flex items-center justify-between border-b border-slate-200 px-5 py-4 lg:hidden">
+                    <p class="text-lg font-bold text-slate-900">Filtros</p>
+                    <button id="filters-close" type="button" class="rounded-lg p-2 text-slate-500 hover:bg-slate-100" aria-label="Cerrar los filtros">
+                        <svg class="h-6 w-6" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>
+                    </button>
+                </div>
+
+                <div class="flex-1 overflow-y-auto overflow-x-hidden px-5 py-5 lg:sticky lg:top-[92px] lg:max-h-[calc(100vh-112px)] lg:rounded-3xl lg:border lg:border-slate-200 lg:bg-white lg:p-5 custom-scrollbar">
+                    <div class="space-y-8">
+                        <section aria-labelledby="f-vie">
+                            <div class="mb-3 flex items-baseline justify-between">
+                                <h2 id="f-vie" class="text-base font-bold text-slate-900">Tu vida</h2>
+                                <span class="text-xs text-slate-500">ordena las razas</span>
+                            </div>
+                            <div id="questions" class="space-y-5"></div>
+                            <div class="mt-5">
+                                <p id="q-rythme" class="mb-1.5 text-sm font-semibold text-slate-700">Tu ritmo</p>
+                                <div id="rythme" class="grid grid-cols-5 gap-1 rounded-xl bg-slate-100 p-1" role="group" aria-labelledby="q-rythme"></div>
+                                <p id="rythme-label" class="mt-1.5 text-xs leading-snug text-slate-500" aria-live="polite"></p>
+                            </div>
+                            <div class="mt-5">
+                                <p class="mb-2 text-sm font-semibold text-slate-700">En casa y en el día a día</p>
+                                <div id="soft" class="flex flex-wrap gap-2"></div>
+                            </div>
+                        </section>
+
+                        <section aria-labelledby="f-chien" class="border-t border-slate-200 pt-7">
+                            <div class="mb-3 flex items-baseline justify-between">
+                                <h2 id="f-chien" class="text-base font-bold text-slate-900">El perro</h2>
+                                <span class="text-xs text-slate-500">filtra las razas</span>
+                            </div>
+                            <p class="mb-2 text-sm font-semibold text-slate-700">Tamaño adulto</p>
+                            <div id="sizes" class="grid grid-cols-5 gap-1.5"></div>
+                            <p class="mb-2 mt-4 text-sm font-semibold text-slate-700">Longitud del pelo</p>
+                            <div id="coats" class="flex flex-wrap gap-2"></div>
+                            <p class="mb-2 mt-4 text-sm font-semibold text-slate-700">Cuidado del pelo</p>
+                            <div id="entretien" class="flex rounded-xl bg-slate-100 p-1"></div>
+                            <div id="hard-toggles" class="mt-4 flex flex-wrap gap-2"></div>
+                        </section>
+
+                        <details class="border-t border-slate-200 pt-7 group" id="more">
+                            <summary class="flex cursor-pointer list-none items-center justify-between text-base font-bold text-slate-900">
+                                Grupos de razas (FCI) <svg class="h-[18px] w-[18px] transition-transform group-open:rotate-180" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                            </summary>
+                            <p class="mt-2 text-xs text-slate-500">Los 10 grupos oficiales de la Federación Cinológica Internacional, los que figuran en los pedigrís franceses.</p>
+                            <div id="groups" class="mt-3 flex flex-col gap-1.5"></div>
+                        </details>
+
+                        <button id="reset" type="button" class="hidden w-full rounded-xl bg-slate-100 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-200 lg:block">Borrar todo</button>
+                    </div>
+                </div>
+
+                <div class="flex gap-3 border-t border-slate-200 bg-white px-5 py-3 lg:hidden" style="padding-bottom:max(12px,env(safe-area-inset-bottom))">
+                    <button id="reset-mobile" type="button" class="rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-700">Borrar</button>
+                    <button id="filters-apply" type="button" class="flex-1 rounded-xl bg-primary-600 px-4 py-3 text-sm font-bold text-white">Ver las <span id="apply-count">0</span> razas</button>
+                </div>
+            </aside>
+
+            <section aria-labelledby="results-title" class="min-w-0">
+                <div class="sticky top-[68px] z-30 -mx-4 mb-4 bg-slate-50/95 px-4 py-3 backdrop-blur sm:mx-0 sm:px-0 lg:static lg:mb-6 lg:bg-transparent lg:py-0 lg:backdrop-blur-0">
+                    <div class="flex flex-wrap items-center justify-between gap-3">
+                        <div>
+                            <h2 id="results-title" class="text-xl font-bold text-slate-900" aria-live="polite"><span id="count">231</span> razas</h2>
+                            <p id="sort-hint" class="text-xs text-slate-500"><span class="hidden sm:inline">ordenadas por popularidad en Francia (LOF 2025)</span><span class="sm:hidden">ordenadas por popularidad en Francia (LOF 2025)</span></p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button id="filters-open" type="button" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm font-semibold text-slate-800 lg:hidden">
+                                <svg class="h-[18px] w-[18px]" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M40,88H73a32,32,0,0,0,62,0h81a8,8,0,0,0,0-16H135a32,32,0,0,0-62,0H40a8,8,0,0,0,0,16Zm64-24A16,16,0,1,1,88,80,16,16,0,0,1,104,64ZM216,168H199a32,32,0,0,0-62,0H40a8,8,0,0,0,0,16h97a32,32,0,0,0,62,0h17a8,8,0,0,0,0-16Zm-48,24a16,16,0,1,1,16-16A16,16,0,0,1,168,192Z"></path></svg> Filtros <span id="active-count" class="hidden rounded-full bg-primary-600 px-1.5 text-xs text-white">0</span>
+                            </button>
+                            <label for="sort" class="sr-only">Ordenar</label>
+                            <select id="sort" class="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-primary-200">
+                                <option value="auto">Orden automático</option>
+                                <option value="compat">Compatibilidad</option>
+                                <option value="popularite">Popularidad en Francia</option>
+                                <option value="nom">Nombre (de la A a la Z)</option>
+                                <option value="taille">Tamaño (de menor a mayor)</option>
+                                <option value="vie">Esperanza de vida</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="active" class="mt-3 hidden flex-wrap gap-2"></div>
+                </div>
+
+                <ul id="grid" class="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 xl:grid-cols-3 2xl:grid-cols-4" aria-describedby="results-title"></ul>
+                <div id="empty" class="hidden rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center"></div>
+                <div id="list-more" class="mt-8 hidden text-center" aria-live="polite">
+                    <p id="more-status" class="text-sm text-slate-500"></p>
+                    <button id="more-btn" type="button" class="sr-only focus:not-sr-only focus:mt-3 focus:inline-flex focus:rounded-2xl focus:border focus:border-slate-300 focus:bg-white focus:px-6 focus:py-3 focus:text-sm focus:font-semibold">Mostrar más razas</button>
+                </div>
+
+                <template id="interlude">
+                    <li class="interlude col-span-full rounded-3xl bg-slate-900 p-6 text-slate-300 sm:p-8">
+                        <h2 class="text-xl font-bold text-white">¿Quieres una lista ya hecha?</h2>
+                        <p class="mt-1 max-w-[60ch] text-sm text-slate-400">Las preguntas que más nos hacen, con las razas que mejor responden a ellas.</p>
+                        <ul class="mt-5 flex flex-wrap gap-2">
+                        <li><a href="/es/perros-para-apartamento" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,208H224V96a16,16,0,0,0-16-16H144V32a16,16,0,0,0-24.88-13.32L39.12,72A16,16,0,0,0,32,85.34V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM208,96V208H144V96ZM48,85.34,128,32V208H48ZM112,112v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm-32,0v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm0,56v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Zm32,0v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Z"></path></svg>Perros para apartamento<span class="tabular-nums text-slate-400">24</span></a></li>
+                        <li><a href="/es/razas-de-perros-tranquilos" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,106.17V72a16,16,0,0,0-16-16H32A16,16,0,0,0,16,72v34.17A16,16,0,0,0,8,120v48a16,16,0,0,0,16,16h8v16a8,8,0,0,0,16,0V184H208v16a8,8,0,0,0,16,0V184h8a16,16,0,0,0,16-16V120A16,16,0,0,0,240,106.17ZM224,104h-8a16,16,0,0,0-16,16v16H136V72h88ZM120,72v64H56V120a16,16,0,0,0-16-16H32V72Zm112,96H24V120H40v24a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V120h16Z"></path></svg>Perros tranquilos y caseros<span class="tabular-nums text-slate-400">22</span></a></li>
+                        <li><a href="/es/perros-para-ninos" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M92,140a12,12,0,1,1,12-12A12,12,0,0,1,92,140Zm72-24a12,12,0,1,0,12,12A12,12,0,0,0,164,116Zm-12.27,45.23a45,45,0,0,1-47.46,0,8,8,0,0,0-8.54,13.54,61,61,0,0,0,64.54,0,8,8,0,0,0-8.54-13.54ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88.11,88.11,0,0,0-84.09-87.91C120.32,56.38,120,71.88,120,72a8,8,0,0,0,16,0,8,8,0,0,1,16,0,24,24,0,0,1-48,0c0-.73.13-14.3,8.46-30.63A88,88,0,1,0,216,128Z"></path></svg>Perros para niños<span class="tabular-nums text-slate-400">24</span></a></li>
+                        <li><a href="/es/perros-hipoalergenicos" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M235.5,216.81c-22.56-11-35.5-34.58-35.5-64.8V134.73a15.94,15.94,0,0,0-10.09-14.87L165,110a8,8,0,0,1-4.48-10.34l21.32-53a28,28,0,0,0-16.1-37,28.14,28.14,0,0,0-35.82,16,.61.61,0,0,0,0,.12L108.9,79a8,8,0,0,1-10.37,4.49L73.11,73.14A15.89,15.89,0,0,0,55.74,76.8C34.68,98.45,24,123.75,24,152a111.45,111.45,0,0,0,31.18,77.53A8,8,0,0,0,61,232H232a8,8,0,0,0,3.5-15.19ZM67.14,88l25.41,10.3a24,24,0,0,0,31.23-13.45l21-53c2.56-6.11,9.47-9.27,15.43-7a12,12,0,0,1,6.88,15.92L145.69,93.76a24,24,0,0,0,13.43,31.14L184,134.73V152c0,.33,0,.66,0,1L55.77,101.71A108.84,108.84,0,0,1,67.14,88Zm48,128a87.53,87.53,0,0,1-24.34-42,8,8,0,0,0-15.49,4,105.16,105.16,0,0,0,18.36,38H64.44A95.54,95.54,0,0,1,40,152a85.9,85.9,0,0,1,7.73-36.29l137.8,55.12c3,18,10.56,33.48,21.89,45.16Z"></path></svg>Perros que sueltan poco pelo<span class="tabular-nums text-slate-400">24</span></a></li>
+                        <li><a href="/es/perros-para-personas-mayores" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216,88.8V72a40,40,0,0,0-40-40H80A40,40,0,0,0,40,72V88.8a40,40,0,0,0,0,78.4V200a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V167.2a40,40,0,0,0,0-78.4ZM80,48h96a24,24,0,0,1,24,24V88.8A40.07,40.07,0,0,0,168,128H88A40.07,40.07,0,0,0,56,88.8V72A24,24,0,0,1,80,48ZM208.39,152H208a8,8,0,0,0-8,8v40H56V160a8,8,0,0,0-8-8h-.39A24,24,0,1,1,72,128v40a8,8,0,0,0,16,0V144h80v24a8,8,0,0,0,16,0V128a24,24,0,1,1,24.39,24Z"></path></svg>Perros para personas mayores<span class="tabular-nums text-slate-400">24</span></a></li>
+                        <li><a href="/es/perros-que-soportan-la-soledad" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg>Perros que soportan la soledad<span class="tabular-nums text-slate-400">13</span></a></li>
+                        <li><a href="/es/perros-deportistas" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M152,88a32,32,0,1,0-32-32A32,32,0,0,0,152,88Zm0-48a16,16,0,1,1-16,16A16,16,0,0,1,152,40Zm67.31,100.68c-.61.28-7.49,3.28-19.67,3.28-13.85,0-34.55-3.88-60.69-20a169.31,169.31,0,0,1-15.41,32.34,104.29,104.29,0,0,1,31.31,15.81C173.92,186.65,184,207.35,184,232a8,8,0,0,1-16,0c0-41.7-34.69-56.71-54.14-61.85-.55.7-1.12,1.41-1.69,2.1-19.64,23.8-44.25,36.18-71.63,36.18A92.29,92.29,0,0,1,31.2,208,8,8,0,0,1,32.8,192c25.92,2.58,48.47-7.49,67-30,12.49-15.14,21-33.61,25.25-47C86.13,92.35,61.27,111.63,61,111.84A8,8,0,1,1,51,99.36c1.5-1.2,37.22-29,89.51,6.57,45.47,30.91,71.93,20.31,72.18,20.19a8,8,0,1,1,6.63,14.56Z"></path></svg>Perros deportistas<span class="tabular-nums text-slate-400">24</span></a></li>
+                        <li><a href="/es/perros-para-principiantes" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M247.63,47.89a8,8,0,0,0-7.52-7.52c-51.76-3-93.32,12.74-111.18,42.22-11.8,19.49-11.78,43.16-.16,65.74a71.34,71.34,0,0,0-14.17,27L98.33,159c7.82-16.33,7.52-33.35-1-47.49-13.2-21.79-43.67-33.47-81.5-31.25a8,8,0,0,0-7.52,7.52c-2.23,37.83,9.46,68.3,31.25,81.5A45.82,45.82,0,0,0,63.44,176,54.58,54.58,0,0,0,87,170.33l25,25V224a8,8,0,0,0,16,0V194.51a55.61,55.61,0,0,1,12.27-35,73.91,73.91,0,0,0,33.31,8.4,60.9,60.9,0,0,0,31.83-8.86C234.89,141.21,250.67,99.65,247.63,47.89ZM47.81,155.6C32.47,146.31,23.79,124.32,24,96c28.32-.24,50.31,8.47,59.6,23.81,4.85,8,5.64,17.33,2.46,26.94L61.65,122.34a8,8,0,0,0-11.31,11.31l24.41,24.41C65.14,161.24,55.82,160.45,47.81,155.6Zm149.31-10.22c-13.4,8.11-29.15,8.73-45.15,2l53.69-53.7a8,8,0,0,0-11.31-11.31L140.65,136c-6.76-16-6.15-31.76,2-45.15,13.94-23,47-35.82,89.33-34.83C232.94,98.34,220.14,131.44,197.12,145.38Z"></path></svg>Para un primer perro<span class="tabular-nums text-slate-400">24</span></a></li>
+                        <li><a href="/es/perros-que-ladran-poco" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M192,152V104a8,8,0,0,1,16,0v48a8,8,0,0,1-16,0Zm40-72a8,8,0,0,0-8,8v80a8,8,0,0,0,16,0V88A8,8,0,0,0,232,80ZM221.92,210.62a8,8,0,1,1-11.84,10.76L168,175.09V224a8,8,0,0,1-12.91,6.31L85.25,176H40a16,16,0,0,1-16-16V96A16,16,0,0,1,40,80H81.55L50.08,45.38A8,8,0,0,1,61.92,34.62ZM152,157.49,96.1,96H40v64H88a7.94,7.94,0,0,1,4.91,1.69L152,207.64ZM125.06,69.31l26.94-21v58.47a8,8,0,0,0,16,0V32a8,8,0,0,0-12.91-6.31l-39.85,31a8,8,0,0,0,9.82,12.63Z"></path></svg>Perros que ladran poco<span class="tabular-nums text-slate-400">24</span></a></li>
+                        <li><a href="/es/razas-de-perros-francesas" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V56A8,8,0,0,0,218.76,50c-28,24.23-51.72,12.49-79.21-1.12C111.07,34.76,78.78,18.79,42.76,50ZM216,172.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V59.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z"></path></svg>Razas francesas<span class="tabular-nums text-slate-400">24</span></a></li>
+                        <li><a href="/es/razas-de-perros-pequenos" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M239.71,125l-16.42-88a16,16,0,0,0-19.61-12.58l-.31.09L150.85,40h-45.7L52.63,24.56l-.31-.09A16,16,0,0,0,32.71,37.05L16.29,125a15.77,15.77,0,0,0,9.12,17.52A16.26,16.26,0,0,0,32.12,144,15.48,15.48,0,0,0,40,141.84V184a40,40,0,0,0,40,40h96a40,40,0,0,0,40-40V141.85a15.5,15.5,0,0,0,7.87,2.16,16.31,16.31,0,0,0,6.72-1.47A15.77,15.77,0,0,0,239.71,125ZM32,128h0L48.43,40,90.5,52.37Zm144,80H136V195.31l13.66-13.65a8,8,0,0,0-11.32-11.32L128,180.69l-10.34-10.35a8,8,0,0,0-11.32,11.32L120,195.31V208H80a24,24,0,0,1-24-24V123.11L107.92,56h40.15L200,123.11V184A24,24,0,0,1,176,208Zm48-80L165.5,52.37,207.57,40,224,128ZM104,140a12,12,0,1,1-12-12A12,12,0,0,1,104,140Zm72,0a12,12,0,1,1-12-12A12,12,0,0,1,176,140Z"></path></svg>Perros pequeños<span class="tabular-nums text-slate-400">69</span></a></li>
+                        <li><a href="/es/razas-de-perros-medianos" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M239.71,125l-16.42-88a16,16,0,0,0-19.61-12.58l-.31.09L150.85,40h-45.7L52.63,24.56l-.31-.09A16,16,0,0,0,32.71,37.05L16.29,125a15.77,15.77,0,0,0,9.12,17.52A16.26,16.26,0,0,0,32.12,144,15.48,15.48,0,0,0,40,141.84V184a40,40,0,0,0,40,40h96a40,40,0,0,0,40-40V141.85a15.5,15.5,0,0,0,7.87,2.16,16.31,16.31,0,0,0,6.72-1.47A15.77,15.77,0,0,0,239.71,125ZM32,128h0L48.43,40,90.5,52.37Zm144,80H136V195.31l13.66-13.65a8,8,0,0,0-11.32-11.32L128,180.69l-10.34-10.35a8,8,0,0,0-11.32,11.32L120,195.31V208H80a24,24,0,0,1-24-24V123.11L107.92,56h40.15L200,123.11V184A24,24,0,0,1,176,208Zm48-80L165.5,52.37,207.57,40,224,128ZM104,140a12,12,0,1,1-12-12A12,12,0,0,1,104,140Zm72,0a12,12,0,1,1-12-12A12,12,0,0,1,176,140Z"></path></svg>Perros de tamaño mediano<span class="tabular-nums text-slate-400">85</span></a></li>
+                        <li><a href="/es/razas-de-perros-grandes" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M239.71,125l-16.42-88a16,16,0,0,0-19.61-12.58l-.31.09L150.85,40h-45.7L52.63,24.56l-.31-.09A16,16,0,0,0,32.71,37.05L16.29,125a15.77,15.77,0,0,0,9.12,17.52A16.26,16.26,0,0,0,32.12,144,15.48,15.48,0,0,0,40,141.84V184a40,40,0,0,0,40,40h96a40,40,0,0,0,40-40V141.85a15.5,15.5,0,0,0,7.87,2.16,16.31,16.31,0,0,0,6.72-1.47A15.77,15.77,0,0,0,239.71,125ZM32,128h0L48.43,40,90.5,52.37Zm144,80H136V195.31l13.66-13.65a8,8,0,0,0-11.32-11.32L128,180.69l-10.34-10.35a8,8,0,0,0-11.32,11.32L120,195.31V208H80a24,24,0,0,1-24-24V123.11L107.92,56h40.15L200,123.11V184A24,24,0,0,1,176,208Zm48-80L165.5,52.37,207.57,40,224,128ZM104,140a12,12,0,1,1-12-12A12,12,0,0,1,104,140Zm72,0a12,12,0,1,1-12-12A12,12,0,0,1,176,140Z"></path></svg>Perros grandes<span class="tabular-nums text-slate-400">77</span></a></li>
+                        <li><a href="/es/perros-guardianes" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"></path></svg>Perros guardianes<span class="tabular-nums text-slate-400">24</span></a></li>
+                        <li><a href="/es/perros-para-climas-calidos" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"></path></svg>Perros que soportan el calor<span class="tabular-nums text-slate-400">19</span></a></li>
+                        <li><a href="/es/perros-que-se-llevan-bien-con-gatos" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20"><svg class="h-[18px] w-[18px] text-slate-300" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M96,140a12,12,0,1,1-12-12A12,12,0,0,1,96,140Zm76-12a12,12,0,1,0,12,12A12,12,0,0,0,172,128Zm60-80v88c0,52.93-46.65,96-104,96S24,188.93,24,136V48A16,16,0,0,1,51.31,36.69c.14.14.26.27.38.41L69,57a111.22,111.22,0,0,1,118.1,0L204.31,37.1c.12-.14.24-.27.38-.41A16,16,0,0,1,232,48Zm-16,0-21.56,24.8A8,8,0,0,1,183.63,74,88.86,88.86,0,0,0,168,64.75V88a8,8,0,1,1-16,0V59.05a97.43,97.43,0,0,0-16-2.72V88a8,8,0,1,1-16,0V56.33a97.43,97.43,0,0,0-16,2.72V88a8,8,0,1,1-16,0V64.75A88.86,88.86,0,0,0,72.37,74a8,8,0,0,1-10.81-1.17L40,48v88c0,41.66,35.21,76,80,79.67V195.31l-13.66-13.66a8,8,0,0,1,11.32-11.31L128,180.68l10.34-10.34a8,8,0,0,1,11.32,11.31L136,195.31v20.36c44.79-3.69,80-38,80-79.67Z"></path></svg>Perros que se llevan bien con gatos<span class="tabular-nums text-slate-400">24</span></a></li>
+                        </ul>
+                        <h3 class="mt-7 text-sm font-semibold text-white">Por grupo de razas</h3>
+                        <ul class="mt-3 flex flex-wrap gap-2"><li><a href="/es/grupos/perros-pastores-y-boyeros" class="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-2 text-sm font-medium text-slate-200 hover:border-white/40 hover:text-white">Perros pastores y boyeros<span class="tabular-nums text-slate-400">30</span></a></li><li><a href="/es/grupos/pinscher-schnauzer-molosos-y-boyeros-suizos" class="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-2 text-sm font-medium text-slate-200 hover:border-white/40 hover:text-white">Pinscher y schnauzer, molosos y boyeros suizos<span class="tabular-nums text-slate-400">27</span></a></li><li><a href="/es/grupos/terriers" class="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-2 text-sm font-medium text-slate-200 hover:border-white/40 hover:text-white">Terriers<span class="tabular-nums text-slate-400">24</span></a></li><li><a href="/es/grupos/spitz-y-perros-de-tipo-primitivo" class="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-2 text-sm font-medium text-slate-200 hover:border-white/40 hover:text-white">Spitz y perros de tipo primitivo<span class="tabular-nums text-slate-400">21</span></a></li><li><a href="/es/grupos/sabuesos-y-perros-de-rastro" class="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-2 text-sm font-medium text-slate-200 hover:border-white/40 hover:text-white">Sabuesos y perros de rastro (perros de caza)<span class="tabular-nums text-slate-400">36</span></a></li><li><a href="/es/grupos/perros-de-muestra" class="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-2 text-sm font-medium text-slate-200 hover:border-white/40 hover:text-white">Perros de muestra<span class="tabular-nums text-slate-400">24</span></a></li><li><a href="/es/grupos/cobradores-levantadores-y-perros-de-agua" class="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-2 text-sm font-medium text-slate-200 hover:border-white/40 hover:text-white">Retrievers, cockers y perros de agua<span class="tabular-nums text-slate-400">17</span></a></li><li><a href="/es/grupos/perros-de-compania" class="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-2 text-sm font-medium text-slate-200 hover:border-white/40 hover:text-white">Perros de compañía<span class="tabular-nums text-slate-400">24</span></a></li><li><a href="/es/grupos/lebreles" class="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-2 text-sm font-medium text-slate-200 hover:border-white/40 hover:text-white">Lebreles<span class="tabular-nums text-slate-400">8</span></a></li></ul>
+                        <p class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm"><a href="/es/razas-de-perros-a-z" class="inline-flex items-center gap-1.5 font-semibold text-white hover:underline">Todas las razas de la A a la Z<svg class="h-4 w-4" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></a><a href="/es/perros-peligrosos-en-francia" class="inline-flex items-center gap-1.5 font-semibold text-white hover:underline">Perros de 1.ª y 2.ª categoría<svg class="h-4 w-4" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></a></p>
+                        <details class="mt-6 border-t border-white/10 pt-5">
+                            <summary class="cursor-pointer text-sm font-semibold text-white">Cómo se puntúan las razas</summary>
+                            <p class="mt-2 max-w-[70ch] text-sm leading-relaxed text-slate-400">Cada raza se puntúa del 1 al 5 en 20 criterios: energía, niños, gatos, apartamento, soledad, ladridos, adiestramiento, muda de pelo, calor… Las notas proceden de los estándares de la FCI, de los clubes de raza y de fuentes veterinarias, revisadas raza por raza en octubre de 2026 y luego armonizadas para que sean comparables. El porcentaje indica en qué medida una raza responde a tus criterios. Las fotos de las razas se generan con inteligencia artificial, con un mismo estilo de estudio, para comparar las razas en igualdad de condiciones. Un perro sigue siendo un individuo: la raza indica una tendencia, no una garantía.</p>
+                        </details>
+                    </li>
+                </template>
+
+                <noscript>
+                    <div class="mt-8 rounded-2xl bg-white p-6">
+                        <p class="font-bold">Todas las razas</p>
+                        <ul class="mt-3 columns-2 sm:columns-3 text-sm">
+                            <li><a href="/es/razas/affenpinscher">Affenpinscher</a></li>
+                            <li><a href="/es/razas/airedale-terrier">Airedale Terrier</a></li>
+                            <li><a href="/es/razas/akbash">Akbash</a></li>
+                            <li><a href="/es/razas/akita-inu">Akita Inu</a></li>
+                            <li><a href="/es/razas/akita-americano">Akita Americano</a></li>
+                            <li><a href="/es/razas/alapaha-blue-blood-bulldog">Alapaha Blue Blood Bulldog</a></li>
+                            <li><a href="/es/razas/american-bully">American Bully</a></li>
+                            <li><a href="/es/razas/perro-esquimal-americano">Perro Esquimal Americano</a></li>
+                            <li><a href="/es/razas/american-pit-bull-terrier">American Pit Bull Terrier</a></li>
+                            <li><a href="/es/razas/american-staffordshire-terrier">American Staffordshire Terrier</a></li>
+                            <li><a href="/es/razas/anglo-frances-de-pequena-veneria">Anglo-Francés de Pequeña Venería</a></li>
+                            <li><a href="/es/razas/ariegeois">Ariégeois</a></li>
+                            <li><a href="/es/razas/azawakh">Azawakh</a></li>
+                            <li><a href="/es/razas/barbet">Barbet</a></li>
+                            <li><a href="/es/razas/basenji">Basenji</a></li>
+                            <li><a href="/es/razas/basset-artesiano-normando">Basset Artesiano Normando</a></li>
+                            <li><a href="/es/razas/basset-azul-de-gascuna">Basset Azul de Gascuña</a></li>
+                            <li><a href="/es/razas/basset-leonado-de-bretana">Basset Leonado de Bretaña</a></li>
+                            <li><a href="/es/razas/basset-hound">Basset Hound</a></li>
+                            <li><a href="/es/razas/beagle">Beagle</a></li>
+                            <li><a href="/es/razas/beagle-harrier">Beagle-Harrier</a></li>
+                            <li><a href="/es/razas/bearded-collie">Bearded Collie</a></li>
+                            <li><a href="/es/razas/pastor-de-beauce">Pastor de Beauce</a></li>
+                            <li><a href="/es/razas/bedlington-terrier">Bedlington Terrier</a></li>
+                            <li><a href="/es/razas/pastor-aleman">Pastor Alemán</a></li>
+                            <li><a href="/es/razas/pastor-americano-miniatura">Pastor Americano Miniatura</a></li>
+                            <li><a href="/es/razas/pastor-australiano">Pastor Australiano</a></li>
+                            <li><a href="/es/razas/pastor-belga-groenendael">Pastor Belga Groenendael</a></li>
+                            <li><a href="/es/razas/pastor-belga-laekenois">Pastor Belga Laekenois</a></li>
+                            <li><a href="/es/razas/pastor-belga-malinois">Pastor Belga Malinois</a></li>
+                            <li><a href="/es/razas/pastor-belga-tervueren">Pastor Belga Tervueren</a></li>
+                            <li><a href="/es/razas/pastor-blanco-suizo">Pastor Blanco Suizo</a></li>
+                            <li><a href="/es/razas/pastor-de-brie">Pastor de Brie</a></li>
+                            <li><a href="/es/razas/pastor-de-picardia">Pastor de Picardía</a></li>
+                            <li><a href="/es/razas/pastor-de-los-pirineos-de-cara-rasa">Pastor de los Pirineos de Cara Rasa</a></li>
+                            <li><a href="/es/razas/pastor-de-los-pirineos-de-pelo-largo">Pastor de los Pirineos de Pelo Largo</a></li>
+                            <li><a href="/es/razas/pastor-del-caucaso">Pastor del Cáucaso</a></li>
+                            <li><a href="/es/razas/pastor-holandes">Pastor Holandés</a></li>
+                            <li><a href="/es/razas/bichon-frise">Bichón Frisé</a></li>
+                            <li><a href="/es/razas/bichon-habanero">Bichón Habanero</a></li>
+                            <li><a href="/es/razas/bichon-maltes">Bichón Maltés</a></li>
+                            <li><a href="/es/razas/billy">Billy</a></li>
+                            <li><a href="/es/razas/bobtail">Bobtail</a></li>
+                            <li><a href="/es/razas/boerboel">Boerboel</a></li>
+                            <li><a href="/es/razas/border-collie">Border Collie</a></li>
+                            <li><a href="/es/razas/border-terrier">Border Terrier</a></li>
+                            <li><a href="/es/razas/boston-terrier">Boston Terrier</a></li>
+                            <li><a href="/es/razas/bulldog-americano">Bulldog Americano</a></li>
+                            <li><a href="/es/razas/bulldog-frances">Bulldog Francés</a></li>
+                            <li><a href="/es/razas/pastor-ganadero-australiano">Pastor Ganadero Australiano</a></li>
+                            <li><a href="/es/razas/boyero-de-berna">Boyero de Berna</a></li>
+                            <li><a href="/es/razas/boyero-de-appenzell">Boyero de Appenzell</a></li>
+                            <li><a href="/es/razas/boyero-de-flandes">Boyero de Flandes</a></li>
+                            <li><a href="/es/razas/boxer">Boxer</a></li>
+                            <li><a href="/es/razas/boykin-spaniel">Boykin Spaniel</a></li>
+                            <li><a href="/es/razas/braco-aleman-de-pelo-corto">Braco Alemán de Pelo Corto</a></li>
+                            <li><a href="/es/razas/braco-de-auvergne">Braco de Auvergne</a></li>
+                            <li><a href="/es/razas/braco-del-ariege">Braco del Ariège</a></li>
+                            <li><a href="/es/razas/braco-de-weimar">Braco de Weimar</a></li>
+                            <li><a href="/es/razas/braco-del-borbones">Braco del Borbonés</a></li>
+                            <li><a href="/es/razas/braco-frances-tipo-gascuna">Braco Francés (Tipo Gascuña)</a></li>
+                            <li><a href="/es/razas/braco-frances-tipo-pirineos">Braco Francés (Tipo Pirineos)</a></li>
+                            <li><a href="/es/razas/vizsla">Vizsla</a></li>
+                            <li><a href="/es/razas/braco-hungaro-de-pelo-duro">Braco Húngaro de Pelo Duro</a></li>
+                            <li><a href="/es/razas/braco-italiano">Braco Italiano</a></li>
+                            <li><a href="/es/razas/braco-saint-germain">Braco Saint-Germain</a></li>
+                            <li><a href="/es/razas/briquet-grifon-vendeano">Briquet Grifón Vendeano</a></li>
+                            <li><a href="/es/razas/bruno-saint-hubert-francais">Bruno Saint-Hubert Français</a></li>
+                            <li><a href="/es/razas/bull-terrier">Bull Terrier</a></li>
+                            <li><a href="/es/razas/bull-terrier-miniatura">Bull Terrier Miniatura</a></li>
+                            <li><a href="/es/razas/bulldog-ingles">Bulldog Inglés</a></li>
+                            <li><a href="/es/razas/bulldog-continental">Bulldog Continental</a></li>
+                            <li><a href="/es/razas/bullmastiff">Bullmastiff</a></li>
+                            <li><a href="/es/razas/cairn-terrier">Cairn Terrier</a></li>
+                            <li><a href="/es/razas/cane-corso">Cane Corso</a></li>
+                            <li><a href="/es/razas/caniche-mediano">Caniche Mediano</a></li>
+                            <li><a href="/es/razas/caniche-enano">Caniche Enano</a></li>
+                            <li><a href="/es/razas/caniche-toy">Caniche Toy</a></li>
+                            <li><a href="/es/razas/pug">Pug</a></li>
+                            <li><a href="/es/razas/cavalier-king-charles-spaniel">Cavalier King Charles Spaniel</a></li>
+                            <li><a href="/es/razas/perro-crestado-chino">Perro Crestado Chino</a></li>
+                            <li><a href="/es/razas/sabueso-suizo">Sabueso Suizo</a></li>
+                            <li><a href="/es/razas/braco-aleman-de-pelo-duro">Braco Alemán de Pelo Duro</a></li>
+                            <li><a href="/es/razas/perro-de-artois">Perro de Artois</a></li>
+                            <li><a href="/es/razas/perro-de-agua-espanol">Perro de Agua Español</a></li>
+                            <li><a href="/es/razas/spaniel-aleman">Spaniel Alemán</a></li>
+                            <li><a href="/es/razas/kangal">Kangal</a></li>
+                            <li><a href="/es/razas/perro-de-montana-de-los-pirineos">Perro de Montaña de los Pirineos</a></li>
+                            <li><a href="/es/razas/sabueso-de-san-huberto">Sabueso de San Huberto</a></li>
+                            <li><a href="/es/razas/perro-del-faraon">Perro del Faraón</a></li>
+                            <li><a href="/es/razas/perro-finlandes-de-laponia">Perro Finlandés de Laponia</a></li>
+                            <li><a href="/es/razas/perro-leopardo-de-catahoula">Perro Leopardo de Catahoula</a></li>
+                            <li><a href="/es/razas/xoloitzcuintle">Xoloitzcuintle</a></li>
+                            <li><a href="/es/razas/chihuahua">Chihuahua</a></li>
+                            <li><a href="/es/razas/chinook">Chinook</a></li>
+                            <li><a href="/es/razas/chow-chow">Chow Chow</a></li>
+                            <li><a href="/es/razas/clumber-spaniel">Clumber Spaniel</a></li>
+                            <li><a href="/es/razas/cocker-spaniel-americano">Cocker Spaniel Americano</a></li>
+                            <li><a href="/es/razas/cocker-spaniel-ingles">Cocker Spaniel Inglés</a></li>
+                            <li><a href="/es/razas/collie-de-pelo-largo">Collie de Pelo Largo</a></li>
+                            <li><a href="/es/razas/bluetick-coonhound">Bluetick Coonhound</a></li>
+                            <li><a href="/es/razas/coonhound-negro-y-fuego">Coonhound Negro y Fuego</a></li>
+                            <li><a href="/es/razas/coton-de-tulear">Coton de Tuléar</a></li>
+                            <li><a href="/es/razas/cursinu">Cursinu</a></li>
+                            <li><a href="/es/razas/dalmata">Dálmata</a></li>
+                            <li><a href="/es/razas/doberman">Dóberman</a></li>
+                            <li><a href="/es/razas/gran-danes">Gran Danés</a></li>
+                            <li><a href="/es/razas/dogo-argentino">Dogo Argentino</a></li>
+                            <li><a href="/es/razas/dogo-de-burdeos">Dogo de Burdeos</a></li>
+                            <li><a href="/es/razas/presa-canario">Presa Canario</a></li>
+                            <li><a href="/es/razas/mastin-tibetano">Mastín Tibetano</a></li>
+                            <li><a href="/es/razas/english-shepherd">English Shepherd</a></li>
+                            <li><a href="/es/razas/epagneul-azul-de-picardia">Epagneul Azul de Picardía</a></li>
+                            <li><a href="/es/razas/epagneul-breton">Epagneul Bretón</a></li>
+                            <li><a href="/es/razas/spaniel-de-agua-americano">Spaniel de Agua Americano</a></li>
+                            <li><a href="/es/razas/spaniel-de-pont-audemer">Spaniel de Pont-Audemer</a></li>
+                            <li><a href="/es/razas/epagneul-frances">Epagneul Francés</a></li>
+                            <li><a href="/es/razas/chin-japones">Chin Japonés</a></li>
+                            <li><a href="/es/razas/papillon">Papillón</a></li>
+                            <li><a href="/es/razas/epagneul-picardo">Epagneul Picardo</a></li>
+                            <li><a href="/es/razas/spaniel-tibetano">Spaniel Tibetano</a></li>
+                            <li><a href="/es/razas/eurasier">Eurasier</a></li>
+                            <li><a href="/es/razas/field-spaniel">Field Spaniel</a></li>
+                            <li><a href="/es/razas/fox-terrier-de-pelo-duro">Fox Terrier de Pelo Duro</a></li>
+                            <li><a href="/es/razas/fox-terrier-de-pelo-liso">Fox Terrier de Pelo Liso</a></li>
+                            <li><a href="/es/razas/foxhound-americano">Foxhound Americano</a></li>
+                            <li><a href="/es/razas/frances-blanco-y-negro">Francés Blanco y Negro</a></li>
+                            <li><a href="/es/razas/frances-blanco-y-naranja">Francés Blanco y Naranja</a></li>
+                            <li><a href="/es/razas/frances-tricolor">Francés Tricolor</a></li>
+                            <li><a href="/es/razas/gascon-saintongeois">Gascón Saintongeois</a></li>
+                            <li><a href="/es/razas/golden-retriever">Golden Retriever</a></li>
+                            <li><a href="/es/razas/gran-anglo-frances-blanco-y-negro">Gran Anglo-Francés Blanco y Negro</a></li>
+                            <li><a href="/es/razas/gran-anglo-frances-blanco-y-naranja">Gran Anglo-Francés Blanco y Naranja</a></li>
+                            <li><a href="/es/razas/gran-anglo-frances-tricolor">Gran Anglo-Francés Tricolor</a></li>
+                            <li><a href="/es/razas/gran-basset-grifon-vendeano">Gran Basset Grifón Vendeano</a></li>
+                            <li><a href="/es/razas/gran-azul-de-gascuna">Gran Azul de Gascuña</a></li>
+                            <li><a href="/es/razas/caniche-grande">Caniche Grande</a></li>
+                            <li><a href="/es/razas/gran-grifon-vendeano">Gran Grifón Vendeano</a></li>
+                            <li><a href="/es/razas/greyhound">Greyhound</a></li>
+                            <li><a href="/es/razas/grifon-azul-de-gascuna">Grifón Azul de Gascuña</a></li>
+                            <li><a href="/es/razas/grifon-korthals">Grifón Korthals</a></li>
+                            <li><a href="/es/razas/grifon-leonado-de-bretana">Grifón Leonado de Bretaña</a></li>
+                            <li><a href="/es/razas/grifon-nivernais">Grifón Nivernais</a></li>
+                            <li><a href="/es/razas/harrier">Harrier</a></li>
+                            <li><a href="/es/razas/husky-de-alaska">Husky de Alaska</a></li>
+                            <li><a href="/es/razas/husky-siberiano">Husky Siberiano</a></li>
+                            <li><a href="/es/razas/terrier-irlandes">Terrier Irlandés</a></li>
+                            <li><a href="/es/razas/jack-russell-terrier">Jack Russell Terrier</a></li>
+                            <li><a href="/es/razas/kelpie-australiano">Kelpie Australiano</a></li>
+                            <li><a href="/es/razas/king-charles-spaniel">King Charles Spaniel</a></li>
+                            <li><a href="/es/razas/komondor">Komondor</a></li>
+                            <li><a href="/es/razas/kooikerhondje">Kooikerhondje</a></li>
+                            <li><a href="/es/razas/kuvasz">Kuvasz</a></li>
+                            <li><a href="/es/razas/labrador-retriever">Labrador Retriever</a></li>
+                            <li><a href="/es/razas/lagotto-romagnolo">Lagotto Romagnolo</a></li>
+                            <li><a href="/es/razas/laika-de-yakutia">Laika de Yakutia</a></li>
+                            <li><a href="/es/razas/lancashire-heeler">Lancashire Heeler</a></li>
+                            <li><a href="/es/razas/leonberger">Leonberger</a></li>
+                            <li><a href="/es/razas/galgo-afgano">Galgo Afgano</a></li>
+                            <li><a href="/es/razas/lebrel-escoces">Lebrel Escocés</a></li>
+                            <li><a href="/es/razas/lobero-irlandes">Lobero Irlandés</a></li>
+                            <li><a href="/es/razas/lhasa-apso">Lhasa Apso</a></li>
+                            <li><a href="/es/razas/malamute-de-alaska">Malamute de Alaska</a></li>
+                            <li><a href="/es/razas/norfolk-terrier">Norfolk Terrier</a></li>
+                            <li><a href="/es/razas/norwich-terrier">Norwich Terrier</a></li>
+                            <li><a href="/es/razas/parson-russell-terrier">Parson Russell Terrier</a></li>
+                            <li><a href="/es/razas/pequines">Pequinés</a></li>
+                            <li><a href="/es/razas/pequeno-basset-grifon-vendeano">Pequeño Basset Grifón Vendeano</a></li>
+                            <li><a href="/es/razas/pequeno-azul-de-gascuna">Pequeño Azul de Gascuña</a></li>
+                            <li><a href="/es/razas/pequeno-perro-leon">Pequeño Perro León</a></li>
+                            <li><a href="/es/razas/toy-ruso">Toy Ruso</a></li>
+                            <li><a href="/es/razas/pequeno-munsterlander">Pequeño Münsterländer</a></li>
+                            <li><a href="/es/razas/galgo-italiano">Galgo Italiano</a></li>
+                            <li><a href="/es/razas/pinscher-aleman">Pinscher Alemán</a></li>
+                            <li><a href="/es/razas/pinscher-miniatura">Pinscher Miniatura</a></li>
+                            <li><a href="/es/razas/plott-hound">Plott Hound</a></li>
+                            <li><a href="/es/razas/pointer-ingles">Pointer Inglés</a></li>
+                            <li><a href="/es/razas/poitevin">Poitevin</a></li>
+                            <li><a href="/es/razas/porcelana">Porcelana</a></li>
+                            <li><a href="/es/razas/puli">Puli</a></li>
+                            <li><a href="/es/razas/pumi">Pumi</a></li>
+                            <li><a href="/es/razas/rat-terrier">Rat Terrier</a></li>
+                            <li><a href="/es/razas/redbone-coonhound">Redbone Coonhound</a></li>
+                            <li><a href="/es/razas/retriever-de-pelo-liso">Retriever de Pelo Liso</a></li>
+                            <li><a href="/es/razas/retriever-de-la-bahia-de-chesapeake">Retriever de la Bahía de Chesapeake</a></li>
+                            <li><a href="/es/razas/retriever-de-nueva-escocia">Retriever de Nueva Escocia</a></li>
+                            <li><a href="/es/razas/rhodesian-ridgeback">Rhodesian Ridgeback</a></li>
+                            <li><a href="/es/razas/rottweiler">Rottweiler</a></li>
+                            <li><a href="/es/razas/san-bernardo">San Bernardo</a></li>
+                            <li><a href="/es/razas/saluki">Saluki</a></li>
+                            <li><a href="/es/razas/samoyedo">Samoyedo</a></li>
+                            <li><a href="/es/razas/schipperke">Schipperke</a></li>
+                            <li><a href="/es/razas/schnauzer-gigante">Schnauzer Gigante</a></li>
+                            <li><a href="/es/razas/schnauzer-mediano">Schnauzer Mediano</a></li>
+                            <li><a href="/es/razas/schnauzer-miniatura">Schnauzer Miniatura</a></li>
+                            <li><a href="/es/razas/terrier-escoces">Terrier Escocés</a></li>
+                            <li><a href="/es/razas/setter-ingles">Setter Inglés</a></li>
+                            <li><a href="/es/razas/setter-gordon">Setter Gordon</a></li>
+                            <li><a href="/es/razas/setter-irlandes-rojo">Setter Irlandés Rojo</a></li>
+                            <li><a href="/es/razas/shar-pei">Shar Pei</a></li>
+                            <li><a href="/es/razas/pastor-de-shetland">Pastor de Shetland</a></li>
+                            <li><a href="/es/razas/shiba-inu">Shiba Inu</a></li>
+                            <li><a href="/es/razas/shih-tzu">Shih Tzu</a></li>
+                            <li><a href="/es/razas/shiloh-shepherd">Shiloh Shepherd</a></li>
+                            <li><a href="/es/razas/silky-terrier-australiano">Silky Terrier Australiano</a></li>
+                            <li><a href="/es/razas/spinone-italiano">Spinone Italiano</a></li>
+                            <li><a href="/es/razas/spitz-aleman">Spitz Alemán</a></li>
+                            <li><a href="/es/razas/vallhund-sueco">Vallhund Sueco</a></li>
+                            <li><a href="/es/razas/spitz-finlandes">Spitz Finlandés</a></li>
+                            <li><a href="/es/razas/spitz-japones">Spitz Japonés</a></li>
+                            <li><a href="/es/razas/pomerania">Pomerania</a></li>
+                            <li><a href="/es/razas/keeshond">Keeshond</a></li>
+                            <li><a href="/es/razas/springer-spaniel-ingles">Springer Spaniel Inglés</a></li>
+                            <li><a href="/es/razas/staffordshire-bull-terrier">Staffordshire Bull Terrier</a></li>
+                            <li><a href="/es/razas/teckel">Teckel</a></li>
+                            <li><a href="/es/razas/terranova">Terranova</a></li>
+                            <li><a href="/es/razas/terrier-australiano">Terrier Australiano</a></li>
+                            <li><a href="/es/razas/terrier-de-caza-aleman">Terrier de Caza Alemán</a></li>
+                            <li><a href="/es/razas/terrier-irlandes-de-pelo-suave">Terrier Irlandés de Pelo Suave</a></li>
+                            <li><a href="/es/razas/terrier-irlandes-de-glen-of-imaal">Terrier Irlandés de Glen of Imaal</a></li>
+                            <li><a href="/es/razas/terrier-tibetano">Terrier Tibetano</a></li>
+                            <li><a href="/es/razas/thai-ridgeback">Thai Ridgeback</a></li>
+                            <li><a href="/es/razas/toy-fox-terrier">Toy Fox Terrier</a></li>
+                            <li><a href="/es/razas/toy-terrier-ingles">Toy Terrier Inglés</a></li>
+                            <li><a href="/es/razas/treeing-walker-coonhound">Treeing Walker Coonhound</a></li>
+                            <li><a href="/es/razas/welsh-corgi-cardigan">Welsh Corgi Cardigan</a></li>
+                            <li><a href="/es/razas/welsh-corgi-pembroke">Welsh Corgi Pembroke</a></li>
+                            <li><a href="/es/razas/springer-spaniel-gales">Springer Spaniel Galés</a></li>
+                            <li><a href="/es/razas/west-highland-white-terrier">West Highland White Terrier</a></li>
+                            <li><a href="/es/razas/whippet">Whippet</a></li>
+                            <li><a href="/es/razas/yorkshire-terrier">Yorkshire Terrier</a></li>
+                        </ul>
+                    </div>
+                </noscript>
+            </section>
+        </div>
+    </main>
+
+    <div id="compare-bar" class="fixed inset-x-0 bottom-0 z-40 translate-y-full border-t border-slate-200 bg-white/95 backdrop-blur transition-transform" style="padding-bottom:env(safe-area-inset-bottom)">
+        <div class="mx-auto flex max-w-[1600px] items-center justify-between gap-3 px-4 py-3 sm:px-6">
+            <div class="flex min-w-0 items-center gap-3">
+                <div id="compare-thumbs" class="flex -space-x-3"></div>
+                <p class="whitespace-nowrap text-sm font-semibold text-slate-800"><span id="compare-n">0</span> de 3<span class="hidden sm:inline"> para comparar</span></p>
+            </div>
+            <div class="flex shrink-0 gap-2">
+                <button id="compare-clear" type="button" class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100">Vaciar</button>
+                <a id="compare-go" href="/es/comparar" class="rounded-xl bg-primary-600 px-4 py-2 text-sm font-bold text-white hover:bg-primary-700">Comparar</a>
+            </div>
+        </div>
+    </div>
+    <div id="toast" class="pointer-events-none fixed left-1/2 top-24 z-[70] -translate-x-1/2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-medium text-white opacity-0 shadow-lg transition-opacity" role="status" aria-live="polite"></div>
+
+    <footer class="bg-slate-900 text-slate-400 py-14">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <span class="relative mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-2xl" aria-hidden="true"><span style="position:absolute;inset:0;border-radius:inherit;padding:2px;background:linear-gradient(135deg,#3b82f6,#9333ea);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;"></span>🐕</span>
+                <p class="text-white font-bold text-2xl mb-2">Race de Chien</p>
+                <p class="text-slate-400 text-sm max-w-md mx-auto">231 razas descritas y evaluadas según 20 criterios para encontrar el perro que encaja con tu vida.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 text-center sm:text-left text-sm">
+                <div>
+                    <p class="text-white font-semibold text-sm mb-3">Elegir</p>
+                    <ul class="space-y-0.5">
+                        <li><a href="/es/razas-de-perros-a-z" class="inline-block py-1.5 hover:text-white">Todas las razas de la A a la Z</a></li>
+                        <li><a href="/es/grupos-de-razas" class="inline-block py-1.5 hover:text-white">Grupos de razas</a></li>
+                        <li><a href="/es/que-perro-elegir" class="inline-block py-1.5 hover:text-white">¿Qué perro es para mí?</a></li>
+                        <li><a href="/es/comparar" class="inline-block py-1.5 hover:text-white">Comparar razas</a></li>
+                        <li><a href="/es/a-que-perro-me-parezco" class="inline-block py-1.5 hover:text-white">Tal Dueño, Tal Perro</a></li>
+                        <li><a href="/es/perros-peligrosos-en-francia" class="inline-block py-1.5 hover:text-white">Perros peligrosos en Francia</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-white font-semibold text-sm mb-3">Selecciones</p>
+                    <ul class="space-y-0.5">
+                        <li><a href="/es/perros-para-apartamento" class="inline-block py-1.5 hover:text-white">Perros para apartamento</a></li>
+                        <li><a href="/es/razas-de-perros-tranquilos" class="inline-block py-1.5 hover:text-white">Perros tranquilos y caseros</a></li>
+                        <li><a href="/es/perros-para-ninos" class="inline-block py-1.5 hover:text-white">Perros para niños</a></li>
+                        <li><a href="/es/perros-hipoalergenicos" class="inline-block py-1.5 hover:text-white">Perros que sueltan poco pelo</a></li>
+                        <li><a href="/es/perros-para-personas-mayores" class="inline-block py-1.5 hover:text-white">Perros para personas mayores</a></li>
+                        <li><a href="/es/perros-que-soportan-la-soledad" class="inline-block py-1.5 hover:text-white">Perros que soportan la soledad</a></li>
+                        <li><a href="/es/perros-deportistas" class="inline-block py-1.5 hover:text-white">Perros deportistas</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-white font-semibold text-sm mb-3">Razas populares en Francia</p>
+                    <ul class="space-y-0.5">
+                        <li><a href="/es/razas/golden-retriever" class="inline-block py-1.5 hover:text-white">Golden Retriever</a></li>
+                        <li><a href="/es/razas/pastor-australiano" class="inline-block py-1.5 hover:text-white">Pastor Australiano</a></li>
+                        <li><a href="/es/razas/staffordshire-bull-terrier" class="inline-block py-1.5 hover:text-white">Staffordshire Bull Terrier</a></li>
+                        <li><a href="/es/razas/cocker-spaniel-ingles" class="inline-block py-1.5 hover:text-white">Cocker Spaniel Inglés</a></li>
+                        <li><a href="/es/razas/labrador-retriever" class="inline-block py-1.5 hover:text-white">Labrador Retriever</a></li>
+                        <li><a href="/es/razas/pastor-americano-miniatura" class="inline-block py-1.5 hover:text-white">Pastor Americano Miniatura</a></li>
+                        <li><a href="/es/razas/cavalier-king-charles-spaniel" class="inline-block py-1.5 hover:text-white">Cavalier King Charles Spaniel</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-white font-semibold text-sm mb-3">El sitio</p>
+                    <ul class="space-y-0.5">
+<li><a href="/" hreflang="fr" lang="fr" class="inline-flex items-center gap-1.5 py-1.5 hover:text-white"><svg class="h-4 w-4" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24h0A104,104,0,1,0,232,128,104.12,104.12,0,0,0,128,24Zm88,104a87.61,87.61,0,0,1-3.33,24H174.16a157.44,157.44,0,0,0,0-48h38.51A87.61,87.61,0,0,1,216,128ZM102,168H154a115.11,115.11,0,0,1-26,45A115.27,115.27,0,0,1,102,168Zm-3.9-16a140.84,140.84,0,0,1,0-48h59.88a140.84,140.84,0,0,1,0,48ZM40,128a87.61,87.61,0,0,1,3.33-24H81.84a157.44,157.44,0,0,0,0,48H43.33A87.61,87.61,0,0,1,40,128ZM154,88H102a115.11,115.11,0,0,1,26-45A115.27,115.27,0,0,1,154,88Zm52.33,0H170.71a135.28,135.28,0,0,0-22.3-45.6A88.29,88.29,0,0,1,206.37,88ZM107.59,42.4A135.28,135.28,0,0,0,85.29,88H49.63A88.29,88.29,0,0,1,107.59,42.4ZM49.63,168H85.29a135.28,135.28,0,0,0,22.3,45.6A88.29,88.29,0,0,1,49.63,168Zm98.78,45.6a135.28,135.28,0,0,0,22.3-45.6h35.66A88.29,88.29,0,0,1,148.41,213.6Z"/></svg>Français</a></li>
+<li><a href="/en" hreflang="en" lang="en" class="inline-flex items-center gap-1.5 py-1.5 hover:text-white"><svg class="h-4 w-4" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24h0A104,104,0,1,0,232,128,104.12,104.12,0,0,0,128,24Zm88,104a87.61,87.61,0,0,1-3.33,24H174.16a157.44,157.44,0,0,0,0-48h38.51A87.61,87.61,0,0,1,216,128ZM102,168H154a115.11,115.11,0,0,1-26,45A115.27,115.27,0,0,1,102,168Zm-3.9-16a140.84,140.84,0,0,1,0-48h59.88a140.84,140.84,0,0,1,0,48ZM40,128a87.61,87.61,0,0,1,3.33-24H81.84a157.44,157.44,0,0,0,0,48H43.33A87.61,87.61,0,0,1,40,128ZM154,88H102a115.11,115.11,0,0,1,26-45A115.27,115.27,0,0,1,154,88Zm52.33,0H170.71a135.28,135.28,0,0,0-22.3-45.6A88.29,88.29,0,0,1,206.37,88ZM107.59,42.4A135.28,135.28,0,0,0,85.29,88H49.63A88.29,88.29,0,0,1,107.59,42.4ZM49.63,168H85.29a135.28,135.28,0,0,0,22.3,45.6A88.29,88.29,0,0,1,49.63,168Zm98.78,45.6a135.28,135.28,0,0,0,22.3-45.6h35.66A88.29,88.29,0,0,1,148.41,213.6Z"/></svg>English</a></li>
+                        <li><a href="/es/aviso-legal" class="inline-block py-1.5 hover:text-white">Aviso legal</a></li>
+                        <li><a href="/es/privacidad" class="inline-block py-1.5 hover:text-white">Privacidad</a></li>
+                        <li><a href="#" data-open-consent="" class="inline-block py-1.5 hover:text-white">Gestionar las cookies</a></li>
+                        <li><a href="/sitemap.xml" class="inline-block py-1.5 hover:text-white">Mapa del sitio</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-700/50 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+                <p>© 2026 Race de Chien. Datos: estándares FCI, estadísticas LOF 2025 (libro de orígenes francés) de la Société Centrale Canine (el club canino francés). Fotos de las razas generadas por IA.</p>
+                <p>Creado por <a href="https://aurorastudio.fr" target="_blank" rel="noopener" class="text-slate-300 hover:text-white font-medium">Aurora</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/scoring.js?v=2d2ac7170f" defer=""></script>
+    <script src="/js/app.js?v=76e863cdc6" defer=""></script>
+    <script src="/js/header.js?v=736f8c0232" defer=""></script>
+
+
+</body></html>

@@ -7,7 +7,8 @@
     const KEY = 'rdc-compare';
     const $ = id => document.getElementById(id);
     const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-    const num = n => (window.RDCLang ? String(n) : String(n).replace('.', ','));
+    // Virgule décimale en français et en espagnol, point en anglais
+    const num = n => (window.RDCLang === 'en' ? String(n) : String(n).replace('.', ','));
     const range = (r, unit) => r ? (r.min === r.max ? `${num(r.min)} ${unit}` : T`${num(r.min)} à ${num(r.max)} ${unit}`) : '';
 
     // Libellés et sens de lecture des notes (reverse : une note basse est préférable)

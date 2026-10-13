@@ -1,0 +1,49 @@
+{
+  "lang": "es",
+  "locale": "es_ES",
+  "switchLabel": "Español",
+  "ordinal": "function (n) { return n + '.ª'; }",
+  "pages": {
+    "/": "/es",
+    "/quel-chien-choisir": "/es/que-perro-elegir",
+    "/compare": "/es/comparar",
+    "/tel-maitre-tel-chien": "/es/a-que-perro-me-parezco",
+    "/liste-des-races": "/es/razas-de-perros-a-z",
+    "/groupes-de-races": "/es/grupos-de-razas",
+    "/chiens-categorises": "/es/perros-peligrosos-en-francia",
+    "/mentions-legales": "/es/aviso-legal",
+    "/confidentialite": "/es/privacidad"
+  },
+  "breedsPrefix": "/es/razas/",
+  "groupsPrefix": "/es/grupos/",
+  "selectionsPrefix": "/es/",
+  "selections": {
+    "chiens-pour-appartement": "perros-para-apartamento",
+    "chiens-calmes": "razas-de-perros-tranquilos",
+    "chiens-pour-enfants": "perros-para-ninos",
+    "chiens-qui-perdent-peu-de-poils": "perros-hipoalergenicos",
+    "chiens-pour-personnes-agees": "perros-para-personas-mayores",
+    "chiens-qui-supportent-la-solitude": "perros-que-soportan-la-soledad",
+    "chiens-sportifs": "perros-deportistas",
+    "premier-chien": "perros-para-principiantes",
+    "chiens-qui-aboient-peu": "perros-que-ladran-poco",
+    "races-francaises": "razas-de-perros-francesas",
+    "petits-chiens": "razas-de-perros-pequenos",
+    "chiens-de-taille-moyenne": "razas-de-perros-medianos",
+    "grands-chiens": "razas-de-perros-grandes",
+    "chiens-de-garde": "perros-guardianes",
+    "chiens-qui-supportent-la-chaleur": "perros-para-climas-calidos",
+    "chiens-et-chats": "perros-que-se-llevan-bien-con-gatos"
+  },
+  "groups": {
+    "chiens-de-berger-et-bouviers": "perros-pastores-y-boyeros",
+    "molosses-pinschers-et-bouviers-suisses": "pinscher-schnauzer-molosos-y-boyeros-suizos",
+    "terriers": "terriers",
+    "spitz-et-chiens-primitifs": "spitz-y-perros-de-tipo-primitivo",
+    "chiens-courants": "sabuesos-y-perros-de-rastro",
+    "chiens-d-arret": "perros-de-muestra",
+    "rapporteurs-leveurs-et-chiens-d-eau": "cobradores-levantadores-y-perros-de-agua",
+    "chiens-de-compagnie": "perros-de-compania",
+    "levriers": "lebreles"
+  }
+}

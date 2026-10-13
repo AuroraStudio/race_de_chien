@@ -1,7 +1,7 @@
 # Les autres langues du site
 
 Le site s'écrit en français. Les autres langues sont des copies traduites, produites par `npm run generate`.
-Le français reste la version par défaut, aux mêmes adresses. L'anglais vit sous `/en/`.
+Le français reste la version par défaut, aux mêmes adresses. L'anglais vit sous `/en/`, l'espagnol sous `/es/`.
 
 ## Comment ça marche
 
@@ -24,6 +24,8 @@ Le générateur affiche le compte à chaque passage : `🌐 en : 7278 phrases tr
 - `dictionnaire.json` : phrase française → traduction. La clé est la phrase telle qu'elle sort du générateur :
   `<g1>…</g1>` pour une balise dans la phrase (lien, gras), `<x1/>` pour une icône, `{0}` pour une valeur
   des scripts, `__LASTMOD_FR__` pour la date.
+- `modeles.cjs` : les phrases types des fiches (titres, FAQ, mesures, santé, notes) traduites par modèle, avant le
+  dictionnaire. Une race ajoutée les reçoit sans retraduction. `data-ctx` sur une note donne son critère.
 - `guide.md` : règles de traduction, vocabulaire et noms des races. À donner à qui traduit.
 
 ## Après une modification du contenu français
@@ -32,7 +34,7 @@ Les phrases modifiées ou nouvelles n'ont pas encore de traduction :
 
 ```bash
 npm run generate                     # liste les phrases à traduire dans i18n/en/_a-traduire.json
-npm run i18n:decouper -- en          # les répartit en lots dans i18n/en/_lots/
+npm run i18n:decouper -- en          # les répartit en lots dans i18n/en/_lots/ (même chose avec es)
 # traduire chaque lot-XX.json en lot-XX.en.json en suivant guide.md, puis :
 node lib/i18n-lots.cjs verifier en 01
 npm run i18n:fusionner -- en         # ajoute les traductions vérifiées au dictionnaire
@@ -44,6 +46,9 @@ variable), et une adresse interne passe par `P('/races/' + slug)`.
 
 ## Ajouter une langue
 
-Copier `i18n/en/` en `i18n/<langue>/`, adapter `config.json` (adresses, `locale`, libellé), traduire
-`races.json`, puis suivre la marche ci-dessus. Ajouter le format de date de la langue dans `FMT_DATE`
-(generate-breeds.cjs) et les messages de l'API Tel Maître (`api/match-breed.js`).
+Copier `i18n/es/` en `i18n/<langue>/` (sans `dictionnaire.json`), adapter `config.json` (adresses, `locale`,
+libellé, ordinaux), traduire `races.json`, réécrire `modeles.cjs` et `guide.md` pour la langue, puis suivre la marche
+ci-dessus (les lots portent aussi la version anglaise relue, pour lever les ambiguïtés). Ajouter :
+le format de date dans `FMT_DATE` (generate-breeds.cjs), le nom de la langue dans `LANG_LABEL` et ses guillemets dans
+`QUOTE_MARKS` (js/header.js), les messages de l'API Tel Maître (`api/match-breed.js`), une ligne dans `404.html`,
+le dossier dans la liste `git add` de l'Action GitHub. Le contrôle du français resté : `node lib/i18n-lots.cjs controler <langue>`.
