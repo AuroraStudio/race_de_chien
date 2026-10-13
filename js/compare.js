@@ -1,19 +1,22 @@
 // Comparateur : jusqu'à trois races sur les 20 notes
 (function () {
     const S = window.RDCScoring;
+    // Textes et adresses dans la langue de la page (français par défaut, voir js/icons.js)
+    const T = window.RDCT, P = window.RDCPath;
+    const LOCALE = window.RDCLang || 'fr-FR';
     const KEY = 'rdc-compare';
     const $ = id => document.getElementById(id);
     const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-    const num = n => String(n).replace('.', ',');
-    const range = (r, unit) => r ? (r.min === r.max ? `${num(r.min)} ${unit}` : `${num(r.min)} à ${num(r.max)} ${unit}`) : '';
+    const num = n => (window.RDCLang ? String(n) : String(n).replace('.', ','));
+    const range = (r, unit) => r ? (r.min === r.max ? `${num(r.min)} ${unit}` : T`${num(r.min)} à ${num(r.max)} ${unit}`) : '';
 
     // Libellés et sens de lecture des notes (reverse : une note basse est préférable)
     const ROWS = [
-        ['Mode de vie', [['energie', 'Énergie', null], ['appartement', 'En appartement', false], ['solitude', 'Seul à la maison', false]]],
-        ['Famille', [['enfants', 'Avec les enfants', false], ['chiens', 'Avec les autres chiens', false], ['chats', 'Avec les chats', false], ['inconnus', 'Avec les inconnus', null]]],
-        ['Éducation', [['education', "Facilité d'éducation", false], ['premier_chien', 'Pour un premier chien', false], ['garde', 'Instinct de garde', null], ['instinct_chasse', 'Instinct de chasse', true], ['fugue', 'Tendance à fuguer', true]]],
-        ['Entretien', [['entretien_pelage', 'Entretien du poil', true], ['perte_poils', 'Perte de poils', true], ['bave', 'Bave', true], ['aboiements', 'Aboiements', true]]],
-        ['Climat et santé', [['chaleur', 'Chaleur', false], ['froid', 'Froid', false], ['robustesse', 'Robustesse', false]]]
+        [T`Mode de vie`, [['energie', T`Énergie`, null], ['appartement', T`En appartement`, false], ['solitude', T`Seul à la maison`, false]]],
+        [T`Famille`, [['enfants', T`Avec les enfants`, false], ['chiens', T`Avec les autres chiens`, false], ['chats', T`Avec les chats`, false], ['inconnus', T`Avec les inconnus`, null]]],
+        [T`Éducation`, [['education', T`Facilité d'éducation`, false], ['premier_chien', T`Pour un premier chien`, false], ['garde', T`Instinct de garde`, null], ['instinct_chasse', T`Instinct de chasse`, true], ['fugue', T`Tendance à fuguer`, true]]],
+        [T`Entretien`, [['entretien_pelage', T`Entretien du poil`, true], ['perte_poils', T`Perte de poils`, true], ['bave', T`Bave`, true], ['aboiements', T`Aboiements`, true]]],
+        [T`Climat et santé`, [['chaleur', T`Chaleur`, false], ['froid', T`Froid`, false], ['robustesse', T`Robustesse`, false]]]
     ];
 
     let breeds = [];
@@ -32,14 +35,14 @@
 
     function save() {
         try { localStorage.setItem(KEY, JSON.stringify(picked)); } catch (e) { /* ignoré */ }
-        history.replaceState(null, '', picked.length ? `/compare?races=${picked.join(',')}` : '/compare');
+        history.replaceState(null, '', P('/compare') + (picked.length ? `?races=${picked.join(',')}` : ''));
     }
 
-    const gauge = (v, best) => `<span class="gauge w-20" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= v ? (best ? 'on !bg-emerald-500' : 'on') : ''}"></i>`).join('')}</span><span class="sr-only">${v} sur 5</span>`;
+    const gauge = (v, best) => `<span class="gauge w-20" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= v ? (best ? 'on !bg-emerald-500' : 'on') : ''}"></i>`).join('')}</span><span class="sr-only">${T`${v} sur 5`}</span>`;
 
     function render() {
         const list = picked.map(s => breeds.find(b => b.slug === s));
-        $('hint').textContent = list.length >= 3 ? 'Trois races au maximum.' : '';
+        $('hint').textContent = list.length >= 3 ? T`Trois races au maximum.` : '';
         $('add').disabled = list.length >= 3;
         if (list.length === 0) {
             $('table').innerHTML = '';
@@ -56,22 +59,22 @@
                     <div class="aspect-[4/3] bg-slate-100">${b.image ? `<img src="/${b.image.url.replace(/\.jpg$/, '-480.webp')}" alt="" class="h-full w-full object-cover">` : `<div class="flex h-full items-center justify-center text-slate-400">${window.RDCIcon('paw-print', 'h-10 w-10')}</div>`}</div>
                     <div class="flex items-start justify-between gap-2 p-3 text-left">
                         <div class="min-w-0">
-                            <a href="/races/${b.slug}" class="font-bold text-slate-900 hover:text-primary-700">${esc(b.name_fr)}</a>
+                            <a href="${P('/races/' + b.slug)}" class="font-bold text-slate-900 hover:text-primary-700">${esc(b.name_fr)}</a>
                             <p class="text-xs font-normal text-slate-500">${esc(b.origin || '')}</p>
                         </div>
-                        <button type="button" data-remove="${b.slug}" class="shrink-0 rounded-full border border-slate-200 px-2.5 py-1 text-xs font-bold text-slate-600 hover:border-red-200 hover:text-red-700" aria-label="Retirer ${esc(b.name_fr)}">Retirer</button>
+                        <button type="button" data-remove="${b.slug}" class="shrink-0 rounded-full border border-slate-200 px-2.5 py-1 text-xs font-bold text-slate-600 hover:border-red-200 hover:text-red-700" aria-label="${T`Retirer ${esc(b.name_fr)}`}">${T`Retirer`}</button>
                     </div>
                 </div>
             </th>`).join('');
         const facts = [
-            ['Taille', b => range(b.physical.height_cm, 'cm')],
-            ['Poids', b => range(b.physical.weight_kg, 'kg')],
-            ['Espérance de vie', b => range(b.physical.life_span_years, 'ans')],
-            ['Activité par jour', b => `${b.scores.exercice_min_jour} min`],
-            ['Groupe FCI', b => b.fci?.group ? `${b.fci.group} · ${S.FCI_GROUPS[b.fci.group]}` : 'Non reconnue'],
-            ['Popularité (LOF 2025)', b => b.lof?.['2025'] ? `${b.lof['2025'].toLocaleString('fr-FR')} chiots` : 'Non inscrite'],
-            ['Catégorie légale', b => b.legal_category ? `<span class="chip-law">Catégorie ${b.legal_category}</span>` : 'Aucune'],
-            ['Perd très peu de poils', b => b.hypoallergenic ? 'Oui' : 'Non']
+            [T`Taille`, b => range(b.physical.height_cm, 'cm')],
+            [T`Poids`, b => range(b.physical.weight_kg, 'kg')],
+            [T`Espérance de vie`, b => range(b.physical.life_span_years, T`ans`)],
+            [T`Activité par jour`, b => `${b.scores.exercice_min_jour} min`],
+            [T`Groupe FCI`, b => b.fci?.group ? `${b.fci.group} · ${S.FCI_GROUPS[b.fci.group]}` : T`Non reconnue`],
+            [T`Popularité (LOF 2025)`, b => b.lof?.['2025'] ? T`${b.lof['2025'].toLocaleString(LOCALE)} chiots` : T`Non inscrite`],
+            [T`Catégorie légale`, b => b.legal_category ? `<span class="chip-law">${T`Catégorie ${b.legal_category}`}</span>` : T`Aucune`],
+            [T`Perd très peu de poils`, b => b.hypoallergenic ? T`Oui` : T`Non`]
         ];
         const factRows = facts.map(([label, f]) => `<tr class="border-t border-slate-200"><th scope="row" class="px-3 py-2.5 text-left text-sm font-medium text-slate-600">${label}</th>${list.map(b => `<td class="px-3 py-2.5 text-sm font-semibold text-slate-900">${f(b)}</td>`).join('')}</tr>`).join('');
         const scoreRows = ROWS.map(([group, rows]) => `
@@ -83,9 +86,9 @@
                 return `<tr class="border-t border-slate-200"><th scope="row" class="px-3 py-2.5 text-left text-sm font-medium text-slate-700">${label}</th>${list.map(b => `<td class="px-3 py-2.5">${gauge(b.scores[k], best !== null && !allSame && b.scores[k] === best)}</td>`).join('')}</tr>`;
             }).join('')}`).join('');
         $('table').innerHTML = `<table class="w-full min-w-[560px] table-fixed border-collapse rounded-2xl bg-white">
-            <thead><tr><th class="w-44 p-3"><span class="sr-only">Critère</span></th>${head}</tr></thead>
+            <thead><tr><th class="w-44 p-3"><span class="sr-only">${T`Critère`}</span></th>${head}</tr></thead>
             <tbody>${factRows}${scoreRows}</tbody></table>
-            <p class="mt-3 text-xs text-slate-500">En vert : la meilleure note de la ligne, quand le critère a un sens (moins de bave, plus facile à éduquer…). L'énergie, le rapport aux inconnus et la garde dépendent de ce que vous cherchez.</p>`;
+            <p class="mt-3 text-xs text-slate-500">${T`En vert : la meilleure note de la ligne, quand le critère a un sens (moins de bave, plus facile à éduquer…). L'énergie, le rapport aux inconnus et la garde dépendent de ce que vous cherchez.`}</p>`;
     }
 
     function add(slug) {

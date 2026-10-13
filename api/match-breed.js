@@ -426,7 +426,18 @@ export function normalizeResult(raw) {
     };
 }
 
-export function buildRequest(imageBase64, mimeType) {
+// Langue de la page : la consigne système (en cache) reste la même, seule la demande précise la langue de la réponse
+const ASK = {
+    fr: 'Analyse cette photo selon la méthode, puis réponds.',
+    en: 'Analyse cette photo selon la méthode, puis réponds. Rédige reason et traits_communs en anglais américain, en t\'adressant à la personne avec « you ». Garde le même ton.'
+};
+// Messages d'erreur affichés à la personne
+const MSG = {
+    fr: { limit: 'Vous avez atteint la limite de 5 essais par jour. Revenez demain !', forbidden: 'Requête refusée.', missing: 'Photo manquante', type: 'Type d\'image non supporté', size: 'Image trop volumineuse (2MB max)', busy: 'L\'IA est très sollicitée, réessayez dans un instant', photo: 'Cette photo n\'a pas pu être analysée, essayez-en une autre', failed: 'L\'analyse a échoué, réessayez dans un instant', odd: 'Réponse inattendue de l\'IA, réessayez' },
+    en: { limit: 'You have reached the limit of 5 tries per day. Come back tomorrow!', forbidden: 'Request refused.', missing: 'No photo received', type: 'Unsupported image type', size: 'Image too large (2 MB max)', busy: 'The AI is very busy, try again in a moment', photo: 'This photo could not be analyzed, try another one', failed: 'The analysis failed, try again in a moment', odd: 'Unexpected answer from the AI, try again' }
+};
+
+export function buildRequest(imageBase64, mimeType, lang = 'fr') {
     return {
         model: MODEL,
         max_tokens: 1500,
@@ -437,7 +448,7 @@ export function buildRequest(imageBase64, mimeType) {
             role: 'user',
             content: [
                 { type: 'image', source: { type: 'base64', media_type: mimeType, data: imageBase64 } },
-                { type: 'text', text: 'Analyse cette photo selon la méthode, puis réponds.' }
+                { type: 'text', text: ASK[lang] || ASK.fr }
             ]
         }],
         output_config: {
@@ -470,8 +481,10 @@ export default async function handler(req, res) {
     // Les navigateurs envoient toujours Origin sur un POST : un appel sans Origin ou depuis un autre site n'est pas notre page.
     // Ce n'est pas une barrière absolue (un script peut l'imiter), mais ça écarte les robots qui viendraient consommer le quota.
     const isProd = process.env.VERCEL_ENV === 'production';
+    const lang = req.body?.lang === 'en' ? 'en' : 'fr';
+    const msg = MSG[lang];
     if (isProd && !allowedOrigins.includes(origin)) {
-        return res.status(403).json({ error: 'forbidden', message: 'Requête refusée.' });
+        return res.status(403).json({ error: 'forbidden', message: msg.forbidden });
     }
 
     // Rate limiting
@@ -484,7 +497,7 @@ export default async function handler(req, res) {
     if (!rateInfo.allowed) {
         return res.status(429).json({
             error: 'rate_limit',
-            message: 'Vous avez atteint la limite de 5 essais par jour. Revenez demain !',
+            message: msg.limit,
             remaining: 0
         });
     }
@@ -496,32 +509,32 @@ export default async function handler(req, res) {
     const { image_base64, mime_type } = req.body || {};
 
     if (!image_base64 || !mime_type) {
-        return res.status(400).json({ error: 'Photo manquante' });
+        return res.status(400).json({ error: msg.missing });
     }
 
     const allowedMimes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
     if (!allowedMimes.includes(mime_type)) {
-        return res.status(400).json({ error: 'Type d\'image non supporté' });
+        return res.status(400).json({ error: msg.type });
     }
 
     if (image_base64.length > MAX_IMAGE_SIZE) {
-        return res.status(400).json({ error: 'Image trop volumineuse (2MB max)' });
+        return res.status(400).json({ error: msg.size });
     }
 
     client ??= new Anthropic();
 
     let response;
     try {
-        response = await client.messages.create(buildRequest(image_base64, mime_type));
+        response = await client.messages.create(buildRequest(image_base64, mime_type, lang));
     } catch (error) {
         console.error('Erreur API Claude:', error.status, error.message);
         if (error instanceof Anthropic.RateLimitError || error.status === 529) {
-            return res.status(503).json({ error: 'L\'IA est très sollicitée, réessayez dans un instant' });
+            return res.status(503).json({ error: msg.busy });
         }
         if (error instanceof Anthropic.BadRequestError) {
-            return res.status(400).json({ error: 'Cette photo n\'a pas pu être analysée, essayez-en une autre' });
+            return res.status(400).json({ error: msg.photo });
         }
-        return res.status(502).json({ error: 'L\'analyse a échoué, réessayez dans un instant' });
+        return res.status(502).json({ error: msg.failed });
     }
 
     // Suivi du coût : tokens lus en cache, écrits en cache, image + consigne, sortie
@@ -529,7 +542,7 @@ export default async function handler(req, res) {
     console.log(`usage cache_read=${u.cache_read_input_tokens} cache_write=${u.cache_creation_input_tokens} input=${u.input_tokens} output=${u.output_tokens}`);
 
     if (response.stop_reason === 'refusal') {
-        return res.status(422).json({ error: 'Cette photo n\'a pas pu être analysée, essayez-en une autre' });
+        return res.status(422).json({ error: msg.photo });
     }
 
     const textBlock = response.content.find(block => block.type === 'text');
@@ -538,7 +551,7 @@ export default async function handler(req, res) {
         result = normalizeResult(JSON.parse(textBlock?.text ?? ''));
     } catch (error) {
         console.error('Réponse illisible:', response.stop_reason, textBlock?.text?.slice(0, 200));
-        return res.status(502).json({ error: 'Réponse inattendue de l\'IA, réessayez' });
+        return res.status(502).json({ error: msg.odd });
     }
 
     await incrementRateLimit(ip);

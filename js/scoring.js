@@ -4,96 +4,100 @@
     else root.RDCScoring = factory();
 })(typeof self !== 'undefined' ? self : this, function () {
 
+    // Textes traduits sur les pages d'une autre langue (js/i18n.<langue>.js) ; en Node, le français
+    const T = (typeof self !== 'undefined' && self.RDCT) || ((s, ...v) => s.reduce((a, x, i) => a + x + (i < v.length ? v[i] : ''), ''));
+    const LOCALE = (typeof document !== 'undefined' && document.documentElement.lang) || 'fr';
+
     // Note 1 à 5 ramenée entre 0 et 1
     const u = (b, k) => ((b.scores?.[k] ?? 3) - 1) / 4;
     const clamp = x => Math.max(0, Math.min(1, x));
 
     const SIZES = [
-        { id: 1, key: 'toy', label: 'Très petit', hint: 'moins de 28 cm' },
-        { id: 2, key: 'small', label: 'Petit', hint: '28 à 40 cm' },
-        { id: 3, key: 'medium', label: 'Moyen', hint: '40 à 60 cm' },
-        { id: 4, key: 'large', label: 'Grand', hint: '60 à 70 cm' },
-        { id: 5, key: 'giant', label: 'Géant', hint: 'plus de 70 cm' }
+        { id: 1, key: 'toy', label: T`Très petit`, hint: T`moins de 28 cm` },
+        { id: 2, key: 'small', label: T`Petit`, hint: T`28 à 40 cm` },
+        { id: 3, key: 'medium', label: T`Moyen`, hint: T`40 à 60 cm` },
+        { id: 4, key: 'large', label: T`Grand`, hint: T`60 à 70 cm` },
+        { id: 5, key: 'giant', label: T`Géant`, hint: T`plus de 70 cm` }
     ];
     const SIZE_ID = { toy: 1, small: 2, medium: 3, large: 4, giant: 5 };
 
     const FCI_GROUPS = {
-        1: 'Bergers et bouviers',
-        2: 'Molosses, pinschers et bouviers suisses',
-        3: 'Terriers',
-        4: 'Teckels',
-        5: 'Spitz et chiens primitifs',
-        6: 'Chiens courants',
-        7: "Chiens d'arrêt",
-        8: "Rapporteurs, leveurs et chiens d'eau",
-        9: 'Chiens de compagnie',
-        10: 'Lévriers'
+        1: T`Bergers et bouviers`,
+        2: T`Molosses, pinschers et bouviers suisses`,
+        3: T`Terriers`,
+        4: T`Teckels`,
+        5: T`Spitz et chiens primitifs`,
+        6: T`Chiens courants`,
+        7: T`Chiens d'arrêt`,
+        8: T`Rapporteurs, leveurs et chiens d'eau`,
+        9: T`Chiens de compagnie`,
+        10: T`Lévriers`
     };
 
-    const RYTHME = ['Peu importe', 'Grand pantouflard', 'Plutôt calme', 'Équilibré', 'Actif', 'Sportif infatigable'];
+    const RYTHME = [T`Peu importe`, T`Grand pantouflard`, T`Plutôt calme`, T`Équilibré`, T`Actif`, T`Sportif infatigable`];
 
     // Questions « Ma vie » : chaque réponse donne une fonction d'adéquation 0..1 et deux libellés
     const QUESTIONS = {
         logement: {
-            label: 'Logement',
+            label: T`Logement`,
             options: [
-                { id: 'appart', label: 'Appartement', fit: b => u(b, 'appartement'), yes: 'Appartement', no: 'Besoin d’espace' },
-                { id: 'maison', label: 'Maison sans jardin', fit: b => clamp((b.scores.appartement) / 4), yes: 'Maison', no: 'Besoin d’un jardin' },
-                { id: 'jardin', label: 'Maison avec jardin', fit: null },
-                { id: 'campagne', label: 'Campagne', fit: null }
+                { id: 'appart', label: T`Appartement`, fit: b => u(b, 'appartement'), yes: T`Appartement`, no: T`Besoin d’espace` },
+                { id: 'maison', label: T`Maison sans jardin`, fit: b => clamp((b.scores.appartement) / 4), yes: T`Maison`, no: T`Besoin d’un jardin` },
+                { id: 'jardin', label: T`Maison avec jardin`, fit: null },
+                { id: 'campagne', label: T`Campagne`, fit: null }
             ]
         },
         enfants: {
-            label: 'Enfants',
+            label: T`Enfants`,
             weight: 2,
             options: [
-                { id: 'aucun', label: 'Aucun', fit: null },
-                { id: 'grands', label: 'Plus de 8\u00a0ans', fit: b => clamp(b.scores.enfants / 4), yes: 'Enfants', no: 'Prudence enfants' },
-                { id: 'jeunes', label: 'Jeunes enfants', fit: b => u(b, 'enfants'), yes: 'Jeunes enfants', no: 'Prudence enfants' }
+                { id: 'aucun', label: T`Aucun`, fit: null },
+                { id: 'grands', label: T`Plus de 8\u00a0ans`, fit: b => clamp(b.scores.enfants / 4), yes: T`Enfants`, no: T`Prudence enfants` },
+                { id: 'jeunes', label: T`Jeunes enfants`, fit: b => u(b, 'enfants'), yes: T`Jeunes enfants`, no: T`Prudence enfants` }
             ]
         },
         seul: {
-            label: 'Seul dans la journée',
+            label: T`Seul dans la journée`,
             options: [
-                { id: 'court', label: 'Moins de 2\u00a0h', fit: null },
-                { id: 'moyen', label: '2 à 4\u00a0h', fit: b => clamp(b.scores.solitude / 4), yes: 'Supporte la solitude', no: 'N’aime pas rester seul' },
-                { id: 'long', label: '4\u00a0h et plus', fit: b => u(b, 'solitude'), yes: 'Supporte la solitude', no: 'N’aime pas rester seul' }
+                { id: 'court', label: T`Moins de 2\u00a0h`, fit: null },
+                { id: 'moyen', label: T`2 à 4\u00a0h`, fit: b => clamp(b.scores.solitude / 4), yes: T`Supporte la solitude`, no: T`N’aime pas rester seul` },
+                { id: 'long', label: T`4\u00a0h et plus`, fit: b => u(b, 'solitude'), yes: T`Supporte la solitude`, no: T`N’aime pas rester seul` }
             ]
         },
         experience: {
-            label: 'Expérience',
+            label: T`Expérience`,
             weight: 1.5,
             options: [
-                { id: 'premier', label: 'Premier chien', fit: b => u(b, 'premier_chien'), yes: 'Premier chien', no: 'Maître expérimenté' },
-                { id: 'deja', label: 'J’ai déjà eu des chiens', fit: b => clamp((b.scores.premier_chien + 1) / 4), yes: 'Facile à vivre', no: 'Exigeant' },
-                { id: 'expert', label: 'Expérimenté', fit: null }
+                { id: 'premier', label: T`Premier chien`, fit: b => u(b, 'premier_chien'), yes: T`Premier chien`, no: T`Maître expérimenté` },
+                { id: 'deja', label: T`J’ai déjà eu des chiens`, fit: b => clamp((b.scores.premier_chien + 1) / 4), yes: T`Facile à vivre`, no: T`Exigeant` },
+                { id: 'expert', label: T`Expérimenté`, fit: null }
             ]
         }
     };
 
     // Préférences « oui/non » notées (n'éliminent pas)
     const SOFT = {
-        chat: { label: 'Vit avec un chat', fit: b => u(b, 'chats'), yes: 'Chat', no: 'Chasse les chats' },
-        chien: { label: 'Vit avec un chien', fit: b => u(b, 'chiens'), yes: 'Autres chiens', no: 'Préfère être seul chien' },
-        discret: { label: 'Plutôt discret', fit: b => 1 - u(b, 'aboiements'), yes: 'Discret', no: 'Aboie souvent' },
-        chaleur: { label: 'Supporte la chaleur', fit: b => u(b, 'chaleur'), yes: 'Chaleur', no: 'Craint la chaleur' },
-        bave: { label: 'Bave peu', weight: 0.5, fit: b => 1 - u(b, 'bave'), yes: 'Bave peu', no: 'Bave' }
+        chat: { label: T`Vit avec un chat`, fit: b => u(b, 'chats'), yes: T`Chat`, no: T`Chasse les chats` },
+        chien: { label: T`Vit avec un chien`, fit: b => u(b, 'chiens'), yes: T`Autres chiens`, no: T`Préfère être seul chien` },
+        discret: { label: T`Plutôt discret`, fit: b => 1 - u(b, 'aboiements'), yes: T`Discret`, no: T`Aboie souvent` },
+        chaleur: { label: T`Supporte la chaleur`, fit: b => u(b, 'chaleur'), yes: T`Chaleur`, no: T`Craint la chaleur` },
+        bave: { label: T`Bave peu`, weight: 0.5, fit: b => 1 - u(b, 'bave'), yes: T`Bave peu`, no: T`Bave` }
     };
 
     // Profils en un clic : raccourcis qui positionnent l'état
     const PROFILES = [
-        { id: 'pantouflard', label: 'Pantouflard', icon: 'couch', set: { rythme: 1 }, is: s => s.rythme === 1 || s.rythme === 2 },
-        { id: 'sportif', label: 'Sportif', icon: 'person-simple-run', set: { rythme: 5 }, is: s => s.rythme >= 4 },
-        { id: 'appartement', label: 'Appartement', icon: 'buildings', set: { logement: 'appart' }, is: s => s.logement === 'appart' },
-        { id: 'enfants', label: 'Jeunes enfants', icon: 'baby', set: { enfants: 'jeunes' }, is: s => s.enfants === 'jeunes' },
-        { id: 'premier', label: 'Premier chien', icon: 'plant', set: { experience: 'premier' }, is: s => s.experience === 'premier' },
-        { id: 'allergies', label: 'Allergies', icon: 'broom', set: { hypo: true }, is: s => s.hypo },
-        { id: 'discret', label: 'Discret', icon: 'speaker-simple-slash', set: { discret: true }, is: s => s.discret },
-        { id: 'travail', label: 'Je travaille la journée', icon: 'clock', set: { seul: 'long' }, is: s => s.seul === 'long' },
-        { id: 'chat', label: 'Vit avec un chat', icon: 'cat', set: { chat: true }, is: s => s.chat },
-        { id: 'senior', label: 'Senior, vie calme', icon: 'armchair', set: { rythme: 2, experience: 'premier', sizes: [1, 2, 3] }, is: s => s.rythme === 2 && s.experience === 'premier' },
-        { id: 'chaleur', label: 'Supporte la chaleur', icon: 'sun', set: { chaleur: true }, is: s => s.chaleur },
-        { id: 'francaises', label: 'Races françaises', icon: 'flag', set: { france: true }, is: s => s.france }
+        { id: 'pantouflard', label: T`Pantouflard`, icon: 'couch', set: { rythme: 1 }, is: s => s.rythme === 1 || s.rythme === 2 },
+        { id: 'sportif', label: T`Sportif`, icon: 'person-simple-run', set: { rythme: 5 }, is: s => s.rythme >= 4 },
+        { id: 'appartement', label: T`Appartement`, icon: 'buildings', set: { logement: 'appart' }, is: s => s.logement === 'appart' },
+        { id: 'enfants', label: T`Jeunes enfants`, icon: 'baby', set: { enfants: 'jeunes' }, is: s => s.enfants === 'jeunes' },
+        { id: 'premier', label: T`Premier chien`, icon: 'plant', set: { experience: 'premier' }, is: s => s.experience === 'premier' },
+        { id: 'allergies', label: T`Allergies`, icon: 'broom', set: { hypo: true }, is: s => s.hypo },
+        { id: 'discret', label: T`Discret`, icon: 'speaker-simple-slash', set: { discret: true }, is: s => s.discret },
+        { id: 'travail', label: T`Je travaille la journée`, icon: 'clock', set: { seul: 'long' }, is: s => s.seul === 'long' },
+        { id: 'chat', label: T`Vit avec un chat`, icon: 'cat', set: { chat: true }, is: s => s.chat },
+        { id: 'senior', label: T`Senior, vie calme`, icon: 'armchair', set: { rythme: 2, experience: 'premier', sizes: [1, 2, 3] }, is: s => s.rythme === 2 && s.experience === 'premier' },
+        { id: 'chaleur', label: T`Supporte la chaleur`, icon: 'sun', set: { chaleur: true }, is: s => s.chaleur },
+        { id: 'francaises', label: T`Races françaises`, icon: 'flag', set: { france: true }, is: s => s.france }
     ];
 
     function emptyState() {
@@ -128,8 +132,8 @@
             list.push({
                 key: 'rythme', weight: 1.5,
                 fit: b => 1 - Math.abs(b.scores.energie - r) / 4,
-                yes: 'Rythme ' + RYTHME[r].toLowerCase(),
-                noFn: b => (b.scores.energie > r ? 'Plus énergique' : 'Plus calme')
+                yes: T`Rythme ${RYTHME[r].toLowerCase()}`,
+                noFn: b => (b.scores.energie > r ? T`Plus énergique` : T`Plus calme`)
             });
         }
         for (const [key, c] of Object.entries(SOFT)) {
@@ -178,7 +182,7 @@
         const criteria = activeCriteria(state);
         const scored = breeds.filter(b => passesHard(b, state)).map(b => ({ breed: b, ...score(b, criteria) }));
         const sort = state.sort === 'auto' ? (criteria.length ? 'compat' : 'popularite') : state.sort;
-        const byName = (a, b) => a.breed.name_fr.localeCompare(b.breed.name_fr, 'fr');
+        const byName = (a, b) => a.breed.name_fr.localeCompare(b.breed.name_fr, LOCALE);
         const sorters = {
             compat: (a, b) => (b.pct ?? 0) - (a.pct ?? 0) || (b.breed.lof?.['2025'] ?? 0) - (a.breed.lof?.['2025'] ?? 0) || byName(a, b),
             popularite: (a, b) => (b.breed.lof?.['2025'] ?? -1) - (a.breed.lof?.['2025'] ?? -1) || byName(a, b),

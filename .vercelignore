@@ -8,3 +8,5 @@ sources/
 PRODUCT.md
 DESIGN.md
 .impeccable/
+lib/
+i18n/

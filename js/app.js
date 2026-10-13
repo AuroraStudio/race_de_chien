@@ -1,17 +1,20 @@
 // Page d'accueil : profils, questions « Ma vie », filtres, classement par compatibilité
 (function () {
     const S = window.RDCScoring;
+    // Textes et adresses dans la langue de la page (français par défaut, voir js/icons.js)
+    const T = window.RDCT, P = window.RDCPath;
     const PAGE = 24;
     const COMPARE_KEY = 'rdc-compare';
     const COAT_OPTIONS = ['Court', 'Moyen', 'Long', 'Sans poil'];
+    const COAT_LABEL = { Court: T`Court`, Moyen: T`Moyen`, Long: T`Long`, 'Sans poil': T`Sans poil` };
     const RYTHME_LEVELS = [
-        { v: 1, icon: 'couch', label: 'Canapé', desc: 'Grand pantouflard : de courtes sorties, 30 à 45 minutes par jour.' },
-        { v: 2, icon: 'person-simple-walk', label: 'Calme', desc: 'Plutôt calme : des balades tranquilles, environ 45 minutes par jour.' },
-        { v: 3, icon: 'tree', label: 'Modéré', desc: 'Équilibré : une belle promenade et des jeux, environ 1 heure par jour.' },
-        { v: 4, icon: 'boot', label: 'Actif', desc: 'Actif : de longues sorties et des randonnées, environ 1 h 30 par jour.' },
-        { v: 5, icon: 'person-simple-run', label: 'Sportif', desc: 'Sportif : course, canicross, vélo, 2 heures et plus par jour.' }
+        { v: 1, icon: 'couch', label: T`Canapé`, desc: T`Grand pantouflard : de courtes sorties, 30 à 45 minutes par jour.` },
+        { v: 2, icon: 'person-simple-walk', label: T`Calme`, desc: T`Plutôt calme : des balades tranquilles, environ 45 minutes par jour.` },
+        { v: 3, icon: 'tree', label: T`Modéré`, desc: T`Équilibré : une belle promenade et des jeux, environ 1 heure par jour.` },
+        { v: 4, icon: 'boot', label: T`Actif`, desc: T`Actif : de longues sorties et des randonnées, environ 1 h 30 par jour.` },
+        { v: 5, icon: 'person-simple-run', label: T`Sportif`, desc: T`Sportif : course, canicross, vélo, 2 heures et plus par jour.` }
     ];
-    const ENTRETIEN = [{ v: 0, label: 'Peu importe' }, { v: 2, label: 'Faible' }, { v: 3, label: 'Moyen au plus' }];
+    const ENTRETIEN = [{ v: 0, label: T`Peu importe` }, { v: 2, label: T`Faible` }, { v: 3, label: T`Moyen au plus` }];
 
     let breeds = [];
     let state = S.fromQuery(location.search);
@@ -56,7 +59,7 @@
             </div>`).join('');
         $('rythme').innerHTML = RYTHME_LEVELS.map(l =>
             `<button type="button" class="seg !px-0 flex flex-col items-center gap-0.5" data-rythme="${l.v}" aria-pressed="${pressed(state.rythme === l.v)}" title="${esc(S.RYTHME[l.v])}">${ic(l.icon, 'h-5 w-5')}<span class="text-[11px]">${l.label}</span></button>`).join('');
-        $('rythme-label').textContent = state.rythme ? RYTHME_LEVELS[state.rythme - 1].desc : 'Peu importe. Touchez un niveau pour classer les races selon leur énergie.';
+        $('rythme-label').textContent = state.rythme ? RYTHME_LEVELS[state.rythme - 1].desc : T`Peu importe. Touchez un niveau pour classer les races selon leur énergie.`;
         $('soft').innerHTML = Object.entries(S.SOFT).map(([key, c]) =>
             `<button type="button" class="opt" data-soft="${key}" aria-pressed="${pressed(state[key])}">${esc(c.label)}</button>`).join('');
         $('entretien').innerHTML = ENTRETIEN.map(e =>
@@ -82,12 +85,12 @@
         $('coats').innerHTML = COAT_OPTIONS.map(c => {
             const on = state.coats.includes(c);
             const n = countWith({ coats: [c] });
-            return `<button type="button" class="opt" data-coat="${c}" aria-pressed="${pressed(on)}" ${n === 0 && !on ? 'aria-disabled="true"' : ''}>${c} <span class="count">${n}</span></button>`;
+            return `<button type="button" class="opt" data-coat="${c}" aria-pressed="${pressed(on)}" ${n === 0 && !on ? 'aria-disabled="true"' : ''}>${COAT_LABEL[c]} <span class="count">${n}</span></button>`;
         }).join('');
         const toggles = [
-            { key: 'hypo', label: 'Perd très peu de poils', hint: 'utile en cas d’allergie' },
-            { key: 'france', label: 'Races françaises' },
-            { key: 'nocat', label: 'Exclure les chiens catégorisés' }
+            { key: 'hypo', label: T`Perd très peu de poils`, hint: T`utile en cas d’allergie` },
+            { key: 'france', label: T`Races françaises` },
+            { key: 'nocat', label: T`Exclure les chiens catégorisés` }
         ];
         $('hard-toggles').innerHTML = toggles.map(t => {
             const n = countWith({ [t.key]: !state[t.key] });
@@ -95,7 +98,7 @@
             return `<button type="button" class="opt opt-wrap" data-toggle="${t.key}" aria-pressed="${pressed(state[t.key])}" ${t.hint ? `title="${t.hint}"` : ''}>${label}</button>`;
         }).join('');
         const groups = [...Object.entries(S.FCI_GROUPS).map(([g, l]) => [Number(g), l])];
-        groups.push([0, 'Races non reconnues']);
+        groups.push([0, T`Races non reconnues`]);
         $('groups').innerHTML = groups.map(([g, l]) => {
             const on = state.groups.includes(g);
             const n = countWith({ groups: [g] });
@@ -106,20 +109,20 @@
 
     function activeChips(criteria) {
         const chips = [];
-        if (state.q) chips.push({ label: `« ${state.q} »`, clear: { q: '' } });
+        if (state.q) chips.push({ label: T`« ${state.q} »`, clear: { q: '' } });
         for (const [key, q] of Object.entries(S.QUESTIONS)) {
             const o = q.options.find(x => x.id === state[key]);
-            if (o) chips.push({ label: `${q.label} : ${o.label}`, clear: { [key]: null } });
+            if (o) chips.push({ label: T`${q.label} : ${o.label}`, clear: { [key]: null } });
         }
-        if (state.rythme) chips.push({ label: `Rythme : ${S.RYTHME[state.rythme]}`, clear: { rythme: 0 } });
+        if (state.rythme) chips.push({ label: T`Rythme : ${S.RYTHME[state.rythme]}`, clear: { rythme: 0 } });
         for (const [key, c] of Object.entries(S.SOFT)) if (state[key]) chips.push({ label: c.label, clear: { [key]: false } });
-        for (const z of state.sizes) chips.push({ label: `Taille : ${S.SIZES[z - 1].label}`, clear: { sizes: state.sizes.filter(x => x !== z) } });
-        for (const c of state.coats) chips.push({ label: `Poil ${c.toLowerCase()}`, clear: { coats: state.coats.filter(x => x !== c) } });
-        if (state.entretien) chips.push({ label: `Entretien : ${ENTRETIEN.find(e => e.v === state.entretien)?.label.toLowerCase()}`, clear: { entretien: 0 } });
-        if (state.hypo) chips.push({ label: 'Perd très peu de poils', clear: { hypo: false } });
-        if (state.france) chips.push({ label: 'Races françaises', clear: { france: false } });
-        if (state.nocat) chips.push({ label: 'Sans chiens catégorisés', clear: { nocat: false } });
-        for (const g of state.groups) chips.push({ label: `Groupe ${g || 'non reconnu'}`, clear: { groups: state.groups.filter(x => x !== g) } });
+        for (const z of state.sizes) chips.push({ label: T`Taille : ${S.SIZES[z - 1].label}`, clear: { sizes: state.sizes.filter(x => x !== z) } });
+        for (const c of state.coats) chips.push({ label: T`Poil ${(COAT_LABEL[c] || c).toLowerCase()}`, clear: { coats: state.coats.filter(x => x !== c) } });
+        if (state.entretien) chips.push({ label: T`Entretien : ${ENTRETIEN.find(e => e.v === state.entretien)?.label.toLowerCase()}`, clear: { entretien: 0 } });
+        if (state.hypo) chips.push({ label: T`Perd très peu de poils`, clear: { hypo: false } });
+        if (state.france) chips.push({ label: T`Races françaises`, clear: { france: false } });
+        if (state.nocat) chips.push({ label: T`Sans chiens catégorisés`, clear: { nocat: false } });
+        for (const g of state.groups) chips.push({ label: g ? T`Groupe ${g}` : T`Groupe non reconnu`, clear: { groups: state.groups.filter(x => x !== g) } });
         return chips;
     }
 
@@ -130,14 +133,14 @@
         return `${base}-480.webp 480w, ${base}-768.webp 768w, ${base}.webp ${b.image.width}w`;
     }
     function gauge(v) {
-        return `<span class="gauge" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= v ? 'on' : ''}"></i>`).join('')}</span><span class="sr-only">${v} sur 5</span>`;
+        return `<span class="gauge" aria-hidden="true">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= v ? 'on' : ''}"></i>`).join('')}</span><span class="sr-only">${T`${v} sur 5`}</span>`;
     }
 
     // Score de compatibilité, posé à côté du nom : la photo reste entièrement lisible
     function scoreBadge(pct) {
         if (pct == null) return '';
         const tier = pct >= 75 ? 'score-hi' : pct >= 55 ? 'score-mid' : 'score-lo';
-        return `<span class="score ${tier}" title="${pct} % de compatibilité avec vos critères">${pct} %<span class="sr-only"> de compatibilité</span></span>`;
+        return `<span class="score ${tier}" title="${T`${pct} % de compatibilité avec vos critères`}">${T`${pct} %`}<span class="sr-only">${T` de compatibilité`}</span></span>`;
     }
     const CHECK = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17.5 19 7"/></svg>';
 
@@ -145,14 +148,14 @@
         const b = r.breed;
         const img = b.image
             ? `<picture><source srcset="${srcset(b)}" sizes="(min-width: 1024px) 330px, (min-width: 640px) 45vw, 38vw" type="image/webp"><img src="/${b.image.url}" alt="" width="${b.image.width}" height="${b.image.height}" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:static" ${i < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`
-            : `<div class="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-slate-100 text-slate-400 sm:static sm:h-full">${ic('paw-print', 'h-8 w-8 sm:h-10 sm:w-10')}<span class="text-[11px] font-medium text-slate-500 sm:text-xs">Photo à venir</span></div>`;
-        const rank = b.lof?.['2025'] && b.lofRank && b.lofRank <= 30 ? `<span class="font-medium text-slate-600">${b.lofRank === 1 ? '1re' : b.lofRank + 'e'}\u00a0race en France</span>` : '';
-        const isNew = b.is_new ? '<span class="rounded-md bg-slate-900 px-1.5 py-0.5 text-[11px] font-semibold text-white">Nouveau</span>' : '';
+            : `<div class="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-slate-100 text-slate-400 sm:static sm:h-full">${ic('paw-print', 'h-8 w-8 sm:h-10 sm:w-10')}<span class="text-[11px] font-medium text-slate-500 sm:text-xs">${T`Photo à venir`}</span></div>`;
+        const rank = b.lof?.['2025'] && b.lofRank && b.lofRank <= 30 ? `<span class="font-medium text-slate-600">${T`${window.RDCOrd(b.lofRank)}\u00a0race en France`}</span>` : '';
+        const isNew = b.is_new ? `<span class="rounded-md bg-slate-900 px-1.5 py-0.5 text-[11px] font-semibold text-white">${T`Nouveau`}</span>` : '';
         const reasons = r.reasons.slice(0, 4).map(x => `<span class="${x.ok ? 'chip-ok' : 'chip-ko'}">${ic(x.ok ? 'check' : 'warning-circle')}${esc(x.text)}</span>`).join('');
-        const law = b.legal_category ? `<span class="chip-law">Catégorie ${esc(b.legal_category)}</span>` : '';
+        const law = b.legal_category ? `<span class="chip-law">${T`Catégorie ${esc(b.legal_category)}`}</span>` : '';
         const inCmp = compare.includes(b.slug);
         return `<li class="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white card-hover rise" style="--i:${i % PAGE}">
-            <a href="/races/${b.slug}" class="flex flex-1 sm:block">
+            <a href="${P('/races/' + b.slug)}" class="flex flex-1 sm:block">
                 <div class="relative m-2.5 mr-0 aspect-[4/3] w-[40%] shrink-0 self-start overflow-hidden rounded-xl bg-slate-100 sm:m-0 sm:w-auto sm:rounded-none">${img}</div>
                 <div class="min-w-0 flex-1 p-3 sm:p-4">
                     <div class="flex items-start justify-between gap-2">
@@ -161,16 +164,16 @@
                     </div>
                     <p class="mt-0.5 text-xs text-slate-500 sm:text-sm">${esc(b.origin || '')}${b.fci?.group ? ` · ${esc(S.FCI_GROUPS[b.fci.group])}` : ''}</p>
                     <dl class="mt-2.5 grid grid-cols-3 gap-2 text-[11px] text-slate-500 sm:mt-3 sm:gap-3">
-                        <div><dt class="mb-1">Énergie</dt><dd>${gauge(b.scores.energie)}</dd></div>
-                        <div><dt class="mb-1">Enfants</dt><dd>${gauge(b.scores.enfants)}</dd></div>
-                        <div><dt class="mb-1">Entretien</dt><dd>${gauge(b.scores.entretien_pelage)}</dd></div>
+                        <div><dt class="mb-1">${T`Énergie`}</dt><dd>${gauge(b.scores.energie)}</dd></div>
+                        <div><dt class="mb-1">${T`Enfants`}</dt><dd>${gauge(b.scores.enfants)}</dd></div>
+                        <div><dt class="mb-1">${T`Entretien`}</dt><dd>${gauge(b.scores.entretien_pelage)}</dd></div>
                     </dl>
                     ${reasons || law ? `<div class="mt-3 flex flex-wrap gap-1.5">${law}${reasons}</div>` : ''}
                 </div>
             </a>
             <div class="flex min-h-[48px] items-center justify-between gap-3 border-t border-slate-100 pl-3 pr-3 text-xs sm:pl-4 sm:pr-4">
                 <span class="flex min-w-0 items-center gap-2">${rank}${isNew}</span>
-                <button type="button" class="cmp" data-compare="${b.slug}" aria-pressed="${pressed(inCmp)}" aria-label="Comparer ${esc(b.name_fr)}"><span class="cmp-box">${CHECK}</span>Comparer</button>
+                <button type="button" class="cmp" data-compare="${b.slug}" aria-pressed="${pressed(inCmp)}" aria-label="${T`Comparer ${esc(b.name_fr)}`}"><span class="cmp-box">${CHECK}</span>${T`Comparer`}</button>
             </div>
         </li>`;
     }
@@ -196,17 +199,18 @@
         const good = scored ? results.filter(r => r.pct >= 75).length : results.length;
         $('count').textContent = results.length;
         $('apply-count').textContent = results.length;
-        const hints = { compat: 'classées par compatibilité avec votre vie', popularite: 'classées par popularité en France (LOF 2025)', nom: 'classées par nom', taille: 'de la plus petite à la plus grande', vie: 'de la plus longue espérance de vie à la plus courte' };
+        const hints = { compat: T`classées par compatibilité avec votre vie`, popularite: T`classées par popularité en France (LOF 2025)`, nom: T`classées par nom`, taille: T`de la plus petite à la plus grande`, vie: T`de la plus longue espérance de vie à la plus courte` };
+        const goodTxt = T`${good} races à 75 % ou plus`;
         // Version courte sur mobile : l'en-tête des résultats reste collé en haut de l'écran
-        $('sort-hint').innerHTML = `<span class="hidden sm:inline">${esc(hints[sort])}${scored ? `, ${good} races à 75 % ou plus` : ''}</span><span class="sm:hidden">${scored ? `${good} races à 75 % ou plus` : esc(hints[sort])}</span>`;
+        $('sort-hint').innerHTML = `<span class="hidden sm:inline">${esc(hints[sort])}${scored ? `, ${goodTxt}` : ''}</span><span class="sm:hidden">${scored ? goodTxt : esc(hints[sort])}</span>`;
         $('sort').value = state.sort;
 
         const chips = activeChips(criteria);
         const active = $('active');
         active.classList.toggle('hidden', chips.length === 0);
         active.classList.toggle('flex', chips.length > 0);
-        active.innerHTML = chips.map((c, i) => `<button type="button" class="inline-flex items-center gap-1.5 rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-800 hover:bg-primary-100" data-chip="${i}">${esc(c.label)}${ic('x', 'h-3.5 w-3.5')}<span class="sr-only">retirer</span></button>`).join('')
-            + (chips.length > 1 ? '<button type="button" id="clear-all" class="text-xs font-semibold text-slate-500 underline hover:text-slate-800">Tout effacer</button>' : '');
+        active.innerHTML = chips.map((c, i) => `<button type="button" class="inline-flex items-center gap-1.5 rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-800 hover:bg-primary-100" data-chip="${i}">${esc(c.label)}${ic('x', 'h-3.5 w-3.5')}<span class="sr-only">${T`retirer`}</span></button>`).join('')
+            + (chips.length > 1 ? `<button type="button" id="clear-all" class="text-xs font-semibold text-slate-500 underline hover:text-slate-800">${T`Tout effacer`}</button>` : '');
         active._chips = chips;
         const ac = $('active-count');
         ac.textContent = chips.length;
@@ -229,7 +233,7 @@
         renderCompareBar();
         if (!opts.keepUrl) {
             const qs = S.toQuery(state);
-            history.replaceState(null, '', qs ? `/?${qs}` : '/');
+            history.replaceState(null, '', P(qs ? `/?${qs}` : '/'));
         }
     }
 
@@ -251,7 +255,7 @@
         const n = Math.min(shown, total);
         const more = $('list-more');
         more.classList.toggle('hidden', total === 0);
-        $('more-status').textContent = n < total ? `${n} races affichées sur ${total}` : (total > PAGE ? `Les ${total} races sont affichées` : '');
+        $('more-status').textContent = n < total ? T`${n} races affichées sur ${total}` : (total > PAGE ? T`Les ${total} races sont affichées` : '');
         $('more-btn').classList.toggle('hidden', n >= total);
         // L'observateur ne se redéclenche que sur un changement : on le relance si le bas est déjà visible
         if (io && n < total) { io.unobserve(more); io.observe(more); }
@@ -275,7 +279,7 @@
     // Retour depuis une fiche : on retrouve la même longueur de liste et la même position
     const BACK_KEY = 'rdc-list';
     document.addEventListener('click', e => {
-        if (!e.target.closest('#grid a[href^="/races/"]')) return;
+        if (!e.target.closest('#grid li.card-hover > a')) return;
         try { sessionStorage.setItem(BACK_KEY, JSON.stringify({ search: location.search, shown, y: scrollY })); } catch (err) { /* ignoré */ }
     });
     function restoreList() {
@@ -289,21 +293,21 @@
     // Aucun résultat : on propose le critère à retirer qui libère le plus de races
     function emptyState() {
         const tries = [
-            ['sizes', { sizes: [] }, 'la taille'], ['coats', { coats: [] }, 'le poil'], ['hypo', { hypo: false }, '« perd très peu de poils »'],
-            ['entretien', { entretien: 0 }, 'l’entretien'], ['france', { france: false }, '« races françaises »'],
-            ['groups', { groups: [] }, 'le groupe'], ['q', { q: '' }, 'la recherche'], ['nocat', { nocat: false }, 'l’exclusion des catégorisés']
+            ['sizes', { sizes: [] }, T`la taille`], ['coats', { coats: [] }, T`le poil`], ['hypo', { hypo: false }, T`« perd très peu de poils »`],
+            ['entretien', { entretien: 0 }, T`l’entretien`], ['france', { france: false }, T`« races françaises »`],
+            ['groups', { groups: [] }, T`le groupe`], ['q', { q: '' }, T`la recherche`], ['nocat', { nocat: false }, T`l’exclusion des catégorisés`]
         ].filter(([k]) => Array.isArray(state[k]) ? state[k].length : state[k]);
         const best = tries.map(([k, patch, label]) => ({ k, patch, label, n: countWith(patch) })).sort((a, b) => b.n - a.n)[0];
-        return `<p class="text-lg font-bold text-slate-900">Aucune race ne remplit tous ces critères</p>
-            <p class="mt-1 text-sm text-slate-600">${best ? `Sans le critère sur ${best.label}, ${best.n} races conviendraient.` : 'Essayez d’assouplir un critère.'}</p>
-            ${best ? `<button type="button" class="mt-4 rounded-xl bg-primary-600 px-4 py-2.5 text-sm font-bold text-white" data-relax='${JSON.stringify(best.patch)}'>Retirer ce critère</button>` : ''}`;
+        return `<p class="text-lg font-bold text-slate-900">${T`Aucune race ne remplit tous ces critères`}</p>
+            <p class="mt-1 text-sm text-slate-600">${best ? T`Sans le critère sur ${best.label}, ${best.n} races conviendraient.` : T`Essayez d’assouplir un critère.`}</p>
+            ${best ? `<button type="button" class="mt-4 rounded-xl bg-primary-600 px-4 py-2.5 text-sm font-bold text-white" data-relax='${JSON.stringify(best.patch)}'>${T`Retirer ce critère`}</button>` : ''}`;
     }
 
     function renderCompareBar() {
         const bar = $('compare-bar');
         bar.style.transform = compare.length ? 'translateY(0)' : '';
         $('compare-n').textContent = compare.length;
-        $('compare-go').href = '/compare?races=' + compare.join(',');
+        $('compare-go').href = P('/compare') + '?races=' + compare.join(',');
         $('compare-thumbs').innerHTML = compare.map(slug => {
             const b = breeds.find(x => x.slug === slug);
             return b?.image ? `<img src="/${b.image.url.replace(/\.jpg$/, '-480.webp')}" alt="" class="h-9 w-9 rounded-full border-2 border-white object-cover">`
@@ -357,7 +361,7 @@
             e.preventDefault();
             const slug = d.compare;
             if (compare.includes(slug)) compare = compare.filter(x => x !== slug);
-            else if (compare.length >= 3) { toast('Trois races au maximum : retirez-en une pour en ajouter une autre.'); return; }
+            else if (compare.length >= 3) { toast(T`Trois races au maximum : retirez-en une pour en ajouter une autre.`); return; }
             else compare = [...compare, slug];
             saveCompare();
             render({ keepUrl: true });
@@ -382,7 +386,7 @@
     $('search').addEventListener('keydown', e => {
         if (e.key !== 'Enter') return;
         const { results } = S.rank(breeds, state);
-        if (results.length === 1) location.href = '/races/' + results[0].breed.slug;
+        if (results.length === 1) location.href = P('/races/' + results[0].breed.slug);
     });
 
     function openSheet(open) {
@@ -403,7 +407,7 @@
             breeds = (await res.json()).breeds;
         } catch (e) {
             $('empty').classList.remove('hidden');
-            $('empty').innerHTML = '<p class="font-bold">Impossible de charger les races.</p><p class="text-sm text-slate-600">Vérifiez votre connexion puis rechargez la page.</p>';
+            $('empty').innerHTML = `<p class="font-bold">${T`Impossible de charger les races.`}</p><p class="text-sm text-slate-600">${T`Vérifiez votre connexion puis rechargez la page.`}</p>`;
             return;
         }
         // Rang de popularité LOF

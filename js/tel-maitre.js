@@ -1,4 +1,8 @@
 // Tel Maître, Tel Chien : photo → race la plus ressemblante (via /api/match-breed)
+// Textes et adresses dans la langue de la page (français par défaut, voir js/icons.js)
+var T = window.RDCT, P = window.RDCPath;
+const SHARE_URL = 'https://race-de-chien.com' + P('/tel-maitre-tel-chien');
+
 // ===== CONFIG =====
 const API_URL = '/api/match-breed';
 // 504 px = 18 × 18 tuiles de 28 px pour l'IA : assez pour un visage, presque rien en tokens
@@ -14,20 +18,20 @@ let currentResult = null;
 
 // ===== LOADING MESSAGES =====
 const loadingMessages = [
-    "Analyse de votre museau...",
-    "Comparaison des oreilles...",
-    "Évaluation du regard...",
-    "Vérification de la coiffure...",
-    "Consultation de l'encyclopédie canine...",
-    "Recherche de votre race idéale...",
-    "Calcul du taux de ressemblance...",
+    T`Analyse de votre museau...`,
+    T`Comparaison des oreilles...`,
+    T`Évaluation du regard...`,
+    T`Vérification de la coiffure...`,
+    T`Consultation de l'encyclopédie canine...`,
+    T`Recherche de votre race idéale...`,
+    T`Calcul du taux de ressemblance...`,
 ];
 
 // ===== INIT: Load breeds data =====
 async function loadBreedsData() {
     try {
         const [breedsRes, slugsRes] = await Promise.all([
-            fetch('/data/breeds-index.json?v={{V_DATA}}'),
+            fetch(document.querySelector('meta[name="rdc-data"]')?.content || '/data/breeds-index.json'),
             fetch('/data/breed-slugs.json')
         ]);
         const breedsJson = await breedsRes.json();
@@ -109,7 +113,7 @@ async function startWebcam() {
         document.getElementById('webcam-controls').classList.remove('hidden');
         document.getElementById('capture-zone').classList.add('active');
     } catch (e) {
-        alert('Impossible d\'accéder à la caméra. Vérifiez les permissions de votre navigateur.');
+        alert(T`Impossible d'accéder à la caméra. Vérifiez les permissions de votre navigateur.`);
         console.error(e);
     }
 }
@@ -242,7 +246,8 @@ async function analyzePhoto() {
             },
             body: JSON.stringify({
                 image_base64: currentImageBase64,
-                mime_type: currentImageMimeType
+                mime_type: currentImageMimeType,
+                lang: document.documentElement.lang || 'fr'
             })
         });
 
@@ -251,12 +256,12 @@ async function analyzePhoto() {
         // Gérer le rate limit
         if (response.status === 429) {
             remainingAttempts = 0;
-            showError('🐾 Vous avez atteint la limite de 5 essais par jour. Revenez demain pour un nouveau test !');
+            showError(T`🐾 Vous avez atteint la limite de 5 essais par jour. Revenez demain pour un nouveau test !`);
             return;
         }
 
         if (!response.ok) {
-            throw new Error(responseData.error || `Erreur serveur (${response.status})`);
+            throw new Error(responseData.error || T`Erreur serveur (${response.status})`);
         }
 
         // Mettre à jour les essais restants
@@ -267,7 +272,7 @@ async function analyzePhoto() {
         // Réponse déjà validée par le serveur (schéma imposé à l'IA)
         const result = responseData.result;
         if (!result?.breed_slug) {
-            throw new Error('Réponse inattendue de l\'IA, veuillez réessayer');
+            throw new Error(T`Réponse inattendue de l'IA, veuillez réessayer`);
         }
 
         // Valider que le slug existe
@@ -281,7 +286,7 @@ async function analyzePhoto() {
         
     } catch (error) {
         console.error('Erreur analyse:', error);
-        showError('😅 ' + error.message + '\n\nVeuillez réessayer avec une autre photo.');
+        showError('😅 ' + error.message + T`\n\nVeuillez réessayer avec une autre photo.`);
     }
 }
 
@@ -350,7 +355,7 @@ function showResult(result) {
     };
     
     // Breed link
-    document.getElementById('result-breed-link').href = `/races/${result.breed_slug}`;
+    document.getElementById('result-breed-link').href = P('/races/' + result.breed_slug);
     
     // Traits
     const traitsContainer = document.getElementById('result-traits');
@@ -362,8 +367,8 @@ function showResult(result) {
     }));
     
     // Share links
-    const shareText = `Je ressemble à un ${breedName} à ${result.match_percentage}% ! 🐕 Découvrez à quelle race de chien vous ressemblez :`;
-    const shareUrl = 'https://race-de-chien.com/tel-maitre-tel-chien';
+    const shareText = T`Je ressemble à un ${breedName} à ${result.match_percentage}% ! 🐕 Découvrez à quelle race de chien vous ressemblez :`;
+    const shareUrl = SHARE_URL;
     
     document.getElementById('share-x').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
     document.getElementById('share-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`;
@@ -395,10 +400,10 @@ function resetAll() {
     
     // Afficher le compteur d'essais restants si connu
     if (remainingAttempts !== null && remainingAttempts <= 2) {
-        showToast(`🐾 Il vous reste ${remainingAttempts} essai${remainingAttempts > 1 ? 's' : ''} aujourd'hui`);
+        showToast(remainingAttempts > 1 ? T`🐾 Il vous reste ${remainingAttempts} essais aujourd'hui` : T`🐾 Il vous reste ${remainingAttempts} essai aujourd'hui`);
     }
     if (remainingAttempts === 0) {
-        showToast('🐾 Vous avez utilisé tous vos essais pour aujourd\'hui. Revenez demain !');
+        showToast(T`🐾 Vous avez utilisé tous vos essais pour aujourd'hui. Revenez demain !`);
     }
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -456,7 +461,7 @@ async function shareToApp(platform) {
             ctx.fillStyle = 'white';
             ctx.font = 'bold 36px Bricolage Grotesque, sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText('Je ressemble à un...', 540, 60);
+            ctx.fillText(T`Je ressemble à un...`, 540, 60);
             ctx.font = 'bold 56px Bricolage Grotesque, sans-serif';
             ctx.fillText(currentResult.breed_name, 540, 125);
 
@@ -483,20 +488,20 @@ async function shareToApp(platform) {
             ctx.fillText(currentResult.match_percentage + '%', 540, 680);
             ctx.font = '24px Bricolage Grotesque, sans-serif';
             ctx.fillStyle = '#64748b';
-            ctx.fillText('de ressemblance', 540, 720);
+            ctx.fillText(T`de ressemblance`, 540, 720);
 
             // Footer
             ctx.font = 'bold 28px Bricolage Grotesque, sans-serif';
             ctx.fillStyle = '#334155';
-            ctx.fillText('race-de-chien.com/tel-maitre-tel-chien', 540, 1040);
+            ctx.fillText(SHARE_URL.replace('https://', ''), 540, 1040);
 
             const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
             const file = new File([blob], 'mon-chien-jumeau.png', { type: 'image/png' });
 
             const shareData = {
-                title: `Je ressemble à un ${currentResult.breed_name} !`,
-                text: `Je ressemble à un ${currentResult.breed_name} à ${currentResult.match_percentage}% ! 🐕 Découvrez à quelle race de chien vous ressemblez :`,
-                url: 'https://race-de-chien.com/tel-maitre-tel-chien',
+                title: T`Je ressemble à un ${currentResult.breed_name} !`,
+                text: T`Je ressemble à un ${currentResult.breed_name} à ${currentResult.match_percentage}% ! 🐕 Découvrez à quelle race de chien vous ressemblez :`,
+                url: SHARE_URL,
                 files: [file]
             };
 
@@ -513,7 +518,7 @@ async function shareToApp(platform) {
     // Fallback: download the image + show instruction
     await downloadResult();
     const appName = platform === 'instagram' ? 'Instagram' : 'TikTok';
-    alert(`L'image a été téléchargée ! 📸\nOuvrez ${appName} et partagez-la depuis votre galerie.`);
+    alert(T`L'image a été téléchargée ! 📸\nOuvrez ${appName} et partagez-la depuis votre galerie.`);
 }
 
 async function downloadResult() {
@@ -537,7 +542,7 @@ async function downloadResult() {
     ctx.fillStyle = '#1e293b';
     ctx.font = 'bold 42px Bricolage Grotesque, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('Tel Maître, Tel Chien', 540, 110);
+    ctx.fillText(T`Tel Maître, Tel Chien`, 540, 110);
     
     // Load and draw images
     try {
@@ -598,7 +603,7 @@ async function downloadResult() {
     // Footer
     ctx.fillStyle = '#94a3b8';
     ctx.font = '18px Bricolage Grotesque, sans-serif';
-    ctx.fillText('race-de-chien.com/tel-maitre-tel-chien', 540, 1010);
+    ctx.fillText(SHARE_URL.replace('https://', ''), 540, 1010);
     
     // Download
     const link = document.createElement('a');
@@ -663,5 +668,5 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
 // Avec une souris, on propose aussi le glisser-déposer (le texte par défaut vaut pour les écrans tactiles)
 if (window.matchMedia && matchMedia('(pointer: fine)').matches) {
     const hint = document.getElementById('capture-hint');
-    if (hint) hint.innerHTML = 'Cliquez ici, <span class="whitespace-nowrap">glissez-déposez</span> une photo, ou utilisez les boutons <span class="whitespace-nowrap">ci-dessous</span>';
+    if (hint) hint.innerHTML = T`Cliquez ici, <span class="whitespace-nowrap">glissez-déposez</span> une photo, ou utilisez les boutons <span class="whitespace-nowrap">ci-dessous</span>`;
 }

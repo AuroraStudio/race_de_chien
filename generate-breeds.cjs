@@ -12,6 +12,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { execFileSync } = require('child_process');
+const I18N = require('./lib/i18n.cjs');
 // js/scoring.js est partagé avec le navigateur (le dépôt est en "type": "module") : on l'évalue à la main
 const S = (() => {
     const m = { exports: {} };
@@ -32,13 +33,18 @@ const LASTMOD_FILE = 'data/lastmod.json';
 const lastmodPrev = fs.existsSync(path.join(ROOT, LASTMOD_FILE)) ? JSON.parse(fs.readFileSync(path.join(ROOT, LASTMOD_FILE), 'utf8')) : {};
 const lastmod = {};
 const DATE = '__LASTMOD__', DATE_FR = '__LASTMOD_FR__';
-function stamp(p, html) {
+// Date affichée « mis à jour le » selon la langue de la page
+const FMT_DATE = {
+    fr: d => d.split('-').reverse().join('/'),
+    en: d => new Date(`${d}T00:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
+};
+function stamp(p, html, fmt = FMT_DATE.fr) {
     if (!html.includes('<html')) return html;
     const h = crypto.createHash('sha1').update(html.replace(/\?v=[\w-]+/g, '').split('__V_CSS__').join('')).digest('hex').slice(0, 12);
     const prev = lastmodPrev[p];
     const d = prev && prev.h === h ? prev.d : TODAY;
     lastmod[p] = { h, d };
-    return html.split(DATE_FR).join(d.split('-').reverse().join('/')).split(DATE).join(d);
+    return html.split(DATE_FR).join(fmt(d)).split(DATE).join(d);
 }
 // Typographie française : espace insécable avant : ; ? ! » et après «, entre un nombre et son unité.
 // Appliquée au texte des pages seulement, jamais dans les balises, les scripts ou les styles.
@@ -55,10 +61,38 @@ function frTypo(html) {
             .replace(/(\d) (h|min|minutes|ans|cm|kg|%)(?![\p{L}])/gu, '$1\u00a0$2');
     }).join('');
 }
-const write = (p, s) => {
+const writeFile = (p, s) => {
     fs.mkdirSync(path.dirname(path.join(ROOT, p)), { recursive: true });
-    fs.writeFileSync(path.join(ROOT, p), p.endsWith('.html') ? stamp(p, frTypo(s)) : s, 'utf8');
+    fs.writeFileSync(path.join(ROOT, p), s, 'utf8');
     written.push(p);
+};
+// Autres langues (i18n/<langue>/) : chargées plus bas, une fois les sélections et les groupes connus
+let L10N = [];
+const pageUrl = p => (p === 'index.html' ? '/' : `/${p.replace(/\.html$/, '')}`);
+// Lien vers l'autre langue, dans le pied de page
+const langSwitch = (lang, href, label) => `<li><a href="${href}" hreflang="${lang}" lang="${lang}" class="inline-flex items-center gap-1.5 py-1.5 hover:text-white">${icon('globe', 'h-4 w-4')}${label}</a></li>`;
+/**
+ * Écrit une page en français, puis sa version dans chaque autre langue (même page, phrases traduites).
+ * variants : { en: html } quand la version d'une langue part d'un autre rendu (ordre alphabétique des noms traduits).
+ */
+const write = (p, s, variants = {}) => {
+    if (!p.endsWith('.html')) return writeFile(p, s);
+    const url = pageUrl(p);
+    const alts = L10N.map(L => [L, L.routes[url]]).filter(([, u]) => u);
+    const abs = u => SITE_URL + u;
+    const head = alts.length
+        ? [['fr', url], ...alts.map(([L, u]) => [L.lang, u]), ['x-default', url]].map(([l, u]) => `<link rel="alternate" hreflang="${l}" href="${abs(u)}">`).join('\n    ')
+        : '';
+    const finish = (html, sw) => (head ? html.replace('</head>', `    ${head}\n</head>`) : html).replace(/__LANG_SWITCH__\n?/, sw ? `${sw}\n` : '');
+    for (const [L, u] of alts) {
+        let html = L.localize(frTypo(variants[L.lang] || s), p);
+        html = html.replace(/\/data\/breeds-index\.json(\?v=[\w-]+)?/g, `/data/breeds-index.${L.lang}.json?v=${L.vData}`)
+            .replace('<script src="/js/icons.js', `<script src="/js/i18n.${L.lang}.js?v=${L.vClient}" defer></script>\n    <script src="/js/icons.js`);
+        const file = L.fileOf(u);
+        writeFile(file, stamp(file, finish(html, langSwitch('fr', url, 'Version française')), FMT_DATE[L.lang] || FMT_DATE.fr));
+    }
+    const [L0, u0] = alts[0] || [];
+    writeFile(p, stamp(p, finish(frTypo(s), L0 && langSwitch(L0.lang, u0, L0.cfg.switchLabel))));
 };
 const hash = p => crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, p))).digest('hex').slice(0, 10);
 
@@ -290,13 +324,17 @@ function icon(name, cls = 'h-5 w-5') {
     return iconSrc[name].replace('<svg ', `<svg class="${cls}" aria-hidden="true" focusable="false" `);
 }
 // Celles que les scripts du navigateur dessinent (en-tête, accueil, test, comparateur, Tel Maître)
-const CLIENT_ICONS = ['camera', 'list', 'x', 'check', 'warning-circle', 'paw-print', 'plus', 'arrow-right', 'arrow-left',
+const CLIENT_ICONS = ['camera', 'list', 'globe', 'x', 'check', 'warning-circle', 'paw-print', 'plus', 'arrow-right', 'arrow-left',
     'couch', 'person-simple-walk', 'tree', 'boot', 'person-simple-run', 'buildings', 'house', 'farm', 'user', 'student', 'baby',
     'cat', 'dog', 'prohibit', 'hourglass-simple-low', 'hourglass-simple-medium', 'hourglass-simple-high', 'plant', 'thumbs-up',
     'graduation-cap', 'smiley', 'broom', 'sparkle', 'speaker-simple-slash', 'clock', 'armchair', 'sun', 'flag', 'arrow-counter-clockwise'];
 write('js/icons.js', `// Généré par generate-breeds.cjs : icônes Phosphor (MIT) dessinées par les scripts du site
 window.RDCIcons = ${JSON.stringify(Object.fromEntries(CLIENT_ICONS.map(n => [n, icon(n, '__C__')])))};
 window.RDCIcon = function (name, cls) { return (window.RDCIcons[name] || '').replace('__C__', cls || 'h-5 w-5'); };
+// Textes et adresses des scripts : js/i18n.<langue>.js les traduit sur les pages d'une autre langue, sinon le français reste
+window.RDCT = window.RDCT || function (s) { var o = ''; for (var i = 0; i < s.length; i++) o += s[i] + (i + 1 < arguments.length ? arguments[i + 1] : ''); return o; };
+window.RDCPath = window.RDCPath || function (h) { return h; };
+window.RDCOrd = window.RDCOrd || function (n) { return n === 1 ? '1re' : n + 'e'; };
 `);
 
 // ============================================
@@ -689,7 +727,7 @@ function breedPage(b) {
             if (i >= 0) l.splice(i, 1); else { if (l.length >= 3) l.shift(); l.push(slug); }
             try { localStorage.setItem(KEY, JSON.stringify(l)); } catch (e) {}
             paint();
-            if (l.indexOf(slug) >= 0 && l.length >= 2) location.href = '/compare?races=' + l.join(',');
+            if (l.indexOf(slug) >= 0 && l.length >= 2) location.href = (window.RDCPath ? RDCPath('/compare') : '/compare') + '?races=' + l.join(',');
         });
         paint();
     })();
@@ -761,9 +799,15 @@ function sitemap() {
         ['/mentions-legales', '0.2', 'yearly'], ['/confidentialite', '0.2', 'yearly']
     ];
     const image = b => (b?.image ? `<image:image><image:loc>${SITE_URL}/${b.image.url}</image:loc></image:image>` : '');
+    // Chaque page et ses versions dans les autres langues, liées entre elles
+    const alt = u => {
+        const a = L10N.map(L => [L.lang, L.routes[u]]).filter(([, x]) => x);
+        return a.length ? [['fr', u], ...a, ['x-default', u]].map(([l, x]) => `<xhtml:link rel="alternate" hreflang="${l}" href="${SITE_URL}${x}"/>`).join('') : '';
+    };
+    const entries = urls.flatMap(([u, pr, f, b]) => [[u, file(u), pr, f, b, u], ...L10N.filter(L => L.routes[u]).map(L => [L.routes[u], L.fileOf(L.routes[u]), pr, f, b, u])]);
     return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-${urls.map(([u, pr, f, b]) => `  <url><loc>${SITE_URL}${u}</loc><lastmod>${lastmod[file(u)]?.d || TODAY}</lastmod><changefreq>${f}</changefreq><priority>${pr}</priority>${image(b)}</url>`).join('\n')}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${entries.map(([u, fp, pr, f, b, fr]) => `  <url><loc>${SITE_URL}${u}</loc><lastmod>${lastmod[fp]?.d || TODAY}</lastmod><changefreq>${f}</changefreq><priority>${pr}</priority>${alt(fr)}${image(b)}</url>`).join('\n')}
 </urlset>
 `;
 }
@@ -794,8 +838,10 @@ const GROUPS = {
          intro: 'Les lévriers chassent à vue grâce à leur vitesse : Whippet, Greyhound, Lévrier afghan, Barzoï… Étonnamment calmes à la maison, ils dorment beaucoup mais ont besoin de courir librement dans un espace clos, car leur instinct de poursuite est très fort.' }
 };
 const groupUrl = g => (GROUPS[g] ? `/groupes/${GROUPS[g].slug}` : null);
-const byPopularity = (a, b) => (b.lof?.['2025'] ?? 0) - (a.lof?.['2025'] ?? 0) || a.name_fr.localeCompare(b.name_fr, 'fr');
-const groupBreeds = g => breeds.filter(b => b.fci?.group === g).sort(byPopularity);
+// Ordre alphabétique selon la langue de la page (les races rares, à égalité, se suivent par nom)
+const FR_NAMES = { name: b => b.name_fr, locale: 'fr' };
+const byPopularity = (N = FR_NAMES) => (a, b) => (b.lof?.['2025'] ?? 0) - (a.lof?.['2025'] ?? 0) || N.name(a).localeCompare(N.name(b), N.locale);
+const groupBreeds = (g, N) => breeds.filter(b => b.fci?.group === g).sort(byPopularity(N));
 
 function crumbs(items) {
     return `<nav class="pt-6 pb-4 text-sm text-slate-500" aria-label="Fil d'Ariane"><a href="/" class="hover:text-primary-600">Races de chiens</a>${items.map(([label, href]) => `<span class="mx-1.5" aria-hidden="true">›</span>${href ? `<a href="${href}" class="hover:text-primary-600">${esc(label)}</a>` : `<span class="text-slate-800" aria-current="page">${esc(label)}</span>`}`).join('')}</nav>`;
@@ -806,9 +852,9 @@ function crumbsLd(items) {
 }
 const ldTag = ld => `\n    <script type="application/ld+json">${JSON.stringify(ld)}</script>`;
 
-function groupPage(g) {
+function groupPage(g, N) {
     const G = GROUPS[g];
-    const list = groupBreeds(g);
+    const list = groupBreeds(g, N);
     const url = `${SITE_URL}${groupUrl(g)}`;
     const title = (G.seo || `${G.title} : les {n} races (groupe ${g})`).replace('{n}', list.length);
     const description = clip(`${G.intro.split(/(?<=[.:]) /)[0]} Les ${list.length} races du groupe ${g} de la FCI, avec photos, caractère et notes.`);
@@ -862,13 +908,13 @@ function groupsIndexPage() {
     return page({ head: headMeta({ title: withBrand(title), description, url }) + ldTag(crumbsLd([['Groupes de races', '/groupes-de-races']])), body });
 }
 
-function azPage() {
+function azPage(N = FR_NAMES) {
     const url = `${SITE_URL}/liste-des-races`;
     const title = `Liste des races de chiens de A à Z : ${COUNT} races avec photos`;
     const description = clip(`Toutes les races de chiens de A à Z, avec photo, origine et groupe : ${COUNT} races décrites et notées sur 20 critères, des plus courantes aux plus rares.`);
-    const letter = b => b.name_fr.normalize('NFD').replace(/[\u0300-\u036f]/g, '')[0].toUpperCase();
+    const letter = b => N.name(b).normalize('NFD').replace(/[\u0300-\u036f]/g, '')[0].toUpperCase();
     const byLetter = {};
-    for (const b of breeds) (byLetter[letter(b)] ||= []).push(b);
+    for (const b of breeds.slice().sort((a, c) => N.name(a).localeCompare(N.name(c), N.locale))) (byLetter[letter(b)] ||= []).push(b);
     const letters = Object.keys(byLetter).sort();
     const item = b => `<li><a href="/races/${b.slug}" class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-2 pr-3 hover:border-primary-300">
                 <span class="h-14 w-[75px] shrink-0 overflow-hidden rounded-xl bg-slate-100">${b.image ? picture(b, 'h-full w-full object-cover', { sizes: '75px', alt: '' }) : ''}</span>
@@ -953,6 +999,20 @@ function categorizedPage() {
 }
 
 // ============================================
+// AUTRES LANGUES (i18n/<langue>/)
+// ============================================
+
+L10N = I18N.languages(ROOT).map(lang => I18N.load({ root: ROOT, siteUrl: SITE_URL, breeds, selections: SELECTIONS, groups: GROUPS }, lang));
+// Chaque langue est régénérée en entier : on repart d'un dossier vide
+for (const L of L10N) fs.rmSync(path.join(ROOT, L.routes['/'].slice(1)), { recursive: true, force: true });
+const namesOf = L => ({ name: b => L.breedName[b.slug], locale: L.lang });
+// Variantes d'une page pour chaque langue (rendu trié selon les noms traduits)
+const variantsOf = render => Object.fromEntries(L10N.map(L => [L.lang, render(namesOf(L))]));
+// Textes des scripts du navigateur : chaque T`…` de js/
+const CLIENT_KEYS = fs.readdirSync(path.join(ROOT, 'js')).filter(f => f.endsWith('.js') && !/^(icons|i18n\.)/.test(f))
+    .flatMap(f => I18N.scanT(read(`js/${f}`), f));
+
+// ============================================
 // MAIN
 // ============================================
 
@@ -967,6 +1027,16 @@ const index = breeds.map(b => ({
 }));
 write('data/breeds-index.json', JSON.stringify({ updated: TODAY, breeds: index }));
 commonVars.V_DATA = hash('data/breeds-index.json');
+// Même index par langue : name_fr y porte le nom affiché dans la langue de la page,
+// le nom français rejoint les autres noms pour que la recherche le trouve aussi
+const bySlug = Object.fromEntries(breeds.map(b => [b.slug, b]));
+for (const L of L10N) {
+    const idx = index.map(e => ({ ...e, name_fr: L.breedName[e.slug], name_alt: [...new Set([bySlug[e.slug].name_fr, ...e.name_alt])], origin: L.plain(e.origin, 'index des races') }));
+    write(`data/breeds-index.${L.lang}.json`, JSON.stringify({ updated: TODAY, breeds: idx }));
+    L.vData = hash(`data/breeds-index.${L.lang}.json`);
+    write(`js/i18n.${L.lang}.js`, I18N.clientFile(L, CLIENT_KEYS));
+    L.vClient = hash(`js/i18n.${L.lang}.js`);
+}
 
 // 2. Fiches (chacune liste les sélections où elle figure)
 SELECTION_MEMBERS = Object.fromEntries(SELECTIONS.map(x => [x.slug, new Set(selectionResults(x).top.map(r => r.breed.slug))]));
@@ -979,9 +1049,9 @@ for (const sel of SELECTIONS) write(`selections/${sel.slug}.html`, selectionPage
 
 // 3 bis. Groupes FCI, liste de A à Z, chiens catégorisés
 fs.rmSync(path.join(ROOT, 'groupes'), { recursive: true, force: true });
-for (const g of Object.keys(GROUPS)) write(`groupes/${GROUPS[g].slug}.html`, groupPage(Number(g)));
+for (const g of Object.keys(GROUPS)) write(`groupes/${GROUPS[g].slug}.html`, groupPage(Number(g)), variantsOf(N => groupPage(Number(g), N)));
 write('groupes-de-races.html', groupsIndexPage());
-write('liste-des-races.html', azPage());
+write('liste-des-races.html', azPage(), variantsOf(azPage));
 write('chiens-categorises.html', categorizedPage());
 
 // 4. Pages à partir des modèles
@@ -1018,4 +1088,9 @@ for (const p of written.filter(p => p.endsWith('.html'))) {
     fs.writeFileSync(full, fs.readFileSync(full, 'utf8').split('__V_CSS__').join(vCss), 'utf8');
 }
 
+for (const L of L10N) {
+    const r = L.report();
+    console.log(`🌐 ${L.lang} : ${r.used} phrases traduites, ${r.missing} à traduire (i18n/${L.lang}/_a-traduire.json)`);
+    for (const w of r.warnings.slice(0, 20)) console.warn(`   ⚠️  ${w}`);
+}
 console.log(`✅ ${breeds.length} fiches, ${SELECTIONS.length} sélections, ${written.filter(p => !p.includes('/')).length} pages, CSS ${(fs.statSync(path.join(ROOT, 'css/site.css')).size / 1024).toFixed(0)} Ko`);

@@ -355,6 +355,8 @@ Une sélection multiple se lit comme une case à cocher : carré de 18 px, rayon
 ### Navigation
 En-tête fixe de 68 px, blanc à 90 % avec flou, filet bas. Logo (carré blanc à 16 px de rayon, bord dégradé de 2 px, chien emoji) et nom en 700, sous-titre en ardoise discrète ; citation en italique au centre dès 1280 px ; liens en 14 px 500 ardoise, bleus au survol et sur la page courante (`aria-current`) ; Tel Maître en bouton lavis bleu à droite, plein bleu sur sa page. Sur téléphone, menu dans un bouton de 44 px qui déplie la liste et la citation. Fil d'Ariane en 14 px ardoise discrète. Pied de page encre, quatre colonnes de liens, signature « Créé par Aurora ».
 
+**Langue** : le site est en français par défaut, la version anglaise vit sous `/en/` (voir `i18n/README.md`). Le lien vers l'autre langue est un lien texte, jamais un drapeau : dans l'en-tête dès 1024 px, globe Phosphor de 16 px et code de langue en 14 px 600 ardoise (« EN » ou « FR », nom complet pour les lecteurs d'écran), placé avant Tel Maître ; dans le menu du téléphone et en tête de la colonne « Le site » du pied de page, globe et nom complet (« English version », « Version française »). Il garde les filtres, le test ou la comparaison en cours.
+
 ## Do's and Don'ts
 
 ### Do:
@@ -366,6 +368,7 @@ En-tête fixe de 68 px, blanc à 90 % avec flou, filet bas. Logo (carré blanc �
 - **Do** placer le score de compatibilité à côté du nom, jamais sur la photo.
 - **Do** utiliser la classe d'échelle display pour tout nouveau titre de page.
 - **Do** passer tout nouveau texte de page par la typographie française du générateur.
+- **Do** écrire tout nouveau texte de script avec ``T`…` `` et toute adresse interne avec `P(…)`, pour que la version anglaise suive.
 - **Do** laisser les cartes plates au repos et ne donner du relief qu'au survol.
 
 ### Don't:

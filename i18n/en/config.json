@@ -1,0 +1,49 @@
+{
+  "lang": "en",
+  "locale": "en_US",
+  "switchLabel": "English",
+  "ordinal": "function (n) { var s = ['th', 'st', 'nd', 'rd'], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }",
+  "pages": {
+    "/": "/en",
+    "/quel-chien-choisir": "/en/what-dog-should-i-get",
+    "/compare": "/en/compare",
+    "/tel-maitre-tel-chien": "/en/what-dog-do-i-look-like",
+    "/liste-des-races": "/en/dog-breeds-a-z",
+    "/groupes-de-races": "/en/dog-breed-groups",
+    "/chiens-categorises": "/en/restricted-dogs-france",
+    "/mentions-legales": "/en/legal-notice",
+    "/confidentialite": "/en/privacy"
+  },
+  "breedsPrefix": "/en/breeds/",
+  "groupsPrefix": "/en/groups/",
+  "selectionsPrefix": "/en/",
+  "selections": {
+    "chiens-pour-appartement": "apartment-dogs",
+    "chiens-calmes": "calm-dog-breeds",
+    "chiens-pour-enfants": "dogs-for-kids",
+    "chiens-qui-perdent-peu-de-poils": "hypoallergenic-dogs",
+    "chiens-pour-personnes-agees": "dogs-for-seniors",
+    "chiens-qui-supportent-la-solitude": "dogs-that-can-be-left-alone",
+    "chiens-sportifs": "active-dog-breeds",
+    "premier-chien": "dogs-for-first-time-owners",
+    "chiens-qui-aboient-peu": "quiet-dog-breeds",
+    "races-francaises": "french-dog-breeds",
+    "petits-chiens": "small-dog-breeds",
+    "chiens-de-taille-moyenne": "medium-dog-breeds",
+    "grands-chiens": "large-dog-breeds",
+    "chiens-de-garde": "guard-dog-breeds",
+    "chiens-qui-supportent-la-chaleur": "dogs-for-hot-weather",
+    "chiens-et-chats": "dogs-good-with-cats"
+  },
+  "groups": {
+    "chiens-de-berger-et-bouviers": "sheepdogs-and-cattle-dogs",
+    "molosses-pinschers-et-bouviers-suisses": "pinschers-molossers-and-swiss-mountain-dogs",
+    "terriers": "terriers",
+    "spitz-et-chiens-primitifs": "spitz-and-primitive-dogs",
+    "chiens-courants": "scent-hounds",
+    "chiens-d-arret": "pointing-dogs",
+    "rapporteurs-leveurs-et-chiens-d-eau": "retrievers-flushing-dogs-and-water-dogs",
+    "chiens-de-compagnie": "companion-and-toy-dogs",
+    "levriers": "sighthounds"
+  }
+}
