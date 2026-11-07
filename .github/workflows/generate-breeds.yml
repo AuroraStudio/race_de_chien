@@ -5,6 +5,7 @@ on:
     paths:
       - 'data/breeds.json'
       - 'data/guides.json'
+      - 'data/guides-selections.json'
       - 'templates/**'
       - 'js/**'
       - 'css/tailwind.src.css'

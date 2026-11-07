@@ -122,6 +122,19 @@ const data = JSON.parse(read('data/breeds.json'));
 const breeds = data.breeds.slice().sort((a, b) => a.name_fr.localeCompare(b.name_fr, 'fr'));
 // Sections « Vivre avec… » écrites à la main pour les races les plus recherchées (data/guides.json)
 const GUIDES = fs.existsSync(path.join(ROOT, 'data/guides.json')) ? JSON.parse(read('data/guides.json')) : {};
+// Conseils des pages de sélection (data/guides-selections.json), en français seulement comme les fiches
+const SEL_GUIDES = fs.existsSync(path.join(ROOT, 'data/guides-selections.json')) ? JSON.parse(read('data/guides-selections.json')) : {};
+function selectionGuideHtml(sel) {
+    const g = SEL_GUIDES[sel.slug];
+    if (!g) return '';
+    return `<!--guide-->
+        <section class="mt-14 max-w-3xl" aria-labelledby="conseils">
+            <h2 id="conseils" class="text-2xl font-bold text-slate-900">${esc(g.titre)}</h2>${g.parties.map(([h, p]) => `
+            <h3 class="mt-6 text-lg font-bold text-slate-900">${esc(h)}</h3>
+            <p class="mt-2 leading-relaxed text-slate-700">${esc(p)}</p>`).join('')}
+        </section>
+<!--/guide-->`;
+}
 const COUNT = breeds.length;
 breeds.filter(b => b.lof?.['2025']).sort((a, b) => b.lof['2025'] - a.lof['2025']).forEach((b, i) => { b.lofRank = i + 1; });
 const popular = breeds.filter(b => b.lofRank).sort((a, b) => a.lofRank - b.lofRank);
@@ -813,6 +826,7 @@ function selectionPage(sel) {
             ${avoid.map(r => staticCard(r.breed, { reasons: r.reasons.filter(x => !x.ok) })).join('')}
             </ul>
         </section>` : ''}
+        ${selectionGuideHtml(sel)}
         <section class="mt-14 rounded-3xl border border-slate-200 bg-white p-6" aria-labelledby="autres">
             <h2 id="autres" class="text-lg font-bold text-slate-900">Autres sélections</h2>
             <ul class="mt-3 flex flex-wrap gap-2">${others.map(o => `<li><a href="/selections/${o.slug}" class="opt">${icon(o.icon)}${esc(o.short)}</a></li>`).join('')}</ul>
