@@ -4,3 +4,6 @@ sources/photos/raw/
 __pycache__/
 .impeccable/review/
 .impeccable/*.local.json
+
+# Relevés de la tâche suivi-seo-race-de-chien : fichier local, modifié deux fois par mois
+sources/audit-seo-2026-11-07/suivi.md
