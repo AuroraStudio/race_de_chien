@@ -6,8 +6,8 @@ const MODEL = 'claude-haiku-5-5';
 
 // 5 essais par IP en production ; marge plus large sur les déploiements de test
 const RATE_LIMIT_MAX = process.env.VERCEL_ENV === 'preview' ? 50 : 5;
-const RATE_LIMIT_WINDOW = 24 * 60 * 60; // 24h en secondes
-const MAX_IMAGE_SIZE = 2 * 1024 * 1024; // ~2MB en base64
+export const RATE_LIMIT_WINDOW = 24 * 60 * 60; // 24h en secondes
+export const MAX_IMAGE_SIZE = 2 * 1024 * 1024; // ~2MB en base64
 
 // Fallback mémoire
 const rateLimitMap = new Map();
@@ -435,7 +435,7 @@ const ASK = {
     pt: 'Analyse cette photo selon la méthode, puis réponds. Rédige reason et traits_communs en portugais du Brésil, en t\'adressant à la personne avec « você ». Garde le même ton.'
 };
 // Messages d'erreur affichés à la personne
-const MSG = {
+export const MSG = {
     fr: { limit: 'Vous avez atteint la limite de 5 essais par jour. Revenez demain !', forbidden: 'Requête refusée.', missing: 'Photo manquante', type: 'Type d\'image non supporté', size: 'Image trop volumineuse (2MB max)', busy: 'L\'IA est très sollicitée, réessayez dans un instant', photo: 'Cette photo n\'a pas pu être analysée, essayez-en une autre', failed: 'L\'analyse a échoué, réessayez dans un instant', odd: 'Réponse inattendue de l\'IA, réessayez' },
     es: { limit: 'Has alcanzado el límite de 5 intentos al día. ¡Vuelve mañana!', forbidden: 'Solicitud rechazada.', missing: 'No se ha recibido ninguna foto', type: 'Tipo de imagen no admitido', size: 'Imagen demasiado grande (2 MB como máximo)', busy: 'La IA está muy solicitada, inténtalo de nuevo en un momento', photo: 'No se ha podido analizar esta foto, prueba con otra', failed: 'El análisis ha fallado, inténtalo de nuevo en un momento', odd: 'Respuesta inesperada de la IA, inténtalo de nuevo' },
     de: { limit: 'Du hast das Limit von 5 Versuchen pro Tag erreicht. Komm morgen wieder!', forbidden: 'Anfrage abgelehnt.', missing: 'Kein Foto erhalten', type: 'Bildformat nicht unterstützt', size: 'Bild zu groß (max. 2 MB)', busy: 'Die KI ist gerade stark ausgelastet, versuch es gleich noch einmal', photo: 'Dieses Foto konnte nicht analysiert werden, probier ein anderes', failed: 'Die Analyse ist fehlgeschlagen, versuch es gleich noch einmal', odd: 'Unerwartete Antwort der KI, versuch es noch einmal' },

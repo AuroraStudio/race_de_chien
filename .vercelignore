@@ -10,3 +10,7 @@ DESIGN.md
 .impeccable/
 lib/
 i18n/
+netlify/
+netlify.toml
+plugins/
+_site/
