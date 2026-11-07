@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'data/breeds.json'
+      - 'data/guides.json'
       - 'templates/**'
       - 'js/**'
       - 'css/tailwind.src.css'

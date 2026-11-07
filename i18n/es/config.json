@@ -1,5 +1,6 @@
 {
   "lang": "es",
+  "indexer": false,
   "locale": "es_ES",
   "switchLabel": "Español",
   "ordinal": "function (n) { return n + '.ª'; }",

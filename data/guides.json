@@ -1,0 +1,315 @@
+{
+ "_info": "Sections « Vivre avec… » des fiches (éducation, activité, soins, points de vigilance), écrites à la main pour les races les plus recherchées. Ajout : audit SEO du 07/11/2026. Affichées en français seulement (retirées des versions traduites).",
+ "golden-retriever": {
+  "quotidien": "Le Golden vit collé à sa famille : il vous suit de pièce en pièce, accueille chaque visiteur comme un ami et adore avoir quelque chose dans la gueule, une chaussure, un jouet, une branche, qu’il vous rapporte fièrement. Il reste joueur très longtemps et ne devient vraiment posé que vers deux ou trois ans.",
+  "education": "C’est l’un des chiens les plus faciles à éduquer : il cherche à bien faire et répond très bien aux récompenses. Le travail porte surtout sur l’enthousiasme : apprendre à ne pas sauter sur les gens, à marcher sans tirer et à rester calme quand il est seul. Les méthodes dures sont inutiles et le rendent anxieux.",
+  "activite": "Comptez au moins une heure et demie par jour, avec de vraies séances de jeu. Le rapport, la nage (il ne résiste pas à une rivière), l’obéissance, le pistage et la cani-randonnée lui conviennent parfaitement. Un Golden qui s’ennuie mâchonne et se fait remarquer.",
+  "soins": "Il prend du poids facilement : pesez les rations et comptez les friandises dans la ration du jour. Un brossage deux à trois fois par semaine suffit, tous les jours pendant les mues de printemps et d’automne. Après la baignade, séchez bien les oreilles, sujettes aux otites.",
+  "vigilance": [
+   "Des poils partout, toute l’année, et beaucoup plus pendant les mues.",
+   "Il supporte mal de rester seul de longues heures.",
+   "Les cancers sont fréquents dans la race : prévoyez un suivi vétérinaire régulier, et une assurance santé si possible.",
+   "Aucun instinct de garde : il ouvrira la porte au cambrioleur en remuant la queue."
+  ]
+ },
+ "berger-australien": {
+  "quotidien": "Le Berger Australien a l’instinct de troupeau chevillé au corps : il surveille la maisonnée, regroupe les enfants qui courent et peut pincer les talons ou poursuivre vélos et trottinettes. Très attaché à ses maîtres, il se montre souvent réservé avec les inconnus.",
+  "education": "Il apprend très vite, en bien comme en mal. Les règles doivent être posées dès l’arrivée du chiot, avec des séances courtes et variées. Travaillez tôt le calme et l’arrêt de la poursuite de tout ce qui bouge, sans quoi l’instinct de berger prend le dessus.",
+  "activite": "Deux heures par jour, dont une partie de travail mental : agility, obéissance, troupeau, frisbee, canicross, recherche d’objets. Une simple promenade en laisse ne suffit pas. Sous-occupé, il devient nerveux, aboie et invente ses propres jeux.",
+  "soins": "Brossage hebdomadaire, plus fréquent en période de mue, en insistant derrière les oreilles et sur la culotte où les nœuds se forment. Comme les colleys, il peut porter la mutation MDR1 qui rend certains médicaments dangereux : faites-le tester et signalez le résultat à votre vétérinaire.",
+  "vigilance": [
+   "C’est un chien de travail : il ne convient ni à un appartement ni à une famille sédentaire.",
+   "Sa popularité a multiplié les élevages peu sérieux : exigez les dépistages des yeux, des hanches et de la mutation MDR1.",
+   "Évitez tout chiot issu de deux parents merle, exposé à la surdité et à la cécité.",
+   "Il supporte mal la solitude prolongée."
+  ]
+ },
+ "staffordshire-bull-terrier": {
+  "quotidien": "Sous ses muscles, le Staffie est un pot de colle : il adore les humains, les câlins et le canapé. Plein d’entrain et de joie de vivre, il garde une énergie de terrier et une solide force physique pour son gabarit. Il n’est pas classé chien catégorisé en France, contrairement à l’American Staffordshire.",
+  "education": "Il est volontaire et têtu : l’éducation doit être ferme, cohérente et toujours positive. La priorité est la socialisation avec les autres chiens dès le plus jeune âge, car beaucoup de Staffies tolèrent mal leurs congénères à l’âge adulte. Apprenez-lui aussi à marcher sans tirer, sa force surprend.",
+  "activite": "Une heure par jour au minimum, avec du jeu : tir à la corde, balle, canicross, agility. Il aime les défis physiques mais tolère mal les fortes chaleurs. Il mâchonne volontiers : prévoyez des jouets solides.",
+  "soins": "Son poil ras ne demande presque rien, un coup de gant de temps en temps. Surveillez la peau, sujette aux allergies. Des tests génétiques existent pour la cataracte héréditaire (HSF4) et la L2HGA : demandez les résultats des parents.",
+  "vigilance": [
+   "Souvent confondu avec les chiens catégorisés : certains propriétaires et assureurs se montrent frileux.",
+   "Les rencontres avec d’autres chiens demandent de la vigilance.",
+   "Très attaché à vous, il vit mal les longues absences.",
+   "Sa force impose un maître capable de le tenir en laisse."
+  ]
+ },
+ "cocker-spaniel": {
+  "quotidien": "Le Cocker Anglais est un chien joyeux, la queue toujours en mouvement, très proche de sa famille. Leveur de gibier à l’origine, il suit son nez partout et adore l’eau. Il est réputé gourmand et certains gardent jalousement leur gamelle ou leurs jouets.",
+  "education": "Il apprend volontiers avec la nourriture comme récompense, ce qui facilite les choses. Travaillez tôt le rappel, car une odeur peut l’emporter, et habituez-le très jeune à ce qu’on touche sa gamelle et ses jouets pour éviter les comportements de protection.",
+  "activite": "Une heure et demie par jour, idéalement avec des moments en liberté dans un endroit sûr. Il excelle dans la recherche d’objets, le pistage, le rapport et la chasse. Il reste énergique en vieillissant.",
+  "soins": "Son poil soyeux demande un brossage deux à trois fois par semaine et un toilettage professionnel toutes les six à huit semaines. Ses longues oreilles favorisent les otites : contrôlez-les et nettoyez-les chaque semaine. Surveillez son poids, il réclame beaucoup.",
+  "vigilance": [
+   "Le budget toilettage est régulier.",
+   "Les otites sont le problème de santé le plus courant de la race.",
+   "Le syndrome de rage, rare mais connu chez les robes unies : choisissez un éleveur transparent sur ses lignées.",
+   "Il n’aime pas rester seul trop longtemps."
+  ]
+ },
+ "labrador-retriever": {
+  "quotidien": "Le Labrador est la bonne humeur faite chien : sociable avec tout le monde, enfants, chiens et chats compris. Jeune, il est exubérant et tout passe par sa gueule. Il se calme vers deux ou trois ans pour devenir un compagnon posé et fiable.",
+  "education": "Il est facile à éduquer et adore les friandises, ce qui aide beaucoup. Les points à travailler : ne pas sauter sur les gens, marcher sans tirer et ne pas voler sur la table. Un chiot Labrador a besoin de limites claires, sans quoi sa force et son enthousiasme deviennent vite encombrants.",
+  "activite": "Une heure et demie par jour au minimum. Le rapport, la nage, le pistage, le mantrailing et l’obéissance lui vont parfaitement. C’est un chien de travail : il s’épanouit quand on lui donne une mission.",
+  "soins": "C’est le roi de la gourmandise, et une part des Labradors porte même une mutation génétique qui accroît l’appétit. Pesez les rations, limitez les friandises et surveillez la silhouette : la taille doit rester marquée. Brossage hebdomadaire, quotidien pendant les mues.",
+  "vigilance": [
+   "L’obésité guette et aggrave la dysplasie et les problèmes articulaires.",
+   "Exigez le dépistage de la dysplasie de la hanche et du coude sur les parents.",
+   "Il perd beaucoup de poils, surtout au printemps et à l’automne.",
+   "Pas de garde à attendre : il aime tout le monde."
+  ]
+ },
+ "berger-americain-miniature": {
+  "quotidien": "Le Berger Américain Miniature a tout du Berger Australien en format réduit : intelligent, vif, très attaché à son maître et réservé avec les inconnus. Sa petite taille trompe : ce n’est pas un chien de salon mais un vrai petit berger, qui peut chercher à rassembler enfants et autres animaux.",
+  "education": "Il apprend extrêmement vite et adore travailler avec vous. Commencez tôt la socialisation pour limiter sa méfiance envers les inconnus, et apprenez-lui à se poser : un berger qui ne sait pas se calmer devient vite agité et aboyeur.",
+  "activite": "Une heure et demie par jour avec une part de stimulation mentale. L’agility, l’obéissance, le frisbee, la recherche d’objets et le canicross lui conviennent très bien. Il est souvent brillant en compétition d’agility.",
+  "soins": "Brossage hebdomadaire, plus fréquent pendant la mue. Comme le Berger Australien, il peut porter la mutation MDR1 qui rend certains médicaments dangereux : un test génétique simple permet de le savoir.",
+  "vigilance": [
+   "Ce n’est pas un Berger Australien tranquille : il garde un fort besoin d’activité.",
+   "Demandez les dépistages des yeux et de la mutation MDR1 des parents.",
+   "Évitez tout chiot issu de deux parents merle.",
+   "Il peut aboyer beaucoup s’il s’ennuie."
+  ]
+ },
+ "cavalier-king-charles": {
+  "quotidien": "Le Cavalier est la douceur même : affectueux, calme à la maison, sociable avec les enfants, les autres chiens et les chats. Il veut être près de vous, sur vos genoux si possible, et s’adapte aussi bien à un appartement qu’à une maison.",
+  "education": "Il est docile et sensible : la voix douce et les récompenses suffisent. Le principal travail consiste à l’habituer très tôt à rester seul de courtes périodes, car il peut souffrir de l’absence de ses maîtres.",
+  "activite": "Trois quarts d’heure par jour lui suffisent, mais il aime aussi les longues balades en forêt. Il garde un petit instinct d’épagneul et peut s’intéresser aux oiseaux. Évitez les efforts intenses par forte chaleur.",
+  "soins": "Brossez ses franges deux fois par semaine et contrôlez ses oreilles. Surtout, faites ausculter son cœur chaque année : la maladie de la valve mitrale touche une grande partie des Cavaliers avec l’âge. Surveillez son poids, qui fatigue le cœur.",
+  "vigilance": [
+   "La maladie cardiaque mitrale est très répandue : choisissez un éleveur qui fait examiner le cœur des reproducteurs.",
+   "La syringomyélie (grattage du cou, douleurs) existe aussi : demandez si les parents ont passé une IRM.",
+   "Prévoyez un budget vétérinaire, voire une assurance santé.",
+   "Il vit mal la solitude."
+  ]
+ },
+ "berger-belge-malinois": {
+  "quotidien": "Le Malinois est un athlète de travail, choisi par la police et l’armée pour son énergie hors norme et son envie de mordre dans l’action. À la maison, il ne débranche que s’il a été vraiment dépensé. Très lié à son maître, il est sensible, réactif et toujours en alerte.",
+  "education": "Il apprend à une vitesse impressionnante, mais il lui faut un maître expérimenté, calme et cohérent. Canaliser son mordant, lui apprendre à se poser et à gérer sa frustration est aussi important que l’obéissance. Un club canin est presque indispensable.",
+  "activite": "Deux heures et demie par jour au moins, avec un vrai travail : ring, mondioring, pistage, détection, obéissance, agility. Un Malinois sous-occupé détruit, tourne en rond ou développe des troubles du comportement.",
+  "soins": "Son poil court se brosse en quelques minutes. Il lui faut une alimentation adaptée à un chien très actif. Les dépistages de la dysplasie et des yeux sur les parents restent indispensables.",
+  "vigilance": [
+   "Ce n’est pas un chien de famille ordinaire, et encore moins un premier chien.",
+   "Il ne supporte ni la solitude ni l’inactivité.",
+   "Les refuges en accueillent beaucoup, adoptés sur un coup de cœur puis abandonnés.",
+   "Ses réactions rapides demandent de la vigilance avec les jeunes enfants."
+  ]
+ },
+ "berger-allemand": {
+  "quotidien": "Le Berger Allemand est polyvalent : fidèle, courageux, protecteur, il s’attache profondément à sa famille et se méfie des inconnus. Il a besoin de comprendre sa place et de travailler avec vous. Il existe des lignées de travail, très actives, et des lignées de beauté, plus posées.",
+  "education": "Il est très doué pour apprendre et aime avoir une tâche. La socialisation précoce est essentielle pour que son instinct de protection reste sous contrôle. Une éducation claire, régulière et sans brutalité donne un chien stable et fiable.",
+  "activite": "Deux heures par jour, avec des activités qui le font réfléchir : pistage, obéissance, mantrailing, ring, cani-randonnée. Il a besoin de se dépenser physiquement et mentalement chaque jour.",
+  "soins": "Il perd énormément de poils : brossage deux à trois fois par semaine, tous les jours en période de mue. Pour limiter le risque de torsion d’estomac, donnez deux repas par jour et évitez l’effort juste après manger. Une diarrhée chronique avec amaigrissement doit faire penser à l’insuffisance pancréatique.",
+  "vigilance": [
+   "Exigez le dépistage de la dysplasie de la hanche et du coude des parents.",
+   "Évitez les lignées au dos très plongeant.",
+   "Son instinct de garde doit être encadré dès le plus jeune âge.",
+   "Il lui faut de l’espace et du temps chaque jour."
+  ]
+ },
+ "teckel": {
+  "quotidien": "Le Teckel existe en trois tailles (standard, nain et kaninchen) et trois poils (ras, dur et long), mais le caractère reste le même : un chasseur de terrier courageux, indépendant et très attaché à sa famille. Il a une voix étonnamment grave pour sa taille et s’en sert volontiers.",
+  "education": "Il est têtu et réfléchit avant d’obéir : il faut de la patience, de la constance et beaucoup de récompenses. La propreté peut être longue à acquérir. Travaillez le rappel très tôt, car une piste l’emporte facilement sur vos appels.",
+  "activite": "Une heure par jour, avec des activités qui sollicitent son flair : pistage, recherche de friandises, balades en forêt. Il aime creuser et fouiller. Malgré ses petites pattes, c’est un bon marcheur.",
+  "soins": "Son dos est son point faible : gardez-le mince, évitez les escaliers répétés et les sauts du canapé, et préférez un harnais au collier. L’entretien du poil dépend de la variété : rien pour le ras, un épilage deux fois par an pour le dur, un brossage régulier pour le long. Brossez ses dents.",
+  "vigilance": [
+   "La hernie discale est fréquente : une paralysie soudaine des pattes arrière est une urgence vétérinaire.",
+   "Il aboie beaucoup, ce qui peut gêner en appartement.",
+   "Il fugue dès qu’il trouve une piste : jardin bien clos indispensable.",
+   "Il creuse les plates-bandes."
+  ]
+ },
+ "setter-anglais": {
+  "quotidien": "Le Setter Anglais est un chien d’arrêt élégant, doux et très affectueux, qui garde longtemps un tempérament de chiot. Excellent avec les enfants et les autres chiens, il a pourtant une énergie de chasseur qui demande de l’espace.",
+  "education": "Il est sensible et un peu distrait : l’éducation doit être douce, patiente et ludique. Le rappel est le grand chantier, car son nez et son instinct de quête l’emmènent loin. Une longe est précieuse pendant l’apprentissage.",
+  "activite": "Une heure et demie par jour au moins, avec de vraies courses en liberté dans un endroit sûr. La chasse, les field trials, le canicross et la cani-randonnée lui conviennent. Il est fait pour la campagne plus que pour la ville.",
+  "soins": "Ses franges se brossent deux à trois fois par semaine pour éviter les nœuds, et on les égalise de temps en temps. Contrôlez les oreilles et les pattes après les balades (épillets). La surdité congénitale existe dans la race : demandez si le chiot a passé un test d’audition.",
+  "vigilance": [
+   "Il lui faut de grands espaces et du temps chaque jour.",
+   "Le rappel reste fragile toute sa vie chez beaucoup de setters.",
+   "Il supporte mal d’être seul.",
+   "Les épillets se logent facilement dans ses poils et ses oreilles en été."
+  ]
+ },
+ "epagneul-breton": {
+  "quotidien": "L’Épagneul Breton est le chien d’arrêt le plus répandu en France : compact, vif et infatigable, il est aussi très attaché à sa famille et doux avec les enfants. À la maison, il se pose volontiers s’il a pu courir.",
+  "education": "Il cherche à faire plaisir et apprend vite, mais il est sensible : la dureté le bloque. Récompenses et séances courtes donnent d’excellents résultats. Comme tout chien de chasse, le rappel doit être travaillé tôt et entretenu.",
+  "activite": "Deux heures par jour : c’est un athlète. La chasse, la recherche d’objets, le canicross, l’agility et la cani-randonnée lui conviennent très bien. Une vie de chien de canapé le rendrait malheureux.",
+  "soins": "Brossage hebdomadaire et contrôle des oreilles, sujettes aux otites. Inspectez les pattes et les oreilles après les sorties en été (épillets). Adaptez la ration à son activité réelle.",
+  "vigilance": [
+   "C’est un chien de chasse avant tout : il a besoin de courir chaque jour.",
+   "Il supporte mal les longues absences.",
+   "L’épilepsie existe dans la race : renseignez-vous sur les parents.",
+   "Méthodes douces impératives : il se braque si on le brusque."
+  ]
+ },
+ "cane-corso": {
+  "quotidien": "Le Cane Corso est un molosse italien de garde, calme et dévoué à sa famille, profondément méfiant envers les inconnus. Il observe beaucoup et intervient peu, mais il protège son territoire et les siens avec sérieux. Il n’est pas classé chien catégorisé en France.",
+  "education": "Il lui faut un maître expérimenté, calme et constant, capable de poser un cadre sans violence. La socialisation, dès le plus jeune âge et pendant toute la croissance, est indispensable : rencontres, bruits, visiteurs, autres chiens. Un Cane Corso mal socialisé devient difficile à gérer.",
+  "activite": "Une heure à une heure et demie par jour, en évitant les efforts violents pendant la croissance. Les longues marches, le pistage et l’obéissance lui conviennent. Il craint la chaleur.",
+  "soins": "Son poil ras demande peu d’entretien. Donnez deux repas par jour et évitez l’effort après manger pour limiter le risque de torsion d’estomac. Surveillez les yeux (entropion, glande nictitante). La coupe des oreilles est interdite en France.",
+  "vigilance": [
+   "Ce n’est pas un premier chien : sa puissance impose de savoir le gérer.",
+   "Les rencontres avec d’autres chiens demandent de la vigilance.",
+   "Les frais d’un grand chien sont élevés : nourriture, vétérinaire, matériel.",
+   "Exigez le dépistage de la dysplasie des parents."
+  ]
+ },
+ "beagle": {
+  "quotidien": "Le Beagle est un chien de meute joyeux, sociable avec tout le monde, enfants et chiens compris. Mais il vit par son nez : une odeur intéressante efface tout le reste. Il a une voix puissante et peut hurler quand il s’ennuie ou reste seul.",
+  "education": "Il est intelligent mais têtu et très distrait par les odeurs. La nourriture est votre meilleure alliée. Le rappel est le point le plus difficile : beaucoup de Beagles ne seront jamais fiables en liberté hors d’un espace clos.",
+  "activite": "Une heure à une heure et demie par jour, avec des activités de flair : pistage, mantrailing, recherche de friandises. Une longe permet de le laisser explorer sans risque de fugue.",
+  "soins": "Son poil court se brosse en quelques minutes. Il est très gourmand et vole tout ce qui traîne : rangez la nourriture et pesez ses rations. Nettoyez régulièrement ses oreilles tombantes.",
+  "vigilance": [
+   "Champion de la fugue : clôture haute et sans trou obligatoire.",
+   "Ses hurlements quand il est seul peuvent poser problème avec les voisins.",
+   "Il supporte très mal la solitude.",
+   "Poubelles, sacs et tables : il trouvera tout."
+  ]
+ },
+ "chihuahua": {
+  "quotidien": "Le Chihuahua est un grand caractère dans un tout petit corps : vif, courageux, très attaché à une personne en particulier et souvent méfiant avec les inconnus. Il s’adapte parfaitement à un appartement et adore la chaleur des genoux et des couvertures.",
+  "education": "Il doit être éduqué comme un vrai chien, pas porté partout ni tout permis : c’est ce qui évite le petit chien grognon et aboyeur. Les récompenses fonctionnent très bien. Socialisez-le tôt avec des gens et des chiens calmes.",
+  "activite": "Une demi-heure de promenade par jour et des jeux à la maison lui suffisent. Il aime pourtant marcher plus longtemps si on lui en donne l’occasion. Attention aux grands chiens trop brusques au parc.",
+  "soins": "Le chiot doit manger plusieurs petits repas par jour pour éviter l’hypoglycémie. Brossez ses dents régulièrement, car ses petites mâchoires s’abîment vite. Un manteau est utile en hiver et un harnais protège sa trachée mieux qu’un collier.",
+  "vigilance": [
+   "Très fragile : une chute ou un enfant maladroit peuvent le blesser gravement.",
+   "Il aboie volontiers, ce qui peut gêner les voisins.",
+   "Les soins dentaires sont un poste de dépense à prévoir.",
+   "Il supporte mal la solitude et le froid."
+  ]
+ },
+ "rottweiler": {
+  "quotidien": "Le Rottweiler est un chien calme, sûr de lui et très dévoué à sa famille, avec un instinct de protection marqué. À la maison, il est souvent tranquille et affectueux. En France, il est classé en 2e catégorie, avec ou sans pedigree, ce qui impose des obligations légales.",
+  "education": "Il lui faut un maître expérimenté, cohérent et calme. La socialisation précoce avec les gens, les bruits et les autres chiens est indispensable. Il apprend bien et aime travailler, à condition que les règles soient claires et constantes.",
+  "activite": "Une heure à une heure et demie par jour. Les longues marches, le pistage, l’obéissance et le travail de trait lui conviennent. Il supporte mal la chaleur : sortez-le aux heures fraîches en été.",
+  "soins": "Son poil court demande peu d’entretien. Contrôlez son poids pour ménager ses articulations, et donnez deux repas par jour pour limiter le risque de torsion d’estomac. Surveillez toute boiterie, qui peut signaler une rupture de ligament.",
+  "vigilance": [
+   "Chien de 2e catégorie : permis de détention, évaluation comportementale, assurance, laisse et muselière dans les lieux publics.",
+   "Sa puissance impose de savoir le tenir.",
+   "Les rencontres avec d’autres chiens demandent de la vigilance.",
+   "Ce n’est pas un premier chien."
+  ]
+ },
+ "border-collie": {
+  "quotidien": "Le Border Collie est un chien de troupeau passionné de travail, d’une intelligence et d’une concentration hors du commun. Sans tâche à accomplir, il en invente : poursuite des voitures, fixation sur les ombres, rassemblement des enfants. Il est sensible aux bruits et très attaché à son maître.",
+  "education": "Il apprend tout, très vite, y compris les mauvaises habitudes. L’essentiel est de lui apprendre à se poser et à ne pas réagir à tout ce qui bouge. Les méthodes positives et un club d’éducation canine lui conviennent parfaitement.",
+  "activite": "Deux heures par jour, dont une vraie part de travail mental : troupeau, agility, obéissance, flyball, frisbee, recherche d’objets. La promenade seule ne suffit jamais. C’est l’un des chiens les plus exigeants en activité.",
+  "soins": "Brossage une à deux fois par semaine, plus pendant la mue. Des tests génétiques existent pour l’anomalie de l’œil du colley, la céroïde-lipofuscinose et le syndrome des neutrophiles piégés : demandez les résultats des parents.",
+  "vigilance": [
+   "Il ne convient pas à une famille sédentaire ni à un appartement.",
+   "Sous-occupé, il développe des troubles obsessionnels.",
+   "Il supporte très mal la solitude.",
+   "Son instinct de berger peut le pousser à courir après les voitures et les vélos."
+  ]
+ },
+ "husky-siberien": {
+  "quotidien": "Le Husky est un chien de traîneau sociable, joueur et doux avec les gens, qu’il ne cherche pas à garder. Il est aussi indépendant, malin et grand fugueur. Il aboie peu, mais hurle et parle volontiers.",
+  "education": "Il obéit quand il en voit l’intérêt : l’éducation demande patience, humour et récompenses. Le rappel est rarement fiable : en dehors d’un espace clos, il reste en laisse. Socialisez-le très tôt avec les chats si vous en avez, car son instinct de prédation est fort.",
+  "activite": "Deux heures par jour : canicross, cani-VTT, cani-trottinette, traîneau, ski-joëring. Il est fait pour courir longtemps. Par temps chaud, il faut limiter les efforts et sortir tôt le matin ou tard le soir.",
+  "soins": "Il mue massivement deux fois par an : brossage quotidien pendant ces périodes, hebdomadaire le reste du temps. Ne le tondez jamais, son sous-poil le protège aussi de la chaleur. Il mange souvent moins qu’on ne l’imagine pour sa taille.",
+  "vigilance": [
+   "Clôture haute et enterrée indispensable : il saute et creuse.",
+   "Très risqué avec les chats et les petits animaux.",
+   "Il supporte mal la chaleur et la solitude.",
+   "Des poils partout pendant les mues."
+  ]
+ },
+ "bouledogue-francais": {
+  "quotidien": "Le Bouledogue Français est un clown affectueux, calme à la maison et très attaché à ses maîtres. Il s’adapte parfaitement à la vie en appartement et se montre doux avec les enfants. Il ronfle, renifle et fait beaucoup de bruits : c’est le revers de son museau écrasé.",
+  "education": "Il est malin mais têtu : récompenses, patience et séances courtes. La propreté et le calme à la maison s’obtiennent assez facilement. Il est sensible : la voix forte et les punitions sont contre-productives.",
+  "activite": "Trois quarts d’heure de promenade par jour suffisent, à un rythme tranquille. Les efforts intenses et la chaleur lui sont dangereux : en été, sortez-le uniquement aux heures fraîches. Il ne sait pas bien nager : une piscine non protégée est un vrai danger.",
+  "soins": "Nettoyez ses plis du visage plusieurs fois par semaine pour éviter les irritations. Utilisez un harnais plutôt qu’un collier, qui gêne sa respiration. Surveillez son poids, qui aggrave les difficultés respiratoires.",
+  "vigilance": [
+   "Le syndrome respiratoire des races à museau court est fréquent : choisissez un éleveur qui sélectionne des chiens aux narines bien ouvertes et qui respirent bien à l’effort.",
+   "Coup de chaleur : jamais seul dans une voiture, jamais d’effort par temps chaud.",
+   "Le budget vétérinaire est souvent élevé (respiration, dos, peau).",
+   "Il supporte mal la solitude prolongée."
+  ]
+ },
+ "bouvier-bernois": {
+  "quotidien": "Le Bouvier Bernois est un géant doux, calme et très affectueux, excellent avec les enfants et sociable avec les autres animaux. Il aime participer à la vie de famille et rester près des siens. Ancien chien de ferme, il tirait autrefois les charrettes de lait.",
+  "education": "Il apprend volontiers et cherche à bien faire, avec un caractère placide. Commencez tôt l’apprentissage de la marche en laisse, car l’adulte est très lourd. Il mûrit lentement et reste un grand bébé pendant deux ans.",
+  "activite": "Une heure par jour, sans excès. Pendant la croissance, évitez les escaliers répétés, les sauts et les longues courses pour protéger ses articulations. Adulte, il apprécie les randonnées tranquilles et le cani-trait. Il souffre de la chaleur.",
+  "soins": "Il perd énormément de poils : brossage deux à trois fois par semaine, tous les jours pendant les mues. Donnez deux repas par jour et évitez l’effort après manger pour limiter le risque de torsion d’estomac. Il bave un peu après avoir bu.",
+  "vigilance": [
+   "Son espérance de vie est courte et les cancers sont fréquents dans la race.",
+   "Exigez le dépistage de la dysplasie de la hanche et du coude des parents.",
+   "Il supporte très mal la chaleur.",
+   "Il lui faut de la place, à la maison comme dans la voiture."
+  ]
+ },
+ "beauceron": {
+  "quotidien": "Le Beauceron, ou Bas-Rouge, est un grand berger français puissant, loyal et protecteur. Calme et sûr de lui à l’âge adulte, il se méfie des inconnus et garde son territoire avec sérieux. Il porte des doubles ergots aux pattes arrière, exigés par le standard.",
+  "education": "C’est un chien de caractère qui mûrit lentement, vers trois ans. Il lui faut un maître expérimenté, ferme et juste, sans brutalité. La socialisation précoce est indispensable pour que son instinct de garde reste maîtrisé.",
+  "activite": "Deux heures par jour. Le troupeau, le ring, l’obéissance, le pistage et les grandes randonnées lui conviennent. Il a besoin d’espace : un appartement ne lui convient pas.",
+  "soins": "Son poil court se brosse une fois par semaine, plus souvent pendant la mue. Donnez deux repas par jour et évitez l’effort juste après manger (torsion d’estomac). Pensez à couper les doubles ergots s’ils ne s’usent pas.",
+  "vigilance": [
+   "Ce n’est pas un premier chien.",
+   "Il protège sa maison et ses maîtres : les visiteurs doivent être présentés.",
+   "Les rencontres avec d’autres chiens, surtout du même sexe, demandent de la vigilance.",
+   "Exigez le dépistage de la dysplasie des parents."
+  ]
+ },
+ "shiba-inu": {
+  "quotidien": "Le Shiba Inu est souvent comparé à un chat : propre, indépendant, peu démonstratif et fier. Il aime sa famille mais à sa manière, sans être collant. Il supporte bien de rester seul, mais il a son caractère et pousse un cri très aigu, le cri du Shiba, quand quelque chose lui déplaît.",
+  "education": "Il obéit quand il le décide. La patience, les récompenses et l’humour fonctionnent mieux que l’autorité. Habituez-le très tôt aux manipulations (pattes, brossage, oreilles), qu’il tolère mal. Le rappel n’est presque jamais fiable.",
+  "activite": "Une heure par jour, toujours en laisse ou dans un espace bien clos. Il aime explorer et flairer. Il peut aussi faire de la cani-randonnée ou du pistage.",
+  "soins": "Il mue massivement deux fois par an : brossage quotidien pendant ces périodes. Le reste du temps, un brossage hebdomadaire suffit. Il est naturellement propre et sent peu le chien.",
+  "vigilance": [
+   "Grand fugueur : jamais lâché hors d’un espace clos.",
+   "Ce n’est pas un chien câlin.",
+   "Il peut être possessif avec sa nourriture et ses jouets.",
+   "Il s’entend souvent mal avec les chiens du même sexe."
+  ]
+ },
+ "berger-blanc-suisse": {
+  "quotidien": "Le Berger Blanc Suisse est un berger doux et équilibré, très attaché à sa famille et bon avec les enfants. Moins tranchant que le Berger Allemand dont il descend, il reste vigilant et prévient volontiers de l’arrivée d’un visiteur.",
+  "education": "Il apprend facilement mais il est sensible : la douceur et les récompenses donnent les meilleurs résultats. Travaillez tôt le calme et les aboiements, et socialisez-le largement pour limiter sa réserve envers les inconnus.",
+  "activite": "Une heure et demie par jour. L’obéissance, l’agility, le pistage, la cani-randonnée et le canicross lui conviennent. Il aime travailler avec son maître.",
+  "soins": "Il perd beaucoup de poils blancs, qui se voient partout : brossage deux à trois fois par semaine, tous les jours pendant les mues. Il peut porter la mutation MDR1, qui rend certains médicaments dangereux : faites-le tester.",
+  "vigilance": [
+   "Il aboie volontiers.",
+   "Les poils blancs se voient sur tout.",
+   "Exigez le dépistage de la dysplasie de la hanche et du coude des parents.",
+   "Il supporte mal la solitude prolongée."
+  ]
+ },
+ "eurasier": {
+  "quotidien": "L’Eurasier, créé en Allemagne dans les années 1960, est un chien calme, équilibré et profondément attaché à sa famille. Il est affectueux avec les siens et réservé, voire distant, avec les inconnus. Il a besoin de vivre à l’intérieur, au milieu de la famille.",
+  "education": "Il est sensible et réfléchi : l’éducation doit être douce et cohérente. La socialisation précoce aide à limiter sa méfiance envers les inconnus. Il n’est pas fait pour les répétitions mécaniques : variez les exercices.",
+  "activite": "Une heure par jour, à un rythme modéré. Il aime les balades en forêt et la cani-randonnée. Il supporte mal la chaleur grâce à son épaisse fourrure : sortez-le aux heures fraîches en été.",
+  "soins": "Brossage hebdomadaire, quotidien pendant les mues, abondantes. Ne le tondez pas. Surveillez ses yeux (entropion) et sa thyroïde avec l’âge.",
+  "vigilance": [
+   "Il ne supporte pas d’être isolé au jardin ou en chenil.",
+   "Sa méfiance envers les inconnus doit être travaillée tôt.",
+   "Les mues sont spectaculaires.",
+   "Il craint la chaleur."
+  ]
+ },
+ "spitz-nain-loulou-de-pomeranie": {
+  "quotidien": "Le Spitz Nain, ou Loulou de Poméranie, est une petite boule de poils vive, curieuse et sûre d’elle. Très attaché à ses maîtres, il est un excellent chien d’alerte et aboie au moindre bruit. Il s’adapte parfaitement à un appartement.",
+  "education": "Il apprend vite, mais il faut travailler tôt les aboiements et le calme. Éduquez-le comme un vrai chien plutôt que de le porter partout. Socialisez-le avec des chiens calmes et des enfants respectueux.",
+  "activite": "Une demi-heure de promenade par jour et des jeux à la maison suffisent, mais il apprécie de marcher plus. L’agility et les tours d’obéissance l’amusent beaucoup.",
+  "soins": "Son épaisse fourrure demande un brossage deux à trois fois par semaine. Ne le rasez pas : le poil peut mal repousser. Brossez ses dents, utilisez un harnais pour protéger sa trachée, et donnez au chiot plusieurs repas par jour pour éviter l’hypoglycémie.",
+  "vigilance": [
+   "Il aboie beaucoup.",
+   "Très fragile avec les jeunes enfants et lors des chutes.",
+   "Les soins dentaires sont à prévoir.",
+   "L’entretien du poil est régulier."
+  ]
+ },
+ "jack-russell-terrier": {
+  "quotidien": "Le Jack Russell est un terrier de chasse plein d’énergie, joueur, courageux et obstiné. Sa petite taille trompe beaucoup de familles : c’est un sportif infatigable, pas un chien d’appartement tranquille. Il chasse tout ce qui bouge et creuse volontiers.",
+  "education": "Il est intelligent mais têtu et très vite distrait par une proie. L’éducation doit être ferme, cohérente et ludique, avec des séances courtes. Socialisez-le tôt avec les autres chiens, car il peut se montrer bagarreur.",
+  "activite": "Une heure et demie par jour au moins, avec du jeu : balle, agility, flyball, canicross, recherche d’objets. S’il ne se dépense pas, il aboie, détruit et fugue.",
+  "soins": "Son poil (lisse, dur ou intermédiaire) demande un brossage hebdomadaire. Des tests génétiques existent pour la luxation du cristallin et les ataxies : demandez les résultats des parents. Contrôlez les rotules si vous remarquez une boiterie.",
+  "vigilance": [
+   "Très risqué avec les chats, rongeurs et oiseaux.",
+   "Il fugue et creuse : jardin bien clos indispensable.",
+   "Il aboie volontiers.",
+   "Ce n’est pas le chien calme qu’on imagine pour sa taille."
+  ]
+ }
+}

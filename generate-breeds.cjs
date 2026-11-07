@@ -90,19 +90,27 @@ const write = (p, s, variants = {}) => {
     const url = pageUrl(p);
     const alts = L10N.map(L => [L, L.routes[url]]).filter(([, u]) => u);
     const abs = u => SITE_URL + u;
-    const head = alts.length
-        ? [['fr', url], ...alts.map(([L, u]) => [L.lang, u]), ['x-default', url]].map(([l, u]) => `<link rel="alternate" hreflang="${l}" href="${abs(u)}">`).join('\n    ')
+    // hreflang : seulement entre les langues indexées (une langue en noindex n'a rien à annoncer à Google)
+    const indexed = alts.filter(([L]) => L.indexable);
+    const head = indexed.length
+        ? [['fr', url], ...indexed.map(([L, u]) => [L.lang, u]), ['x-default', url]].map(([l, u]) => `<link rel="alternate" hreflang="${l}" href="${abs(u)}">`).join('\n    ')
         : '';
     const versions = [{ lang: 'fr', url, label: 'Français' }, ...alts.map(([L, u]) => ({ lang: L.lang, url: u, label: L.cfg.switchLabel }))];
     const finish = (html, sw) => (head ? html.replace('</head>', `    ${head}\n</head>`) : html).replace(/__LANG_SWITCH__\n?/, sw ? `${sw}\n` : '');
+    const noindex = html => (/<meta name="robots" content="[^"]*">/.test(html)
+        ? html.replace(/<meta name="robots" content="[^"]*">/, '<meta name="robots" content="noindex, follow">')
+        : html.replace('</head>', '    <meta name="robots" content="noindex, follow">\n</head>'));
+    // Sections écrites à la main en français seulement (<!--guide-->…<!--/guide-->) : retirées des versions traduites
+    const noGuide = h => h.replace(/<!--guide-->[\s\S]*?<!--\/guide-->\n?/g, '');
     for (const [L, u] of alts) {
-        let html = L.localize(frTypo(variants[L.lang] || s), p);
+        let html = L.localize(frTypo(noGuide(variants[L.lang] || s)), p);
         html = html.replace(/\/data\/breeds-index\.json(\?v=[\w-]+)?/g, `/data/breeds-index.${L.lang}.json?v=${L.vData}`)
             .replace('<script src="/js/icons.js', `<script src="/js/i18n.${L.lang}.js?v=${L.vClient}" defer></script>\n    <script src="/js/icons.js`);
+        if (!L.indexable) html = noindex(html);
         const file = L.fileOf(u);
         writeFile(file, stamp(file, finish(html, langLinks(versions, L.lang)), FMT_DATE[L.lang] || FMT_DATE.fr));
     }
-    writeFile(p, stamp(p, finish(frTypo(s), alts.length ? langLinks(versions, 'fr') : '')));
+    writeFile(p, stamp(p, finish(frTypo(s.replace(/<!--\/?guide-->\n?/g, '')), alts.length ? langLinks(versions, 'fr') : '')));
 };
 const hash = p => crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, p))).digest('hex').slice(0, 10);
 
@@ -112,6 +120,8 @@ const hash = p => crypto.createHash('sha1').update(fs.readFileSync(path.join(ROO
 
 const data = JSON.parse(read('data/breeds.json'));
 const breeds = data.breeds.slice().sort((a, b) => a.name_fr.localeCompare(b.name_fr, 'fr'));
+// Sections « Vivre avec… » écrites à la main pour les races les plus recherchées (data/guides.json)
+const GUIDES = fs.existsSync(path.join(ROOT, 'data/guides.json')) ? JSON.parse(read('data/guides.json')) : {};
 const COUNT = breeds.length;
 breeds.filter(b => b.lof?.['2025']).sort((a, b) => b.lof['2025'] - a.lof['2025']).forEach((b, i) => { b.lofRank = i + 1; });
 const popular = breeds.filter(b => b.lofRank).sort((a, b) => a.lofRank - b.lofRank);
@@ -544,6 +554,22 @@ function faq(b) {
     return out;
 }
 
+// Section « Vivre avec un … » (data/guides.json) : en français seulement, write() la retire des versions traduites
+function guideHtml(b) {
+    const g = GUIDES[b.slug];
+    if (!g) return '';
+    const part = (id, h, txt) => `
+                        <h3 id="${id}" class="mt-6 text-lg font-bold text-slate-900">${h}</h3>
+                        <p class="mt-2 leading-relaxed text-slate-700">${esc(txt)}</p>`;
+    return `<!--guide-->
+                    <section aria-labelledby="vivre">
+                        <h2 id="vivre" class="text-2xl font-bold text-slate-900">Vivre avec un ${esc(b.name_fr)}</h2>${part('quotidien', 'Au quotidien', g.quotidien)}${part('education', 'Éducation', g.education)}${part('activite', 'Activité et dépense', g.activite)}${part('soins', 'Alimentation et soins', g.soins)}
+                        <h3 id="avant-adopter" class="mt-6 text-lg font-bold text-slate-900">Avant d’adopter</h3>
+                        <ul class="mt-3 space-y-2">${g.vigilance.map(x => `<li class="flex gap-2 text-slate-700">${icon('warning-circle', 'mt-1 h-4 w-4 shrink-0 text-amber-700')}<span>${esc(x)}</span></li>`).join('')}</ul>
+                    </section>
+<!--/guide-->`;
+}
+
 function breedPage(b) {
     const url = `${SITE_URL}/races/${b.slug}`;
     const s = b.scores;
@@ -660,6 +686,7 @@ function breedPage(b) {
                         <h2 id="entretien" class="text-2xl font-bold text-slate-900">Poil et entretien</h2>
                         <p class="mt-3 leading-relaxed text-slate-700">Poil ${esc((coat.length || '').toLowerCase())}${coat.type ? `, ${esc(coat.type.toLowerCase())}` : ''}. Perte de poils ${word('perte_poils')}, entretien ${word('entretien_pelage')}.${(coat.colors || []).length ? ` Robes : ${coat.colors.map(esc).join(', ')}.` : ''}</p>
                     </section>
+${guideHtml(b)}
                 </div>
 
                 <aside class="order-first min-w-0 lg:order-none" aria-labelledby="bref">
@@ -810,11 +837,13 @@ function sitemap() {
     ];
     const image = b => (b?.image ? `<image:image><image:loc>${SITE_URL}/${b.image.url}</image:loc></image:image>` : '');
     // Chaque page et ses versions dans les autres langues, liées entre elles
+    // Langues en noindex ("indexer": false) : hors du sitemap
+    const IDX = L10N.filter(L => L.indexable);
     const alt = u => {
-        const a = L10N.map(L => [L.lang, L.routes[u]]).filter(([, x]) => x);
+        const a = IDX.map(L => [L.lang, L.routes[u]]).filter(([, x]) => x);
         return a.length ? [['fr', u], ...a, ['x-default', u]].map(([l, x]) => `<xhtml:link rel="alternate" hreflang="${l}" href="${SITE_URL}${x}"/>`).join('') : '';
     };
-    const entries = urls.flatMap(([u, pr, f, b]) => [[u, file(u), pr, f, b, u], ...L10N.filter(L => L.routes[u]).map(L => [L.routes[u], L.fileOf(L.routes[u]), pr, f, b, u])]);
+    const entries = urls.flatMap(([u, pr, f, b]) => [[u, file(u), pr, f, b, u], ...IDX.filter(L => L.routes[u]).map(L => [L.routes[u], L.fileOf(L.routes[u]), pr, f, b, u])]);
     return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${entries.map(([u, fp, pr, f, b, fr]) => `  <url><loc>${SITE_URL}${u}</loc><lastmod>${lastmod[fp]?.d || TODAY}</lastmod><changefreq>${f}</changefreq><priority>${pr}</priority>${alt(fr)}${image(b)}</url>`).join('\n')}
