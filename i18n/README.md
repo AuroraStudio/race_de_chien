@@ -50,5 +50,5 @@ Copier `i18n/es/` en `i18n/<langue>/` (sans `dictionnaire.json`), adapter `confi
 libellé, ordinaux), traduire `races.json`, réécrire `modeles.cjs` et `guide.md` pour la langue, puis suivre la marche
 ci-dessus (les lots portent aussi la version anglaise relue, pour lever les ambiguïtés). Ajouter :
 le format de date dans `FMT_DATE` (generate-breeds.cjs), le nom de la langue dans `LANG_LABEL` et ses guillemets dans
-`QUOTE_MARKS` (js/header.js), les messages de l'API Tel Maître (`api/match-breed.js`), une ligne dans `404.html`,
+`QUOTE_MARKS` (js/header.js), les messages de l'API Tel Maître (`lib/tel-maitre.mjs`), une ligne dans `404.html`,
 le dossier dans la liste `git add` de l'Action GitHub. Le contrôle du français resté : `node lib/i18n-lots.cjs controler <langue>`.

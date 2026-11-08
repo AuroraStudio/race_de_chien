@@ -7,21 +7,19 @@
   publish = "_site"
   # Pas de build quand le commit ne touche que des fichiers jamais servis (sources, documents, CI).
   # Premier build ou même commit que le dernier (redéploiement manuel) : on construit toujours.
-  ignore = "[ -n \"$CACHED_COMMIT_REF\" ] && [ \"$CACHED_COMMIT_REF\" != \"$COMMIT_REF\" ] && git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':(exclude)sources' ':(exclude).github' ':(exclude).claude' ':(exclude).impeccable' ':(exclude)*.md' ':(exclude).gitignore' ':(exclude).vercelignore' ':(exclude)vercel.json'"
+  ignore = "[ -n \"$CACHED_COMMIT_REF\" ] && [ \"$CACHED_COMMIT_REF\" != \"$COMMIT_REF\" ] && git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':(exclude)sources' ':(exclude).github' ':(exclude).claude' ':(exclude).impeccable' ':(exclude)*.md' ':(exclude).gitignore'"
 
 [build.environment]
   NODE_VERSION = "24"
 
 [functions]
   node_bundler = "esbuild"
-  # api/match-breed.js (version Vercel, source de la consigne) l'importe en option : absent ici
-  external_node_modules = ["@vercel/kv"]
 
-# IndexNow après chaque déploiement de production (remplace .github/workflows/indexnow.yml)
+# IndexNow après chaque déploiement de production
 [[plugins]]
   package = "./plugins/indexnow"
 
-# En-têtes repris de vercel.json (pages et fichiers ; la fonction /api/match-breed pose les siens)
+# En-têtes des pages et des fichiers (la fonction /api/match-breed pose les siens)
 [[headers]]
   for = "/*"
   [headers.values]

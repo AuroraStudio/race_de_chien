@@ -1,12 +1,11 @@
-// Tel Maître, Tel Chien sur Netlify : photo → race la plus ressemblante, à la même adresse qu'avant (/api/match-breed).
-// La consigne, le catalogue des races, le schéma de réponse et les messages restent dans api/match-breed.js
-// (une seule source) ; ce fichier ne fait que l'accueil de la requête façon Netlify.
+// Tel Maître, Tel Chien : photo → race la plus ressemblante (/api/match-breed).
+// La consigne, le catalogue des races, le schéma de réponse et les messages sont dans lib/tel-maitre.mjs.
 import Anthropic from '@anthropic-ai/sdk';
-import { buildRequest, normalizeResult, MSG, MAX_IMAGE_SIZE, RATE_LIMIT_WINDOW } from '../../api/match-breed.js';
+import { buildRequest, normalizeResult, MSG, MAX_IMAGE_SIZE, RATE_LIMIT_WINDOW } from '../../lib/tel-maitre.mjs';
 
 const SITE = ['https://race-de-chien.com', 'https://www.race-de-chien.com'];
 
-// Limite par IP gardée en mémoire (remise à zéro quand Netlify recycle la fonction), comme sur Vercel
+// Limite par IP gardée en mémoire (remise à zéro quand Netlify recycle la fonction)
 const essais = new Map();
 let client = null;
 

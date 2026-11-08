@@ -28,7 +28,7 @@ Chaque race est notée de 1 à 5 sur les mêmes 20 critères, relus et harmonis�
 
 ## Capabilities and Constraints
 
-- Site statique généré par `npm run generate` depuis `data/breeds.json` et `templates/` ; Tailwind 3.4 compilé ; hébergé sur Vercel, déployé à chaque push sur `main`.
+- Site statique généré par `npm run generate` depuis `data/breeds.json` et `templates/` ; Tailwind 3.4 compilé ; hébergé sur Netlify, déployé à chaque push sur `main`.
 - Adresses des pages (`/races/<slug>`, `/selections/<slug>`, `/groupes/<slug>`) stables : le référencement en dépend.
 - Mesure d'audience (Google Analytics) seulement après consentement.
 - Les photos des races sont générées par IA dans un même style studio, fond gris uni, chien entier de trois quarts.
