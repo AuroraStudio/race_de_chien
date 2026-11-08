@@ -1,0 +1,146 @@
+{
+  "yorkshire-terrier": {
+    "quotidien": "Le Yorkshire Terrier est un vrai terrier dans un format de poche : assuré, vif et prêt à tenir tête à bien plus gros que lui. Descendant de chasseurs de rats des filatures, il reste vigilant et signale le moindre bruit. Il vit très bien en appartement, à condition d’être traité comme un chien et non comme un accessoire.",
+    "education": "Il apprend vite quand les séances restent courtes et amusantes, mais il prend vite le pouvoir si on lui passe tout sous prétexte qu’il est petit. Donnez-lui les mêmes règles qu’à un grand chien, habituez-le tôt aux autres chiens et aux manipulations, et apprenez-lui à se taire sur demande.",
+    "activite": "Une demi-heure de sortie par jour lui suffit, complétée par des jeux de recherche à la maison. Il apprécie les balades variées où il peut fureter. Prévoyez un manteau en hiver, car il supporte très mal le froid.",
+    "soins": "Son poil long et soyeux perd très peu mais se noue vite : brossage quotidien, ou coupe courte régulière si vous ne le gardez pas long. Brossez ses dents dès le plus jeune âge et faites vérifier les dents de lait qui ne tombent pas. Promenez-le au harnais pour ménager sa trachée.",
+    "vigilance": [
+      "Une toux rauque répétée peut signaler un collapsus trachéal : consultez.",
+      "Une patte arrière levée par moments évoque une luxation de la rotule.",
+      "Il aboie facilement, ce qui peut gêner le voisinage.",
+      "Sa petite taille le rend fragile face aux chutes et aux jeux brusques."
+    ]
+  },
+  "shih-tzu": {
+    "quotidien": "Le Shih Tzu est un chien de compagnie au sens plein : ancien favori des monastères tibétains et de la cour chinoise, il cherche surtout à être près des siens. Enjoué sans être agité, il s’entend bien avec les enfants, les autres chiens et les chats. C’est un excellent premier chien, très à l’aise en appartement.",
+    "education": "Il est aimable mais peut faire la sourde oreille quand la demande ne l’intéresse pas. Misez sur la douceur, la répétition et les récompenses, et évitez de le porter partout. La propreté demande parfois de la patience, surtout avec un chiot.",
+    "activite": "Une demi-heure de promenade par jour, à son rythme, suffit à le garder en forme. Évitez tout effort aux heures chaudes : son museau court le rend très sensible à la chaleur. Préférez les sorties tôt le matin ou tard le soir en été.",
+    "soins": "Son long pelage double exige un brossage quotidien, ou une tonte régulière plus simple à gérer. Attachez les poils qui tombent sur ses yeux et nettoyez ceux-ci souvent. Contrôlez aussi ses oreilles, sujettes aux otites, et promenez-le au harnais pour ne pas gêner sa respiration.",
+    "vigilance": [
+      "Le syndrome brachycéphale impose de surveiller toute respiration bruyante ou difficile.",
+      "Un œil qui pleure ou reste fermé peut cacher un ulcère de cornée : consultez vite.",
+      "En été, le coup de chaleur est un vrai danger.",
+      "Évitez les sauts répétés, en raison du risque de hernie discale."
+    ]
+  },
+  "shetland-sheepdog-berger-des-shetland": {
+    "quotidien": "Le Shetland Sheepdog (Berger des Shetland) ressemble à un Colley miniature, mais il a son propre caractère : fin, sensible, très lié à sa famille et réservé avec les inconnus. Né pour garder moutons et poneys, il surveille tout ce qui bouge. Il supporte mal de rester seul longtemps et préfère un foyer souvent présent.",
+    "education": "C’est l’un des élèves les plus doués qui soient : il comprend vite et veut bien faire. Une voix dure le blesse, donc restez calme et encourageant. Socialisez-le tôt pour limiter sa méfiance envers les inconnus, et apprenez-lui dès le début à cesser d’aboyer sur demande.",
+    "activite": "Une heure par jour, avec une vraie part de travail mental : obéissance, agility, apprentissage de nouveaux tours. Il excelle dans les sports canins et a besoin d’un rôle à tenir. Il peut tenter de rassembler enfants ou vélos si on ne l’occupe pas.",
+    "soins": "Son pelage double perd beaucoup : comptez plusieurs brossages par semaine, en insistant derrière les oreilles et sous les pattes, où se forment les nœuds. Ne le tondez pas. Demandez le test MDR1 avant tout traitement antiparasitaire ou anesthésie, car certains médicaments lui sont dangereux.",
+    "vigilance": [
+      "Il aboie beaucoup : le voisinage peut en souffrir.",
+      "La solitude prolongée le rend anxieux.",
+      "Exigez le dépistage de l’anomalie de l’œil du Colley chez les parents.",
+      "Signalez au vétérinaire toute lésion de peau au museau ou aux oreilles, signe possible de dermatomyosite."
+    ]
+  },
+  "staffordshire-terrier-americain": {
+    "quotidien": "L’American Staffordshire Terrier est un chien très attaché à ses maîtres, joyeux et étonnamment tendre sous sa carrure musclée. Inscrit au LOF, il relève en France de la deuxième catégorie ; un chien de ce type sans pedigree relève de la première. Il supporte mal la solitude et a besoin d’être vraiment intégré à la vie de famille.",
+    "education": "Ce n’est pas un chien pour un débutant : sa force impose un maître expérimenté, calme et constant, qui travaille par le renforcement positif. Socialisez-le très tôt et longuement, surtout avec ses congénères. Le rappel et la marche en laisse doivent être solides, car il tire avec une puissance rare.",
+    "activite": "Une heure et demie par jour, partagée entre marche soutenue, jeux de traction encadrés et exercices d’obéissance. Il aime se dépenser avec son maître. Pas d’efforts violents pendant la croissance, et pas de liberté près d’autres chiens sans certitude absolue.",
+    "soins": "Son poil ras se contente d’un brossage de temps en temps. Surveillez sa peau, car les allergies cutanées sont courantes, et gardez-le à un poids stable pour ménager hanches et genoux. Le test de la céroïde-lipofuscinose se demande à l’éleveur.",
+    "vigilance": [
+      "Obligations des chiens catégorisés : permis de détention, évaluation comportementale, assurance responsabilité civile, laisse et muselière dans les lieux publics.",
+      "Le risque est réel avec les autres chiens et avec les chats.",
+      "Exigez le dépistage de la dysplasie chez les parents.",
+      "Une boiterie soudaine peut signaler une rupture du ligament croisé."
+    ]
+  },
+  "petit-epagneul-de-munster": {
+    "quotidien": "Le Petit épagneul de Münster est un chasseur polyvalent, élégant et très proche de son maître, capable d’arrêter et de rapporter en plaine, au bois comme à l’eau. À la maison, il se montre doux avec les enfants et équilibré, à condition d’avoir eu sa dose d’activité. Il supporte mal la solitude et s’épanouit mal en appartement.",
+    "education": "Il apprend facilement et aime coopérer, mais sa passion pour le gibier passe souvent avant tout le reste. Travaillez le rappel et le contrôle dès le plus jeune âge, avec constance et sans dureté. Un maître qui a déjà eu un chien actif s’en sortira plus facilement.",
+    "activite": "Il lui faut deux heures d’activité par jour, idéalement en nature : chasse, pistage, rapport, nage ou longues randonnées. Sans ce travail, il s’ennuie et devient remuant. Une simple promenade en laisse autour du pâté de maisons ne lui suffit pas.",
+    "soins": "Un brossage hebdomadaire entretient son poil mi-long et ses franges. Après chaque sortie en été, inspectez oreilles, pattes et truffe à la recherche d’épillets. Ses oreilles tombantes doivent rester propres et sèches, surtout après la baignade, pour éviter les otites.",
+    "vigilance": [
+      "Son instinct de chasse est très fort : prudence près des routes, du gibier et des petits animaux.",
+      "Exigez le dépistage de la dysplasie de la hanche chez les parents.",
+      "Des crises convulsives évoquent une épilepsie et justifient une consultation.",
+      "La solitude prolongée entraîne agitation et destructions."
+    ]
+  },
+  "welsh-corgi-pembroke": {
+    "quotidien": "Le Welsh Corgi Pembroke est un bouvier gallois bas sur pattes, conçu pour mordiller les talons du bétail en esquivant les sabots. Vif, sociable et plein d’humour, il suit sa famille partout et donne son avis sur tout. Sa petite taille cache un vrai chien de travail, solide et endurant.",
+    "education": "Il comprend vite et aime apprendre, ce qui en fait un bon compagnon pour un débutant motivé. Canalisez tôt son réflexe de pincer les talons, notamment avec les enfants qui courent. Apprenez-lui aussi à se calmer sur demande, car il a beaucoup de voix.",
+    "activite": "Une heure par jour, faite de marche, de jeux et d’exercices de réflexion ; l’obéissance et les parcours adaptés lui plaisent. Limitez les sauts et les escaliers répétés, car son long dos est exposé. Il reste actif et joueur longtemps.",
+    "soins": "Son poil double est simple à entretenir, mais il perd énormément, surtout pendant la mue : brossez-le plusieurs fois par semaine. Surveillez strictement sa ration, car il réclame sans cesse et grossit facilement. Le surpoids aggrave ses risques pour le dos et les hanches.",
+    "vigilance": [
+      "L’obésité est le piège classique de la race : pesez les repas et limitez les friandises.",
+      "Une douleur au dos ou une paralysie soudaine évoque une hernie discale : urgence vétérinaire.",
+      "Ses aboiements peuvent gêner le voisinage.",
+      "Demandez à l’éleveur les tests de myélopathie dégénérative et de maladie de von Willebrand."
+    ]
+  },
+  "boxer": {
+    "quotidien": "Le Boxer garde longtemps une âme de chiot : joyeux, clownesque, très démonstratif et d’une grande patience avec les enfants. Il sait aussi se montrer protecteur et vigilant envers sa maison. Très lié aux siens, il supporte mal de rester seul et cherche le contact en permanence.",
+    "education": "Il est intelligent mais facilement distrait et parfois têtu : préférez des séances courtes, gaies et récompensées. Apprenez-lui tôt à ne pas sauter sur les gens, car sa puissance peut renverser un jeune enfant. Socialisez-le bien avec les autres chiens, surtout les mâles entre eux.",
+    "activite": "Une heure et demie par jour, avec des jeux de balle, des courses et des exercices d’obéissance. Évitez absolument l’effort aux heures chaudes, car son museau court gère mal la chaleur. Il craint aussi le froid et l’humidité : prévoyez un abri confortable.",
+    "soins": "Son poil ras demande un simple coup de gant. Donnez deux repas par jour et imposez le repos après manger pour limiter le risque de torsion de l’estomac. Sa santé est fragile : un suivi cardiaque régulier est conseillé, et toute grosseur sur la peau doit être montrée au vétérinaire.",
+    "vigilance": [
+      "Les cancers sont fréquents chez le Boxer : palpez-le régulièrement.",
+      "Malaises ou fatigue à l’effort peuvent signaler une cardiomyopathie.",
+      "Un ventre gonflé avec des efforts pour vomir est une urgence absolue.",
+      "En été, le coup de chaleur peut survenir très vite."
+    ]
+  },
+  "whippet": {
+    "quotidien": "Le Whippet est un lévrier à double visage : une flèche dehors, un chat sur le canapé à la maison. Doux, discret et affectueux, il aboie très peu et s’adapte bien à l’appartement dès lors qu’il peut courir régulièrement. Il aime la chaleur des couvertures et la compagnie des siens.",
+    "education": "Il est sensible et ne répond ni à la brusquerie ni aux répétitions sans fin : restez doux, bref et généreux en récompenses. Le rappel est le vrai défi, car un lièvre ou un chat qui détale efface tout le reste. Travaillez-le tôt, sans jamais le considérer comme acquis.",
+    "activite": "Une heure par jour, avec si possible des pointes de vitesse dans un espace entièrement clos. Il ne court pas longtemps mais à fond, puis se repose des heures. Les cani-courses sur leurre lui conviennent parfaitement.",
+    "soins": "Son poil fin se nettoie d’un coup de gant, mais sa peau se blesse facilement : vérifiez-la après chaque course. Prévoyez un manteau dès qu’il fait froid, car il n’a presque aucune protection. Signalez toujours sa race au vétérinaire avant une anesthésie.",
+    "vigilance": [
+      "Son instinct de poursuite rend la cohabitation avec les chats risquée.",
+      "Une clôture haute et un rappel solide sont indispensables : il part très vite.",
+      "Plaies et déchirures musculaires sont courantes après les courses.",
+      "La sensibilité aux anesthésiques impose un protocole adapté."
+    ]
+  },
+  "coton-de-tulear": {
+    "quotidien": "Le Coton de Tuléar est un petit compagnon malgache au poil blanc et doux, joyeux, câlin et ouvert à tous : enfants, chiens, chats et visiteurs. Très adaptable, il se plaît autant en ville qu’à la campagne. En revanche, il supporte mal la solitude et convient mieux à un foyer souvent présent.",
+    "education": "Il apprend avec plaisir et cherche à faire plaisir, ce qui en fait un excellent premier chien. Quelques minutes de jeu éducatif par jour suffisent. Habituez-le progressivement à rester seul dès son arrivée, par de très courtes absences, pour prévenir l’anxiété de séparation.",
+    "activite": "Trois quarts d’heure de sortie par jour lui conviennent, avec des jeux et quelques exercices amusants. Il aime suivre sa famille en balade et sait aussi se calmer à la maison. Couvrez-le par temps froid et humide, surtout s’il est tondu.",
+    "soins": "Son poil cotonneux est l’essentiel du travail : brossage complet presque chaque jour, en démêlant jusqu’à la peau, surtout pendant la mue juvénile, ou coupe régulière. Brossez aussi ses dents souvent pour limiter le tartre. Surveillez sa peau, car les démangeaisons peuvent révéler une dermatite atopique.",
+    "vigilance": [
+      "Un Coton de Tuléar souvent seul peut aboyer et s’angoisser.",
+      "Un pelage négligé forme des nœuds serrés et douloureux.",
+      "Une patte arrière levée par moments évoque une luxation de la rotule.",
+      "Demandez à l’éleveur le dépistage de la dysplasie rétinienne multifocale."
+    ]
+  },
+  "springer-spaniel-anglais": {
+    "quotidien": "Le Springer Spaniel Anglais est un chien de chasse enthousiaste, chargé à l’origine de faire lever le gibier puis de le rapporter. À la maison, il se montre amical, très joueur et patient avec les enfants. Il supporte mal la solitude et un logement exigu : un jardin et une famille active lui conviennent bien mieux.",
+    "education": "Il est très facile à éduquer, car il adore coopérer et comprend vite. Il conserve néanmoins son enthousiasme de chasseur : le rappel et la marche calme se travaillent tôt. Un maître prêt à s’investir chaque jour obtiendra beaucoup de lui, même sans expérience de la chasse.",
+    "activite": "Comptez deux heures d’activité par jour, de préférence en nature : randonnée, rapport, nage, pistage, agility. Il adore l’eau et revient souvent trempé et ravi. Sans occupation physique et mentale, il devient vite agité et destructeur.",
+    "soins": "Un brossage deux à trois fois par semaine entretient ses franges, qu’il faut parfois égaliser. Séchez et nettoyez ses longues oreilles après chaque baignade pour prévenir les otites. Inspectez son poil et ses pattes après les sorties en forêt ou dans les hautes herbes.",
+    "vigilance": [
+      "Exigez le dépistage de la dysplasie de la hanche et du coude chez les parents.",
+      "Demandez à l’éleveur les tests génétiques de fucosidose et de déficit en PFK.",
+      "L’atrophie progressive de la rétine se manifeste d’abord par une gêne dans le noir.",
+      "Seul trop longtemps, il devient bruyant et destructeur."
+    ]
+  },
+  "braque-allemand-a-poil-court": {
+    "quotidien": "Le Braque Allemand à Poil Court, ou Kurzhaar, est un chien d’arrêt polyvalent et infatigable, conçu pour chasser en plaine, au bois et à l’eau. Il se montre amical et affectueux en famille, mais son énergie impose un mode de vie actif. Il supporte mal la solitude et vit difficilement en appartement.",
+    "education": "Il apprend vite et aime travailler, mais il lui faut un maître qui a déjà de l’expérience : ce n’est pas un chien pour un débutant. Soyez ferme sans dureté, travaillez le rappel dès le plus jeune âge et canalisez son instinct de chasse par des exercices de quête et de rapport.",
+    "activite": "Il lui faut deux heures d’activité soutenue par jour : chasse, canicross, vélo une fois adulte, nage, pistage. Sans cela, il devient nerveux et invente ses propres occupations. Il travaille volontiers par tous les temps, mais craint le froid au repos.",
+    "soins": "Son poil court se contente d’un brossage hebdomadaire. Donnez deux repas par jour et imposez le repos autour des repas pour limiter le risque de torsion de l’estomac. Vérifiez ses pattes et ses paupières après la chasse, et prévoyez un couchage douillet à l’abri du froid.",
+    "vigilance": [
+      "Une clôture haute et un rappel fiable sont indispensables : il suit une piste sans se retourner.",
+      "Le risque est élevé avec les chats et les petits animaux.",
+      "Exigez le dépistage de la dysplasie chez les parents.",
+      "Des crises convulsives évoquent une épilepsie et justifient une consultation."
+    ]
+  },
+  "samoyede": {
+    "quotidien": "Le Samoyède, spitz blanc de Sibérie au célèbre sourire, a été sélectionné pour garder les rennes, tirer les traîneaux et vivre au contact des familles nomades. Il en garde un besoin très fort de compagnie : il supporte mal la solitude et accueille chaque inconnu en ami, ce qui en fait un piètre gardien. Il s’épanouit mal en appartement.",
+    "education": "Doux mais indépendant, il réfléchit avant d’obéir et se lasse vite des répétitions. Restez patient, varié et encourageant. Travaillez le rappel très tôt, sans jamais le lâcher dans un lieu non clos tant qu’il n’est pas fiable, et apprenez-lui à marcher sans tirer.",
+    "activite": "Une heure et demie par jour, avec randonnée, canicross ou traction quand la température le permet. Il adore la neige et le froid. En été, sortez-le uniquement tôt le matin ou tard le soir, car son épaisse fourrure le fait souffrir de la chaleur.",
+    "soins": "Sa fourrure perd énormément, surtout pendant la mue : plusieurs brossages par semaine, tous les jours en période de mue. Ne le tondez jamais, car elle le protège aussi du soleil. Surveillez son poids, sa soif et son appétit, qui peuvent trahir un diabète ou une hypothyroïdie.",
+    "vigilance": [
+      "Il aboie et hurle volontiers : le voisinage peut en souffrir.",
+      "Une clôture solide est indispensable, car il creuse et fugue.",
+      "En été, le coup de chaleur est un vrai risque.",
+      "Exigez le dépistage de la dysplasie et de la glomérulopathie héréditaire."
+    ]
+  }
+}
