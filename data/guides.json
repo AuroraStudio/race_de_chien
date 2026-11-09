@@ -455,5 +455,149 @@
    "En été, le coup de chaleur est un vrai risque.",
    "Exigez le dépistage de la dysplasie et de la glomérulopathie héréditaire."
   ]
+ },
+ "bichon-havanais": {
+  "quotidien": "Le Bichon Havanais est un petit compagnon enjoué, très sociable, qui s’entend aussi bien avec les enfants qu’avec les autres animaux de la maison. Il s’adapte sans peine à un appartement et suit volontiers son maître de pièce en pièce. Supportant mal la solitude, il convient surtout à un foyer où quelqu’un est présent une bonne partie de la journée.",
+  "education": "Intelligent et désireux de bien faire, il apprend vite avec des séances courtes, ludiques et récompensées. Il convient très bien à un premier chien, à condition d’habituer tôt le chiot à rester seul par petites périodes. Cet apprentissage progressif évite bien des aboiements et des angoisses à l’âge adulte.",
+  "activite": "Trois quarts d’heure de sortie par jour lui suffisent, partagés entre promenades et jeux. Il aime apprendre des tours, rapporter une balle et participer à la vie de famille. Par temps froid, écourtez les sorties, car il y est plutôt sensible.",
+  "soins": "Son long poil soyeux perd très peu mais s’emmêle facilement : un brossage soigneux, presque quotidien, reste indispensable, jusqu’à la peau. Démêlez-le avant chaque bain et surveillez le contour des yeux et les oreilles. Une coupe plus courte allège l’entretien pour un chien qui ne participe pas aux expositions.",
+  "vigilance": [
+   "La luxation de la rotule se repère à une patte arrière soudain levée au trot : parlez-en au vétérinaire.",
+   "Une boiterie persistante du jeune chien peut signaler une maladie de Legg-Calvé-Perthes.",
+   "Un chien qui ne réagit plus aux appels doit faire l’objet d’un contrôle de l’audition.",
+   "Il vit mal les longues absences."
+  ]
+ },
+ "bouledogue-anglais": {
+  "quotidien": "Le Bulldog Anglais est un chien calme et affectueux, très attaché à sa famille et patient avec les enfants. Il passe volontiers une bonne partie de la journée à somnoler près de vous, et il vit très bien en appartement. Il bave, ronfle et perd du poil : mieux vaut le savoir avant de l’adopter.",
+  "education": "Têtu, il écoute quand il y voit un intérêt : la douceur, la constance et les friandises fonctionnent mieux que l’insistance. Ne comptez pas sur une obéissance rapide et gardez des séances très courtes. Présentez-le tôt à d’autres chiens, car certaines rencontres peuvent se tendre.",
+  "activite": "Une demi-heure par jour suffit, en plusieurs petites promenades à allure tranquille. En été, sortez-le seulement à la fraîche, à l’aube ou le soir, car la chaleur peut lui être fatale. Il nage très mal : ne le laissez jamais sans surveillance près d’une piscine ou d’un plan d’eau.",
+  "soins": "Son poil ras se contente d’un brossage par semaine, mais ses plis demandent plus d’attention : nettoyez-les et séchez-les soigneusement, pour prévenir les dermatites. Surveillez aussi ses yeux, son poids et sa respiration. Préférez un harnais au collier, afin de ne pas gêner sa gorge.",
+  "vigilance": [
+   "Sa respiration est fragile : un souffle bruyant à l’effort ou des malaises justifient un avis vétérinaire.",
+   "Les dysplasies de la hanche et du coude sont fréquentes : exigez le dépistage des parents.",
+   "Une petite boule rouge au coin de l’œil évoque une glande nictitante sortie.",
+   "Les mises bas se font presque toujours par césarienne : ne faites pas reproduire votre chienne à la légère."
+  ]
+ },
+ "west-highland-white-terrier": {
+  "quotidien": "Le West Highland White Terrier, ou Westie, est un petit terrier écossais sûr de lui, vif et curieux, qui garde sous sa robe blanche un vrai tempérament de chasseur. Il vit bien en appartement s’il sort assez, et reste assez autonome pour supporter de courtes absences. Il signale tout ce qui bouge : le voisinage peut s’en plaindre.",
+  "education": "Accessible à un premier maître, il demande pourtant de la fermeté tranquille, car il teste volontiers les limites. Récompensez le calme et apprenez-lui tôt à cesser d’aboyer sur demande. Travaillez le rappel sans relâche, car un petit animal qui détale passe avant vos consignes.",
+  "activite": "Une heure par jour, avec de vraies promenades et des jeux qui occupent son flair. Il adore fouiller, creuser et chercher des jouets cachés. Son instinct de chasse est très fort : la cohabitation avec un chat demande une grande prudence, et les rongeurs sont à tenir hors de sa portée.",
+  "soins": "Son double poil raide se brosse plusieurs fois par semaine et s’épile à la main ou se toilette régulièrement chez un professionnel. Sa peau est son point sensible : au moindre grattage persistant, consultez, car la dermatite atopique est fréquente chez lui. Contrôlez aussi ses yeux, qui peuvent s’assécher.",
+  "vigilance": [
+   "Des démangeaisons répétées évoquent une dermatite atopique : traitez-la tôt.",
+   "Une toux sèche ou un essoufflement chez un Westie âgé doit faire penser à la fibrose pulmonaire.",
+   "Un chiot qui a mal en mastiquant peut souffrir d’ostéopathie cranio-mandibulaire.",
+   "Il aboie facilement, ce qui peut gêner en immeuble."
+  ]
+ },
+ "caniche-nain": {
+  "quotidien": "Le Caniche Nain est un compagnon très intelligent, vif et attentif, qui s’installe aussi bien en appartement qu’à la campagne. Il aime être associé à tout ce que fait sa famille et supporte mal de rester seul longtemps. C’est un chien vigilant, prompt à donner de la voix, ce qui mérite attention en immeuble.",
+  "education": "Il compte parmi les chiens les plus faciles à éduquer et convient très bien à un premier maître. Comme il comprend vite, il s’ennuie aussi vite : variez les exercices et proposez-lui de nouveaux tours. Apprenez-lui tôt le calme à la sonnette et la solitude par petites étapes.",
+  "activite": "Une heure par jour, avec de la marche, des jeux et du travail mental, lui convient bien. Descendant de chiens d’eau, il aime souvent nager et il excelle en agilité. Sa petite taille ne doit pas faire oublier que c’est un chien sportif.",
+  "soins": "Son poil bouclé perd très peu mais continue de pousser : il faut le brosser jusqu’à la racine plusieurs fois par semaine et le faire tondre régulièrement, sinon des nœuds serrés se forment. Brossez ses dents très souvent, car la maladie parodontale le guette. Nettoyez aussi ses oreilles.",
+  "vigilance": [
+   "Sans entretien dentaire, le tartre et les pertes de dents arrivent tôt.",
+   "Une gêne soudaine à la marche peut venir d’une luxation de la rotule ou d’une maladie de Legg-Calvé-Perthes.",
+   "Une vision qui baisse la nuit peut signaler une atrophie progressive de la rétine.",
+   "Le toilettage représente un budget régulier à prévoir."
+  ]
+ },
+ "bichon-frise": {
+  "quotidien": "Le Bichon Frisé est un petit chien blanc joyeux et doux, ami de tous, enfants, visiteurs et animaux compris. Il vit parfaitement en appartement et cherche surtout la compagnie de sa famille. Il n’aime pas rester seul : un foyer souvent absent ne lui convient pas.",
+  "education": "C’est un excellent premier chien, mais sa gaieté ne dispense pas d’un cadre clair, avec des règles identiques pour tous. Il peut être distrait : préférez des séances brèves, joyeuses et bien récompensées. La propreté demande parfois de la patience, et l’apprentissage de la solitude doit commencer dès l’arrivée du chiot.",
+  "activite": "Trois quarts d’heure par jour lui suffisent, entre promenades, jeux de balle et petits exercices. Il aime les moments de folie dans la maison, qu’il faut simplement accompagner. Protégez-le des longues sorties par grand froid.",
+  "soins": "Son poil bouclé ne mue presque pas, mais il demande un brossage très régulier jusqu’à la peau et un passage fréquent chez le toiletteur. Nettoyez le tour des yeux, surveillez sa peau et brossez ses dents souvent. Laissez toujours de l’eau fraîche à sa disposition, ce qui aide à limiter les calculs urinaires.",
+  "vigilance": [
+   "Les allergies cutanées sont fréquentes : un grattage qui dure mérite une consultation.",
+   "Du sang dans les urines ou des efforts répétés pour uriner imposent de voir le vétérinaire, car les calculs urinaires le concernent.",
+   "Un œil qui devient blanc ou bleuté peut annoncer une cataracte.",
+   "La luxation de la rotule se manifeste par une patte arrière levée par moments."
+  ]
+ },
+ "berger-belge-tervueren": {
+  "quotidien": "Le Berger Belge Tervueren est un chien élégant, sensible et toujours en alerte, dont la belle robe fauve cache un vrai tempérament de travailleur. Très attaché à son maître, réservé avec les inconnus, il supporte mal de rester seul. Il est fait pour une maison avec un grand jardin et une famille sportive, pas pour un appartement.",
+  "education": "Ce n’est pas un chien pour un débutant : il apprend très vite, le bien comme le mal, et il réagit à la moindre incohérence. Il lui faut un maître expérimenté, calme et juste, sans brutalité. Socialisez-le longuement, car sa méfiance et sa réactivité aux bruits peuvent s’installer.",
+  "activite": "Deux heures par jour au minimum, avec du travail mental en plus de l’exercice physique. L’obéissance, l’agilité ou le pistage lui conviennent très bien. Sans occupation, il invente ses propres activités, rarement à votre goût.",
+  "soins": "Sa longue fourrure double se brosse plusieurs fois par semaine, et chaque jour pendant les mues, qui sont abondantes. Insistez derrière les oreilles, aux culottes et sur le jabot, où se forment les nœuds. Gardez-le mince et ne lui imposez pas d’efforts violents pendant sa croissance.",
+  "vigilance": [
+   "L’épilepsie existe dans la race : renseignez-vous sur les lignées de l’élevage.",
+   "Exigez le dépistage de la dysplasie de la hanche et du coude chez les parents.",
+   "Un chien fatigué, frileux, qui prend du poids peut souffrir d’hypothyroïdie.",
+   "Un chien abattu, aux gencives pâles, doit être vu sans attendre : l’hémangiosarcome touche cette race."
+  ]
+ },
+ "carlin": {
+  "quotidien": "Le Carlin est un petit clown affectueux, qui aime tout le monde et ne cherche qu’à être près de vous. Il vit très bien en appartement et s’entend avec les enfants comme avec les autres animaux. Il déteste la solitude : prévoyez un foyer où il n’est pas seul de longues heures.",
+  "education": "Il veut plaire, mais il a son caractère et la gourmandise pour principal moteur. Récompensez-le avec de toutes petites friandises comptées dans sa ration, pour ne pas le faire grossir. Des séances courtes et joyeuses suffisent, et il convient bien à un premier maître attentif à sa santé.",
+  "activite": "Une demi-heure par jour à allure douce, en plusieurs petites sorties, lui convient. La chaleur est son grand danger : en été, ne le sortez qu’aux heures fraîches et ne le laissez jamais dans une voiture. Arrêtez l’effort dès qu’il peine à respirer.",
+  "soins": "Malgré son poil ras, il perd beaucoup : un brossage régulier limite les dégâts. Nettoyez et séchez les plis de sa face plusieurs fois par semaine, et vérifiez ses yeux tous les jours, car ils sont très exposés. Utilisez un harnais plutôt qu’un collier, et surveillez son poids de près.",
+  "vigilance": [
+   "Un souffle bruyant, des malaises ou une langue bleutée demandent un avis vétérinaire rapide.",
+   "Un œil rouge, fermé ou qui coule est une urgence : les ulcères cornéens s’aggravent vite.",
+   "Des crises convulsives peuvent révéler une encéphalite nécrosante du Carlin.",
+   "L’obésité aggrave tous ses problèmes de santé."
+  ]
+ },
+ "braque-de-weimar": {
+  "quotidien": "Le Braque de Weimar est un grand chien d’arrêt gris argenté, athlétique et très proche des siens, au point de les suivre partout. Il supporte très mal la solitude et peut tout détruire s’il reste seul des journées entières. Il lui faut une maison avec un grand jardin et une famille vraiment active.",
+  "education": "Ce n’est pas un chien pour un débutant : il est intelligent, puissant et n’hésite pas à tester ses limites. Une éducation précoce, ferme et bienveillante est nécessaire, avec un apprentissage progressif de la solitude. Le rappel doit être travaillé sans relâche, car il part vite dès qu’il flaire du gibier.",
+  "activite": "Deux heures d’exercice par jour, avec course, longues balades, pistage ou travail au rapport. Une simple promenade en laisse ne lui suffit pas. Une clôture haute et solide est indispensable, car il fugue volontiers.",
+  "soins": "Son poil ras se contente d’un passage de gant par semaine, mais il protège mal du froid : un manteau peut aider lors des sorties calmes en hiver. Donnez deux repas par jour et évitez l’effort autour des repas pour limiter le risque de torsion de l’estomac. Surveillez ses paupières, sujettes à l’entropion.",
+  "vigilance": [
+   "Un ventre gonflé avec des efforts vains pour vomir est une urgence absolue.",
+   "Les chats et les petits animaux sont en danger : son instinct de chasse est très fort.",
+   "Exigez le dépistage de la dysplasie de la hanche chez les parents.",
+   "Il peut bousculer de jeunes enfants sans le vouloir."
+  ]
+ },
+ "chien-finnois-de-laponie": {
+  "quotidien": "Le Chien Finnois de Laponie est un spitz de taille moyenne, doux et sociable, sélectionné pour conduire les rennes. Il adore les enfants et reste attentif à ce qui se passe autour de lui. Il se plaît davantage dans une maison avec jardin qu’en appartement, d’autant qu’il aboie volontiers, ce qui peut gêner le voisinage.",
+  "education": "Coopératif et intelligent, il apprend facilement et convient à un premier maître motivé. Son instinct de rassemblement peut le pousser à suivre les enfants ou les vélos : canalisez-le tôt. Apprenez-lui aussi à cesser d’aboyer sur demande, avec patience et récompenses.",
+  "activite": "Une heure et demie par jour, avec de la marche, des jeux et des activités comme l’agilité ou l’obéissance. Il adore la neige et les journées froides. En été, il souffre de la chaleur : sortez-le tôt le matin ou tard le soir et laissez-lui de l’ombre et de l’eau.",
+  "soins": "Son épais double pelage se brosse une ou deux fois par semaine, puis tous les jours pendant les mues, qui sont très abondantes. Attendez-vous à trouver des poils partout dans la maison. Ne le tondez pas, car cette fourrure le protège.",
+  "vigilance": [
+   "Demandez les résultats des tests génétiques des parents pour l’atrophie progressive de la rétine et la maladie de Pompe.",
+   "Exigez le dépistage de la dysplasie de la hanche.",
+   "Faites contrôler ses yeux, car une cataracte héréditaire existe dans la race.",
+   "Un jardin bien clos évite qu’il parte explorer."
+  ]
+ },
+ "akita": {
+  "quotidien": "L’Akita est un grand chien japonais digne, calme et profondément loyal, mais très réservé envers les inconnus. Il est attaché à sa famille sans être démonstratif et supporte plutôt bien quelques heures seul. Il lui faut une maison avec jardin bien clos, car il protège son territoire avec sérieux.",
+  "education": "Ce n’est absolument pas un chien pour un débutant : il est indépendant, puissant et peu enclin à obéir. Il faut un maître expert, calme et constant, et une socialisation intense dès le plus jeune âge. La prudence s’impose avec les enfants, et les interactions doivent toujours se faire sous surveillance.",
+  "activite": "Une heure par jour de marche en laisse solide, avec des activités qui occupent son esprit. Évitez les parcs à chiens, car il tolère très mal ses congénères, surtout du même sexe. En été, sortez-le aux heures fraîches, car il craint la chaleur.",
+  "soins": "Son double poil épais se brosse une fois par semaine et plus souvent pendant les mues, qui sont spectaculaires. Surveillez sa peau : des pertes de poils par plaques peuvent révéler une adénite sébacée. Donnez deux repas par jour et évitez l’effort autour des repas pour limiter le risque de torsion de l’estomac.",
+  "vigilance": [
+   "Les chiens et les chats sont en danger : la cohabitation est souvent impossible.",
+   "Des yeux rouges avec une dépigmentation du nez évoquent un syndrome uvéo-dermatologique, à traiter vite.",
+   "Exigez le dépistage de la dysplasie de la hanche chez les parents.",
+   "Un ventre gonflé avec des efforts vains pour vomir est une urgence absolue."
+  ]
+ },
+ "griffon-d-arret-a-poil-dur": {
+  "quotidien": "Le Griffon d’arrêt à poil dur Korthals est un chien de chasse polyvalent, amical et très proche de son maître, reconnaissable à sa barbe et à ses sourcils. Doux avec les enfants, il aime travailler près de vous plutôt qu’au loin. Il vit mal la solitude et s’épanouit dans une maison avec jardin.",
+  "education": "Intelligent et coopératif, il apprend facilement avec un maître calme et constant, sans dureté. Un minimum d’expérience aide, surtout pour canaliser son instinct de chasse. Soignez le rappel dès le jeune âge et apprenez-lui progressivement à rester seul.",
+  "activite": "Une heure et demie par jour au moins, avec de la course, de la nage et des recherches de flair. Il a été créé pour la chasse à pied et trouve son compte dans les longues marches et le rapport d’objets. Les petits animaux éveillent vite son envie de poursuite.",
+  "soins": "Son poil dur et rêche se brosse une fois par semaine et s’épile légèrement de temps à autre. Après chaque sortie en nature, vérifiez les oreilles, les pattes et la barbe, où se logent épillets et saletés. Séchez bien ses oreilles après la baignade, car elles sont sujettes aux otites.",
+  "vigilance": [
+   "Exigez le dépistage de la dysplasie de la hanche et du coude chez les parents.",
+   "Une paupière qui s’enroule ou qui pend peut signaler un entropion ou un ectropion.",
+   "Un chien qui secoue la tête ou se gratte l’oreille souffre peut-être d’une otite.",
+   "Sans activité suffisante, il s’ennuie vite en appartement."
+  ]
+ },
+ "bulldog-continental": {
+  "quotidien": "Le Bulldog continental est un molosse de taille moyenne, d’origine suisse, amical et très proche des siens. Pensé pour être plus sportif que le Bulldog anglais, c’est avant tout un chien de famille joueur, bon avec les enfants. Il n’aime pas rester seul longtemps et peut vivre en appartement s’il sort assez.",
+  "education": "Attentif et sûr de lui, il convient à un premier maître, à condition de poser un cadre clair dès le plus jeune âge. Les récompenses et des exercices courts fonctionnent mieux que l’insistance. Multipliez tôt les rencontres avec d’autres chiens, et habituez-le à la solitude par étapes.",
+  "activite": "Une heure par jour, entre promenades, jeux et petits exercices, lui convient. Son museau plus long l’aide à respirer, mais il reste sensible à la chaleur : en été, sortez-le aux heures fraîches et modérez l’effort. Évitez aussi les sauts répétés chez le jeune chien.",
+  "soins": "Son poil ras se brosse environ une fois par semaine. Nettoyez et séchez ses plis régulièrement pour éviter les irritations, et surveillez sa peau. Gardez-le mince pour ménager ses articulations.",
+  "vigilance": [
+   "Une respiration bruyante, même modérée, mérite un avis vétérinaire.",
+   "Exigez le dépistage de la dysplasie de la hanche et du coude chez les parents.",
+   "Une boiterie brutale peut venir d’une rupture du ligament croisé.",
+   "Des paupières irritées peuvent signaler un entropion ou un ectropion."
+  ]
  }
 }
