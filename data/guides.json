@@ -599,5 +599,147 @@
    "Une boiterie brutale peut venir d’une rupture du ligament croisé.",
    "Des paupières irritées peuvent signaler un entropion ou un ectropion."
   ]
+ },
+ "berger-hollandais": {
+  "quotidien": "Le Berger Hollandais est un ancien chien de ferme polyvalent, athlétique et vif, reconnaissable à sa robe bringée. Loyal et vigilant, il s’attache fortement à sa famille mais reste réservé, voire méfiant, avec les inconnus. Il supporte mal la solitude : laissé seul de longues heures, il s’ennuie et peut devenir destructeur.",
+  "education": "Intelligent et motivé par le travail, le Berger Hollandais apprend vite et aime qu’on lui confie une tâche. Il garde une part d’indépendance et réclame un maître expérimenté, cohérent et juste : ce n’est pas un chien pour un débutant. Socialisez-le tôt avec des personnes, des chiens et des lieux variés.",
+  "activite": "Le Berger Hollandais a besoin d’au moins deux heures d’activité par jour, physique et mentale. Il excelle en obéissance, en agility, en pistage et dans les sports de mordant encadrés. Une simple promenade en laisse ne lui suffit pas, et la vie en appartement lui convient mal.",
+  "soins": "Le Berger Hollandais existe en poil court, long et dur ; l’entretien reste simple, avec un brossage hebdomadaire renforcé pendant la mue. C’est un chien robuste, mais demandez le dépistage de la dysplasie de la hanche et du coude chez les parents. Surveillez sa peau, sujette aux allergies.",
+  "vigilance": [
+   "La goniodysplasie, qui peut mener au glaucome, concerne surtout la variété à poil dur : demandez le contrôle des yeux des parents.",
+   "Sans occupation suffisante, son énergie se retourne contre la maison.",
+   "Sa méfiance envers les inconnus demande une socialisation suivie toute sa vie."
+  ]
+ },
+ "dogue-allemand": {
+  "quotidien": "Le Dogue Allemand, aussi appelé Danois, est un géant doux, affectueux et calme à la maison. Très sociable avec sa famille et souvent bon avec les enfants, il impressionne surtout par sa taille et dissuade sans avoir besoin d’aboyer. Il lui faut de la place : un canapé, un couloir ou une voiture deviennent vite étroits.",
+  "education": "Le Dogue Allemand apprend correctement s’il est éduqué avec douceur et constance dès le plus jeune âge. Apprenez-lui très tôt à marcher en laisse sans tirer et à ne pas sauter sur les gens : ce qui amuse chez un chiot devient dangereux chez un adulte de cette taille. Habituez-le aussi aux chats en surveillant les premières rencontres.",
+  "activite": "Le Dogue Allemand se contente d’une heure de marche par jour, répartie en plusieurs sorties. Pendant la croissance, évitez les courses longues, les sauts et les escaliers répétés, qui fatiguent les articulations. Il supporte mal la chaleur : en été, promenez-le tôt le matin et le soir.",
+  "soins": "Le poil court du Dogue Allemand se contente d’un brossage par semaine, mais il bave beaucoup : gardez une serviette à portée de main. Donnez deux ou trois repas par jour et imposez du repos après manger pour limiter le risque de torsion d’estomac. Un suivi cardiaque régulier est conseillé.",
+  "vigilance": [
+   "La dilatation-torsion de l’estomac est une urgence vitale : ventre gonflé, efforts pour vomir sans résultat, agitation.",
+   "La cardiomyopathie dilatée, l’ostéosarcome et le syndrome de Wobbler touchent la race : une boiterie ou une démarche instable doit être montrée au vétérinaire.",
+   "Sa vie est courte et ses frais, à la mesure de sa taille, sont élevés.",
+   "Exigez le dépistage de la dysplasie de la hanche chez les parents."
+  ]
+ },
+ "leonberg": {
+  "quotidien": "Le Leonberg est un géant à l’allure de lion, doux, calme et très attaché à sa famille. Excellent avec les enfants et généralement sociable avec les autres animaux, il vit mieux dans une maison avec un grand jardin qu’en appartement. Il aime être près des siens et suit volontiers la vie de la maison.",
+  "education": "Le Leonberg est un élève facile et volontaire, sensible à la voix et à la récompense. Commencez tôt, car un chiot de cette taille grandit très vite : la marche en laisse, le rappel et l’accueil calme des visiteurs doivent être acquis avant qu’il ne pèse trop lourd. Évitez la brusquerie, qui le braque.",
+  "activite": "Le Leonberg se contente d’une heure de promenade tranquille par jour, sans efforts violents pendant la croissance. Il aime souvent l’eau et la baignade, héritage du Terre-Neuve dont il descend en partie. Il supporte mal la chaleur : en été, réservez les sorties aux heures fraîches.",
+  "soins": "L’épais pelage double du Leonberg perd énormément : brossez-le plusieurs fois par semaine, et chaque jour pendant la mue. Donnez plusieurs repas par jour et laissez-le se reposer après manger, pour limiter le risque de torsion d’estomac.",
+  "vigilance": [
+   "La polyneuropathie héréditaire et la leucoencéphalomyélopathie existent dans la race : demandez les tests génétiques des parents.",
+   "Exigez aussi le dépistage de la dysplasie de la hanche et du coude.",
+   "Les cancers, comme l’ostéosarcome et l’hémangiosarcome, sont fréquents : signalez vite une boiterie ou une grosseur.",
+   "Ventre gonflé et efforts pour vomir sans résultat : urgence vétérinaire."
+  ]
+ },
+ "drahthaar": {
+  "quotidien": "Le Drahthaar, ou chien d’arrêt allemand à poil dur, est un chasseur polyvalent sélectionné pour travailler en plaine, au bois et au marais. Ferme, endurant et très attaché à son maître, il se montre plus réservé avec les inconnus. Il supporte mal la solitude et s’épanouit à la campagne, auprès d’un maître actif.",
+  "education": "Le Drahthaar a du caractère : il lui faut un maître expérimenté, ferme sans dureté, qui sait canaliser sa passion de la chasse. Ce n’est pas un chien pour un débutant. Travaillez le rappel très tôt et de façon suivie, car une piste ou un gibier l’emporte vite sur vos appels.",
+  "activite": "Le Drahthaar a besoin d’au moins deux heures d’activité par jour. La chasse est son terrain naturel ; à défaut, le pistage, le canicross, la recherche d’objets ou les longues randonnées en nature peuvent le satisfaire. Il aime l’eau et supporte très bien le froid.",
+  "soins": "Le poil dur du Drahthaar le protège des ronces et des intempéries et demande peu d’entretien : un brossage hebdomadaire et un épilage léger de temps en temps. Inspectez oreilles, pattes et peau après chaque sortie en nature, et nettoyez régulièrement les oreilles pour prévenir les otites.",
+  "vigilance": [
+   "Son instinct de chasse rend la cohabitation avec les chats risquée.",
+   "Il peut se montrer ferme avec les autres chiens : socialisez-le tôt.",
+   "Exigez le dépistage de la dysplasie de la hanche et du coude et le test de la maladie de von Willebrand chez les parents.",
+   "Évitez l’effort juste après le repas, à cause du risque de torsion de l’estomac."
+  ]
+ },
+ "basset-hound": {
+  "quotidien": "Le Basset Hound est un chien courant calme, doux et sociable, aussi à l’aise avec les enfants qu’avec les autres chiens. Il est bas sur pattes mais lourd et costaud. Il supporte mal la solitude, et sa voix puissante peut vite gêner le voisinage s’il reste seul.",
+  "education": "Le Basset Hound est têtu et indépendant : son nez passe avant vos ordres. Misez sur la patience, des séances courtes et des récompenses alimentaires, sans jamais le brusquer. Le rappel est difficile à obtenir ; gardez-le en laisse hors des zones closes.",
+  "activite": "Le Basset Hound se contente de trois quarts d’heure de promenade par jour, à son rythme, avec du temps pour renifler. Le pistage et les jeux de flair l’occupent mieux que la course. Il supporte mal la chaleur : en été, sortez-le aux heures fraîches.",
+  "soins": "Les longues oreilles du Basset Hound se nettoient chaque semaine pour prévenir les otites, et ses yeux se surveillent de près. Il grossit facilement : mesurez ses rations, car le surpoids aggrave les problèmes de dos. Limitez les sauts et les escaliers, et donnez plusieurs petits repas plutôt qu’un gros.",
+  "vigilance": [
+   "La hernie discale le menace : une douleur au dos ou une faiblesse des pattes arrière impose une visite rapide.",
+   "Ectropion et glaucome : un œil rouge ou douloureux doit être montré au vétérinaire.",
+   "Il fugue dès qu’il suit une piste : jardin bien clos indispensable.",
+   "Il bave et aboie volontiers, ce qui peut gêner en appartement."
+  ]
+ },
+ "basset-fauve-de-bretagne": {
+  "quotidien": "Le Basset fauve de Bretagne est un petit chien courant trapu, courageux et débrouillard, passionné de chasse. Sociable, affectueux et excellent avec les enfants et les autres chiens, il fait aussi un très bon compagnon de famille. Il supporte mal la solitude et donne de la voix, ce qui peut gêner le voisinage.",
+  "education": "Le Basset fauve de Bretagne est têtu : son flair prend souvent le dessus sur l’obéissance. L’éducation demande patience, douceur et constance, avec des séances courtes et des récompenses. Le rappel est le point le plus difficile, à travailler tôt et sans relâche.",
+  "activite": "Le Basset fauve de Bretagne a besoin d’une heure et quart d’activité par jour, idéalement en nature. Le pistage, la recherche et les jeux de flair lui conviennent. Hors des zones sûres, gardez-le en longe : il part sur une piste et n’entend plus rien.",
+  "soins": "Le poil dur et sec du Basset fauve de Bretagne demande peu de soins : un brossage par semaine et un épilage léger de temps en temps. Ses oreilles tombantes se nettoient régulièrement contre les otites. Surveillez sa peau et ses yeux, et inspectez-le après chaque sortie en broussailles.",
+  "vigilance": [
+   "Il fugue très facilement : jardin bien clos et rappel travaillé indispensables.",
+   "Son instinct de chasse impose de la prudence avec les chats.",
+   "L’épilepsie existe dans la race : signalez toute crise au vétérinaire.",
+   "Un œil qui pleure ou se voile (ulcère, cataracte) doit être examiné rapidement."
+  ]
+ },
+ "bichon-maltais": {
+  "quotidien": "Le Bichon Maltais est un petit compagnon joueur, doux et affectueux, qui vit très bien en appartement. Intrépide malgré sa taille, il suit sa famille partout et supporte mal la solitude. Il aboie volontiers au moindre bruit, ce qui peut gêner les voisins.",
+  "education": "Le Bichon Maltais convient à un premier chien, à condition de l’éduquer comme un vrai chien plutôt que comme une peluche. La propreté demande de la régularité. Avec de jeunes enfants, surveillez les jeux : il est fragile et se défend s’il est malmené.",
+  "activite": "Une demi-heure de promenade par jour et des jeux à la maison suffisent au Bichon Maltais. Il aime les petits exercices d’obéissance et les tours appris avec des récompenses. Il craint le froid : un manteau peut être utile l’hiver.",
+  "soins": "Le long poil blanc et soyeux du Bichon Maltais perd très peu mais demande un brossage quotidien pour éviter les nœuds, ou une coupe courte chez le toiletteur. Nettoyez chaque jour le contour des yeux, sujet au larmoiement. Brossez ses dents très régulièrement, car le tartre est son point faible.",
+  "vigilance": [
+   "La luxation de la rotule est fréquente : surveillez une patte qu’il lève en marchant.",
+   "Préférez un harnais au collier, à cause du risque de collapsus de la trachée.",
+   "Le shunt porto-systémique existe dans la race : un chiot chétif ou aux troubles nerveux après les repas doit être examiné.",
+   "Ses aboiements demandent à être canalisés tôt."
+  ]
+ },
+ "pointer-anglais": {
+  "quotidien": "Le Pointer anglais est un chien d’arrêt élégant, doux et affectueux à la maison, mais taillé pour les grands espaces. Sociable avec les enfants, les inconnus et les autres chiens, il supporte mal la solitude et s’ennuie vite s’il ne se dépense pas. Il vit mieux dans une maison avec un grand jardin.",
+  "education": "Le Pointer anglais est sensible et apprend mieux avec la douceur qu’avec la contrainte. Ce n’est pas un chien pour un débutant : son énergie et sa passion de la quête demandent un maître expérimenté. Travaillez le rappel très tôt, car il part loin et vite.",
+  "activite": "Le Pointer anglais a besoin d’au moins deux heures d’activité par jour, avec de vraies courses en terrain sûr. La chasse et les field-trials sont son domaine ; à défaut, le canicross ou les longues sorties en nature le comblent. Une simple balade en laisse ne lui suffit pas.",
+  "soins": "Son poil ras se contente d’un coup de gant chaque semaine. Peu protégé, le Pointer anglais craint le froid et l’humidité : un manteau et un couchage douillet l’aident l’hiver. Inspectez ses pattes après les sorties et surveillez ses yeux et son audition.",
+  "vigilance": [
+   "Il fugue facilement sur une piste : clôture solide et rappel travaillé indispensables.",
+   "Son instinct de chasse rend la vie avec les chats risquée.",
+   "Exigez le dépistage de la dysplasie de la hanche chez les parents.",
+   "Une hypothyroïdie peut se manifester par une prise de poids ou un poil terne."
+  ]
+ },
+ "gascon-saintongeois": {
+  "quotidien": "Le Gascon saintongeois est un chien courant du Sud-Ouest, calme et affectueux, mais avant tout fait pour la chasse en meute. Il existe en deux tailles, le grand et le petit. Il supporte mal la solitude, vit mal en appartement et se plaît davantage avec d’autres chiens et beaucoup d’espace.",
+  "education": "Le Gascon saintongeois est un chien d’ordre au nez fin, qui suit sa piste plus que les ordres. Son éducation demande de la patience, de l’expérience et une grande régularité : ce n’est pas un chien pour un débutant. Le rappel reste fragile dès qu’une odeur l’attire.",
+  "activite": "Le Gascon saintongeois a besoin d’au moins deux heures d’activité par jour, idéalement à la chasse ou en grande nature. À défaut, de longues marches en longe et des jeux de pistage l’aident à se dépenser. Il est endurant et infatigable sur le terrain.",
+  "soins": "Le poil court du Gascon saintongeois demande seulement un brossage de temps en temps. Ses longues oreilles se nettoient chaque semaine contre les otites, et il faut l’inspecter après chaque sortie à la recherche d’épillets et de blessures. Évitez l’effort juste après le repas pour limiter le risque de torsion de l’estomac.",
+  "vigilance": [
+   "Sa belle voix porte loin : il gêne vite le voisinage.",
+   "Il fugue sur une piste : clôture haute et solide indispensable.",
+   "Son instinct de chasse rend la cohabitation avec les chats risquée.",
+   "Exigez le dépistage de la dysplasie de la hanche chez les parents."
+  ]
+ },
+ "boston-terrier": {
+  "quotidien": "Le Boston Terrier est un petit compagnon amical, joueur et très sociable, à l’aise avec les enfants, les inconnus et les autres animaux. Il vit très bien en appartement et convient à un premier chien. Il supporte mal la solitude et préfère suivre sa famille partout.",
+  "education": "Le Boston Terrier est intelligent et apprend facilement avec des récompenses et des séances courtes et ludiques. Il peut se montrer têtu par moments, mais il cherche à faire plaisir. Socialisez-le tôt pour qu’il reste aussi équilibré qu’aimable.",
+  "activite": "Trois quarts d’heure de promenade et de jeu par jour suffisent au Boston Terrier. Il aime courir après une balle et apprendre des tours. Évitez les efforts intenses, surtout par temps chaud : son museau court le rend très sensible à la chaleur.",
+  "soins": "Le poil ras du Boston Terrier demande peu de soins. Ses gros yeux sont exposés : nettoyez-les et consultez vite en cas d’œil rouge, qui pleure ou qu’il garde fermé. Il craint aussi le froid, et un manteau peut l’aider l’hiver. Préférez un harnais au collier pour ménager sa respiration.",
+  "vigilance": [
+   "Le syndrome respiratoire des races à face plate impose d’éviter chaleur et efforts : un ronflement fort ou un essoufflement rapide doit être signalé au vétérinaire.",
+   "Les ulcères de la cornée et la cataracte touchent souvent ses yeux.",
+   "Surveillez la luxation de la rotule et les hémivertèbres, qui peuvent toucher la colonne."
+  ]
+ },
+ "cairn-terrier": {
+  "quotidien": "Le Cairn Terrier est un petit terrier écossais robuste, vif et courageux, au caractère enjoué. Amical avec les enfants et les inconnus, il s’adapte à l’appartement comme à la maison et convient à un premier chien. Il aboie volontiers, ce qui peut gêner le voisinage.",
+  "education": "Le Cairn Terrier est intelligent mais indépendant, comme beaucoup de terriers : misez sur des séances courtes, variées et récompensées. Socialisez-le tôt avec les autres chiens, car il peut se montrer téméraire. Le rappel demande un travail suivi.",
+  "activite": "Une heure par jour de promenades et de jeux convient au Cairn Terrier. Il adore fouiller, creuser et explorer : les jeux de flair et de recherche l’occupent bien. Il est rustique et supporte bien le froid.",
+  "soins": "Le poil dur et hirsute du Cairn Terrier perd peu et se brosse une fois par semaine, avec un épilage de temps en temps pour garder sa texture ; évitez de le tondre. Surveillez sa peau, sujette à la dermatite atopique, et contrôlez ses yeux, car un glaucome peut s’installer discrètement.",
+  "vigilance": [
+   "Son instinct de chasse rend la vie avec les chats et les petits animaux risquée.",
+   "Il fugue et creuse : jardin bien clos et rappel travaillé indispensables.",
+   "La luxation de la rotule et le shunt porto-systémique existent dans la race.",
+   "Chez le chiot, une mâchoire douloureuse peut signaler une ostéopathie crânio-mandibulaire."
+  ]
+ },
+ "terre-neuve": {
+  "quotidien": "Le Terre-Neuve est un géant doux, calme et dévoué, réputé pour sa patience avec les enfants. Sociable avec les autres animaux, il vit mieux dans une maison avec un grand jardin qu’en appartement. Il bave beaucoup et perd énormément de poils : mieux vaut l’accepter avant de l’adopter.",
+  "education": "Le Terre-Neuve apprend facilement avec douceur et constance ; il est sensible et réagit mal à la dureté. Apprenez-lui tôt la marche en laisse et l’accueil calme des visiteurs, car il devient vite très lourd. Il garde un fort instinct de sauvetage dans l’eau.",
+  "activite": "Une heure de promenade tranquille par jour suffit au Terre-Neuve, sans efforts violents pendant la croissance. La nage est son activité préférée et ménage ses articulations ; il excelle aussi en sauvetage aquatique et au trait. Il craint beaucoup la chaleur : en été, sorties aux heures fraîches et ombre obligatoire.",
+  "soins": "L’épais pelage double du Terre-Neuve demande un brossage plusieurs fois par semaine, et chaque jour pendant la mue. Séchez-le bien après la baignade. Donnez plusieurs repas par jour et imposez le repos après manger, pour limiter le risque de torsion d’estomac.",
+  "vigilance": [
+   "Exigez le dépistage de la dysplasie de la hanche et du coude, et des contrôles cardiaques chez les parents.",
+   "La sténose sous-aortique et la cardiomyopathie dilatée peuvent se traduire par de la fatigue ou un essoufflement.",
+   "La cystinurie peut provoquer des calculs urinaires : surveillez ses mictions.",
+   "Ventre gonflé et efforts pour vomir sans résultat : urgence vétérinaire."
+  ]
  }
 }
