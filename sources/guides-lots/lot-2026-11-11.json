@@ -1,0 +1,146 @@
+{
+  "dalmatien": {
+    "quotidien": "Le Dalmatien est un ancien chien de carrosse, taillé pour l’endurance : gai, extraverti et très présent auprès de sa famille. Il supporte mal la solitude et un Dalmatien qui s’ennuie devient vite destructeur. Il vit mieux dans une maison avec un grand jardin qu’en appartement.",
+    "education": "Intelligent mais parfois distrait, le Dalmatien apprend bien avec des séances courtes, variées et récompensées. La constance compte plus que la fermeté. Travaillez le rappel très tôt, car il a tendance à partir loin quand il court.",
+    "activite": "Comptez deux heures d’activité par jour : longues marches, course à vos côtés, canicross ou vélo une fois sa croissance terminée. Le Dalmatien a besoin de se dépenser vraiment, une simple promenade en laisse ne suffit pas.",
+    "soins": "Son poil court se brosse vite, mais le Dalmatien perd ses poils toute l’année et en abondance : un brossage plusieurs fois par semaine limite les dégâts. Laissez-lui toujours de l’eau fraîche à volonté et demandez conseil au vétérinaire sur son alimentation, à cause de sa tendance aux calculs urinaires. Il craint le froid.",
+    "vigilance": [
+      "La surdité congénitale est fréquente : demandez un test auditif des chiots à l’éleveur.",
+      "Les calculs urinaires d’urate sont une particularité de la race : surveillez les mictions difficiles.",
+      "Il fugue volontiers : jardin bien clos et rappel solide indispensables.",
+      "Sa peau est sujette à la dermatite atopique."
+    ]
+  },
+  "braque-francais-type-pyrenees": {
+    "quotidien": "Le Braque français, type Pyrénées est la version la plus petite et la plus légère du Braque français : un chien d’arrêt rustique, doux et très attaché à son maître. À la maison, il est calme et affectueux, excellent avec les enfants. Il supporte mal de rester seul longtemps.",
+    "education": "Docile et sensible, le Braque français, type Pyrénées apprend facilement avec de la douceur et des récompenses. Les méthodes brusques le braquent. Son instinct de chasse est très fort : le rappel doit être travaillé tôt et entretenu toute sa vie.",
+    "activite": "Il lui faut une heure et demie d’activité par jour, idéalement en liberté dans la nature. La chasse, le pistage ou les longues balades en campagne conviennent parfaitement au Braque français, type Pyrénées. Sans sorties suffisantes, il tourne en rond.",
+    "soins": "Son poil court et fin demande très peu d’entretien. Nettoyez et vérifiez ses oreilles tombantes chaque semaine, surtout après les sorties dans l’eau ou les herbes hautes. Donnez deux repas par jour et évitez l’effort juste après manger.",
+    "vigilance": [
+      "Les otites sont fréquentes : inspectez les oreilles régulièrement.",
+      "La torsion de l’estomac est une urgence vétérinaire : ventre gonflé et agitation après le repas doivent alerter.",
+      "Demandez le dépistage de la dysplasie de la hanche des parents.",
+      "Il cohabite difficilement avec les petits animaux."
+    ]
+  },
+  "epagneul-papillon": {
+    "quotidien": "Le Papillon doit son nom à ses grandes oreilles dressées et frangées ; la variété aux oreilles tombantes s’appelle Phalène. Ce petit épagneul nain est vif, gai et sociable, à l’aise en appartement. Il supporte mal la solitude et aime suivre ses maîtres partout.",
+    "education": "Très intelligent et désireux de bien faire, le Papillon est l’un des petits chiens les plus faciles à éduquer, ce qui en fait un bon premier chien. Il excelle en obéissance et en agility. Apprenez-lui tôt à rester calme quand il entend du bruit, car il aboie volontiers.",
+    "activite": "Quarante-cinq minutes de promenade et de jeu par jour lui suffisent, mais le Papillon est plus énergique qu’il n’en a l’air. Les jeux de recherche et les petits exercices d’agility l’occupent bien. Couvrez-le par temps froid.",
+    "soins": "Son poil soyeux, sans sous-poil épais, se brosse deux à trois fois par semaine. Brossez ses dents très régulièrement, car la maladie parodontale est courante chez les petits chiens. Préférez un harnais au collier pour protéger sa trachée.",
+    "vigilance": [
+      "Sa petite taille le rend fragile : surveillez les jeux avec de jeunes enfants et les sauts depuis le canapé.",
+      "La luxation de la rotule est fréquente : une boiterie intermittente doit alerter.",
+      "Une toux qui ressemble à un cri d’oie peut signaler un collapsus trachéal.",
+      "Il aboie facilement, ce qui peut gêner le voisinage."
+    ]
+  },
+  "lagotto-romagnolo": {
+    "quotidien": "Le Lagotto Romagnolo est un ancien chien d’eau italien devenu le spécialiste de la recherche des truffes. Affectueux, joyeux et travailleur, il s’attache beaucoup à sa famille et s’entend bien avec les enfants. Il supporte mal de rester seul de longues heures.",
+    "education": "Intelligent et coopératif, le Lagotto Romagnolo apprend vite avec des récompenses et des séances variées. Son flair est exceptionnel : canalisez-le par des jeux de recherche plutôt que de le laisser fouiller partout. Une socialisation précoce l’aide à rester serein avec les inconnus.",
+    "activite": "Prévoyez une heure et quart d’activité par jour. Le Lagotto Romagnolo adore nager, pister et chercher des objets cachés ; la recherche de truffes ou le travail de flair le comble. Il aime aussi creuser.",
+    "soins": "Son poil bouclé perd très peu mais s’emmêle et feutre vite : un brossage régulier et une tonte plusieurs fois par an sont indispensables. Séchez et nettoyez ses oreilles après la baignade. Vérifiez l’absence d’épillets dans les boucles après chaque balade.",
+    "vigilance": [
+      "Les otites sont fréquentes, surtout chez les chiens qui nagent souvent.",
+      "Exigez des parents testés pour la maladie de surcharge lysosomale du Lagotto et l’abiotrophie cérébelleuse.",
+      "Demandez le dépistage de la dysplasie de la hanche.",
+      "Il peut creuser les plates-bandes."
+    ]
+  },
+  "saint-bernard": {
+    "quotidien": "Le Saint-Bernard est un géant des Alpes suisses, autrefois chien de sauvetage en montagne. Doux, calme et patient, il est remarquable avec les enfants mais prend beaucoup de place. Il bave énormément : prévoyez des serviettes à portée de main.",
+    "education": "L’éducation du Saint-Bernard doit commencer tôt, tant qu’il est encore facile à guider : apprenez-lui à marcher sans tirer et à ne pas sauter sur les gens. Il est volontaire mais parfois lent à obéir. La douceur et la constance fonctionnent mieux que la force.",
+    "activite": "Quarante-cinq minutes de marche tranquille par jour suffisent au Saint-Bernard. Évitez les longues courses, les escaliers et les sauts pendant sa croissance, qui ménagent ses articulations. En été, sortez-le seulement aux heures fraîches.",
+    "soins": "Son poil tombe en abondance : brossez-le plusieurs fois par semaine, et chaque jour pendant la mue. Nettoyez les plis autour de ses yeux et de ses babines. Donnez deux repas par jour et évitez tout effort après manger pour limiter le risque de torsion d’estomac.",
+    "vigilance": [
+      "Il craint beaucoup la chaleur : ombre, eau fraîche et aucun effort en pleine journée l’été.",
+      "La torsion de l’estomac est une urgence vétérinaire.",
+      "Demandez le dépistage de la dysplasie de la hanche et du coude des parents.",
+      "Sa santé est fragile et son espérance de vie courte, comme chez beaucoup de géants."
+    ]
+  },
+  "colley-a-poil-long": {
+    "quotidien": "Le Colley à poil long est un ancien berger écossais devenu chien de famille, doux, loyal et très sensible. Il est d’une grande patience avec les enfants et s’attache profondément aux siens. Il supporte mal la solitude et a besoin de vivre au cœur de la maison.",
+    "education": "Intelligent et attentif, le Colley à poil long apprend facilement, ce qui en fait un bon premier chien. Il est sensible : une voix forte ou une punition le bloque, les récompenses le motivent. Apprenez-lui tôt à ne pas aboyer pour tout.",
+    "activite": "Comptez une heure et quart d’activité par jour : promenades, jeux de balle, obéissance, agility ou troupeau. Le Colley à poil long aime avoir une occupation et apprécie les exercices qui le font réfléchir. Il supporte mal la chaleur.",
+    "soins": "Sa crinière double perd beaucoup : un brossage approfondi chaque semaine, et quotidien pendant la mue, évite les nœuds derrière les oreilles et sous les pattes. Le poil le protège du froid comme du soleil, il ne faut pas le tondre. Prévenez toujours le vétérinaire de sa race avant un traitement.",
+    "vigilance": [
+      "La mutation MDR1 rend certains médicaments dangereux : faites tester votre chien.",
+      "Demandez le dépistage de l’anomalie de l’œil du colley et de l’atrophie progressive de la rétine chez les parents.",
+      "Il aboie volontiers, ce qui peut gêner le voisinage.",
+      "En été, sortez-le aux heures fraîches."
+    ]
+  },
+  "terrier-de-chasse-allemand": {
+    "quotidien": "Le Terrier de chasse allemand a été créé uniquement pour le travail : déterrage du renard, recherche du sanglier, pistage. Courageux, tenace et infatigable, ce n’est pas un chien de salon. Il convient à des maîtres expérimentés, de préférence chasseurs, et supporte mal la solitude.",
+    "education": "Têtu et très indépendant, le Terrier de chasse allemand n’est pas un chien pour un débutant. Il faut un maître ferme, juste et patient, et une socialisation très précoce avec les autres chiens. Le rappel reste difficile dès qu’il flaire une piste.",
+    "activite": "Il lui faut deux heures d’activité par jour, et de préférence un vrai travail de chasse. Sans cela, le Terrier de chasse allemand trouve lui-même de quoi s’occuper, souvent en creusant ou en fuguant. Le pistage et les sports canins exigeants peuvent compléter.",
+    "soins": "Son poil dur et court demande peu d’entretien : un brossage de temps en temps suffit. Après chaque sortie de chasse, inspectez-le à la recherche de blessures, morsures ou coupures. Faites contrôler ses yeux régulièrement.",
+    "vigilance": [
+      "Son instinct de chasse est extrême : il est dangereux pour les chats et les petits animaux.",
+      "Il fugue facilement : clôture solide et enterrée, et laisse hors des zones sûres.",
+      "Il peut se montrer querelleur avec les autres chiens.",
+      "La luxation primaire du cristallin impose une consultation rapide en cas d’œil rouge ou douloureux."
+    ]
+  },
+  "lhassa-apso": {
+    "quotidien": "Le Lhassa Apso était autrefois une sentinelle d’intérieur dans les monastères tibétains. Il en a gardé un caractère assuré, indépendant et vigilant : réservé avec les inconnus, il prévient de toute arrivée. Il vit très bien en appartement.",
+    "education": "Le Lhassa Apso est intelligent mais têtu : il obéit quand il en voit l’intérêt. Les récompenses, la patience et des séances courtes donnent les meilleurs résultats. Socialisez-le tôt avec les visiteurs et apprenez-lui à ne pas aboyer à chaque bruit.",
+    "activite": "Quarante-cinq minutes de promenade et de jeu par jour suffisent au Lhassa Apso. Il apprécie les sorties calmes et les petits jeux à la maison. Évitez les efforts par forte chaleur.",
+    "soins": "Son poil long tombant jusqu’au sol demande un brossage quotidien pour éviter les nœuds ; beaucoup de propriétaires choisissent une coupe courte plus pratique. Il perd très peu de poils. Nettoyez ses yeux souvent et surveillez qu’ils restent humides et clairs.",
+    "vigilance": [
+      "Ses yeux sont fragiles : kératoconjonctivite sèche et prolapsus de la glande de la troisième paupière sont fréquents.",
+      "Demandez à l’éleveur des parents dépistés pour la néphropathie juvénile.",
+      "Il aboie facilement, ce qui peut gêner le voisinage.",
+      "Il tolère mal d’être bousculé par de jeunes enfants."
+    ]
+  },
+  "griffon-nivernais": {
+    "quotidien": "Le Griffon nivernais est un chien courant rustique, au poil hirsute, spécialiste de la chasse du sanglier. Courageux, persévérant et très sociable avec ses congénères, il vit souvent en meute ou en petit groupe. Il n’est pas fait pour l’appartement et supporte mal la solitude.",
+    "education": "Indépendant et entièrement tourné vers la chasse, le Griffon nivernais n’est pas un chien pour un débutant. Son éducation demande de l’expérience, de la patience et une bonne connaissance des chiens courants. Le rappel reste fragile dès qu’il a pris une voie.",
+    "activite": "Il lui faut une heure et demie d’activité par jour, et surtout la chasse, qui est sa raison d’être. En dehors des saisons, de longues sorties en forêt sur des terrains sûrs entretiennent la forme du Griffon nivernais.",
+    "soins": "Son poil long et rêche demande peu d’entretien : un brossage de temps en temps et un contrôle après la chasse. Inspectez sa peau et ses oreilles au retour de chaque sortie. Une protection contre les tiques est indispensable.",
+    "vigilance": [
+      "Il fugue dès qu’il trouve une piste : clôture haute et solide indispensable.",
+      "Sa voix porte loin : le voisinage doit pouvoir le supporter.",
+      "Les tiques transmettent la piroplasmose : traitez-le régulièrement.",
+      "La cohabitation avec un chat est risquée."
+    ]
+  },
+  "rhodesian-ridgeback": {
+    "quotidien": "Le Rhodesian Ridgeback se reconnaît à la crête de poils qui court le long de son dos. Ce grand chien d’Afrique australe est digne, calme à la maison et très attaché à sa famille, mais réservé avec les inconnus et naturellement protecteur.",
+    "education": "Indépendant et sensible, le Rhodesian Ridgeback n’est pas un chien pour un débutant. Il lui faut un maître calme et constant, qui récompense plutôt qu’il ne contraint. Socialisez-le tôt et longtemps avec les inconnus et les autres chiens.",
+    "activite": "Prévoyez une heure et demie d’activité par jour : longues marches, course, canicross une fois adulte. Le Rhodesian Ridgeback est un coureur endurant qui supporte bien la chaleur. Ne le lâchez que dans des espaces clos, car son instinct de chasse est puissant.",
+    "soins": "Son poil court demande très peu d’entretien. Donnez deux repas par jour et évitez l’effort après manger pour limiter le risque de torsion d’estomac. Vérifiez à l’achat que le chiot a été examiné pour le sinus dermoïde.",
+    "vigilance": [
+      "Le sinus dermoïde est une malformation propre à la race : demandez le contrôle vétérinaire du chiot.",
+      "La cohabitation avec un chat est risquée.",
+      "Il fugue s’il repère un gibier : clôture solide indispensable.",
+      "Demandez le dépistage de la dysplasie de la hanche et du coude des parents."
+    ]
+  },
+  "akita-americain": {
+    "quotidien": "L’Akita américain est un grand spitz puissant, digne et profondément fidèle à sa famille. Gardien naturel, il est très méfiant envers les inconnus et souvent intolérant envers les autres chiens, surtout du même sexe. Il reste calme et silencieux à la maison.",
+    "education": "L’Akita américain n’est pas un chien pour un débutant : il est indépendant, dominant et très fort. Il lui faut un maître expérimenté, calme et ferme sans brutalité. La socialisation, dès le plus jeune âge et pendant toute la croissance, est indispensable.",
+    "activite": "Une heure d’activité par jour lui suffit : marches en laisse, jeux dans un jardin bien clos. L’Akita américain aime le froid et la neige mais supporte mal la chaleur : en été, sortez-le aux heures fraîches.",
+    "soins": "Son épais double pelage mue en abondance deux fois par an : brossez-le chaque jour pendant ces périodes. Donnez deux repas par jour et évitez l’effort après manger pour limiter le risque de torsion d’estomac. Surveillez sa peau et ses yeux.",
+    "vigilance": [
+      "Prudence avec les enfants : ses réactions doivent toujours être surveillées.",
+      "Il est dangereux pour les chats et peut être agressif avec les autres chiens.",
+      "Le syndrome uvéo-dermatologique et l’adénite sébacée touchent la race : consultez vite en cas d’œil rouge ou de perte de poils anormale.",
+      "Demandez le dépistage de la dysplasie de la hanche des parents."
+    ]
+  },
+  "setter-gordon": {
+    "quotidien": "Le Setter Gordon est le plus lourd et le plus imposant des setters, reconnaissable à sa robe noir et feu brillante. Loyal, affectueux et doux avec les enfants, il reste un chien de chasse endurant. Il supporte mal la solitude.",
+    "education": "Intelligent mais parfois têtu, le Setter Gordon mûrit lentement et demande de la patience. Ce n’est pas un chien idéal pour un débutant. Travaillez le rappel très tôt, car son instinct de chasse l’emporte facilement.",
+    "activite": "Comptez une heure et demie d’activité par jour, idéalement en liberté dans la nature. La chasse, les longues balades et le field trial conviennent bien au Setter Gordon. Il supporte mal la chaleur : en été, sortez-le aux heures fraîches.",
+    "soins": "Son poil long et soyeux s’emmêle facilement derrière les oreilles, sous le ventre et sur les franges : brossez-le plusieurs fois par semaine. Vérifiez ses oreilles et ses pattes après chaque sortie. Donnez deux repas par jour et évitez l’effort après manger.",
+    "vigilance": [
+      "Il fugue s’il suit une piste : jardin bien clos indispensable.",
+      "La torsion de l’estomac est une urgence vétérinaire.",
+      "Demandez le dépistage de la dysplasie de la hanche et du coude et de l’atrophie progressive de la rétine chez les parents.",
+      "La cohabitation avec un chat demande de la vigilance."
+    ]
+  }
+}
