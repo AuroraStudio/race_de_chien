@@ -885,5 +885,149 @@
    "Demandez le dépistage de la dysplasie de la hanche et du coude et de l’atrophie progressive de la rétine chez les parents.",
    "La cohabitation avec un chat demande de la vigilance."
   ]
+ },
+ "chow-chow": {
+  "quotidien": "Le Chow-Chow est un chien calme, indépendant et réservé, qui s’attache à sa famille sans jamais se montrer démonstratif. Il supporte bien la solitude et s’accommode d’un appartement, mais il reste très distant avec les inconnus et garde volontiers son territoire.",
+  "education": "Le Chow-Chow n’obéit pas pour faire plaisir : il faut un maître expérimenté, patient et constant, qui ne cherche jamais le rapport de force. La socialisation doit commencer très tôt et se poursuivre longtemps, avec des visiteurs, des enfants et d’autres chiens, faute de quoi sa méfiance naturelle s’installe.",
+  "activite": "Trois quarts d’heure de marche tranquille par jour suffisent au Chow-Chow, qui n’est ni un sportif ni un joueur. Sortez-le aux heures fraîches en été : son épaisse fourrure le rend très sensible à la chaleur.",
+  "soins": "Le pelage double du Chow-Chow demande plusieurs brossages approfondis par semaine, et davantage pendant les mues, qui sont abondantes. Surveillez ses yeux, car l’entropion est fréquent dans la race, et gardez-le mince pour ménager ses hanches, ses coudes et ses rotules.",
+  "vigilance": [
+   "Ce n’est pas un premier chien : son caractère indépendant déroute les débutants.",
+   "Prudence avec les jeunes enfants, il tolère mal d’être manipulé.",
+   "Le coup de chaleur est un vrai risque : jamais d’effort ni de voiture en plein été.",
+   "Les rencontres avec d’autres chiens demandent de la vigilance."
+  ]
+ },
+ "griffon-bleu-de-gascogne": {
+  "quotidien": "Le Griffon bleu de Gascogne est un chien courant rustique, éveillé et remuant, affectueux avec les siens et très à l’aise avec les autres chiens. Sélectionné pour la chasse du lièvre et du sanglier, il vit mal en appartement et supporte peu de rester seul.",
+  "education": "Le Griffon bleu de Gascogne suit son nez avant d’écouter : son éducation demande de la patience, de la régularité et un maître qui connaît les chiens courants. Travaillez le rappel dès le plus jeune âge, en sachant qu’il restera fragile dès qu’une voie se présente.",
+  "activite": "Comptez une heure et demie d’exercice par jour pour un Griffon bleu de Gascogne, de préférence en terrain varié où il peut utiliser son flair. La chasse reste l’activité qui lui convient le mieux ; à défaut, le pistage et les longues sorties en longe l’occupent utilement.",
+  "soins": "Le poil dur et hirsute du Griffon bleu de Gascogne s’entretient facilement avec un brossage hebdomadaire. Après chaque sortie, contrôlez ses longues oreilles, sujettes aux otites, et cherchez les épillets dans le poil et entre les doigts.",
+  "vigilance": [
+   "Il a une voix puissante et s’en sert beaucoup : difficile avec des voisins proches.",
+   "Il fugue sur une piste : clôture haute et solide indispensable, rappel jamais acquis.",
+   "Son instinct de chasse rend la cohabitation avec un chat risquée.",
+   "Ce n’est pas un chien pour un débutant ni pour une vie citadine."
+  ]
+ },
+ "bull-terrier": {
+  "quotidien": "Le Bull Terrier est un terrier musclé, enjoué et espiègle, très proche de sa famille et accueillant avec les visiteurs. Il déborde d’énergie, cherche sans cesse le contact et supporte mal de rester seul de longues heures.",
+  "education": "Têtu et sûr de lui, le Bull Terrier demande un maître confirmé, cohérent et doté d’humour. Les séances courtes et ludiques, fondées sur la récompense, donnent de bien meilleurs résultats que la contrainte. Socialisez-le très tôt avec d’autres chiens, car il peut se montrer peu tolérant à l’âge adulte.",
+  "activite": "Une heure d’exercice par jour est nécessaire au Bull Terrier, avec des jeux, de la marche soutenue et de quoi occuper sa tête. Un Bull Terrier désœuvré invente ses propres occupations, et la race est sujette aux comportements compulsifs comme la poursuite de la queue.",
+  "soins": "Le poil court du Bull Terrier se contente d’un coup de gant de temps en temps. Sa peau, en revanche, est sensible : la dermatite atopique est fréquente. Demandez à l’éleveur les tests d’audition des chiots, ainsi que les dépistages rénaux et oculaires des parents.",
+  "vigilance": [
+   "La cohabitation avec un chat est très risquée.",
+   "La surdité congénitale touche surtout les sujets blancs.",
+   "Ce n’est pas un chien pour un débutant.",
+   "Surveillez les jeux avec les enfants : il est brusque sans le vouloir."
+  ]
+ },
+ "dogue-de-bordeaux": {
+  "quotidien": "Le Dogue de Bordeaux est un molosse calme, équilibré et très attaché à sa famille, doux avec les enfants de la maison. Il garde avec vigilance et courage, sans agressivité, et reste réservé avec les inconnus. Il ne relève d’aucune catégorie de chiens dits dangereux, mais il bave énormément.",
+  "education": "Sa force impose un maître expérimenté, capable de poser un cadre clair dès le plus jeune âge. Le Dogue de Bordeaux est têtu mais sensible : la fermeté tranquille et la régularité fonctionnent, la brutalité jamais. Apprenez-lui très tôt la marche en laisse et socialisez-le avec d’autres chiens.",
+  "activite": "Trois quarts d’heure de marche calme par jour suffisent au Dogue de Bordeaux. Évitez les efforts intenses, surtout pendant la croissance, et sortez-le aux heures fraîches : son museau court le rend très vulnérable à la chaleur.",
+  "soins": "Le poil court du Dogue de Bordeaux s’entretient vite, mais les plis de sa face doivent être nettoyés et séchés régulièrement. Fractionnez sa ration en deux repas et laissez-le au repos après manger pour limiter le risque de torsion de l’estomac. Un suivi cardiaque régulier est recommandé.",
+  "vigilance": [
+   "Ce n’est pas un premier chien.",
+   "Son espérance de vie est courte et sa santé fragile : cœur, articulations, cancers.",
+   "Le coup de chaleur peut être mortel en été.",
+   "La cohabitation avec les chats et les autres chiens demande de la prudence."
+  ]
+ },
+ "petit-levrier-italien": {
+  "quotidien": "Le Petit Lévrier Italien est un lévrier miniature, doux, affectueux et très collé à son maître. Il vit parfaitement en appartement, cherche la chaleur d’un plaid ou de vos genoux, et supporte mal la solitude. Il reste réservé avec les inconnus.",
+  "education": "Sensible et parfois distrait, le Petit Lévrier Italien s’éduque dans la douceur, avec des séances brèves et beaucoup de récompenses. La propreté peut demander du temps, surtout par mauvais temps, car il déteste sortir sous la pluie ou dans le froid.",
+  "activite": "Le Petit Lévrier Italien a besoin de trois quarts d’heure d’exercice par jour, dont quelques sprints en terrain clos. Son instinct de poursuite est intact : lâché dans un espace ouvert, il peut partir derrière un oiseau ou un lapin sans plus rien entendre.",
+  "soins": "Le poil fin du Petit Lévrier Italien ne demande qu’un coup de chiffon doux. Ses dents exigent un brossage très régulier, car les maladies parodontales sont fréquentes. Il lui faut un manteau dès que les températures baissent.",
+  "vigilance": [
+   "Ses pattes avant sont fragiles : les fractures du radius et du cubitus surviennent sur un simple saut du canapé.",
+   "Il craint beaucoup le froid et l’humidité.",
+   "Il file derrière tout ce qui court : clôture sûre et rappel travaillé.",
+   "Les jeux avec de jeunes enfants doivent être surveillés, vu sa finesse."
+  ]
+ },
+ "pinscher-nain": {
+  "quotidien": "Le Pinscher Nain a l’aplomb d’un grand chien dans un tout petit format : fougueux, sûr de lui, toujours en alerte. Il s’adapte bien à l’appartement, mais il signale chaque bruit et n’aime pas rester seul. Ce n’est pas un Dobermann miniature, mais une race plus ancienne, élevée pour chasser les rats.",
+  "education": "Intelligent et rapide à comprendre, le Pinscher Nain teste aussi les limites. Fixez des règles claires dès son arrivée et tenez-les, sans le surprotéger sous prétexte de sa taille. Apprenez-lui très tôt à se taire sur demande et à croiser calmement les autres chiens.",
+  "activite": "Le Pinscher Nain a besoin de trois quarts d’heure d’activité par jour, avec de vraies promenades et des jeux de recherche qui occupent son flair de ratier. Vif et agile, il apprécie aussi les petits parcours d’obstacles.",
+  "soins": "Son poil court et lisse ne réclame presque aucun entretien. Le Pinscher Nain craint en revanche beaucoup le froid : prévoyez un manteau en hiver. Faites contrôler ses rotules et ses hanches si une boiterie apparaît.",
+  "vigilance": [
+   "Il aboie beaucoup, ce qui peut gêner le voisinage.",
+   "Prudence avec les jeunes enfants : il n’apprécie pas d’être bousculé.",
+   "Il se faufile et s’échappe facilement : vérifiez les clôtures et travaillez le rappel.",
+   "Son instinct de chasse rend la cohabitation avec un chat ou des rongeurs délicate."
+  ]
+ },
+ "laika-de-iakoutie": {
+  "quotidien": "Le Laïka de Iakoutie est un spitz nordique vif, hardi et très proche de l’homme, amical avec tous et particulièrement doux avec les enfants. Ancien chien de traîneau, de chasse et de garde des rennes, il a besoin de présence et supporte mal de rester seul.",
+  "education": "Le Laïka de Iakoutie apprend volontiers quand le travail reste varié et positif, mais il garde l’indépendance des chiens nordiques. Commencez le rappel très tôt et entretenez-le toute sa vie. Un maître régulier et disponible obtient un compagnon agréable.",
+  "activite": "Prévoyez une heure et demie d’exercice par jour pour un Laïka de Iakoutie. Les activités de traction, la randonnée et la course à vos côtés correspondent à son endurance naturelle. Réservez les efforts aux heures fraîches dès qu’il fait chaud.",
+  "soins": "Son épaisse fourrure double perd énormément de poils, surtout pendant les mues : brossez-le plusieurs fois par semaine, tous les jours à ces périodes. Ne le tondez pas. Demandez à l’éleveur le dépistage de la dysplasie et des affections oculaires chez les parents.",
+  "vigilance": [
+   "Il supporte mal la chaleur : ombre, eau fraîche et sorties matinales en été.",
+   "Il a tendance à partir explorer : clôture solide et rappel travaillé.",
+   "La surdité congénitale existe chez les sujets très blancs aux yeux bleus.",
+   "La vie en appartement lui convient mal."
+  ]
+ },
+ "dobermann": {
+  "quotidien": "Le Dobermann est un grand chien de travail athlétique, très intelligent et profondément loyal. Il vit au plus près de sa famille, qu’il protège naturellement, et se montre réservé avec les inconnus. La solitude lui pèse : c’est un chien qui a besoin de partager le quotidien de son maître.",
+  "education": "Le Dobermann apprend très vite et aime travailler, ce qui en fait un élève remarquable entre des mains cohérentes. Sa sensibilité demande une éducation juste, sans dureté, et une socialisation soignée dès le plus jeune âge. Mal encadré, il devient anxieux ou envahissant.",
+  "activite": "Il faut au Dobermann une heure et demie d’exercice par jour, en associant dépense physique et travail mental. L’obéissance, le pistage et la course à vos côtés lui conviennent très bien. Un simple tour de quartier ne lui suffit pas.",
+  "soins": "Le poil court du Dobermann s’entretient en quelques minutes, mais il protège mal du froid. Donnez deux repas par jour et évitez l’effort après manger pour limiter le risque de torsion de l’estomac. Un suivi cardiaque régulier est conseillé, car la cardiomyopathie dilatée est fréquente dans la race.",
+  "vigilance": [
+   "Ce n’est pas un chien pour un débutant.",
+   "Demandez les dépistages du cœur et de la maladie de von Willebrand chez les parents.",
+   "La cohabitation avec un chat demande une habituation précoce et de la prudence.",
+   "Il supporte mal d’être laissé seul toute la journée."
+  ]
+ },
+ "chien-d-oysel-allemand": {
+  "quotidien": "Le Chien d’oysel allemand (Wachtelhund) est un leveur de gibier passionné, endurant et docile avec son conducteur. Élevé par des chasseurs pour des chasseurs, il s’épanouit mal loin du terrain, vit de préférence à la campagne et supporte peu la solitude.",
+  "education": "Le Chien d’oysel allemand coopère volontiers, mais sa passion pour la chasse impose un maître confirmé. Le rappel, l’arrêt à distance et le rapport se travaillent dès le plus jeune âge, avec constance. Sans ce cadre, son nez décide à sa place.",
+  "activite": "Deux heures d’activité par jour sont nécessaires au Chien d’oysel allemand. La quête, le rapport, y compris à l’eau, et la recherche au sang correspondent à ce pour quoi il a été sélectionné. De simples promenades en laisse ne remplacent pas ce travail.",
+  "soins": "Le poil long et ondulé du Chien d’oysel allemand demande un brossage régulier, surtout aux oreilles et aux franges, où se forment les nœuds. Après chaque sortie, inspectez ses oreilles tombantes, sujettes aux otites, et retirez les épillets.",
+  "vigilance": [
+   "Ce n’est pas un chien de compagnie pour un foyer sans activité de chasse.",
+   "Il donne de la voix sur le gibier : à prévoir avec le voisinage.",
+   "Il suit une piste sur de longues distances : clôture sûre et rappel solide.",
+   "Son instinct de chasse rend la cohabitation avec un chat risquée."
+  ]
+ },
+ "setter-irlandais": {
+  "quotidien": "Le Setter irlandais rouge est un chien d’arrêt élégant, extraverti et joueur, amical avec tout le monde, enfants et autres chiens compris. Il déborde d’énergie, reste longtemps adolescent dans sa tête et vit mal la solitude comme l’appartement.",
+  "education": "Intelligent mais vite distrait, le Setter irlandais rouge demande de la patience et des séances courtes, gaies et variées. Sa sensibilité supporte mal la dureté. Insistez sur le rappel et sur le calme à la maison, les deux points qui demandent le plus de travail.",
+  "activite": "Il faut deux heures d’exercice par jour au Setter irlandais rouge, avec de vraies courses en liberté dans des espaces sûrs. La course à pied, le vélo et le travail de chasse lui conviennent. Insuffisamment dépensé, il devient agité et destructeur.",
+  "soins": "Le poil long et soyeux du Setter irlandais rouge exige plusieurs brossages par semaine, en démêlant bien les franges des oreilles, des pattes et de la queue. Donnez deux repas par jour et du repos après manger pour limiter le risque de torsion de l’estomac.",
+  "vigilance": [
+   "Son besoin d’exercice est très élevé : ce n’est pas un chien pour un débutant sédentaire.",
+   "Il part volontiers derrière une odeur ou un oiseau : jardin clos et rappel travaillé.",
+   "Il supporte mal de rester seul.",
+   "Demandez le dépistage de la dysplasie de la hanche et de l’atrophie progressive de la rétine chez les parents."
+  ]
+ },
+ "beagle-harrier": {
+  "quotidien": "Le Beagle-harrier est un chien courant doux, sociable et endurant, à mi-chemin entre le Beagle et le Harrier dont il est issu. C’est avant tout un chien de chasse, habitué à la vie en meute : il s’entend très bien avec ses congénères, mais vit mal seul et en appartement.",
+  "education": "Le Beagle-harrier est têtu et guidé par son nez. Son éducation demande de la patience, de la régularité et l’expérience des chiens courants. Travaillez le rappel dès le plus jeune âge, sans jamais le considérer comme acquis en présence de gibier.",
+  "activite": "Le Beagle-harrier a besoin d’une heure et demie d’exercice par jour. La chasse est son activité naturelle ; sinon, proposez-lui de longues sorties en longe, du pistage et des randonnées. Il manque rarement d’endurance.",
+  "soins": "Le poil court du Beagle-harrier se contente d’un brossage occasionnel. Contrôlez ses oreilles chaque semaine pour prévenir les otites, et inspectez-le au retour des sorties : tiques, coupures et petites blessures sont courantes.",
+  "vigilance": [
+   "Il a une voix forte et s’en sert beaucoup, ce qui pose problème avec des voisins proches.",
+   "Il fugue sur une piste : clôture haute et sans faille indispensable.",
+   "Il supporte mal la solitude, surtout sans autre chien.",
+   "Ce n’est pas un chien pour un débutant ni un simple chien de compagnie."
+  ]
+ },
+ "dogue-argentin": {
+  "quotidien": "Le Dogue Argentin est un molosse blanc, athlétique et puissant, créé pour la chasse au gros gibier. Loyal et proche de sa famille, il se montre protecteur et réservé avec les inconnus. Il n’est pas classé chien catégorisé en France, et il supporte mal la solitude comme la vie en appartement.",
+  "education": "Le Dogue Argentin réclame un maître expérimenté, calme et constant, qui pose le cadre dès les premières semaines. La socialisation avec les autres chiens doit être précoce, suivie et encadrée, car la race tolère mal ses congénères. La marche en laisse et le contrôle de soi sont prioritaires.",
+  "activite": "Une heure et demie d’exercice par jour convient au Dogue Argentin : marche soutenue, course, pistage et obéissance. Ménagez ses articulations pendant la croissance. Son instinct de chasse impose de le garder sous contrôle en milieu ouvert.",
+  "soins": "Le poil court et blanc du Dogue Argentin s’entretient facilement, mais sa peau est sensible aux dermatites et aux allergies, et elle craint le soleil. Demandez à l’éleveur le test d’audition des chiots et le dépistage de la dysplasie de la hanche des parents.",
+  "vigilance": [
+   "Ce n’est pas un premier chien : sa puissance exige de l’expérience.",
+   "La cohabitation avec d’autres chiens ou avec un chat est très risquée.",
+   "La surdité congénitale est présente dans la race.",
+   "Surveillez toujours les interactions avec les enfants, en raison de sa force."
+  ]
  }
 }
