@@ -1029,5 +1029,149 @@
    "La surdité congénitale est présente dans la race.",
    "Surveillez toujours les interactions avec les enfants, en raison de sa force."
   ]
+ },
+ "spitz-japonais": {
+  "quotidien": "Le Spitz Japonais est un petit chien blanc au museau pointu, gai, joueur et très proche de sa famille. Il s’entend bien avec les enfants, les autres chiens et souvent les chats, et s’adapte à l’appartement comme à la maison. Vigilant, il signale les arrivées sans être un vrai gardien.",
+  "education": "Le Spitz Japonais apprend vite et cherche à faire plaisir, ce qui en fait un bon choix pour un premier chien. Restez doux et régulier, avec des séances courtes et ludiques. Habituez-le tôt à rester seul un moment et à ne pas aboyer à chaque bruit.",
+  "activite": "Une heure par jour suffit au Spitz Japonais, répartie entre promenades et jeux. Il aime les tours, les jeux de recherche et les activités partagées avec ses maîtres. Il supporte bien le froid, beaucoup moins la chaleur.",
+  "soins": "Le double pelage blanc du Spitz Japonais se salit moins qu’on ne le croit, mais il perd beaucoup de poils : brossez-le deux à trois fois par semaine, tous les jours pendant la mue. Ne le tondez pas. Nettoyez le contour des yeux, où le larmoiement laisse des traces.",
+  "vigilance": [
+   "En été, sortez-le aux heures fraîches : il craint la chaleur.",
+   "La luxation de la rotule existe dans la race : un chien qui boite ou sautille sur trois pattes doit être examiné.",
+   "Les allergies cutanées se manifestent par des démangeaisons : consultez sans attendre.",
+   "Prévoyez des poils blancs sur les vêtements et les canapés."
+  ]
+ },
+ "retriever-de-la-nouvelle-ecosse": {
+  "quotidien": "Le Retriever de la Nouvelle-Écosse est le plus petit des retrievers : un chien de chasse roux marqué de blanc, athlétique, joueur et débordant d’énergie. Affectueux avec les siens et à l’aise avec les enfants, il supporte mal la solitude et a besoin d’une famille présente et active. La vie en appartement lui convient mal.",
+  "education": "Intelligent et volontaire, le Retriever de la Nouvelle-Écosse apprend vite quand les séances restent variées et ludiques. Il se lasse des répétitions : alternez les exercices et récompensez par le jeu. Travaillez le rappel, car son instinct de chasse reste fort.",
+  "activite": "Comptez une heure et demie par jour pour un Retriever de la Nouvelle-Écosse, avec de vraies dépenses : rapport d’objets, nage, course, agility. Il adore l’eau et ne craint pas le froid. Sans activité suffisante, il devient agité et inventif.",
+  "soins": "Le double pelage du Retriever de la Nouvelle-Écosse perd beaucoup de poils : un brossage hebdomadaire, plus fréquent pendant la mue, suffit. Séchez-le bien après les baignades. La race est sujette à des maladies auto-immunes et à l’hypothyroïdie : un suivi vétérinaire annuel est utile.",
+  "vigilance": [
+   "Il ne supporte pas les longues journées seul.",
+   "Une fièvre avec raideur douloureuse du cou chez un jeune chien évoque la méningite-artérite : consultez vite.",
+   "Demandez à l’éleveur les dépistages de la dysplasie de la hanche et de l’atrophie progressive de la rétine.",
+   "Avec un chat, la cohabitation se prépare dès le plus jeune âge."
+  ]
+ },
+ "schnauzer-nain": {
+  "quotidien": "Le Schnauzer Nain est un petit chien carré et robuste, reconnaissable à sa barbe et à ses sourcils broussailleux. Vif, sociable et attentif, il vit aussi bien en appartement qu’en maison et suit sa famille partout. C’est un chien d’alerte : il prévient de tout ce qui bouge.",
+  "education": "Le Schnauzer Nain apprend facilement et convient à un premier chien, à condition de rester constant, car il sait aussi être têtu. Apprenez-lui tôt à se taire sur demande : il aboie volontiers. Socialisez-le avec les autres chiens dès le plus jeune âge.",
+  "activite": "Une heure par jour convient au Schnauzer Nain, entre promenades, jeux et petits exercices d’obéissance. Ancien ratier de ferme, il aime fouiller et poursuivre : les jeux de recherche lui plaisent. Il suit volontiers en randonnée.",
+  "soins": "Le poil dur du Schnauzer Nain ne tombe presque pas, mais il demande un vrai entretien : brossage régulier de la barbe et des pattes, puis épilation ou tonte chez le toiletteur plusieurs fois par an. Nettoyez la barbe après les repas. Surveillez son poids et évitez les aliments gras, la race étant sujette à la pancréatite.",
+  "vigilance": [
+   "Ses aboiements peuvent gêner le voisinage.",
+   "Pas de restes de table gras : pancréatite et excès de graisses dans le sang sont fréquents.",
+   "Un chien qui urine souvent, avec difficulté ou avec du sang, peut avoir des calculs urinaires.",
+   "Une soif et des urines abondantes doivent faire rechercher un diabète."
+  ]
+ },
+ "shar-pei": {
+  "quotidien": "Le Shar-Peï est un chien chinois de taille moyenne, aux rides profondes et à la langue bleu-noir. Calme, indépendant et très loyal envers sa famille, il se montre réservé, voire fermé, avec les inconnus. Il supporte bien la solitude et s’accommode de l’appartement.",
+  "education": "Têtu et peu démonstratif, le Shar-Peï n’obéit pas pour faire plaisir : il faut un maître expérimenté, calme et constant. La socialisation précoce est indispensable, avec les personnes comme avec les autres chiens. La brutalité le braque.",
+  "activite": "Trois quarts d’heure de promenade par jour suffisent au Shar-Peï. Il préfère la marche tranquille aux sports intenses. En été, sortez-le tôt le matin ou le soir, car il craint la chaleur.",
+  "soins": "Le poil court du Shar-Peï demande peu de brossage, mais sa peau réclame de l’attention : inspectez les plis et séchez-les bien après la pluie ou le bain. Nettoyez régulièrement ses petites oreilles, sujettes aux otites. Surveillez ses yeux : des paupières qui s’enroulent vers l’intérieur (entropion) doivent être opérées.",
+  "vigilance": [
+   "Ce n’est pas un premier chien.",
+   "Des accès de fièvre avec jarrets gonflés signalent la fièvre familiale du Shar-Peï, qui peut abîmer les reins : consultez.",
+   "Les rencontres avec d’autres chiens et la cohabitation avec un chat demandent de la prudence.",
+   "Sa santé fragile entraîne des frais vétérinaires à prévoir."
+  ]
+ },
+ "bull-terrier-miniature": {
+  "quotidien": "Le Bull Terrier Miniature est un petit terrier musclé à la tête en forme d’œuf, espiègle, comique et très affectueux. Il accueille volontiers les visiteurs et vit bien en appartement, mais il supporte mal de rester seul. Sa force et son enthousiasme étonnent pour sa taille.",
+  "education": "Têtu et plein d’énergie, le Bull Terrier Miniature demande un maître expérimenté, patient et cohérent. Posez des règles claires dès son arrivée et récompensez beaucoup. Socialisez-le tôt avec les autres chiens, et apprenez-lui à jouer calmement avec les enfants, qu’il peut bousculer.",
+  "activite": "Une heure par jour, avec des jeux qui fatiguent autant la tête que le corps : traction, recherche, parcours. Un Bull Terrier Miniature désœuvré détruit. Il craint le froid : un manteau est utile en hiver.",
+  "soins": "Le poil court du Bull Terrier Miniature se contente d’un coup de gant par semaine. Sa peau est sensible : des démangeaisons répétées évoquent une dermatite atopique. Faites contrôler régulièrement son cœur et ses reins par le vétérinaire.",
+  "vigilance": [
+   "Ce n’est pas un chien pour débutant.",
+   "La cohabitation avec un chat est risquée, et les rencontres entre chiens demandent de la vigilance.",
+   "Un œil rouge, douloureux ou qui devient bleuté est une urgence : la luxation du cristallin existe dans la race.",
+   "Demandez à l’éleveur le test d’audition du chiot et les dépistages des parents."
+  ]
+ },
+ "porcelaine": {
+  "quotidien": "Le Porcelaine est un chien courant français à la robe blanche brillante semée de taches orange. Doux, sensible et sociable avec les personnes comme avec les autres chiens, il reste avant tout un chien de chasse, passionné par le lièvre et le chevreuil. Il supporte mal l’inactivité, l’enfermement et la solitude, et ne convient pas à l’appartement.",
+  "education": "Son nez commande : le Porcelaine demande un maître expérimenté, patient et jamais brutal, car il est sensible. Le rappel doit être travaillé très tôt et ne sera jamais acquis face à une piste. Habituez-le jeune au calme à la maison.",
+  "activite": "Le Porcelaine a besoin d’une heure et demie par jour au minimum, de préférence en terrain varié, en longe ou en espace clos. La chasse, le pistage et les longues randonnées lui conviennent. Il apprécie la compagnie d’autres chiens.",
+  "soins": "Le poil très ras du Porcelaine s’entretient d’un simple coup de gant, mais protège peu : il craint le froid et sa peau s’irrite facilement. Contrôlez ses longues oreilles chaque semaine pour prévenir les otites. Après chaque sortie, inspectez pattes, oreilles et peau à la recherche de coupures ou d’épillets.",
+  "vigilance": [
+   "Ce n’est pas un premier chien, ni un chien de ville.",
+   "Il fugue sur une piste : clôture haute et solide indispensable.",
+   "Sa voix porte loin, ce qui peut gêner le voisinage.",
+   "La cohabitation avec un chat est risquée."
+  ]
+ },
+ "berger-belge-groenendael": {
+  "quotidien": "Le Berger belge Groenendael est la variété noire à poil long du Berger belge : un chien élégant, vif et très attaché à son maître. Sensible et vigilant, il se montre réservé avec les inconnus et garde naturellement la maison. Il supporte mal la solitude et l’ennui, et la vie en appartement ne lui convient guère.",
+  "education": "Très intelligent, le Berger belge Groenendael apprend vite, mais sa sensibilité demande un maître expérimenté, cohérent et calme. La dureté le rend craintif ou nerveux. Socialisez-le largement dès le plus jeune âge : personnes, enfants, autres chiens, bruits de la ville.",
+  "activite": "Le Berger belge Groenendael a besoin de deux heures par jour, avec un vrai travail en plus des promenades : obéissance, agility, pistage. Il lui faut une occupation pour la tête autant que pour les pattes. Il supporte très bien le froid.",
+  "soins": "Le long poil noir du Berger belge Groenendael et son sous-poil épais demandent deux brossages par semaine, davantage pendant la mue, en insistant sur la collerette. Il perd beaucoup de poils. Un suivi vétérinaire annuel permet de surveiller la thyroïde et les yeux.",
+  "vigilance": [
+   "Ce n’est pas un chien pour débutant.",
+   "L’épilepsie existe dans la race : renseignez-vous sur les lignées.",
+   "Exigez le dépistage de la dysplasie de la hanche et du coude des parents.",
+   "Laissé seul et sans activité, il développe vite des troubles du comportement."
+  ]
+ },
+ "flat-coated-retriever": {
+  "quotidien": "Le Retriever à poil plat, ou Flat-coated retriever, est un rapporteur élégant à la robe noire ou foie, dont la queue ne cesse de remuer. Optimiste, joueur et très sociable, il garde longtemps un tempérament de chiot. Il aime tout le monde, enfants, chiens et visiteurs compris, et supporte mal la solitude.",
+  "education": "Coopératif et désireux de plaire, le Retriever à poil plat convient à un premier chien si la famille est active. Restez patient : sa maturité vient tard et son enthousiasme déborde. Apprenez-lui tôt à ne pas sauter sur les gens.",
+  "activite": "Le Retriever à poil plat demande une heure et demie par jour : marche, course, nage et surtout rapport d’objets, sa spécialité. Il aime l’eau, au marais comme ailleurs. Un jardin est préférable à l’appartement.",
+  "soins": "Le poil dense du Retriever à poil plat demande un brossage hebdomadaire, avec une attention aux franges. Séchez les oreilles après la baignade. Donnez deux repas par jour et évitez l’effort après manger pour limiter le risque de torsion de l’estomac.",
+  "vigilance": [
+   "La race est très touchée par les cancers : toute grosseur ou baisse de forme doit être montrée au vétérinaire.",
+   "Demandez le dépistage de la dysplasie de la hanche et l’examen des yeux des parents (glaucome).",
+   "Il ne supporte pas les longues absences.",
+   "Ce n’est pas un gardien."
+  ]
+ },
+ "border-terrier": {
+  "quotidien": "Le Border Terrier est un petit terrier de travail au poil dur et à la tête de loutre, courageux, affectueux et facile à vivre. Très à l’aise avec les enfants et sociable avec les autres chiens, il s’adapte bien à la vie de famille. Il supporte mal les longues absences.",
+  "education": "Moins têtu que beaucoup de terriers, le Border Terrier convient à un premier chien. Il reste un chasseur : travaillez le rappel très tôt et sans relâche. Les méthodes douces et les récompenses fonctionnent bien.",
+  "activite": "Comptez une heure et quart par jour pour un Border Terrier. Sélectionné pour suivre les chevaux, il est endurant et apprécie la randonnée, la course et les jeux de flair. Il supporte bien le froid et la pluie.",
+  "soins": "Le poil dur du Border Terrier perd peu et se salit peu : un brossage hebdomadaire et une épilation à la main deux fois par an suffisent. La tonte ramollit le poil. C’est une race robuste, à la santé généralement excellente.",
+  "vigilance": [
+   "Son instinct de chasse est très fort : la cohabitation avec un chat ou de petits animaux est risquée.",
+   "Il fugue, creuse et se faufile : clôture solide et enterrée, rappel travaillé.",
+   "Des crampes ou des épisodes de démarche anormale, chien conscient, évoquent le syndrome de Spike : filmez-les et consultez.",
+   "L’épilepsie existe dans la race."
+  ]
+ },
+ "parson-russell-terrier": {
+  "quotidien": "Le Parson Russell terrier est un terrier de chasse haut sur pattes, à la robe à dominante blanche, vif, hardi et infatigable. Joyeux et très attaché aux siens, il a besoin d’être occupé et supporte mal la solitude. Il se distingue du Jack Russell par ses membres plus longs.",
+  "education": "Tenace et indépendant, le Parson Russell terrier demande un maître expérimenté, ferme sans brutalité et très constant. Travaillez tôt le rappel, le calme et le renoncement. Socialisez-le soigneusement avec les autres chiens, avec lesquels il peut se montrer querelleur.",
+  "activite": "Le Parson Russell terrier a besoin d’une heure et demie par jour au minimum, avec de la course, des jeux de flair et des sports canins comme l’agility. Créé pour suivre les chevaux, il ne se fatigue pas avec un simple tour de quartier. Sans dépense, il aboie, creuse et détruit.",
+  "soins": "Le poil du Parson Russell terrier, lisse ou dur, demande un brossage hebdomadaire, et le poil dur s’épile deux fois par an. Inspectez-le après les sorties en nature. Demandez à l’éleveur les tests des parents pour la luxation du cristallin et l’ataxie, ainsi que le test d’audition du chiot.",
+  "vigilance": [
+   "Ce n’est pas un chien pour débutant.",
+   "La cohabitation avec un chat ou de petits animaux est risquée.",
+   "Il fugue et creuse : jardin bien clos, y compris sous le grillage.",
+   "Il aboie beaucoup, ce qui peut gêner le voisinage."
+  ]
+ },
+ "chien-courant-suisse": {
+  "quotidien": "Le Chien courant suisse est un chien de chasse de taille moyenne, aux très longues oreilles, qui existe en quatre variétés de robe : bernois, Bruno du Jura, lucernois et schwytzois. Doux, docile et très attaché à son maître à la maison, il devient un chasseur passionné dès qu’il sort. Il supporte mal la solitude et l’appartement.",
+  "education": "Le Chien courant suisse est gentil mais suit son nez avant tout : il lui faut un maître expérimenté et patient. Le rappel se travaille tôt et reste fragile face à une piste. Privilégiez la douceur et la régularité.",
+  "activite": "Le Chien courant suisse demande une heure et demie par jour, en longe ou en terrain clos hors de la chasse. Le pistage et les longues marches en forêt lui conviennent. Il est endurant et supporte bien le froid.",
+  "soins": "Le poil court du Chien courant suisse s’entretient d’un brossage rapide. Nettoyez et contrôlez ses très longues oreilles chaque semaine pour prévenir les otites. Hors saison de chasse, ajustez sa ration : il grossit vite quand il travaille moins. Inspectez-le après chaque sortie pour repérer blessures et épillets.",
+  "vigilance": [
+   "Ce n’est pas un premier chien.",
+   "Il donne beaucoup de la voix : difficile en lotissement ou près de voisins.",
+   "Il fugue sur une piste : clôture haute et solide indispensable.",
+   "La cohabitation avec un chat est risquée."
+  ]
+ },
+ "keeshond-loulou-hollandais": {
+  "quotidien": "Le Spitz-loup (Keeshond) est un spitz de taille moyenne au pelage gris argenté, reconnaissable aux « lunettes » dessinées autour de ses yeux. Ancien chien de bateliers, il est amical, extraverti et très proche de sa famille, enfants et autres animaux compris. Il vit bien en appartement, mais supporte mal de rester seul.",
+  "education": "Coopératif et intelligent, le Spitz-loup (Keeshond) apprend facilement et convient à un premier chien. Utilisez la récompense et le jeu. Apprenez-lui tôt à se taire sur demande et à rester seul par étapes.",
+  "activite": "Une heure par jour convient au Spitz-loup (Keeshond), entre promenades, jeux et petits apprentissages. Il aime participer à tout ce que fait la famille. Il adore le froid et la neige.",
+  "soins": "Le double pelage abondant du Spitz-loup (Keeshond) demande deux à trois brossages complets par semaine, jusqu’à la peau, et perd beaucoup de poils à la mue. Ne le tondez jamais. Un bilan sanguin régulier à l’âge mûr permet de repérer l’hyperparathyroïdie, fréquente dans la race, et l’hypothyroïdie.",
+  "vigilance": [
+   "Il craint la chaleur : en été, sorties aux heures fraîches, ombre et eau.",
+   "Il aboie facilement, ce qui peut gêner le voisinage.",
+   "Il ne supporte pas les longues journées seul.",
+   "Demandez le dépistage de la dysplasie de la hanche et des rotules des parents."
+  ]
  }
 }
