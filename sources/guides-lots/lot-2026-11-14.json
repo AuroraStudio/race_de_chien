@@ -1,0 +1,143 @@
+{
+  "berger-des-pyrenees-a-poil-long": {
+    "quotidien": "Le Berger des Pyrénées à poil long est un petit chien de troupeau sec et nerveux, qui concentre une énergie considérable dans un gabarit réduit. Entièrement dévoué à son maître, il le suit partout et supporte mal la solitude. Il reste méfiant envers les étrangers et donne de la voix au moindre mouvement.",
+    "education": "Vif et intelligent, il apprend vite mais teste son entourage : il lui faut une éducation ferme, cohérente et sans brutalité. Socialisez-le très tôt aux visiteurs, aux bruits et à la ville pour canaliser sa méfiance. Apprenez-lui aussi le calme, car il s’excite facilement.",
+    "activite": "Comptez une heure et demie par jour, en mêlant dépense physique et travail de tête. L’agility, le travail au troupeau et les jeux de recherche lui conviennent très bien. Une simple promenade en laisse ne lui suffit pas.",
+    "soins": "Son poil long, entre poil de chèvre et laine, se brosse chaque semaine en insistant derrière les oreilles et sur les cuisses, où se forment les nœuds. Vérifiez les yeux et les oreilles sous le poil. Demandez à l’éleveur les dépistages de la dysplasie de la hanche et de l’atrophie progressive de la rétine.",
+    "vigilance": [
+      "Il aboie beaucoup : à prévoir avec des voisins proches.",
+      "Ce n’est pas un chien pour débutant ni pour une vie sédentaire.",
+      "Il vit mal les longues journées seul.",
+      "Sa méfiance envers les inconnus demande une socialisation suivie."
+    ]
+  },
+  "epagneul-tibetain": {
+    "quotidien": "L’Épagneul Tibétain est un petit chien de compagnie compact, au poil soyeux et à la crinière de « petit lion ». Élevé par les moines comme compagnon et sentinelle des monastères, il a gardé le goût des postes d’observation en hauteur et prévient quand quelqu’un approche. Affectueux avec les siens, il reste distant avec les inconnus.",
+    "education": "Intelligent mais indépendant, il obéit quand il y trouve son intérêt : des séances courtes, de la douceur et des récompenses donnent de bons résultats. Il convient à un premier chien, à condition d’accepter son petit caractère. Habituez-le jeune aux visiteurs pour que sa réserve ne tourne pas à la méfiance.",
+    "activite": "Trois quarts d’heure par jour lui suffisent, en plusieurs sorties et quelques jeux. Il s’adapte très bien à l’appartement et s’entend en général avec les autres chiens et les chats. Il supporte bien le froid.",
+    "soins": "Son poil demande peu d’entretien : un bon brossage hebdomadaire, en insistant sur les franges des oreilles, de la queue et des cuisses. Surveillez ses yeux et sa peau, sujette aux allergies. Demandez à l’éleveur le test de l’atrophie progressive de la rétine.",
+    "vigilance": [
+      "Avec de jeunes enfants, surveillez les jeux : c’est un petit chien qui n’aime pas être bousculé.",
+      "Une boiterie ou une patte arrière tenue en l’air peut signaler une luxation de la rotule.",
+      "Il aime grimper sur les meubles pour observer : sécurisez les rebords de fenêtre."
+    ]
+  },
+  "cocker-americain": {
+    "quotidien": "Le Cocker Américain est l’un des plus petits épagneuls de chasse, devenu avant tout un chien de famille joyeux, doux et très sociable. Il s’entend avec les enfants, les autres chiens et les chats, et accueille volontiers les visiteurs. Très attaché aux siens, il supporte mal de rester seul longtemps.",
+    "education": "Il veut plaire et apprend facilement, ce qui en fait un bon premier chien. Sa sensibilité impose une méthode douce : les cris le bloquent. Habituez-le dès le plus jeune âge au brossage, au séchoir et aux manipulations, car le toilettage fera partie de sa vie.",
+    "activite": "Une heure par jour, avec des promenades, des jeux de rapport et un peu de recherche au flair, héritage de ses origines de chasseur de caille et de bécasse. Il vit bien en appartement s’il sort assez.",
+    "soins": "Son long poil soyeux est très exigeant : brossage presque quotidien et toilettage régulier chez un professionnel, faute de quoi il feutre. Nettoyez et séchez ses longues oreilles chaque semaine, les otites chroniques étant fréquentes. Faites contrôler ses yeux régulièrement, la race étant exposée au glaucome et à la cataracte.",
+    "vigilance": [
+      "Sa santé est fragile : prévoyez un budget vétérinaire et de toilettage en conséquence.",
+      "Un œil rouge, douloureux ou qui se voile est une urgence.",
+      "Fatigue inhabituelle ou gencives pâles doivent conduire chez le vétérinaire sans attendre.",
+      "Choisissez un éleveur qui fait dépister l’atrophie progressive de la rétine."
+    ]
+  },
+  "chien-de-montagne-des-pyrenees": {
+    "quotidien": "Le Chien de Montagne des Pyrénées, le fameux Patou, est un gardien de troupeaux puissant, calme et doux avec les siens, enfants compris. Il décide seul, surveille son territoire et se méfie des inconnus. Il vit dehors par tous les temps et supporte la solitude, mais pas l’appartement.",
+    "education": "Sélectionné pour travailler sans berger, il est indépendant et peu porté sur l’obéissance : n’attendez pas de lui l’empressement d’un chien de berger. Il faut un maître très expérimenté, patient et constant, et une socialisation poussée dès le plus jeune âge. La force ne mène à rien avec lui.",
+    "activite": "Une heure de marche tranquille par jour lui convient, en plus d’un grand terrain à surveiller. Ménagez ses articulations pendant la croissance. Il craint la chaleur : en été, sortez-le tôt le matin ou le soir.",
+    "soins": "Son épais double pelage blanc perd énormément de poils : brossez-le chaque semaine, davantage à la mue. Donnez deux repas par jour et du repos après manger pour limiter le risque de dilatation-torsion de l’estomac. Faites vérifier ses yeux (entropion) et demandez le dépistage de la dysplasie de la hanche des parents.",
+    "vigilance": [
+      "Il aboie beaucoup, surtout la nuit : difficile avec des voisins proches.",
+      "Il élargit volontiers son territoire : clôture haute et solide indispensable.",
+      "Ce n’est pas un premier chien.",
+      "Un ventre gonflé et des efforts pour vomir sans résultat sont une urgence absolue."
+    ]
+  },
+  "griffon-fauve-de-bretagne": {
+    "quotidien": "Le Griffon fauve de Bretagne est un chien courant rustique et courageux, au poil fauve très dur. Très doux avec l’homme, sociable et équilibré, il s’entend avec les enfants et vit volontiers avec d’autres chiens. Il reste avant tout un chien de chasse, qui a besoin d’espace et supporte mal la solitude comme l’appartement.",
+    "education": "Tenace et débrouillard, il suit son nez avant d’écouter : l’éducation demande de la constance et un maître qui connaît les chiens courants. Travaillez le rappel très tôt, sans jamais le tenir pour acquis face à une piste. Ce n’est pas un chien pour débutant.",
+    "activite": "Une heure et demie par jour au minimum, avec de longues sorties en nature, du pistage ou la chasse, pour laquelle il est fait. En terrain non clos, la longe est plus sûre que la liberté. Sans dépense suffisante, il s’ennuie et prend du poids.",
+    "soins": "Son poil dur se contente d’un brossage hebdomadaire. Après chaque sortie, inspectez les oreilles, les pattes et la peau à la recherche d’épillets ou de coupures. Nettoyez ses oreilles tombantes régulièrement pour éviter les otites.",
+    "vigilance": [
+      "Fugueur sur une piste : clôture solide et rappel travaillé.",
+      "Il donne de la voix, ce qui peut gêner le voisinage.",
+      "La cohabitation avec un chat est risquée.",
+      "Surveillez son poids s’il sort moins."
+    ]
+  },
+  "fox-terrier-a-poil-dur": {
+    "quotidien": "Le Fox Terrier à Poil Dur est un petit terrier audacieux, vif et joueur, sélectionné pour déloger le renard de son terrier. Toujours en alerte, il participe à tout et supporte mal de rester seul. Il s’entend bien avec les enfants qui respectent son tempérament.",
+    "education": "Intelligent mais indépendant et têtu, il demande un maître qui a déjà de l’expérience, cohérent et plein d’humour. Des séances courtes, variées et ludiques marchent mieux que la répétition. Socialisez-le très tôt avec ses congénères, car il ne recule pas devant un autre chien.",
+    "activite": "Une heure et demie par jour, avec de vraies courses, des jeux de balle, de l’agility ou de la recherche au flair. Il creuse et poursuit tout ce qui bouge. Un Fox qui ne se dépense pas invente ses propres occupations.",
+    "soins": "Son poil dur ne tombe presque pas mais doit être épilé plusieurs fois par an, à la main ou chez un toiletteur, pour garder sa texture. Brossez la barbe et les pattes chaque semaine. Surveillez sa peau, sujette à la dermatite atopique, et demandez les tests génétiques de la luxation du cristallin et de l’ataxie cérébelleuse.",
+    "vigilance": [
+      "Très fort instinct de chasse : cohabitation avec un chat ou de petits animaux déconseillée.",
+      "Fugueur et creuseur : clôture enterrée et rappel travaillé.",
+      "Il aboie volontiers, ce qui peut gêner le voisinage.",
+      "Ce n’est pas un chien pour débutant."
+    ]
+  },
+  "malamute-d-alaska": {
+    "quotidien": "Le Malamute de l’Alaska est un grand chien de traîneau, taillé pour tirer de lourdes charges plutôt que pour la vitesse. Affectueux et amical avec tout le monde, y compris les inconnus, il ne garde rien du tout. Il vit en meute avec sa famille et supporte mal la solitude comme l’appartement.",
+    "education": "Intelligent mais très indépendant, il n’obéit que s’il en voit l’utilité. Il lui faut un maître très expérimenté, calme et constant, qui pose les règles dès le chiot. Socialisez-le tôt avec les autres chiens, envers lesquels il peut se montrer dominant.",
+    "activite": "Une heure et demie par jour au minimum, idéalement avec de la traction : canicross, cani-randonnée, traîneau. Le rappel reste peu fiable, mieux vaut la longe hors terrain clos. Par temps chaud, limitez-vous aux heures fraîches, car il souffre énormément de la chaleur.",
+    "soins": "Son double pelage épais se brosse chaque semaine, et tous les jours pendant les grandes mues. Ne le tondez pas. Demandez à l’éleveur le dépistage de la dysplasie de la hanche et les tests de la polyneuropathie et de la chondrodysplasie.",
+    "vigilance": [
+      "Ce n’est pas un premier chien : sa force et son entêtement dépassent vite un débutant.",
+      "Fort instinct de prédation : chats et petits animaux en danger.",
+      "Fugueur et creuseur : clôture haute et enterrée.",
+      "Il hurle plus qu’il n’aboie."
+    ]
+  },
+  "bearded-collie": {
+    "quotidien": "Le Bearded Collie est un chien de berger écossais exubérant, joyeux et très sociable, reconnaissable à son long poil hirsute et à sa démarche bondissante. Il adore les enfants, s’entend avec les autres animaux et accueille les inconnus en amis. Il a besoin de présence et supporte mal la solitude.",
+    "education": "Intelligent et habitué à travailler de façon autonome, il apprend bien mais garde ses propres idées. Misez sur le jeu, la régularité et la bonne humeur, car il est sensible. Canalisez tôt son enthousiasme : il saute volontiers sur les gens.",
+    "activite": "Une heure et demie par jour, avec des courses en liberté, de l’agility, du travail au troupeau ou de longues randonnées. Il lui faut aussi de quoi occuper sa tête. Il supporte très bien le froid mais mal la chaleur : en été, sortez-le aux heures fraîches.",
+    "soins": "Son pelage est le gros poste d’entretien : un brossage complet, jusqu’à la peau, au moins une fois par semaine, sans quoi il feutre. Nettoyez la barbe après les repas et vérifiez les pattes au retour de promenade. Demandez le dépistage de la dysplasie de la hanche et de l’atrophie progressive de la rétine.",
+    "vigilance": [
+      "Il aboie facilement, de joie ou d’excitation : à prévoir avec des voisins proches.",
+      "Abattement, troubles digestifs répétés ou perte de poids méritent une consultation : la race est sujette à la maladie d’Addison.",
+      "Son poil rapporte boue et brindilles à la maison."
+    ]
+  },
+  "caniche-toy": {
+    "quotidien": "Le Caniche Toy est la plus petite variété du Caniche, un compagnon vif, attentif et très proche de son maître. Il vit parfaitement en appartement et s’entend avec les autres chiens et les chats. Il déteste rester seul et le fait savoir.",
+    "education": "C’est l’un des chiens les plus faciles à éduquer : il comprend vite et adore apprendre des tours. Ne le portez pas en permanence et fixez-lui les mêmes règles qu’à un grand chien, sinon il devient aboyeur et capricieux. Habituez-le tôt à rester seul par petites durées.",
+    "activite": "Une demi-heure de promenade par jour suffit, complétée par des jeux et des exercices d’obéissance ou d’agility, où il excelle. Il craint beaucoup le froid : un manteau est utile en hiver.",
+    "soins": "Son poil bouclé ne mue presque pas mais pousse en continu : brossage plusieurs fois par semaine et toilettage régulier. Brossez ses dents très souvent, la maladie parodontale étant fréquente chez lui. Préférez un harnais au collier pour ménager sa trachée.",
+    "vigilance": [
+      "Avec de jeunes enfants, attention aux chutes et aux jeux brusques : il est fragile par sa taille.",
+      "Une patte arrière tenue en l’air ou une boiterie doit être montrée au vétérinaire.",
+      "Une toux rauque à l’effort ou à l’excitation peut signaler un collapsus trachéal.",
+      "Ses aboiements peuvent gêner les voisins en appartement."
+    ]
+  },
+  "terrier-ecossais": {
+    "quotidien": "Le Scottish Terrier est un petit terrier solide et digne, à la barbe et aux sourcils fournis. Fidèle à sa famille mais peu démonstratif, il reste réservé avec les inconnus et monte bien la garde. Indépendant, il supporte la solitude mieux que la plupart des terriers et s’adapte à l’appartement.",
+    "education": "Têtu et sûr de lui, il ne cède pas à la contrainte : il faut de la patience, des règles stables et un maître qui a déjà de l’expérience. Socialisez-le très jeune avec les autres chiens, envers lesquels il se montre souvent peu conciliant. Avec les enfants, apprenez à chacun à respecter l’autre.",
+    "activite": "Une heure par jour, en promenades au pas soutenu, jeux de recherche et fouilles autorisées. Son instinct de chasse est très fort : gardez-le en laisse là où il y a du gibier ou des petits animaux.",
+    "soins": "Son poil dur demande un épilage ou un toilettage plusieurs fois par an et un brossage hebdomadaire, barbe comprise. Demandez à l’éleveur le test de la maladie de von Willebrand, un trouble de la coagulation. Signalez au vétérinaire toute difficulté à uriner ou du sang dans les urines.",
+    "vigilance": [
+      "La cohabitation avec un chat ou des petits animaux est risquée.",
+      "Ce n’est pas un chien pour débutant.",
+      "Une démarche raide ou des crampes à l’effort évoquent la crampe du Scottie.",
+      "Il creuse volontiers au jardin."
+    ]
+  },
+  "welsh-corgi-cardigan": {
+    "quotidien": "Le Welsh Corgi Cardigan est un chien de berger bas sur pattes, au corps long et à la queue touffue de renard. Affectueux, fidèle et vigilant, il s’adapte à beaucoup de modes de vie. Il s’entend bien avec les enfants, mais peut leur mordiller les talons comme il le faisait avec le bétail.",
+    "education": "Intelligent et volontaire, il apprend facilement avec une méthode positive et régulière. Corrigez dès le chiot le mordillement des talons et apprenez-lui à se taire sur demande. Il aime avoir un travail à faire.",
+    "activite": "Une heure par jour, avec des marches, des jeux et des activités de réflexion. Il est plus sportif que sa silhouette ne le laisse croire, mais évitez les sauts et les escaliers répétés, qui sollicitent son long dos.",
+    "soins": "Son poil s’entretient d’un brossage hebdomadaire, plus fréquent pendant les mues, car il en perd beaucoup. Pesez sa ration : il est gourmand, et le surpoids aggrave les problèmes de dos et de hanches. Demandez les tests de l’atrophie progressive de la rétine et de la myélopathie dégénérative.",
+    "vigilance": [
+      "Il aboie facilement pour signaler tout ce qui bouge, ce qui peut gêner le voisinage.",
+      "Une douleur du dos ou une faiblesse des pattes arrière impose une consultation rapide.",
+      "Gardez-le mince toute sa vie."
+    ]
+  },
+  "bouvier-australien": {
+    "quotidien": "Le Bouvier Australien est un chien de travail compact, musclé et d’une endurance exceptionnelle, sélectionné pour conduire les bovins en leur mordillant les talons. Il s’attache très fort à une personne, qu’il suit comme son ombre, et se méfie des inconnus. La campagne lui convient ; l’appartement et les longues heures seul, pas du tout.",
+    "education": "Très intelligent, il apprend vite, le bon comme le mauvais. Il lui faut un maître très expérimenté, cohérent et disponible, qui lui donne un cadre clair. Corrigez tôt le mordillement des talons, surtout avec les enfants qui courent, et socialisez-le beaucoup avec les autres chiens.",
+    "activite": "Deux heures par jour, et pas seulement de la marche : travail au troupeau, agility, obéissance, course ou vélo à l’âge adulte. Sans véritable occupation, il devient destructeur. Il supporte bien la chaleur.",
+    "soins": "Son poil court et dense se contente d’un brossage hebdomadaire, renforcé à la mue. La race est très robuste. Demandez à l’éleveur le test d’audition des chiots, la surdité congénitale existant dans la race, ainsi que les dépistages de l’atrophie progressive de la rétine et de la dysplasie de la hanche.",
+    "vigilance": [
+      "Ce n’est pas un premier chien ni un chien de ville.",
+      "Les rencontres avec d’autres chiens demandent de la vigilance.",
+      "La cohabitation avec un chat est délicate.",
+      "Il peut pincer les talons des enfants et des joggeurs."
+    ]
+  }
+}
