@@ -1,0 +1,139 @@
+{
+  "berger-de-picardie": {
+    "quotidien": "Le Berger de Picardie (Berger picard) est un berger rustique au poil dur et à l’allure griffonnée, équilibré, sensible et très proche de sa famille, enfants compris. Réservé avec les inconnus, il monte la garde sans aboyer à tout propos. Une maison avec jardin lui convient bien mieux qu’un appartement.",
+    "education": "Intelligent mais têtu, il se ferme si on le brusque. Misez sur la constance, la douceur et des séances courtes et variées, et socialisez-le tôt pour que sa réserve ne tourne pas à la méfiance.",
+    "activite": "Comptez une heure et demie par jour : longues marches, course à vos côtés, jeux de recherche ou sports canins. C’est un chien de travail qui a besoin de s’occuper la tête autant que les pattes. Il supporte bien le froid et le mauvais temps.",
+    "soins": "Son poil dur et crissant s’entretient facilement : un bon brossage de temps en temps suffit, sans bains fréquents, et il perd peu de poils. Donnez la ration en deux repas et évitez l’effort juste après manger, pour limiter le risque de dilatation-torsion de l’estomac.",
+    "vigilance": [
+      "Demandez le dépistage de la dysplasie de la hanche et des maladies des yeux (atrophie progressive de la rétine, cataracte) chez les parents.",
+      "Sa sensibilité s’accommode mal des cris et des méthodes dures.",
+      "La race reste rare : il faut souvent patienter pour trouver un chiot."
+    ]
+  },
+  "schipperke": {
+    "quotidien": "Le Schipperke est un petit spitz noir venu de Flandre, vif, curieux de tout et très sûr de lui. Ancien gardien et ratier, il surveille la maison avec sérieux et se montre réservé avec les inconnus. Il s’entend bien avec les enfants qui le respectent.",
+    "education": "Intelligent et indépendant, il apprend vite mais décide volontiers par lui-même. Des règles claires, de la constance et des séances courtes et ludiques donnent de bons résultats. Apprenez-lui tôt à se taire sur demande, car il donne de la voix facilement.",
+    "activite": "Une heure par jour lui convient, à condition de varier : marches actives, jeux, agility ou recherche de friandises. Son instinct de ratier le pousse à poursuivre les petits animaux, d’où l’intérêt d’un rappel solide et d’un jardin clos.",
+    "soins": "Son double pelage épais demande peu d’entretien : un brossage hebdomadaire, plus fréquent pendant les mues. Il supporte bien le froid. Surveillez son poids et faites contrôler ses rotules lors des visites chez le vétérinaire.",
+    "vigilance": [
+      "Ses aboiements peuvent gêner le voisinage, surtout en appartement.",
+      "Il poursuit volontiers les petits animaux.",
+      "Interrogez l’éleveur sur les tests réalisés chez les parents, notamment pour la mucopolysaccharidose IIIB."
+    ]
+  },
+  "epagneul-francais": {
+    "quotidien": "L’Épagneul français est un chien d’arrêt doux, calme et docile, l’un des plus anciens d’Europe. Très sociable, il s’entend avec les enfants, les autres chiens et souvent les chats de la maison. Il supporte mal la solitude et n’a rien d’un gardien.",
+    "education": "Docile et désireux de bien faire, il convient à un maître débutant qui se montre doux et régulier. Sa sensibilité ne supporte pas la brusquerie. Travaillez le rappel dès le plus jeune âge, car son instinct de chasse est très fort.",
+    "activite": "Il lui faut une heure et demie d’exercice par jour, au grand air : longues balades en campagne, jeux de rapport, recherche d’objets. Calme à la maison s’il s’est dépensé, il s’ennuie vite en appartement. La chasse reste son terrain favori.",
+    "soins": "Son poil plat et soyeux, frangé aux oreilles, aux membres et à la queue, demande un brossage hebdomadaire et un contrôle après chaque sortie dans les broussailles. Nettoyez et séchez régulièrement ses oreilles tombantes, sujettes aux otites.",
+    "vigilance": [
+      "Ne le laissez pas seul de longues journées.",
+      "Demandez le dépistage de la dysplasie de la hanche et du coude, ainsi que le test de l’acropathie ulcéro-mutilante chez les parents.",
+      "Sans dépense quotidienne, il devient agité."
+    ]
+  },
+  "petit-bleu-de-gascogne": {
+    "quotidien": "Le Petit bleu de Gascogne est un chien courant à la robe mouchetée de noir et de blanc, au reflet bleu ardoisé. Calme et affectueux avec l’homme, il reste avant tout un chien de meute et de chasse, spécialiste du lièvre. Il n’est pas fait pour l’appartement et supporte mal de rester seul.",
+    "education": "Il se met assez facilement aux ordres pour un chien courant, mais son nez commande dès qu’une piste se présente. Ce n’est pas un chien pour débutant : il faut de la patience, de la constance et un rappel travaillé très tôt, sans jamais s’y fier totalement.",
+    "activite": "Prévoyez une heure et demie par jour, en longe ou en terrain clos : longues marches, pistage, jeux de flair. La compagnie d’autres chiens lui fait du bien. Un Petit bleu de Gascogne qui ne se dépense pas hurle et cherche à s’échapper.",
+    "soins": "Son poil court se contente d’un brossage rapide. Ses longues oreilles demandent un nettoyage régulier pour prévenir les otites, et ses yeux un coup d’œil fréquent. Après la chasse ou une sortie en sous-bois, inspectez les pattes et la peau.",
+    "vigilance": [
+      "Sa voix puissante porte loin : voisinage proche déconseillé.",
+      "Fugueur sur une piste : clôture haute et solide indispensable.",
+      "La cohabitation avec un chat est risquée.",
+      "Demandez le dépistage de la dysplasie de la hanche des parents."
+    ]
+  },
+  "ariegeois": {
+    "quotidien": "L’Ariégeois est un chien courant léger et élégant, à la robe blanche tachée de noir, spécialiste du lièvre. Gai et sociable, il aime la compagnie des autres chiens et des gens, mais il vit pour la chasse. L’appartement ne lui convient pas, et la solitude lui pèse.",
+    "education": "Entreprenant et guidé par son nez, il demande un maître expérimenté, patient et régulier. Il se met aux ordres plus facilement que d’autres chiens courants, sans devenir pour autant un chien d’obéissance. Commencez le rappel très jeune et gardez une longe hors terrain clos.",
+    "activite": "Il a besoin d’une heure et demie de dépense par jour : grandes marches, pistage, sorties en terrain varié où il excelle. Vivre avec un autre chien l’aide à s’équilibrer. Privé d’activité, il donne de la voix et cherche la sortie.",
+    "soins": "Le poil court ne demande qu’un brossage de temps en temps. Nettoyez ses longues oreilles chaque semaine pour éviter les otites. Au retour de promenade, cherchez les épillets entre les doigts et dans les oreilles, et soignez les petites blessures.",
+    "vigilance": [
+      "Il hurle et aboie beaucoup : à éviter avec des voisins proches.",
+      "Il suit une piste sans se retourner : jardin solidement clos.",
+      "Les chats et les petits animaux risquent d’être pris en chasse.",
+      "Ce n’est pas un chien pour un premier maître."
+    ]
+  },
+  "kangal": {
+    "quotidien": "Le Chien de berger kangal est un très grand gardien de troupeaux venu de Turquie, calme, loyal et d’une grande indépendance. Il a été élevé pour protéger seul les troupeaux contre les prédateurs, et il garde ce réflexe : il surveille son territoire et se méfie profondément des inconnus.",
+    "education": "Ce n’est pas un chien pour débutant. Il faut un maître très expérimenté, calme et cohérent, qui obtient sa coopération sans rapport de force. La socialisation doit commencer tôt et durer toute la croissance, en particulier avec les visiteurs et les autres chiens.",
+    "activite": "Une heure de marche par jour lui suffit, mais il lui faut surtout de l’espace : un grand terrain à surveiller, jamais un appartement. Il supporte bien la solitude, le froid comme la chaleur. Les jeux de balle et l’obéissance répétitive l’intéressent peu.",
+    "soins": "Son double poil court perd beaucoup, surtout aux mues : brossez-le alors plusieurs fois par semaine. Donnez deux repas par jour et du repos après manger pour limiter le risque de torsion-dilatation de l’estomac. Surveillez ses paupières (entropion).",
+    "vigilance": [
+      "Clôture haute et solide obligatoire : il élargit volontiers son territoire.",
+      "Il aboie pour dissuader, ce qui gêne vite les voisins.",
+      "Les rencontres avec d’autres chiens demandent de la prudence.",
+      "Exigez le dépistage de la dysplasie de la hanche et du coude des parents."
+    ]
+  },
+  "vizsla-braque-hongrois": {
+    "quotidien": "Le Braque hongrois à poil court (Vizsla) est un chien d’arrêt athlétique à la robe roux doré, doux et très affectueux. Il vit collé à ses maîtres et s’entend très bien avec les enfants. C’est aussi l’un des chiens qui supportent le moins la solitude.",
+    "education": "Intelligent et désireux de plaire, il apprend vite avec des méthodes douces et positives. Sa sensibilité rend la dureté contre-productive. Canalisez tôt son énergie et son instinct de chasse : rappel, marche en laisse et retour au calme sont les priorités.",
+    "activite": "Il lui faut deux heures d’exercice par jour, et du vrai : course, vélo, randonnée, rapport, pistage ou sports canins. Une simple promenade en laisse ne suffit pas. Bien dépensé, le Vizsla est calme à la maison ; sinon il détruit et s’agite.",
+    "soins": "Son poil court et lisse perd peu et se contente d’un coup de gant. Peu protégé, il craint le froid et l’humidité : séchez-le et couvrez-le en hiver si besoin. Surveillez sa peau, sujette aux allergies cutanées.",
+    "vigilance": [
+      "Ne l’adoptez pas si la maison est vide toute la journée.",
+      "Son besoin de dépense est très élevé, tous les jours de l’année.",
+      "Demandez le dépistage de la dysplasie de la hanche et du coude des parents, et interrogez l’éleveur sur l’épilepsie dans la lignée."
+    ]
+  },
+  "briard": {
+    "quotidien": "Le Berger de Brie (Briard) est un grand berger français au long poil ondulé, loyal, courageux et très attaché à sa famille. Protecteur et réservé avec les inconnus, il garde naturellement la maison. Il a besoin de vivre près des siens et supporte mal les longues absences.",
+    "education": "Intelligent mais doté d’un fort caractère, il n’est pas conseillé pour un premier chien. Il lui faut un maître ferme sans dureté, constant, et une socialisation soignée dès le plus jeune âge. La patience est de mise.",
+    "activite": "Comptez une heure et demie par jour : longues marches, randonnée, obéissance, pistage ou travail au troupeau. Il aime avoir une tâche à accomplir. Il craint la chaleur : en été, sortez-le tôt le matin et tard le soir.",
+    "soins": "Son pelage est le grand chantier : un brossage complet et en profondeur chaque semaine, sinon les nœuds se forment jusqu’à la peau. Vérifiez les oreilles et les espaces entre les doigts. Fractionnez la ration en deux repas et évitez l’effort après manger, à cause du risque de dilatation-torsion de l’estomac.",
+    "vigilance": [
+      "L’entretien du poil prend du temps toute sa vie.",
+      "Exigez le dépistage de la dysplasie de la hanche et le test de la cécité nocturne congénitale chez les parents.",
+      "Sans cadre clair, il peut devenir trop protecteur."
+    ]
+  },
+  "fox-terrier-a-poil-lisse": {
+    "quotidien": "Le Fox Terrier à Poil Lisse est un petit terrier anglais sélectionné pour déloger le renard de sa tanière. Vif, joueur, audacieux et toujours en mouvement, il est amical avec les gens et apprécie les enfants actifs. Il supporte mal l’ennui et la solitude.",
+    "education": "Intelligent mais obstiné, il n’est pas le plus simple pour un premier chien. Il faut de la constance, de l’humour et des séances courtes et variées. Socialisez-le très tôt avec les autres chiens, envers lesquels il se montre facilement querelleur.",
+    "activite": "Une heure et demie par jour est nécessaire : marches rapides, jeux de balle, agility, recherche d’objets. Il adore creuser et poursuivre. Sans dépense suffisante, le Fox Terrier à Poil Lisse aboie, creuse et invente ses propres occupations.",
+    "soins": "Son poil court et lisse ne demande qu’un brossage hebdomadaire. Peu protégé, il craint le froid humide. Faites contrôler ses yeux régulièrement, la race étant exposée à la luxation primaire du cristallin, et demandez un test d’audition pour les chiots à dominante blanche.",
+    "vigilance": [
+      "Il chasse les chats et les petits animaux : cohabitation très risquée.",
+      "Fugueur et creuseur : clôture enterrée et rappel travaillé.",
+      "Ses aboiements peuvent gêner le voisinage.",
+      "Prudence lors des rencontres avec d’autres chiens."
+    ]
+  },
+  "basenji": {
+    "quotidien": "Le Basenji est un chien primitif d’Afrique centrale, élégant, léger et silencieux : il n’aboie pas vraiment mais s’exprime par des vocalises proches du yodel. Indépendant et curieux, il est affectueux avec les siens et réservé avec les inconnus. Il supporte mal la solitude et s’ennuie vite.",
+    "education": "C’est l’un des chiens les plus difficiles à éduquer : il comprend très bien mais n’obéit que s’il y trouve son intérêt. Déconseillé pour un premier chien, il demande de la patience, des récompenses et beaucoup de constance. Le rappel n’est jamais acquis.",
+    "activite": "Il lui faut une heure et quart d’exercice par jour, avec de vraies occasions de courir en terrain clos. La poursuite à vue sur leurre lui convient parfaitement. Hors enclos, gardez-le en laisse ou en longe : son instinct de chasse l’emporte sur tout.",
+    "soins": "Son poil court et fin ne perd presque pas et demande très peu d’entretien. Il craint beaucoup le froid et la pluie : prévoyez un manteau en hiver. Faites surveiller ses reins, la race étant exposée au syndrome de Fanconi.",
+    "vigilance": [
+      "Il grimpe et saute les clôtures : enclos haut et sans appui.",
+      "La cohabitation avec un chat ou de petits animaux est très risquée.",
+      "Laissé seul, il peut détruire.",
+      "Demandez les tests génétiques des parents (syndrome de Fanconi, atrophie progressive de la rétine)."
+    ]
+  },
+  "chien-chinois-a-crete": {
+    "quotidien": "Le Chien Chinois à Crête existe en deux variétés : le Nu, à la peau douce avec des touffes de poils sur la tête, les pattes et la queue, et le Powderpuff, entièrement couvert d’un poil doux et voilé. Affectueux, joueur et très proche de ses maîtres, il vit bien en appartement mais n’aime pas rester seul.",
+    "education": "Vif et sensible, il convient à un maître débutant qui reste doux et patient. Évitez de le surprotéger : sorties, rencontres et manipulations dès le plus jeune âge l’aident à prendre confiance. Avec de jeunes enfants, veillez aux gestes brusques, car son ossature est fine.",
+    "activite": "Une demi-heure de promenade par jour, complétée par des jeux à la maison, suffit à son équilibre. Par temps froid, raccourcissez les sorties et habillez-le.",
+    "soins": "Chez le Nu, la peau demande des soins réguliers : bains doux, hydratation, protection solaire en été, car les coups de soleil, l’acné et les dermatites sont fréquents. Le Powderpuff doit être brossé plusieurs fois par semaine. Surveillez les dents, souvent incomplètes chez le Nu.",
+    "vigilance": [
+      "Il craint énormément le froid : manteau indispensable en hiver.",
+      "Ne le laissez pas seul de longues heures.",
+      "Demandez les tests oculaires des parents (luxation primaire du cristallin, atrophie progressive de la rétine)."
+    ]
+  },
+  "basset-bleu-de-gascogne": {
+    "quotidien": "Le Basset Bleu de Gascogne est un basset français à la robe bleue mouchetée, aux longues oreilles tombantes et à la belle voix de chien courant. Doux et amical, il s’entend très bien avec les enfants et les autres chiens. Il aime la compagnie et vit mal les longues heures de solitude.",
+    "education": "Indépendant et guidé par son flair, il obéit à son rythme. Soyez patient, régulier et généreux en récompenses, sans attendre une obéissance instantanée. Le rappel se travaille tôt, mais une piste fraîche le rendra toujours sourd.",
+    "activite": "Prévoyez une heure et quart par jour de marches tranquilles où il peut flairer longuement, avec des jeux de pistage. Il est solide malgré ses pattes courtes. Tenez-le en laisse ou en longe hors terrain clos.",
+    "soins": "Son poil court est facile à entretenir. Nettoyez ses longues oreilles chaque semaine pour éviter les otites. Ménagez son dos long : pas de sauts ni d’escaliers répétés, et surveillez sa ligne, car il prend vite du poids.",
+    "vigilance": [
+      "Fugueur dès qu’il flaire une piste : jardin bien clos indispensable.",
+      "Sa voix puissante peut gêner le voisinage.",
+      "L’obésité aggrave le risque de hernie discale."
+    ]
+  }
+}
