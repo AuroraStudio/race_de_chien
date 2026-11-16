@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/css/site.css?v=0c7fb66db8">
+    <link rel="stylesheet" href="/css/site.css?v=486a694235">
     <script src="/js/icons.js?v=4d56a9c4e5" defer></script>
     <meta name="theme-color" content="#2563eb">
 
@@ -36,7 +36,7 @@
                 <button id="back" type="button" class="invisible inline-flex items-center gap-1 rounded-lg px-2 py-1 text-slate-600 hover:bg-slate-100 hover:text-slate-900"><svg class="h-4 w-4" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"/></svg>Précédente</button>
             </div>
             <div class="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100"><div id="bar" class="h-full rounded-full bg-primary-600 transition-all" style="width:12.5%"></div></div>
-            <h2 id="question" class="mt-6 text-xl font-bold text-slate-900 sm:text-2xl"></h2>
+            <h2 id="question" class="mt-6 text-xl font-bold text-slate-900 sm:text-2xl">Où vivra votre chien ?</h2>
             <p id="help" class="mt-1 text-sm text-slate-500"></p>
             <div id="answers" class="mt-5 grid gap-3 sm:grid-cols-2"></div>
             <div id="next-wrap" class="mt-5 hidden text-right"><button id="next" type="button" class="rounded-xl bg-primary-600 px-5 py-3 text-sm font-bold text-white hover:bg-primary-700">Continuer</button></div>
@@ -56,6 +56,42 @@
             <ol id="top" class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2"></ol>
             <p id="top-more" class="mt-6 text-center text-sm text-slate-500" aria-live="polite"></p>
             <p class="mt-6 text-center text-sm text-slate-500">Un chien reste un individu : la race donne une tendance. Rencontrez des chiens de la race et parlez à des éleveurs ou à des refuges avant de décider.</p>
+        </section>
+        <section class="mt-16 space-y-10" aria-labelledby="comment">
+            <div>
+                <h2 id="comment" class="text-2xl font-bold text-slate-900">Comment fonctionne le test</h2>
+                <p class="mt-3 leading-relaxed text-slate-700">Chacune des 231 races du site est notée de 1 à 5 sur ce qui compte au quotidien : la vie en appartement, la patience avec les enfants, la solitude, la facilité d’éducation, l’énergie, l’entente avec les chats et les autres chiens. Vos huit réponses sont comparées à ces notes, et chaque race reçoit un pourcentage de compatibilité. Le résultat affiche les races les plus proches de votre vie, avec les raisons : ce qui colle, et ce qu’il faudra prévoir.</p>
+                <p class="mt-3 leading-relaxed text-slate-700">Le test est gratuit, sans inscription, et prend moins d’une minute. Le détail du calcul est expliqué dans <a href="/methode" class="font-semibold text-primary-700 underline">notre méthode</a>.</p>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold text-slate-900">Les huit questions, et pourquoi elles comptent</h2>
+                <dl class="mt-4 space-y-4">
+                    <div><dt class="font-bold text-slate-900">Votre logement</dt><dd class="mt-1 leading-relaxed text-slate-700">Appartement, maison, jardin ou campagne : certaines races sont calmes à l’intérieur, d’autres ont besoin d’espace quelle que soit la longueur des balades.</dd></div>
+                    <div><dt class="font-bold text-slate-900">Les enfants</dt><dd class="mt-1 leading-relaxed text-slate-700">C’est la question qui pèse le plus lourd dans le calcul. Avec de jeunes enfants, le test privilégie les races les plus patientes.</dd></div>
+                    <div><dt class="font-bold text-slate-900">Les autres animaux</dt><dd class="mt-1 leading-relaxed text-slate-700">Un chat ou un autre chien à la maison écarte les races au fort instinct de chasse ou peu sociables avec leurs congénères.</dd></div>
+                    <div><dt class="font-bold text-slate-900">Le temps passé seul</dt><dd class="mt-1 leading-relaxed text-slate-700">Aucun chien n’aime les longues journées de solitude, mais les races les plus attachées à leur maître en souffrent bien plus que les races indépendantes.</dd></div>
+                    <div><dt class="font-bold text-slate-900">Votre expérience</dt><dd class="mt-1 leading-relaxed text-slate-700">Pour un premier chien, le test met en avant les races faciles à éduquer et tolérantes aux erreurs de débutant.</dd></div>
+                    <div><dt class="font-bold text-slate-900">Votre rythme</dt><dd class="mt-1 leading-relaxed text-slate-700">Du canapé au sport quotidien : c’est l’écart entre votre rythme et l’énergie de la race qui compte, dans les deux sens. Un chien trop calme pour un sportif est un aussi mauvais choix que l’inverse.</dd></div>
+                    <div><dt class="font-bold text-slate-900">Les poils</dt><dd class="mt-1 leading-relaxed text-slate-700">Si quelqu’un est gêné par les poils, seules les races qui en perdent très peu restent dans le classement.</dd></div>
+                    <div><dt class="font-bold text-slate-900">La taille</dt><dd class="mt-1 leading-relaxed text-slate-700">Petit, moyen, grand, ou peu importe : la taille retire des races de la liste, elle ne change pas leur pourcentage.</dd></div>
+                </dl>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold text-slate-900">Ce que le test ne remplace pas</h2>
+                <p class="mt-3 leading-relaxed text-slate-700">Le résultat est un point de départ. Une race donne une tendance, pas une garantie : la lignée, l’éducation et l’histoire de chaque chien comptent autant. Avant de vous décider, rencontrez des chiens de la race, parlez à des éleveurs ou à un refuge, et vérifiez le budget et le temps que vous pourrez lui consacrer pendant dix à quinze ans.</p>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold text-slate-900">Vous préférez chercher autrement ?</h2>
+                <ul class="mt-4 flex flex-wrap gap-2">
+                    <li class="max-w-full"><a href="/" class="opt opt-wrap">Classer les 231 races avec vos critères</a></li>
+                    <li><a href="/selections/chiens-pour-appartement" class="opt">Chiens pour appartement</a></li>
+                    <li><a href="/selections/chiens-pour-enfants" class="opt">Chiens pour enfants</a></li>
+                    <li><a href="/selections/premier-chien" class="opt">Pour un premier chien</a></li>
+                    <li><a href="/selections/chiens-qui-perdent-peu-de-poils" class="opt">Chiens qui perdent peu de poils</a></li>
+                    <li><a href="/compare" class="opt">Comparer deux races</a></li>
+                    <li><a href="/liste-des-races" class="opt">Toutes les races de A à Z</a></li>
+                </ul>
+            </div>
         </section>
     </main>
 
@@ -105,6 +141,7 @@
                 <div>
                     <p class="text-white font-semibold text-sm mb-3">Le site</p>
                     <ul class="space-y-0.5">
+                        <li><a href="/methode" class="inline-block py-1.5 hover:text-white">Méthode et sources</a></li>
                         <li><a href="/mentions-legales" class="inline-block py-1.5 hover:text-white">Mentions légales</a></li>
                         <li><a href="/confidentialite" class="inline-block py-1.5 hover:text-white">Confidentialité</a></li>
                         <li><a href="#" data-open-consent class="inline-block py-1.5 hover:text-white">Gérer les cookies</a></li>

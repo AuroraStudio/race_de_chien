@@ -445,10 +445,66 @@ const SELECTIONS = [
     { slug: 'chiens-et-chats', short: 'Chiens qui s’entendent avec les chats', icon: 'cat', state: { chat: true },
       title: 'Chiens qui s’entendent avec les chats',
       intro: 'Les races au faible instinct de chasse cohabitent plus facilement avec un chat, surtout si elles le côtoient dès le plus jeune âge.',
-      avoid: 'Les races à éviter avec un chat' }
+      avoid: 'Les races à éviter avec un chat' },
+
+    // Croisements de deux critères (combo) : mêmes pages, en français seulement, liées depuis leurs sélections parentes
+    { combo: true, parents: ['petits-chiens', 'chiens-pour-appartement'], slug: 'petits-chiens-pour-appartement', short: 'Petits chiens pour appartement', icon: 'buildings', state: { logement: 'appart', sizes: [1, 2] },
+      title: 'Petits chiens pour appartement : les races qui s’y plaisent',
+      intro: 'Un petit gabarit ne suffit pas pour vivre heureux en appartement : certains terriers de poche débordent d’énergie et aboient au moindre bruit. Nous avons croisé la taille (moins de 40 cm au garrot) avec notre note d’adaptation à un logement sans jardin.' },
+    { combo: true, parents: ['petits-chiens', 'chiens-qui-perdent-peu-de-poils'], slug: 'petits-chiens-qui-perdent-peu-de-poils', seo: 'Petit chien qui ne perd pas ses poils : les races', short: 'Petits chiens qui perdent peu de poils', icon: 'broom', state: { hypo: true, sizes: [1, 2] }, all: true,
+      title: 'Petits chiens qui ne perdent pas leurs poils',
+      intro: 'Bichons, caniches, yorkshires, schnauzers nains : beaucoup de petites races ont un poil qui pousse en continu et tombe très peu. La contrepartie est un toilettage régulier. Aucun chien n’est garanti sans allergie : passez du temps avec la race avant de vous décider.' },
+    { combo: true, parents: ['petits-chiens', 'chiens-pour-enfants'], slug: 'petits-chiens-pour-enfants', short: 'Petits chiens pour enfants', icon: 'baby', state: { enfants: 'jeunes', sizes: [1, 2] },
+      title: 'Petits chiens pour enfants : les races les plus patientes',
+      intro: 'Un petit chien n’est pas toujours le meilleur choix avec de jeunes enfants : les plus fragiles supportent mal les gestes brusques. Voici les races de moins de 40 cm les mieux notées pour leur patience en famille. Aucune race ne dispense de surveiller un enfant avec un chien.' },
+    { combo: true, parents: ['petits-chiens', 'chiens-calmes'], slug: 'petits-chiens-calmes', short: 'Petits chiens calmes', icon: 'couch', state: { rythme: 1, sizes: [1, 2] },
+      title: 'Petits chiens calmes : les races de canapé',
+      intro: 'Petit ne veut pas dire calme : la plupart des terriers de petite taille sont de vraies piles. Ces races de moins de 40 cm sont les moins énergiques : de courtes sorties leur suffisent, et elles aiment la sieste.' },
+    { combo: true, parents: ['petits-chiens', 'premier-chien'], slug: 'petits-chiens-pour-premier-chien', short: 'Petits chiens pour un premier chien', icon: 'plant', state: { experience: 'premier', sizes: [1, 2] },
+      title: 'Premier chien : les petites races les plus faciles',
+      intro: 'Pour un premier chien de petite taille, mieux vaut une race facile à éduquer et de bonne composition qu’un caractère bien trempé. Voici les races de moins de 40 cm qui pardonnent le mieux les erreurs de débutant.' },
+    { combo: true, parents: ['petits-chiens', 'chiens-sportifs'], slug: 'petits-chiens-sportifs', short: 'Petits chiens sportifs', icon: 'person-simple-run', state: { rythme: 5, sizes: [1, 2] },
+      title: 'Petits chiens sportifs : les races pleines d’énergie',
+      intro: 'Vous voulez un compagnon de course ou de randonnée qui tienne dans un petit gabarit ? Ces races de moins de 40 cm ont l’énergie et l’endurance pour vous suivre. Elles demandent beaucoup d’activité : sans dépense, elles inventent leurs propres occupations.' },
+    { combo: true, parents: ['grands-chiens', 'chiens-calmes'], slug: 'grands-chiens-calmes', short: 'Grands chiens calmes', icon: 'couch', state: { rythme: 2, sizes: [4, 5] },
+      title: 'Grands chiens calmes : les géants tranquilles',
+      intro: 'Beaucoup de grands chiens sont plus posés à la maison que des races deux fois plus petites. Voici les races de plus de 60 cm au tempérament le plus tranquille. Calme ne veut pas dire sans besoin : il leur faut de la place et des sorties quotidiennes.' },
+    { combo: true, parents: ['grands-chiens', 'chiens-pour-enfants'], slug: 'grands-chiens-pour-enfants', short: 'Grands chiens pour enfants', icon: 'baby', state: { enfants: 'jeunes', sizes: [4, 5] },
+      title: 'Grands chiens pour enfants : les races de famille',
+      intro: 'Patients et tolérants, certains grands chiens sont d’excellents compagnons de famille. Leur poids demande tout de même de la prudence avec les tout-petits, qu’un chien de 40 kg peut bousculer sans le vouloir. Aucune race ne dispense de surveiller un enfant avec un chien.' },
+    { combo: true, parents: ['grands-chiens', 'chiens-qui-perdent-peu-de-poils'], slug: 'grands-chiens-qui-perdent-peu-de-poils', seo: 'Grand chien qui ne perd pas ses poils : les races', short: 'Grands chiens qui perdent peu de poils', icon: 'broom', state: { hypo: true, sizes: [4, 5] }, all: true,
+      title: 'Grands chiens qui ne perdent pas leurs poils',
+      intro: 'Les grandes races qui perdent très peu de poils sont rares : en voici la liste complète. Leur poil pousse en continu et demande un toilettage régulier. Aucun chien n’est garanti sans allergie : passez du temps avec la race avant de vous décider.' },
+    { combo: true, parents: ['chiens-de-taille-moyenne', 'chiens-qui-perdent-peu-de-poils'], slug: 'chiens-moyens-qui-perdent-peu-de-poils', seo: 'Chien moyen qui ne perd pas ses poils : les races', short: 'Chiens moyens qui perdent peu de poils', icon: 'broom', state: { hypo: true, sizes: [3] }, all: true,
+      title: 'Chiens de taille moyenne qui ne perdent pas leurs poils',
+      intro: 'Entre 40 et 60 cm au garrot, plusieurs races perdent très peu de poils : chiens d’eau, schnauzers, certains terriers. Leur poil demande un toilettage régulier. Aucun chien n’est garanti sans allergie : passez du temps avec la race avant de vous décider.' },
+    { combo: true, parents: ['chiens-pour-appartement', 'chiens-calmes'], slug: 'chiens-calmes-pour-appartement', short: 'Chiens calmes pour appartement', icon: 'couch', state: { logement: 'appart', rythme: 1 },
+      title: 'Chiens calmes pour appartement',
+      intro: 'Pour un appartement, le calme à l’intérieur compte plus que la taille. Ces races sont à la fois peu énergiques et à l’aise dans un logement sans jardin. Elles ont tout de même besoin de sortir plusieurs fois par jour.' },
+    { combo: true, parents: ['chiens-pour-appartement', 'chiens-qui-supportent-la-solitude'], slug: 'chiens-pour-appartement-qui-restent-seuls', seo: 'Chien d’appartement qui reste seul la journée', short: 'Chiens d’appartement qui restent seuls', icon: 'clock', state: { logement: 'appart', seul: 'long' },
+      title: 'Chiens d’appartement qui supportent de rester seuls',
+      intro: 'Vous travaillez la journée et vivez en appartement : c’est la situation la plus exigeante pour un chien. Aucun n’est fait pour rester seul huit heures tous les jours. Ces races, plus indépendantes, vivent mieux les absences ; pensez aussi au promeneur ou à la garderie.' },
+    { combo: true, parents: ['chiens-pour-appartement', 'chiens-qui-aboient-peu'], slug: 'chiens-pour-appartement-qui-aboient-peu', short: 'Chiens d’appartement qui aboient peu', icon: 'speaker-simple-slash', state: { logement: 'appart', discret: true },
+      title: 'Chiens d’appartement qui aboient peu',
+      intro: 'En immeuble, les aboiements sont la première source de conflit avec les voisins. Ces races sont à la fois à l’aise en appartement et discrètes. L’éducation et l’activité comptent aussi beaucoup : un chien qui s’ennuie aboie.' },
+    { combo: true, parents: ['chiens-pour-enfants', 'chiens-qui-perdent-peu-de-poils'], slug: 'chiens-pour-enfants-qui-perdent-peu-de-poils', short: 'Chiens de famille qui perdent peu de poils', icon: 'broom', state: { enfants: 'jeunes', hypo: true },
+      title: 'Chiens de famille qui perdent peu de poils',
+      intro: 'Un chien doux avec les enfants et qui ne sème pas ses poils dans toute la maison : ces races réunissent les deux. Leur poil demande un toilettage régulier. Aucun chien n’est garanti sans allergie : passez du temps avec la race avant de vous décider.' },
+    { combo: true, parents: ['chiens-pour-enfants', 'chiens-et-chats'], slug: 'chiens-pour-enfants-et-chats', short: 'Chiens pour enfants et chats', icon: 'cat', state: { enfants: 'jeunes', chat: true },
+      title: 'Chiens qui s’entendent avec les enfants et les chats',
+      intro: 'Une maison avec de jeunes enfants et un chat demande un chien patient, au faible instinct de chasse. Ces races sont bien notées sur les deux points. La cohabitation se passe d’autant mieux que le chien côtoie le chat dès son plus jeune âge.' },
+    { combo: true, parents: ['chiens-pour-enfants', 'premier-chien'], slug: 'chiens-de-famille-pour-debutants', short: 'Chiens de famille pour débutants', icon: 'plant', state: { enfants: 'jeunes', experience: 'premier' },
+      title: 'Chiens de famille pour débutants : les races faciles avec des enfants',
+      intro: 'Premier chien et jeunes enfants à la maison : il vous faut une race patiente, facile à éduquer et de bonne composition. Voici celles qui sont bien notées sur les deux points. Une éducation positive dès l’arrivée du chiot reste indispensable.' },
+    { combo: true, parents: ['chiens-calmes', 'chiens-qui-supportent-la-solitude'], slug: 'chiens-calmes-qui-restent-seuls', short: 'Chiens calmes qui restent seuls', icon: 'clock', state: { rythme: 2, seul: 'long' },
+      title: 'Chiens calmes qui supportent la solitude',
+      intro: 'Des journées de travail et un mode de vie tranquille : ces races sont à la fois posées et plus indépendantes que la moyenne. Aucun chien n’est fait pour rester seul huit heures tous les jours ; pensez au promeneur ou à la garderie.' }
 ];
+const BASE_SELECTIONS = SELECTIONS.filter(x => !x.combo);
+const COMBOS = SELECTIONS.filter(x => x.combo);
 
 let SELECTION_MEMBERS = null;
+let CMP = null;
 function selectionResults(sel) {
     const state = { ...S.emptyState(), ...sel.state };
     if (sel.custom) {
@@ -478,7 +534,7 @@ function fill(tpl, vars) {
 const commonVars = {
     COUNT: String(COUNT),
     UPDATED: DATE_FR,
-    SELECTION_LINKS: SELECTIONS.slice(0, 7).map(s => `                        <li><a href="/selections/${s.slug}" class="inline-block py-1.5 hover:text-white">${esc(s.short)}</a></li>`).join('\n'),
+    SELECTION_LINKS: BASE_SELECTIONS.slice(0, 7).map(s => `                        <li><a href="/selections/${s.slug}" class="inline-block py-1.5 hover:text-white">${esc(s.short)}</a></li>`).join('\n'),
     POPULAR_LINKS: popular.slice(0, 7).map(b => `                        <li><a href="/races/${b.slug}" class="inline-block py-1.5 hover:text-white">${esc(b.name_fr)}</a></li>`).join('\n'),
     ...versions
 };
@@ -539,7 +595,10 @@ function faq(b) {
     if (h || kg) out.push([`Quelle taille et quel poids pour ${le(n)} ?`, `${esc(N)} mesure ${h ? `${h} au garrot` : ''}${h && kg ? ' pour ' : ''}${kg}. C’est un chien ${{ toy: 'de très petite taille', small: 'de petite taille', medium: 'de taille moyenne', large: 'de grande taille', giant: 'de taille géante' }[p.size_category] || 'de taille moyenne'}.`]);
     const poils = [`Sa perte de poils est ${w('perte_poils')} et l’entretien de son poil est ${w('entretien_pelage')}.`];
     if (b.hypoallergenic) poils.push('Il fait partie des races qui perdent très peu de poils, souvent mieux tolérées par les personnes allergiques, sans garantie : passez du temps avec la race avant de vous décider.');
-    else if (s.perte_poils >= 4) poils.push('Prévoyez un brossage plusieurs fois par semaine, et davantage pendant les mues de printemps et d’automne.');
+    // Un poil facile à entretenir mais qui tombe beaucoup : une fois par semaine, sauf pendant les mues
+    else if (s.perte_poils >= 4) poils.push(s.entretien_pelage <= 2
+        ? 'Un brossage par semaine suffit le reste de l’année, mais passez à un brossage quotidien pendant les mues de printemps et d’automne.'
+        : 'Prévoyez un brossage plusieurs fois par semaine, et davantage pendant les mues de printemps et d’automne.');
     if (s.entretien_pelage >= 4) poils.push('Son poil demande un toilettage régulier, parfois chez un professionnel.');
     out.push([`${N} perd-il beaucoup de poils ?`, esc(poils.join(' '))]);
     const appart = {
@@ -583,7 +642,20 @@ function guideHtml(b) {
 <!--/guide-->`;
 }
 
-function breedPage(b) {
+// Conseils d'entretien tirés des notes, pour les fiches qui n'ont pas encore leur section « Vivre avec… » écrite à la main
+const BRUSH = ['Un coup de brosse de temps en temps suffit.', 'Un brossage par semaine suffit en temps normal.', 'Comptez deux à trois brossages par semaine.',
+    'Son poil demande un brossage presque quotidien et un toilettage régulier.', 'Son poil demande un brossage quotidien et des passages réguliers chez le toiletteur.'];
+function coatAdvice(b) {
+    const s = b.scores, out = [BRUSH[s.entretien_pelage - 1]];
+    if (b.hypoallergenic || s.perte_poils <= 1) out.push('Il perd très peu de poils, ce qui limite le ménage.');
+    else if (s.perte_poils >= 4) out.push('Pendant les mues de printemps et d’automne, il perd beaucoup de poils : brossez-le alors tous les jours.');
+    if (s.bave >= 4) out.push('Il bave souvent : gardez un chiffon à portée de main.');
+    if (s.chaleur <= 2) out.push('Il craint la chaleur : en été, sortez-le aux heures fraîches.');
+    return out.join(' ');
+}
+
+// legacy : ancienne description, gardée pour les versions traduites (une par fiche dans leurs dictionnaires)
+function breedPage(b, legacy = false) {
     const url = `${SITE_URL}/races/${b.slug}`;
     const s = b.scores;
     const p = b.physical || {};
@@ -594,11 +666,16 @@ function breedPage(b) {
     const word = k => SCORE_META[k].words[s[k] - 1].toLowerCase();
     const title = breedTitle(b.name_fr);
     const size = [range(p.height_cm?.min, p.height_cm?.max, 'cm'), range(p.weight_kg?.min, p.weight_kg?.max, 'kg')].filter(Boolean).join(', ');
-    const description = clip(`${b.name_fr}, ${SIZE_WORD[p.size_category] || ''} chien ${fromOrigin(b.origin)}${size ? ` (${size})` : ''}. Énergie ${word('energie')}, ${word('enfants')} avec les enfants. Caractère, santé, entretien et 20 notes.`);
+    const SIZE_DESC = { toy: 'très petit chien', small: 'petit chien', medium: 'chien de taille moyenne', large: 'grand chien', giant: 'très grand chien' };
+    // La phrase la plus complète qui tient dans les 158 caractères affichés par Google, sans jamais couper un mot
+    const descBase = `${b.name_fr} : ${SIZE_DESC[p.size_category] || 'chien'}${size ? ` (${size})` : ''}${b.origin ? `, origine : ${b.origin}` : ''}. Énergie ${word('energie')}, ${word('enfants')} avec les enfants.`;
+    const description = legacy
+        ? clip(`${b.name_fr}, ${SIZE_WORD[p.size_category] || ''} chien ${fromOrigin(b.origin)}${size ? ` (${size})` : ''}. Énergie ${word('energie')}, ${word('enfants')} avec les enfants. Caractère, santé, entretien et 20 notes.`)
+        : clip([`${descBase} Caractère, santé, entretien, 20 critères notés.`, `${descBase} Caractère, santé et entretien.`, descBase].find(t => t.length <= 158) || descBase);
     const img = b.image ? `${SITE_URL}/${b.image.url}` : null;
     const ld = [{
         '@context': 'https://schema.org', '@type': 'Article', headline: `${b.name_fr} : fiche complète de la race`, description,
-        image: img || undefined, author: { '@type': 'Organization', name: 'Race de Chien' },
+        image: img || undefined, author: { '@type': 'Organization', name: 'Race de Chien', ...(legacy ? {} : { url: `${SITE_URL}/methode` }) },
         publisher: { '@type': 'Organization', name: 'Race de Chien', url: SITE_URL }, mainEntityOfPage: url,
         datePublished: '2026-02-28', dateModified: DATE
     }, {
@@ -629,7 +706,9 @@ function breedPage(b) {
     const coat = b.coat || {};
     const issues = b.health?.common_issues || [];
     const traits = b.temperament?.traits || [];
-    const inSelections = SELECTIONS.filter(x => SELECTION_MEMBERS[x.slug].has(b.slug));
+    const inSelections = BASE_SELECTIONS.filter(x => SELECTION_MEMBERS[x.slug].has(b.slug));
+    const duels = CMP.linksFor(b);
+    const shortName = x => x.name_fr.replace(/\s*\([^)]*\)/g, '');
 
     const body = `
     <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
@@ -641,7 +720,7 @@ function breedPage(b) {
 
         <article>
             <header class="grid gap-6 overflow-hidden rounded-3xl border border-slate-200 bg-white lg:grid-cols-[1.15fr_1fr]">
-                <div class="relative aspect-[4/3] bg-slate-100 lg:aspect-auto lg:min-h-[420px]">
+                <div class="relative aspect-[4/3] bg-slate-100 sm:aspect-[16/9] lg:aspect-auto lg:min-h-[420px]">
                     ${picture(b, 'absolute inset-0 h-full w-full object-cover', { eager: true, big: true, sizes: SIZES_HERO, alt: `${b.name_fr}, chien de race` })}
                 </div>
                 <div class="flex flex-col justify-center p-6 lg:py-10 lg:pr-10">
@@ -698,6 +777,9 @@ function breedPage(b) {
                     <section aria-labelledby="entretien">
                         <h2 id="entretien" class="text-2xl font-bold text-slate-900">Poil et entretien</h2>
                         <p class="mt-3 leading-relaxed text-slate-700">Poil ${esc((coat.length || '').toLowerCase())}${coat.type ? `, ${esc(coat.type.toLowerCase())}` : ''}. Perte de poils ${word('perte_poils')}, entretien ${word('entretien_pelage')}.${(coat.colors || []).length ? ` Robes : ${coat.colors.map(esc).join(', ')}.` : ''}</p>
+${GUIDES[b.slug] ? '' : `<!--guide-->
+                        <p class="mt-3 leading-relaxed text-slate-700">${esc(coatAdvice(b))}</p>
+<!--/guide-->`}
                     </section>
 ${guideHtml(b)}
                 </div>
@@ -723,6 +805,9 @@ ${guideHtml(b)}
                 <section aria-labelledby="notes" class="scroll-mt-24">
                     <h2 id="notes" class="text-2xl font-bold text-slate-900">Toutes ses notes</h2>
                     <p class="mt-2 text-sm text-slate-600">De 1 à 5, comparables d’une race à l’autre. En vert ce qui est un atout pour la plupart des foyers, en orange ce qu’il faut prévoir.</p>
+<!--guide-->
+                    <p class="mt-1 text-sm"><a href="/methode" class="font-semibold text-primary-700 underline">Comment ces notes sont établies</a></p>
+<!--/guide-->
                     <div class="mt-5 gap-4 sm:columns-2 lg:columns-3">
                         ${SCORE_GROUPS.map(([g, keys]) => `<div class="mb-4 break-inside-avoid rounded-2xl border border-slate-200 bg-white p-4">
                             <h3 class="text-sm font-bold text-slate-900">${g}</h3>
@@ -741,6 +826,13 @@ ${guideHtml(b)}
                     <h2 id="selections-race" class="text-2xl font-bold text-slate-900">Dans nos sélections</h2>
                     <ul class="mt-4 flex flex-wrap gap-2">${inSelections.map(x => `<li><a href="/selections/${x.slug}" class="opt">${icon(x.icon)}${esc(x.short)}</a></li>`).join('')}</ul>
                 </section>` : ''}
+${duels.length ? `<!--guide-->
+                <section aria-labelledby="duels">
+                    <h2 id="duels" class="text-2xl font-bold text-slate-900">Vous hésitez avec une autre race ?</h2>
+                    <p class="mt-2 text-sm text-slate-600">Nos comparatifs note par note, avec pour qui chaque race est faite.</p>
+                    <ul class="mt-4 flex flex-wrap gap-2">${duels.map(d => `<li class="max-w-full"><a href="${d.url}" class="opt opt-wrap">${esc(shortName(b))} ou ${esc(shortName(d.other))}</a></li>`).join('')}</ul>
+                </section>
+<!--/guide-->` : ''}
 
                 <section aria-labelledby="faq" class="max-w-3xl">
                     <h2 id="faq" class="text-2xl font-bold text-slate-900">Questions fréquentes sur ${esc(le(b.name_fr))}</h2>
@@ -806,10 +898,13 @@ function selectionPage(sel) {
         '@context': 'https://schema.org', '@type': 'ItemList', name: sel.title,
         itemListElement: top.map((r, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE_URL}/races/${r.breed.slug}`, name: r.breed.name_fr }))
     };
-    const others = SELECTIONS.filter(x => x.slug !== sel.slug);
+    const others = BASE_SELECTIONS.filter(x => x.slug !== sel.slug);
+    // Croisements : depuis une sélection, ses croisements ; depuis un croisement, ceux qui partagent un critère
+    const related = COMBOS.filter(c => c.slug !== sel.slug && (sel.combo ? c.parents.some(p => sel.parents.includes(p)) : c.parents.includes(sel.slug)));
+    const crumbTrail = sel.combo ? [[BASE_SELECTIONS.find(x => x.slug === sel.parents[0]).short, `/selections/${sel.parents[0]}`], [sel.short]] : [[sel.short]];
     const body = `
     <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
-        <nav class="pt-6 pb-4 text-sm text-slate-500" aria-label="Fil d'Ariane"><a href="/" class="hover:text-primary-600">Races de chiens</a><span class="mx-1.5" aria-hidden="true">›</span><span class="text-slate-800" aria-current="page">${esc(sel.short)}</span></nav>
+        ${sel.combo ? crumbs(crumbTrail) : `<nav class="pt-6 pb-4 text-sm text-slate-500" aria-label="Fil d'Ariane"><a href="/" class="hover:text-primary-600">Races de chiens</a><span class="mx-1.5" aria-hidden="true">›</span><span class="text-slate-800" aria-current="page">${esc(sel.short)}</span></nav>`}
         <header class="max-w-3xl">
             <h1 class="display">${esc(sel.title)}</h1>
             <p class="mt-3 leading-relaxed text-slate-700">${esc(sel.intro)}</p>
@@ -827,12 +922,18 @@ function selectionPage(sel) {
             </ul>
         </section>` : ''}
         ${selectionGuideHtml(sel)}
+        ${related.length ? `<!--guide-->
+        <section class="mt-14" aria-labelledby="affiner">
+            <h2 id="affiner" class="text-2xl font-bold text-slate-900">${sel.combo ? 'Sélections voisines' : 'Pour affiner'}</h2>
+            <ul class="mt-4 flex flex-wrap gap-2">${related.map(o => `<li class="max-w-full"><a href="/selections/${o.slug}" class="opt opt-wrap">${icon(o.icon)}${esc(o.short)}</a></li>`).join('')}</ul>
+        </section>
+<!--/guide-->` : ''}
         <section class="mt-14 rounded-3xl border border-slate-200 bg-white p-6" aria-labelledby="autres">
             <h2 id="autres" class="text-lg font-bold text-slate-900">Autres sélections</h2>
             <ul class="mt-3 flex flex-wrap gap-2">${others.map(o => `<li><a href="/selections/${o.slug}" class="opt">${icon(o.icon)}${esc(o.short)}</a></li>`).join('')}</ul>
         </section>
     </main>`;
-    return page({ head: headMeta({ title: withBrand(sel.seo || sel.title), description, url }) + ldTag([ld, crumbsLd([[sel.short, `/selections/${sel.slug}`]])]), body });
+    return page({ head: headMeta({ title: withBrand(sel.seo || sel.title), description, url }) + ldTag([ld, crumbsLd([...(sel.combo ? [[crumbTrail[0][0], crumbTrail[0][1]]] : []), [sel.short, `/selections/${sel.slug}`]])]), body });
 }
 
 // ============================================
@@ -844,7 +945,10 @@ function sitemap() {
     const urls = [
         ['/', '1.0', 'weekly'], ['/quel-chien-choisir', '0.9', 'monthly'], ['/liste-des-races', '0.8', 'monthly'], ['/groupes-de-races', '0.7', 'monthly'],
         ['/chiens-categorises', '0.7', 'yearly'], ['/compare', '0.6', 'monthly'], ['/tel-maitre-tel-chien', '0.8', 'monthly'],
-        ...SELECTIONS.map(s => [`/selections/${s.slug}`, '0.8', 'monthly']),
+        ...BASE_SELECTIONS.map(s => [`/selections/${s.slug}`, '0.8', 'monthly']),
+        ...COMBOS.map(s => [`/selections/${s.slug}`, '0.7', 'monthly']),
+        ...CMP.pairs.map(p => [CMP.pairUrl(p), '0.7', 'monthly']),
+        ['/methode', '0.5', 'yearly'],
         ...Object.values(GROUPS).map(G => [`/groupes/${G.slug}`, '0.7', 'monthly']),
         ...breeds.map(b => [`/races/${b.slug}`, '0.7', 'monthly', b]),
         ['/mentions-legales', '0.2', 'yearly'], ['/confidentialite', '0.2', 'yearly']
@@ -1052,10 +1156,91 @@ function categorizedPage() {
 }
 
 // ============================================
+// MÉTHODE ET SOURCES (/methode)
+// ============================================
+
+function methodPage() {
+    const url = `${SITE_URL}/methode`;
+    const title = 'Comment les races sont notées : méthode et sources';
+    const description = clip(`D’où viennent les notes des ${COUNT} races, ce que veut dire chaque critère de 1 à 5, comment le pourcentage de compatibilité est calculé et ce qu’il ne dit pas.`);
+    const N = SCORE_GROUPS.flatMap(([, k]) => k).length;
+    const sens = k => (SCORE_META[k].neutral ? 'Ni bon ni mauvais : dépend de ce que vous cherchez' : SCORE_META[k].reverse ? 'Une note basse est un atout' : 'Une note haute est un atout');
+    const h2 = (id, t) => `<h2 id="${id}" class="text-2xl font-bold text-slate-900">${t}</h2>`;
+    const body = `
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+        ${crumbs([['Méthode et sources']])}
+        <article>
+            <h1 class="display">Comment les races sont notées</h1>
+            <p class="mt-3 leading-relaxed text-slate-700">Le site décrit ${COUNT} races de chiens et note chacune sur 20 critères : ${N} notes de 1 à 5 et le besoin d’activité en minutes par jour. Ces notes servent à tout : le classement de la page d’accueil, le test, les sélections et les comparatifs. Voici d’où elles viennent, ce qu’elles veulent dire et leurs limites.</p>
+
+            <section class="mt-10" aria-labelledby="sources">
+                ${h2('sources', 'D’où viennent les informations')}
+                <ul class="mt-4 space-y-3 leading-relaxed text-slate-700">
+                    <li><strong>Les standards de la <a href="https://www.fci.be" target="_blank" rel="noopener" class="text-primary-700 underline">Fédération cynologique internationale</a> (FCI)</strong> : taille, poids, poil, groupe, pays d’origine et caractère attendu de chaque race reconnue.</li>
+                    <li><strong>Les statistiques du LOF de la <a href="https://www.centrale-canine.fr" target="_blank" rel="noopener" class="text-primary-700 underline">Société Centrale Canine</a></strong> : le nombre de chiots inscrits en 2025, qui donne le rang de popularité de chaque race en France.</li>
+                    <li><strong>Les clubs de race</strong>, pour le tempérament au quotidien, l’entretien et les dépistages de santé recommandés.</li>
+                    <li><strong>Des sources vétérinaires</strong>, pour les affections les plus fréquentes et l’espérance de vie.</li>
+                    <li><strong>Les textes officiels</strong> pour les chiens de 1re et 2e catégorie (loi du 6 janvier 1999), avec un lien vers service-public.gouv.fr sur chaque fiche concernée.</li>
+                </ul>
+                <p class="mt-4 leading-relaxed text-slate-700">Les notes ont été relues race par race en octobre 2026, puis harmonisées pour être comparables d’une race à l’autre : un 4 en énergie veut dire la même chose pour un terrier et pour un chien de berger.</p>
+            </section>
+
+            <section class="mt-10" aria-labelledby="criteres">
+                ${h2('criteres', `Les ${N} notes`)}
+                <p class="mt-3 leading-relaxed text-slate-700">Chaque note va de 1 à 5. Sur les fiches, un mot la traduit (« Élevée », « Discret », « Idéal »…) : il est en vert quand c’est un atout pour la plupart des foyers, en orange quand c’est un point à prévoir.</p>
+                ${SCORE_GROUPS.map(([g, keys]) => `<h3 class="mt-6 text-lg font-bold text-slate-900">${g}</h3>
+                <div class="mt-3 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+                    <table class="w-full min-w-[520px] border-collapse text-sm">
+                        <thead><tr class="text-left text-slate-600"><th scope="col" class="px-3 py-2.5 font-semibold">Critère</th><th scope="col" class="px-3 py-2.5 font-semibold">Note 1</th><th scope="col" class="px-3 py-2.5 font-semibold">Note 5</th><th scope="col" class="px-3 py-2.5 font-semibold">Lecture</th></tr></thead>
+                        <tbody>${keys.map(k => `<tr class="border-t border-slate-200"><th scope="row" class="px-3 py-2.5 text-left font-semibold text-slate-900">${SCORE_META[k].label}</th><td class="px-3 py-2.5 text-slate-700">${SCORE_META[k].words[0]}</td><td class="px-3 py-2.5 text-slate-700">${SCORE_META[k].words[4]}</td><td class="px-3 py-2.5 text-slate-600">${sens(k)}</td></tr>`).join('')}</tbody>
+                    </table>
+                </div>`).join('')}
+            </section>
+
+            <section class="mt-10" aria-labelledby="compatibilite">
+                ${h2('compatibilite', 'Le pourcentage de compatibilité')}
+                <p class="mt-3 leading-relaxed text-slate-700">Sur la page d’accueil et dans le test, vous décrivez votre vie : logement, enfants, temps d’absence, expérience, rythme, autres animaux. Chaque réponse est comparée à la note correspondante de chaque race, et le pourcentage est la moyenne de ces adéquations.</p>
+                <ul class="mt-4 space-y-2 leading-relaxed text-slate-700">
+                    <li>• La question des <strong>enfants</strong> compte double.</li>
+                    <li>• L’<strong>expérience</strong> du maître et le <strong>rythme</strong> de vie comptent une fois et demie.</li>
+                    <li>• La bave compte pour moitié.</li>
+                    <li>• Les critères de la rubrique « Le chien » (taille, poil, groupe, races qui perdent très peu de poils) ne notent pas : ils retirent de la liste les races qui n’y répondent pas.</li>
+                </ul>
+                <p class="mt-4 leading-relaxed text-slate-700">Une sélection thématique retient les races qui atteignent au moins 70 % sur son critère, dans la limite de 24 races, et les classe de la plus compatible à la moins compatible.</p>
+            </section>
+
+            <section class="mt-10" aria-labelledby="textes">
+                ${h2('textes', 'Les textes des fiches')}
+                <p class="mt-3 leading-relaxed text-slate-700">La présentation, l’histoire et la santé de chaque race sont rédigées à partir des sources ci-dessus. Les encadrés « Pour qui ? », « En bref » et les questions fréquentes sont écrits à partir des notes : deux races qui ont la même note y reçoivent la même réponse. La section « Vivre avec… » est écrite race par race ; elle est publiée d’abord pour les races les plus recherchées.</p>
+            </section>
+
+            <section class="mt-10" aria-labelledby="photos">
+                ${h2('photos', 'Les photos')}
+                <p class="mt-3 leading-relaxed text-slate-700">Les photos des races sont des illustrations générées par intelligence artificielle, toutes dans le même style studio, pour comparer les races à l’identique. Elles montrent l’allure typique de la race et non des chiens réels. Pour le standard exact, reportez-vous aux documents de la FCI.</p>
+            </section>
+
+            <section class="mt-10" aria-labelledby="limites">
+                ${h2('limites', 'Ce que les notes ne disent pas')}
+                <p class="mt-3 leading-relaxed text-slate-700">Une race donne une tendance, pas une garantie. L’éducation, la socialisation, la lignée et l’histoire de chaque chien comptent autant que sa race. Les notes ne remplacent ni l’avis d’un vétérinaire, ni celui d’un éleveur ou d’un comportementaliste : rencontrez des chiens de la race avant de vous décider.</p>
+            </section>
+
+            <section class="mt-10" aria-labelledby="qui">
+                ${h2('qui', 'Qui est derrière le site')}
+                <p class="mt-3 leading-relaxed text-slate-700">race-de-chien.com est édité par <a href="https://aurorastudio.fr" target="_blank" rel="noopener" class="text-primary-700 underline">Aurora</a>, studio de création web. Une erreur sur une fiche, une race manquante ? Écrivez-nous depuis le site d’Aurora : les corrections sont les bienvenues. Les détails figurent dans les <a href="/mentions-legales" class="text-primary-700 underline">mentions légales</a>.</p>
+                <p class="mt-4 text-sm text-slate-500">Dernière mise à jour : ${DATE_FR}</p>
+            </section>
+        </article>
+    </main>`;
+    const ld = [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: title, description, url, publisher: { '@type': 'Organization', name: 'Race de Chien', url: SITE_URL }, dateModified: DATE },
+        crumbsLd([['Méthode et sources', '/methode']])];
+    return page({ head: headMeta({ title, description, url }) + ldTag(ld), body });
+}
+
+// ============================================
 // AUTRES LANGUES (i18n/<langue>/)
 // ============================================
 
-L10N = I18N.languages(ROOT).map(lang => I18N.load({ root: ROOT, siteUrl: SITE_URL, breeds, selections: SELECTIONS, groups: GROUPS }, lang));
+L10N = I18N.languages(ROOT).map(lang => I18N.load({ root: ROOT, siteUrl: SITE_URL, breeds, selections: BASE_SELECTIONS, groups: GROUPS }, lang));
 // Chaque langue est régénérée en entier : on repart d'un dossier vide
 for (const L of L10N) fs.rmSync(path.join(ROOT, L.routes['/'].slice(1)), { recursive: true, force: true });
 const namesOf = L => ({ name: b => L.breedName[b.slug], locale: L.lang });
@@ -1091,10 +1276,20 @@ for (const L of L10N) {
     L.vClient = hash(`js/i18n.${L.lang}.js`);
 }
 
-// 2. Fiches (chacune liste les sélections où elle figure)
+// 2. Fiches (chacune liste les sélections où elle figure et ses comparatifs)
 SELECTION_MEMBERS = Object.fromEntries(SELECTIONS.map(x => [x.slug, new Set(selectionResults(x).top.map(r => r.breed.slug))]));
+CMP = require('./lib/comparatifs.cjs')({ breeds, popular, S, SCORE_META, SCORE_GROUPS, GUIDES, SITE_URL, DATE, DATE_FR,
+    tone, TONE, gauge, picture, icon, esc, le, Le, range, clip, fmtInt, ordinal, page, headMeta, ldTag, crumbs, crumbsLd });
 fs.rmSync(path.join(ROOT, 'races'), { recursive: true, force: true });
-for (const b of breeds) write(`races/${b.slug}.html`, breedPage(b));
+for (const b of breeds) {
+    const old = L10N.length ? breedPage(b, true) : null;
+    write(`races/${b.slug}.html`, breedPage(b), old ? Object.fromEntries(L10N.map(L => [L.lang, old])) : {});
+}
+
+// 2 bis. Comparatifs « race A ou race B » et page méthode (français seulement)
+fs.rmSync(path.join(ROOT, 'comparatifs'), { recursive: true, force: true });
+for (const p of CMP.pairs) write(`comparatifs/${p.slug}.html`, CMP.pairPage(p));
+write('methode.html', methodPage());
 
 // 3. Sélections
 fs.rmSync(path.join(ROOT, 'selections'), { recursive: true, force: true });
@@ -1108,7 +1303,7 @@ write('liste-des-races.html', azPage(), variantsOf(azPage));
 write('chiens-categorises.html', categorizedPage());
 
 // 4. Pages à partir des modèles
-const selectionCards = SELECTIONS.map(s => {
+const selectionCards = BASE_SELECTIONS.map(s => {
     const { top } = selectionResults(s);
     return `                        <li><a href="/selections/${s.slug}" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white hover:bg-white/20">${icon(s.icon, 'h-[18px] w-[18px] text-slate-300')}${esc(s.short)}<span class="tabular-nums text-slate-400">${top.length}</span></a></li>`;
 }).join('\n');
@@ -1124,7 +1319,7 @@ const sortHint = `<span class="hidden sm:inline">classées par popularité en Fr
 const profileButtons = S.PROFILES.map(p => `<button type="button" class="opt" data-profile="${p.id}" aria-pressed="false">${icon(p.icon)}${esc(p.label)}</button>`).join('');
 for (const f of fs.readdirSync(path.join(ROOT, 'templates/pages'))) {
     if (!f.endsWith('.html')) continue;
-    const html = fill(read(`templates/pages/${f}`), { ...commonVars, SELECTION_CARDS: selectionCards, NOSCRIPT_LIST: noscript, PROFILE_BUTTONS: profileButtons, GROUP_LINKS: groupLinks, TM_PORTRAITS: tmPortraits, SORT_HINT: sortHint });
+    const html = fill(read(`templates/pages/${f}`), { ...commonVars, COMPARATIFS: CMP.indexHtml(), COMPARATIFS_COUNT: String(CMP.pairs.length), SELECTION_CARDS: selectionCards, NOSCRIPT_LIST: noscript, PROFILE_BUTTONS: profileButtons, GROUP_LINKS: groupLinks, TM_PORTRAITS: tmPortraits, SORT_HINT: sortHint });
     write(f, html);
 }
 
@@ -1146,4 +1341,4 @@ for (const L of L10N) {
     console.log(`🌐 ${L.lang} : ${r.used} phrases traduites, ${r.missing} à traduire (i18n/${L.lang}/_a-traduire.json)`);
     for (const w of r.warnings.slice(0, 20)) console.warn(`   ⚠️  ${w}`);
 }
-console.log(`✅ ${breeds.length} fiches, ${SELECTIONS.length} sélections, ${written.filter(p => !p.includes('/')).length} pages, CSS ${(fs.statSync(path.join(ROOT, 'css/site.css')).size / 1024).toFixed(0)} Ko`);
+console.log(`✅ ${breeds.length} fiches, ${BASE_SELECTIONS.length} sélections, ${COMBOS.length} croisements, ${CMP.pairs.length} comparatifs, ${written.filter(p => !p.includes('/')).length} pages, CSS ${(fs.statSync(path.join(ROOT, 'css/site.css')).size / 1024).toFixed(0)} Ko`);

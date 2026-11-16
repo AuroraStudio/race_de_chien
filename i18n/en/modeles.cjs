@@ -84,6 +84,7 @@ const EXTRA = {
     'Ajoutez des jeux et des exercices d’éducation pour occuper aussi sa tête.': 'Add games and training exercises to keep its mind busy too.',
     'Il fait partie des races qui perdent très peu de poils, souvent mieux tolérées par les personnes allergiques, sans garantie : passez du temps avec la race avant de vous décider.': 'It is one of the breeds that shed very little and are often better tolerated by people with allergies, with no guarantee: spend time with the breed before you decide.',
     'Prévoyez un brossage plusieurs fois par semaine, et davantage pendant les mues de printemps et d’automne.': 'Plan on brushing several times a week, and more during the spring and fall shedding seasons.',
+    'Un brossage par semaine suffit le reste de l’année, mais passez à un brossage quotidien pendant les mues de printemps et d’automne.': 'Weekly brushing is enough for most of the year, but switch to daily brushing during the spring and fall shedding seasons.',
     'Son poil demande un toilettage régulier, parfois chez un professionnel.': 'Its coat needs regular grooming, sometimes by a professional.'
 };
 // Noms propres en tête d'une maladie : on ne met pas de minuscule

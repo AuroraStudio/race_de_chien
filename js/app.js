@@ -144,13 +144,34 @@
     }
     const CHECK = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17.5 19 7"/></svg>';
 
+    // Les trois notes de la carte, en mots : vert pour un atout, orange pour un point à prévoir (l'énergie n'est ni l'un ni l'autre)
+    const WORDS = {
+        energie: [T`Très calme`, T`Calme`, T`Modérée`, T`Élevée`, T`Débordante`],
+        enfants: [T`À éviter`, T`Prudence`, T`Correct`, T`Bon`, T`Excellent`],
+        entretien_pelage: [T`Minimal`, T`Faible`, T`Moyen`, T`Important`, T`Très important`]
+    };
+    function note(b, k, label) {
+        const v = b.scores[k];
+        const fav = k === 'energie' ? 3 : (k === 'entretien_pelage' ? 6 - v : v);
+        const tone = fav >= 4 ? 'text-emerald-700' : fav <= 2 ? 'text-amber-700' : 'text-slate-800';
+        // Sur téléphone, une ligne par note (le mot suffit) ; à partir de la tablette, trois colonnes avec la jauge
+        return `<div class="flex items-baseline justify-between gap-2 sm:block"><dt class="sm:mb-0.5">${label}</dt><dd class="text-[12px] font-semibold leading-tight sm:mb-1 sm:text-[13px] ${tone}">${WORDS[k][v - 1]}</dd><dd class="hidden sm:block">${gauge(v)}</dd></div>`;
+    }
+    // Gabarit : « Grand · 25 à 36 kg »
+    const num = n => (window.RDCLang === 'en' ? String(n) : String(n).replace('.', ','));
+    function build(b) {
+        const size = S.SIZES[S.SIZE_ID[b.physical?.size_category] - 1]?.label || '';
+        const w = b.physical?.weight_kg, unit = 'kg';
+        const kg = w ? (w.min === w.max ? `${num(w.min)} ${unit}` : T`${num(w.min)} à ${num(w.max)} ${unit}`) : '';
+        return [size, kg].filter(Boolean).join(' · ');
+    }
+
     function card(r, i) {
         const b = r.breed;
         const img = b.image
             ? `<picture><source srcset="${srcset(b)}" sizes="(min-width: 1024px) 330px, (min-width: 640px) 45vw, 38vw" type="image/webp"><img src="/${b.image.url}" alt="" width="${b.image.width}" height="${b.image.height}" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:static" ${i < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>`
             : `<div class="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-slate-100 text-slate-400 sm:static sm:h-full">${ic('paw-print', 'h-8 w-8 sm:h-10 sm:w-10')}<span class="text-[11px] font-medium text-slate-500 sm:text-xs">${T`Photo à venir`}</span></div>`;
         const rank = b.lof?.['2025'] && b.lofRank && b.lofRank <= 30 ? `<span class="font-medium text-slate-600">${T`${window.RDCOrd(b.lofRank)}\u00a0race en France`}</span>` : '';
-        const isNew = b.is_new ? `<span class="rounded-md bg-slate-900 px-1.5 py-0.5 text-[11px] font-semibold text-white">${T`Nouveau`}</span>` : '';
         const reasons = r.reasons.slice(0, 4).map(x => `<span class="${x.ok ? 'chip-ok' : 'chip-ko'}">${ic(x.ok ? 'check' : 'warning-circle')}${esc(x.text)}</span>`).join('');
         const law = b.legal_category ? `<span class="chip-law">${T`Catégorie ${esc(b.legal_category)}`}</span>` : '';
         const inCmp = compare.includes(b.slug);
@@ -162,17 +183,18 @@
                         <h3 class="text-[15px] font-bold leading-snug text-slate-900 sm:text-[17px]">${esc(b.name_fr)}</h3>
                         ${scoreBadge(r.pct)}
                     </div>
-                    <p class="mt-0.5 text-xs text-slate-500 sm:text-sm">${esc(b.origin || '')}${b.fci?.group ? ` · ${esc(S.FCI_GROUPS[b.fci.group])}` : ''}</p>
-                    <dl class="mt-2.5 grid grid-cols-3 gap-2 text-[11px] text-slate-500 sm:mt-3 sm:gap-3">
-                        <div><dt class="mb-1">${T`Énergie`}</dt><dd>${gauge(b.scores.energie)}</dd></div>
-                        <div><dt class="mb-1">${T`Enfants`}</dt><dd>${gauge(b.scores.enfants)}</dd></div>
-                        <div><dt class="mb-1">${T`Entretien`}</dt><dd>${gauge(b.scores.entretien_pelage)}</dd></div>
+                    <p class="mt-0.5 text-xs font-medium text-slate-700 sm:text-sm">${esc(build(b))}</p>
+                    <p class="text-xs text-slate-500 sm:text-sm">${esc(b.origin || '')}${b.fci?.group ? ` · ${esc(S.FCI_GROUPS[b.fci.group])}` : ''}</p>
+                    <dl class="mt-2 grid grid-cols-1 gap-0.5 text-[11px] text-slate-500 sm:mt-3 sm:grid-cols-3 sm:gap-3">
+                        ${note(b, 'energie', T`Énergie`)}
+                        ${note(b, 'enfants', T`Enfants`)}
+                        ${note(b, 'entretien_pelage', T`Entretien`)}
                     </dl>
                     ${reasons || law ? `<div class="mt-3 flex flex-wrap gap-1.5">${law}${reasons}</div>` : ''}
                 </div>
             </a>
             <div class="flex min-h-[48px] items-center justify-between gap-3 border-t border-slate-100 pl-3 pr-3 text-xs sm:pl-4 sm:pr-4">
-                <span class="flex min-w-0 items-center gap-2">${rank}${isNew}</span>
+                <span class="flex min-w-0 items-center gap-2">${rank}</span>
                 <button type="button" class="cmp" data-compare="${b.slug}" aria-pressed="${pressed(inCmp)}" aria-label="${T`Comparer ${esc(b.name_fr)}`}"><span class="cmp-box">${CHECK}</span>${T`Comparer`}</button>
             </div>
         </li>`;

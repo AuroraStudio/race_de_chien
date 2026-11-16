@@ -82,6 +82,7 @@ const EXTRA = {
     'Ajoutez des jeux et des exercices d’éducation pour occuper aussi sa tête.': 'Añade juegos y ejercicios de adiestramiento para que también ejercite la mente.',
     'Il fait partie des races qui perdent très peu de poils, souvent mieux tolérées par les personnes allergiques, sans garantie : passez du temps avec la race avant de vous décider.': 'Es una de las razas que sueltan muy poco pelo y que las personas alérgicas suelen tolerar mejor, sin garantía: pasa tiempo con la raza antes de decidirte.',
     'Prévoyez un brossage plusieurs fois par semaine, et davantage pendant les mues de printemps et d’automne.': 'Cepíllalo varias veces por semana, y más durante las mudas de primavera y otoño.',
+    'Un brossage par semaine suffit le reste de l’année, mais passez à un brossage quotidien pendant les mues de printemps et d’automne.': 'Un cepillado por semana basta el resto del año, pero pasa a un cepillado diario durante las mudas de primavera y otoño.',
     'Son poil demande un toilettage régulier, parfois chez un professionnel.': 'Su pelo necesita un aseo regular, a veces en una peluquería canina.'
 };
 // Noms propres en tête d'une maladie : on garde la majuscule
