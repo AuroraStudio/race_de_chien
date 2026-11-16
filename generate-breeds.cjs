@@ -505,6 +505,7 @@ const COMBOS = SELECTIONS.filter(x => x.combo);
 
 let SELECTION_MEMBERS = null;
 let CMP = null;
+let GP = null;
 function selectionResults(sel) {
     const state = { ...S.emptyState(), ...sel.state };
     if (sel.custom) {
@@ -855,6 +856,16 @@ ${duels.length ? `<!--guide-->
             <a href="/quel-chien-choisir" class="rounded-3xl bg-slate-900 p-6 text-white hover:bg-slate-800"><p class="flex items-center gap-2 text-lg font-bold">${icon('compass', 'h-6 w-6')}Quel chien pour moi ?</p><p class="mt-1 text-sm text-slate-300">8 questions sur votre vie, votre classement personnalisé en 45 secondes.</p></a>
             <a href="/tel-maitre-tel-chien" class="rounded-3xl border border-slate-200 bg-white p-6 hover:border-primary-300"><p class="flex items-center gap-2 text-lg font-bold text-slate-900">${icon('camera', 'h-6 w-6')}Tel Maître, Tel Chien</p><p class="mt-1 text-sm text-slate-600">Un selfie, et l’IA vous trouve votre sosie canin.</p></a>
         </section>
+<!--guide-->
+        <section class="mt-10 rounded-3xl border border-slate-200 bg-white p-6" aria-labelledby="avant">
+            <h2 id="avant" class="text-lg font-bold text-slate-900">Avant d’accueillir ${esc(le(b.name_fr.replace(/\s*\([^)]*\)/g, '')))}</h2>
+            <ul class="mt-3 flex flex-wrap gap-2">
+                <li class="max-w-full"><a href="/guides/combien-coute-un-chien" class="opt opt-wrap">${icon('calculator')}Combien coûte un chien</a></li>
+                <li class="max-w-full"><a href="/guides/acheter-ou-adopter-un-chien-les-regles" class="opt opt-wrap">${icon('scales')}Acheter ou adopter : les règles</a></li>
+                <li class="max-w-full"><a href="/guides/assurance-chien" class="opt opt-wrap">${icon('shield-check')}Assurance chien</a></li>
+            </ul>
+        </section>
+<!--/guide-->
     </main>`;
 
     const script = `    <script>
@@ -948,7 +959,8 @@ function sitemap() {
         ...BASE_SELECTIONS.map(s => [`/selections/${s.slug}`, '0.8', 'monthly']),
         ...COMBOS.map(s => [`/selections/${s.slug}`, '0.7', 'monthly']),
         ...CMP.pairs.map(p => [CMP.pairUrl(p), '0.7', 'monthly']),
-        ['/methode', '0.5', 'yearly'],
+        ['/methode', '0.5', 'yearly'], ['/guides', '0.7', 'monthly'],
+        ...GP.guides.map(g => [GP.guideUrl(g), '0.8', 'monthly']),
         ...Object.values(GROUPS).map(G => [`/groupes/${G.slug}`, '0.7', 'monthly']),
         ...breeds.map(b => [`/races/${b.slug}`, '0.7', 'monthly', b]),
         ['/mentions-legales', '0.2', 'yearly'], ['/confidentialite', '0.2', 'yearly']
@@ -1227,6 +1239,7 @@ function methodPage() {
             <section class="mt-10" aria-labelledby="qui">
                 ${h2('qui', 'Qui est derrière le site')}
                 <p class="mt-3 leading-relaxed text-slate-700">race-de-chien.com est édité par <a href="https://aurorastudio.fr" target="_blank" rel="noopener" class="text-primary-700 underline">Aurora</a>, studio de création web. Une erreur sur une fiche, une race manquante ? Écrivez-nous depuis le site d’Aurora : les corrections sont les bienvenues. Les détails figurent dans les <a href="/mentions-legales" class="text-primary-700 underline">mentions légales</a>.</p>
+                <p class="mt-3 leading-relaxed text-slate-700">Les <a href="/guides" class="text-primary-700 underline">guides pratiques</a> suivent une règle de plus : chaque chiffre y est rattaché à une source citée en bas de page, et nous n’avançons pas de moyenne quand aucune source fiable n’existe.</p>
                 <p class="mt-4 text-sm text-slate-500">Dernière mise à jour : ${DATE_FR}</p>
             </section>
         </article>
@@ -1290,6 +1303,12 @@ for (const b of breeds) {
 fs.rmSync(path.join(ROOT, 'comparatifs'), { recursive: true, force: true });
 for (const p of CMP.pairs) write(`comparatifs/${p.slug}.html`, CMP.pairPage(p));
 write('methode.html', methodPage());
+
+// 2 ter. Guides pratiques : budget, règles, assurance (français seulement)
+GP = require('./lib/guides-pratiques.cjs')({ breeds, popular, icon, esc, page, headMeta, ldTag, crumbs, crumbsLd, clip, SITE_URL, DATE, DATE_FR, COUNT });
+fs.rmSync(path.join(ROOT, 'guides'), { recursive: true, force: true });
+for (const g of GP.guides) write(`guides/${g.slug}.html`, GP.guidePage(g));
+write('guides.html', GP.indexPage());
 
 // 3. Sélections
 fs.rmSync(path.join(ROOT, 'selections'), { recursive: true, force: true });
