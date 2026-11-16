@@ -1,0 +1,146 @@
+{
+  "briquet-griffon-vendeen": {
+    "quotidien": "Le Briquet griffon vendéen est un chien courant de taille moyenne, au poil rude, passionné, endurant et plein d’initiative. Sociable avec les gens comme avec ses congénères, il reste avant tout un chien de chasse fait pour la meute. Il supporte mal la solitude et donne beaucoup de la voix.",
+    "education": "Indépendant et têtu, il demande un maître capable de se faire obéir, avec calme et constance. Le rappel se travaille dès le plus jeune âge, sans jamais être acquis face à une piste. Ce n’est pas un chien pour un débutant.",
+    "activite": "Comptez une heure et demie de dépense par jour, en terrain varié, avec du travail de flair. La chasse reste l’activité qui lui convient le mieux. La vie en appartement ne lui convient pas : il lui faut une maison avec un grand jardin.",
+    "soins": "Son poil dur demande peu d’entretien : un brossage régulier suffit, en retirant les brindilles après les sorties. Vérifiez ses oreilles tombantes chaque semaine pour prévenir les otites, inspectez sa peau et cherchez les tiques au retour de chaque balade.",
+    "vigilance": [
+      "Il fugue dès qu’il flaire une piste : clôture haute et solide indispensable.",
+      "Ses aboiements portent loin, ce qui pose vite problème avec le voisinage.",
+      "Demandez le dépistage de la dysplasie de la hanche des parents.",
+      "Les blessures de chasse et les maladies transmises par les tiques demandent une surveillance après chaque sortie."
+    ]
+  },
+  "grand-caniche": {
+    "quotidien": "Le Grand caniche est la plus grande des quatre tailles de Caniche : un chien élégant, athlétique, très intelligent et enjoué. Doux avec les enfants, sensible à l’ambiance du foyer, il vit mal les longues absences. Son poil laineux ne mue pratiquement pas.",
+    "education": "Facile à éduquer, il apprend vite et aime travailler avec vous, ce qui en fait un bon choix pour un premier chien. Sa sensibilité demande des méthodes douces : les cris et la brusquerie le bloquent. Variez les exercices pour occuper sa tête.",
+    "activite": "Prévoyez une heure et demie d’activité par jour, physique et mentale. Ancien chien de chasse au gibier d’eau, il aime nager, rapporter et se montre à l’aise dans les sports canins comme l’agility ou l’obéissance.",
+    "soins": "Le pelage est la vraie contrainte : brossage plusieurs fois par semaine pour éviter les nœuds et toilettage régulier, car le poil pousse en continu. Donnez deux repas par jour et évitez l’effort après manger pour limiter le risque de torsion de l’estomac.",
+    "vigilance": [
+      "Le budget toilettage est à prévoir sur toute sa vie.",
+      "Demandez les dépistages des parents : dysplasie de la hanche et atrophie progressive de la rétine.",
+      "Fatigue, vomissements ou perte d’appétit répétés doivent faire penser à la maladie d’Addison.",
+      "Des pertes de poils avec squames peuvent signaler une adénite sébacée."
+    ]
+  },
+  "airedale-terrier": {
+    "quotidien": "L’Airedale Terrier est le plus grand des terriers : un chien athlétique au poil dur noir et feu, confiant, courageux et ouvert. Vigilant, il garde volontiers la maison. Il supporte mal de rester seul longtemps et s’ennuie vite sans occupation.",
+    "education": "Intelligent mais doté du caractère affirmé des terriers, il demande un maître expérimenté, cohérent et patient : ce n’est pas un chien pour un débutant. Les séances courtes, variées et récompensées donnent les meilleurs résultats. Socialisez-le tôt avec les autres chiens.",
+    "activite": "Il lui faut une heure et demie d’exercice par jour : longues marches, jeux de recherche, sports canins. Polyvalent, il prend plaisir à presque toutes les activités partagées. Une maison avec jardin lui convient mieux qu’un appartement.",
+    "soins": "Son poil dur perd peu mais demande un brossage hebdomadaire et un épilage régulier chez le toiletteur. Surveillez sa peau, sujette aux dermatites et aux allergies. Fractionnez la ration en deux repas et laissez-le au calme après manger, en prévention de la torsion de l’estomac.",
+    "vigilance": [
+      "Son instinct de chasse rend la cohabitation avec les chats risquée.",
+      "Les rencontres avec d’autres chiens demandent de l’attention.",
+      "Demandez le dépistage de la dysplasie de la hanche des parents.",
+      "Une prise de poids avec fatigue peut révéler une hypothyroïdie."
+    ]
+  },
+  "epagneul-picard": {
+    "quotidien": "L’Épagneul picard est un chien d’arrêt rustique, doux et de caractère facile, à la robe gris moucheté plaquée de marron. Chasseur polyvalent du petit gibier, il s’adapte bien à la vie de famille et se montre un véritable ami des enfants. Très proche des siens, il n’aime pas la solitude.",
+    "education": "Souple et désireux de bien faire, l’Épagneul picard s’éduque facilement avec des méthodes douces et régulières. Travaillez le rappel et l’arrêt tôt, car son nez très fin l’entraîne vite. La brutalité est inutile avec ce chien sensible.",
+    "activite": "Il a besoin d’une heure et demie de dépense quotidienne, idéalement en liberté dans la nature. À l’aise au marais comme au bois, il aime l’eau, la quête et le rapport. Sans chasse, proposez-lui de longues sorties et des jeux de flair.",
+    "soins": "Son poil ondulé se contente d’un brossage hebdomadaire, plus soigné aux franges après les sorties. Contrôlez les oreilles tombantes pour éviter les otites et cherchez les épillets entre les doigts, dans les oreilles et autour des yeux.",
+    "vigilance": [
+      "Il s’ennuie en appartement : une maison avec jardin est préférable.",
+      "Son instinct de chasse est très fort : prudence avec les petits animaux.",
+      "Demandez le dépistage de la dysplasie de la hanche des parents.",
+      "Un œil qui pleure ou reste rouge peut signaler un entropion ou un ectropion."
+    ]
+  },
+  "terrier-tibetain": {
+    "quotidien": "Malgré son nom, le Terrier Tibétain n’est pas un terrier mais un chien de compagnie, compact, au long pelage double et aux larges pieds en raquette. Affectueux et joueur avec sa famille, il se montre réservé avec les inconnus et prévient volontiers. Il s’adapte à l’appartement comme à la maison.",
+    "education": "Intelligent mais parfois obstiné, il répond bien à une éducation douce, régulière et ludique. Il convient à un premier chien, à condition de rester constant. Habituez-le tôt aux visiteurs et aux manipulations du toilettage.",
+    "activite": "Une heure d’activité par jour lui suffit : promenades variées, jeux, un peu d’agility. Il adore la neige et supporte très bien le froid. En été, sortez-le aux heures fraîches, car il craint la chaleur.",
+    "soins": "Son pelage est exigeant : brossage complet plusieurs fois par semaine, jusqu’à la peau, sous peine de nœuds serrés. Il perd très peu de poils. Gardez dégagés les yeux et l’espace entre les coussinets.",
+    "vigilance": [
+      "Le temps de brossage est important, toute sa vie.",
+      "Demandez les tests des parents : luxation primaire du cristallin, atrophie progressive de la rétine, céroïde-lipofuscinose neuronale, dysplasie de la hanche.",
+      "Un œil rouge ou douloureux est une urgence vétérinaire.",
+      "Attention aux coups de chaleur en été."
+    ]
+  },
+  "braque-d-auvergne": {
+    "quotidien": "Le Braque d’Auvergne se reconnaît à sa tête noire et à sa robe blanche mouchetée de noir aux reflets bleutés. Doux, très affectueux et docile, il s’accommode bien de la vie de famille et s’entend avec les enfants comme avec les autres chiens. Il supporte mal d’être séparé des siens.",
+    "education": "Intelligent et désireux de plaire, il s’éduque facilement avec douceur et régularité. La dureté le bloque inutilement. Travaillez tôt le rappel, car son odorat puissant et sa passion de la chasse peuvent l’emmener loin.",
+    "activite": "Il lui faut deux heures de dépense par jour : c’est la condition de son équilibre à la maison. La chasse est son terrain naturel ; à défaut, misez sur les longues randonnées, la course à vos côtés et le travail de flair.",
+    "soins": "Son poil court ne demande qu’un coup de brosse hebdomadaire, mais il le protège peu du froid et de l’humidité : séchez-le après les sorties d’hiver. Nettoyez régulièrement les oreilles. Donnez deux repas par jour, au calme, pour limiter le risque de torsion de l’estomac.",
+    "vigilance": [
+      "Sans dépense quotidienne, il devient agité et destructeur.",
+      "Un appartement lui convient mal.",
+      "Demandez le dépistage de la dysplasie de la hanche des parents.",
+      "Surveillez les paupières : entropion ou ectropion sont possibles."
+    ]
+  },
+  "bruno-saint-hubert-francais": {
+    "quotidien": "Le Bruno Saint-Hubert français est un chien courant de taille moyenne, musclé, à la robe brun fauve à manteau ou selle noire. Vif, tenace et courageux à la chasse, il se montre doux et très attaché à son maître à la maison. Il vit mal la solitude et a une voix puissante.",
+    "education": "Il demande un maître expérimenté, patient et constant : sa passion de la chasse passe souvent avant l’obéissance. Ce n’est pas un premier chien. Installez le rappel très tôt et entretenez-le toute sa vie.",
+    "activite": "Prévoyez une heure et demie de dépense quotidienne, sur tous les terrains. Il excelle sur le sanglier et en recherche au sang : le pistage est l’activité idéale pour l’occuper hors saison. Il lui faut une maison avec un grand jardin, pas un appartement.",
+    "soins": "Son poil court s’entretient d’un simple brossage hebdomadaire. Inspectez les oreilles tombantes chaque semaine pour prévenir les otites, et vérifiez la peau et les coussinets au retour de chasse.",
+    "vigilance": [
+      "Il suit une piste sans se retourner : clôture solide et rappel travaillé.",
+      "Ses aboiements peuvent gêner le voisinage.",
+      "La cohabitation avec un chat est risquée.",
+      "Demandez le dépistage de la dysplasie de la hanche et surveillez les paupières (entropion, ectropion)."
+    ]
+  },
+  "basset-artesien-normand": {
+    "quotidien": "Le Basset artésien normand est un basset à poil ras, long et bien planté, à la robe fauve et blanche ou tricolore. Gai, très affectueux et calme à la maison, il fait un agréable chien de famille, excellent avec les enfants. Il n’aime pas rester seul et donne facilement de la voix.",
+    "education": "Chez le Basset artésien normand, l’odorat est parfois plus fort que l’obéissance : têtu, il demande de la patience, de la constance et des récompenses. Travaillez le rappel tôt, sans vous y fier près d’une piste. Évitez la dureté, inutile avec lui.",
+    "activite": "Une heure par jour lui convient, au rythme de la marche et du flair : balades en forêt, pistage, recherche de friandises. Spécialiste du lapin, il fouille volontiers les fourrés. Évitez les sauts et les escaliers répétés, à cause de son dos long.",
+    "soins": "Son poil ras se brosse une fois par semaine. Nettoyez régulièrement ses longues oreilles, sujettes aux otites. Surveillez surtout son poids : l’obésité fatigue son dos et ses antérieurs.",
+    "vigilance": [
+      "Une douleur au dos ou une difficulté à marcher impose une visite rapide : la hernie discale est un risque.",
+      "Il fugue sur une piste : jardin bien clos.",
+      "Ses aboiements peuvent gêner les voisins.",
+      "Vérifiez les aplombs des antérieurs et les paupières (ectropion) avant l’achat."
+    ]
+  },
+  "cursinu": {
+    "quotidien": "Le Cursinu est le chien traditionnel de la Corse : rustique, sec et musclé, le plus souvent fauve bringé. Polyvalent, il conduit les troupeaux, garde la maison et lève le sanglier. Très attaché à son maître, il reste méfiant envers les étrangers et supporte mal la solitude.",
+    "education": "Indépendant, il a besoin d’une éducation ferme, juste et cohérente, menée par un maître expérimenté : ce n’est pas un premier chien. Socialisez-le tôt et longtemps avec les visiteurs, les enfants et les autres chiens.",
+    "activite": "Il lui faut de l’espace et une heure et demie d’activité par jour : grandes randonnées, pistage, travail au troupeau ou chasse. Il supporte bien la chaleur. La vie en appartement ne lui convient pas.",
+    "soins": "Son poil se contente d’un brossage de temps en temps. Contrôlez ses oreilles et soignez les petites plaies au retour de chasse. En zone méditerranéenne, parlez à votre vétérinaire de la prévention de la leishmaniose.",
+    "vigilance": [
+      "Son instinct de chasse rend la cohabitation avec les chats risquée.",
+      "Sa méfiance envers les inconnus impose d’encadrer les visites.",
+      "Avec de jeunes enfants, restez présent.",
+      "Demandez le dépistage de la dysplasie de la hanche des parents."
+    ]
+  },
+  "bobtail-berger-anglais-ancien": {
+    "quotidien": "Le Bobtail est un grand chien de berger puissant, au long pelage double gris et blanc, célèbre pour sa démarche d’ours. Doux, joueur et affectueux, il est excellent avec les enfants et s’entend avec les autres animaux. Il vit mal les longues absences.",
+    "education": "Intelligent et de bonne volonté, il s’éduque avec douceur et régularité. Canalisez tôt sa fougue : sa masse peut bousculer un enfant. Habituez-le dès chiot au brossage et au toilettage.",
+    "activite": "Comptez une heure et quart d’exercice par jour : marches, jeux, activités de troupeau ou d’obéissance. Il adore le froid et craint beaucoup la chaleur : en été, sortez-le tôt le matin ou tard le soir. Une maison avec jardin lui convient mieux qu’un appartement.",
+    "soins": "Son pelage demande plusieurs heures de brossage par semaine, jusqu’à la peau, faute de quoi il feutre. Beaucoup de propriétaires le font tondre court. Nettoyez les yeux, les oreilles et l’arrière-train.",
+    "vigilance": [
+      "Le coup de chaleur est un vrai danger en été.",
+      "Faites tester la mutation MDR1 : certains médicaments courants lui sont toxiques.",
+      "Demandez les dépistages des parents : dysplasie de la hanche, cataracte, surdité.",
+      "Une prise de poids avec fatigue peut révéler une hypothyroïdie."
+    ]
+  },
+  "anglo-francais-de-petite-venerie": {
+    "quotidien": "L’Anglo-français de petite vénerie est un chien courant de taille moyenne, rapide, endurant et doté d’une belle voix. Sociable et facile à vivre au chenil, il reste un chien de meute fait pour la chasse, rarement un chien de compagnie. Seul, il s’ennuie et donne de la voix.",
+    "education": "Passionné et tenace, il écoute son nez avant son maître : l’éducation demande de l’expérience, de la constance et beaucoup de patience. Ce n’est pas un chien pour un débutant. Le rappel doit être travaillé très tôt et ne sera jamais totalement fiable sur une voie.",
+    "activite": "Il lui faut une heure et demie de vraie dépense par jour, et la chasse reste ce qui le comble. À défaut, proposez de longues sorties en longe, de la course et du pistage. Il lui faut de l’espace et, idéalement, la compagnie d’autres chiens.",
+    "soins": "Son poil court et serré ne demande qu’un brossage rapide. Surveillez ses oreilles pour éviter les otites. Après chaque sortie, cherchez coupures et épillets, surtout entre les doigts.",
+    "vigilance": [
+      "Il fugue dès qu’il prend une voie : clôture haute et sans faille.",
+      "Sa voix porte loin : à éviter avec des voisins proches.",
+      "La cohabitation avec un chat est risquée.",
+      "Demandez le dépistage de la dysplasie de la hanche des parents."
+    ]
+  },
+  "petit-chien-russe": {
+    "quotidien": "Le Petit chien russe (Russkiy Toy) est un très petit chien élégant, à l’ossature fine, à poil lisse ou à poil long. Enjoué, vif et très attaché à son maître, il vit parfaitement en appartement. Il supporte mal la solitude et aboie facilement.",
+    "education": "Intelligent, il apprend vite avec des séances courtes et des récompenses, et convient à un premier chien. Ne le portez pas en permanence : socialisez-le comme un grand chien, au sol, pour éviter qu’il ne devienne craintif. La propreté demande de la régularité.",
+    "activite": "Une demi-heure de promenade par jour, complétée par des jeux à la maison, lui suffit. Il craint beaucoup le froid : un manteau est nécessaire en hiver. Utilisez un harnais léger.",
+    "soins": "Le poil lisse ne demande presque rien ; les franges de la variété à poil long se brossent deux ou trois fois par semaine. Brossez ses dents très régulièrement et faites contrôler la chute des dents de lait. Chez le chiot, des repas fractionnés préviennent l’hypoglycémie.",
+    "vigilance": [
+      "Ses membres sont fragiles : une chute du canapé ou des bras peut causer une fracture.",
+      "Il ne convient pas aux jeunes enfants, trop brusques pour lui.",
+      "Une boiterie d’une patte arrière peut signaler une luxation de la rotule ou une maladie de Legg-Calvé-Perthes.",
+      "Ses aboiements peuvent gêner les voisins."
+    ]
+  }
+}
