@@ -1595,5 +1595,149 @@
    "Une boiterie d’une patte arrière peut signaler une luxation de la rotule ou une maladie de Legg-Calvé-Perthes.",
    "Ses aboiements peuvent gêner les voisins."
   ]
+ },
+ "dogue-des-canaries": {
+  "quotidien": "Le Dogue des Canaries est un molosse de garde venu des îles Canaries, où il protégeait le bétail et les propriétés. Calme et sûr de lui à la maison, il se montre très méfiant envers les inconnus et prend son rôle de gardien au sérieux. Il lui faut une maison avec un grand jardin bien clos, pas un appartement.",
+  "education": "Il demande un maître expérimenté, calme et cohérent, qui pose un cadre clair dès l’arrivée du chiot sans jamais recourir à la force. La socialisation doit commencer très tôt et se poursuivre pendant toute la croissance : visiteurs, bruits, lieux variés, autres chiens. Sans ce travail, sa puissance devient difficile à maîtriser.",
+  "activite": "Comptez une heure et quart par jour, en marches longues et régulières plutôt qu’en efforts violents, surtout pendant la croissance. Les exercices d’obéissance et de pistage l’occupent utilement. Il supporte mal la chaleur : en été, sortez-le tôt le matin ou le soir.",
+  "soins": "Son poil court se contente d’un brossage de temps en temps. Donnez deux repas par jour et laissez-le au calme après manger pour limiter le risque de dilatation-torsion de l’estomac. Surveillez ses yeux (entropion, ectropion) et sa peau, la démodécie pouvant toucher les jeunes chiens.",
+  "vigilance": [
+   "Ce n’est pas un premier chien : il réclame une vraie expérience des molosses.",
+   "La cohabitation avec d’autres chiens et avec les chats est risquée.",
+   "Avec les enfants, la prudence s’impose : ne les laissez jamais seuls avec lui.",
+   "Demandez le dépistage de la dysplasie de la hanche et du coude chez les parents."
+  ]
+ },
+ "bouvier-des-flandres": {
+  "quotidien": "Le Bouvier des Flandres est un ancien chien de ferme des Flandres belges et françaises, qui conduisait les bovins, tirait les charrettes et gardait la maison. Calme, doux avec les siens et patient avec les enfants, il reste réservé avec les inconnus et garde naturellement son territoire. Une maison avec jardin lui convient mieux qu’un appartement.",
+  "education": "Intelligent mais doté d’un caractère affirmé, le Bouvier des Flandres demande un maître déjà expérimenté, ferme et juste. Commencez tôt la socialisation et l’obéissance de base : un adulte de ce gabarit doit marcher en laisse sans tirer et accueillir les visiteurs calmement. Il supporte mal la brutalité et apprend mieux dans le calme.",
+  "activite": "Prévoyez une heure et quart par jour : longues marches, randonnée, pistage ou obéissance. Il aime avoir une tâche à accomplir. Son pelage épais le protège très bien du froid et de la pluie, mais il souffre de la chaleur : en été, sortez-le aux heures fraîches.",
+  "soins": "Son poil double et rêche perd peu mais s’emmêle : brossez-le à fond chaque semaine et prévoyez un toilettage régulier, sans oublier de nettoyer la barbe après les repas. Faites contrôler les yeux (glaucome, cataracte), le cœur et la thyroïde au fil des années.",
+  "vigilance": [
+   "Pas idéal pour un débutant : sa force et son tempérament de gardien demandent de l’expérience.",
+   "Le toilettage représente un vrai budget et du temps.",
+   "Demandez le dépistage de la dysplasie de la hanche et du coude chez les parents.",
+   "Attention aux coups de chaleur en été."
+  ]
+ },
+ "bullmastiff": {
+  "quotidien": "Le Bullmastiff est né en Angleterre du croisement du Mastiff et du Bulldog, pour aider les gardes-chasses à arrêter les braconniers. Il en garde un tempérament de gardien silencieux, calme à la maison, affectueux avec sa famille et doux avec les enfants. Il bave nettement et prend de la place : mieux vaut une maison avec jardin.",
+  "education": "Le Bullmastiff est têtu et très puissant : l’éducation doit commencer chez le chiot, avec constance et récompenses, tant qu’il est encore facile à manier. Insistez sur la marche en laisse et sur l’accueil des visiteurs, car il se méfie des inconnus. Un maître déjà expérimenté est préférable.",
+  "activite": "Trois quarts d’heure par jour lui suffisent, en promenades tranquilles. Évitez les efforts intenses, les sauts et les escaliers répétés pendant la croissance. Il supporte très mal la chaleur : en été, sortez-le uniquement aux heures fraîches et laissez-lui toujours de l’ombre et de l’eau.",
+  "soins": "Son poil court demande peu d’entretien ; essuyez simplement ses babines. Fractionnez la ration en deux repas et imposez du repos après manger pour limiter le risque de dilatation-torsion de l’estomac. Surveillez son poids et ses yeux (entropion), et signalez toute grosseur au vétérinaire, la race étant exposée aux cancers.",
+  "vigilance": [
+   "Son espérance de vie est courte, et les frais vétérinaires d’un grand chien sont élevés.",
+   "Le coup de chaleur est un vrai danger pour le Bullmastiff.",
+   "La cohabitation avec d’autres chiens et avec les chats demande de la prudence.",
+   "Pas idéal pour un débutant."
+  ]
+ },
+ "levrier-irlandais": {
+  "quotidien": "Le Lévrier Irlandais est la plus haute de toutes les races de chiens, un ancien chasseur de loups et de grands cerfs devenu un géant doux et digne. Calme à la maison, amical avec les visiteurs et patient avec les enfants, il n’a rien d’un gardien et aboie très peu. Sa taille impose de l’espace, une grande voiture et un couchage épais.",
+  "education": "Sensible, le Lévrier Irlandais s’éduque dans la douceur, avec des séances courtes et des récompenses. Apprenez-lui très tôt à ne pas tirer en laisse et à ne pas sauter sur les gens : adulte, il serait impossible à retenir. Le rappel reste incertain dès qu’un animal détale.",
+  "activite": "Une heure par jour, avec des marches et la possibilité de galoper en terrain clos. Pendant la croissance, qui est longue, évitez les efforts violents et les escaliers. Il supporte bien le froid mais mal la chaleur.",
+  "soins": "Son poil dur se brosse une fois par semaine. Donnez deux repas par jour et du repos après manger pour limiter le risque de torsion-dilatation de l’estomac. Faites suivre son cœur régulièrement (cardiomyopathie dilatée) et consultez sans attendre en cas de boiterie persistante ou de toux.",
+  "vigilance": [
+   "Son espérance de vie est courte et sa santé fragile : c’est un engagement affectif et financier.",
+   "Son instinct de poursuite est très fort : jardin bien clôturé et laisse hors terrain sécurisé.",
+   "La cohabitation avec les chats est risquée.",
+   "Tout coûte plus cher pour un chien géant : nourriture, soins, matériel."
+  ]
+ },
+ "vallhund-suedois": {
+  "quotidien": "Le Spitz des Wisigoths (Vallhund suédois) est un petit berger aux pattes courtes, utilisé depuis l’ère viking dans les fermes suédoises pour conduire le bétail, chasser les nuisibles et monter la garde. Vif, joueur et proche de sa famille, il s’entend bien avec les enfants et les autres chiens. Il a gardé l’habitude de signaler tout ce qui bouge.",
+  "education": "Intelligent et coopératif, le Spitz des Wisigoths apprend vite avec des méthodes positives et aime travailler avec son maître. Canalisez tôt deux réflexes de bouvier : aboyer et pincer les talons de ce qui court. Des consignes claires et de la régularité suffisent.",
+  "activite": "Une heure par jour, en mêlant promenades, jeux et activités de réflexion. Malgré sa petite taille, c’est un chien de travail endurant, à l’aise en agility, en obéissance ou en troupeau. Il supporte bien le froid.",
+  "soins": "Son poil double se brosse une fois par semaine, davantage pendant les mues, qui sont abondantes. Surveillez sa ligne : il prend facilement du poids, ce qui fatigue son dos. Évitez-lui les sauts répétés et demandez à l’éleveur les tests de la rétinopathie propre à la race.",
+  "vigilance": [
+   "Il aboie volontiers : à travailler tôt, surtout si vous avez des voisins proches.",
+   "Il perd beaucoup de poils à la mue.",
+   "L’obésité aggrave les problèmes de dos.",
+   "Il peut pincer les talons des enfants qui courent."
+  ]
+ },
+ "mastiff-tibetain": {
+  "quotidien": "Le Dogue du Tibet est un gardien de l’Himalaya, qui protégeait le bétail, les villages et les campements des nomades tibétains. Indépendant et calme, il est attaché aux siens mais très méfiant envers les inconnus, et il décide seul de ce qui menace son territoire. Il vit bien dehors et supporte la solitude, à condition d’avoir un grand terrain solidement clôturé.",
+  "education": "C’est l’un des chiens les plus difficiles à éduquer : le Dogue du Tibet réfléchit par lui-même et n’obéit pas pour faire plaisir. Il lui faut un maître très expérimenté, patient et cohérent, et une socialisation précoce et prolongée. N’attendez pas de lui une obéissance de chien de berger.",
+  "activite": "Trois quarts d’heure de marche par jour lui conviennent, en laisse hors de chez lui. Il est surtout actif le soir et la nuit, lorsqu’il surveille. Il adore le froid et souffre de la chaleur.",
+  "soins": "Son épaisse fourrure double demande un brossage à fond chaque semaine, et quotidien pendant la grande mue. Sa croissance est lente : évitez de le suralimenter et de le faire forcer, des douleurs osseuses (panostéite) pouvant apparaître chez le jeune. Surveillez ses yeux (entropion, ectropion).",
+  "vigilance": [
+   "Ce n’est pas un chien pour débutant, ni un chien de ville.",
+   "Son aboiement grave et puissant, surtout la nuit, pose problème avec le voisinage.",
+   "Prudence avec les enfants, en particulier ceux des visiteurs.",
+   "La cohabitation avec d’autres chiens et avec les chats est délicate."
+  ]
+ },
+ "petit-basset-griffon-vendeen": {
+  "quotidien": "Le Petit basset griffon vendéen est un petit chien courant au poil dur, spécialiste du lapin, qui aime la ronce et la broussaille. « Diable à la campagne, ange à la maison », dit son standard : joyeux, très sociable avec les gens comme avec les autres chiens, il est aussi têtu et bavard. Il supporte mal de rester seul longtemps.",
+  "education": "Le Petit basset griffon vendéen comprend vite mais n’en fait qu’à sa tête dès qu’une odeur l’intéresse. Misez sur des séances courtes, gaies et bien récompensées, et travaillez le rappel dès le plus jeune âge, sans jamais le tenir pour acquis. La constance compte plus que la fermeté.",
+  "activite": "Une heure et quart par jour, avec de vraies sorties en nature où il peut flairer, en longe si le terrain n’est pas clos. Les jeux de pistage et de recherche le comblent. C’est un marcheur endurant malgré sa petite taille.",
+  "soins": "Son poil dur se brosse chaque semaine et se démêle après les sorties en sous-bois. Nettoyez régulièrement ses oreilles tombantes, sujettes aux otites, et évitez-lui les sauts répétés à cause du risque de hernie discale. Demandez à l’éleveur les tests oculaires (glaucome, luxation du cristallin).",
+  "vigilance": [
+   "Il fugue dès qu’il trouve une piste : clôture haute et solide indispensable.",
+   "Il donne beaucoup de la voix, ce qui peut gêner les voisins.",
+   "Son instinct de chasse rend la cohabitation avec les chats risquée.",
+   "Une fièvre avec douleur au cou chez un jeune chien (méningite sensible aux corticoïdes) impose une consultation rapide."
+  ]
+ },
+ "kelpie-australien": {
+  "quotidien": "Le Kelpie Australien est un chien de berger athlétique, sélectionné pour mener seul les moutons sur de vastes distances et sous un climat difficile. Son ardeur au travail est inépuisable : il lui faut une occupation quotidienne et un maître présent. Laissé seul et désœuvré, il invente ses propres tâches, rarement à votre goût. La vie à la campagne lui convient, pas l’appartement.",
+  "education": "Très intelligent, le Kelpie Australien apprend à une vitesse remarquable et adore coopérer. Cette facilité demande pourtant un maître déjà expérimenté, capable de lui proposer sans cesse de nouveaux apprentissages et de canaliser son instinct de rassemblement. Apprenez-lui aussi à se poser et à ne rien faire.",
+  "activite": "Deux heures par jour au minimum, et pas seulement de la marche : troupeau, agility, frisbee, course ou vélo à vos côtés, exercices de réflexion. Il supporte très bien la chaleur. Sans dépense physique et mentale suffisante, il devient vite envahissant.",
+  "soins": "Son poil court et double se brosse une fois par semaine. C’est un chien très robuste ; demandez tout de même à l’éleveur les tests de l’abiotrophie cérébelleuse et de l’atrophie progressive de la rétine, ainsi que le dépistage de la dysplasie de la hanche des parents.",
+  "vigilance": [
+   "Pas adapté à un premier chien ni à une vie sédentaire.",
+   "Il supporte mal la solitude et l’ennui.",
+   "Il peut vouloir rassembler enfants, vélos et joggeurs en les poursuivant.",
+   "Son instinct de poursuite rend la cohabitation avec les chats délicate."
+  ]
+ },
+ "grand-griffon-vendeen": {
+  "quotidien": "Le Grand griffon vendéen est un chien courant de vieille race française, puissant, au poil long et rude, fait pour chasser en meute le grand gibier. Docile mais volontaire et passionné, c’est un chien d’équipage bien plus qu’un chien de compagnie. Il a besoin de grands territoires et de la présence d’autres chiens, et il ne supporte pas la solitude.",
+  "education": "Sociable et doux avec les gens, le Grand griffon vendéen reste gouverné par son nez : l’éducation demande un maître expert des chiens courants, patient et constant. Le rappel est le point le plus difficile et ne sera jamais totalement fiable sur une piste. Habituez-le tôt à la longe et récompensez chaque retour.",
+  "activite": "Deux heures par jour au moins, en terrain vaste : chasse, longues randonnées, pistage. La seule promenade en laisse ne lui suffit pas. Il ne craint ni la ronce ni le mauvais temps.",
+  "soins": "Son poil dur demande peu d’entretien : un brossage hebdomadaire et un contrôle après chaque sortie pour repérer les tiques et les petites blessures. Nettoyez ses oreilles tombantes pour prévenir les otites. Donnez deux repas par jour, à distance de l’effort, pour limiter le risque de torsion de l’estomac.",
+  "vigilance": [
+   "Ce n’est pas un chien pour débutant ni pour la vie en ville.",
+   "Il fugue sur la moindre piste : terrain très bien clôturé indispensable.",
+   "Sa voix puissante porte loin : attention au voisinage.",
+   "Son instinct de chasse rend la cohabitation avec les chats risquée."
+  ]
+ },
+ "grand-bleu-de-gascogne": {
+  "quotidien": "Le Grand bleu de Gascogne est un grand chien courant majestueux, à la robe mouchetée au reflet bleu ardoisé et aux oreilles très tombantes. Calme, doux et facile à mener, c’est avant tout un chien de meute destiné à la chasse du grand gibier, plus qu’à la vie de salon. Il vit mal la solitude et apprécie la compagnie d’autres chiens.",
+  "education": "Le Grand bleu de Gascogne est appliqué sur une piste mais peu porté sur l’obéissance : il demande un maître qui connaît bien les chiens courants. Travaillez avec patience, récompenses et régularité, et commencez le rappel très tôt, en sachant qu’une voie fraîche passera souvent avant vous.",
+  "activite": "Une heure et demie par jour, en longues marches à allure régulière, idéalement en nature et en longe hors terrain clos. Les activités de flair, comme le pistage, sont celles qui le satisfont le mieux. C’est un chien endurant plus que rapide.",
+  "soins": "Son poil court se brosse rapidement une fois par semaine. Ses longues oreilles doivent être nettoyées régulièrement pour éviter les otites, et ses yeux surveillés (ectropion). Donnez deux repas par jour et du repos après manger pour limiter le risque de torsion de l’estomac.",
+  "vigilance": [
+   "Pas un chien pour débutant ni pour l’appartement.",
+   "Sa voix de hurleur, grave et puissante, s’entend de très loin : voisinage à prendre en compte.",
+   "Il suit son nez et fugue facilement : clôture solide indispensable.",
+   "La cohabitation avec les chats est risquée."
+  ]
+ },
+ "schnauzer-geant": {
+  "quotidien": "Le Schnauzer Géant est un grand chien de travail venu de Bavière et du Wurtemberg, ancien conducteur de bétail et gardien de fermes et de brasseries, devenu chien de police. Très attaché à sa famille, vigilant et sûr de lui, il se méfie des inconnus et garde naturellement. Il veut vivre et travailler avec vous et supporte mal les longues absences.",
+  "education": "Intelligent et énergique, le Schnauzer Géant a un caractère fort qui teste les limites. Il lui faut un maître expérimenté, cohérent et disponible, une socialisation soignée dès le plus jeune âge et une éducation suivie pendant toute l’adolescence. Les méthodes brutales le braquent ; le travail régulier le passionne.",
+  "activite": "Deux heures par jour, en combinant course, randonnée ou vélo avec un vrai travail : obéissance, pistage, sports canins. Sans cela, son énergie se retourne contre la maison et le jardin. Il supporte bien le froid.",
+  "soins": "Son poil dur ne perd presque pas mais demande un brossage hebdomadaire, un toilettage régulier et un nettoyage de la barbe. Donnez deux repas par jour et du repos après manger pour limiter le risque de dilatation-torsion de l’estomac. Inspectez ses doigts et signalez au vétérinaire toute griffe abîmée ou tout doigt gonflé.",
+  "vigilance": [
+   "Ce n’est pas un premier chien.",
+   "Les rencontres avec d’autres chiens et la cohabitation avec les chats demandent de la vigilance.",
+   "Avec de jeunes enfants, sa vivacité et son gabarit imposent une surveillance.",
+   "Demandez le dépistage de la dysplasie de la hanche chez les parents."
+  ]
+ },
+ "chien-de-saint-hubert": {
+  "quotidien": "Le Chien de Saint-Hubert est un grand chien courant à la tête ridée et aux longues oreilles, dont l’odorat en fait le pisteur le plus réputé de tous les chiens. Doux, affectueux et patient avec les enfants, il est aussi indépendant et très présent : il bave énormément et prend de la place. Il n’aime pas rester seul.",
+  "education": "Le Chien de Saint-Hubert est gentil mais obstiné : une fois le nez sur une piste, il n’entend plus rien. L’éducation demande de la patience, de la douceur et un maître déjà expérimenté. Apprenez-lui tôt la marche en laisse, car un adulte qui tire sur une odeur est très difficile à retenir.",
+  "activite": "Une heure et demie par jour, en longues marches où il peut flairer à loisir, en longe ou en terrain clos. Le pistage et la recherche de personnes sont ses activités de prédilection. Ménagez-le par temps chaud.",
+  "soins": "Nettoyez et séchez régulièrement les plis de la peau et les longues oreilles, sujets aux dermatites et aux otites, et surveillez ses yeux (entropion, ectropion). Donnez deux repas par jour et du repos après manger : le risque de dilatation-torsion de l’estomac est réel. Gardez toujours une serviette à portée de main pour la bave.",
+  "vigilance": [
+   "Il fugue en suivant une piste : clôture solide et haute, jamais de liberté hors terrain clos.",
+   "Il bave beaucoup et donne volontiers de la voix, ce qui peut gêner les voisins.",
+   "Pas idéal pour un débutant, à cause de sa force et de son entêtement.",
+   "Attention aux coups de chaleur en été."
+  ]
  }
 }
