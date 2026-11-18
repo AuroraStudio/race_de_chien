@@ -30,7 +30,9 @@ const NAV_LINKS = [
     // Entre 768 et 1024 px, le logo suffit pour revenir à l'accueil : l'en-tête tient sur une ligne
     { href: P('/'), label: T`Les races`, cls: 'hidden lg:inline' },
     { href: P('/quel-chien-choisir'), label: T`Quel chien pour moi ?` },
-    { href: P('/compare'), label: T`Comparer` }
+    { href: P('/compare'), label: T`Comparer` },
+    // Guides pratiques : en français seulement (la rubrique n'existe pas dans les autres langues) ; allumé sur toute la rubrique
+    ...(window.RDCLang ? [] : [{ href: '/guides', label: 'Guides', rubrique: '/guides' }])
 ];
 const TM_HREF = P('/tel-maitre-tel-chien');
 
@@ -44,7 +46,8 @@ function pageLanguages() {
 function renderHeader() {
     const quote = getRandomQuote();
     const path = location.pathname.replace(/\/$/, '') || '/';
-    const navItem = l => `<a href="${l.href}" class="${l.cls || ''} text-sm font-medium ${path === l.href ? 'text-primary-600' : 'text-slate-600 hover:text-primary-600'} transition-colors"${path === l.href ? ' aria-current="page"' : ''}>${l.label}</a>`;
+    const ici = l => path === l.href || (l.rubrique && path.startsWith(l.rubrique + '/'));
+    const navItem = l => `<a href="${l.href}" class="${l.cls || ''} text-sm font-medium ${ici(l) ? 'text-primary-600' : 'text-slate-600 hover:text-primary-600'} transition-colors"${path === l.href ? ' aria-current="page"' : ''}>${l.label}</a>`;
 
     const ic = (n, c) => (window.RDCIcon ? window.RDCIcon(n, c) : '');
     const langs = pageLanguages();
