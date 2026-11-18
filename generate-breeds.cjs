@@ -959,6 +959,7 @@ ${duels.length ? `<!--guide-->
                 <li class="max-w-full"><a href="/guides/combien-coute-un-chien" class="opt opt-wrap">${icon('calculator')}Combien coûte un chien</a></li>
                 <li class="max-w-full"><a href="/guides/acheter-ou-adopter-un-chien-les-regles" class="opt opt-wrap">${icon('scales')}Acheter ou adopter : les règles</a></li>
                 <li class="max-w-full"><a href="/guides/assurance-chien" class="opt opt-wrap">${icon('shield-check')}Assurance chien</a></li>
+                <li class="max-w-full"><a href="/guides/alimentation-du-chiot" class="opt opt-wrap">${icon('bowl-food')}Nourrir un chiot</a></li>
             </ul>
         </section>
 <!--/guide-->
