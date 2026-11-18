@@ -1054,10 +1054,10 @@ function sitemap() {
         ['/', '1.0', 'weekly'], ['/quel-chien-choisir', '0.9', 'monthly'], ['/liste-des-races', '0.8', 'monthly'], ['/groupes-de-races', '0.7', 'monthly'],
         ['/chiens-categorises', '0.7', 'yearly'], ['/compare', '0.6', 'monthly'], ['/tel-maitre-tel-chien', '0.8', 'monthly'],
         ...BASE_SELECTIONS.map(s => [`/selections/${s.slug}`, '0.8', 'monthly']),
+        // Guides et méthode avant les croisements et les comparatifs : la tâche d'indexation suit l'ordre du sitemap
+        ['/guides', '0.7', 'monthly'], ...GP.guides.map(g => [GP.guideUrl(g), '0.8', 'monthly']), ['/methode', '0.5', 'yearly'],
         ...COMBOS.map(s => [`/selections/${s.slug}`, '0.7', 'monthly']),
         ...CMP.pairs.map(p => [CMP.pairUrl(p), '0.7', 'monthly']),
-        ['/methode', '0.5', 'yearly'], ['/guides', '0.7', 'monthly'],
-        ...GP.guides.map(g => [GP.guideUrl(g), '0.8', 'monthly']),
         ...Object.values(GROUPS).map(G => [`/groupes/${G.slug}`, '0.7', 'monthly']),
         ...breeds.map(b => [`/races/${b.slug}`, '0.7', 'monthly', b]),
         ['/mentions-legales', '0.2', 'yearly'], ['/confidentialite', '0.2', 'yearly']
