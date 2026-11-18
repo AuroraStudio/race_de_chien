@@ -3,14 +3,14 @@ import re, json, time, sys, urllib.request, statistics
 CAND = {
  'golden-retriever':['golden-retriever'], 'berger-australien':['berger-australien'], 'staffordshire-bull-terrier':['staffordshire-bull-terrier'],
  'cocker-spaniel':['cocker-spaniel-anglais','english-cocker-spaniel','cocker-anglais'], 'labrador-retriever':['labrador-retriever'],
- 'berger-americain-miniature':['berger-americain-miniature'], 'cavalier-king-charles':['cavalier-king-charles-spaniel','cavalier-king-charles'],
+ 'berger-americain-miniature':['berger-americain'], 'cavalier-king-charles':['cavalier-king-charles'],
  'berger-belge-malinois':['berger-belge','berger-belge-malinois'], 'berger-allemand':['berger-allemand'], 'teckel':['teckel-poil-ras','teckel','teckel-poil-dur'],
  'setter-anglais':['setter-anglais'], 'epagneul-breton':['epagneul-breton'], 'cane-corso':['cane-corso'], 'beagle':['beagle'], 'chihuahua':['chihuahua'],
  'rottweiler':['rottweiler'], 'border-collie':['border-collie'], 'husky-siberien':['siberian-husky','husky-siberien','husky-de-siberie'],
  'bouledogue-francais':['bouledogue-francais'], 'bouvier-bernois':['bouvier-bernois'], 'beauceron':['berger-de-beauce','beauceron'], 'shiba-inu':['shiba','shiba-inu'],
  'berger-blanc-suisse':['berger-blanc-suisse'], 'eurasier':['eurasier'], 'spitz-nain-loulou-de-pomeranie':['spitz-allemand','spitz-nain','spitz-allemand-nain'],
  'yorkshire-terrier':['yorkshire-terrier'], 'shih-tzu':['shih-tzu'], 'shetland-sheepdog-berger-des-shetland':['shetland-sheepdog','berger-des-shetland'],
- 'staffordshire-terrier-americain':['american-staffordshire-terrier','staffordshire-terrier-americain'], 'jack-russell-terrier':['jack-russell-terrier'],
+ 'staffordshire-terrier-americain':['american-staffordshire-terrier','staffordshire-terrier-americain'], 'jack-russell-terrier':['jack-russell'],
  'welsh-corgi-pembroke':['welsh-corgi-pembroke'], 'boxer':['boxer'], 'whippet':['whippet'], 'samoyede':['samoyede'], 'coton-de-tulear':['coton-de-tulear'],
 }
 def get(u):
