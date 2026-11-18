@@ -627,6 +627,98 @@ function faq(b) {
     return out;
 }
 
+// Frais d'adoption affichés par la SPA (page « Participation financière », relevés le 16/11/2026, mêmes montants que le guide du budget)
+const SPA = { chien: 275, chiot: 365 };
+
+// Questions fréquentes des fiches françaises : chaque réponse croise plusieurs notes, au lieu d'en répéter une
+function faqFr(b) {
+    const s = b.scores, p = b.physical || {}, n = b.name_fr, N = Le(n);
+    const w = k => SCORE_META[k].words[s[k] - 1].toLowerCase();
+    const de = /^[AEIOUYÉÈÊÂÎÔ]/i.test(n) ? `de l’${n}` : `du ${n}`;
+    const out = [];
+    const j = (...x) => esc(x.filter(Boolean).join(' '));
+    const h = range(p.height_cm?.min, p.height_cm?.max, 'cm'), kg = range(p.weight_kg?.min, p.weight_kg?.max, 'kg');
+    const sizeTxt = { toy: 'de très petite taille', small: 'de petite taille', medium: 'de taille moyenne', large: 'de grande taille', giant: 'de taille géante' }[p.size_category] || 'de taille moyenne';
+    if (h || kg) out.push([`Quelle taille et quel poids pour ${le(n)} ?`, j(`${N} mesure ${h ? `${h} au garrot` : ''}${h && kg ? ' pour ' : ''}${kg}. C’est un chien ${sizeTxt}.`)]);
+
+    // Famille : enfants, autres chiens, chats, visiteurs
+    const kids = ['Non : il est déconseillé avec de jeunes enfants.', 'Ce n’est pas son point fort : il tolère mal l’agitation des jeunes enfants.', 'Plutôt avec des enfants déjà grands, qui respectent ses limites.',
+        'Oui, avec des enfants qui le respectent.', 'Oui : patient et doux, il est à l’aise même avec de jeunes enfants.'][s.enfants - 1];
+    const autres = s.chiens >= 4 && s.chats >= 4 ? 'Il s’entend bien avec les autres chiens comme avec les chats.'
+        : s.chiens >= 4 && s.chats <= 2 ? 'Il s’entend bien avec les autres chiens, mais son instinct le pousse à poursuivre les chats.'
+        : s.chiens <= 2 && s.chats >= 4 ? 'Il accepte les chats, mais cohabite mal avec d’autres chiens.'
+        : s.chiens <= 2 && s.chats <= 2 ? 'Il vit mieux en animal unique : la cohabitation avec un autre chien ou un chat est difficile.'
+        : s.chiens >= 4 ? 'Il s’entend bien avec les autres chiens.' : s.chats >= 4 ? 'Il cohabite bien avec un chat.'
+        : s.chiens <= 2 ? 'Il cohabite mal avec d’autres chiens.' : s.chats <= 2 ? 'Son instinct le pousse à poursuivre les chats.' : '';
+    const visites = s.inconnus >= 4 ? 'Il accueille volontiers les visiteurs.' : s.inconnus <= 2 ? 'Il reste méfiant avec les inconnus : habituez-le tôt aux visites.' : '';
+    out.push([`${N} est-il un bon chien de famille ?`, j(kids, autres, visites, 'Ne laissez jamais un jeune enfant seul avec un chien, quelle que soit sa race.')]);
+
+    // Solitude : note, besoin de dépense, aboiements
+    const seul = ['Très mal : il a besoin de présence presque toute la journée.', 'Mal : très attaché à son maître, il vit mal les longues absences.', 'Quelques heures, pas davantage : au-delà, il s’ennuie.',
+        'Plutôt bien : il supporte quelques heures seul sans en souffrir.', 'Oui, mieux que la plupart des races : indépendant, il supporte bien une demi-journée d’absence.'][s.solitude - 1];
+    out.push([`${N} peut-il rester seul la journée ?`, j(seul,
+        s.energie >= 4 && s.exercice_min_jour ? `Avant une absence, une vraie sortie est indispensable : il a besoin d’environ ${s.exercice_min_jour} minutes d’activité par jour.` : '',
+        s.aboiements >= 4 ? 'Seul, il peut donner de la voix : à anticiper si vous avez des voisins.' : '',
+        'Aucun chien n’est fait pour rester seul huit heures tous les jours.')]);
+
+    // Éducation : facilité, premier chien, rappel
+    const edu = ['Non : c’est une race réservée aux maîtres expérimentés.', 'Non : indépendant ou têtu, il demande de la patience et de l’expérience.', 'Moyennement : il apprend, mais demande de la constance.',
+        'Oui : il apprend bien avec une éducation régulière et positive.', 'Oui, très : il comprend vite et aime travailler avec son maître.'][s.education - 1];
+    const premier = s.premier_chien >= 4 ? 'Il convient à un premier chien.' : s.premier_chien <= 2 ? 'Il est déconseillé pour un premier chien.' : 'Pour un premier chien, c’est possible en se faisant accompagner par un éducateur.';
+    const rappel = s.instinct_chasse >= 4 && s.fugue >= 4 ? 'Le rappel est le point à travailler en priorité : son instinct de chasse est fort et il s’éloigne facilement.'
+        : s.instinct_chasse >= 4 ? 'Travaillez le rappel tôt : son instinct de chasse est fort.' : s.fugue >= 4 ? 'Travaillez le rappel tôt : il a tendance à s’éloigner.'
+        : s.instinct_chasse <= 2 && s.fugue <= 2 ? 'En balade, il reste volontiers près de vous.' : '';
+    out.push([`${N} est-il facile à éduquer ?`, j(edu, premier, rappel)]);
+
+    // Aboiements : note, garde
+    const voix = ['Très peu : c’est l’une des races les plus silencieuses.', 'Peu : il n’aboie que lorsqu’il a une raison.', 'Modérément : il donne de la voix pour prévenir ou quand il s’ennuie.',
+        'Oui, volontiers : il prévient au moindre bruit.', 'Oui, beaucoup : c’est une race très bavarde.'][s.aboiements - 1];
+    out.push([`${N} aboie-t-il beaucoup ?`, j(voix, s.garde >= 4 ? `Son instinct de garde est ${w('garde')} : il signale toute arrivée.` : '',
+        s.aboiements >= 3 ? 'Un chien assez dépensé et occupé aboie moins : c’est le premier levier.' : '')]);
+
+    // Appartement : note, activité, gabarit, voisinage
+    const appart = ['Ce n’est pas recommandé : il lui faut de l’espace, idéalement une maison avec jardin.', 'C’est difficile : il a besoin d’espace et d’activité, un logement avec jardin lui convient mieux.',
+        'C’est possible, à condition de lui offrir de vraies sorties chaque jour ; un jardin reste un plus.', 'Oui, s’il sort plusieurs fois par jour : il s’adapte bien à un logement sans jardin.',
+        'Oui, très bien : calme à l’intérieur, il s’adapte parfaitement à un appartement.'][s.appartement - 1];
+    out.push([`${N} peut-il vivre en appartement ?`, j(appart,
+        s.exercice_min_jour ? `Comptez environ ${s.exercice_min_jour} minutes d’activité par jour.` : '',
+        s.appartement >= 3 && ['large', 'giant'].includes(p.size_category) ? 'Son gabarit demande tout de même de la place pour circuler.' : '',
+        s.appartement >= 3 && s.aboiements >= 4 ? 'Attention au voisinage : il aboie volontiers.' : '')]);
+
+    // Poils
+    const poils = [`Sa perte de poils est ${w('perte_poils')} et l’entretien de son poil est ${w('entretien_pelage')}.`];
+    if (b.hypoallergenic) poils.push('Il fait partie des races qui perdent très peu de poils, souvent mieux tolérées par les personnes allergiques, sans garantie : passez du temps avec la race avant de vous décider.');
+    else if (s.perte_poils >= 4) poils.push(s.entretien_pelage <= 2
+        ? 'Un brossage par semaine suffit le reste de l’année, mais passez à un brossage quotidien pendant les mues de printemps et d’automne.'
+        : 'Prévoyez un brossage plusieurs fois par semaine, et davantage pendant les mues de printemps et d’automne.');
+    if (s.entretien_pelage >= 4) poils.push('Son poil demande un toilettage régulier, parfois chez un professionnel.');
+    out.push([`${N} perd-il beaucoup de poils ?`, j(...poils)]);
+
+    // Climat
+    const ADV = ['très mal', 'mal', 'moyennement', 'bien', 'très bien'];
+    const climat = s.chaleur === s.froid ? `Il supporte ${ADV[s.chaleur - 1]} la chaleur comme le froid.` : `Il supporte ${ADV[s.chaleur - 1]} la chaleur et ${ADV[s.froid - 1]} le froid.`;
+    out.push([`${N} supporte-t-il la chaleur et le froid ?`, j(climat,
+        s.chaleur <= 2 ? 'En été, sortez-le tôt le matin et tard le soir, et ne le laissez jamais dans une voiture.' : '',
+        s.froid <= 2 ? 'En hiver, écourtez les sorties par temps froid et humide.' : '')]);
+
+    // Santé et longévité
+    const life = range(p.life_span_years?.min, p.life_span_years?.max, 'ans');
+    const lcFirst = x => (/^[A-ZÀ-Ý][a-zà-ÿ]/.test(x) ? x[0].toLowerCase() + x.slice(1) : x);
+    const issues = (b.health?.common_issues || []).slice(0, 2).map(x => lcFirst(x.split(/ \(|, /)[0]));
+    if (life) out.push([`Quelle est l’espérance de vie ${de} ?`, j(`Elle est de ${life}. Sa robustesse est ${w('robustesse')}.`, issues.length ? `Les problèmes de santé à surveiller en priorité : ${issues.join(' ; ')}.` : '')]);
+
+    // Prix : les prix sont libres, on ne donne que ce qui se vérifie (la vente d'un chien de 1re catégorie est interdite)
+    if (b.legal_category !== '1') {
+        const rare = b.fci?.recognized === false ? 'La race n’est pas reconnue par la FCI : aucun chiot ne peut être inscrit au LOF en France, et les élevages y sont très rares.'
+            : b.lof?.['2025'] ? (b.lof['2025'] < 300 ? `La race est peu répandue en France (${fmtInt(b.lof['2025'])} chiots inscrits au LOF en 2025) : les élevages sont peu nombreux.` : `${fmtInt(b.lof['2025'])} chiots ont été inscrits au LOF en 2025.`)
+            : 'Aucun chiot n’a été inscrit au LOF en 2025 : la race est très rare en France.';
+        out.push([`Combien coûte ${le(n)} ?`, `${j(`Les prix sont libres : chaque éleveur fixe le sien, selon la lignée et l’inscription au LOF, et aucun organisme ne publie de prix moyen.`, rare,
+            `Demandez ce que le prix comprend : l’identification et un certificat vétérinaire doivent vous être remis. En refuge, la SPA demande ${SPA.chien} € pour un chien et ${SPA.chiot} € pour un chiot de moins de 6 mois.`)} <a href="/guides/combien-coute-un-chien" class="font-semibold text-primary-700 underline">Le budget d’un chien, poste par poste</a>.`]);
+    }
+    if (b.legal_category) out.push([`${N} est-il un chien catégorisé ?`, `${esc(LAW[b.legal_category])} <a href="/chiens-categorises" class="font-semibold text-primary-700 underline">Tout sur les chiens catégorisés</a>.`]);
+    return out;
+}
+
 // Section « Vivre avec un … » (data/guides.json) : en français seulement, write() la retire des versions traduites
 function guideHtml(b) {
     const g = GUIDES[b.slug];
@@ -686,6 +778,8 @@ function breedPage(b, legacy = false) {
             { '@type': 'ListItem', position: gUrl ? 3 : 2, name: b.name_fr, item: url }
         ]
     }];
+    if (!legacy) ld.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqFr(b).map(([q, a]) => ({ '@type': 'Question', name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '').replace(/&#39;/g, "'").replace(/&amp;/g, '&').replace(/&quot;/g, '"') } })) });
 
     const badges = [];
     if (b.lofRank) badges.push(`<span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700">${ordinal(b.lofRank)} race en France · ${fmtInt(b.lof['2025'])} chiots LOF en 2025</span>`);
@@ -709,6 +803,8 @@ function breedPage(b, legacy = false) {
     const traits = b.temperament?.traits || [];
     const inSelections = BASE_SELECTIONS.filter(x => SELECTION_MEMBERS[x.slug].has(b.slug));
     const duels = CMP.linksFor(b);
+    // Versions traduites : l'ancienne FAQ, dont chaque phrase a sa traduction
+    const faqs = legacy ? faq(b) : faqFr(b);
     const shortName = x => x.name_fr.replace(/\s*\([^)]*\)/g, '');
 
     const body = `
@@ -838,7 +934,7 @@ ${duels.length ? `<!--guide-->
                 <section aria-labelledby="faq" class="max-w-3xl">
                     <h2 id="faq" class="text-2xl font-bold text-slate-900">Questions fréquentes sur ${esc(le(b.name_fr))}</h2>
                     <div class="mt-4 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
-                        ${faq(b).map(([q, a]) => `<div class="p-5"><h3 class="font-bold text-slate-900">${esc(q).replace(/(\S+-(?:il|elle|on))\b/g, '<span class="whitespace-nowrap">$1</span>')}</h3><p class="mt-1.5 text-sm leading-relaxed text-slate-700">${a}</p></div>`).join('')}
+                        ${faqs.map(([q, a]) => `<div class="p-5"><h3 class="font-bold text-slate-900">${esc(q).replace(/(\S+-(?:il|elle|on))\b/g, '<span class="whitespace-nowrap">$1</span>')}</h3><p class="mt-1.5 text-sm leading-relaxed text-slate-700">${a}</p></div>`).join('')}
                     </div>
                 </section>
             </div>
