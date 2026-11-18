@@ -1,0 +1,146 @@
+{
+  "schnauzer-standard": {
+    "quotidien": "Le Schnauzer Moyen est un ancien chien de ferme allemand, vif, intelligent et très attaché à sa famille. Vigilant, il signale tout ce qui se passe autour de la maison et reste réservé avec les inconnus. Il s’entend bien avec les enfants qu’il connaît.",
+    "education": "Le Schnauzer Moyen apprend vite mais garde son caractère : il teste les limites et se lasse des exercices répétés. Une éducation ferme, juste et variée, basée sur la récompense, donne de bons résultats. Socialisez-le tôt avec les autres chiens, envers lesquels il peut se montrer chatouilleux.",
+    "activite": "Comptez une heure et demie d’activité par jour pour le Schnauzer Moyen : longues promenades, jeux de recherche, obéissance ou agility. C’est un chien polyvalent qui aime avoir une tâche. Sans dépense physique et mentale, il trouve lui-même de quoi s’occuper.",
+    "soins": "Le poil dur du Schnauzer Moyen perd très peu mais demande un vrai entretien : un épilage plusieurs fois par an et un brossage régulier, sans oublier la barbe à nettoyer après les repas. Une visite annuelle chez le vétérinaire permet de suivre ses yeux et sa thyroïde.",
+    "vigilance": [
+      "La cataracte héréditaire et la dysplasie de la hanche existent : demandez les dépistages des parents.",
+      "L’hypothyroïdie peut se traduire par une prise de poids et une baisse d’entrain.",
+      "Sa peau peut développer des dermatites : surveillez les démangeaisons.",
+      "Gardien dans l’âme, il aboie à l’arrivée des visiteurs."
+    ]
+  },
+  "levrier-afghan": {
+    "quotidien": "Le Lévrier Afghan est un chasseur de montagne devenu chien d’allure aristocratique : digne, indépendant et réservé avec les inconnus. Très calme à la maison, il se montre affectueux à sa manière, sans chercher à plaire. Il aboie très peu.",
+    "education": "Le Lévrier Afghan est l’une des races les plus difficiles à éduquer : il comprend, mais n’obéit que s’il en voit l’intérêt. Il faut beaucoup de patience, de la douceur et des séances courtes. Ce n’est pas un chien pour un débutant.",
+    "activite": "Le Lévrier Afghan a besoin d’environ une heure et quart d’exercice par jour, avec de vraies courses dans un terrain entièrement clos. Son instinct de poursuite est très fort : en dehors d’un espace sûr, gardez-le en laisse, car le rappel ne résiste pas à un lièvre.",
+    "soins": "Le long poil soyeux du Lévrier Afghan demande un entretien très lourd : brossage approfondi plusieurs fois par semaine et bains réguliers pour éviter les nœuds. Signalez toujours à votre vétérinaire qu’il s’agit d’un lévrier avant une anesthésie.",
+    "vigilance": [
+      "Risque réel avec les chats et les petits animaux, qu’il prend pour du gibier.",
+      "Fugueur et très rapide : clôture haute et sans faille indispensable.",
+      "Sensibilité aux anesthésiques à signaler avant toute intervention.",
+      "Cataracte juvénile, hypothyroïdie et myélopathie héréditaire sont décrites dans la race."
+    ]
+  },
+  "epagneul-bleu-de-picardie": {
+    "quotidien": "L’Épagneul bleu de Picardie est un chien d’arrêt doux, calme et affectueux, très proche des enfants. Il est sociable avec les inconnus comme avec les autres chiens. À la maison, il se montre posé pourvu qu’il ait eu sa sortie.",
+    "education": "Docile et sensible, l’Épagneul bleu de Picardie apprend facilement avec une éducation douce et cohérente. Les méthodes brusques le braquent. Travaillez tôt le rappel et la marche en laisse, car son nez l’entraîne vite sur une piste.",
+    "activite": "L’Épagneul bleu de Picardie a besoin d’environ une heure et demie d’activité par jour, idéalement en nature. Chasseur de contact, il aime quêter dans les haies et les bois. À défaut de chasse, les longues balades et les jeux de recherche lui conviennent.",
+    "soins": "Le poil plat ou légèrement ondulé de l’Épagneul bleu de Picardie se contente d’un brossage par semaine. Ses oreilles tombantes doivent être inspectées et nettoyées régulièrement. Après chaque sortie dans les herbes, vérifiez pattes, oreilles et yeux.",
+    "vigilance": [
+      "Il supporte mal la solitude prolongée.",
+      "Les otites sont fréquentes chez ce chien aux oreilles tombantes.",
+      "Les épillets se logent facilement dans les oreilles et entre les doigts en été.",
+      "Demandez le dépistage de la dysplasie de la hanche chez les parents."
+    ]
+  },
+  "berger-des-pyrenees-a-face-rase": {
+    "quotidien": "Le Berger des Pyrénées à face rase est un petit chien de troupeau vif, endurant et très dévoué à son maître. Méfiant envers les étrangers, il garde volontiers la maison. Il vit mal d’être laissé seul de longues heures.",
+    "education": "Le Berger des Pyrénées à face rase est malléable mais sensible et très réactif : il lui faut une éducation cohérente, sans brutalité. Une socialisation précoce limite sa méfiance envers les inconnus. Ce n’est pas un chien conseillé pour un débutant.",
+    "activite": "Comptez au moins une heure et demie d’activité par jour pour le Berger des Pyrénées à face rase, avec du travail pour la tête. Troupeau, agility, obéissance ou cani-rando lui conviennent. Inoccupé, il devient nerveux et bruyant.",
+    "soins": "Le poil mi-long ou plus court du Berger des Pyrénées à face rase s’entretient facilement avec un brossage hebdomadaire. Surveillez ses articulations et ses yeux lors de la visite annuelle. Un chien actif doit garder un poids stable.",
+    "vigilance": [
+      "Il aboie beaucoup : attention au voisinage.",
+      "Il supporte mal la solitude.",
+      "Dysplasie de la hanche, luxation de la rotule, épilepsie et atrophie progressive de la rétine sont décrites : demandez les dépistages.",
+      "Le canal artériel persistant se détecte chez le chiot à l’auscultation."
+    ]
+  },
+  "pekinois": {
+    "quotidien": "Le Pékinois est un petit chien de cour impériale, digne, indépendant et courageux. Il s’attache fortement à ses maîtres et se montre réservé avec les inconnus. Calme, il vit très bien en appartement.",
+    "education": "Le Pékinois est têtu et n’obéit pas pour faire plaisir : l’éducation demande de la patience et des récompenses. Il n’aime pas être bousculé, ce qui appelle la prudence avec les jeunes enfants. Apprenez-lui tôt à accepter les soins.",
+    "activite": "Vingt minutes de promenade tranquille par jour suffisent au Pékinois. Il respire mal à l’effort : pas de course, pas de sortie aux heures chaudes. Préférez un harnais au collier pour ménager sa respiration.",
+    "soins": "Le long pelage double du Pékinois demande un brossage très régulier pour éviter les nœuds, et il perd beaucoup de poils. Nettoyez chaque jour le pli de son nez et surveillez ses yeux saillants. Gardez-le mince pour soulager son dos.",
+    "vigilance": [
+      "Il craint énormément la chaleur : en été, gardez-le au frais et évitez tout effort.",
+      "Ses voies respiratoires étroites peuvent provoquer ronflements et malaises.",
+      "Ses yeux sont fragiles : un œil rouge ou qui coule se montre vite au vétérinaire.",
+      "Son dos est exposé à la hernie discale : évitez les sauts."
+    ]
+  },
+  "braque-du-bourbonnais": {
+    "quotidien": "Le Braque du Bourbonnais est un chien d’arrêt rustique, doux et très affectueux. Sociable avec les enfants, les inconnus et les autres chiens, il convient à une famille active. Il n’aime pas rester seul longtemps.",
+    "education": "Intelligent et docile, le Braque du Bourbonnais s’éduque facilement, même par un maître débutant. Une méthode douce et constante suffit. Travaillez le rappel très tôt, car sa passion de la chasse peut l’emporter.",
+    "activite": "Le Braque du Bourbonnais a besoin d’environ une heure et demie d’exercice par jour, en liberté surveillée dans la nature si possible. La chasse, le pistage ou les longues balades le comblent. Un jardin seul ne suffit pas.",
+    "soins": "Le poil court du Braque du Bourbonnais se contente d’un brossage de temps en temps. Contrôlez souvent ses oreilles, sujettes aux otites, et ses paupières. Après la chasse, inspectez pattes et oreilles.",
+    "vigilance": [
+      "Il vit mal la solitude prolongée.",
+      "Les otites reviennent facilement : séchez les oreilles après la baignade.",
+      "Entropion ou ectropion peuvent irriter l’œil.",
+      "Demandez le dépistage de la dysplasie de la hanche des parents."
+    ]
+  },
+  "chien-d-eau-espagnol": {
+    "quotidien": "Le Chien d’Eau Espagnol est un ancien chien de ferme polyvalent, travailleur, loyal et vigilant. Très attaché à sa famille, il se montre réservé, parfois méfiant, avec les inconnus. Il supporte mal la solitude.",
+    "education": "Le Chien d’Eau Espagnol apprend vite et aime travailler avec son maître. Une éducation positive et une socialisation précoce sont essentielles pour canaliser sa méfiance et son instinct de garde. Il lui faut un cadre clair.",
+    "activite": "Comptez une heure et demie d’activité par jour pour le Chien d’Eau Espagnol. Il adore l’eau, la recherche et les sports canins comme l’agility. Son passé de chien de troupeau le pousse à rassembler, ce qu’il faut canaliser avec les enfants.",
+    "soins": "Le poil bouclé du Chien d’Eau Espagnol perd peu et ne se brosse pas comme celui d’un caniche : on le tond régulièrement. Séchez-le après la baignade et surveillez ses oreilles. Une visite annuelle suit sa thyroïde et ses yeux.",
+    "vigilance": [
+      "Il supporte mal d’être seul longtemps.",
+      "Demandez les tests génétiques des parents : atrophie progressive de la rétine et dystrophie neuroaxonale.",
+      "Hypothyroïdie et maladie d’Addison peuvent se manifester par fatigue et troubles digestifs.",
+      "Exigez le dépistage de la dysplasie de la hanche."
+    ]
+  },
+  "epagneul-japonais": {
+    "quotidien": "L’Épagneul Japonais est un petit chien de compagnie calme, affectueux et un brin félin : il se nettoie la face avec les pattes et aime se percher. Il aboie peu et vit parfaitement en appartement. Il s’entend bien avec les chats.",
+    "education": "L’Épagneul Japonais est intelligent mais indépendant : des séances courtes et des récompenses fonctionnent mieux que l’insistance. Il convient à un premier maître. Avec les jeunes enfants, surveillez les jeux, car il est fragile.",
+    "activite": "Une demi-heure de promenade par jour suffit à l’Épagneul Japonais, complétée par des jeux à la maison. Son museau court limite l’effort : pas de longues courses. Le froid ne lui convient pas non plus.",
+    "soins": "Le poil soyeux de l’Épagneul Japonais se brosse deux fois par semaine environ. Ses grands yeux demandent une surveillance quotidienne. Un contrôle cardiaque régulier est utile en vieillissant.",
+    "vigilance": [
+      "Il craint beaucoup la chaleur : en été, sorties tôt le matin et tard le soir.",
+      "Ses voies respiratoires étroites le rendent sensible à l’effort.",
+      "Ulcères cornéens et cataracte : un œil qui pleure se montre au vétérinaire.",
+      "Luxation de la rotule et maladie valvulaire mitrale sont décrites dans la race."
+    ]
+  },
+  "chien-d-artois": {
+    "quotidien": "Le Chien d’Artois est un chien courant rustique, vigoureux et affectueux, fait pour chasser en meute. Sociable avec les autres chiens et les inconnus, il vit mal la solitude et pas du tout en appartement. Sa voix porte loin.",
+    "education": "Le Chien d’Artois est un chasseur passionné, peu porté sur l’obéissance : une éducation patiente et constante est nécessaire. Le rappel reste fragile dès qu’une piste se présente. Ce n’est pas un chien pour un débutant.",
+    "activite": "Le Chien d’Artois a besoin d’au moins une heure et demie d’activité par jour, idéalement à la chasse ou au pistage. Hors chasse, longues balades en laisse longue dans la nature. Sans activité, il s’ennuie et donne de la voix.",
+    "soins": "Le poil court du Chien d’Artois s’entretient d’un simple brossage. Ses longues oreilles doivent être nettoyées et contrôlées souvent. Après chaque sortie en nature, inspectez pattes, oreilles et pelage.",
+    "vigilance": [
+      "Il aboie et donne de la voix : difficile avec un voisinage proche.",
+      "Fugueur dès qu’il flaire une piste : clôture solide et rappel travaillé.",
+      "Cohabitation risquée avec les chats.",
+      "Otites et épillets sont fréquents : vérifiez ses oreilles après chaque sortie."
+    ]
+  },
+  "saluki": {
+    "quotidien": "Le Saluki est un lévrier ancien, élégant, doux et réservé. Très calme à la maison, il s’attache profondément à sa famille sans être démonstratif. Il supporte mal la solitude et aboie très peu.",
+    "education": "Le Saluki est indépendant et sensible : il n’accepte ni la contrainte ni la brutalité. L’éducation se fait avec douceur, patience et récompenses. Ce n’est pas un chien pour un débutant.",
+    "activite": "Le Saluki a besoin d’environ une heure et demie d’exercice par jour, dont de vraies courses en terrain entièrement clos. Son instinct de poursuite est très puissant. Il supporte bien la chaleur mais craint le froid : un manteau l’aide en hiver.",
+    "soins": "Le poil lisse du Saluki demande peu d’entretien, hormis un brossage des franges des oreilles et de la queue. Prévoyez un couchage moelleux pour ses os saillants. Prévenez toujours le vétérinaire qu’il s’agit d’un lévrier avant une anesthésie.",
+    "vigilance": [
+      "Risque élevé avec les chats et les petits animaux.",
+      "Fugueur et très rapide : jardin bien clos, laisse hors espace sûr.",
+      "Sensibilité aux anesthésiques propre aux lévriers.",
+      "Cardiomyopathie dilatée et hémangiosarcome sont décrits : un suivi cardiaque est utile."
+    ]
+  },
+  "barbet": {
+    "quotidien": "Le Barbet est un chien d’eau français joyeux, amical et très attaché à sa famille. Sociable avec les enfants, les autres chiens et même les chats, il convient bien à une famille active. Il n’aime pas rester seul.",
+    "education": "Intelligent et désireux de bien faire, le Barbet s’éduque facilement, y compris par un maître débutant. Les méthodes positives lui conviennent. Sa sensibilité supporte mal la dureté.",
+    "activite": "Le Barbet a besoin d’environ une heure et demie d’activité par jour. Il adore l’eau, le rapport et les jeux de recherche. Les longues promenades en nature et les sports canins le comblent.",
+    "soins": "Le pelage bouclé du Barbet perd peu de poils mais demande un entretien très lourd : brossage approfondi fréquent et tonte régulière pour éviter les nœuds. Ses oreilles poilues doivent être nettoyées et séchées après chaque baignade.",
+    "vigilance": [
+      "Il supporte mal la solitude prolongée.",
+      "Les otites sont fréquentes : séchez bien les oreilles.",
+      "Demandez les dépistages de la dysplasie de la hanche et de l’atrophie progressive de la rétine.",
+      "L’épilepsie et la hernie ombilicale sont décrites dans la race."
+    ]
+  },
+  "grand-basset-griffon-vendeen": {
+    "quotidien": "Le Grand basset griffon vendéen est un chien courant joyeux, tenace et sociable, le plus rapide des bassets. Il s’entend très bien avec les enfants et les autres chiens. Il vit mal la solitude et donne volontiers de la voix.",
+    "education": "Le Grand basset griffon vendéen est têtu : l’éducation demande de la patience, de la constance et beaucoup de récompenses. Le rappel doit être travaillé dès son plus jeune âge. Son nez commande souvent ses oreilles.",
+    "activite": "Comptez une heure et demie d’activité par jour pour le Grand basset griffon vendéen. Chasse, pistage ou longues balades lui conviennent. En dehors d’un espace clos, préférez une longe à la liberté.",
+    "soins": "Le poil dur du Grand basset griffon vendéen se brosse une fois par semaine. Ses oreilles tombantes doivent être contrôlées souvent. Gardez-le mince pour ménager son dos long.",
+    "vigilance": [
+      "Il aboie beaucoup : attention au voisinage.",
+      "Fugueur sur une piste : clôture solide indispensable.",
+      "Otites et dermatites sont fréquentes.",
+      "Son dos long l’expose à la hernie discale : évitez les sauts répétés."
+    ]
+  }
+}
