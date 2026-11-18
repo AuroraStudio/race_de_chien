@@ -1,0 +1,237 @@
+{
+ "_info": "Prix affichés dans les annonces de chiots inscrits au LOF, relevés une fois sur chiots-de-france.com (une page par race, annonces avec prix seulement, types non LOF exclus). mediane, bas et haut (premier et troisième quartiles) arrondis à 50 €. À refaire tous les six mois : sources/prix-annonces/releve.py.",
+ "releve": "2026-11-18",
+ "source": {
+  "nom": "chiots-de-france.com",
+  "url": "https://www.chiots-de-france.com"
+ },
+ "races": {
+  "golden-retriever": {
+   "n": 23,
+   "mediane": 1400,
+   "bas": 1350,
+   "haut": 1500,
+   "min": 1200,
+   "max": 1800
+  },
+  "berger-australien": {
+   "n": 83,
+   "mediane": 1300,
+   "bas": 1000,
+   "haut": 1500,
+   "min": 250,
+   "max": 1700
+  },
+  "staffordshire-bull-terrier": {
+   "n": 26,
+   "mediane": 1700,
+   "bas": 1500,
+   "haut": 1800,
+   "min": 700,
+   "max": 2300
+  },
+  "cocker-spaniel": {
+   "n": 10,
+   "mediane": 1600,
+   "bas": 1500,
+   "haut": 1750,
+   "min": 1100,
+   "max": 2000
+  },
+  "labrador-retriever": {
+   "n": 23,
+   "mediane": 1200,
+   "bas": 1150,
+   "haut": 1350,
+   "min": 650,
+   "max": 1600
+  },
+  "berger-belge-malinois": {
+   "n": 19,
+   "mediane": 900,
+   "bas": 800,
+   "haut": 1000,
+   "min": 700,
+   "max": 1300,
+   "note": "toutes variétés de Berger Belge confondues"
+  },
+  "berger-allemand": {
+   "n": 8,
+   "mediane": 1200,
+   "bas": 1150,
+   "haut": 1400,
+   "min": 900,
+   "max": 1490
+  },
+  "teckel": {
+   "n": 24,
+   "mediane": 2350,
+   "bas": 2000,
+   "haut": 3000,
+   "min": 1200,
+   "max": 3800,
+   "note": "Teckel à poil ras seulement"
+  },
+  "epagneul-breton": {
+   "n": 14,
+   "mediane": 900,
+   "bas": 800,
+   "haut": 950,
+   "min": 400,
+   "max": 1200
+  },
+  "cane-corso": {
+   "n": 15,
+   "mediane": 1500,
+   "bas": 1300,
+   "haut": 1600,
+   "min": 1100,
+   "max": 2000
+  },
+  "beagle": {
+   "n": 9,
+   "mediane": 1100,
+   "bas": 1000,
+   "haut": 1200,
+   "min": 650,
+   "max": 1200
+  },
+  "chihuahua": {
+   "n": 27,
+   "mediane": 1700,
+   "bas": 1350,
+   "haut": 2000,
+   "min": 1000,
+   "max": 3500
+  },
+  "border-collie": {
+   "n": 9,
+   "mediane": 1500,
+   "bas": 1000,
+   "haut": 1600,
+   "min": 900,
+   "max": 1800
+  },
+  "husky-siberien": {
+   "n": 21,
+   "mediane": 1200,
+   "bas": 900,
+   "haut": 1500,
+   "min": 300,
+   "max": 1800
+  },
+  "bouledogue-francais": {
+   "n": 21,
+   "mediane": 1700,
+   "bas": 1600,
+   "haut": 1900,
+   "min": 1300,
+   "max": 2500
+  },
+  "beauceron": {
+   "n": 12,
+   "mediane": 1200,
+   "bas": 1200,
+   "haut": 1200,
+   "min": 1000,
+   "max": 1600
+  },
+  "shiba-inu": {
+   "n": 37,
+   "mediane": 1800,
+   "bas": 1400,
+   "haut": 2000,
+   "min": 850,
+   "max": 2400
+  },
+  "eurasier": {
+   "n": 12,
+   "mediane": 1700,
+   "bas": 1600,
+   "haut": 1800,
+   "min": 1600,
+   "max": 1900
+  },
+  "spitz-nain-loulou-de-pomeranie": {
+   "n": 32,
+   "mediane": 2000,
+   "bas": 1850,
+   "haut": 2750,
+   "min": 1000,
+   "max": 5000,
+   "note": "toutes tailles de Spitz allemand confondues"
+  },
+  "yorkshire-terrier": {
+   "n": 16,
+   "mediane": 1600,
+   "bas": 1500,
+   "haut": 2100,
+   "min": 850,
+   "max": 2500
+  },
+  "shih-tzu": {
+   "n": 24,
+   "mediane": 1300,
+   "bas": 1200,
+   "haut": 1600,
+   "min": 850,
+   "max": 3450
+  },
+  "shetland-sheepdog-berger-des-shetland": {
+   "n": 23,
+   "mediane": 1400,
+   "bas": 1100,
+   "haut": 1600,
+   "min": 1000,
+   "max": 1950
+  },
+  "staffordshire-terrier-americain": {
+   "n": 14,
+   "mediane": 1050,
+   "bas": 1000,
+   "haut": 1200,
+   "min": 700,
+   "max": 1500
+  },
+  "welsh-corgi-pembroke": {
+   "n": 17,
+   "mediane": 2500,
+   "bas": 2300,
+   "haut": 2500,
+   "min": 2000,
+   "max": 2800
+  },
+  "whippet": {
+   "n": 28,
+   "mediane": 1250,
+   "bas": 1000,
+   "haut": 1500,
+   "min": 600,
+   "max": 1600
+  },
+  "coton-de-tulear": {
+   "n": 13,
+   "mediane": 1200,
+   "bas": 1000,
+   "haut": 1200,
+   "min": 800,
+   "max": 1390
+  },
+  "berger-americain-miniature": {
+   "n": 76,
+   "mediane": 1750,
+   "bas": 1500,
+   "haut": 2000,
+   "min": 850,
+   "max": 4000
+  },
+  "cavalier-king-charles": {
+   "n": 35,
+   "mediane": 1800,
+   "bas": 1650,
+   "haut": 2000,
+   "min": 1200,
+   "max": 2400
+  }
+ }
+}

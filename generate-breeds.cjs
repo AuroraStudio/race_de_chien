@@ -135,6 +135,16 @@ function selectionGuideHtml(sel) {
         </section>
 <!--/guide-->`;
 }
+// Prix affichés dans les annonces de chiots LOF (data/prix-annonces.json) : relevé ponctuel, daté, pour les races les plus courantes
+const PRIX = fs.existsSync(path.join(ROOT, 'data/prix-annonces.json')) ? JSON.parse(read('data/prix-annonces.json')) : { races: {} };
+const PRIX_DATE = (PRIX.releve || '').split('-').reverse().join('/');
+const euros = n => `${Number(n).toLocaleString('fr-FR').replace(/\u202f|\u00a0/g, ' ')} €`;
+// « Sur 23 annonces…, le prix médian affiché était de 1 200 €, et la moitié se situaient entre 1 150 et 1 350 €. »
+function prixPhrase(slug) {
+    const x = PRIX.races[slug];
+    if (!x) return '';
+    return `Sur ${x.n} annonces de chiots inscrits au LOF relevées le ${PRIX_DATE} sur ${PRIX.source.nom}, le prix médian affiché était de ${euros(x.mediane)}${x.bas === x.haut ? '' : `, et la moitié des annonces se situaient entre ${euros(x.bas)} et ${euros(x.haut)}`}${x.note ? ` (${x.note})` : ''}. C’est un relevé ponctuel, pas une moyenne officielle.`;
+}
 const COUNT = breeds.length;
 breeds.filter(b => b.lof?.['2025']).sort((a, b) => b.lof['2025'] - a.lof['2025']).forEach((b, i) => { b.lofRank = i + 1; });
 const popular = breeds.filter(b => b.lofRank).sort((a, b) => a.lofRank - b.lofRank);
@@ -712,7 +722,7 @@ function faqFr(b) {
         const rare = b.fci?.recognized === false ? 'La race n’est pas reconnue par la FCI : aucun chiot ne peut être inscrit au LOF en France, et les élevages y sont très rares.'
             : b.lof?.['2025'] ? (b.lof['2025'] < 300 ? `La race est peu répandue en France (${fmtInt(b.lof['2025'])} chiots inscrits au LOF en 2025) : les élevages sont peu nombreux.` : `${fmtInt(b.lof['2025'])} chiots ont été inscrits au LOF en 2025.`)
             : 'Aucun chiot n’a été inscrit au LOF en 2025 : la race est très rare en France.';
-        out.push([`Combien coûte ${le(n)} ?`, `${j(`Les prix sont libres : chaque éleveur fixe le sien, selon la lignée et l’inscription au LOF, et aucun organisme ne publie de prix moyen.`, rare,
+        out.push([`Combien coûte ${le(n)} ?`, `${j(`Les prix sont libres : chaque éleveur fixe le sien, selon la lignée et l’inscription au LOF, et aucun organisme ne publie de prix moyen.`, prixPhrase(b.slug), rare,
             `Demandez ce que le prix comprend : l’identification et un certificat vétérinaire doivent vous être remis. En refuge, la SPA demande ${SPA.chien} € pour un chien et ${SPA.chiot} € pour un chiot de moins de 6 mois.`)} <a href="/guides/combien-coute-un-chien" class="font-semibold text-primary-700 underline">Le budget d’un chien, poste par poste</a>.`]);
     }
     if (b.legal_category) out.push([`${N} est-il un chien catégorisé ?`, `${esc(LAW[b.legal_category])} <a href="/chiens-categorises" class="font-semibold text-primary-700 underline">Tout sur les chiens catégorisés</a>.`]);
@@ -795,7 +805,9 @@ function breedPage(b, legacy = false) {
         ['Espérance de vie', range(p.life_span_years?.min, p.life_span_years?.max, 'ans')],
         ['Activité par jour', `${s.exercice_min_jour} minutes`],
         ['Origine', b.origin],
-        ['Groupe FCI', groupLabel ? `${b.fci.group} · ${groupLabel}` : (b.fci?.recognized === false ? 'Non reconnue' : b.breed_group)]
+        ['Groupe FCI', groupLabel ? `${b.fci.group} · ${groupLabel}` : (b.fci?.recognized === false ? 'Non reconnue' : b.breed_group)],
+        // Prix relevé dans les annonces (fiches françaises seulement, détail dans la FAQ et le guide du budget)
+        ['Prix relevé, chiot LOF', !legacy && PRIX.races[b.slug] ? `${euros(PRIX.races[b.slug].mediane)} en médiane` : '']
     ].filter(([, v]) => v);
 
     const coat = b.coat || {};
@@ -1388,7 +1400,7 @@ for (const L of L10N) {
 
 // 2. Fiches (chacune liste les sélections où elle figure et ses comparatifs)
 SELECTION_MEMBERS = Object.fromEntries(SELECTIONS.map(x => [x.slug, new Set(selectionResults(x).top.map(r => r.breed.slug))]));
-CMP = require('./lib/comparatifs.cjs')({ breeds, popular, S, SCORE_META, SCORE_GROUPS, GUIDES, SITE_URL, DATE, DATE_FR,
+CMP = require('./lib/comparatifs.cjs')({ PRIX, euros, breeds, popular, S, SCORE_META, SCORE_GROUPS, GUIDES, SITE_URL, DATE, DATE_FR,
     tone, TONE, gauge, picture, icon, esc, le, Le, range, clip, fmtInt, ordinal, page, headMeta, ldTag, crumbs, crumbsLd });
 fs.rmSync(path.join(ROOT, 'races'), { recursive: true, force: true });
 for (const b of breeds) {
@@ -1402,7 +1414,7 @@ for (const p of CMP.pairs) write(`comparatifs/${p.slug}.html`, CMP.pairPage(p));
 write('methode.html', methodPage());
 
 // 2 ter. Guides pratiques : budget, règles, assurance (français seulement)
-GP = require('./lib/guides-pratiques.cjs')({ breeds, popular, icon, esc, page, headMeta, ldTag, crumbs, crumbsLd, clip, SITE_URL, DATE, DATE_FR, COUNT });
+GP = require('./lib/guides-pratiques.cjs')({ PRIX, PRIX_DATE, euros, breeds, popular, icon, esc, page, headMeta, ldTag, crumbs, crumbsLd, clip, SITE_URL, DATE, DATE_FR, COUNT });
 fs.rmSync(path.join(ROOT, 'guides'), { recursive: true, force: true });
 for (const g of GP.guides) write(`guides/${g.slug}.html`, GP.guidePage(g));
 write('guides.html', GP.indexPage());
