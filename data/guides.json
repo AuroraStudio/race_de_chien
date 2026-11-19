@@ -1883,5 +1883,149 @@
    "Otites et dermatites sont fréquentes.",
    "Son dos long l’expose à la hernie discale : évitez les sauts répétés."
   ]
+ },
+ "braque-francais-type-gascogne": {
+  "quotidien": "Le Braque français, type Gascogne est un chien d’arrêt puissant et robuste, mais calme, doux et très proche de son maître. À la maison, il se montre posé et affectueux avec toute la famille, enfants compris. Il supporte mal la solitude prolongée et vit mieux dans une maison avec un grand jardin qu’en appartement.",
+  "education": "Docile et attentif, le Braque français, type Gascogne apprend volontiers avec une méthode douce et constante. Récompensez-le plutôt que de le brusquer. Travaillez tôt le rappel et la marche en laisse, car son flair et son instinct de chasse peuvent l’emporter sur vos consignes.",
+  "activite": "Le Braque français, type Gascogne a besoin d’environ une heure et demie d’activité par jour. Les longues balades en campagne, la recherche d’objets et, bien sûr, la chasse lui conviennent. Une simple promenade en ville ne suffit pas à le satisfaire.",
+  "soins": "Le poil court et lisse du Braque français, type Gascogne demande peu d’entretien : un brossage de temps en temps. Ses longues oreilles tombantes doivent être vérifiées et nettoyées régulièrement. Donnez deux repas par jour et évitez l’effort juste après manger.",
+  "vigilance": [
+   "Les otites sont fréquentes avec ses longues oreilles.",
+   "La torsion de l’estomac est une urgence : ventre gonflé et agitation après le repas imposent le vétérinaire.",
+   "Demandez le dépistage de la dysplasie de la hanche des parents et surveillez les paupières.",
+   "Il tolère mal de rester seul de longues heures."
+  ]
+ },
+ "pinscher-allemand": {
+  "quotidien": "Le Pinscher Allemand est un chien vif, assuré et très vigilant, attaché à sa famille et méfiant envers les inconnus. Il garde volontiers la maison et signale tout ce qui bouge. Il supporte mal d’être laissé seul longtemps et s’épanouit davantage dans une maison avec jardin qu’en appartement.",
+  "education": "Intelligent mais indépendant, le Pinscher Allemand teste les limites et demande un maître expérimenté, ferme sans brutalité. Ce n’est pas un chien pour un débutant. Une socialisation précoce avec les personnes, les autres chiens et les bruits du quotidien est indispensable pour canaliser sa méfiance naturelle.",
+  "activite": "Très énergique, le Pinscher Allemand a besoin d’environ une heure et demie d’exercice par jour. Course, jeux de balle, obéissance, agility ou pistage lui conviennent. Sans dépense physique et mentale suffisante, il devient vite agité et peut trouver ses propres occupations.",
+  "soins": "Le poil court et lisse du Pinscher Allemand se contente d’un passage de gant ou de brosse douce chaque semaine. Surveillez le bord de ses oreilles, ses yeux et sa tenue au froid : un manteau peut l’aider en hiver.",
+  "vigilance": [
+   "Son instinct de chasse le rend risqué avec les chats et les petits animaux.",
+   "Demandez le dépistage de la dysplasie de la hanche et de la maladie de von Willebrand chez les parents.",
+   "La cataracte héréditaire et la vascularite du bord des oreilles demandent un suivi vétérinaire.",
+   "Il tolère mal la solitude."
+  ]
+ },
+ "kooikerhondje": {
+  "quotidien": "Le Kooikerhondje est un petit chien joyeux, vif et très attaché à sa famille, reconnaissable à sa robe orange-rouge et blanc et à ses oreilles frangées. Il se montre souvent réservé, voire méfiant, avec les inconnus. Il supporte mal la solitude et préfère une maison avec un petit jardin.",
+  "education": "Intelligent et désireux de bien faire, le Kooikerhondje apprend facilement avec des méthodes positives. Il est sensible : la dureté le braque. Socialisez-le tôt et en douceur avec les visiteurs et les enfants pour qu’il gagne en assurance.",
+  "activite": "Le Kooikerhondje a besoin d’environ une heure et quart d’activité par jour. Il adore l’eau, les jeux de rapport, l’agility et les balades variées. Son instinct de chasse impose un rappel solide avant de le lâcher.",
+  "soins": "Le pelage mi-long du Kooikerhondje se brosse une fois par semaine, un peu plus en période de mue. Vérifiez ses oreilles frangées après les baignades. Choisissez un éleveur qui dépiste les maladies héréditaires de la race.",
+  "vigilance": [
+   "La maladie de von Willebrand, la myélopathie nécrosante héréditaire et la polyneuropathie existent dans la race : exigez les tests des parents.",
+   "L’épilepsie, la cataracte et la luxation de la rotule demandent un suivi vétérinaire.",
+   "Il tolère mal de rester seul longtemps.",
+   "Sa réserve envers les inconnus doit être travaillée dès le plus jeune âge."
+  ]
+ },
+ "welsh-springer-spaniel": {
+  "quotidien": "Le Welsh Springer Spaniel est un chien de chasse joyeux, affectueux et très sociable, excellent avec les enfants. Il s’attache fortement à sa famille et la suit partout. Il supporte mal la solitude et vit mieux dans une maison avec un grand jardin qu’en appartement.",
+  "education": "Coopératif et intelligent, le Welsh Springer Spaniel apprend facilement avec des récompenses et de la régularité. Il reste sensible : un ton calme donne de meilleurs résultats que les éclats de voix. Travaillez le rappel très tôt, car une odeur de gibier peut vite l’emmener loin.",
+  "activite": "Le Welsh Springer Spaniel a besoin d’environ une heure et demie d’exercice par jour. Il aime les longues balades en campagne, l’eau, le rapport et la recherche au flair. Un chien qui ne se dépense pas assez devient vite agité.",
+  "soins": "Le poil soyeux et frangé du Welsh Springer Spaniel se brosse deux ou trois fois par semaine pour éviter les nœuds, surtout aux oreilles et aux pattes. Vérifiez et nettoyez ses oreilles après chaque sortie en nature. Retirez les épillets après les balades.",
+  "vigilance": [
+   "Les otites sont fréquentes avec ses oreilles tombantes.",
+   "Demandez le dépistage de la dysplasie de la hanche et du glaucome chez les parents.",
+   "L’épilepsie et l’hypothyroïdie demandent un suivi vétérinaire.",
+   "Il tolère mal de rester seul longtemps."
+  ]
+ },
+ "terrier-australien-a-poil-soyeux": {
+  "quotidien": "Le Silky Terrier australien est un petit terrier vif, confiant et enjoué, sous des airs de chien de salon. Il s’adapte très bien à l’appartement et convient à un premier chien. Il reste un vrai terrier : alerte, curieux et prompt à donner de la voix au moindre bruit.",
+  "education": "Intelligent mais parfois têtu, le Silky Terrier australien répond bien aux séances courtes et aux récompenses. Apprenez-lui tôt à se taire sur demande, car il aboie volontiers. Socialisez-le avec les autres chiens pour éviter qu’il ne se croie plus grand qu’il n’est.",
+  "activite": "Le Silky Terrier australien se contente d’environ trois quarts d’heure d’activité par jour. Il aime les promenades, les jeux de balle et la recherche de friandises. Son instinct de chasse le pousse à poursuivre ce qui court.",
+  "soins": "Le long poil soyeux du Silky Terrier australien demande un brossage quotidien pour rester lisse et sans nœuds. Il perd très peu de poils. Préférez un harnais au collier pour protéger sa trachée et brossez ses dents régulièrement.",
+  "vigilance": [
+   "Il peut être risqué avec les chats et les petits animaux.",
+   "Ses aboiements peuvent gêner le voisinage.",
+   "La luxation de la rotule et la maladie de Legg-Calvé-Perthes touchent ses pattes : une boiterie doit être montrée au vétérinaire.",
+   "Le collapsus trachéal, le diabète sucré et les allergies cutanées demandent un suivi."
+  ]
+ },
+ "clumber-spaniel": {
+  "quotidien": "Le Clumber Spaniel est un épagneul massif, bas et calme, au tempérament doux et à l’expression pensive. Il s’entend bien avec les enfants, les autres chiens et les chats. Plutôt tranquille à la maison, il bave et perd beaucoup de poils, ce qu’il faut accepter avant de l’adopter.",
+  "education": "Doux et attaché à sa famille, le Clumber Spaniel apprend à son rythme, avec patience et récompenses. Il peut se montrer têtu, mais la dureté ne sert à rien. Il convient à un premier chien si l’on accepte sa lenteur et son côté indépendant.",
+  "activite": "Le Clumber Spaniel a besoin d’environ une heure de marche par jour, à allure tranquille. Il aime pister et fouiller les sous-bois. Évitez les efforts intenses et les sauts répétés, qui fatiguent ses articulations et son dos.",
+  "soins": "Le Clumber Spaniel se brosse plusieurs fois par semaine pour limiter la perte de poils. Nettoyez ses oreilles, ses yeux et les plis des babines. Gardez-le mince pour soulager ses hanches et son dos, et évitez les sorties aux heures chaudes en été.",
+  "vigilance": [
+   "Il craint la chaleur : promenades tôt le matin ou le soir en été.",
+   "La hernie discale et la dysplasie de la hanche sont à surveiller.",
+   "L’entropion, l’ectropion et les otites demandent des contrôles réguliers.",
+   "Demandez le test du déficit en pyruvate déshydrogénase phosphatase chez les parents."
+  ]
+ },
+ "levrier-greyhound": {
+  "quotidien": "Le Greyhound est un lévrier taillé pour la vitesse, mais à la maison c’est un chien doux, calme et discret qui dort une grande partie de la journée. Il aboie très peu et s’adapte bien à l’appartement. Il est sensible au froid et apprécie un panier moelleux.",
+  "education": "Gentil mais indépendant, le Greyhound apprend mieux avec la douceur et les récompenses qu’avec la contrainte. Il est sensible et se vexe des éclats de voix. Le rappel reste fragile toute sa vie, car son instinct de chasse à vue l’emporte dès qu’un animal détale.",
+  "activite": "Le Greyhound se contente d’environ trois quarts d’heure d’activité par jour, avec si possible une course libre dans un terrain bien clos. Les sprints courts lui suffisent : il n’est pas fait pour l’endurance. Le reste du temps, il se repose volontiers.",
+  "soins": "Le poil court du Greyhound s’entretient en quelques minutes par semaine. Sa peau fine se blesse facilement : un manteau en hiver et une vérification après les courses sont utiles. Brossez ses dents et surveillez ses coussinets.",
+  "vigilance": [
+   "Il fugue à grande vitesse : terrain parfaitement clos et laisse dans les zones ouvertes.",
+   "Il est risqué avec les chats et les petits animaux.",
+   "Signalez au vétérinaire sa sensibilité aux anesthésiques avant toute opération.",
+   "Une boiterie persistante doit être examinée, l’ostéosarcome existant dans la race, tout comme les cors plantaires."
+  ]
+ },
+ "bouvier-d-appenzell": {
+  "quotidien": "Le Bouvier d’Appenzell est un chien de ferme suisse vif, travailleur et très vigilant, attaché à sa famille et méfiant envers les inconnus. Il aime avoir un rôle et un territoire à surveiller. Il supporte mal la solitude et n’est pas fait pour l’appartement : la campagne lui convient bien mieux.",
+  "education": "Intelligent mais affirmé, le Bouvier d’Appenzell demande un maître expérimenté, cohérent et patient. Ce n’est pas un chien pour un débutant. Socialisez-le tôt et apprenez-lui à se calmer sur demande, car il prévient de tout.",
+  "activite": "Le Bouvier d’Appenzell a besoin d’environ deux heures d’activité par jour. Longues marches, travail au troupeau, obéissance, pistage ou agility lui permettent de se dépenser. Sans occupation, il devient vite bruyant et agité.",
+  "soins": "Le poil court et dense du Bouvier d’Appenzell se brosse une fois par semaine, plus souvent pendant les mues où il perd beaucoup. Il supporte très bien le froid. Un contrôle des yeux par le vétérinaire est conseillé.",
+  "vigilance": [
+   "Ses aboiements fréquents peuvent gêner le voisinage.",
+   "Il tolère mal de rester seul longtemps.",
+   "Demandez le dépistage de la dysplasie de la hanche et du coude chez les parents.",
+   "La cataracte et l’atrophie progressive de la rétine demandent un suivi des yeux."
+  ]
+ },
+ "terrier-irlandais": {
+  "quotidien": "L’Irish Terrier est un terrier audacieux, loyal et plein d’énergie, à la robe rouge feu. Affectueux avec sa famille et souvent bon avec les enfants, il garde aussi la maison avec sérieux. Il se plaît dans une maison avec un petit jardin.",
+  "education": "Intelligent mais fougueux et indépendant, l’Irish Terrier demande un maître expérimenté, ferme et juste. Ce n’est pas un chien pour un débutant. La socialisation avec les autres chiens doit commencer très tôt, car il ne recule pas devant un conflit.",
+  "activite": "L’Irish Terrier a besoin d’environ une heure et demie d’exercice par jour. Il aime les longues balades, les jeux de balle, l’agility et la recherche au flair. Son instinct de chasse impose un rappel solide.",
+  "soins": "Le poil dur de l’Irish Terrier perd peu et se brosse une fois par semaine. Un épilage régulier entretient sa texture et sa couleur, mieux que la tonte. Surveillez ses coussinets et la façon dont il urine.",
+  "vigilance": [
+   "Les rencontres avec d’autres chiens demandent de la vigilance.",
+   "Il est risqué avec les chats et les petits animaux.",
+   "L’hyperkératose héréditaire des coussinets et la cystinurie, qui forme des calculs urinaires, existent dans la race.",
+   "Demandez le dépistage de la dysplasie de la hanche et de la cataracte chez les parents."
+  ]
+ },
+ "caniche-moyen": {
+  "quotidien": "Le Caniche moyen est un compagnon intelligent, enjoué et fidèle, à l’aise aussi bien en appartement qu’à la campagne. Il s’entend bien avec les enfants, les autres chiens et les chats. Très attaché à sa famille, il supporte mal de rester seul longtemps.",
+  "education": "Le Caniche moyen apprend avec une facilité remarquable et convient très bien à un premier chien. Il est sensible : des séances courtes, variées et récompensées donnent les meilleurs résultats. Il adore les tours et les exercices d’obéissance.",
+  "activite": "Le Caniche moyen a besoin d’environ une heure d’activité par jour. Balades, jeux de rapport, nage, agility ou obéissance lui conviennent. Il a autant besoin d’occuper sa tête que ses pattes.",
+  "soins": "La fourrure bouclée du Caniche moyen ne mue pratiquement pas, mais elle pousse sans cesse : brossage plusieurs fois par semaine et toilettage toutes les quelques semaines sont indispensables. Nettoyez ses oreilles régulièrement et brossez ses dents.",
+  "vigilance": [
+   "Le budget et le temps de toilettage sont importants.",
+   "Il tolère mal de rester seul longtemps.",
+   "L’atrophie progressive de la rétine, l’épilepsie et la maladie d’Addison existent dans la race : choisissez un éleveur qui dépiste.",
+   "Les otites et la luxation de la rotule sont à surveiller."
+  ]
+ },
+ "norfolk-terrier": {
+  "quotidien": "Le Norfolk Terrier est un petit terrier robuste, fougueux et affectueux, reconnaissable à ses oreilles tombantes. Sociable avec les enfants, les autres chiens et les inconnus, il s’adapte bien à l’appartement. Il supporte mal la solitude et aime partager toutes les activités de la famille.",
+  "education": "Le Norfolk Terrier est intelligent mais garde l’indépendance des terriers : patience, constance et récompenses sont nécessaires. Il convient à un premier chien. Le rappel demande un travail particulier, car une piste l’intéresse souvent plus que vous.",
+  "activite": "Le Norfolk Terrier a besoin d’environ une heure d’activité par jour. Il aime fouiller, creuser et explorer pendant les balades. Les jeux de recherche et les promenades variées lui conviennent bien.",
+  "soins": "Le poil dur du Norfolk Terrier se brosse une fois par semaine et s’épile deux fois par an pour garder sa texture. Brossez ses dents régulièrement. Un contrôle annuel du cœur chez le vétérinaire est conseillé.",
+  "vigilance": [
+   "Il fugue dès qu’il flaire une piste : jardin bien clos et rappel solide.",
+   "Il est risqué avec les chats et les petits animaux.",
+   "La maladie valvulaire mitrale, la luxation de la rotule et la dysplasie de la hanche sont à surveiller.",
+   "Les allergies cutanées et les problèmes dentaires demandent un suivi."
+  ]
+ },
+ "king-charles-spaniel": {
+  "quotidien": "Le King Charles Spaniel est un petit épagneul doux, affectueux et calme, à la tête bombée et au nez court. Il s’entend bien avec les enfants, les chiens et les chats, et vit parfaitement en appartement. Il supporte mal d’être laissé seul et veut être près de vous.",
+  "education": "Gentil et sensible, le King Charles Spaniel apprend volontiers avec des récompenses et une voix douce. Il convient bien à un premier chien. La propreté peut prendre un peu de temps : misez sur la régularité.",
+  "activite": "Le King Charles Spaniel se contente d’environ une demi-heure d’activité par jour, en promenades tranquilles et jeux à la maison. Son nez court limite ses efforts : arrêtez dès qu’il s’essouffle. Il ne fugue presque jamais.",
+  "soins": "Le poil soyeux du King Charles Spaniel se brosse deux ou trois fois par semaine, en insistant sur les oreilles et les franges. Nettoyez ses yeux et les plis du visage chaque jour. Brossez ses dents et faites contrôler son cœur chaque année.",
+  "vigilance": [
+   "Il supporte très mal la chaleur : pas de sortie aux heures chaudes ni de voiture au soleil.",
+   "Le syndrome obstructif respiratoire des brachycéphales gêne sa respiration.",
+   "La maladie valvulaire mitrale est fréquente.",
+   "Les ulcères de la cornée, la luxation de la rotule et les problèmes dentaires sont à surveiller."
+  ]
  }
 }
