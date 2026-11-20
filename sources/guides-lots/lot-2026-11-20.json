@@ -1,0 +1,143 @@
+{
+  "chien-nu-mexicain-xoloitzcuintli": {
+    "quotidien": "Le Chien nu du Mexique (Xoloitzcuintle) existe en trois tailles (standard, intermédiaire et miniature) et en deux variétés, nue ou à poil court. C’est un compagnon calme, loyal et vigilant, très proche des siens et réservé avec les inconnus. Il s’adapte bien à la vie en appartement.",
+    "education": "Intelligent mais sensible, il apprend bien avec une méthode douce et régulière. Sa méfiance naturelle demande une socialisation précoce et variée : visiteurs, bruits, autres chiens. Bon gardien, il prévient sans aboyer à tout propos.",
+    "activite": "Une heure par jour lui suffit, entre promenades et jeux. Il supporte bien la chaleur mais craint beaucoup le froid : un manteau est nécessaire en hiver, et les sorties se raccourcissent par temps humide ou glacial.",
+    "soins": "Chez la variété nue, la peau remplace le poil : nettoyez-la régulièrement avec un produit doux, hydratez-la si elle se dessèche et protégez-la du soleil. Des dents manquantes sont courantes chez les sujets nus, ce qui impose de surveiller la dentition. La variété à poil court ne demande qu’un brossage occasionnel.",
+    "vigilance": [
+      "Coups de soleil, acné et dermatites touchent la peau nue : évitez l’exposition aux heures chaudes.",
+      "Il ne peut pas vivre dehors : le froid lui est vraiment pénible.",
+      "Réservé avec les inconnus, il a besoin d’être habitué tôt aux visites.",
+      "La luxation de la rotule existe dans la race : faites vérifier les genoux par le vétérinaire."
+    ]
+  },
+  "affenpinscher": {
+    "quotidien": "L’Affenpinscher est un petit pinscher au poil dur et hirsute, dont la face rappelle celle d’un singe. Sûr de lui, joueur et plein d’aplomb, il vit très bien en appartement à condition de ne pas rester seul de longues heures : la solitude lui pèse.",
+    "education": "Il a du caractère et se montre têtu : des séances courtes, de la constance et des récompenses donnent de meilleurs résultats que la contrainte. Apprenez-lui tôt à se taire sur demande, car il donne volontiers de la voix.",
+    "activite": "Une quarantaine de minutes par jour, en promenades et en jeux, suffisent à cet ancien chasseur de rats. Il aime fouiller, courir après un jouet et suivre son maître partout. Par forte chaleur, sortez-le aux heures fraîches, car son museau court le gêne pour respirer.",
+    "soins": "Son poil dur perd très peu mais demande un brossage hebdomadaire et un épilage régulier pour garder sa texture. Nettoyez le contour des yeux et brossez les dents. Évitez les sauts répétés, qui sollicitent ses genoux et ses hanches.",
+    "vigilance": [
+      "Il convient mal aux jeunes enfants : il supporte peu les gestes brusques et sa petite taille le rend fragile.",
+      "Ses aboiements peuvent gêner le voisinage.",
+      "Une boiterie chez le jeune chien doit être montrée au vétérinaire (rotule, maladie de Legg-Calvé-Perthes)."
+    ]
+  },
+  "spitz-finlandais": {
+    "quotidien": "Le Spitz Finlandais est un chien de chasse à l’allure de renard, roux doré, vif et amical avec sa famille, enfants compris. Il signale le gibier perché en aboyant, et cette voix fait partie de lui : c’est l’un des chiens les plus bavards qui soient. Une maison avec jardin lui convient mieux qu’un appartement.",
+    "education": "Indépendant, il n’obéit pas par simple envie de plaire et se lasse des répétitions. Il faut des séances courtes, variées et beaucoup de patience, ce qui en fait un choix difficile pour un premier chien. Apprenez-lui tôt un signal de silence.",
+    "activite": "Comptez une heure et demie par jour : longues marches en forêt, jeux de flair, randonnée. Son instinct de chasse est très fort, gardez-le en longe tant que le rappel n’est pas sûr. Il adore le froid et la neige.",
+    "soins": "Son double pelage dense se brosse une à deux fois par semaine, et tous les jours pendant les mues, où il perd beaucoup de poils. Ne le tondez pas. En été, sortez-le tôt le matin ou le soir et laissez-lui de l’ombre et de l’eau.",
+    "vigilance": [
+      "Ses aboiements sont un vrai sujet avec des voisins proches.",
+      "Il fugue sur une piste : clôture haute et rappel travaillé.",
+      "Il supporte mal la chaleur.",
+      "L’épilepsie existe dans la race : interrogez l’éleveur sur les lignées."
+    ]
+  },
+  "terrier-irlandais-a-poil-doux": {
+    "quotidien": "Le Terrier Irlandais à Poil Doux est un ancien chien de ferme, joyeux, affectueux et plus stable que beaucoup de terriers. Il accueille tout le monde avec enthousiasme, souvent en sautant, et s’entend bien avec les enfants. Il s’adapte à l’appartement s’il sort assez.",
+    "education": "Intelligent mais terrier tout de même, il lui faut de la constance et une éducation gaie, sans dureté. Travaillez tôt l’accueil calme des visiteurs et la marche en laisse. Il reste longtemps joueur comme un chiot.",
+    "activite": "Une heure par jour, avec de vraies occasions de courir et de jouer. Il apprécie l’agility, les jeux de recherche et les longues balades en famille.",
+    "soins": "Son poil soyeux couleur froment ne mue presque pas mais s’emmêle vite : un démêlage complet au peigne plusieurs fois par semaine et une coupe régulière sont indispensables. Rincez la barbe après les repas et séchez-le après la pluie. C’est la vraie contrainte de la race, à mesurer avant l’adoption.",
+    "vigilance": [
+      "La race est sujette à des maladies avec perte de protéines par les reins ou l’intestin : demandez à l’éleveur le suivi des parents.",
+      "Amaigrissement, diarrhée persistante ou soif inhabituelle justifient une consultation rapide.",
+      "Un poil négligé forme des nœuds serrés, douloureux pour le chien."
+    ]
+  },
+  "azawakh": {
+    "quotidien": "L’Azawakh est le lévrier des Touaregs du Sahel, à la fois chasseur et gardien du campement. Très attaché à ses proches, il reste distant, parfois farouche, avec les inconnus et n’aime pas être touché par n’importe qui. Il supporte mal la solitude et vit mieux dans une maison avec un grand jardin.",
+    "education": "Ce n’est pas un chien pour débutant. Sensible et indépendant, il se ferme à la moindre brutalité : tout passe par la confiance, la douceur et une socialisation très précoce. N’attendez pas de lui une obéissance au doigt et à l’œil.",
+    "activite": "Il lui faut une heure et demie par jour, avec de vraies courses libres en terrain clos et sûr. Dehors, la laisse reste la règle, car il poursuit tout ce qui fuit. Il aime la chaleur.",
+    "soins": "Son poil ras se contente d’un coup de gant. Sa maigreur est normale : on doit deviner les côtes et les hanches. Sa peau très fine se blesse facilement, et il lui faut un couchage épais ainsi qu’un manteau dès qu’il fait frais.",
+    "vigilance": [
+      "Les chats et les petits animaux sont en danger avec lui.",
+      "Clôture haute indispensable : il saute et fugue.",
+      "Prudence avec les jeunes enfants, dont l’agitation le met mal à l’aise.",
+      "Signalez au vétérinaire sa sensibilité de lévrier aux anesthésiques."
+    ]
+  },
+  "petit-chien-lion": {
+    "quotidien": "Le Petit chien lion doit son nom à sa toilette traditionnelle, qui lui dessine une crinière de lion miniature. Vif, affectueux et à l’aise partout, il sait aussi rester calme et discret, ce qui en fait un excellent compagnon de ville. Il s’entend bien avec les enfants, les chiens et les chats, mais vit mal les longues absences.",
+    "education": "Attentif et désireux de bien faire, il apprend vite avec des méthodes douces : c’est un bon choix pour un premier chien. Habituez-le petit à rester seul par courtes périodes.",
+    "activite": "Trois quarts d’heure par jour suffisent, en promenades et en jeux. Il suit volontiers en balade et s’amuse en agility ou aux tours d’adresse.",
+    "soins": "Son poil long, soyeux et ondulé, sans sous-poil, ne mue presque pas mais doit être démêlé plusieurs fois par semaine. La coupe en lion n’a rien d’obligatoire : beaucoup de maîtres gardent un poil plus court, plus simple à entretenir. Couvrez-le par grand froid s’il est tondu.",
+    "vigilance": [
+      "La race est très rare en France : attendez-vous à patienter pour trouver un chiot.",
+      "Il ne supporte pas la solitude prolongée.",
+      "Demandez les examens des yeux des parents (atrophie progressive de la rétine, cataracte) et faites contrôler les rotules."
+    ]
+  },
+  "braque-italien": {
+    "quotidien": "Le Braque Italien est un grand chien d’arrêt à la tête sculptée et aux longues oreilles, doux, calme à la maison et très affectueux. Il s’entend bien avec les enfants et les autres chiens. Il a besoin de présence et d’espace : la solitude et l’appartement ne lui conviennent pas.",
+    "education": "Docile mais sensible, il se braque sous la contrainte : procédez avec douceur et régularité. Il mûrit lentement. Travaillez le rappel tôt, car son flair l’entraîne loin.",
+    "activite": "Deux heures par jour sont nécessaires : grandes sorties en nature, pistage, recherche d’objets, chasse s’il y est destiné. Son trot ample et allongé est typique de la race. Ménagez ses articulations pendant la croissance.",
+    "soins": "Son poil court se brosse une fois par semaine. Nettoyez et séchez ses longues oreilles, sujettes aux otites, et surveillez ses paupières. Donnez deux repas par jour et évitez l’effort autour des repas, pour limiter le risque de torsion d’estomac. Il bave un peu.",
+    "vigilance": [
+      "Chasseur dans l’âme, il n’est pas fiable avec le petit gibier ni toujours avec les chats.",
+      "Demandez le dépistage de la dysplasie des hanches et des coudes des parents.",
+      "Un ventre gonflé avec des efforts de vomissement sans résultat est une urgence vétérinaire.",
+      "Il craint le froid humide."
+    ]
+  },
+  "braque-saint-germain": {
+    "quotidien": "Le Braque Saint-Germain est un braque élégant à la robe blanche tachée d’orange et à la truffe rose. Très sociable, équilibré et affectueux, il apprécie la vie de famille et s’entend bien avec les enfants comme avec les autres chiens. Il lui faut de l’espace et de la compagnie : il vit mal la solitude.",
+    "education": "Il apprend facilement, mais sa sensibilité ne supporte pas qu’on le brusque : restez calme, juste et encourageant. Le rappel et le calme face au gibier se travaillent dès le plus jeune âge.",
+    "activite": "Prévoyez une heure et demie par jour de vraie dépense, en nature de préférence. Chasseur passionné de plume, il aime quêter, arrêter et rapporter, et les jeux de recherche l’occupent bien hors saison de chasse.",
+    "soins": "Son poil court demande peu d’entretien : un brossage hebdomadaire suffit. Vérifiez et nettoyez ses oreilles après les sorties pour prévenir les otites, et surveillez ses yeux. Séchez-le au retour par temps froid et humide.",
+    "vigilance": [
+      "La race est rare : trouver un chiot demande souvent de l’attente.",
+      "Son instinct de chasse reste fort, y compris envers les chats qu’il ne connaît pas.",
+      "Sans activité ni présence, il s’ennuie et peut détruire.",
+      "Demandez le dépistage de la dysplasie de la hanche des parents."
+    ]
+  },
+  "coonhound-noir-et-feu": {
+    "quotidien": "Le Coonhound Noir et Feu est un grand chien courant américain, amical et facile à vivre à la maison, mais gouverné par son nez dès qu’il sort. Sa voix sonore porte très loin. Il ne convient pas à l’appartement et supporte mal de rester seul.",
+    "education": "Sur une piste, il n’entend plus rien : son éducation demande du temps, de la constance et une forte motivation alimentaire. Ce n’est pas un chien pour débutant. Le rappel reste incertain toute sa vie.",
+    "activite": "Il a besoin d’une heure et demie par jour, surtout de longues marches à son rythme où il peut flairer. Le pistage et la recherche de personnes ou d’objets le comblent. Tenez-le en longe hors des terrains clos.",
+    "soins": "Son poil ras s’entretient d’un brossage hebdomadaire. Ses longues oreilles doivent être nettoyées et séchées régulièrement pour éviter les otites. Fractionnez la ration en deux repas, sans effort autour, pour limiter le risque de torsion d’estomac. Il bave un peu.",
+    "vigilance": [
+      "Ses hurlements posent problème en voisinage rapproché.",
+      "Fugueur déterminé : clôture haute et solide indispensable.",
+      "Il poursuit les chats et les petits animaux.",
+      "Demandez le dépistage de la dysplasie de la hanche des parents."
+    ]
+  },
+  "norwich-terrier": {
+    "quotidien": "Le Norwich Terrier est l’un des plus petits terriers, reconnaissable à ses oreilles dressées, qui le distinguent du Norfolk aux oreilles tombantes. Robuste, gai et sociable, il s’entend bien avec les enfants et les autres chiens. Il s’adapte à l’appartement, mais n’aime pas rester seul.",
+    "education": "Volontaire sans être buté, il apprend bien avec des séances courtes et ludiques, et convient à un maître débutant attentif. Insistez sur le rappel : son instinct de chasse reste celui d’un ratier.",
+    "activite": "Une heure par jour, en promenades actives et en jeux. Il aime fouiller, creuser et poursuivre un jouet. Il supporte bien le froid.",
+    "soins": "Son poil dur se brosse chaque semaine et s’épile à la main deux à trois fois par an ; la tonte l’abîme. Brossez ses dents et surveillez son poids.",
+    "vigilance": [
+      "Une respiration bruyante ou un essoufflement anormal doivent être signalés : la race connaît un syndrome obstructif des voies respiratoires.",
+      "Il fugue derrière une piste ou sous un grillage : jardin bien clos, y compris à la base.",
+      "Rongeurs, lapins et chats inconnus réveillent son instinct de chasse.",
+      "Les mises bas sont souvent difficiles : la reproduction est une affaire d’éleveur averti."
+    ]
+  },
+  "pumi": {
+    "quotidien": "Le Pumi est un chien de berger hongrois à l’expression malicieuse de terrier, au poil bouclé en tire-bouchons et aux oreilles dont la pointe retombe. Toujours en alerte, il est très attaché à sa famille et réservé avec les inconnus. Il supporte mal la solitude et l’inaction.",
+    "education": "Il apprend très vite et aime travailler, mais sa vivacité demande un maître actif et déjà expérimenté. Socialisez-le tôt et apprenez-lui à se taire sur demande : il commente tout ce qui bouge.",
+    "activite": "Une heure et demie par jour, en mêlant dépense physique et travail de tête : agility, obéissance, troupeau, jeux de recherche. Une simple promenade en laisse ne lui suffit pas.",
+    "soins": "Son poil bouclé perd très peu. Démêlez-le régulièrement au peigne, mouillez-le pour reformer les boucles et laissez-le sécher à l’air, sans sèche-cheveux. Une coupe d’entretien quelques fois par an suffit.",
+    "vigilance": [
+      "Ses aboiements sont fréquents et peuvent gêner le voisinage.",
+      "Il peut poursuivre les chats et chercher à rassembler ce qui court, enfants compris.",
+      "Ce n’est pas un premier chien.",
+      "Demandez les dépistages des parents : hanches, rotules, yeux."
+    ]
+  },
+  "thai-ridgeback": {
+    "quotidien": "Le Thai Ridgeback est un chien primitif de Thaïlande, reconnaissable à la crête de poils qui court le long de son dos. Indépendant, athlétique et protecteur, il s’attache à ses proches et se méfie fortement des inconnus. Une maison avec un grand jardin lui convient mieux qu’un appartement.",
+    "education": "Il n’est pas fait pour un débutant. Il réfléchit par lui-même et obéit peu par complaisance : il faut un maître expérimenté, calme, cohérent, et une socialisation commencée très tôt et poursuivie longtemps. La force ne mène à rien avec lui.",
+    "activite": "Une heure et demie par jour, avec des marches soutenues, de la course et des jeux de flair. Son instinct de chasse est très fort : la laisse ou la longue longe s’imposent hors d’un terrain clos.",
+    "soins": "Son poil ras ne demande qu’un brossage rapide. Il aime la chaleur et craint beaucoup le froid : prévoyez un manteau et un couchage à l’intérieur. Surveillez sa peau, sujette aux allergies.",
+    "vigilance": [
+      "Les chats et les petits animaux ne sont pas en sécurité avec lui.",
+      "Prudence avec les jeunes enfants et lors des rencontres avec d’autres chiens.",
+      "Bon sauteur et fugueur : clôture haute indispensable.",
+      "Le sinus dermoïde est connu dans la race : faites examiner le dos du chiot par un vétérinaire."
+    ]
+  }
+}
