@@ -2168,5 +2168,149 @@
    "Bon sauteur et fugueur : clôture haute indispensable.",
    "Le sinus dermoïde est connu dans la race : faites examiner le dos du chiot par un vétérinaire."
   ]
+ },
+ "braque-hongrois-a-poil-dur": {
+  "quotidien": "Le Braque Hongrois à Poil Dur est un chien d’arrêt roux doré, robuste et élancé, très proche de ses maîtres. Doux et affectueux à la maison, excellent avec les enfants, il supporte très mal la solitude : il lui faut une présence presque constante. La vie en appartement lui convient mal.",
+  "education": "Intelligent et désireux de bien faire, il apprend vite avec une méthode douce et régulière. Sa sensibilité s’accommode mal des cris et des corrections dures. Travaillez tôt le rappel et le calme à la maison, car son instinct de chasse est très fort.",
+  "activite": "Comptez deux heures par jour, dont une vraie part de course libre en terrain sûr. La chasse, le pistage, le rapport, la nage ou le canicross l’occupent bien. Sans dépense suffisante, il devient agité et peut détruire.",
+  "soins": "Son poil dur et dense perd peu et se contente d’un brossage hebdomadaire. Vérifiez régulièrement sa peau, qui peut être sujette à la dermatite atopique, et séchez-le après les sorties sous la pluie. Gardez-le mince pour ménager ses articulations.",
+  "vigilance": [
+   "Il ne supporte pas de rester seul de longues journées.",
+   "Son instinct de chasse est très marqué : prudence avec les chats et le petit gibier.",
+   "Demandez le dépistage de la dysplasie de la hanche et du coude chez les parents.",
+   "Des crises convulsives doivent amener à consulter : l’épilepsie existe dans la race."
+  ]
+ },
+ "retriever-de-la-baie-de-chesapeake": {
+  "quotidien": "Le Retriever de la Baie de Chesapeake est un chien de rapport puissant, au pelage double ondulé et imperméable, taillé pour l’eau froide. Plus réservé et plus protecteur que les autres retrievers, il est très loyal envers sa famille et distant avec les inconnus. Il vit mal les longues absences et l’appartement.",
+  "education": "Intelligent mais volontaire, il demande un maître expérimenté, calme et constant : ce n’est pas un chien pour débuter. Socialisez-le tôt et longtemps avec les visiteurs et les autres chiens. Les méthodes brutales le braquent, la régularité le rend fiable.",
+  "activite": "Une heure et demie par jour au minimum, avec de l’eau dès que possible : la nage et le rapport sont ses activités favorites. Il supporte très bien le froid. Évitez l’effort intense juste après le repas.",
+  "soins": "Son poil ondulé se brosse une fois par semaine, davantage en période de mue où il perd beaucoup. Limitez les bains, qui abîment la protection naturelle du pelage. Donnez deux repas par jour pour réduire le risque de torsion d’estomac.",
+  "vigilance": [
+   "Ce n’est pas un premier chien : son caractère affirmé demande de l’expérience.",
+   "Il garde volontiers son territoire : encadrez l’accueil des visiteurs.",
+   "Demandez les dépistages des parents : hanches, yeux, myélopathie dégénérative et collapsus induit par l’exercice.",
+   "Un ventre gonflé avec des efforts de vomissement est une urgence vétérinaire."
+  ]
+ },
+ "lancashire-heeler": {
+  "quotidien": "Le Lancashire Heeler est un petit chien de ferme noir et feu, bas sur pattes, vif et joueur. Il s’adapte bien à l’appartement s’il sort assez, mais il s’attache beaucoup à sa famille et n’aime pas rester seul longtemps. Vigilant, il signale volontiers ce qui se passe.",
+  "education": "Il est intelligent et apprend vite, avec des séances courtes et des récompenses. Son passé de conducteur de bétail peut le pousser à mordiller les talons, surtout ceux des enfants qui courent : corrigez ce réflexe dès le plus jeune âge. Apprenez-lui aussi à se taire sur demande.",
+  "activite": "Une heure par jour, en mêlant promenades, jeux et petits exercices de réflexion. Malgré sa taille, il est endurant et apprécie l’agility ou les jeux de recherche. Son instinct de ratier reste présent.",
+  "soins": "Son poil court et double demande très peu d’entretien : un brossage de temps en temps, un peu plus pendant la mue. Les yeux sont le point à surveiller dans la race, faites-les contrôler régulièrement. Gardez-le mince pour ménager ses rotules.",
+  "vigilance": [
+   "Il aboie facilement, ce qui peut gêner les voisins.",
+   "La cohabitation avec un chat ou de petits animaux est risquée.",
+   "Demandez les tests oculaires des parents (luxation du cristallin, anomalie de l’œil du colley).",
+   "La race est rare : il faut souvent patienter pour trouver un chiot."
+  ]
+ },
+ "levrier-ecossais": {
+  "quotidien": "Le Lévrier écossais (Deerhound) est un très grand lévrier au poil dur et rêche, doux, calme et digne à la maison. Amical avec tout le monde, il aboie très peu et ne garde pas. Sa taille demande de la place, un couchage épais et une voiture adaptée.",
+  "education": "Sensible et peu démonstratif, il obéit par complicité plus que par contrainte : restez doux et patient. Le rappel n’est jamais fiable face à un animal qui fuit, car il chasse à vue. Habituez-le tôt à marcher en laisse sans tirer, tant qu’il est encore maniable.",
+  "activite": "Une heure par jour, avec la possibilité de galoper librement dans un terrain entièrement clos. Le reste du temps, il dort volontiers. Ménagez le chiot pendant sa longue croissance : pas de courses forcées ni d’escaliers répétés.",
+  "soins": "Son poil se brosse une à deux fois par semaine. Fractionnez sa ration et évitez l’effort autour des repas pour limiter le risque de torsion d’estomac. Signalez toujours au vétérinaire la sensibilité de la race aux anesthésiques et faites suivre son cœur.",
+  "vigilance": [
+   "Il poursuit tout ce qui court : clôture haute, et laisse hors terrain clos.",
+   "La cohabitation avec un chat est très risquée.",
+   "Sa santé est fragile : cardiomyopathie dilatée, ostéosarcome et torsion d’estomac touchent la race.",
+   "Les frais d’un chien géant sont élevés : nourriture, vétérinaire, matériel."
+  ]
+ },
+ "toy-terrier-anglais-noir-et-feu": {
+  "quotidien": "Le Toy Terrier Anglais (Noir et Feu) est un petit terrier élégant, à l’ossature fine et aux oreilles dressées en flamme de bougie. Très attaché à ses maîtres, il vit bien en appartement mais supporte mal la solitude. Il reste réservé avec les inconnus et donne l’alerte.",
+  "education": "Vif et intelligent, il apprend bien avec des séances courtes, douces et régulières. Socialisez-le tôt aux visiteurs, aux bruits et aux autres chiens pour éviter qu’il devienne craintif. Ne le portez pas en permanence : il a besoin de marcher et d’explorer comme un vrai chien.",
+  "activite": "Trois quarts d’heure par jour suffisent, répartis en promenades et en jeux. Il garde l’instinct du ratier et poursuit volontiers ce qui bouge. Par temps froid ou humide, un manteau est nécessaire.",
+  "soins": "Son poil court et lisse se contente d’un coup de gant de temps en temps. Brossez ses dents plusieurs fois par semaine, car les problèmes dentaires sont fréquents. Sa finesse impose d’éviter les sauts depuis les meubles et les jeux brusques.",
+  "vigilance": [
+   "Il convient mal aux jeunes enfants, trop brusques pour un chien aussi fin.",
+   "Il craint beaucoup le froid.",
+   "Les chats et les petits rongeurs de la maison peuvent réveiller son instinct de chasse.",
+   "La race est rare : renseignez-vous sur les rotules et les yeux des parents."
+  ]
+ },
+ "billy": {
+  "quotidien": "Le Billy est un grand chien courant du Poitou, blanc ou café au lait, sélectionné pour chasser en meute le chevreuil et le sanglier. Il vit très rarement en simple chien de compagnie : il lui faut la campagne, de l’espace et la présence d’autres chiens. Seul, il s’ennuie et donne de la voix.",
+  "education": "Son éducation est difficile pour qui n’a pas l’habitude des chiens courants : il suit son nez avant d’écouter. Ce n’est pas un chien pour débuter. Le travail se fait avec patience, régularité et beaucoup de sorties, sans attendre l’obéissance d’un chien de berger.",
+  "activite": "Comptez au moins deux heures par jour d’exercice soutenu. La chasse reste son activité naturelle ; à défaut, de très longues sorties en longe, du pistage ou du canicross. Il est ardent, rapide et endurant.",
+  "soins": "Son poil court se brosse rapidement une fois par semaine. Contrôlez ses oreilles tombantes, sujettes aux otites, et inspectez pattes et peau au retour de chasse. Fractionnez la ration et laissez-le au repos après le repas pour limiter le risque de torsion d’estomac.",
+  "vigilance": [
+   "Il fugue dès qu’il prend une voie : clôture haute et solide indispensable.",
+   "Sa belle voix porte loin, ce qui exclut un voisinage proche.",
+   "Il ne peut pas cohabiter sereinement avec un chat.",
+   "La race est très confidentielle et se trouve surtout dans les équipages."
+  ]
+ },
+ "bedlington-terrier": {
+  "quotidien": "Le Bedlington Terrier a l’allure d’un agneau, avec son dos arqué, sa tête en poire et son poil frisé et vaporeux. Sous cette apparence douce, il reste un vrai terrier, courageux et vif. Affectueux et calme à la maison, il s’adapte à l’appartement mais n’aime pas rester seul.",
+  "education": "Il est intelligent et apprend bien avec une méthode douce et cohérente, mais il sait se montrer têtu. Socialisez-le tôt avec les autres chiens, car il ne recule pas si on le provoque. Le rappel doit être travaillé très tôt, son instinct de chasse étant très fort.",
+  "activite": "Une heure par jour, avec des promenades variées et des moments de course en terrain clos : il est étonnamment rapide. Les jeux de recherche et l’agility lui conviennent bien.",
+  "soins": "Son poil ne tombe presque pas mais pousse en continu : brossage plusieurs fois par semaine et toilettage régulier aux ciseaux, souvent chez un professionnel. La race est prédisposée à la toxicose cuprique, une accumulation de cuivre dans le foie, pour laquelle un test génétique existe.",
+  "vigilance": [
+   "Exigez le test de la toxicose cuprique chez les parents.",
+   "Il poursuit les petits animaux et peut fuguer : jardin bien clos et rappel solide.",
+   "La cohabitation avec un chat est risquée.",
+   "Le toilettage représente un budget régulier."
+  ]
+ },
+ "berger-du-caucase": {
+  "quotidien": "Le Berger du Caucase est un chien de protection des troupeaux massif, sélectionné pour tenir tête aux loups et aux voleurs. Calme avec les siens, il est très méfiant envers les inconnus et défend son territoire sans hésiter. Il lui faut une grande propriété solidement clôturée, jamais un appartement.",
+  "education": "Indépendant et sûr de lui, il décide seul et obéit peu : seul un maître très expérimenté des chiens de garde peut le mener. La socialisation doit commencer très tôt et durer toute la croissance. La force ne mène à rien avec un chien de ce poids ; il faut un cadre calme, clair et constant.",
+  "activite": "Une heure par jour de marche tranquille lui suffit, en plus de la surveillance de son terrain. Il supporte très bien le froid et vit volontiers dehors. Ménagez ses articulations pendant la croissance.",
+  "soins": "Son double pelage épais se brosse deux fois par semaine, et tous les jours pendant la mue, très abondante. Surveillez son poids, l’obésité étant fréquente, ainsi que ses paupières. Il souffre de la chaleur : ombre, eau fraîche et sorties aux heures fraîches en été.",
+  "vigilance": [
+   "Ce n’est pas un premier chien, ni un chien pour une famille avec de jeunes enfants.",
+   "Il tolère mal les autres chiens, les animaux inconnus et les visiteurs : présentations toujours encadrées.",
+   "Il aboie pour dissuader, souvent la nuit, ce qui gêne le voisinage.",
+   "Demandez le dépistage de la dysplasie de la hanche et du coude chez les parents."
+  ]
+ },
+ "chien-du-pharaon": {
+  "quotidien": "Le Chien du Pharaon est un chien primitif maltais, élancé, au poil court et fauve, dont la truffe et les oreilles rosissent quand il est excité. Amical, joueur et très sociable, il aime la compagnie et vit mal les longues absences. À la maison, il est calme s’il a pu se dépenser.",
+  "education": "Intelligent mais indépendant, il apprend bien par le jeu et la récompense, moins par la répétition. Il est sensible : la dureté le ferme. Le rappel reste incertain, car il chasse à la vue, à l’odorat et à l’ouïe.",
+  "activite": "Une heure et demie par jour, avec des galops dans un espace entièrement clos. La poursuite à vue sur leurre et les jeux de course lui conviennent très bien. Hors terrain clos, gardez-le en laisse ou en longe.",
+  "soins": "Son poil ras ne demande qu’un coup de gant hebdomadaire. Il craint beaucoup le froid : manteau en hiver et couchage chaud. Rappelez au vétérinaire la sensibilité de la race à certains anesthésiques, et surveillez sa peau, parfois sujette aux allergies.",
+  "vigilance": [
+   "Il fugue dès qu’il repère une proie : clôture haute indispensable.",
+   "La cohabitation avec un chat ou de petits animaux est risquée.",
+   "Il supporte mal la solitude.",
+   "Il peut aboyer quand il s’ennuie ou s’excite."
+  ]
+ },
+ "puli": {
+  "quotidien": "Le Puli est un berger hongrois de taille moyenne, célèbre pour son pelage en cordelettes qui rappelle des dreadlocks. Vif, joueur et très dévoué à sa famille, il reste méfiant envers les inconnus et garde bien. Il n’aime pas la solitude et donne facilement de la voix.",
+  "education": "Intelligent et plein d’initiative, il a aussi du caractère : mieux vaut avoir déjà éduqué un chien. Soyez cohérent, varié et positif, car il se lasse des répétitions. Socialisez-le tôt aux visiteurs et apprenez-lui à cesser d’aboyer sur demande.",
+  "activite": "Une heure et quart par jour, avec du jeu et du travail mental. Agile et bondissant, il excelle en agility, en obéissance et au troupeau. Évitez les efforts aux heures chaudes.",
+  "soins": "Le pelage est le grand sujet : les cordes se forment pendant la croissance et doivent être séparées à la main régulièrement, sans brossage. Le bain est rare mais long, et le séchage complet prend de nombreuses heures ; un poil resté humide sent mauvais. Vérifiez la peau, les yeux et les oreilles sous les cordes.",
+  "vigilance": [
+   "L’entretien des cordes demande du temps et de l’apprentissage.",
+   "Il aboie beaucoup : à travailler tôt, surtout avec des voisins proches.",
+   "Il supporte mal la chaleur sous son épais pelage.",
+   "Demandez les dépistages des parents : hanches et yeux."
+  ]
+ },
+ "epagneul-de-pont-audemer": {
+  "quotidien": "L’Épagneul de Pont-Audemer est un chien d’arrêt normand au poil frisé marron, coiffé d’une huppe caractéristique sur le crâne. Gai, affectueux et facile à vivre, il s’entend bien avec les enfants, les autres chiens et souvent les chats. Très proche des siens, il supporte mal les longues journées seul.",
+  "education": "Docile et désireux de plaire, il s’éduque facilement avec douceur et régularité. Travaillez le rappel dès le plus jeune âge, car sa passion de la chasse est très forte. Les méthodes dures sont inutiles avec ce chien sensible.",
+  "activite": "Une heure et demie par jour, idéalement dans la nature. Spécialiste du marais et du gibier d’eau, il adore nager et rapporter. La vie en appartement lui convient mal ; un jardin et des sorties variées lui sont nécessaires.",
+  "soins": "Son poil frisé se brosse une à deux fois par semaine pour éviter les nœuds, et se rince après les bains en eau stagnante. Séchez et contrôlez ses oreilles après chaque baignade, car les otites sont fréquentes. Surveillez aussi sa peau.",
+  "vigilance": [
+   "C’est l’une des races françaises les plus rares : trouver un chiot demande de la patience.",
+   "Il lui faut beaucoup d’exercice et de l’eau pour être équilibré.",
+   "Les otites reviennent facilement chez un chien qui nage souvent.",
+   "Demandez le dépistage de la dysplasie de la hanche chez les parents."
+  ]
+ },
+ "field-spaniel": {
+  "quotidien": "Le Field Spaniel est un épagneul de chasse de taille moyenne, au poil soyeux et brillant, noir, foie ou rouan. Docile, doux et sensible, il est facile à vivre et s’entend avec les enfants, les autres chiens et les chats. Il s’attache fortement à sa famille et n’aime pas rester seul.",
+  "education": "Il apprend facilement et convient à un premier chien, à condition de rester doux : un ton dur le rend craintif. Des séances courtes, gaies et régulières donnent les meilleurs résultats. Habituez-le jeune aux bruits, aux lieux et aux inconnus, avec qui il peut être réservé.",
+  "activite": "Une heure par jour, avec des promenades où il peut flairer et chercher. Le rapport, le pistage et la nage lui plaisent. Il est plus à l’aise dans une maison avec jardin qu’en appartement.",
+  "soins": "Brossez son poil deux à trois fois par semaine, en insistant sur les franges et les oreilles où se forment les nœuds. Nettoyez et séchez régulièrement les oreilles pour prévenir les otites. Surveillez son poids : une prise de poids avec fatigue peut signaler une hypothyroïdie.",
+  "vigilance": [
+   "Il supporte mal la solitude prolongée.",
+   "Son instinct de chasse peut l’entraîner sur une piste : rappel à travailler.",
+   "Ses oreilles tombantes demandent un contrôle hebdomadaire.",
+   "La race est rare : demandez le dépistage de la dysplasie de la hanche chez les parents."
+  ]
  }
 }
