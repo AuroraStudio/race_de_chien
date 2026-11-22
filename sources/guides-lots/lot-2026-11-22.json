@@ -1,0 +1,145 @@
+{
+  "spinone-italien": {
+    "quotidien": "Le Spinone Italien est un grand chien d’arrêt rustique, à la barbe et aux sourcils fournis, d’une patience et d’une douceur remarquables avec les enfants. Sociable avec les visiteurs comme avec les autres chiens, il n’a rien d’un gardien. Il lui faut une maison avec jardin plutôt qu’un appartement, et sa barbe mouillée laisse des traces après chaque passage à la gamelle.",
+    "education": "Docile mais posé, il apprend à son rythme et se ferme si on le brusque. Des séances courtes, calmes et régulières donnent de bons résultats. Son instinct de chasse reste marqué : travaillez le rappel tôt et présentez-lui le chat de la maison dès son plus jeune âge.",
+    "activite": "Comptez une heure et demie par jour. Il préfère les longues marches à allure tranquille, en forêt ou au bord de l’eau, aux efforts explosifs. Les jeux de flair et de rapport lui conviennent bien.",
+    "soins": "Son poil dur se brosse chaque semaine et s’épile de temps en temps ; la barbe se rince après les repas. Nettoyez ses oreilles tombantes pour prévenir les otites et surveillez ses paupières. Donnez deux repas par jour, sans effort après manger, pour limiter le risque de torsion d’estomac.",
+    "vigilance": [
+      "Il supporte mal la chaleur : sorties aux heures fraîches en été.",
+      "Demandez à l’éleveur le dépistage de la dysplasie de la hanche et de l’ataxie cérébelleuse.",
+      "Un ventre gonflé avec des efforts de vomissement sans résultat est une urgence vétérinaire."
+    ]
+  },
+  "braque-de-l-ariege": {
+    "quotidien": "Le Braque de l’Ariège est un grand chien d’arrêt puissant, à la robe blanche tachetée d’orange ou de marron, équilibré et très sociable avec les humains comme avec les autres chiens. Race rare, surtout présente chez les chasseurs, il a besoin d’espace et d’un maître actif. Il s’attache beaucoup et vit mal les longues journées seul.",
+    "education": "Docile et désireux de bien faire, il s’éduque facilement avec de la douceur et de la régularité. Sa passion de la chasse reste très forte : le rappel et l’arrêt à distance se travaillent dès le plus jeune âge. Habituez-le tôt au chat de la maison.",
+    "activite": "Deux heures par jour lui sont nécessaires, avec de vraies sorties en liberté sur terrain sûr. Les longues randonnées, la course à vos côtés et le travail du flair lui conviennent. Un simple tour de quartier ne lui suffit pas.",
+    "soins": "Son poil court et brillant ne demande qu’un coup de brosse de temps en temps. Vérifiez et nettoyez ses oreilles tombantes, sujettes aux otites, et inspectez ses yeux et ses coussinets au retour des sorties. Son poil court le protège peu du froid et de l’humidité.",
+    "vigilance": [
+      "Il supporte mal la solitude : à éviter si la maison est vide toute la journée.",
+      "Sans dépense suffisante, il devient agité et destructeur.",
+      "Demandez le dépistage de la dysplasie de la hanche des parents.",
+      "La race est rare : il faut souvent patienter pour trouver un chiot."
+    ]
+  },
+  "berger-belge-laekenois": {
+    "quotidien": "Le Berger belge Laekenois est la variété à poil dur du Chien de berger belge, la plus rare des quatre, au pelage fauve rude et ébouriffé. Vif, vigilant et très attaché à son maître, il reste réservé avec les inconnus et garde volontiers la maison. Il a besoin de présence : laissé seul trop longtemps, il s’ennuie et le montre.",
+    "education": "Il apprend vite et aime travailler, mais sa sensibilité demande une éducation cohérente, ferme sans dureté. La socialisation doit commencer très tôt et se poursuivre longtemps : visiteurs, bruits, autres chiens, enfants. Ce n’est pas un chien pour un débutant.",
+    "activite": "Prévoyez deux heures par jour, en mêlant dépense physique et travail mental. Les sports canins comme l’agility, l’obéissance ou le pistage lui conviennent très bien. Une simple promenade en laisse le laisse sur sa faim.",
+    "soins": "Son poil dur perd peu et se contente d’un brossage de temps en temps, sans tonte qui abîmerait sa texture. Faites contrôler régulièrement ses yeux et signalez au vétérinaire toute prise de poids inexpliquée ou toute crise convulsive.",
+    "vigilance": [
+      "Sa méfiance envers les inconnus peut tourner à la réactivité sans socialisation soignée.",
+      "Il supporte mal la solitude et l’inaction.",
+      "Demandez le dépistage de la dysplasie de la hanche et du coude des parents.",
+      "La variété est rarissime en France : attendez-vous à une longue recherche."
+    ]
+  },
+  "terrier-australien": {
+    "quotidien": "Le Terrier Australien est un petit terrier robuste au poil rêche, surmonté d’un toupet plus doux, courageux et très proche de sa famille. Vigilant sans être bruyant à l’excès, il signale les arrivées et s’adapte bien à l’appartement s’il sort assez. C’est un terrier accessible pour un premier chien.",
+    "education": "Intelligent et volontaire, il apprend bien avec des séances courtes et ludiques, mais teste les règles floues. Son instinct de chasseur de rongeurs est très fort : travaillez le rappel et ne comptez pas trop dessus près du petit gibier. La cohabitation avec un chat demande une habituation précoce et reste incertaine.",
+    "activite": "Une heure par jour lui suffit, à condition de varier : marche, jeux de recherche, lancer de balle. Il aime creuser et fouiller, autant lui réserver un coin du jardin. Il suit volontiers en randonnée.",
+    "soins": "Son poil perd peu : un brossage hebdomadaire et un épilage de temps en temps suffisent. Surveillez sa peau, sujette aux allergies, et son poids. Une boiterie d’une patte arrière chez le jeune chien mérite une consultation.",
+    "vigilance": [
+      "Les chats et les petits animaux de la maison sont en danger sans surveillance.",
+      "Les rencontres avec d’autres chiens peuvent être tendues : socialisez-le tôt.",
+      "Une soif inhabituelle doit faire penser au diabète.",
+      "Il creuse le jardin si on ne l’occupe pas."
+    ]
+  },
+  "harrier": {
+    "quotidien": "Le Harrier est un chien courant anglais de taille moyenne, sélectionné pour chasser le lièvre en meute. Amical, extraverti et doux avec les enfants, il adore la compagnie des autres chiens et accueille les inconnus sans méfiance. Sa voix porte loin et il s’en sert souvent : la vie en appartement ne lui convient pas.",
+    "education": "Son nez commande tout le reste, et l’obéissance ne lui vient pas naturellement. Il faut de la patience, des récompenses et un maître qui connaît les chiens courants. Le rappel reste peu fiable dès qu’une piste se présente : ce n’est pas un chien pour un débutant.",
+    "activite": "Il lui faut une heure et demie par jour, à bonne allure : course à pied, vélo, longues randonnées en longe ou en terrain clos. Les jeux de pistage canalisent son flair. Un Harrier qui ne se dépense pas hurle et détruit.",
+    "soins": "Son poil court et dense se contente d’un brossage rapide. Nettoyez ses oreilles tombantes, sujettes aux otites, et surveillez son poids, qui peut révéler une hypothyroïdie. Demandez le dépistage de la dysplasie de la hanche des parents.",
+    "vigilance": [
+      "Il fugue sur la moindre piste : clôture haute et solide indispensable.",
+      "Ses aboiements et ses hurlements peuvent poser problème avec le voisinage.",
+      "Il supporte mal la solitude, surtout sans autre chien.",
+      "Toute crise convulsive doit être signalée au vétérinaire."
+    ]
+  },
+  "poitevin": {
+    "quotidien": "Le Poitevin est un grand chien courant tricolore, élégant et rapide, élevé en meute au chenil par les équipages de chasse à courre. Doux avec l’homme et très à l’aise avec ses congénères, il n’est pratiquement jamais un chien de compagnie. Vivre seul dans une maison ou un appartement ne lui convient pas du tout.",
+    "education": "Indépendant et passionné par la voie, il obéit au piqueur et à la meute bien plus qu’à des ordres de salon. Son éducation relève de personnes expertes, habituées aux chiens d’ordre. Le rappel face au gibier ne peut pas être tenu pour acquis.",
+    "activite": "Deux heures par jour au minimum, et surtout de la course en terrain vaste : son endurance est taillée pour de longues journées de chasse. Une promenade en laisse ne répond pas à ses besoins. La campagne et la vie en groupe sont son cadre naturel.",
+    "soins": "Son poil court et brillant s’entretient d’un simple brossage. Après chaque sortie, inspectez pattes, flancs et oreilles à la recherche de plaies et de tiques, et protégez-le contre la piroplasmose. Fractionnez les repas et laissez-le au calme après manger pour limiter le risque de torsion de l’estomac.",
+    "vigilance": [
+      "Ce n’est ni un premier chien ni un chien de famille.",
+      "Il donne beaucoup de voix : impossible à envisager avec des voisins proches.",
+      "Il fugue sur une piste : enclos haut et solide obligatoire.",
+      "Les chats et le petit gibier sont en danger avec lui."
+    ]
+  },
+  "epagneul-d-eau-americain": {
+    "quotidien": "L’Épagneul d’Eau Américain est un chien de chasse de taille moyenne, au poil bouclé ou ondulé couleur foie ou chocolat, sélectionné pour rapporter le gibier d’eau. Joyeux et coopératif, il s’attache fortement à sa famille et vit mal les longues absences. Non reconnu par la FCI, il est très rare en Europe.",
+    "education": "Intelligent et désireux de faire plaisir, il s’éduque facilement avec des méthodes douces et variées. Il se bloque face à la dureté et s’ennuie si les exercices se répètent. Socialisez-le tôt avec les autres chiens, envers lesquels il peut se montrer distant.",
+    "activite": "Comptez une heure et demie par jour, avec de l’eau dès que possible : la nage et le rapport sont ses activités préférées. Les jeux de recherche et les longues marches complètent bien. Il ne craint pas le froid.",
+    "soins": "Son poil bouclé, un peu gras, se brosse chaque semaine et se rince après les baignades. Séchez bien ses oreilles. Faites contrôler ses yeux et signalez au vétérinaire toute perte de poils par plaques, toute prise de poids inexpliquée ou toute crise convulsive.",
+    "vigilance": [
+      "Il supporte mal la solitude et peut aboyer ou détruire en votre absence.",
+      "Il n’est pas fait pour l’appartement.",
+      "Demandez le dépistage de la dysplasie de la hanche des parents.",
+      "Trouver un chiot en France demande beaucoup de patience."
+    ]
+  },
+  "francais-blanc-et-noir": {
+    "quotidien": "Le Français blanc et noir est un grand chien d’ordre à poil ras, souvent moucheté de noir ou de bleu, apprécié des équipages de chevreuil pour son nez fin et sa belle gorge. Amical et proche de l’homme, il vit en meute au chenil et n’est pas destiné à la vie de compagnie. Seul dans une maison, il dépérit.",
+    "education": "Appliqué et sérieux à la chasse, il se conduit en groupe, à la voix et à la trompe, par des personnes expertes. Les ordres individuels d’un chien de famille l’intéressent peu et le rappel sur une voie reste illusoire. Ce n’est pas un chien pour un débutant.",
+    "activite": "Il lui faut au moins deux heures par jour, et de vraies courses sur de grands espaces. Son endurance dépasse de loin ce qu’offre une vie de famille classique. La campagne, avec d’autres chiens, est le seul cadre qui lui convienne.",
+    "soins": "Le poil ras se brosse rapidement. Au retour de chasse, cherchez les plaies de ronces et les tiques, et faites-le protéger contre la piroplasmose. Deux repas par jour et du repos après manger limitent le risque de torsion de l’estomac.",
+    "vigilance": [
+      "Sa voix puissante s’entend de très loin : à exclure près de voisins.",
+      "Il suit une piste sans se retourner : chenil ou enclos solidement clos.",
+      "La cohabitation avec un chat est risquée.",
+      "Il ne supporte pas la solitude."
+    ]
+  },
+  "francais-blanc-et-orange": {
+    "quotidien": "Le Français blanc et orange est un grand chien courant à la robe blanc-citron ou blanc et orange, le plus rare des chiens courants français. Calme et facile à vivre au chenil, il reste un chien de meute destiné à la vénerie et n’a rien d’un chien de compagnie. Il ne subsiste que dans de rares équipages.",
+    "education": "Grégaire, il se règle sur la meute et sur l’homme qui la mène bien plus que sur des ordres individuels. Son dressage est très difficile hors de ce cadre et revient à des veneurs experts. Il ne faut pas compter sur un rappel face au gibier.",
+    "activite": "Deux heures par jour sont un minimum, avec de longues courses en terrain vaste. Rustique et endurant, il est fait pour travailler dehors par tous les temps. Sans cette dépense, il devient malheureux et bruyant.",
+    "soins": "Son poil court demande peu de chose : un brossage et un contrôle des oreilles, sujettes aux otites. Inspectez-le après chaque chasse pour repérer les blessures. Fractionnez la ration et évitez l’effort après le repas pour limiter le risque de dilatation-torsion de l’estomac.",
+    "vigilance": [
+      "Ce n’est pas un premier chien, ni un chien d’appartement.",
+      "Les chats et les petits animaux sont en grand danger avec lui.",
+      "Il donne de la voix et fugue sur une piste : enclos solide, loin du voisinage.",
+      "Il ne supporte pas de vivre seul, sans congénères."
+    ]
+  },
+  "francais-tricolore": {
+    "quotidien": "Le Français tricolore est un grand chien d’ordre élégant et musclé, aux feux vifs parfois cuivrés, créé pour la grande vénerie du cerf, du chevreuil et du sanglier. Courageux et calme au chenil, il vit en équipage avec ses congénères. Ce n’est pas un chien de compagnie : l’appartement ou la maison vide ne lui conviennent pas.",
+    "education": "Chien de meute avant tout, il répond au groupe et au veneur plus qu’à un maître isolé. Son éducation individuelle est très difficile et demande une vraie expérience des chiens courants. Son nez très fin l’emporte sur n’importe quel rappel.",
+    "activite": "Prévoyez deux heures par jour au moins, en course libre sur un territoire sûr et vaste. Son endurance est faite pour suivre le gros gibier pendant des heures. La marche en laisse ne l’entame pas.",
+    "soins": "Un brossage rapide suffit à son poil court. Nettoyez régulièrement ses oreilles pour éviter les otites et vérifiez-le au retour de chasse : le sanglier et les clôtures causent des plaies. Donnez deux repas par jour, suivis de repos, à cause du risque de dilatation-torsion de l’estomac.",
+    "vigilance": [
+      "À réserver aux personnes expertes : ce n’est pas un chien pour un débutant.",
+      "Il poursuit et peut tuer un chat.",
+      "Voix puissante et fugues sur une piste : enclos haut, à l’écart des voisins.",
+      "La solitude lui est insupportable."
+    ]
+  },
+  "grand-anglo-francais-blanc-et-noir": {
+    "quotidien": "Le Grand anglo-français blanc et noir est un grand chien courant puissant, à la robe blanche à manteau ou à larges taches noires, qui chasse à courre le cerf et le chevreuil. Amical, proche de l’homme et facile au chenil, il vit en meute dans les équipages. Il n’est presque jamais un chien de compagnie et ne supporte pas d’être seul.",
+    "education": "Tenace sur la voie, il a été sélectionné pour chasser en groupe, pas pour obéir au doigt et à l’œil. Sa conduite demande l’expérience d’un veneur et un cadre de meute. Lâché seul, il part sur une piste et ne revient pas à l’appel.",
+    "activite": "Il a besoin de deux heures d’exercice soutenu par jour, sur de grands territoires. Sa vitesse et son endurance s’expriment dans les terrains fourrés ou humides. Aucune vie citadine ne peut lui offrir cela.",
+    "soins": "Le poil court se brosse en quelques minutes. Après la chasse, soignez les coupures, surveillez les boiteries dues aux entorses et nettoyez les oreilles, sujettes aux otites. Fractionnez les repas et laissez-le se reposer ensuite pour limiter le risque de torsion de l’estomac.",
+    "vigilance": [
+      "Ce n’est pas un premier chien : il lui faut un maître expert et une meute.",
+      "Il est dangereux pour les chats.",
+      "Sa voix porte très loin : incompatible avec un voisinage proche.",
+      "Il fugue : enclos haut et parfaitement clos."
+    ]
+  },
+  "grand-anglo-francais-blanc-et-orange": {
+    "quotidien": "Le Grand anglo-français blanc et orange est un grand chien courant athlétique, à la robe blanc-citron ou blanc-orange, issu du Billy et du Foxhound anglais. Sociable avec ses congénères et doux avec l’homme, il vit au chenil des équipages et ne convient pas à la vie de compagnie. C’est le plus rare des grands anglo-français.",
+    "education": "Vif et passionné, il travaille pour la meute et suit la voie avec ardeur, ce qui laisse peu de place à l’obéissance classique. Seul un maître expert, dans un cadre de vénerie, peut le mener correctement. Le rappel sur le gibier n’est pas fiable.",
+    "activite": "Comptez deux heures par jour, avec de longues courses à vive allure sur de grands espaces. Il est bâti pour chasser le grand gibier pendant des heures. Un jardin, même vaste, ne remplace pas ce travail.",
+    "soins": "Son poil court se contente d’un brossage occasionnel. Nettoyez ses oreilles pour prévenir les otites et examinez-le après chaque sortie : coupures et entorses sont les blessures de chasse les plus courantes. Demandez le dépistage de la dysplasie de la hanche des parents.",
+    "vigilance": [
+      "Il n’est pas fait pour un débutant ni pour une famille sans meute.",
+      "Sa voix puissante dérange tout un voisinage.",
+      "Il fugue sur une piste et poursuit les chats : enclos solide indispensable.",
+      "Laissé seul, il hurle et dépérit."
+    ]
+  }
+}
