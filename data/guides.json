@@ -2455,5 +2455,149 @@
    "Il fugue sur une piste et poursuit les chats : enclos solide indispensable.",
    "Laissé seul, il hurle et dépérit."
   ]
+ },
+ "grand-anglo-francais-tricolore": {
+  "quotidien": "Le Grand anglo-français tricolore est un chien courant de vénerie, fait pour vivre en meute au chenil et chasser à courre. Doux et sociable avec les gens comme avec ses congénères, il ne convient pourtant pas à la vie de famille : il supporte très mal la solitude et donne de la voix sans retenue.",
+  "education": "Indépendant et passionné par la chasse, il obéit peu en dehors du travail en meute et demande un maître très expérimenté. Le rappel reste incertain dès qu’une odeur de gibier l’attire. Ce n’est pas un chien pour un débutant.",
+  "activite": "Il lui faut au moins deux heures d’exercice par jour, et surtout de l’espace et une vraie activité de chien courant. La campagne est son seul cadre de vie possible : l’appartement est exclu.",
+  "soins": "Son poil court se contente d’un brossage de temps en temps. Après chaque sortie, inspectez la peau, les coussinets et les oreilles pour repérer les blessures de ronces et les tiques, et protégez-le contre la piroplasmose. Donnez la ration en deux repas, au calme, pour limiter le risque de torsion de l’estomac.",
+  "vigilance": [
+   "Il fugue dès qu’il prend une piste : clôture haute et solide indispensable.",
+   "Sa voix puissante porte loin, ce qui exclut un voisinage proche.",
+   "Son instinct de chasse rend la cohabitation avec un chat risquée.",
+   "Seul, sans meute ni compagnie, il dépérit ou détruit."
+  ]
+ },
+ "komondor": {
+  "quotidien": "Le Komondor est un grand gardien de troupeaux hongrois, calme et digne, reconnaissable à ses lourdes cordelettes blanches. Sélectionné pour protéger seul moutons et bovins, il décide par lui-même et se méfie profondément des inconnus. Il lui faut une maison avec un grand terrain à surveiller, jamais un appartement.",
+  "education": "Indépendant, il n’obéit pas pour faire plaisir : il faut un maître expérimenté, cohérent et calme. Socialisez-le très tôt et longtemps aux visiteurs et aux autres chiens, avec lesquels il s’entend mal. Ce n’est pas un chien pour un débutant.",
+  "activite": "Une heure par jour lui suffit, sous forme de marches tranquilles et de rondes sur son terrain. Il préfère surveiller que jouer. Il supporte très bien le froid mais mal la chaleur : sortez-le aux heures fraîches en été.",
+  "soins": "Son pelage ne se brosse pas : les cordes se forment chez le jeune chien et doivent être séparées à la main régulièrement. Le bain est rare et le séchage très long, or une peau qui reste humide favorise les problèmes de peau et les otites sous les cordes. Donnez deux repas par jour pour limiter le risque de torsion de l’estomac.",
+  "vigilance": [
+   "Il aboie pour signaler, la nuit aussi : à prendre en compte avec le voisinage.",
+   "Sa garde est sérieuse : clôture solide et accueil des visiteurs encadré.",
+   "L’entretien des cordes demande beaucoup de temps toute sa vie.",
+   "Demandez le dépistage de la dysplasie de la hanche chez les parents."
+  ]
+ },
+ "akbash": {
+  "quotidien": "L’Akbash est un grand chien blanc de protection des troupeaux, venu de Turquie, calme, vigilant et très indépendant. Il est fait pour vivre dehors au milieu du bétail et prendre seul ses décisions. Avec sa famille il est loyal, mais il se méfie profondément des inconnus et tolère mal les chiens étrangers.",
+  "education": "Il réfléchit avant d’obéir et ne répète pas volontiers un exercice : il faut un maître expérimenté, patient et constant. Une socialisation précoce et prolongée est indispensable pour qu’il distingue un visiteur d’une menace. Ce n’est pas un chien pour un débutant.",
+  "activite": "Une heure par jour de marche tranquille lui convient, en plus d’un grand terrain qu’il parcourt à son rythme. Il n’est ni joueur ni sportif : sa vraie activité est de surveiller. La vie en appartement ne lui convient pas.",
+  "soins": "Son double pelage blanc demande peu d’entretien mais perd beaucoup de poils : brossez-le chaque semaine, davantage pendant la mue. Évitez les efforts violents pendant la croissance, en raison du risque d’ostéochondrose. Donnez deux repas par jour pour limiter le risque de torsion de l’estomac.",
+  "vigilance": [
+   "Il élargit volontiers son territoire : clôture haute et solide, rappel peu fiable.",
+   "Il aboie la nuit pour dissuader, ce qui gêne vite le voisinage.",
+   "Sa méfiance envers les inconnus impose d’encadrer toutes les visites.",
+   "Race rare et non reconnue par la FCI : renseignez-vous longuement sur l’élevage."
+  ]
+ },
+ "bouledogue-alapaha": {
+  "quotidien": "L’Alapaha Blue Blood Bulldog est un bouledogue américain de ferme, puissant et athlétique, très attaché à sa famille et doté d’un fort instinct de protection. Il est sûr de lui et se méfie beaucoup des inconnus. Une maison avec jardin lui convient mieux qu’un appartement.",
+  "education": "Il faut un maître expérimenté, calme et constant, capable de poser un cadre clair sans brutalité. La socialisation doit commencer très tôt et se poursuivre longtemps : visiteurs, bruits, autres chiens. Ce n’est pas un chien pour un débutant.",
+  "activite": "Une heure par jour lui suffit, avec des marches soutenues, des jeux de traction et un peu d’obéissance pour occuper sa tête. Évitez les efforts intenses quand il fait chaud. Les sorties se font en laisse là où il peut croiser d’autres chiens.",
+  "soins": "Son poil court se brosse rapidement une fois par semaine. Surveillez sa peau, sujette aux allergies, ainsi que ses yeux, l’entropion étant connu dans la race. Les sujets très blancs peuvent être sourds : faites tester l’audition du chiot.",
+  "vigilance": [
+   "La cohabitation avec d’autres chiens est souvent difficile, surtout entre sujets de même sexe.",
+   "Le risque est réel avec les chats et les petits animaux.",
+   "Avec les enfants, une surveillance par un adulte s’impose en raison de sa puissance.",
+   "Race rare et non reconnue par la FCI : demandez le dépistage de la dysplasie de la hanche."
+  ]
+ },
+ "american-bully": {
+  "quotidien": "L’American Bully est un chien de compagnie compact et très musclé, affectueux, extraverti et proche de sa famille, enfants compris. Il supporte mal de rester seul de longues heures. En France, ce chien non inscrit au LOF est le plus souvent classé en première catégorie après diagnose vétérinaire.",
+  "education": "Coopératif, il apprend bien avec des méthodes douces et régulières, mais sa force et son statut légal demandent un maître expérimenté. Travaillez très tôt la marche en laisse, le port de la muselière et le calme devant les autres chiens. Ce n’est pas un chien pour un débutant.",
+  "activite": "Une heure par jour suffit, en plusieurs sorties : marche, jeux de traction, recherche de friandises. Il craint la chaleur et s’essouffle vite, surtout les sujets à museau court. En été, sortez-le tôt le matin ou le soir.",
+  "soins": "Son poil court se brosse en quelques minutes par semaine. Surveillez sa peau, sujette aux allergies, ses yeux et son poids, car ses articulations sont fragiles. Un suivi vétérinaire régulier du cœur est conseillé.",
+  "vigilance": [
+   "Première catégorie : acquisition, cession et importation interdites, stérilisation obligatoire.",
+   "Le détenteur doit avoir un permis de détention, une évaluation comportementale du chien et une assurance.",
+   "Laisse et muselière sont obligatoires dans les lieux publics.",
+   "Les relations avec les autres chiens et avec les chats demandent de la prudence."
+  ]
+ },
+ "spitz-americain": {
+  "quotidien": "L’American Eskimo Dog (Chien esquimau américain) est un spitz blanc vif et joueur, qui existe en trois tailles : toy, miniature et standard. Très proche de sa famille, il supporte mal la solitude. Vigilant, il reste réservé avec les inconnus et les annonce à pleine voix.",
+  "education": "Intelligent et coopératif, il apprend vite et aime les tours, à condition de varier les exercices. Apprenez-lui tôt à se taire sur demande et à rester seul par petites étapes. Une bonne socialisation atténue sa réserve envers les étrangers.",
+  "activite": "Une heure par jour, mêlant promenades, jeux et exercices d’agilité ou d’obéissance. Il a autant besoin de réfléchir que de courir : un chien de cette race qui s’ennuie aboie et invente ses propres occupations. Il adore le froid et la neige.",
+  "soins": "Son double pelage blanc perd énormément de poils : brossez-le deux à trois fois par semaine, tous les jours pendant la mue. Ne le tondez pas. Surveillez son poids et faites contrôler régulièrement ses yeux et ses rotules.",
+  "vigilance": [
+   "Il aboie beaucoup, ce qui peut gêner les voisins.",
+   "Il craint la chaleur : sorties aux heures fraîches en été.",
+   "Laissé seul trop longtemps, il devient bruyant ou destructeur.",
+   "Les poils blancs s’invitent partout dans la maison."
+  ]
+ },
+ "pit-bull-americain": {
+  "quotidien": "L’American Pit Bull Terrier est un terrier athlétique, d’une force étonnante pour sa taille, sûr de lui et très affectueux avec les humains. Il s’attache fortement à sa famille et supporte mal la solitude. En France, c’est un chien de première catégorie, soumis à des règles strictes.",
+  "education": "Intelligent et coopératif, il apprend bien avec une éducation ferme, régulière et sans violence, menée par un maître expérimenté. Habituez-le très tôt à la laisse, à la muselière et au calme en présence d’autres chiens. Ce n’est pas un chien pour un débutant.",
+  "activite": "Comptez une heure et quart d’exercice par jour : marche rapide, jeux de traction, obéissance, recherche d’objets. Il a besoin de se dépenser pour rester calme à la maison. Évitez les sauts répétés et les démarrages brutaux, qui exposent à la rupture du ligament croisé.",
+  "soins": "Son poil court demande un simple brossage hebdomadaire. Sa peau est son point sensible : allergies, démodécie et ichtyose sont connues dans la race, consultez dès les premières démangeaisons. Il craint le froid et l’humidité.",
+  "vigilance": [
+   "Première catégorie : acquisition, cession et importation interdites, stérilisation obligatoire.",
+   "Permis de détention, évaluation comportementale et assurance sont exigés du détenteur.",
+   "Laisse et muselière sont obligatoires dans les lieux publics.",
+   "Il s’entend très mal avec les autres chiens, et le risque existe aussi avec les chats."
+  ]
+ },
+ "boerboel": {
+  "quotidien": "Le Boerboel est un grand molosse sud-africain, calme, sûr de lui et dévoué à la garde de sa famille. Son nom signifie « chien de fermier » : il lui faut une maison avec un grand terrain, pas un appartement. En France, il relève de la première catégorie.",
+  "education": "Sa masse et son instinct de protection imposent un maître expérimenté, calme et constant. Socialisez-le très tôt et sans relâche, car il se méfie profondément des inconnus. Ce n’est pas un chien pour un débutant.",
+  "activite": "Une heure par jour suffit, en marches régulières plutôt qu’en efforts intenses. Ménagez ses articulations pendant la croissance : pas de sauts ni de longues courses. Il préfère accompagner et surveiller que jouer longtemps.",
+  "soins": "Son poil court se brosse une fois par semaine. Il bave : gardez un linge à portée de main. Donnez deux repas par jour et du repos après manger pour limiter le risque de torsion de l’estomac, et faites surveiller ses yeux et son cœur.",
+  "vigilance": [
+   "Première catégorie : acquisition, cession et importation interdites, stérilisation obligatoire.",
+   "Permis de détention, évaluation comportementale et assurance sont exigés ; laisse et muselière dans les lieux publics.",
+   "Il tolère très mal les autres chiens, et le risque existe avec les chats.",
+   "Avec les enfants, sa masse impose la présence constante d’un adulte."
+  ]
+ },
+ "bouledogue-americain": {
+  "quotidien": "Le Bouledogue Américain est un molosse athlétique, sûr de lui, énergique et très affectueux avec sa famille, qu’il protège volontiers. Il lui faut une maison avec jardin et des maîtres présents. En France, une diagnose vétérinaire peut le classer en première catégorie selon sa morphologie : vérifiez ce point avant toute acquisition.",
+  "education": "Il apprend correctement, mais sa puissance et son caractère affirmé demandent un maître déjà expérimenté : ce n’est pas un chien conseillé à un débutant. Posez tôt des règles claires, sans brutalité. Socialisez-le longtemps aux inconnus, dont il se méfie, et aux autres chiens.",
+  "activite": "Comptez une heure et demie d’exercice par jour : marche soutenue, jeux de traction, pistage, obéissance. Pendant la croissance, évitez les sauts et les efforts violents, qui fatiguent les articulations et exposent plus tard à la rupture du ligament croisé.",
+  "soins": "Son poil court se brosse une fois par semaine. Il bave un peu et craint le froid. Surveillez sa peau, l’ichtyose étant connue dans la race, ainsi que ses yeux.",
+  "vigilance": [
+   "Les rencontres avec d’autres chiens demandent de la vigilance.",
+   "Son instinct de chasse rend la cohabitation avec un chat risquée.",
+   "Avec les enfants, sa fougue impose la surveillance d’un adulte.",
+   "Demandez les dépistages des parents : dysplasie de la hanche et du coude, céroïde-lipofuscinose, ichtyose."
+  ]
+ },
+ "boykin-spaniel": {
+  "quotidien": "Le Boykin Spaniel est un épagneul brun de taille moyenne, créé en Caroline du Sud pour débusquer et rapporter le gibier, surtout dans l’eau. Aimable et adaptable, il s’entend avec les enfants, les autres chiens et souvent les chats. Très attaché aux siens, il supporte mal la solitude.",
+  "education": "Coopératif et désireux de bien faire, il convient à un premier chien motivé. Les méthodes douces et le jeu de rapport donnent d’excellents résultats. Travaillez le rappel de bonne heure, car son nez peut l’entraîner loin.",
+  "activite": "Comptez une heure et demie par jour : nage, rapport, longues balades, recherche d’objets. Un Boykin Spaniel qui ne se dépense pas devient agité. Certains sujets sont atteints de collapsus induit par l’exercice : arrêtez l’effort s’il vacille ou faiblit, surtout par temps chaud.",
+  "soins": "Son poil soyeux se brosse deux fois par semaine, en démêlant les franges des oreilles et des pattes. Séchez et contrôlez ses oreilles après chaque baignade pour prévenir les otites. Faites vérifier ses yeux régulièrement.",
+  "vigilance": [
+   "Il s’ennuie vite seul : mieux vaut un foyer présent en journée.",
+   "L’appartement lui convient mal sans sorties longues et quotidiennes.",
+   "Demandez les tests des parents : dysplasie de la hanche, collapsus induit par l’exercice, yeux.",
+   "Race très rare en France et non reconnue par la FCI."
+  ]
+ },
+ "chien-leopard-catahoula": {
+  "quotidien": "Le Chien Léopard Catahoula est un chien de travail de Louisiane, sélectionné pour chasser le porc sauvage et conduire les bovins. Indépendant, protecteur et réservé avec les inconnus, il s’attache fortement à sa famille et supporte mal d’en être séparé. La campagne est son cadre de vie, pas l’appartement.",
+  "education": "Intelligent mais affirmé, il a besoin d’un maître expérimenté, juste et constant : ce n’est pas un chien pour un débutant. Les séances courtes et variées fonctionnent mieux que la répétition. Socialisez-le tôt aux étrangers et aux autres chiens.",
+  "activite": "Il lui faut deux heures d’activité par jour, physique et mentale : course, pistage, travail au troupeau, longues randonnées. Sans travail, il devient destructeur. Il supporte bien la chaleur.",
+  "soins": "Son poil court se brosse une fois par semaine. Les robes merle très blanches sont associées à la surdité et à des anomalies des yeux : faites tester l’audition et la vue du chiot. Un contrôle régulier des yeux reste utile à l’âge adulte.",
+  "vigilance": [
+   "Il s’entend mal avec les autres chiens, surtout ceux qui le défient.",
+   "Son instinct de chasse rend la cohabitation avec un chat risquée.",
+   "Deux parents merle ne doivent jamais être accouplés : renseignez-vous sur le mariage.",
+   "Avec les enfants, sa vivacité et son instinct de conduite demandent une surveillance."
+  ]
+ },
+ "chinook": {
+  "quotidien": "Le Chinook est un chien de traîneau américain au pelage fauve, né dans le New Hampshire, qui allie force et tempérament calme. Doux, dévoué et très bon avec les enfants, il recherche la compagnie des siens et supporte mal la solitude. Il n’a rien d’un chien de garde.",
+  "education": "Coopératif et sensible, il apprend facilement avec des méthodes douces et convient à un premier chien. Évitez les cris, qui le braquent. Habituez-le progressivement aux absences dès son arrivée.",
+  "activite": "Une heure par jour lui convient : randonnée, traction légère, balades en famille. Il aime travailler avec son maître plutôt que courir seul. Il adore le froid mais craint la chaleur : en été, réservez les sorties aux heures fraîches.",
+  "soins": "Son double pelage perd beaucoup de poils : brossez-le chaque semaine, tous les jours pendant la mue. Sa peau peut être sujette à la dermatite atopique, consultez en cas de démangeaisons. Faites contrôler ses yeux et signalez au vétérinaire toute crise ou tout tremblement inhabituel.",
+  "vigilance": [
+   "Seul trop longtemps, il se montre malheureux et peut détruire.",
+   "Des crises épileptiformes propres à la race existent : interrogez l’éleveur sur les lignées.",
+   "Demandez le dépistage de la dysplasie de la hanche chez les parents.",
+   "Race très rare et non reconnue par la FCI : l’attente pour un chiot peut être longue."
+  ]
  }
 }
