@@ -1,0 +1,146 @@
+{
+  "coonhound-bleute": {
+    "quotidien": "Le Coonhound Bleuté est un grand chien courant américain à la robe bleue mouchetée, sélectionné pour suivre longtemps des pistes anciennes. En famille, il est amical, loyal et dévoué, mais il supporte mal la solitude prolongée.",
+    "education": "Le Coonhound Bleuté est indépendant et suit son nez avant vos consignes : ce n’est pas un chien pour un débutant. Préférez des séances courtes, patientes et récompensées, et travaillez le rappel très tôt.",
+    "activite": "Comptez une heure et demie d’activité par jour pour un Coonhound Bleuté : longues marches, pistage, jeux de flair. Il n’est pas fait pour l’appartement et demande une maison avec un grand jardin bien clos.",
+    "soins": "Le poil ras du Coonhound Bleuté s’entretient d’un simple brossage de temps en temps. Vérifiez souvent ses oreilles tombantes, sujettes aux otites, et surveillez son poids. Donnez deux repas par jour et évitez l’effort après manger pour limiter le risque de torsion d’estomac.",
+    "vigilance": [
+      "Il fugue dès qu’il flaire une piste : clôture haute et longe en promenade.",
+      "Sa voix porte loin et peut gêner le voisinage.",
+      "Avec un chat, la cohabitation est risquée.",
+      "Demandez le dépistage de la dysplasie de la hanche chez les parents."
+    ]
+  },
+  "berger-anglais": {
+    "quotidien": "L’English Shepherd est un chien de ferme américain polyvalent, qui conduit le bétail, garde la maison et chasse les nuisibles. Dévoué et vigilant, il reste réservé avec les inconnus. Il n’est reconnu ni par la FCI ni par la SCC, et il ne faut pas le confondre avec le Bobtail.",
+    "education": "Intelligent et attentif, l’English Shepherd apprend vite et aime travailler avec son maître. Une éducation douce et cohérente lui convient, avec une socialisation précoce pour tempérer sa méfiance envers les inconnus.",
+    "activite": "L’English Shepherd a besoin d’une heure et demie d’activité par jour et surtout d’une occupation : travail au troupeau, obéissance, agility, pistage. Il s’épanouit à la campagne et se sent à l’étroit en appartement.",
+    "soins": "Le double pelage de l’English Shepherd perd beaucoup : brossez-le chaque semaine, plus souvent pendant la mue. Surveillez sa peau, car il peut souffrir d’allergies cutanées. Signalez toujours au vétérinaire le risque de mutation MDR1, qui le rend sensible à certains médicaments.",
+    "vigilance": [
+      "Faites tester la mutation MDR1 avant tout traitement à risque.",
+      "Demandez le dépistage de la dysplasie de la hanche et du coude chez les parents.",
+      "Son instinct de garde demande de bien gérer l’arrivée des visiteurs.",
+      "Il peut chercher à rassembler les enfants ou les autres animaux."
+    ]
+  },
+  "foxhound-americain": {
+    "quotidien": "Le Foxhound Américain est un chien courant haut sur pattes, léger et endurant, sélectionné pour chasser le renard en meute sur de longues distances. Doux et sociable, il aime la compagnie des autres chiens et vit mal la solitude.",
+    "education": "Le Foxhound Américain est indépendant : il a été sélectionné pour décider seul sur la piste. Son éducation demande patience et constance, ce qui en fait un chien peu adapté à un débutant. Le rappel reste fragile dès qu’une odeur l’attire.",
+    "activite": "Comptez deux heures d’activité par jour pour un Foxhound Américain : longues courses, randonnées, canicross. Il est fait pour la campagne et non pour l’appartement, et la vie avec un autre chien lui convient très bien.",
+    "soins": "Le poil ras du Foxhound Américain se contente d’un brossage de temps en temps. Nettoyez régulièrement ses oreilles tombantes, sujettes aux otites, et surveillez son poids s’il manque d’exercice. Signalez au vétérinaire la thrombopathie, un trouble plaquettaire héréditaire de la race, avant toute intervention.",
+    "vigilance": [
+      "Il fugue dès qu’il trouve une piste : clôture haute et longe en promenade.",
+      "Sa voix de meute porte loin et gêne vite le voisinage.",
+      "Avec un chat, la cohabitation est risquée.",
+      "Demandez le dépistage de la dysplasie de la hanche chez les parents."
+    ]
+  },
+  "husky-d-alaska": {
+    "quotidien": "Le Husky d’Alaska n’est pas une race reconnue mais un type de chien de traîneau, sélectionné par les mushers sur ses performances, d’où des robes et des silhouettes très variables. Amical avec tout le monde, il ne fait pas du tout un chien de garde.",
+    "education": "Le Husky d’Alaska est intelligent et travailleur, mais indépendant : ce n’est pas un premier chien. Il apprend bien avec des récompenses et des consignes claires. Le rappel reste peu fiable, car son envie de courir l’emporte souvent.",
+    "activite": "Avec deux heures d’activité par jour au minimum, le Husky d’Alaska est un athlète qui veut tirer et courir : canicross, cani-VTT, attelage. Il ne supporte ni l’ennui ni la solitude, et vit mal en appartement. Par temps chaud, sortez-le tôt le matin ou tard le soir.",
+    "soins": "Le poil court mais double du Husky d’Alaska tombe en abondance pendant la mue : brossez-le alors souvent. Une peau qui squame autour des yeux ou de la bouche peut signaler une dermatose répondant au zinc. Faites suivre ses yeux et sa thyroïde chez le vétérinaire.",
+    "vigilance": [
+      "Il fugue facilement : clôture haute et enterrée indispensable.",
+      "Il supporte très mal la solitude.",
+      "La cohabitation avec un chat est fortement déconseillée.",
+      "Renseignez-vous sur la gangliosidose GM1 dans les lignées des parents."
+    ]
+  },
+  "kuvasz": {
+    "quotidien": "Le Kuvasz est un grand gardien de troupeaux hongrois au pelage blanc, noble et farouchement loyal envers sa famille. Il se méfie profondément des inconnus et protège son territoire avec sérieux, de jour comme de nuit.",
+    "education": "Le Kuvasz est indépendant et réfléchit par lui-même : c’est un chien pour maître expérimenté, pas pour un débutant. Une socialisation large et précoce est indispensable, avec un cadre calme, ferme et sans brutalité.",
+    "activite": "Une heure et quart d’activité par jour suffit au Kuvasz, sous forme de longues marches calmes. Pendant la croissance, évitez les sauts et les efforts violents pour ménager ses articulations. Il lui faut une maison avec un grand jardin bien clos.",
+    "soins": "Le pelage double du Kuvasz perd beaucoup : un brossage par semaine, quotidien pendant la mue. Donnez deux repas par jour et évitez l’effort après manger pour limiter le risque de torsion d’estomac. Le Kuvasz craint la chaleur : en été, sorties aux heures fraîches et ombre au jardin.",
+    "vigilance": [
+      "Ce n’est pas un premier chien : sa méfiance et sa puissance demandent de l’expérience.",
+      "Il aboie pour signaler tout passage, ce qui peut gêner le voisinage.",
+      "Les rencontres avec d’autres chiens demandent de la vigilance.",
+      "Exigez le dépistage de la dysplasie de la hanche et du coude chez les parents."
+    ]
+  },
+  "plott-hound": {
+    "quotidien": "Le Plott est un chien courant américain athlétique au pelage bringé, sélectionné pour chasser le gros gibier. Courageux et vigilant à la chasse, il se montre loyal et dévoué avec sa famille, mais supporte mal de rester seul.",
+    "education": "Le Plott est intelligent mais têtu, et sa passion pour la piste passe avant vos appels : ce n’est pas un chien pour un débutant. Misez sur la constance, les récompenses et un rappel travaillé dès le plus jeune âge.",
+    "activite": "Comptez une heure et demie d’activité par jour pour un Plott : longues marches, pistage, randonnée. Il n’est pas fait pour l’appartement et demande un grand jardin solidement clos.",
+    "soins": "Le poil ras du Plott s’entretient d’un brossage de temps en temps. Vérifiez souvent ses oreilles, sujettes aux otites. Donnez deux repas par jour et évitez l’effort après manger pour limiter le risque de torsion d’estomac.",
+    "vigilance": [
+      "Il fugue dès qu’il flaire une piste : clôture haute et longe en promenade.",
+      "Sa voix puissante peut gêner le voisinage.",
+      "Avec un chat, la cohabitation est risquée.",
+      "Demandez le dépistage de la dysplasie de la hanche et de la mucopolysaccharidose de type VII chez les parents."
+    ]
+  },
+  "rat-terrier": {
+    "quotidien": "Le Rat Terrier est un terrier américain compact et athlétique, créé pour chasser les nuisibles à la ferme. Vif, joueur et affectueux, il s’adapte bien à l’appartement s’il est assez dépensé, mais n’aime pas rester seul.",
+    "education": "Intelligent et désireux de bien faire, le Rat Terrier apprend vite avec des séances courtes et variées. Gardez des règles claires, car il sait tester les limites. Travaillez tôt le rappel, mis à rude épreuve par son instinct de chasse.",
+    "activite": "Une heure d’activité par jour convient au Rat Terrier : balades, jeux de balle, recherche d’objets, agility. Il aime creuser et poursuivre tout ce qui bouge, d’où l’intérêt d’occupations qui sollicitent son flair.",
+    "soins": "Le poil ras du Rat Terrier demande très peu d’entretien, mais le protège mal du grand froid. Surveillez ses dents et sa peau, sujette aux allergies. Consultez si une boiterie apparaît, signe possible de luxation de la rotule ou de maladie de Legg-Calvé-Perthes.",
+    "vigilance": [
+      "Il fugue s’il flaire une proie : jardin bien clos et rappel travaillé.",
+      "Avec un chat, la cohabitation est risquée.",
+      "Il supporte mal la solitude prolongée.",
+      "Un œil rouge ou douloureux peut signaler une luxation du cristallin : c’est une urgence."
+    ]
+  },
+  "redbone-coonhound": {
+    "quotidien": "Le Redbone Coonhound est un chien courant américain à la robe rouge uni, rapide et agile sur la piste. À la maison, il est affectueux, coopératif et très sociable, mais il vit mal la solitude.",
+    "education": "Plus coopératif que bien des chiens courants, le Redbone Coonhound reste guidé par son nez. Récompenses, patience et séances courtes donnent de bons résultats. Le rappel doit être travaillé tôt et reste fragile face à une piste.",
+    "activite": "Comptez une heure et demie d’activité par jour pour un Redbone Coonhound : longues marches, pistage, jeux de flair. Il n’est pas fait pour l’appartement et demande une maison avec un grand jardin bien clos.",
+    "soins": "Le poil ras du Redbone Coonhound se contente d’un brossage par semaine. Nettoyez régulièrement ses oreilles tombantes, sujettes aux otites, et surveillez son poids. Donnez deux repas par jour et évitez l’effort après manger pour limiter le risque de torsion d’estomac.",
+    "vigilance": [
+      "Il fugue dès qu’il trouve une piste : clôture haute et longe en promenade.",
+      "Sa voix porte loin et peut gêner le voisinage.",
+      "Avec un chat, la cohabitation est risquée.",
+      "Demandez le dépistage de la dysplasie de la hanche chez les parents."
+    ]
+  },
+  "shiloh-shepherd": {
+    "quotidien": "Le Shiloh Shepherd est un grand berger issu du Berger Allemand, sélectionné pour un caractère plus calme et plus doux. Affectueux et confiant, il s’attache fortement à sa famille et supporte mal de rester seul longtemps.",
+    "education": "Intelligent et sensible, le Shiloh Shepherd apprend facilement avec une méthode douce et des récompenses. Socialisez-le tôt avec des personnes, des chiens et des situations variées, pour qu’il devienne un adulte serein malgré sa taille.",
+    "activite": "Une heure d’activité par jour convient au Shiloh Shepherd adulte : marches, obéissance, pistage. Pendant la croissance, limitez les sauts, les escaliers et les efforts longs. Il est plus à l’aise dans une maison avec jardin qu’en appartement.",
+    "soins": "Le double pelage du Shiloh Shepherd perd beaucoup : brossez-le chaque semaine, plus souvent pendant la mue. Donnez deux repas par jour et évitez l’effort après manger, à cause du risque de torsion d’estomac. Il craint la chaleur : en été, sorties aux heures fraîches.",
+    "vigilance": [
+      "Exigez le dépistage de la dysplasie de la hanche et du coude chez les parents.",
+      "Une boiterie passagère du jeune chien peut venir d’une panostéite : consultez.",
+      "Une faiblesse progressive des pattes arrière chez le chien âgé peut signaler une myélopathie dégénérative.",
+      "Les frais d’un très grand chien sont élevés."
+    ]
+  },
+  "spitz-allemand": {
+    "quotidien": "Le Spitz allemand se décline ici en trois tailles, petit, moyen et grand, avec la même tête de renard, la collerette fournie et la queue enroulée sur le dos. Vif et très attaché à son maître, il se méfie des inconnus et fait un gardien attentif.",
+    "education": "Le Spitz allemand apprend facilement et convient à un premier maître qui pose des règles claires. Apprenez-lui tôt à rester calme quand on sonne ou qu’on passe devant la maison, sinon il prend vite l’habitude d’aboyer pour tout.",
+    "activite": "Une heure d’activité par jour suffit au Spitz allemand : promenades, jeux, petits exercices d’obéissance. Sans instinct de chasse, il fugue peu et s’adapte à l’appartement comme à la maison.",
+    "soins": "Le pelage long et double du Spitz allemand demande un brossage en profondeur plusieurs fois par semaine, sans jamais le tondre. Il craint la chaleur : en été, sorties aux heures fraîches. Brossez ses dents régulièrement, car les problèmes dentaires sont fréquents.",
+    "vigilance": [
+      "Il aboie beaucoup, ce qui peut gêner le voisinage.",
+      "Une perte de poils symétrique sans démangeaisons peut signaler une alopécie X.",
+      "Chez les petites tailles, surveillez la luxation de la rotule.",
+      "Des crises convulsives imposent une visite chez le vétérinaire, car l’épilepsie touche la race."
+    ]
+  },
+  "terrier-irlandais-de-glen-of-imaal": {
+    "quotidien": "Le Terrier Irlandais de Glen of Imaal est un terrier de ferme bas sur pattes, robuste et puissant, au poil dur résistant aux intempéries. Plus calme et moins aboyeur que la plupart des terriers, il reste courageux et doux avec sa famille.",
+    "education": "Le Terrier Irlandais de Glen of Imaal est intelligent mais têtu : il faut de la patience, de la constance et des récompenses. Socialisez-le tôt avec d’autres chiens, car il ne recule pas devant une confrontation.",
+    "activite": "Une heure d’activité par jour convient au Terrier Irlandais de Glen of Imaal : promenades, jeux de recherche, un peu de pistage. Il aime creuser et chasser les petits animaux, d’où l’intérêt d’un jardin bien clos.",
+    "soins": "Le pelage dur du Terrier Irlandais de Glen of Imaal demande un brossage hebdomadaire et un épilage régulier. Gardez-le mince pour ménager ses membres antérieurs, parfois déformés, et surveillez sa peau, sujette aux allergies.",
+    "vigilance": [
+      "La cohabitation avec un chat est risquée.",
+      "Les rencontres avec d’autres chiens demandent de la vigilance.",
+      "Demandez le test génétique de l’atrophie progressive de la rétine (crd3) chez les parents.",
+      "Exigez le dépistage de la dysplasie de la hanche et du coude."
+    ]
+  },
+  "toy-fox-terrier": {
+    "quotidien": "Le Toy Fox Terrier a la taille d’un chien miniature et le caractère d’un vrai terrier : vif, joueur, curieux et très attaché à ses maîtres. Il s’adapte très bien à l’appartement, mais supporte mal de rester seul.",
+    "education": "Intelligent et vif, le Toy Fox Terrier apprend facilement et convient à un premier chien. Traitez-le comme un chien à part entière, avec des règles claires, pour éviter qu’il ne devienne capricieux ou aboyeur.",
+    "activite": "Trois quarts d’heure d’activité par jour suffisent au Toy Fox Terrier : petites balades, jeux de balle, recherche de friandises. Son instinct de chasse reste vif : gardez-le en laisse près des routes.",
+    "soins": "Le poil ras et fin du Toy Fox Terrier ne demande presque aucun entretien, mais le protège mal du froid : un manteau est utile en hiver. Avec de jeunes enfants, surveillez les jeux, car son petit corps supporte mal les chutes et les gestes brusques.",
+    "vigilance": [
+      "Il aboie volontiers, ce qui peut gêner le voisinage.",
+      "La cohabitation avec un chat est risquée.",
+      "Une boiterie peut signaler une luxation de la rotule ou une maladie de Legg-Calvé-Perthes.",
+      "Avant une chirurgie, demandez le dépistage de la maladie de von Willebrand."
+    ]
+  }
+}
