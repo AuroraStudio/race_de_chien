@@ -1,0 +1,14 @@
+{
+  "treeing-walker-coonhound": {
+    "quotidien": "Le Treeing Walker Coonhound est un chien courant américain, amical et confiant, qui s’entend bien avec les enfants et les autres chiens. Il vit pour la piste et ne trouve son équilibre qu’à la campagne, avec beaucoup d’espace. Il supporte mal la solitude : ne le laissez pas seul de longues journées.",
+    "education": "Le Treeing Walker Coonhound est intelligent mais indépendant, et son flair passe souvent avant vos consignes. Il demande de la patience, de la constance et des récompenses, ce qui en fait un mauvais choix pour un premier chien. Le rappel se travaille très tôt et ne sera jamais totalement fiable sur une piste.",
+    "activite": "Comptez environ deux heures d’exercice par jour pour un Treeing Walker Coonhound : longues balades, course, pistage. Gardez-le en longe hors des zones closes, car son instinct de chasse est très fort. Sans dépense suffisante, il s’ennuie et devient bruyant.",
+    "soins": "Le poil court et lisse du Treeing Walker Coonhound se contente d’un brossage par semaine. Nettoyez souvent ses oreilles tombantes, sujettes aux otites. Donnez deux repas par jour, évitez l’effort après manger et surveillez son poids.",
+    "vigilance": [
+      "Il fugue dès qu’il flaire une piste : clôture haute et solide indispensable.",
+      "Sa voix est puissante et il s’en sert, ce qui peut gêner le voisinage.",
+      "La cohabitation avec un chat est risquée.",
+      "Demandez le dépistage de la dysplasie de la hanche des parents."
+    ]
+  }
+}
